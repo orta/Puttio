@@ -57,11 +57,16 @@
     client.apiSecret = apiKeyTextField.text;
     
     NSDictionary *params = [PutIOClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionary]];
-
-    NSLog(@"params %@", params);
-    
     [client getPath:@"user" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@ resp", responseObject);
+        if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
+            // passed
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:client.apiKey forKey:APIKeyDefault];
+            [defaults setObject:client.apiSecret forKey:APISecretDefault];
+            [defaults synchronize];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:LoggedInNotification object:nil userInfo:nil];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"failed %@", error);
     }];

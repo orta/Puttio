@@ -25,6 +25,16 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     [super awakeFromNib];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(removeLoginWindow) 
+                                                 name:LoggedInNotification 
+                                               object:nil];
+
+}
+
+- (void)removeLoginWindow {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -31,7 +31,7 @@ NSString* API_ADDRESS = @"http://api.put.io/v1/";
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:method forKey:@"method"];
     NSMutableDictionary *request = [NSMutableDictionary dictionaryWithObjectsAndKeys:[self sharedClient].apiKey, @"api_key", [self sharedClient].apiSecret, @"api_secret", nil];
-    [request setObject:[params toJSONString] forKey:@"params"];
+    [request setObject:params forKey:@"params"];
     [dict setObject:[request toJSONString] forKey:@"request"];
     return dict;
 }
@@ -43,7 +43,7 @@ NSString* API_ADDRESS = @"http://api.put.io/v1/";
     }
     
     [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-    
+    [self setStringEncoding:NSASCIIStringEncoding];
     // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
 	[self setDefaultHeader:@"Accept" value:@"application/json"];
     
