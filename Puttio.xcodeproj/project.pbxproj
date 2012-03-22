@@ -1,0 +1,311 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6085D228151B99490068929C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D227151B99490068929C /* UIKit.framework */; };
+		6085D22A151B99490068929C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D229151B99490068929C /* Foundation.framework */; };
+		6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D22B151B99490068929C /* CoreGraphics.framework */; };
+		6085D22E151B99490068929C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D22D151B99490068929C /* CoreData.framework */; };
+		6085D234151B99490068929C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6085D232151B99490068929C /* InfoPlist.strings */; };
+		6085D236151B99490068929C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D235151B99490068929C /* main.m */; };
+		6085D23A151B99490068929C /* ORAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D239151B99490068929C /* ORAppDelegate.m */; };
+		6085D23D151B99490068929C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6085D23B151B99490068929C /* MainStoryboard.storyboard */; };
+		6085D240151B99490068929C /* Puttio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6085D23E151B99490068929C /* Puttio.xcdatamodeld */; };
+		6085D243151B99490068929C /* ORMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D242151B99490068929C /* ORMasterViewController.m */; };
+		6085D246151B99490068929C /* ORDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D245151B99490068929C /* ORDetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6085D223151B99490068929C /* Puttio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Puttio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6085D227151B99490068929C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6085D229151B99490068929C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6085D22B151B99490068929C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6085D22D151B99490068929C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6085D231151B99490068929C /* Puttio-Info.plist */ = {isa = PBXFileReference; path = "Puttio-Info.plist"; sourceTree = "<group>"; };
+		6085D233151B99490068929C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6085D235151B99490068929C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6085D237151B99490068929C /* Puttio-Prefix.pch */ = {isa = PBXFileReference; path = "Puttio-Prefix.pch"; sourceTree = "<group>"; };
+		6085D238151B99490068929C /* ORAppDelegate.h */ = {isa = PBXFileReference; path = ORAppDelegate.h; sourceTree = "<group>"; };
+		6085D239151B99490068929C /* ORAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORAppDelegate.m; sourceTree = "<group>"; };
+		6085D23C151B99490068929C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		6085D23F151B99490068929C /* Puttio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Puttio.xcdatamodel; sourceTree = "<group>"; };
+		6085D241151B99490068929C /* ORMasterViewController.h */ = {isa = PBXFileReference; path = ORMasterViewController.h; sourceTree = "<group>"; };
+		6085D242151B99490068929C /* ORMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORMasterViewController.m; sourceTree = "<group>"; };
+		6085D244151B99490068929C /* ORDetailViewController.h */ = {isa = PBXFileReference; path = ORDetailViewController.h; sourceTree = "<group>"; };
+		6085D245151B99490068929C /* ORDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORDetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6085D220151B99490068929C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6085D228151B99490068929C /* UIKit.framework in Frameworks */,
+				6085D22A151B99490068929C /* Foundation.framework in Frameworks */,
+				6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */,
+				6085D22E151B99490068929C /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6085D218151B99480068929C = {
+			isa = PBXGroup;
+			children = (
+				6085D22F151B99490068929C /* Puttio */,
+				6085D226151B99490068929C /* Frameworks */,
+				6085D224151B99490068929C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6085D224151B99490068929C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6085D223151B99490068929C /* Puttio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6085D226151B99490068929C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6085D227151B99490068929C /* UIKit.framework */,
+				6085D229151B99490068929C /* Foundation.framework */,
+				6085D22B151B99490068929C /* CoreGraphics.framework */,
+				6085D22D151B99490068929C /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6085D22F151B99490068929C /* Puttio */ = {
+			isa = PBXGroup;
+			children = (
+				6085D238151B99490068929C /* ORAppDelegate.h */,
+				6085D239151B99490068929C /* ORAppDelegate.m */,
+				6085D23B151B99490068929C /* MainStoryboard.storyboard */,
+				6085D241151B99490068929C /* ORMasterViewController.h */,
+				6085D242151B99490068929C /* ORMasterViewController.m */,
+				6085D244151B99490068929C /* ORDetailViewController.h */,
+				6085D245151B99490068929C /* ORDetailViewController.m */,
+				6085D23E151B99490068929C /* Puttio.xcdatamodeld */,
+				6085D230151B99490068929C /* Supporting Files */,
+			);
+			path = Puttio;
+			sourceTree = "<group>";
+		};
+		6085D230151B99490068929C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6085D231151B99490068929C /* Puttio-Info.plist */,
+				6085D232151B99490068929C /* InfoPlist.strings */,
+				6085D235151B99490068929C /* main.m */,
+				6085D237151B99490068929C /* Puttio-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6085D222151B99490068929C /* Puttio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6085D249151B99490068929C /* Build configuration list for PBXNativeTarget "Puttio" */;
+			buildPhases = (
+				6085D21F151B99490068929C /* Sources */,
+				6085D220151B99490068929C /* Frameworks */,
+				6085D221151B99490068929C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Puttio;
+			productName = Puttio;
+			productReference = 6085D223151B99490068929C /* Puttio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6085D21A151B99480068929C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = ortatherox.com;
+			};
+			buildConfigurationList = 6085D21D151B99480068929C /* Build configuration list for PBXProject "Puttio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6085D218151B99480068929C;
+			productRefGroup = 6085D224151B99490068929C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6085D222151B99490068929C /* Puttio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6085D221151B99490068929C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6085D234151B99490068929C /* InfoPlist.strings in Resources */,
+				6085D23D151B99490068929C /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6085D21F151B99490068929C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6085D236151B99490068929C /* main.m in Sources */,
+				6085D23A151B99490068929C /* ORAppDelegate.m in Sources */,
+				6085D240151B99490068929C /* Puttio.xcdatamodeld in Sources */,
+				6085D243151B99490068929C /* ORMasterViewController.m in Sources */,
+				6085D246151B99490068929C /* ORDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6085D232151B99490068929C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6085D233151B99490068929C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6085D23B151B99490068929C /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6085D23C151B99490068929C /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6085D247151B99490068929C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		6085D248151B99490068929C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6085D24A151B99490068929C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
+				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6085D24B151B99490068929C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
+				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6085D21D151B99480068929C /* Build configuration list for PBXProject "Puttio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6085D247151B99490068929C /* Debug */,
+				6085D248151B99490068929C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6085D249151B99490068929C /* Build configuration list for PBXNativeTarget "Puttio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6085D24A151B99490068929C /* Debug */,
+				6085D24B151B99490068929C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6085D23E151B99490068929C /* Puttio.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6085D23F151B99490068929C /* Puttio.xcdatamodel */,
+			);
+			currentVersion = 6085D23F151B99490068929C /* Puttio.xcdatamodel */;
+			path = Puttio.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6085D21A151B99480068929C /* Project object */;
+}
