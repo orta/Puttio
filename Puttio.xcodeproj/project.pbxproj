@@ -18,6 +18,7 @@
 		6085D240151B99490068929C /* Puttio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6085D23E151B99490068929C /* Puttio.xcdatamodeld */; };
 		6085D243151B99490068929C /* ORMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D242151B99490068929C /* ORMasterViewController.m */; };
 		6085D246151B99490068929C /* ORDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D245151B99490068929C /* ORDetailViewController.m */; };
+		6085D24E151B9A460068929C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D24D151B9A460068929C /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,18 +27,20 @@
 		6085D229151B99490068929C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6085D22B151B99490068929C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6085D22D151B99490068929C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		6085D231151B99490068929C /* Puttio-Info.plist */ = {isa = PBXFileReference; path = "Puttio-Info.plist"; sourceTree = "<group>"; };
+		6085D231151B99490068929C /* Puttio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Puttio-Info.plist"; sourceTree = "<group>"; };
 		6085D233151B99490068929C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6085D235151B99490068929C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6085D237151B99490068929C /* Puttio-Prefix.pch */ = {isa = PBXFileReference; path = "Puttio-Prefix.pch"; sourceTree = "<group>"; };
-		6085D238151B99490068929C /* ORAppDelegate.h */ = {isa = PBXFileReference; path = ORAppDelegate.h; sourceTree = "<group>"; };
+		6085D237151B99490068929C /* Puttio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Puttio-Prefix.pch"; sourceTree = "<group>"; };
+		6085D238151B99490068929C /* ORAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORAppDelegate.h; sourceTree = "<group>"; };
 		6085D239151B99490068929C /* ORAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORAppDelegate.m; sourceTree = "<group>"; };
 		6085D23C151B99490068929C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6085D23F151B99490068929C /* Puttio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Puttio.xcdatamodel; sourceTree = "<group>"; };
-		6085D241151B99490068929C /* ORMasterViewController.h */ = {isa = PBXFileReference; path = ORMasterViewController.h; sourceTree = "<group>"; };
+		6085D241151B99490068929C /* ORMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORMasterViewController.h; sourceTree = "<group>"; };
 		6085D242151B99490068929C /* ORMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORMasterViewController.m; sourceTree = "<group>"; };
-		6085D244151B99490068929C /* ORDetailViewController.h */ = {isa = PBXFileReference; path = ORDetailViewController.h; sourceTree = "<group>"; };
+		6085D244151B99490068929C /* ORDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORDetailViewController.h; sourceTree = "<group>"; };
 		6085D245151B99490068929C /* ORDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORDetailViewController.m; sourceTree = "<group>"; };
+		6085D24C151B9A460068929C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		6085D24D151B9A460068929C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 		6085D22F151B99490068929C /* Puttio */ = {
 			isa = PBXGroup;
 			children = (
+				6085D24C151B9A460068929C /* LoginViewController.h */,
+				6085D24D151B9A460068929C /* LoginViewController.m */,
 				6085D238151B99490068929C /* ORAppDelegate.h */,
 				6085D239151B99490068929C /* ORAppDelegate.m */,
 				6085D23B151B99490068929C /* MainStoryboard.storyboard */,
@@ -178,6 +183,7 @@
 				6085D240151B99490068929C /* Puttio.xcdatamodeld in Sources */,
 				6085D243151B99490068929C /* ORMasterViewController.m in Sources */,
 				6085D246151B99490068929C /* ORDetailViewController.m in Sources */,
+				6085D24E151B9A460068929C /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
