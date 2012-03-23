@@ -6,20 +6,21 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "PutIOClient.h"
+#import "V1PutIOClient.h"
 #import "AFJSONRequestOperation.h"
 #import "NSDictionary+JSON.h"
 
-NSString* API_ADDRESS = @"http://api.put.io/v1/";
+// http://put.io/v2/docs/
+NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
-@implementation PutIOClient
+@implementation V1PutIOClient
 @synthesize apiKey, apiSecret;
 
-+ (PutIOClient *)sharedClient {
-    static PutIOClient *_sharedClient = nil;
++ (V1PutIOClient *)sharedClient {
+    static V1PutIOClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[PutIOClient alloc] initWithBaseURL:[NSURL URLWithString:API_ADDRESS]];
+        _sharedClient = [[V1PutIOClient alloc] initWithBaseURL:[NSURL URLWithString:API_V1_ADDRESS]];
     });
     
     return _sharedClient;

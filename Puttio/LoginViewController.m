@@ -52,11 +52,11 @@
 // http://api.put.io/v1/user?method=info&request={"api_key":"YOUR_API_KEY","api_secret":"YOUR_API_SECRET","params":{}} 
 
 - (IBAction)login:(id)sender {
-    PutIOClient *client = [PutIOClient sharedClient];
+    V1PutIOClient *client = [V1PutIOClient sharedClient];
     client.apiKey = usernameTextField.text;
     client.apiSecret = apiKeyTextField.text;
     
-    NSDictionary *params = [PutIOClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionary]];
+    NSDictionary *params = [V1PutIOClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionary]];
     [client getPath:@"user" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             // passed

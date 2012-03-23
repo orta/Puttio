@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="5">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
         <scene sceneID="14">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13" sceneMemberID="firstResponder"/>
@@ -17,8 +19,9 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="448" y="-630"/>
+            <point key="canvasLocation" x="-1013" y="-764"/>
         </scene>
+        <!--Detail View Controller - Detail-->
         <scene sceneID="16">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15" sceneMemberID="firstResponder"/>
@@ -50,6 +53,21 @@
                                     <segue destination="e0i-k8-fg0" kind="modal" id="pbZ-3o-FqJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tqO-YF-qH9">
+                                <rect key="frame" x="374" y="224" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="oauth">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gND-ap-Oq0" kind="push" id="AFC-oK-Y1J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -63,6 +81,7 @@
             </objects>
             <point key="canvasLocation" x="80" y="220"/>
         </scene>
+        <!--Split View Controller-->
         <scene sceneID="18">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -76,8 +95,9 @@
                     </connections>
                 </splitViewController>
             </objects>
-            <point key="canvasLocation" x="-687" y="-630"/>
+            <point key="canvasLocation" x="-2148" y="-764"/>
         </scene>
+        <!--Master View Controller - Master-->
         <scene sceneID="24">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
@@ -118,8 +138,9 @@
                     <navigationItem key="navigationItem" title="Master" id="40"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="859" y="-631"/>
+            <point key="canvasLocation" x="-602" y="-765"/>
         </scene>
+        <!--Login View Controller-->
         <scene sceneID="Ts7-hG-2dx">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kK0-3x-7QL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,8 +216,68 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="103" y="1172"/>
+            <point key="canvasLocation" x="-341" y="1456"/>
         </scene>
+        <!--Auth View Controller-->
+        <scene sceneID="SiC-1L-FYf">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pj6-ce-7og" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="gND-ap-Oq0" customClass="OAuthViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D4T-EV-tE3">
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="vzR-Xs-Iu9">
+                                <rect key="frame" x="0.0" y="0.0" width="703" height="551"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gND-ap-Oq0" id="SaG-fq-xD7"/>
+                                </connections>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CUB-r0-uY4">
+                                <rect key="frame" x="341" y="904" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="ok">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="Sa4-bw-ylS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mts-aq-oQG">
+                                <rect key="frame" x="303" y="595" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="ok">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="2k6-3l-a7O"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="S8f-ft-feb"/>
+                    <connections>
+                        <outlet property="webView" destination="vzR-Xs-Iu9" id="rin-xf-Y80"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1506" y="762"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="50">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -220,6 +301,13 @@
                 <relationship kind="outlet" name="apiKeyTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="OAuthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OAuthViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="okPressed:"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="ORDetailViewController" superclassName="UIViewController">
