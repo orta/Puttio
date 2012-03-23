@@ -39,8 +39,6 @@
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    NSLog(@"request - %@ - type %i", request, navigationType);
-    
     // after you log in, it redrects to root, we actually want it 
     if ([[request.URL absoluteString] isEqualToString:@"https://put.io/"]) {
         [self auth];
@@ -50,7 +48,7 @@
     
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    if (error.code == 102) {
+    if (error.code == 101) {
         NSString *code = [[error userInfo] objectForKey:@"NSErrorFailingURLStringKey"];
         NSArray *URLComponents = [code componentsSeparatedByString:@"%3D"];
         
@@ -63,7 +61,12 @@
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }else{
-        NSLog(@"uh oh webview fail! %@", error);
+        if (error.code == 102) {
+            // no-op as the puttio:// url causes errors 101/102
+        }else{
+            // actually unexpected
+            NSLog(@"uh oh webview fail! %@", error);            
+        }
     }
 }
 
