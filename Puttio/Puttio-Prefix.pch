@@ -12,7 +12,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
-    #import "V1PutIOClient.h"
+    #import "PutIOClient.h"
     #import "Constants.h"
 #endif
 

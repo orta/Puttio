@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "V1PutIOClient.h"
 
 @implementation LoginViewController
 @synthesize usernameTextField;

@@ -38,7 +38,7 @@ NSString* API_ADDRESS = @"http://api.put.io/v2/";
 	[self setDefaultHeader:@"Accept" value:@"application/json"];
 
     [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(getAPIToken) 
+                                             selector:@selector(getAPIToken:) 
                                                  name:LoggedInNotification 
                                                object:nil];
     return self;
@@ -46,6 +46,7 @@ NSString* API_ADDRESS = @"http://api.put.io/v2/";
 
 - (void)getAPIToken:(NSNotification *)notification {
     self.apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:AppAuthTokenDefault];
+    NSLog(@"obtained new auth token %@", self.apiToken);
 }
 
 @end
