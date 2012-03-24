@@ -8,6 +8,8 @@
 
 #import "PutIOClient.h"
 #import "AFJSONRequestOperation.h"
+#import "ORAppDelegate.h"
+
 
 // http://put.io/v2/docs/
 NSString* API_ADDRESS = @"http://api.put.io/v2/";
@@ -32,14 +34,22 @@ NSString* API_ADDRESS = @"http://api.put.io/v2/";
         return nil;
     }
     
-    [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-    [self setStringEncoding:NSASCIIStringEncoding];
-    // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
-	[self setDefaultHeader:@"Accept" value:@"application/json"];
+//    ORAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+//    RSAPI *api = [RSAPI setupWithManagedObjContext:appDelegate.managedObjectContext
+//                          withPersistentStoreCoord:appDelegate.persistentStoreCoordinator
+//                               withManagedObjModel:appDelegate.managedObjectModel
+//                               withDevelopmentBase:@"http://api.put.io/v2/"
+//                                withProductionBase:@"http://api.put.io/v2/"];
+    
+    
+//    [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
+//    [self setStringEncoding:NSASCIIStringEncoding];
+//    // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
+//	[self setDefaultHeader:@"Accept" value:@"application/json"];
 
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(getAPIToken:) 
-                                                 name:LoggedInNotification 
+                                                 name:OAuthTokenWasSavedNotification 
                                                object:nil];
     return self;
 }

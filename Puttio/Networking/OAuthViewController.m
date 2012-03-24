@@ -12,6 +12,7 @@
 
 @interface OAuthViewController ()
 - (void)auth;
+- (void)loadAccountSettingsPage;
 @end
 
 @implementation OAuthViewController
@@ -46,6 +47,7 @@
     return YES;
     
 }
+
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     if (error.code == 101) {
         NSString *code = [[error userInfo] objectForKey:@"NSErrorFailingURLStringKey"];
@@ -56,8 +58,8 @@
             [defaults setObject:[URLComponents objectAtIndex:1] forKey:AppAuthTokenDefault];
             [defaults synchronize];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:LoggedInNotification object:nil userInfo:nil];
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter] postNotificationName:OAuthTokenWasSavedNotification object:nil userInfo:nil];
+            [self loadAccountSettingsPage];
         }
     }else{
         if (error.code == 102) {
@@ -69,10 +71,41 @@
     }
 }
 
+#warning there's a lot of magic strings in this file. fix.
+
+- (void)webViewDidFinishLoad:(UIWebView *)aWebView {
+    if([aWebView.request.URL.absoluteString isEqualToString:@"https://put.io/account/settings"]){
+        [self parseForV1Tokens];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 - (void)auth {
     NSString *address = [NSString stringWithFormat:@"https://api.put.io/v2/oauth2/authenticate?client_id=%@&response_type=code&redirect_uri=%@", AppOAuthID, AppOAuthCallback];
     NSURL * url = [NSURL URLWithString:address];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
+- (void)loadAccountSettingsPage {
+    NSString *address = [NSString stringWithFormat:@"https://put.io/account/settings"];
+    NSURL * url = [NSURL URLWithString:address];
+    [webView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
+- (void)parseForV1Tokens {
+    NSString *apiKey = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('api-key')[0].getElementsByTagName('input')[0].value"];
+    NSString *apiSecret = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('api-key')[0].getElementsByTagName('input')[1].value"];
+    if (apiKey && apiSecret) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:apiKey forKey:APIKeyDefault];
+        [defaults setObject:apiSecret forKey:APISecretDefault];
+        [defaults synchronize];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:V1TokensWereSavedNotification object:nil userInfo:nil];
+    }else{
+        #warning alert
+        NSLog(@"HTML Syntax changed!");
+    }
 }
 
 @end

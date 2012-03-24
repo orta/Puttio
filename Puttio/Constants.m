@@ -9,7 +9,8 @@
 NSString *const AppOAuthID = @"10";
 NSString *const AppOAuthCallback = @"puttio://callback";
 
-NSString *const LoggedInNotification = @"LoggedInNotification";
+NSString *const OAuthTokenWasSavedNotification = @"OAuthTokenWasSavedNotification";
+NSString *const V1TokensWereSavedNotification = @"V1TokensWereSavedNotification";
 
 NSString *const AppAuthTokenDefault = @"AppAuthToken";
 NSString *const APIKeyDefault = @"APIKeyDefault";

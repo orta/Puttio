@@ -9,7 +9,8 @@
 extern NSString *const AppOAuthID;
 extern NSString *const AppOAuthCallback;
 
-extern NSString *const LoggedInNotification;
+extern NSString *const OAuthTokenWasSavedNotification;
+extern NSString *const V1TokensWereSavedNotification;
 
 extern NSString *const AppAuthTokenDefault;
 extern NSString *const APIKeyDefault;

@@ -215,8 +215,6 @@
 			children = (
 				6085D24C151B9A460068929C /* LoginViewController.h */,
 				6085D24D151B9A460068929C /* LoginViewController.m */,
-				60DB0AB2151C670800DA8A33 /* OAuthViewController.h */,
-				60DB0AB3151C670800DA8A33 /* OAuthViewController.m */,
 				6085D241151B99490068929C /* ORMasterViewController.h */,
 				6085D242151B99490068929C /* ORMasterViewController.m */,
 				6085D244151B99490068929C /* ORDetailViewController.h */,
@@ -252,6 +250,8 @@
 		60DB0AB1151C665E00DA8A33 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				60DB0AB2151C670800DA8A33 /* OAuthViewController.h */,
+				60DB0AB3151C670800DA8A33 /* OAuthViewController.m */,
 				6085D277151B9DBA0068929C /* V1PutIOClient.h */,
 				6085D278151B9DBA0068929C /* V1PutIOClient.m */,
 				60BD4F45151C701300DCD686 /* PutIOClient.h */,

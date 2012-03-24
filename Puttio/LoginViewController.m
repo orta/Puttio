@@ -66,7 +66,7 @@
             [defaults setObject:client.apiSecret forKey:APISecretDefault];
             [defaults synchronize];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:LoggedInNotification object:nil userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:OAuthTokenWasSavedNotification object:nil userInfo:nil];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"failed %@", error);

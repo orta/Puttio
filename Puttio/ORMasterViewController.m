@@ -27,7 +27,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(removeLoginWindow) 
-                                                 name:LoggedInNotification 
+                                                 name:OAuthTokenWasSavedNotification 
                                                object:nil];
 
 }
