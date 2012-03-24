@@ -9,14 +9,20 @@
 #import "PutIOClient.h"
 #import "AFJSONRequestOperation.h"
 #import "ORAppDelegate.h"
-
+#import "V1PutIOClient.h"
+#import "V2PutIOClient.h"
 
 // http://put.io/v2/docs/
 NSString* API_ADDRESS = @"http://api.put.io/v2/";
 
+@interface PutIOClient ()
+@property(strong) V1PutIOClient *v1Client;
+@property(strong) V2PutIOClient *v2Client;
+@end
+
 @implementation PutIOClient
 
-@synthesize apiToken;
+@synthesize v1Client, v2Client;
 
 + (PutIOClient *)sharedClient {
     static PutIOClient *_sharedClient = nil;
@@ -34,29 +40,13 @@ NSString* API_ADDRESS = @"http://api.put.io/v2/";
         return nil;
     }
     
-//    ORAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-//    RSAPI *api = [RSAPI setupWithManagedObjContext:appDelegate.managedObjectContext
-//                          withPersistentStoreCoord:appDelegate.persistentStoreCoordinator
-//                               withManagedObjModel:appDelegate.managedObjectModel
-//                               withDevelopmentBase:@"http://api.put.io/v2/"
-//                                withProductionBase:@"http://api.put.io/v2/"];
-    
-    
-//    [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-//    [self setStringEncoding:NSASCIIStringEncoding];
-//    // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
-//	[self setDefaultHeader:@"Accept" value:@"application/json"];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(getAPIToken:) 
-                                                 name:OAuthTokenWasSavedNotification 
-                                               object:nil];
+    self.v1Client = [V1PutIOClient sharedClient];
+    self.v2Client = [V2PutIOClient setup];
     return self;
 }
 
-- (void)getAPIToken:(NSNotification *)notification {
-    self.apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:AppAuthTokenDefault];
-    NSLog(@"obtained new auth token %@", self.apiToken);
+- (BOOL)ready {
+    return ([self.v1Client ready] && [self.v2Client ready]);
 }
 
 @end

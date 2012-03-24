@@ -13,7 +13,13 @@
 // http://put.io/v2/docs/
 NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
+@interface V1PutIOClient ()
+@property(strong) NSString* apiKey;
+@property(strong) NSString* apiSecret;
+@end
+
 @implementation V1PutIOClient
+
 @synthesize apiKey, apiSecret;
 
 + (V1PutIOClient *)sharedClient {
@@ -48,7 +54,36 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
     // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
 	[self setDefaultHeader:@"Accept" value:@"application/json"];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(getAPICreds:) 
+                                                 name:V1TokensWereSavedNotification 
+                                               object:nil];
+    [self getAPICreds:nil];
+    
     return self;
+}
+
+- (void)getAPICreds:(NSNotification*)notification {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.apiKey = [defaults objectForKey:APIKeyDefault];
+    self.apiSecret = [defaults objectForKey:APISecretDefault];
+}
+
+- (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
+    // no need for params on an info request
+    NSDictionary *params = [V1PutIOClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionary]];
+    [self getPath:@"user" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
+            onComplete(responseObject);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", NSStringFromSelector(_cmd));
+        NSLog(@"failed %@", error);
+    }];
+}
+
+- (BOOL)ready {
+    return (self.apiKey && self.apiSecret);
 }
 
 @end

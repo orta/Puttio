@@ -8,8 +8,9 @@
 
 #import "AFHTTPClient.h"
 
+@class V1PutIOClient, V2PutIOClient;
 @interface PutIOClient : AFHTTPClient
 + (PutIOClient *)sharedClient;
 
-@property(strong) NSString* apiToken;
+- (BOOL)ready;
 @end

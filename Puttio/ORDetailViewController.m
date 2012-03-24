@@ -65,8 +65,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if ([PutIOClient sharedClient].apiToken) {
-        self.detailDescriptionLabel.text = [NSString stringWithFormat:@"API Token %@", [PutIOClient sharedClient].apiToken];
+    if ([[PutIOClient sharedClient] ready]) {
+        self.detailDescriptionLabel.text = @"Logged in and stored creds";
     }else{
         self.detailDescriptionLabel.text = @"not logged in";
     }

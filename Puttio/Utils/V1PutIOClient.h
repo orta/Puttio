@@ -12,7 +12,8 @@
 + (V1PutIOClient *)sharedClient;
 + (NSDictionary *)paramsForRequestAtMethod:(NSString *)method withParams:(NSDictionary *)params;
 
-@property(strong) NSString* apiKey;
-@property(strong) NSString* apiSecret;
+// Public API 
+- (BOOL)ready;
+- (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
 
 @end

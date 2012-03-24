@@ -54,29 +54,29 @@
 #import "RSModelHelper.h"
 
 @implementation RSModelHelper
-//
-//+(NSString*)jsonIdKeyForClass:(NSString*)className{
-//  if ([className isEqualToString:@"CoreDataClassName"])
-//    return @"specialized_json_id_key_for_class";
-//  return @"default_json_id_key";
-//}
-//
-//+(NSDictionary*)jsonPropertyMapForClass:(NSString*)className{
-//  if ([className isEqualToString:@"YourCoreDataClassName"]){
-//    return [NSDictionary dictionaryWithObjectsAndKeys:
-//            @"jsonKey",@"coreDataProperty",
-//            @"jsonKey_2",@"coreDataProperty_2", 
-//            nil];
-//  }
-//  else if ([className isEqualToString:@"AnotherCoreDataClassName"]){
-//    return [NSDictionary dictionaryWithObjectsAndKeys:
-//            @"jsonKey",@"coreDataProperty",
-//            @"jsonKey_2",@"coreDataProperty_2", 
-//            nil];
-//  }
-//  ///etc.
-//  [NSException raise:@"Core Data Class Does Not Exist" format:@"Class Does Not Exist: %@",className];
-//  return nil;
-//}
+
++ (NSString*)jsonIdKeyForClass:(NSString*)className{
+  if ([className isEqualToString:@"CoreDataClassName"])
+    return @"specialized_json_id_key_for_class";
+  return @"default_json_id_key";
+}
+
++ (NSDictionary*)jsonPropertyMapForClass:(NSString*)className{
+  if ([className isEqualToString:@"File"]){
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            @"id",@"id",
+            @"name",@"name", 
+            nil];
+  }
+  else if ([className isEqualToString:@"Folder"]){
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            @"id",@"id",
+            @"name",@"name", 
+            nil];
+  }
+  ///etc.
+  [NSException raise:@"Core Data Class Does Not Exist" format:@"Class Does Not Exist: %@", className];
+  return nil;
+}
 
 @end
