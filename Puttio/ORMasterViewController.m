@@ -11,7 +11,6 @@
 #import "ORDetailViewController.h"
 
 @interface ORMasterViewController ()
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation ORMasterViewController

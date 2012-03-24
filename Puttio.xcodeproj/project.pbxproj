@@ -32,6 +32,10 @@
 		6085D279151B9DBA0068929C /* V1PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOClient.m */; };
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
+		60B1A92F151DFDA300FBCD27 /* NSString+Matching.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A928151DFDA300FBCD27 /* NSString+Matching.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		60B1A930151DFDA300FBCD27 /* RSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A92A151DFDA300FBCD27 /* RSAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		60B1A931151DFDA300FBCD27 /* RSDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A92C151DFDA300FBCD27 /* RSDataFetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		60B1A932151DFDA300FBCD27 /* RSModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A92E151DFDA300FBCD27 /* RSModelHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BD4F46151C701300DCD686 /* PutIOClient.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
 /* End PBXBuildFile section */
@@ -83,6 +87,14 @@
 		6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		6085D295151BAB230068929C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6085D296151BAB230068929C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		60B1A927151DFDA300FBCD27 /* NSString+Matching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Matching.h"; sourceTree = "<group>"; };
+		60B1A928151DFDA300FBCD27 /* NSString+Matching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Matching.m"; sourceTree = "<group>"; };
+		60B1A929151DFDA300FBCD27 /* RSAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAPI.h; sourceTree = "<group>"; };
+		60B1A92A151DFDA300FBCD27 /* RSAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAPI.m; sourceTree = "<group>"; };
+		60B1A92B151DFDA300FBCD27 /* RSDataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDataFetcher.h; sourceTree = "<group>"; };
+		60B1A92C151DFDA300FBCD27 /* RSDataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDataFetcher.m; sourceTree = "<group>"; };
+		60B1A92D151DFDA300FBCD27 /* RSModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSModelHelper.h; sourceTree = "<group>"; };
+		60B1A92E151DFDA300FBCD27 /* RSModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSModelHelper.m; sourceTree = "<group>"; };
 		60BD4F45151C701300DCD686 /* PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOClient.h; path = Networking/PutIOClient.h; sourceTree = "<group>"; };
 		60BD4F46151C701300DCD686 /* PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOClient.m; path = Networking/PutIOClient.m; sourceTree = "<group>"; };
 		60DB0AB2151C670800DA8A33 /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthViewController.h; path = Networking/OAuthViewController.h; sourceTree = "<group>"; };
@@ -216,9 +228,25 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				60B1A925151DFD9300FBCD27 /* RSAPI */,
 				6085D257151B9CEF0068929C /* AFNetworking */,
 			);
 			name = Externals;
+			sourceTree = "<group>";
+		};
+		60B1A925151DFD9300FBCD27 /* RSAPI */ = {
+			isa = PBXGroup;
+			children = (
+				60B1A927151DFDA300FBCD27 /* NSString+Matching.h */,
+				60B1A928151DFDA300FBCD27 /* NSString+Matching.m */,
+				60B1A929151DFDA300FBCD27 /* RSAPI.h */,
+				60B1A92A151DFDA300FBCD27 /* RSAPI.m */,
+				60B1A92B151DFDA300FBCD27 /* RSDataFetcher.h */,
+				60B1A92C151DFDA300FBCD27 /* RSDataFetcher.m */,
+				60B1A92D151DFDA300FBCD27 /* RSModelHelper.h */,
+				60B1A92E151DFDA300FBCD27 /* RSModelHelper.m */,
+			);
+			name = RSAPI;
 			sourceTree = "<group>";
 		};
 		60DB0AB1151C665E00DA8A33 /* Network */ = {
@@ -316,6 +344,10 @@
 				6085D297151BAB230068929C /* Constants.m in Sources */,
 				60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */,
 				60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */,
+				60B1A92F151DFDA300FBCD27 /* NSString+Matching.m in Sources */,
+				60B1A930151DFDA300FBCD27 /* RSAPI.m in Sources */,
+				60B1A931151DFDA300FBCD27 /* RSDataFetcher.m in Sources */,
+				60B1A932151DFDA300FBCD27 /* RSModelHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
