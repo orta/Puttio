@@ -16,7 +16,7 @@
 @end
 
 @implementation OAuthViewController
-@synthesize webView;
+@synthesize webView, delegate;
 
 - (void)viewDidLoad
 {
@@ -76,7 +76,9 @@
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
     if([aWebView.request.URL.absoluteString isEqualToString:@"https://put.io/account/settings"]){
         [self parseForV1Tokens];
-        [self.navigationController popViewControllerAnimated:YES];
+        if([delegate respondsToSelector:@selector(authorizationDidFinishWithController:)]){
+            [delegate authorizationDidFinishWithController:self];
+        }
     }
 }
 

@@ -17,7 +17,7 @@
 @synthesize apiToken;
 
 + (id)setup {
-    ORAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     V2PutIOClient *api = [V2PutIOClient setupWithManagedObjContext:appDelegate.managedObjectContext
                           withPersistentStoreCoord:appDelegate.persistentStoreCoordinator
                                withManagedObjModel:appDelegate.managedObjectModel
