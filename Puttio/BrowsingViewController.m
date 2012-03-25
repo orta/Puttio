@@ -7,6 +7,7 @@
 //
 
 #import "BrowsingViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface BrowsingViewController ()
 
@@ -24,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload {
@@ -39,5 +39,6 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self setup];
 }
+
 
 @end

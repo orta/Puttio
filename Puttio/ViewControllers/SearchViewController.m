@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface SearchViewController ()
 - (void)stylizeSearchTextField;
@@ -26,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self stylizeSearchTextField];
-
+    [self setupShadow];
 }
 
 - (void)viewDidUnload {
@@ -53,6 +54,17 @@
         }
     }
     searchBar.backgroundColor = [UIColor putioYellow];
+}
+
+- (void)setupShadow {
+    self.view.clipsToBounds = NO;
+    
+    CALayer *layer = self.view.layer;
+    layer.masksToBounds = NO;
+    layer.shadowOffset = CGSizeZero;
+    layer.shadowColor = [[UIColor blackColor] CGColor];
+    layer.shadowRadius = 4;
+    layer.shadowOpacity = 0.2;
 }
 
 @end

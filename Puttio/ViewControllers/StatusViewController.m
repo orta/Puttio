@@ -7,6 +7,7 @@
 //
 
 #import "StatusViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface StatusViewController ()
 
@@ -15,7 +16,7 @@
 @implementation StatusViewController
 
 - (void)setup {
-    CGRect space = [self.view.superview frame];
+    CGRect space = [self.view.superview bounds];
     space.origin.y = 0;
     space.size.width = SidebarWidth;
     self.view.frame = space;
@@ -23,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self setupShadow];
 }
 
 - (void)viewDidUnload {
@@ -37,6 +38,17 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self setup];
+}
+
+- (void)setupShadow {
+    self.view.clipsToBounds = NO;
+    
+    CALayer *layer = self.view.layer;
+    layer.masksToBounds = NO;
+    layer.shadowOffset = CGSizeZero;
+    layer.shadowColor = [[UIColor blackColor] CGColor];
+    layer.shadowRadius = 4;
+    layer.shadowOpacity = 0.2;
 }
 
 @end
