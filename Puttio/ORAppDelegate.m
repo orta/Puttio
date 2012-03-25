@@ -22,7 +22,7 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    if(![PutIOClient sharedClient].ready){
+    if([PutIOClient sharedClient].ready){
         [self showApp];
     }else{
         [self showLogin];
@@ -39,8 +39,8 @@
     RootViewController *canvas = (RootViewController *)self.window.rootViewController;
     NSArray *viewControllers = [NSArray arrayWithObjects:browsingVC, statusVC, searchVC, nil];
     for (UIViewController *controller in viewControllers) {
-        [canvas addChildViewController:controller];
         [canvas.view addSubview:controller.view];
+        [canvas addChildViewController:controller];
     }
 }
 
