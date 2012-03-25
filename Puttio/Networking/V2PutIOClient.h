@@ -8,9 +8,9 @@
 
 #import "RSAPI.h"
 
-@interface V2PutIOClient : RSAPI
+@interface V2PutIOClient : RSAPI <RSAPIDelegate>
 
 + (id)setup;
 - (BOOL)ready;
-
+- (void)getFolderAtPath:(NSString*)path :(void(^)(id userInfoObject))onComplete;
 @end
