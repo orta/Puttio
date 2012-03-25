@@ -49,4 +49,10 @@ NSString* API_ADDRESS = @"http://api.put.io/v2/";
     return ([self.v1Client ready] && [self.v2Client ready]);
 }
 
+- (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
+    [self.v1Client getUserInfo:^(id userInfoObject) {
+        onComplete(userInfoObject);
+    }];
+}
+
 @end

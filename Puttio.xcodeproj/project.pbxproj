@@ -33,6 +33,7 @@
 		6085D279151B9DBA0068929C /* V1PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOClient.m */; };
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
+		60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */; };
 		60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AB50D2151F650A00473448 /* UIColor+PutioColours.m */; };
 		60B1A92F151DFDA300FBCD27 /* NSString+Matching.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A928151DFDA300FBCD27 /* NSString+Matching.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60B1A930151DFDA300FBCD27 /* RSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A92A151DFDA300FBCD27 /* RSAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -92,6 +93,8 @@
 		6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		6085D295151BAB230068929C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6085D296151BAB230068929C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		60A7A6B3151F6E0D00DB71E0 /* ORSimpleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSimpleProgress.h; path = Views/ORSimpleProgress.h; sourceTree = "<group>"; };
+		60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSimpleProgress.m; path = Views/ORSimpleProgress.m; sourceTree = "<group>"; };
 		60AB50D1151F650A00473448 /* UIColor+PutioColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PutioColours.h"; path = "Categories/UIColor+PutioColours.h"; sourceTree = "<group>"; };
 		60AB50D2151F650A00473448 /* UIColor+PutioColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PutioColours.m"; path = "Categories/UIColor+PutioColours.m"; sourceTree = "<group>"; };
 		60B1A927151DFDA300FBCD27 /* NSString+Matching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Matching.h"; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 		6006420F151F639000EF85F9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				60A7A6B3151F6E0D00DB71E0 /* ORSimpleProgress.h */,
+				60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */,
 				60064205151F24DA00EF85F9 /* RootViewController.m in Sources */,
 				60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */,
+				60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

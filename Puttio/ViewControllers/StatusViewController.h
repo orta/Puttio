@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class ORSimpleProgress;
 @interface StatusViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet ORSimpleProgress *bandwidthProgressView;
+@property (weak, nonatomic) IBOutlet ORSimpleProgress *spaceProgressView;
 - (void)setup;
 @end

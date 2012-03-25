@@ -13,4 +13,5 @@
 + (PutIOClient *)sharedClient;
 
 - (BOOL)ready;
+- (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
 @end

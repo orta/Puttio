@@ -8,12 +8,15 @@
 
 #import "StatusViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ORSimpleProgress.h"
 
 @interface StatusViewController ()
 
 @end
 
 @implementation StatusViewController
+@synthesize bandwidthProgressView;
+@synthesize spaceProgressView;
 
 - (void)setup {
     CGRect space = [self.view.superview bounds];
@@ -25,9 +28,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupShadow];
+    
+    [[PutIOClient sharedClient] getUserInfo:^(id userInfoObject) {
+        NSString *diskQuotaString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota"] objectAtIndex:0];
+        NSString *diskQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota_available"] objectAtIndex:0];
+
+        NSString *bandwidthQuotaString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota"] objectAtIndex:0];
+        NSString *bandwidthQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota_available"] objectAtIndex:0];
+
+        self.spaceProgressView.value = [diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue] ;
+        self.bandwidthProgressView.value = [bandwidthQuotaAvailableString longLongValue] / [bandwidthQuotaString longLongValue];
+    }];
 }
 
 - (void)viewDidUnload {
+    [self setBandwidthProgressView:nil];
+    [self setSpaceProgressView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
