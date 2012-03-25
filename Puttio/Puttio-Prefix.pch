@@ -15,5 +15,6 @@
     #import "PutIOClient.h"
     #import "Constants.h"
     #import "RSAPI.h"
+    #import "UIColor+PutioColours.h"
 #endif
 

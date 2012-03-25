@@ -15,7 +15,7 @@
 @implementation BrowsingViewController
 
 - (void)setup {
-    CGRect space = [self.view.superview frame];
+    CGRect space = [self.view.superview bounds];
     space.origin.x = SidebarWidth;
     space.origin.y = 0;
     space.size.width = space.size.width - (SidebarWidth * 2);
@@ -36,7 +36,7 @@
     return YES;
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self setup];
 }
 
