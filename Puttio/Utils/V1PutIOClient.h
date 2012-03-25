@@ -8,10 +8,12 @@
 
 #import "AFHTTPClient.h"
 
-@interface PutIOClient : AFHTTPClient
-+ (PutIOClient *)sharedClient;
+@interface V1PutIOClient : AFHTTPClient
++ (V1PutIOClient *)sharedClient;
 + (NSDictionary *)paramsForRequestAtMethod:(NSString *)method withParams:(NSDictionary *)params;
 
-@property(strong) NSString* apiKey;
-@property(strong) NSString* apiSecret;
+// Public API 
+- (BOOL)ready;
+- (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
+
 @end

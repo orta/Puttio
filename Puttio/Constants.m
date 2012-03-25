@@ -6,7 +6,12 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-NSString *const LoggedInNotification = @"LoggedInNotification";
+NSString *const AppOAuthID = @"10";
+NSString *const AppOAuthCallback = @"puttio://callback";
 
+NSString *const OAuthTokenWasSavedNotification = @"OAuthTokenWasSavedNotification";
+NSString *const V1TokensWereSavedNotification = @"V1TokensWereSavedNotification";
+
+NSString *const AppAuthTokenDefault = @"AppAuthToken";
 NSString *const APIKeyDefault = @"APIKeyDefault";
 NSString *const APISecretDefault = @"APISecretDefault";

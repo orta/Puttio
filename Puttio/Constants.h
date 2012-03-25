@@ -6,7 +6,12 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-extern NSString *const LoggedInNotification;
+extern NSString *const AppOAuthID;
+extern NSString *const AppOAuthCallback;
 
-extern NSString * const APIKeyDefault;
-extern NSString * const APISecretDefault;
+extern NSString *const OAuthTokenWasSavedNotification;
+extern NSString *const V1TokensWereSavedNotification;
+
+extern NSString *const AppAuthTokenDefault;
+extern NSString *const APIKeyDefault;
+extern NSString *const APISecretDefault;
