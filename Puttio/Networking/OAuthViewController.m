@@ -7,16 +7,27 @@
 //
 
 #import "OAuthViewController.h"
+#import "APP_SECRET.h"
+#import "AFNetworking.h"
 
 // http://put.io/v2/docs/#authentication
+
+// The order of this is
+
+// Login in via website in webkit
+// Redirect to the OAuth dialog
+// Make a request to the OAuth authenticate URL ( getAccessTokenFromOauthCode )
+// Load Accounts page and parse out the tokens
+// Then call delegate method.
 
 @interface OAuthViewController ()
 - (void)auth;
 - (void)loadAccountSettingsPage;
+- (void)getAccessTokenFromOauthCode:(NSString *)code;
 @end
 
 @implementation OAuthViewController
-@synthesize webView;
+@synthesize webView, delegate;
 
 - (void)viewDidLoad
 {
@@ -40,7 +51,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     // after you log in, it redrects to root, we actually want it 
-    if ([[request.URL absoluteString] isEqualToString:@"https://put.io/"]) {
+    if ([[request.URL absoluteString] isEqualToString: PTRootURL]) {
         [self auth];
         return NO;
     }
@@ -53,13 +64,8 @@
         NSString *code = [[error userInfo] objectForKey:@"NSErrorFailingURLStringKey"];
         NSArray *URLComponents = [code componentsSeparatedByString:@"%3D"];
         
-        if (URLComponents.count > 1 && [code hasPrefix:@"puttio://callback/%3Fcode"]) {
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:[URLComponents objectAtIndex:1] forKey:AppAuthTokenDefault];
-            [defaults synchronize];
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:OAuthTokenWasSavedNotification object:nil userInfo:nil];
-            [self loadAccountSettingsPage];
+        if (URLComponents.count > 1 && [code hasPrefix: PTCallbackModified]) {            
+            [self getAccessTokenFromOauthCode:[URLComponents objectAtIndex:1]];
         }
     }else{
         if (error.code == 102) {
@@ -71,12 +77,33 @@
     }
 }
 
+- (void)getAccessTokenFromOauthCode:(NSString *)code {
+    // https://api.put.io/v2/oauth2/access_token?client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&grant_type=authorization_code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&code=CODE
+
+    NSString *address = [NSString stringWithFormat:PTFormatOauthTokenURL, @"10", APP_SECRET, @"authorization_code", PTCallbackOriginal, code];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:address]];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [self loadAccountSettingsPage];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:[JSON valueForKeyPath:@"access_token"] forKey:AppAuthTokenDefault];
+        [defaults synchronize];
+        [[NSNotificationCenter defaultCenter] postNotificationName:OAuthTokenWasSavedNotification object:nil userInfo:nil];
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"error %@", error);
+    }];
+    [operation start];
+}
+
 #warning there's a lot of magic strings in this file. fix.
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
-    if([aWebView.request.URL.absoluteString isEqualToString:@"https://put.io/account/settings"]){
+    if([aWebView.request.URL.absoluteString isEqualToString:PTSettingsURL]){
         [self parseForV1Tokens];
-        [self.navigationController popViewControllerAnimated:YES];
+        if([delegate respondsToSelector:@selector(authorizationDidFinishWithController:)]){
+            [delegate authorizationDidFinishWithController:self];
+        }
     }
 }
 
@@ -87,8 +114,7 @@
 }
 
 - (void)loadAccountSettingsPage {
-    NSString *address = [NSString stringWithFormat:@"https://put.io/account/settings"];
-    NSURL * url = [NSURL URLWithString:address];
+    NSURL * url = [NSURL URLWithString:PTSettingsURL];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 

@@ -306,7 +306,7 @@ static RSAPI *api = nil;
   NSString *jsonId = ( jsonKeyIsString ? [jsonDict objectForKey:jsonIdKey] : [[jsonDict objectForKey:jsonIdKey] stringValue]);
   //Look to see if we have that particular object for that class. If not, create a new holding dictionary
   NSMutableDictionary *objDict = [allObjsDict objectForKey:jsonId];
-  if (!objDict){
+  if (!objDict && jsonId){
     [allObjsDict setValue:[[[NSMutableDictionary alloc] init] autorelease] forKey:jsonId];
     objDict = [allObjsDict valueForKey:jsonId];
   }
@@ -643,6 +643,7 @@ static RSAPI *api = nil;
   NSString *requestClass = (NSString*)[route objectForKey:@"class"];
   NSString *requestStringURL = [self requestStringURLForRoute:routeName forParams:params];
   
+    
   if ([_delegates objectForKey:routeName]){
     return;   //Block all repeat requests
   }
@@ -701,7 +702,8 @@ static RSAPI *api = nil;
       [postDataParams release];
     }];
     [postParams release];
-  }
+  }  
+    NSLog(@"%@", request);
   
   //This is the massive request we are sending out
   AFJSONRequestOperation *jsonRequestOperation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {

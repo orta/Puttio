@@ -3,3 +3,4 @@ pt
 .DS_Store
 build/
 chairs/
+APP_SECRET.h

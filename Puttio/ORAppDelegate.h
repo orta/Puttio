@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OAuthViewController.h"
 
-@interface ORAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ORAppDelegate : UIResponder <UIApplicationDelegate, OAuthVCDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

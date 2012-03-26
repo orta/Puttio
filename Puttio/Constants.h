@@ -6,6 +6,9 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
+
+extern CGFloat const SidebarWidth;
+
 extern NSString *const AppOAuthID;
 extern NSString *const AppOAuthCallback;
 

@@ -8,7 +8,11 @@
 
 #import "ORAppDelegate.h"
 
-#import "ORMasterViewController.h"
+#import "StatusViewController.h"
+#import "SearchViewController.h"
+#import "BrowsingViewController.h"
+#import "RootViewController.h"
+#import "OAuthViewController.h"
 
 @implementation ORAppDelegate
 
@@ -18,16 +22,42 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    splitViewController.delegate = (id)navigationController.topViewController;
-
-    UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
-    ORMasterViewController *controller = (ORMasterViewController *)masterNavigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+    if([PutIOClient sharedClient].ready){
+        [self showApp];
+    }else{
+        [self showLogin];
+    }
     return YES;
+}
+
+- (void)showApp {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+    BrowsingViewController *browsingVC = [storyboard instantiateViewControllerWithIdentifier:@"browsingView"];
+    StatusViewController *statusVC = [storyboard instantiateViewControllerWithIdentifier:@"statusView"];
+    SearchViewController *searchVC = [storyboard instantiateViewControllerWithIdentifier:@"searchView"];
+    
+    RootViewController *canvas = (RootViewController *)self.window.rootViewController;
+    NSArray *viewControllers = [NSArray arrayWithObjects:browsingVC, statusVC, searchVC, nil];
+    for (UIViewController *controller in viewControllers) {
+        [canvas.view addSubview:controller.view];
+        [canvas addChildViewController:controller];
+    }
+}
+
+- (void)showLogin {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+    OAuthViewController *oauthVC = [storyboard instantiateViewControllerWithIdentifier:@"oauthView"];
+    oauthVC.delegate = self;
+
+    [self.window.rootViewController addChildViewController:oauthVC];
+    [self.window.rootViewController.view addSubview:oauthVC.view];
+}
+
+- (void)authorizationDidFinishWithController:(OAuthViewController *)controller {
+    [self showApp];
+    [controller removeFromParentViewController];
+    [controller.view removeFromSuperview];
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -61,14 +91,12 @@
  */
 - (NSManagedObjectContext *)managedObjectContext
 {
-    if (__managedObjectContext != nil)
-    {
+    if (__managedObjectContext != nil) {
         return __managedObjectContext;
     }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil)
-    {
+    if (coordinator != nil) {
         __managedObjectContext = [[NSManagedObjectContext alloc] init];
         [__managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
@@ -79,10 +107,8 @@
  Returns the managed object model for the application.
  If the model doesn't already exist, it is created from the application's model.
  */
-- (NSManagedObjectModel *)managedObjectModel
-{
-    if (__managedObjectModel != nil)
-    {
+- (NSManagedObjectModel *)managedObjectModel {
+    if (__managedObjectModel != nil) {
         return __managedObjectModel;
     }
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Puttio" withExtension:@"momd"];
@@ -96,8 +122,7 @@
  */
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    if (__persistentStoreCoordinator != nil)
-    {
+    if (__persistentStoreCoordinator != nil) {
         return __persistentStoreCoordinator;
     }
     
@@ -107,8 +132,7 @@
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
 
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error])
-    {
+    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

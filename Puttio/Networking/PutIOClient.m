@@ -12,9 +12,6 @@
 #import "V1PutIOClient.h"
 #import "V2PutIOClient.h"
 
-// http://put.io/v2/docs/
-NSString* API_ADDRESS = @"http://api.put.io/v2/";
-
 @interface PutIOClient ()
 @property(strong) V1PutIOClient *v1Client;
 @property(strong) V2PutIOClient *v2Client;
@@ -28,14 +25,14 @@ NSString* API_ADDRESS = @"http://api.put.io/v2/";
     static PutIOClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[PutIOClient alloc] initWithBaseURL:[NSURL URLWithString:API_ADDRESS]];
+        _sharedClient = [[PutIOClient alloc] init];
     });
     
     return _sharedClient;
 }
 
-- (id)initWithBaseURL:(NSURL *)url {
-    self = [super initWithBaseURL:url];
+- (id)init {
+    self = [super init];
     if (!self) {
         return nil;
     }
@@ -47,6 +44,18 @@ NSString* API_ADDRESS = @"http://api.put.io/v2/";
 
 - (BOOL)ready {
     return ([self.v1Client ready] && [self.v2Client ready]);
+}
+
+- (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
+    [self.v1Client getUserInfo:^(id userInfoObject) {
+        onComplete(userInfoObject);
+    }];
+}
+
+- (void)getFolderAtPath:(NSString*)path :(void(^)(id userInfoObject))onComplete {
+    [self.v2Client getFolderAtPath:path :^(id userInfoObject) {
+        onComplete(userInfoObject);
+    }];
 }
 
 @end

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
+		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
+		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
+		60064205151F24DA00EF85F9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064204151F24DA00EF85F9 /* RootViewController.m */; };
 		6085D228151B99490068929C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D227151B99490068929C /* UIKit.framework */; };
 		6085D22A151B99490068929C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D229151B99490068929C /* Foundation.framework */; };
 		6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D22B151B99490068929C /* CoreGraphics.framework */; };
@@ -16,8 +20,6 @@
 		6085D23A151B99490068929C /* ORAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D239151B99490068929C /* ORAppDelegate.m */; };
 		6085D23D151B99490068929C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6085D23B151B99490068929C /* MainStoryboard.storyboard */; };
 		6085D240151B99490068929C /* Puttio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6085D23E151B99490068929C /* Puttio.xcdatamodeld */; };
-		6085D243151B99490068929C /* ORMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D242151B99490068929C /* ORMasterViewController.m */; };
-		6085D246151B99490068929C /* ORDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D245151B99490068929C /* ORDetailViewController.m */; };
 		6085D26D151B9CEF0068929C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D259151B9CEF0068929C /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6085D26E151B9CEF0068929C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D25B151B9CEF0068929C /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6085D26F151B9CEF0068929C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D25D151B9CEF0068929C /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -31,6 +33,9 @@
 		6085D279151B9DBA0068929C /* V1PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOClient.m */; };
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
+		60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */; };
+		60A7A6C6151FBA9900DB71E0 /* NetworkConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */; };
+		60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AB50D2151F650A00473448 /* UIColor+PutioColours.m */; };
 		60B1A92F151DFDA300FBCD27 /* NSString+Matching.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A928151DFDA300FBCD27 /* NSString+Matching.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60B1A930151DFDA300FBCD27 /* RSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A92A151DFDA300FBCD27 /* RSAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60B1A931151DFDA300FBCD27 /* RSDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A92C151DFDA300FBCD27 /* RSDataFetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -41,6 +46,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		600641F9151F24AF00EF85F9 /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusViewController.h; path = ViewControllers/StatusViewController.h; sourceTree = "<group>"; };
+		600641FA151F24AF00EF85F9 /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusViewController.m; path = ViewControllers/StatusViewController.m; sourceTree = "<group>"; };
+		600641FD151F24C100EF85F9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ViewControllers/SearchViewController.h; sourceTree = "<group>"; };
+		600641FE151F24C100EF85F9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ViewControllers/SearchViewController.m; sourceTree = "<group>"; };
+		60064200151F24CD00EF85F9 /* BrowsingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowsingViewController.h; sourceTree = "<group>"; };
+		60064201151F24CD00EF85F9 /* BrowsingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingViewController.m; sourceTree = "<group>"; };
+		60064203151F24DA00EF85F9 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		60064204151F24DA00EF85F9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		6085D223151B99490068929C /* Puttio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Puttio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6085D227151B99490068929C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6085D229151B99490068929C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -54,10 +67,6 @@
 		6085D239151B99490068929C /* ORAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORAppDelegate.m; sourceTree = "<group>"; };
 		6085D23C151B99490068929C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6085D23F151B99490068929C /* Puttio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Puttio.xcdatamodel; sourceTree = "<group>"; };
-		6085D241151B99490068929C /* ORMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORMasterViewController.h; sourceTree = "<group>"; };
-		6085D242151B99490068929C /* ORMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORMasterViewController.m; sourceTree = "<group>"; };
-		6085D244151B99490068929C /* ORDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORDetailViewController.h; sourceTree = "<group>"; };
-		6085D245151B99490068929C /* ORDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORDetailViewController.m; sourceTree = "<group>"; };
 		6085D258151B9CEF0068929C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		6085D259151B9CEF0068929C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		6085D25A151B9CEF0068929C /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -85,6 +94,14 @@
 		6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		6085D295151BAB230068929C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6085D296151BAB230068929C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		60A7A6B3151F6E0D00DB71E0 /* ORSimpleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSimpleProgress.h; path = Views/ORSimpleProgress.h; sourceTree = "<group>"; };
+		60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSimpleProgress.m; path = Views/ORSimpleProgress.m; sourceTree = "<group>"; };
+		60A7A6C3151FBA1D00DB71E0 /* APP_SECRET.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET.h; path = ../APP_SECRET.h; sourceTree = "<group>"; };
+		60A7A6C4151FBA9900DB71E0 /* NetworkConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkConstants.h; path = Networking/NetworkConstants.h; sourceTree = "<group>"; };
+		60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkConstants.m; path = Networking/NetworkConstants.m; sourceTree = "<group>"; };
+		60A7A6CB151FC1CF00DB71E0 /* APP_SECRET_EX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET_EX.h; path = ../APP_SECRET_EX.h; sourceTree = "<group>"; };
+		60AB50D1151F650A00473448 /* UIColor+PutioColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PutioColours.h"; path = "Categories/UIColor+PutioColours.h"; sourceTree = "<group>"; };
+		60AB50D2151F650A00473448 /* UIColor+PutioColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PutioColours.m"; path = "Categories/UIColor+PutioColours.m"; sourceTree = "<group>"; };
 		60B1A927151DFDA300FBCD27 /* NSString+Matching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Matching.h"; sourceTree = "<group>"; };
 		60B1A928151DFDA300FBCD27 /* NSString+Matching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Matching.m"; sourceTree = "<group>"; };
 		60B1A929151DFDA300FBCD27 /* RSAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAPI.h; sourceTree = "<group>"; };
@@ -116,6 +133,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6006420F151F639000EF85F9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				60A7A6B3151F6E0D00DB71E0 /* ORSimpleProgress.h */,
+				60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		6085D218151B99480068929C = {
 			isa = PBXGroup;
 			children = (
@@ -147,12 +173,16 @@
 		6085D22F151B99490068929C /* Puttio */ = {
 			isa = PBXGroup;
 			children = (
-				60DB0AB1151C665E00DA8A33 /* Network */,
+				60A7A6CB151FC1CF00DB71E0 /* APP_SECRET_EX.h */,
+				60A7A6C3151FBA1D00DB71E0 /* APP_SECRET.h */,
 				6085D238151B99490068929C /* ORAppDelegate.h */,
 				6085D239151B99490068929C /* ORAppDelegate.m */,
 				6085D23B151B99490068929C /* MainStoryboard.storyboard */,
 				6085D23E151B99490068929C /* Puttio.xcdatamodeld */,
+				60AB50CF151F64DE00473448 /* Categories */,
+				60DB0AB1151C665E00DA8A33 /* Network */,
 				6085D27B151B9E550068929C /* View Controllers */,
+				6006420F151F639000EF85F9 /* Views */,
 				6085D27A151B9E4E0068929C /* Utils */,
 				6085D27C151B9E6F0068929C /* Externals */,
 				6085D230151B99490068929C /* Supporting Files */,
@@ -213,10 +243,14 @@
 		6085D27B151B9E550068929C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6085D241151B99490068929C /* ORMasterViewController.h */,
-				6085D242151B99490068929C /* ORMasterViewController.m */,
-				6085D244151B99490068929C /* ORDetailViewController.h */,
-				6085D245151B99490068929C /* ORDetailViewController.m */,
+				600641F9151F24AF00EF85F9 /* StatusViewController.h */,
+				600641FA151F24AF00EF85F9 /* StatusViewController.m */,
+				600641FD151F24C100EF85F9 /* SearchViewController.h */,
+				600641FE151F24C100EF85F9 /* SearchViewController.m */,
+				60064200151F24CD00EF85F9 /* BrowsingViewController.h */,
+				60064201151F24CD00EF85F9 /* BrowsingViewController.m */,
+				60064203151F24DA00EF85F9 /* RootViewController.h */,
+				60064204151F24DA00EF85F9 /* RootViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -230,6 +264,15 @@
 			name = Externals;
 			sourceTree = "<group>";
 		};
+		60AB50CF151F64DE00473448 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				60AB50D1151F650A00473448 /* UIColor+PutioColours.h */,
+				60AB50D2151F650A00473448 /* UIColor+PutioColours.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		60B1A925151DFD9300FBCD27 /* RSAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,7 +283,6 @@
 				60B1A92B151DFDA300FBCD27 /* RSDataFetcher.h */,
 				60B1A92C151DFDA300FBCD27 /* RSDataFetcher.m */,
 				60B1A92D151DFDA300FBCD27 /* RSModelHelper.h */,
-				60B1A92E151DFDA300FBCD27 /* RSModelHelper.m */,
 			);
 			name = RSAPI;
 			sourceTree = "<group>";
@@ -248,12 +290,15 @@
 		60DB0AB1151C665E00DA8A33 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				60A7A6C4151FBA9900DB71E0 /* NetworkConstants.h */,
+				60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */,
 				60DB0AB2151C670800DA8A33 /* OAuthViewController.h */,
 				60DB0AB3151C670800DA8A33 /* OAuthViewController.m */,
 				6085D277151B9DBA0068929C /* V1PutIOClient.h */,
 				6085D278151B9DBA0068929C /* V1PutIOClient.m */,
 				60B1A933151E157E00FBCD27 /* V2PutIOClient.h */,
 				60B1A934151E157F00FBCD27 /* V2PutIOClient.m */,
+				60B1A92E151DFDA300FBCD27 /* RSModelHelper.m */,
 				60BD4F45151C701300DCD686 /* PutIOClient.h */,
 				60BD4F46151C701300DCD686 /* PutIOClient.m */,
 			);
@@ -326,8 +371,6 @@
 				6085D236151B99490068929C /* main.m in Sources */,
 				6085D23A151B99490068929C /* ORAppDelegate.m in Sources */,
 				6085D240151B99490068929C /* Puttio.xcdatamodeld in Sources */,
-				6085D243151B99490068929C /* ORMasterViewController.m in Sources */,
-				6085D246151B99490068929C /* ORDetailViewController.m in Sources */,
 				6085D26D151B9CEF0068929C /* AFHTTPClient.m in Sources */,
 				6085D26E151B9CEF0068929C /* AFHTTPRequestOperation.m in Sources */,
 				6085D26F151B9CEF0068929C /* AFImageRequestOperation.m in Sources */,
@@ -348,6 +391,13 @@
 				60B1A931151DFDA300FBCD27 /* RSDataFetcher.m in Sources */,
 				60B1A932151DFDA300FBCD27 /* RSModelHelper.m in Sources */,
 				60B1A935151E157F00FBCD27 /* V2PutIOClient.m in Sources */,
+				600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */,
+				600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */,
+				60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */,
+				60064205151F24DA00EF85F9 /* RootViewController.m in Sources */,
+				60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */,
+				60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */,
+				60A7A6C6151FBA9900DB71E0 /* NetworkConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

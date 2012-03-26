@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
+CGFloat const SidebarWidth = 280;
+
 NSString *const AppOAuthID = @"10";
 NSString *const AppOAuthCallback = @"puttio://callback";
 

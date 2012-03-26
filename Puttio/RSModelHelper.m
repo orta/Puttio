@@ -66,6 +66,8 @@
     return [NSDictionary dictionaryWithObjectsAndKeys:
             @"id",@"id",
             @"name",@"name", 
+            @"size",@"size",
+            @"content_type", @"contentType",
             nil];
   }
   else if ([className isEqualToString:@"Folder"]){
