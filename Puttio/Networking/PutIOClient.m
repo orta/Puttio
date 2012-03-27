@@ -52,9 +52,15 @@
     }];
 }
 
-- (void)getFolderAtPath:(NSString*)path :(void(^)(id userInfoObject))onComplete {
-    [self.v2Client getFolderAtPath:path :^(id userInfoObject) {
-        onComplete(userInfoObject);
+- (void)getRootFolder:(void(^)(id userInfoObject))onComplete {
+    [self.v2Client getFolderWithID:@"/" :^(id userInfoObject) {
+        onComplete(userInfoObject);  
+    }];
+}
+
+- (void)getFolderWithID:(NSString*)path :(void(^)(id userInfoObject))onComplete {
+    [self.v2Client getFolderWithID:path :^(id userInfoObject) {
+        onComplete(userInfoObject);  
     }];
 }
 

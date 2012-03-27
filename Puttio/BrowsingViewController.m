@@ -15,8 +15,8 @@
 }
 @end
 
-static UIEdgeInsets GridViewInsets = {.top = 10, .left = 6, .right = 6, .bottom = 5};
-const CGSize GridCellSize = { .width = 242.0, .height = 294.0 };
+static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 6, .bottom = 5};
+const CGSize GridCellSize = { .width = 120.0, .height = 120.0 };
 
 @implementation BrowsingViewController
 @synthesize gridView;
@@ -33,17 +33,23 @@ const CGSize GridCellSize = { .width = 242.0, .height = 294.0 };
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[PutIOClient sharedClient] getFolderAtPath:@"/" :^(id userInfoObject) {
+    [[PutIOClient sharedClient] getRootFolder :^(id userInfoObject) {
         gridViewItems = userInfoObject;
         [gridView reloadData];
     }];
 }
 
+-(void)gridView:(KKGridView *)kkGridView didSelectItemAtIndexPath:(KKIndexPath *)indexPath {
+    NSString *folderID = [[[gridViewItems objectAtIndex:indexPath.index] objectForKey:@"id"] stringValue];
+    [[PutIOClient sharedClient] getFolderWithID:folderID:^(id userInfoObject) {
+        gridViewItems = userInfoObject;
+        [kkGridView reloadData];
+    }];
+}
 
 - (NSUInteger)gridView:(KKGridView *)gridView numberOfItemsInSection:(NSUInteger)section {
     return [gridViewItems count];
 }
-
 
 - (KKGridViewCell *)gridView:(KKGridView *)aGridView cellForItemAtIndexPath:(KKIndexPath *)indexPath {
     NSInteger index = indexPath.index;

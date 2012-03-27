@@ -32,7 +32,6 @@ typedef void (^BlockWithCallback)(id userInfoObject);
         [api getAPIToken:nil];
         api.actionBlocks = [NSMutableDictionary dictionary];
         [api registerHTTPOperationClass:[AFJSONRequestOperation class]];
-        [api setDefaultHeader:@"con" value:@""];
     }
     return api;
 }    
@@ -41,13 +40,9 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     self.apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:AppAuthTokenDefault];
 }
 
-- (void)getFolderAtPath:(NSString*)path :(void(^)(id userInfoObject))onComplete {
-    NSString *parentID = nil;
-    if ([path isEqualToString:@"/"]) {
-        parentID = @"0";
-    }
+- (void)getFolderWithID:(NSString*)folderID :(void(^)(id userInfoObject))onComplete {
     
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", parentID, @"parent_id", nil];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", folderID, @"parent_id", nil];
     [self getPath:@"/v2/files/list" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
@@ -57,10 +52,14 @@ typedef void (^BlockWithCallback)(id userInfoObject);
         }
         
         if ([[json valueForKeyPath:@"status"] isEqualToString:@"OK"]) {
-            onComplete([json valueForKeyPath:@"files"]);            
+            onComplete([json valueForKeyPath:@"files"]);
+            NSLog(@"data %@", json);
+
         }else{
             NSLog(@"%@", NSStringFromSelector(_cmd));
             NSLog(@"server said not ok");
+            NSLog(@"request %@", operation.request.URL);
+            NSLog(@"data %@", json);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

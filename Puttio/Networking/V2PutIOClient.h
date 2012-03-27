@@ -12,5 +12,6 @@
 
 + (id)setup;
 - (BOOL)ready;
-- (void)getFolderAtPath:(NSString*)path :(void(^)(id userInfoObject))onComplete;
+
+- (void)getFolderWithID:(NSString*)folderID :(void(^)(id userInfoObject))onComplete;
 @end

@@ -9,7 +9,6 @@
 #import "ORImageViewCell.h"
 
 static UIEdgeInsets ContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 5};
-static const CGSize ImageViewSize = { .width = 230.0, .height = 230.0 };
 
 static CGFloat TitleLabelHeight = 20;
 static CGFloat SubTitleLabelHeight = 24;
@@ -45,8 +44,8 @@ static CGFloat TitleBottomMargin = 1;
         
         CGRect frame = imageView.frame;
         
-        frame.size.width = ImageViewSize.width;
-        frame.size.height = ImageViewSize.height;
+        frame.size.width = CGRectGetWidth(self.frame) - ContentInsets.left - ContentInsets.right;
+        frame.size.height = CGRectGetHeight(self.frame) - ContentInsets.bottom - ContentInsets.top;
         frame.origin.x = ContentInsets.left;
         frame.origin.y = ContentInsets.top;
         imageView.frame = frame;
