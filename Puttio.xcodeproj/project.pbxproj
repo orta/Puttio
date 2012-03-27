@@ -43,6 +43,8 @@
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
 		60F5AD5E15224D7E00DD7A6F /* libKKGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F5AD5D15224D7100DD7A6F /* libKKGridView.a */; };
 		60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */; };
+		60F5AD781522739D00DD7A6F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F5AD771522739D00DD7A6F /* MediaPlayer.framework */; };
+		60F5AD7B1522777600DD7A6F /* MoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD7A1522777600DD7A6F /* MoviePlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,9 @@
 		60F5AD5515224D7100DD7A6F /* KKGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KKGridView.xcodeproj; path = vendor/kkgridview/KKGridView.xcodeproj; sourceTree = SOURCE_ROOT; };
 		60F5AD5F15224DF400DD7A6F /* ORImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORImageViewCell.h; path = Views/ORImageViewCell.h; sourceTree = "<group>"; };
 		60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORImageViewCell.m; path = Views/ORImageViewCell.m; sourceTree = "<group>"; };
+		60F5AD771522739D00DD7A6F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		60F5AD791522777600DD7A6F /* MoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoviePlayer.h; path = Utils/MoviePlayer.h; sourceTree = "<group>"; };
+		60F5AD7A1522777600DD7A6F /* MoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoviePlayer.m; path = Utils/MoviePlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F5AD781522739D00DD7A6F /* MediaPlayer.framework in Frameworks */,
 				60F5AD5E15224D7E00DD7A6F /* libKKGridView.a in Frameworks */,
 				6085D228151B99490068929C /* UIKit.framework in Frameworks */,
 				6085D22A151B99490068929C /* Foundation.framework in Frameworks */,
@@ -245,10 +251,10 @@
 		6085D27A151B9E4E0068929C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				6085D27D151BA3AF0068929C /* NSDictionary+JSON.h */,
-				6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */,
 				6085D295151BAB230068929C /* Constants.h */,
 				6085D296151BAB230068929C /* Constants.m */,
+				60F5AD791522777600DD7A6F /* MoviePlayer.h */,
+				60F5AD7A1522777600DD7A6F /* MoviePlayer.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				60F5AD771522739D00DD7A6F /* MediaPlayer.framework */,
 				60F5AD5515224D7100DD7A6F /* KKGridView.xcodeproj */,
 				60A7A6D1151FD33600DB71E0 /* RestKit */,
 				6085D257151B9CEF0068929C /* AFNetworking */,
@@ -299,6 +306,8 @@
 		60AB50CF151F64DE00473448 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				6085D27D151BA3AF0068929C /* NSDictionary+JSON.h */,
+				6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */,
 				60AB50D1151F650A00473448 /* UIColor+PutioColours.h */,
 				60AB50D2151F650A00473448 /* UIColor+PutioColours.m */,
 			);
@@ -438,6 +447,7 @@
 				60A7A6D0151FD2A100DB71E0 /* File.m in Sources */,
 				60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */,
 				60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */,
+				60F5AD7B1522777600DD7A6F /* MoviePlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

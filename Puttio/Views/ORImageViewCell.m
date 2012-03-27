@@ -8,7 +8,7 @@
 
 #import "ORImageViewCell.h"
 
-static UIEdgeInsets ContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 5};
+static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 55};
 
 static CGFloat TitleLabelHeight = 20;
 static CGFloat SubTitleLabelHeight = 24;
@@ -42,13 +42,13 @@ static CGFloat TitleBottomMargin = 1;
         imageView.backgroundColor = black;
         imageView.opaque = NO;
         
-        CGRect frame = imageView.frame;
+        CGRect imageFrame = frame;
+        imageFrame.size.width = CGRectGetWidth(self.frame) - ImageContentInsets.left - ImageContentInsets.right;
+        imageFrame.size.height = CGRectGetHeight(self.frame) - ImageContentInsets.bottom - ImageContentInsets.top;
         
-        frame.size.width = CGRectGetWidth(self.frame) - ContentInsets.left - ContentInsets.right;
-        frame.size.height = CGRectGetHeight(self.frame) - ContentInsets.bottom - ContentInsets.top;
-        frame.origin.x = ContentInsets.left;
-        frame.origin.y = ContentInsets.top;
-        imageView.frame = frame;
+        imageFrame.origin.x = ImageContentInsets.left;
+        imageFrame.origin.y = ImageContentInsets.top;
+        imageView.frame = imageFrame;    
         [self.contentView addSubview:imageView];
         
 		activityIndicatorView = 
@@ -86,20 +86,20 @@ static CGFloat TitleBottomMargin = 1;
         activityIndicatorView.center = imageView.center;
     }
     if ([_title length]) {
-        titleLabel.frame = CGRectMake(ContentInsets.left, 
+        titleLabel.frame = CGRectMake(ImageContentInsets.left, 
                                       CGRectGetMaxY(imageView.frame) + ImageBottomMargin, 
-                                      CGRectGetWidth(self.bounds) - ContentInsets.left - ContentInsets.right, 
+                                      CGRectGetWidth(self.bounds) - ImageContentInsets.left - ImageContentInsets.right, 
                                       TitleLabelHeight);        
     }
     else {
-        titleLabel.frame = CGRectMake(ContentInsets.left, 
+        titleLabel.frame = CGRectMake(ImageContentInsets.left, 
                                       CGRectGetMaxY(imageView.frame) + ImageBottomMargin, 
-                                      CGRectGetWidth(self.bounds) - ContentInsets.left - ContentInsets.right, 
+                                      CGRectGetWidth(self.bounds) - ImageContentInsets.left - ImageContentInsets.right, 
                                       0);
     }
-    subtitleLabel.frame = CGRectMake(ContentInsets.left, 
+    subtitleLabel.frame = CGRectMake(ImageContentInsets.left, 
                                      CGRectGetMaxY(titleLabel.frame) + TitleBottomMargin, 
-                                     CGRectGetWidth(self.bounds) - ContentInsets.left - ContentInsets.right, 
+                                     CGRectGetWidth(self.bounds) - ImageContentInsets.left - ImageContentInsets.right, 
                                      SubTitleLabelHeight);
 }
 
@@ -111,6 +111,12 @@ static CGFloat TitleBottomMargin = 1;
 - (void)setSubtitle:(NSString *)subtitle{
     _subtitle = subtitle;
     subtitleLabel.text = _subtitle;
+}
+
+- (void)setImageURL:(NSURL *)anImageURL {
+    #warning add placeholder
+    imageURL = anImageURL;
+    [imageView setImageWithURL:anImageURL];
 }
 
 @end

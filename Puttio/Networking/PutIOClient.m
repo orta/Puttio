@@ -46,6 +46,10 @@
     return ([self.v1Client ready] && [self.v2Client ready]);
 }
 
+- (void)startup {
+    [self.v1Client getStreamToken];
+}
+
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
     [self.v1Client getUserInfo:^(id userInfoObject) {
         onComplete(userInfoObject);
@@ -53,13 +57,13 @@
 }
 
 - (void)getRootFolder:(void(^)(id userInfoObject))onComplete {
-    [self.v2Client getFolderWithID:@"/" :^(id userInfoObject) {
+    [self.v1Client getFolderWithID:@"0" :^(id userInfoObject) {
         onComplete(userInfoObject);  
     }];
 }
 
 - (void)getFolderWithID:(NSString*)path :(void(^)(id userInfoObject))onComplete {
-    [self.v2Client getFolderWithID:path :^(id userInfoObject) {
+    [self.v1Client getFolderWithID:path :^(id userInfoObject) {
         onComplete(userInfoObject);  
     }];
 }
