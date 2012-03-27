@@ -177,6 +177,16 @@
     <classes>
         <class className="BrowsingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gridView" candidateClass="KKGridView"/>
+            </relationships>
+        </class>
+        <class className="KKGridView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KKGridView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="gridDelegate"/>
+            </relationships>
         </class>
         <class className="OAuthViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OAuthViewController.h"/>
