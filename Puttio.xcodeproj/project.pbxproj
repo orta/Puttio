@@ -35,11 +35,9 @@
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
 		60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */; };
 		60A7A6C6151FBA9900DB71E0 /* NetworkConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */; };
+		60A7A6D0151FD2A100DB71E0 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6CF151FD2A100DB71E0 /* File.m */; };
+		60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AB50D2151F650A00473448 /* UIColor+PutioColours.m */; };
-		60B1A92F151DFDA300FBCD27 /* NSString+Matching.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A928151DFDA300FBCD27 /* NSString+Matching.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		60B1A930151DFDA300FBCD27 /* RSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A92A151DFDA300FBCD27 /* RSAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		60B1A931151DFDA300FBCD27 /* RSDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A92C151DFDA300FBCD27 /* RSDataFetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		60B1A932151DFDA300FBCD27 /* RSModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A92E151DFDA300FBCD27 /* RSModelHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60B1A935151E157F00FBCD27 /* V2PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A934151E157F00FBCD27 /* V2PutIOClient.m */; };
 		60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BD4F46151C701300DCD686 /* PutIOClient.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
@@ -100,16 +98,12 @@
 		60A7A6C4151FBA9900DB71E0 /* NetworkConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkConstants.h; path = Networking/NetworkConstants.h; sourceTree = "<group>"; };
 		60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkConstants.m; path = Networking/NetworkConstants.m; sourceTree = "<group>"; };
 		60A7A6CB151FC1CF00DB71E0 /* APP_SECRET_EX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET_EX.h; path = ../APP_SECRET_EX.h; sourceTree = "<group>"; };
+		60A7A6CE151FD2A100DB71E0 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = File.h; path = Models/File.h; sourceTree = SOURCE_ROOT; };
+		60A7A6CF151FD2A100DB71E0 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = File.m; path = Models/File.m; sourceTree = SOURCE_ROOT; };
+		60A7A6D2151FD34700DB71E0 /* NSManagedObject+ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+ActiveRecord.h"; sourceTree = "<group>"; };
+		60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+ActiveRecord.m"; sourceTree = "<group>"; };
 		60AB50D1151F650A00473448 /* UIColor+PutioColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PutioColours.h"; path = "Categories/UIColor+PutioColours.h"; sourceTree = "<group>"; };
 		60AB50D2151F650A00473448 /* UIColor+PutioColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PutioColours.m"; path = "Categories/UIColor+PutioColours.m"; sourceTree = "<group>"; };
-		60B1A927151DFDA300FBCD27 /* NSString+Matching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Matching.h"; sourceTree = "<group>"; };
-		60B1A928151DFDA300FBCD27 /* NSString+Matching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Matching.m"; sourceTree = "<group>"; };
-		60B1A929151DFDA300FBCD27 /* RSAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAPI.h; sourceTree = "<group>"; };
-		60B1A92A151DFDA300FBCD27 /* RSAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAPI.m; sourceTree = "<group>"; };
-		60B1A92B151DFDA300FBCD27 /* RSDataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDataFetcher.h; sourceTree = "<group>"; };
-		60B1A92C151DFDA300FBCD27 /* RSDataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDataFetcher.m; sourceTree = "<group>"; };
-		60B1A92D151DFDA300FBCD27 /* RSModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSModelHelper.h; sourceTree = "<group>"; };
-		60B1A92E151DFDA300FBCD27 /* RSModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSModelHelper.m; sourceTree = "<group>"; };
 		60B1A933151E157E00FBCD27 /* V2PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V2PutIOClient.h; path = Networking/V2PutIOClient.h; sourceTree = "<group>"; };
 		60B1A934151E157F00FBCD27 /* V2PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V2PutIOClient.m; path = Networking/V2PutIOClient.m; sourceTree = "<group>"; };
 		60BD4F45151C701300DCD686 /* PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOClient.h; path = Networking/PutIOClient.h; sourceTree = "<group>"; };
@@ -181,6 +175,7 @@
 				6085D23E151B99490068929C /* Puttio.xcdatamodeld */,
 				60AB50CF151F64DE00473448 /* Categories */,
 				60DB0AB1151C665E00DA8A33 /* Network */,
+				60A7A6CD151FD26A00DB71E0 /* Models */,
 				6085D27B151B9E550068929C /* View Controllers */,
 				6006420F151F639000EF85F9 /* Views */,
 				6085D27A151B9E4E0068929C /* Utils */,
@@ -258,10 +253,28 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
-				60B1A925151DFD9300FBCD27 /* RSAPI */,
+				60A7A6D1151FD33600DB71E0 /* RestKit */,
 				6085D257151B9CEF0068929C /* AFNetworking */,
 			);
 			name = Externals;
+			sourceTree = "<group>";
+		};
+		60A7A6CD151FD26A00DB71E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				60A7A6CE151FD2A100DB71E0 /* File.h */,
+				60A7A6CF151FD2A100DB71E0 /* File.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		60A7A6D1151FD33600DB71E0 /* RestKit */ = {
+			isa = PBXGroup;
+			children = (
+				60A7A6D2151FD34700DB71E0 /* NSManagedObject+ActiveRecord.h */,
+				60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */,
+			);
+			name = RestKit;
 			sourceTree = "<group>";
 		};
 		60AB50CF151F64DE00473448 /* Categories */ = {
@@ -271,20 +284,6 @@
 				60AB50D2151F650A00473448 /* UIColor+PutioColours.m */,
 			);
 			name = Categories;
-			sourceTree = "<group>";
-		};
-		60B1A925151DFD9300FBCD27 /* RSAPI */ = {
-			isa = PBXGroup;
-			children = (
-				60B1A927151DFDA300FBCD27 /* NSString+Matching.h */,
-				60B1A928151DFDA300FBCD27 /* NSString+Matching.m */,
-				60B1A929151DFDA300FBCD27 /* RSAPI.h */,
-				60B1A92A151DFDA300FBCD27 /* RSAPI.m */,
-				60B1A92B151DFDA300FBCD27 /* RSDataFetcher.h */,
-				60B1A92C151DFDA300FBCD27 /* RSDataFetcher.m */,
-				60B1A92D151DFDA300FBCD27 /* RSModelHelper.h */,
-			);
-			name = RSAPI;
 			sourceTree = "<group>";
 		};
 		60DB0AB1151C665E00DA8A33 /* Network */ = {
@@ -298,7 +297,6 @@
 				6085D278151B9DBA0068929C /* V1PutIOClient.m */,
 				60B1A933151E157E00FBCD27 /* V2PutIOClient.h */,
 				60B1A934151E157F00FBCD27 /* V2PutIOClient.m */,
-				60B1A92E151DFDA300FBCD27 /* RSModelHelper.m */,
 				60BD4F45151C701300DCD686 /* PutIOClient.h */,
 				60BD4F46151C701300DCD686 /* PutIOClient.m */,
 			);
@@ -386,10 +384,6 @@
 				6085D297151BAB230068929C /* Constants.m in Sources */,
 				60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */,
 				60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */,
-				60B1A92F151DFDA300FBCD27 /* NSString+Matching.m in Sources */,
-				60B1A930151DFDA300FBCD27 /* RSAPI.m in Sources */,
-				60B1A931151DFDA300FBCD27 /* RSDataFetcher.m in Sources */,
-				60B1A932151DFDA300FBCD27 /* RSModelHelper.m in Sources */,
 				60B1A935151E157F00FBCD27 /* V2PutIOClient.m in Sources */,
 				600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */,
 				600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */,
@@ -398,6 +392,8 @@
 				60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */,
 				60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */,
 				60A7A6C6151FBA9900DB71E0 /* NetworkConstants.m in Sources */,
+				60A7A6D0151FD2A100DB71E0 /* File.m in Sources */,
+				60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

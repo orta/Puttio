@@ -25,9 +25,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [[PutIOClient sharedClient] getFolderAtPath:@"/" :^(id userInfoObject) {
-//       NSLog(@"info %@", userInfoObject);
-//    }];
+    [[PutIOClient sharedClient] getFolderAtPath:@"/" :^(id userInfoObject) {
+        NSLog(@"info %@", [userInfoObject class]);
+        NSLog(@"info %@", userInfoObject);
+    }];
 }
 
 - (void)viewDidUnload {

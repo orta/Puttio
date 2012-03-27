@@ -79,7 +79,7 @@
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-3986" y="-163"/>
+            <point key="canvasLocation" x="-3446" y="-679"/>
         </scene>
         <!--Browsing View Controller-->
         <scene sceneID="GOQ-Lm-KHV">
@@ -171,7 +171,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-2254" y="-691"/>
+            <point key="canvasLocation" x="-3422" y="217"/>
         </scene>
     </scenes>
     <classes>

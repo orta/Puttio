@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "RSAPI.h"
+#import "AFNetworking.h"
 
-@interface V2PutIOClient : RSAPI <RSAPIDelegate>
+@interface V2PutIOClient : AFHTTPClient
 
 + (id)setup;
 - (BOOL)ready;
