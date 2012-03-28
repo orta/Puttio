@@ -59,7 +59,6 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
                                                  name:V1TokensWereSavedNotification 
                                                object:nil];
     [self getAPICreds:nil];
-    
     return self;
 }
 
@@ -67,6 +66,20 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.apiKey = [defaults objectForKey:APIKeyDefault];
     self.apiSecret = [defaults objectForKey:APISecretDefault];
+}
+
+- (void)getStreamToken {
+    NSDictionary *params = [V1PutIOClient paramsForRequestAtMethod:@"acctoken" withParams:[NSDictionary dictionary]];
+    [self getPath:@"user" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject valueForKeyPath:@"response.results.token"] forKey:ORStreamTokenDefault];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", NSStringFromSelector(_cmd));
+        NSLog(@"v1 server said not ok %@", error);
+        NSLog(@"request %@", operation.request.URL);
+    }];
+
 }
 
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
@@ -78,7 +91,22 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", NSStringFromSelector(_cmd));
-        NSLog(@"failed %@", error);
+        NSLog(@"v1 server said not ok %@", error);
+        NSLog(@"request %@", operation.request.URL);
+    }];
+}
+
+- (void)getFolderWithID:(NSString *)folderID :(void(^)(id userInfoObject))onComplete {
+    // no need for params on an info request
+    NSDictionary *params = [V1PutIOClient paramsForRequestAtMethod:@"list" withParams:[NSDictionary dictionaryWithObject:folderID forKey:@"parent_id"]];
+    [self getPath:@"files" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
+            onComplete([responseObject valueForKeyPath:@"response.results"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", NSStringFromSelector(_cmd));
+        NSLog(@"v1 server said not ok %@", error);
+        NSLog(@"request %@", operation.request.URL);
     }];
 }
 

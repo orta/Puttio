@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <KKGridView/KKGridView.h>
 
-@interface BrowsingViewController : UIViewController
+@interface BrowsingViewController : UIViewController <KKGridViewDelegate, KKGridViewDataSource>
+@property (strong) KKGridView *gridView;
 - (void)setup;
 @end

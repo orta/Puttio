@@ -17,3 +17,5 @@ NSString *const V1TokensWereSavedNotification = @"V1TokensWereSavedNotification"
 NSString *const AppAuthTokenDefault = @"AppAuthToken";
 NSString *const APIKeyDefault = @"APIKeyDefault";
 NSString *const APISecretDefault = @"APISecretDefault";
+NSString *const ORUserIdDefault = @"ORUserIdDefault";
+NSString *const ORStreamTokenDefault = @"ORStreamTokenDefault";

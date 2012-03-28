@@ -70,16 +70,17 @@
         <scene sceneID="Nee-nf-gDC">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MD4-hd-m3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="TCb-XQ-jcM" customClass="RootViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rootView" id="TCb-XQ-jcM" customClass="RootViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V1p-Oo-gHb">
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" label="rootView"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-3986" y="-163"/>
+            <point key="canvasLocation" x="-3446" y="-679"/>
         </scene>
         <!--Browsing View Controller-->
         <scene sceneID="GOQ-Lm-KHV">
@@ -171,7 +172,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-2254" y="-691"/>
+            <point key="canvasLocation" x="-3422" y="217"/>
         </scene>
     </scenes>
     <classes>

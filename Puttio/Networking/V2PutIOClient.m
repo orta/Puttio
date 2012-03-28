@@ -22,13 +22,8 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 @synthesize apiToken, actionBlocks;
 
 + (id)setup {
-    ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
-    V2PutIOClient *api = [V2PutIOClient setupWithManagedObjContext:appDelegate.managedObjectContext
-                          withPersistentStoreCoord:appDelegate.persistentStoreCoordinator
-                               withManagedObjModel:appDelegate.managedObjectModel
-                               withDevelopmentBase:@"http://api.put.io/"
-                                withProductionBase:@"http://api.put.io/"];
-
+    V2PutIOClient *api = [[V2PutIOClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.put.io/"]];
+                          
     if (api) {
         [[NSNotificationCenter defaultCenter] addObserver:api 
                                                  selector:@selector(getAPIToken:) 
@@ -36,26 +31,40 @@ typedef void (^BlockWithCallback)(id userInfoObject);
                                                    object:nil];
         [api getAPIToken:nil];
         api.actionBlocks = [NSMutableDictionary dictionary];
-        [api setPath:@"/v2/files/list" forClass:@"File" requestType:RSHTTPRequestTypeGet];
+        [api registerHTTPOperationClass:[AFJSONRequestOperation class]];
     }
     return api;
 }    
 
 - (void)getAPIToken:(NSNotification *)notification {
     self.apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:AppAuthTokenDefault];
-    [self setAPIToken:self.apiToken named:@"oauth_token"];
 }
 
-- (void)getFolderAtPath:(NSString*)path :(void(^)(id userInfoObject))onComplete {
-    NSString *parentID = nil;
-    if ([path isEqualToString:@"/"]) {
-        parentID = @"0";
-    }
+- (void)getFolderWithID:(NSString*)folderID :(void(^)(id userInfoObject))onComplete {
     
-    NSDictionary *params = [NSDictionary dictionaryWithObject:parentID forKey:@"parent_id"];
-    [self call:@"/v2/files/list" params:params withDelegate:self];
-    [self.actionBlocks setObject:onComplete forKey:@"/v2/files/list"];
-    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", folderID, @"parent_id", nil];
+    [self getPath:@"/v2/files/list" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+        if (error) {
+            NSLog(@"%@", NSStringFromSelector(_cmd));
+            NSLog(@"json parsing error.");
+        }
+        
+        if ([[json valueForKeyPath:@"status"] isEqualToString:@"OK"]) {
+            onComplete([json valueForKeyPath:@"files"]);
+            NSLog(@"data %@", json);
+
+        }else{
+            NSLog(@"%@", NSStringFromSelector(_cmd));
+            NSLog(@"server said not ok");
+            NSLog(@"request %@", operation.request.URL);
+            NSLog(@"data %@", json);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        onComplete(error);        
+    }];
 }
 
 -(void)apiDidReturn:(id)arrOrDict forRoute:(NSString*)action { 

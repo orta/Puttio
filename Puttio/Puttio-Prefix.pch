@@ -15,7 +15,7 @@
     #import "PutIOClient.h"
     #import "Constants.h"
     #import "NetworkConstants.h"
-    #import "RSAPI.h"
     #import "UIColor+PutioColours.h"
+    #import "NSManagedObject+ActiveRecord.h"
 #endif
 

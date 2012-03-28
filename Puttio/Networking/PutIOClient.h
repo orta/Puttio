@@ -13,6 +13,8 @@
 + (PutIOClient *)sharedClient;
 
 - (BOOL)ready;
+- (void)startup;
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
-- (void)getFolderAtPath:(NSString*)path :(void(^)(id userInfoObject))onComplete;
+- (void)getRootFolder:(void(^)(id userInfoObject))onComplete;
+- (void)getFolderWithID:(NSString*)folderID :(void(^)(id userInfoObject))onComplete;
 @end

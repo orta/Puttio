@@ -18,3 +18,5 @@ extern NSString *const V1TokensWereSavedNotification;
 extern NSString *const AppAuthTokenDefault;
 extern NSString *const APIKeyDefault;
 extern NSString *const APISecretDefault;
+extern NSString *const ORUserIdDefault;
+extern NSString *const ORStreamTokenDefault;

@@ -31,6 +31,7 @@
 }
 
 - (void)showApp {
+    [[PutIOClient sharedClient] startup];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     BrowsingViewController *browsingVC = [storyboard instantiateViewControllerWithIdentifier:@"browsingView"];
     StatusViewController *statusVC = [storyboard instantiateViewControllerWithIdentifier:@"statusView"];
