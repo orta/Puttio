@@ -33,13 +33,13 @@ static CGFloat TitleBottomMargin = 1;
         self.accessoryPosition = KKGridViewCellAccessoryPositionTopLeft;
         self.selectedBackgroundView = [[UIView alloc] init];
         self.opaque = NO;
-        self.contentView.backgroundColor = [UIColor purpleColor];
-        self.backgroundView.backgroundColor = [UIColor redColor];
+        self.contentView.backgroundColor = [UIColor whiteColor];
+        self.backgroundView.backgroundColor = [UIColor yellowColor];
         self.contentView.opaque = NO;
         
         imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.backgroundColor = black;
+        imageView.backgroundColor = [UIColor clearColor];
         imageView.opaque = NO;
         
         CGRect imageFrame = frame;
@@ -57,9 +57,9 @@ static CGFloat TitleBottomMargin = 1;
         [self.contentView addSubview:activityIndicatorView];
         
         titleLabel = [[UILabel alloc] init];
-        titleLabel.textColor = [UIColor blueColor];
+        titleLabel.textColor = black;
         titleLabel.textAlignment = UITextAlignmentCenter;
-        titleLabel.backgroundColor = black;
+        titleLabel.backgroundColor = [UIColor whiteColor];
         titleLabel.opaque = NO;
         titleLabel.userInteractionEnabled = YES;
         [self.contentView addSubview:titleLabel];
@@ -67,7 +67,7 @@ static CGFloat TitleBottomMargin = 1;
         subtitleLabel = [[UILabel alloc] init];
         subtitleLabel.textColor = [UIColor redColor];
         subtitleLabel.textAlignment = UITextAlignmentCenter;
-        subtitleLabel.backgroundColor = black;
+        subtitleLabel.backgroundColor = [UIColor whiteColor];
         subtitleLabel.opaque = NO;
         [self.contentView addSubview:subtitleLabel];
     }

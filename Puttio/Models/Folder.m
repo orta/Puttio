@@ -1,14 +1,14 @@
 //
-//  File.m
+//  Folder.m
 //  Puttio
 //
-//  Created by orta therox on 25/03/2012.
+//  Created by orta therox on 29/03/2012.
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "File.h"
+#import "Folder.h"
 
-@implementation File
+@implementation Folder
 @dynamic contentType, name, size, id, iconURL, parentID;
 
 @end

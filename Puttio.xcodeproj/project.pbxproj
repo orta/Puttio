@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600104D41524F9CB005F5B33 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 600104D31524F9CB005F5B33 /* Folder.m */; };
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
@@ -58,6 +59,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		600104D21524F9CB005F5B33 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Folder.h; path = Models/Folder.h; sourceTree = "<group>"; };
+		600104D31524F9CB005F5B33 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Folder.m; path = Models/Folder.m; sourceTree = "<group>"; };
+		6001050A1525025A005F5B33 /* ORDisplayItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ORDisplayItemProtocol.h; path = Protocols/ORDisplayItemProtocol.h; sourceTree = "<group>"; };
 		600641F9151F24AF00EF85F9 /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusViewController.h; path = ViewControllers/StatusViewController.h; sourceTree = "<group>"; };
 		600641FA151F24AF00EF85F9 /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusViewController.m; path = ViewControllers/StatusViewController.m; sourceTree = "<group>"; };
 		600641FD151F24C100EF85F9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ViewControllers/SearchViewController.h; sourceTree = "<group>"; };
@@ -149,6 +153,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		600105091525022C005F5B33 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6001050A1525025A005F5B33 /* ORDisplayItemProtocol.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		6006420F151F639000EF85F9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +210,7 @@
 				6085D23B151B99490068929C /* MainStoryboard.storyboard */,
 				6085D23E151B99490068929C /* Puttio.xcdatamodeld */,
 				60AB50CF151F64DE00473448 /* Categories */,
+				600105091525022C005F5B33 /* Protocols */,
 				60DB0AB1151C665E00DA8A33 /* Network */,
 				60A7A6CD151FD26A00DB71E0 /* Models */,
 				6085D27B151B9E550068929C /* View Controllers */,
@@ -290,6 +303,8 @@
 			children = (
 				60A7A6CE151FD2A100DB71E0 /* File.h */,
 				60A7A6CF151FD2A100DB71E0 /* File.m */,
+				600104D21524F9CB005F5B33 /* Folder.h */,
+				600104D31524F9CB005F5B33 /* Folder.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -448,6 +463,7 @@
 				60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */,
 				60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */,
 				60F5AD7B1522777600DD7A6F /* MoviePlayer.m in Sources */,
+				600104D41524F9CB005F5B33 /* Folder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

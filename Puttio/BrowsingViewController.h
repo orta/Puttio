@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <KKGridView/KKGridView.h>
+#import "ORDisplayItemProtocol.h"
 
 @interface BrowsingViewController : UIViewController <KKGridViewDelegate, KKGridViewDataSource>
 @property (strong) KKGridView *gridView;
+@property (strong) NSObject <ORDisplayItemProtocol> *item;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 - (void)setup;
 @end

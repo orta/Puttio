@@ -8,13 +8,12 @@
 
 #import "AFHTTPClient.h"
 
-@class V1PutIOClient, V2PutIOClient;
+@class V1PutIOClient, V2PutIOClient, Folder;
 @interface PutIOClient : AFHTTPClient
 + (PutIOClient *)sharedClient;
 
 - (BOOL)ready;
 - (void)startup;
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
-- (void)getRootFolder:(void(^)(id userInfoObject))onComplete;
-- (void)getFolderWithID:(NSString*)folderID :(void(^)(id userInfoObject))onComplete;
+- (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete;
 @end

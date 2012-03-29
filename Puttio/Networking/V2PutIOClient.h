@@ -8,10 +8,11 @@
 
 #import "AFNetworking.h"
 
+@class Folder;
 @interface V2PutIOClient : AFHTTPClient
 
 + (id)setup;
 - (BOOL)ready;
 
-- (void)getFolderWithID:(NSString*)folderID :(void(^)(id userInfoObject))onComplete;
+- (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete;
 @end

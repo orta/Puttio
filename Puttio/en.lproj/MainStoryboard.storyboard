@@ -112,6 +112,9 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="qfh-cM-XrR" id="EJU-5x-ijc"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-3221" y="-1551"/>
@@ -178,6 +181,9 @@
     <classes>
         <class className="BrowsingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="OAuthViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OAuthViewController.h"/>

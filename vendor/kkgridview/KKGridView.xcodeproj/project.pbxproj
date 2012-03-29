@@ -212,7 +212,7 @@
 		1A61BE0613DCAF1F00AB4243 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "kxk design";
 			};
 			buildConfigurationList = 1A61BE0913DCAF1F00AB4243 /* Build configuration list for PBXProject "KKGridView" */;

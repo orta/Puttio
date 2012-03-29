@@ -56,14 +56,8 @@
     }];
 }
 
-- (void)getRootFolder:(void(^)(id userInfoObject))onComplete {
-    [self.v1Client getFolderWithID:@"0" :^(id userInfoObject) {
-        onComplete(userInfoObject);  
-    }];
-}
-
-- (void)getFolderWithID:(NSString*)path :(void(^)(id userInfoObject))onComplete {
-    [self.v1Client getFolderWithID:path :^(id userInfoObject) {
+- (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete {
+    [self.v2Client getFolder:folder :^(id userInfoObject) {
         onComplete(userInfoObject);  
     }];
 }

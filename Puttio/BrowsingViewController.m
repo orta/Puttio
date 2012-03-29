@@ -8,12 +8,17 @@
 
 #import "BrowsingViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ORDisplayItemProtocol.h"
+
 #import "ORImageViewCell.h"
 #import "MoviePlayer.h"
 
 @interface BrowsingViewController () {
     NSArray *gridViewItems;
+    NSObject <ORDisplayItemProtocol> *_item;    
 }
+
+- (BOOL)itemIsFolder:(NSObject*)item;
 @end
 
 static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 6, .bottom = 5};
@@ -21,6 +26,8 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 
 @implementation BrowsingViewController
 @synthesize gridView;
+@dynamic item;
+@synthesize titleLabel;
 
 - (void)setup {
     CGRect space = [self.view.superview bounds];
@@ -34,23 +41,29 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[PutIOClient sharedClient] getRootFolder :^(id userInfoObject) {
+    
+    Folder *rootFolder = [Folder object];
+    rootFolder.id = @"0";
+    rootFolder.name = @"Home";
+    rootFolder.parentID = @"0";
+    self.item = rootFolder;
+    
+    [[PutIOClient sharedClient] getFolder:rootFolder :^(id userInfoObject) {
         gridViewItems = userInfoObject;
         [gridView reloadData];
     }];
 }
 
 -(void)gridView:(KKGridView *)kkGridView didSelectItemAtIndexPath:(KKIndexPath *)indexPath {
-    NSDictionary *item = [gridViewItems objectAtIndex:indexPath.index];
-    NSLog(@"%@ item", item);
-
-#warning this is hacky for speed of prototyping
-    
-    if ([[item objectForKey:@"is_dir"] boolValue]) {
-        NSString *folderID = [item objectForKey:@"id"];
-        [[PutIOClient sharedClient] getFolderWithID:folderID:^(id userInfoObject) {
-            gridViewItems = userInfoObject;
-            [kkGridView reloadData];
+    NSObject <ORDisplayItemProtocol> *item = [gridViewItems objectAtIndex:indexPath.index];   
+    if ([self itemIsFolder:item]) {
+        Folder *folder = (Folder *)item;
+        [[PutIOClient sharedClient] getFolder:folder :^(id userInfoObject) {
+            if (![userInfoObject isMemberOfClass:[NSError class]]) {
+                self.item = folder;
+                gridViewItems = userInfoObject;
+                [kkGridView reloadData];
+            }
         }];
         return;
     }
@@ -61,11 +74,11 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 //        return;
 //    }
     
-    id streamURL = [item objectForKey:@"stream_url"];
-    if (streamURL) {
-        [MoviePlayer streamMovieAtPath:[item objectForKey:@"stream_url"]];
-        return;
-    }
+//    id streamURL = item.streamURL;
+//    if (streamURL) {
+//        [MoviePlayer streamMovieAtPath:[item objectForKey:@"stream_url"]];
+//        return;
+//    }
 }
 
 - (NSUInteger)gridView:(KKGridView *)gridView numberOfItemsInSection:(NSUInteger)section {
@@ -82,11 +95,11 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
                                           reuseIdentifier:CellIdentifier];
     }
 
-    NSDictionary *item = [gridViewItems objectAtIndex:index];
+    NSObject <ORDisplayItemProtocol> *item = [gridViewItems objectAtIndex:index];
     cell.item = item;
-    cell.title = [item objectForKey:@"name"];
-    cell.subtitle = [item objectForKey:@"created_at"];
-    cell.imageURL = [NSURL URLWithString:[item objectForKey:@"screenshot_url"]];
+    cell.title = item.name;
+    cell.subtitle = item.description;
+    cell.imageURL = [NSURL URLWithString:item.iconURL];
     return cell;
 }   
 
@@ -106,7 +119,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     gridView.cellSize = GridCellSize;
     gridView.cellPadding = CGSizeMake(7, 0);
     gridView.userInteractionEnabled = YES;
-    gridView.backgroundColor = [UIColor blackColor];
+    gridView.backgroundColor = [UIColor whiteColor];
     gridView.showsHorizontalScrollIndicator = NO;
     gridView.contentInset = UIEdgeInsetsZero;
     gridView.accessibilityLabel = @"GridView";
@@ -114,8 +127,14 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     [self.view addSubview:gridView];    
 }
 
+- (void)setItem:(NSObject<ORDisplayItemProtocol> *)item {
+    _item = item;
+    titleLabel.text = item.name;
+}
+
 - (void)viewDidUnload {
     [self setGridView:nil];
+    [self setTitleLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -128,5 +147,13 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     [self setup];
 }
 
+- (BOOL)itemIsFolder:(NSObject*)item {
+    // jeez, I must be doing something wrong here..
+    NSObject <ORDisplayItemProtocol> *displayItem = (NSObject <ORDisplayItemProtocol> *)item;
+    if ([displayItem.size intValue] == 0) {
+        return YES;
+    }
+    return NO;
+}
 
 @end

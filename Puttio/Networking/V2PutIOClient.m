@@ -16,6 +16,8 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 @interface V2PutIOClient ()
 @property (strong) NSMutableDictionary *actionBlocks;
 @property (strong) NSString* apiToken;
+
+- (NSArray *)filesAndFoldersFromJSONArray:(NSArray *)dictionaries withParent:(Folder *)folder;
 @end
 
 @implementation V2PutIOClient 
@@ -40,9 +42,9 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     self.apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:AppAuthTokenDefault];
 }
 
-- (void)getFolderWithID:(NSString*)folderID :(void(^)(id userInfoObject))onComplete {
-    
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", folderID, @"parent_id", nil];
+- (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete {
+
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", folder.id, @"parent_id", nil];
     [self getPath:@"/v2/files/list" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
@@ -52,9 +54,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
         }
         
         if ([[json valueForKeyPath:@"status"] isEqualToString:@"OK"]) {
-            onComplete([json valueForKeyPath:@"files"]);
-            NSLog(@"data %@", json);
-
+            onComplete([self filesAndFoldersFromJSONArray:[json valueForKeyPath:@"files"] withParent:folder]);
         }else{
             NSLog(@"%@", NSStringFromSelector(_cmd));
             NSLog(@"server said not ok");
@@ -65,6 +65,33 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         onComplete(error);        
     }];
+}
+
+- (NSArray *)filesAndFoldersFromJSONArray:(NSArray *)dictionaries withParent:(Folder *)parent{
+    NSMutableArray *objects = [NSMutableArray array];
+    for (NSDictionary *dictionary in dictionaries) {
+        
+        id contentType = [dictionary objectForKey:@"content_type"];
+        if ( contentType == [NSNull null] || [contentType isEqualToString:@"application/x-directory"]) {
+            Folder *folder = [Folder object];
+            folder.id = [[dictionary objectForKey:@"id"] stringValue];
+            folder.name = [dictionary objectForKey:@"name"];
+            folder.iconURL =  [dictionary objectForKey:@"icon"];
+            folder.parentID = [[dictionary objectForKey:@"parent_id"] stringValue];
+            folder.size = [NSNumber numberWithInt:0];
+            [objects addObject:folder];
+        }else{
+            File *file = [File object];
+            file.id = [[dictionary objectForKey:@"id"] stringValue];
+            file.name = [dictionary objectForKey:@"name"];
+            file.iconURL =  [dictionary objectForKey:@"icon"];
+            file.contentType =  [dictionary objectForKey:@"contentType"];
+            file.parentID = [[dictionary objectForKey:@"parent_id"] stringValue];
+            file.size = [dictionary objectForKey:@"size"];
+            [objects addObject:file];
+        }
+    }
+    return objects;
 }
 
 -(void)apiDidReturn:(id)arrOrDict forRoute:(NSString*)action { 

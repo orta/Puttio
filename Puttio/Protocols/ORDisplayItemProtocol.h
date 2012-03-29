@@ -1,15 +1,14 @@
 //
-//  File.h
+//  ORDisplayItemProtocol.h
 //  Puttio
 //
-//  Created by orta therox on 25/03/2012.
+//  Created by orta therox on 29/03/2012.
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
-#import "ORDisplayItemProtocol.h"
+#import <Foundation/Foundation.h>
 
-@interface File : NSManagedObject <ORDisplayItemProtocol>
+@protocol ORDisplayItemProtocol <NSObject>
 
 @property (strong) NSString *contentType;
 @property (strong) NSString *id;
