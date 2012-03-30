@@ -25,9 +25,8 @@ static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 6, .bottom 
 const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 
 @implementation BrowsingViewController
-@synthesize gridView;
+@synthesize gridView, titleLabel;
 @dynamic item;
-@synthesize titleLabel;
 
 - (void)setup {
     CGRect space = [self.view.superview bounds];
@@ -48,13 +47,23 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     rootFolder.parentID = @"0";
     self.item = rootFolder;
     [self loadFolder:rootFolder];
-    
+}
+
+- (IBAction)backPressed:(id)sender {
+    Folder *currentFolder = (Folder *)self.item;
+    if (![currentFolder.id isEqualToString:@"0"]) {
+        [self loadFolder:currentFolder.parentFolder];
+    }
 }
 
 - (void)loadFolder:(Folder *)folder {
+    NSLog(@"%@ %@", NSStringFromSelector(_cmd), folder.name);
+
     [[PutIOClient sharedClient] getFolder:folder :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
+            
             self.item = folder;
+
             gridViewItems = userInfoObject;
             [gridView reloadData];
         }
@@ -66,24 +75,20 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     if ([self itemIsFolder:item]) {
         Folder *folder = (Folder *)item;
         [self loadFolder:folder];
-        
     }else {
+        //    id contentType = [item objectForKey:@"content_type"];
+        //    if (contentType != [NSNull null]  && [contentType isEqualToString:@"video/mp4"]) {
+        //        [MoviePlayer streamMovieAtPath:[item objectForKey:@"mp4_url"]];
+        //        return;
+        //    }
         
+        //    id streamURL = item.streamURL;
+        //    if (streamURL) {
+        //        [MoviePlayer streamMovieAtPath:[item objectForKey:@"stream_url"]];
+        //        return;
+        //    }        
     }
-
-
     
-//    id contentType = [item objectForKey:@"content_type"];
-//    if (contentType != [NSNull null]  && [contentType isEqualToString:@"video/mp4"]) {
-//        [MoviePlayer streamMovieAtPath:[item objectForKey:@"mp4_url"]];
-//        return;
-//    }
-    
-//    id streamURL = item.streamURL;
-//    if (streamURL) {
-//        [MoviePlayer streamMovieAtPath:[item objectForKey:@"stream_url"]];
-//        return;
-//    }
 }
 
 - (NSUInteger)gridView:(KKGridView *)gridView numberOfItemsInSection:(NSUInteger)section {
@@ -134,6 +139,10 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     gridView.accessibilityLabel = @"GridView";
     
     [self.view addSubview:gridView];    
+}
+
+- (NSObject *)item {
+    return _item;
 }
 
 - (void)setItem:(NSObject<ORDisplayItemProtocol> *)item {

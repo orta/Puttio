@@ -9,6 +9,6 @@
 #import "Folder.h"
 
 @implementation Folder
-@dynamic contentType, name, size, id, iconURL, parentID;
+@dynamic contentType, name, size, id, iconURL, parentID, parentFolder;
 
 @end

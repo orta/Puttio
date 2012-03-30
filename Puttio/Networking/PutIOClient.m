@@ -57,7 +57,7 @@
 }
 
 - (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete {
-    [self.v2Client getFolder:folder :^(id userInfoObject) {
+    [self.v2Client getFolder:folder :^(id userInfoObject)  {
         onComplete(userInfoObject);  
     }];
 }

@@ -17,5 +17,6 @@
 @property (strong) NSNumber *size;
 @property (strong) NSString *iconURL;
 @property (strong) NSString *parentID;
+@property (strong) Folder *parentFolder;
 
 @end

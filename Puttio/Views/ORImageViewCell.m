@@ -74,6 +74,12 @@ static CGFloat TitleBottomMargin = 1;
     return self;
 }
 
+- (void)prepareForReuse {
+    titleLabel.text = @"";
+    subtitleLabel.text = @"";
+    self.image = nil;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     if (imageView.image) {

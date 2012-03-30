@@ -80,6 +80,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             folder.iconURL =  [dictionary objectForKey:@"icon"];
             folder.parentID = [[dictionary objectForKey:@"parent_id"] stringValue];
             folder.size = [NSNumber numberWithInt:0];
+            folder.parentFolder = parent;
             [objects addObject:folder];
         }else{
             File *file = [File object];
