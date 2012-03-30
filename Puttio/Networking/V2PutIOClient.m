@@ -54,6 +54,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
         }
         
         if ([[json valueForKeyPath:@"status"] isEqualToString:@"OK"]) {
+            NSLog(@"json %@", json);
             onComplete([self filesAndFoldersFromJSONArray:[json valueForKeyPath:@"files"] withParent:folder]);
         }else{
             NSLog(@"%@", NSStringFromSelector(_cmd));

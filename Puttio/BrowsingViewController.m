@@ -47,10 +47,17 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     rootFolder.name = @"Home";
     rootFolder.parentID = @"0";
     self.item = rootFolder;
+    [self loadFolder:rootFolder];
     
-    [[PutIOClient sharedClient] getFolder:rootFolder :^(id userInfoObject) {
-        gridViewItems = userInfoObject;
-        [gridView reloadData];
+}
+
+- (void)loadFolder:(Folder *)folder {
+    [[PutIOClient sharedClient] getFolder:folder :^(id userInfoObject) {
+        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+            self.item = folder;
+            gridViewItems = userInfoObject;
+            [gridView reloadData];
+        }
     }];
 }
 
@@ -58,16 +65,14 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     NSObject <ORDisplayItemProtocol> *item = [gridViewItems objectAtIndex:indexPath.index];   
     if ([self itemIsFolder:item]) {
         Folder *folder = (Folder *)item;
-        [[PutIOClient sharedClient] getFolder:folder :^(id userInfoObject) {
-            if (![userInfoObject isMemberOfClass:[NSError class]]) {
-                self.item = folder;
-                gridViewItems = userInfoObject;
-                [kkGridView reloadData];
-            }
-        }];
-        return;
+        [self loadFolder:folder];
+        
+    }else {
+        
     }
 
+
+    
 //    id contentType = [item objectForKey:@"content_type"];
 //    if (contentType != [NSNull null]  && [contentType isEqualToString:@"video/mp4"]) {
 //        [MoviePlayer streamMovieAtPath:[item objectForKey:@"mp4_url"]];
@@ -98,8 +103,12 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     NSObject <ORDisplayItemProtocol> *item = [gridViewItems objectAtIndex:index];
     cell.item = item;
     cell.title = item.name;
-    cell.subtitle = item.description;
-    cell.imageURL = [NSURL URLWithString:item.iconURL];
+    if ([self itemIsFolder:item]) {
+        cell.imageURL = [NSURL URLWithString:item.iconURL];
+        cell.subtitle = item.description;
+    }else{
+        cell.imageURL = [NSURL URLWithString:[item.iconURL stringByReplacingOccurrencesOfString:@"shot/" withString:@"shot/b/"]];
+    }
     return cell;
 }   
 
