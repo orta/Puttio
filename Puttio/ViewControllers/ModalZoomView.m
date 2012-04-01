@@ -13,12 +13,12 @@ static ModalZoomView *sharedInstance;
 @interface ModalZoomView ()
 @property (strong) UIView *backgroundView;
 @property (strong) UIViewController <ModalZoomViewControllerProtocol> *viewController;
-
+@property (assign) CGRect originalFrame;
 - (BOOL)validated;
 @end
 
 @implementation ModalZoomView
-@synthesize backgroundView, viewController;
+@synthesize backgroundView, viewController, originalFrame;
 
 + (id)sharedInstance; {
     static dispatch_once_t onceToken = 0;
@@ -36,7 +36,7 @@ static ModalZoomView *sharedInstance;
         UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
         this.viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:viewControllerID];
         if ([this validated]) {
-
+            this.originalFrame = initialFrame;
             this.backgroundView = [[UIView alloc] initWithFrame:rootView.bounds];
             this.backgroundView.contentMode = UIViewContentModeScaleToFill;
             this.backgroundView.autoresizingMask = ( UIViewAutoresizingFlexibleLeftMargin |
@@ -46,6 +46,10 @@ static ModalZoomView *sharedInstance;
                                                UIViewAutoresizingFlexibleHeight |
                                                UIViewAutoresizingFlexibleBottomMargin);
             this.backgroundView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.1];
+            
+            UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:this action:@selector(backgroundViewTapped:)];
+            [this.backgroundView addGestureRecognizer:tapGesture];
+            
             [rootView addSubview:this.backgroundView];
             
             UIView *theView = this.viewController.view;
@@ -65,6 +69,16 @@ static ModalZoomView *sharedInstance;
     }
 }
 
+- (void)backgroundViewTapped:(UITapGestureRecognizer *)gesture {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.backgroundView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
+        self.viewController.view.frame = self.originalFrame;
+
+    } completion:^(BOOL finished) {
+        [self.backgroundView removeFromSuperview];
+        [self.viewController.view removeFromSuperview];
+    }];
+}
 
 - (BOOL)validated {
     if (!self.viewController) {
