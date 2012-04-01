@@ -22,6 +22,7 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Analytics setup];
     if([PutIOClient sharedClient].ready){
         [self showApp];
     }else{

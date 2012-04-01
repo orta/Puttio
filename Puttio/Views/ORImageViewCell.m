@@ -121,7 +121,6 @@ static CGFloat TitleBottomMargin = 1;
 }
 
 - (void)setImageURL:(NSURL *)anImageURL {
-    #warning add placeholder
     imageURL = anImageURL;
     [imageView setImageWithURL:anImageURL];
 }

@@ -58,7 +58,8 @@
     NSNumber* reason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     switch ([reason intValue]) {
         case MPMovieFinishReasonPlaybackEnded:
-            NSLog(@"playbackFinished. Reason: Playback Ended");         
+            NSLog(@"playbackFinished. Reason: Playback Ended");
+            [Analytics event:@"User finished watching a movie"];
             break;
         case MPMovieFinishReasonPlaybackError:
             NSLog(@"playbackFinished. Reason: Playback Error");
@@ -89,10 +90,10 @@
     movieController.shouldAutoplay = YES;
     movieController.view.frame = rootController.view.bounds;
     [rootController.view addSubview:movieController.view];
-//    [movieController play];
     [movieController setFullscreen:YES animated:YES];
 
     sharedPlayer.mediaPlayer = movieController;
+    [Analytics event:@"User started watching a movie"];
 }
 
 

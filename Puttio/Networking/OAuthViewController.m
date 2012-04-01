@@ -129,7 +129,6 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:V1TokensWereSavedNotification object:nil userInfo:nil];
     }else{
-        #warning alert
         NSLog(@"HTML Syntax changed!");
     }
 }

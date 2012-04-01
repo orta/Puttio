@@ -6,9 +6,5 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#ifndef Puttio_APP_SECRET_EX_h
-#define Puttio_APP_SECRET_EX_h
-
-NSString* APP_SECRET = @"MY_KEY";
-
-#endif
+static NSString* APP_SECRET = @"";
+static NSString* TESTFLIGHT_SECRET = @"";
