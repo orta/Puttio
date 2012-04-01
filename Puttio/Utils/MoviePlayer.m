@@ -80,10 +80,8 @@
     UIViewController *rootController = appDelegate.window.rootViewController;
     MoviePlayer *sharedPlayer = [self sharedPlayer];
     
-    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];
-    
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];    
     NSString* address= [NSString stringWithFormat:@"%@/atk/%@", path, token];
-    NSLog(@" %@  <- this will open in quicktime mac!", address);
     
     MPMoviePlayerController *movieController = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];
     movieController.controlStyle = MPMovieControlStyleDefault;
