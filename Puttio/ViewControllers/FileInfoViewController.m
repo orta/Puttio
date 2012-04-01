@@ -41,11 +41,9 @@
     _item = item;
     additionalInfoLabel.text = object.description;
     [thumbnailImageView setImageWithURL:[NSURL URLWithString:[object.iconURL stringByReplacingOccurrencesOfString:@"shot/" withString:@"shot/b/"]]];
-    NSLog(@"file contentType %@", object.contentType);
     if ([object.contentType isEqualToString:@"video/mp4"]) {
         [[PutIOClient sharedClient] getInfoForFile:_item :^(id userInfoObject) {
             if (![userInfoObject isMemberOfClass:[NSError class]]) {
-                NSLog(@"json %@", userInfoObject);
                 streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
                 streamButton.enabled = YES;
             }
@@ -57,8 +55,6 @@
 
 - (void)getMP4Info {
     [[PutIOClient sharedClient] getMP4InfoForFile:_item :^(id userInfoObject) {
-        NSLog(@"response %@", userInfoObject);
-        
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             streamPath = [userInfoObject valueForKeyPath:@"mp4.stream_url"];
             if (streamPath) {
@@ -77,6 +73,7 @@
                     }
                 }
                 if (!stopRefreshing) {
+                    #warning this loop can run multiple times 
                     [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];                    
                 }
             }
