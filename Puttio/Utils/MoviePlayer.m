@@ -82,7 +82,7 @@
     
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];    
     NSString* address= [NSString stringWithFormat:@"%@/atk/%@", path, token];
-    
+    NSLog(@"stream address %@", address);
     MPMoviePlayerController *movieController = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];
     movieController.controlStyle = MPMovieControlStyleDefault;
     movieController.shouldAutoplay = YES;

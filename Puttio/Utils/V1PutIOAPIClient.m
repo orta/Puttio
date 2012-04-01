@@ -6,27 +6,27 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "V1PutIOClient.h"
+#import "V1PutIOAPIClient.h"
 #import "AFJSONRequestOperation.h"
 #import "NSDictionary+JSON.h"
 
 // http://put.io/v2/docs/
 NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
-@interface V1PutIOClient ()
+@interface V1PutIOAPIClient ()
 @property(strong) NSString* apiKey;
 @property(strong) NSString* apiSecret;
 @end
 
-@implementation V1PutIOClient
+@implementation V1PutIOAPIClient
 
 @synthesize apiKey, apiSecret;
 
-+ (V1PutIOClient *)sharedClient {
-    static V1PutIOClient *_sharedClient = nil;
++ (V1PutIOAPIClient *)sharedClient {
+    static V1PutIOAPIClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[V1PutIOClient alloc] initWithBaseURL:[NSURL URLWithString:API_V1_ADDRESS]];
+        _sharedClient = [[V1PutIOAPIClient alloc] initWithBaseURL:[NSURL URLWithString:API_V1_ADDRESS]];
     });
     
     return _sharedClient;
@@ -69,7 +69,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 }
 
 - (void)getStreamToken {
-    NSDictionary *params = [V1PutIOClient paramsForRequestAtMethod:@"acctoken" withParams:[NSDictionary dictionary]];
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"acctoken" withParams:[NSDictionary dictionary]];
     [self getPath:@"user" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             [[NSUserDefaults standardUserDefaults] setObject:[responseObject valueForKeyPath:@"response.results.token"] forKey:ORStreamTokenDefault];
@@ -84,7 +84,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
     // no need for params on an info request
-    NSDictionary *params = [V1PutIOClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionary]];
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionary]];
     [self getPath:@"user" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             onComplete(responseObject);
@@ -98,7 +98,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
 - (void)getFolderWithID:(NSString *)folderID :(void(^)(id userInfoObject))onComplete {
     // no need for params on an info request
-    NSDictionary *params = [V1PutIOClient paramsForRequestAtMethod:@"list" withParams:[NSDictionary dictionaryWithObject:folderID forKey:@"parent_id"]];
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"list" withParams:[NSDictionary dictionaryWithObject:folderID forKey:@"parent_id"]];
     [self getPath:@"files" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             onComplete([responseObject valueForKeyPath:@"response.results"]);

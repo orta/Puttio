@@ -13,9 +13,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *additionalInfoLabel;
 @property (weak, nonatomic) IBOutlet UIButton *streamButton;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+
 - (IBAction)backButton:(id)sender;
 - (IBAction)streamButton:(id)sender;
 
-
 @property (strong) id item;
+
 @end

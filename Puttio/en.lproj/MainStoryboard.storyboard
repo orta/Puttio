@@ -223,6 +223,10 @@
                                     <action selector="streamButton:" destination="TzT-Wi-2QZ" eventType="touchUpInside" id="FkY-Hg-wl1"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" id="7A1-dI-fla">
+                                <rect key="frame" x="40" y="281" width="328" height="9"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -233,6 +237,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="additionalInfoLabel" destination="6u4-Kk-WuD" id="avn-mG-Y8g"/>
+                        <outlet property="progressView" destination="7A1-dI-fla" id="Yeq-gJ-KgU"/>
                         <outlet property="streamButton" destination="w2Z-MT-fgL" id="MTk-dS-BG8"/>
                         <outlet property="thumbnailImageView" destination="LWj-5N-YVa" id="S3J-Ee-Tcu"/>
                         <outlet property="titleLabel" destination="PqU-fK-eBQ" id="dBs-fj-esW"/>
@@ -272,52 +277,6 @@
             <point key="canvasLocation" x="-3422" y="217"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BrowsingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backPressed:"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FileInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FileInfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButton:"/>
-                <relationship kind="action" name="streamButton:"/>
-                <relationship kind="outlet" name="additionalInfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="streamButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="thumbnailImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="OAuthViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OAuthViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="okPressed:"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="ORSimpleProgress" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSimpleProgress.h"/>
-        </class>
-        <class className="RootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
-        </class>
-        <class className="SearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="StatusViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bandwidthProgressView" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="spaceProgressView" candidateClass="ORSimpleProgress"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>

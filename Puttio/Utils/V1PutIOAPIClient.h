@@ -8,8 +8,8 @@
 
 #import "AFHTTPClient.h"
 
-@interface V1PutIOClient : AFHTTPClient
-+ (V1PutIOClient *)sharedClient;
+@interface V1PutIOAPIClient : AFHTTPClient
++ (V1PutIOAPIClient *)sharedClient;
 + (NSDictionary *)paramsForRequestAtMethod:(NSString *)method withParams:(NSDictionary *)params;
 
 // Public API 

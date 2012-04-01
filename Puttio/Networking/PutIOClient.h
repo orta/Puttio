@@ -8,7 +8,7 @@
 
 #import "AFHTTPClient.h"
 
-@class V1PutIOClient, V2PutIOClient, Folder, File;
+@class V1PutIOAPIClient, V2PutIOAPIClient, Folder, File;
 @interface PutIOClient : AFHTTPClient
 + (PutIOClient *)sharedClient;
 
@@ -16,5 +16,7 @@
 - (void)startup;
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
 - (void)getFolder:(Folder *)folder :(void(^)(id userInfoObject))onComplete;
+- (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete;
 - (void)getMP4InfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete;
+- (void)requestMP4ForFile:(File*)file;
 @end

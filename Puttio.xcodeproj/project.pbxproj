@@ -31,7 +31,7 @@
 		6085D274151B9CEF0068929C /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D268151B9CEF0068929C /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6085D275151B9CEF0068929C /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D26A151B9CEF0068929C /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6085D276151B9CEF0068929C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D26C151B9CEF0068929C /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6085D279151B9DBA0068929C /* V1PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOClient.m */; };
+		6085D279151B9DBA0068929C /* V1PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */; };
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
 		60A1B19815287343002A6A7E /* ModalZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B19715287343002A6A7E /* ModalZoomView.m */; };
@@ -41,7 +41,7 @@
 		60A7A6D0151FD2A100DB71E0 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6CF151FD2A100DB71E0 /* File.m */; };
 		60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AB50D2151F650A00473448 /* UIColor+PutioColours.m */; };
-		60B1A935151E157F00FBCD27 /* V2PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A934151E157F00FBCD27 /* V2PutIOClient.m */; };
+		60B1A935151E157F00FBCD27 /* V2PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */; };
 		60B326E51528A4A200462AA8 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326E31528A4A200462AA8 /* libTestFlight.a */; };
 		60B326E81528A55C00462AA8 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B326E71528A55C00462AA8 /* Analytics.m */; };
 		60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326F41528A6D200462AA8 /* libz.dylib */; };
@@ -113,8 +113,8 @@
 		6085D26A151B9CEF0068929C /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		6085D26B151B9CEF0068929C /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		6085D26C151B9CEF0068929C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		6085D277151B9DBA0068929C /* V1PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V1PutIOClient.h; path = Utils/V1PutIOClient.h; sourceTree = "<group>"; };
-		6085D278151B9DBA0068929C /* V1PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V1PutIOClient.m; path = Utils/V1PutIOClient.m; sourceTree = "<group>"; };
+		6085D277151B9DBA0068929C /* V1PutIOAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; name = V1PutIOAPIClient.h; path = Utils/V1PutIOAPIClient.h; sourceTree = "<group>"; };
+		6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V1PutIOAPIClient.m; path = Utils/V1PutIOAPIClient.m; sourceTree = "<group>"; };
 		6085D27D151BA3AF0068929C /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSON.h"; sourceTree = "<group>"; };
 		6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		6085D295151BAB230068929C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -135,8 +135,8 @@
 		60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+ActiveRecord.m"; sourceTree = "<group>"; };
 		60AB50D1151F650A00473448 /* UIColor+PutioColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PutioColours.h"; path = "Categories/UIColor+PutioColours.h"; sourceTree = "<group>"; };
 		60AB50D2151F650A00473448 /* UIColor+PutioColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PutioColours.m"; path = "Categories/UIColor+PutioColours.m"; sourceTree = "<group>"; };
-		60B1A933151E157E00FBCD27 /* V2PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V2PutIOClient.h; path = Networking/V2PutIOClient.h; sourceTree = "<group>"; };
-		60B1A934151E157F00FBCD27 /* V2PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V2PutIOClient.m; path = Networking/V2PutIOClient.m; sourceTree = "<group>"; };
+		60B1A933151E157E00FBCD27 /* V2PutIOAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; name = V2PutIOAPIClient.h; path = Networking/V2PutIOAPIClient.h; sourceTree = "<group>"; };
+		60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V2PutIOAPIClient.m; path = Networking/V2PutIOAPIClient.m; sourceTree = "<group>"; };
 		60B326E31528A4A200462AA8 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		60B326E41528A4A200462AA8 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		60B326E61528A55C00462AA8 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Utils/Analytics.h; sourceTree = "<group>"; };
@@ -369,10 +369,10 @@
 				60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */,
 				60DB0AB2151C670800DA8A33 /* OAuthViewController.h */,
 				60DB0AB3151C670800DA8A33 /* OAuthViewController.m */,
-				6085D277151B9DBA0068929C /* V1PutIOClient.h */,
-				6085D278151B9DBA0068929C /* V1PutIOClient.m */,
-				60B1A933151E157E00FBCD27 /* V2PutIOClient.h */,
-				60B1A934151E157F00FBCD27 /* V2PutIOClient.m */,
+				6085D277151B9DBA0068929C /* V1PutIOAPIClient.h */,
+				6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */,
+				60B1A933151E157E00FBCD27 /* V2PutIOAPIClient.h */,
+				60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */,
 				60BD4F45151C701300DCD686 /* PutIOClient.h */,
 				60BD4F46151C701300DCD686 /* PutIOClient.m */,
 			);
@@ -483,12 +483,12 @@
 				6085D274151B9CEF0068929C /* AFURLConnectionOperation.m in Sources */,
 				6085D275151B9CEF0068929C /* AFXMLRequestOperation.m in Sources */,
 				6085D276151B9CEF0068929C /* UIImageView+AFNetworking.m in Sources */,
-				6085D279151B9DBA0068929C /* V1PutIOClient.m in Sources */,
+				6085D279151B9DBA0068929C /* V1PutIOAPIClient.m in Sources */,
 				6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */,
 				6085D297151BAB230068929C /* Constants.m in Sources */,
 				60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */,
 				60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */,
-				60B1A935151E157F00FBCD27 /* V2PutIOClient.m in Sources */,
+				60B1A935151E157F00FBCD27 /* V2PutIOAPIClient.m in Sources */,
 				600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */,
 				600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */,
 				60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */,

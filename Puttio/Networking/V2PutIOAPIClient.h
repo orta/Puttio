@@ -9,11 +9,14 @@
 #import "AFNetworking.h"
 
 @class Folder;
-@interface V2PutIOClient : AFHTTPClient
+@interface V2PutIOAPIClient : AFHTTPClient
 
 + (id)setup;
 - (BOOL)ready;
 
 - (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete;
+- (void)getInfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete;
 - (void)getMP4InfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete;
+- (void)requestMP4ForFile:(File*)file;
+
 @end

@@ -8,23 +8,24 @@
 
 // http://put.io/v2/docs/
 
-#import "V2PutIOClient.h"
+#import "V2PutIOAPIClient.h"
 #import "ORAppDelegate.h"
 
 typedef void (^BlockWithCallback)(id userInfoObject);
 
-@interface V2PutIOClient ()
+@interface V2PutIOAPIClient ()
 @property (strong) NSMutableDictionary *actionBlocks;
 @property (strong) NSString* apiToken;
 
 - (NSArray *)filesAndFoldersFromJSONArray:(NSArray *)dictionaries withParent:(Folder *)folder;
+- (void)genericGetAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete;
 @end
 
-@implementation V2PutIOClient 
+@implementation V2PutIOAPIClient 
 @synthesize apiToken, actionBlocks;
 
 + (id)setup {
-    V2PutIOClient *api = [[V2PutIOClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.put.io/"]];
+    V2PutIOAPIClient *api = [[V2PutIOAPIClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.put.io/"]];
                           
     if (api) {
         [[NSNotificationCenter defaultCenter] addObserver:api 
@@ -53,7 +54,6 @@ typedef void (^BlockWithCallback)(id userInfoObject);
         }
         
         if ([[json valueForKeyPath:@"status"] isEqualToString:@"OK"]) {
-            NSLog(@"json %@", json);
             onComplete([self filesAndFoldersFromJSONArray:[json valueForKeyPath:@"files"] withParent:folder]);
         }else{
             NSLog(@"%@", NSStringFromSelector(_cmd));
@@ -86,7 +86,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             file.id = [[dictionary objectForKey:@"id"] stringValue];
             file.name = [dictionary objectForKey:@"name"];
             file.iconURL =  [dictionary objectForKey:@"icon"];
-            file.contentType =  [dictionary objectForKey:@"contentType"];
+            file.contentType =  [dictionary objectForKey:@"content_type"];
             file.parentID = [[dictionary objectForKey:@"parent_id"] stringValue];
             file.size = [dictionary objectForKey:@"size"];
             [objects addObject:file];
@@ -95,10 +95,37 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     return objects;
 }
 
+- (void)getInfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete {
+    NSString *path = [NSString stringWithFormat:@"/v2/files/%@", file.id];
+    [self genericGetAtPath:path :^(id userInfoObject) {
+        onComplete(userInfoObject);
+    }];
+}
 
 - (void)getMP4InfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", nil];
     NSString *path = [NSString stringWithFormat:@"/v2/files/%@/mp4-status", file.id];
+    [self genericGetAtPath:path :^(id userInfoObject) {
+        onComplete(userInfoObject);
+    }];
+}
+
+- (void)requestMP4ForFile:(File*)file {
+    NSString *path = [NSString stringWithFormat:@"/v2/files/%@/convert-to-mp4?oauth_token=%@", file.id, self.apiToken];
+    [self postPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        NSLog(@"requested MP4");
+        NSLog(@"req %@", operation.request);
+        NSLog(@"response %@", json);
+    }
+           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+               NSLog(@"failure in requesting MP4 %@", error);
+           }];
+}
+
+#pragma mark internal API gubbins
+
+- (void)genericGetAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete {
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", nil];
     [self getPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error= nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
@@ -108,14 +135,10 @@ typedef void (^BlockWithCallback)(id userInfoObject);
         }
         onComplete(json);
     }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        onComplete(error);        
+    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+      onComplete(error);        
     }];
 }
-
-
-
-#pragma mark internal API gubbins
 
 -(void)apiDidReturn:(id)arrOrDict forRoute:(NSString*)action { 
     NSLog(@"%@", NSStringFromSelector(_cmd));

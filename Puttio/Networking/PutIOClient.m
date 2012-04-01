@@ -9,12 +9,12 @@
 #import "PutIOClient.h"
 #import "AFJSONRequestOperation.h"
 #import "ORAppDelegate.h"
-#import "V1PutIOClient.h"
-#import "V2PutIOClient.h"
+#import "V1PutIOAPIClient.h"
+#import "V2PutIOAPIClient.h"
 
 @interface PutIOClient ()
-@property(strong) V1PutIOClient *v1Client;
-@property(strong) V2PutIOClient *v2Client;
+@property(strong) V1PutIOAPIClient *v1Client;
+@property(strong) V2PutIOAPIClient *v2Client;
 @end
 
 @implementation PutIOClient
@@ -37,8 +37,8 @@
         return nil;
     }
     
-    self.v1Client = [V1PutIOClient sharedClient];
-    self.v2Client = [V2PutIOClient setup];
+    self.v1Client = [V1PutIOAPIClient sharedClient];
+    self.v2Client = [V2PutIOAPIClient setup];
     return self;
 }
 
@@ -62,12 +62,20 @@
     }];
 }
 
+- (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete {
+    [self.v2Client getInfoForFile:file :^(id userInfoObject)  {
+        onComplete(userInfoObject);  
+    }];
+}
+
 - (void)getMP4InfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete {
     [self.v2Client getMP4InfoForFile:file :^(id userInfoObject)  {
         onComplete(userInfoObject);  
     }];
 }
 
-
+- (void)requestMP4ForFile:(File*)file {
+    [self.v2Client requestMP4ForFile:file];
+}
 
 @end
