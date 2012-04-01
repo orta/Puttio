@@ -132,7 +132,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
             if (messages) {
                 for (NSDictionary *messageDict in messages) {
                     Message *message = [[Message alloc] init];
-                    message.message = [messageDict objectForKey:@"title"];
+                    message.message = [self flattenHTML:[messageDict objectForKey:@"title"] trimWhiteSpace:YES];
                     [returnedMessages addObject:message];
                 }
             }
@@ -149,6 +149,33 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
 - (BOOL)ready {
     return (self.apiKey && self.apiSecret);
+}
+
+- (NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim {
+    
+    NSScanner *theScanner;
+    NSString *text = nil;
+    
+    theScanner = [NSScanner scannerWithString:html];
+    
+    while ([theScanner isAtEnd] == NO) {
+        
+        // find start of tag
+        [theScanner scanUpToString:@"<" intoString:NULL] ;                 
+        // find end of tag         
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        
+        // replace the found tag with a space
+        //(you can filter multi-spaces out later if you wish)
+        html = [html stringByReplacingOccurrencesOfString:
+                [ NSString stringWithFormat:@"%@>", text]
+                                               withString:@" "];
+        
+    } // while //
+    
+    // trim off whitespace
+    return trim ? [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : html;
+    
 }
 
 @end
