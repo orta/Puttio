@@ -79,7 +79,6 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
         NSLog(@"v1 server said not ok %@", error);
         NSLog(@"request %@", operation.request.URL);
     }];
-
 }
 
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
@@ -109,6 +108,21 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
         NSLog(@"request %@", operation.request.URL);
     }];
 }
+
+- (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete {
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionaryWithObject:file.id forKey:@"id"]];
+    [self getPath:@"files" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
+            onComplete([responseObject valueForKeyPath:@"response.results"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", NSStringFromSelector(_cmd));
+        NSLog(@"v1 server said not ok %@", error);
+        NSLog(@"request %@", operation.request.URL);
+    }];
+}
+
+
 
 - (BOOL)ready {
     return (self.apiKey && self.apiSecret);

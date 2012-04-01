@@ -29,6 +29,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     streamButton.enabled = NO;
+    progressView.hidden = YES;
 }
 
 - (void)setItem:(id)item {
@@ -45,11 +46,13 @@
         [[PutIOClient sharedClient] getInfoForFile:_item :^(id userInfoObject) {
             if (![userInfoObject isMemberOfClass:[NSError class]]) {
                 NSLog(@"json %@", userInfoObject);
+                streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
+                streamButton.enabled = YES;
             }
         }];
     }else{
+        [self getMP4Info];        
     }
-    [self getMP4Info];        
 }
 
 - (void)getMP4Info {
@@ -68,10 +71,13 @@
                 }
                 if ([status isEqualToString:@"CONVERTING"]) {
                     additionalInfoLabel.text = @"Converting to MP4";
-                    progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
+                    if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
+                        progressView.hidden = NO;
+                        progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
+                    }
                 }
                 if (!stopRefreshing) {
-                    [self performSelector:@selector(getInfo) withObject:self afterDelay:1];                    
+                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];                    
                 }
             }
         }

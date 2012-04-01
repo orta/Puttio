@@ -17,5 +17,5 @@
 - (void)getStreamToken;
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
 - (void)getFolderWithID:(NSString *)folderID :(void(^)(id userInfoObject))onComplete;
-
+- (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete;
 @end

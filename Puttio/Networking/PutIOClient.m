@@ -63,7 +63,7 @@
 }
 
 - (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete {
-    [self.v2Client getInfoForFile:file :^(id userInfoObject)  {
+    [self.v1Client getInfoForFile:file :^(id userInfoObject)  {
         onComplete(userInfoObject);  
     }];
 }
