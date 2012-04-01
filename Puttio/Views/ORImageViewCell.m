@@ -11,7 +11,7 @@
 
 static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 55};
 
-static CGFloat TitleLabelHeight = 20;
+static CGFloat TitleLabelHeight = 40;
 static CGFloat SubTitleLabelHeight = 24;
 
 static CGFloat ImageBottomMargin = 10;
@@ -63,6 +63,7 @@ static CGFloat TitleBottomMargin = 1;
         titleLabel.backgroundColor = [UIColor whiteColor];
         titleLabel.opaque = NO;
         titleLabel.userInteractionEnabled = YES;
+        titleLabel.numberOfLines = 2;
         [self.contentView addSubview:titleLabel];
         
         subtitleLabel = [[UILabel alloc] init];

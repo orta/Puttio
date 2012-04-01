@@ -76,20 +76,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
         UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
         CGRect initialFrame = [kkGridView convertRect:[kkGridView rectForCellAtIndexPath:indexPath] toView:rootView];
         [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"FileInfoView" andItem:item];
-        
-        //    id contentType = [item objectForKey:@"content_type"];
-        //    if (contentType != [NSNull null]  && [contentType isEqualToString:@"video/mp4"]) {
-        //        [MoviePlayer streamMovieAtPath:[item objectForKey:@"mp4_url"]];
-        //        return;
-        //    }
-        
-        //    id streamURL = item.streamURL;
-        //    if (streamURL) {
-        //        [MoviePlayer streamMovieAtPath:[item objectForKey:@"stream_url"]];
-        //        return;
-        //    }        
     }
-    
 }
 
 - (NSUInteger)gridView:(KKGridView *)gridView numberOfItemsInSection:(NSUInteger)section {
@@ -111,7 +98,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     cell.title = item.name;
     if ([self itemIsFolder:item]) {
         cell.imageURL = [NSURL URLWithString:item.iconURL];
-        cell.subtitle = item.description;
+//        cell.subtitle = item.description;
     }else{
         cell.imageURL = [NSURL URLWithString:[item.iconURL stringByReplacingOccurrencesOfString:@"shot/" withString:@"shot/b/"]];
     }
