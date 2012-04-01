@@ -66,7 +66,7 @@
                     [[PutIOClient sharedClient] requestMP4ForFile:_item];
                 }
                 if ([status isEqualToString:@"CONVERTING"]) {
-                    additionalInfoLabel.text = @"Converting to MP4";
+                    additionalInfoLabel.text = @"Converting to MP4 (this takes a *very* long time.)";
                     if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
                         progressView.hidden = NO;
                         progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
