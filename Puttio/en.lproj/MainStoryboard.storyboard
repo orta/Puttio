@@ -230,6 +230,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="additionalInfoLabel" destination="6u4-Kk-WuD" id="avn-mG-Y8g"/>
+                        <outlet property="streamButton" destination="w2Z-MT-fgL" id="MTk-dS-BG8"/>
                         <outlet property="thumbnailImageView" destination="LWj-5N-YVa" id="S3J-Ee-Tcu"/>
                         <outlet property="titleLabel" destination="PqU-fK-eBQ" id="dBs-fj-esW"/>
                     </connections>

@@ -8,9 +8,11 @@
 
 #import "FileInfoViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "MoviePlayer.h"
 
 @interface FileInfoViewController() {
     id _item;
+    NSString *streamPath;
 }
 @end
 
@@ -18,8 +20,14 @@
 @implementation FileInfoViewController 
 @synthesize titleLabel;
 @synthesize additionalInfoLabel;
+@synthesize streamButton;
 @synthesize thumbnailImageView;
 @dynamic item;
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    streamButton.enabled = NO;
+}
 
 - (void)setItem:(id)item {
     if (![item conformsToProtocol:@protocol(ORDisplayItemProtocol)]) {
@@ -35,6 +43,10 @@
     [[PutIOClient sharedClient] getMP4InfoForFile:_item :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             NSLog(@"JSON for MP4 - %@", userInfoObject);
+            streamPath = [userInfoObject valueForKeyPath:@"mp4.stream_url"];
+            if (streamPath) {
+                streamButton.enabled = YES;
+            }
         }
     }];
 }
@@ -47,6 +59,7 @@
     [self setTitleLabel:nil];
     [self setThumbnailImageView:nil];
     [self setAdditionalInfoLabel:nil];
+    [self setStreamButton:nil];
     [super viewDidUnload];
 }
 
@@ -55,6 +68,8 @@
 }
 
 - (IBAction)streamButton:(id)sender {
-    
+    if (streamPath) {
+        [MoviePlayer streamMovieAtPath:streamPath];
+    }
 }
 @end
