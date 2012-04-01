@@ -49,6 +49,8 @@
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
 		60F023861528AB55003491E4 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023851528AB55003491E4 /* icon72.png */; };
 		60F023881528AB5F003491E4 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023871528AB5F003491E4 /* icon144.png */; };
+		60F023891528AC24003491E4 /* libTestFlight.a in Resources */ = {isa = PBXBuildFile; fileRef = 60B326E31528A4A200462AA8 /* libTestFlight.a */; };
+		60F0238A1528AC47003491E4 /* libKKGridView.a in Resources */ = {isa = PBXBuildFile; fileRef = 60F5AD5D15224D7100DD7A6F /* libKKGridView.a */; };
 		60F5AD5E15224D7E00DD7A6F /* libKKGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F5AD5D15224D7100DD7A6F /* libKKGridView.a */; };
 		60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */; };
 		60F5AD781522739D00DD7A6F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F5AD771522739D00DD7A6F /* MediaPlayer.framework */; };
@@ -452,7 +454,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F023891528AC24003491E4 /* libTestFlight.a in Resources */,
 				6085D234151B99490068929C /* InfoPlist.strings in Resources */,
+				60F0238A1528AC47003491E4 /* libKKGridView.a in Resources */,
 				6085D23D151B99490068929C /* MainStoryboard.storyboard in Resources */,
 				60F023861528AB55003491E4 /* icon72.png in Resources */,
 				60F023881528AB5F003491E4 /* icon144.png in Resources */,

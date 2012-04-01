@@ -46,6 +46,8 @@
             streamPath = [userInfoObject valueForKeyPath:@"mp4.stream_url"];
             if (streamPath) {
                 streamButton.enabled = YES;
+            }else{
+                additionalInfoLabel.text = @"Not streamable (yet!!)";
             }
         }
     }];
