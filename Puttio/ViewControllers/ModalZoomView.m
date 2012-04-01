@@ -76,7 +76,12 @@ static ModalZoomView *sharedInstance;
 
     } completion:^(BOOL finished) {
         [self.backgroundView removeFromSuperview];
+        [self.viewController viewWillDisappear:NO];
+        [self.viewController viewWillUnload];
         [self.viewController.view removeFromSuperview];
+        [self.viewController viewDidDisappear:NO];
+        [self.viewController viewDidUnload];
+        self.viewController = nil;
     }];
 }
 
