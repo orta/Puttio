@@ -56,10 +56,18 @@
     }];
 }
 
-- (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete {
+- (void)getFolder:(Folder *)folder :(void(^)(id userInfoObject))onComplete {
     [self.v2Client getFolder:folder :^(id userInfoObject)  {
         onComplete(userInfoObject);  
     }];
 }
+
+- (void)getMP4InfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete {
+    [self.v2Client getMP4InfoForFile:file :^(id userInfoObject)  {
+        onComplete(userInfoObject);  
+    }];
+}
+
+
 
 @end

@@ -43,7 +43,6 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 }
 
 - (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete {
-
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", folder.id, @"parent_id", nil];
     [self getPath:@"/v2/files/list" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
@@ -95,6 +94,28 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     }
     return objects;
 }
+
+
+- (void)getMP4InfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete {
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", nil];
+    NSString *path = [NSString stringWithFormat:@"/v2/files/%@/mp4-status", file.id];
+    [self getPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error= nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+        if (error) {
+            NSLog(@"%@", NSStringFromSelector(_cmd));
+            NSLog(@"json parsing error.");
+        }
+        onComplete(json);
+    }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        onComplete(error);        
+    }];
+}
+
+
+
+#pragma mark internal API gubbins
 
 -(void)apiDidReturn:(id)arrOrDict forRoute:(NSString*)action { 
     NSLog(@"%@", NSStringFromSelector(_cmd));

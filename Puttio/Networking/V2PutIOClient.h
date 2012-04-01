@@ -15,4 +15,5 @@
 - (BOOL)ready;
 
 - (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete;
+- (void)getMP4InfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete;
 @end

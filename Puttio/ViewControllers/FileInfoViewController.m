@@ -27,9 +27,20 @@
     }
     NSObject <ORDisplayItemProtocol> *object = item;
     titleLabel.text = object.name;
+    _item = item;
     additionalInfoLabel.text = object.description;
     [thumbnailImageView setImageWithURL:[NSURL URLWithString:[object.iconURL stringByReplacingOccurrencesOfString:@"shot/" withString:@"shot/b/"]]];
+    
+    
+    [[PutIOClient sharedClient] getMP4InfoForFile:_item :^(id userInfoObject) {
+        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+            NSLog(@"JSON for MP4 - %@", userInfoObject);
+        }
+    }];
+}
 
+- (id)item {
+    return _item;
 }
 
 - (void)viewDidUnload {
@@ -38,9 +49,12 @@
     [self setAdditionalInfoLabel:nil];
     [super viewDidUnload];
 }
+
 - (IBAction)backButton:(id)sender {
+    
 }
 
 - (IBAction)streamButton:(id)sender {
+    
 }
 @end
