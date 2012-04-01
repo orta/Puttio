@@ -122,6 +122,29 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
     }];
 }
 
+- (void)getMessages:(void(^)(id userInfoObject))onComplete {
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"list" withParams:[NSDictionary dictionary]];
+    [self getPath:@"messages" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
+            
+            NSArray *messages = [responseObject valueForKeyPath:@"response.results"];
+            NSMutableArray *returnedMessages = [NSMutableArray array];
+            if (messages) {
+                for (NSDictionary *messageDict in messages) {
+                    Message *message = [[Message alloc] init];
+                    message.message = [messageDict objectForKey:@"title"];
+                    [returnedMessages addObject:message];
+                }
+            }
+            onComplete(returnedMessages);
+            
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", NSStringFromSelector(_cmd));
+        NSLog(@"v1 server said not ok %@", error);
+        NSLog(@"request %@", operation.request.URL);
+    }];
+}
 
 
 - (BOOL)ready {

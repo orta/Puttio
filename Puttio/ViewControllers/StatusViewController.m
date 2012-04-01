@@ -11,6 +11,7 @@
 #import "ORSimpleProgress.h"
 
 #import "ARTransferCell.h"
+#import "ORMessageCell.h"
 
 @interface StatusViewController () {
     NSArray *transfers;
@@ -19,6 +20,12 @@
 @end
 
 @implementation StatusViewController
+
+typedef enum {
+    DisplayTransfers,
+    DisplayMessages
+} Display;
+
 @synthesize tableView;
 @synthesize bandwidthProgressView;
 @synthesize spaceProgressView;
@@ -40,7 +47,6 @@
 
 - (void)getTransfers {
     [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
-        NSLog(@"transfers - %@", userInfoObject);
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             transfers = userInfoObject;
             [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
@@ -49,7 +55,12 @@
 }
 
 - (void)getMessages {
-    // NO-OP
+    [[PutIOClient sharedClient] getMessages:^(id userInfoObject) {
+        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+            messages = userInfoObject;
+            [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
+    }];
 }
 
 - (void)getUserInfo {
@@ -69,7 +80,7 @@
 #pragma mark tableview gubbins
 
 - (int)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,11 +96,37 @@
             theCell.progressView.progress = [item.percentDone floatValue]/100;
         }
     }
+    if (indexPath.section == 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell"];
+        if (cell) {
+            Message *item = [messages objectAtIndex:indexPath.row];
+            ORMessageCell *theCell = (ORMessageCell*)cell;
+            theCell.messageLabel.text = item.message;
+        }
+    }
+
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
-    return transfers.count;
+    switch (section) {
+        case DisplayTransfers:
+            return transfers.count;
+        case DisplayMessages:
+            return messages.count;            
+    }
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case DisplayTransfers:
+            return 76.0;
+        case DisplayMessages:
+            return 28.0;            
+    }
+    return 0;
+
 }
 
 - (void)viewDidUnload {

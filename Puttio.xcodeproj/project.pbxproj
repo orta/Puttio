@@ -42,6 +42,8 @@
 		60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60A7AB1515290771009DD716 /* Transfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB1415290771009DD716 /* Transfer.m */; };
 		60A7AB1815290D90009DD716 /* ARTransferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB1715290D90009DD716 /* ARTransferCell.m */; };
+		60A7AB3015291404009DD716 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB2F15291404009DD716 /* Message.m */; };
+		60A7AB33152916BA009DD716 /* ORMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB32152916BA009DD716 /* ORMessageCell.m */; };
 		60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AB50D2151F650A00473448 /* UIColor+PutioColours.m */; };
 		60B1A935151E157F00FBCD27 /* V2PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */; };
 		60B326E51528A4A200462AA8 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326E31528A4A200462AA8 /* libTestFlight.a */; };
@@ -139,6 +141,10 @@
 		60A7AB1415290771009DD716 /* Transfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transfer.m; path = Models/Transfer.m; sourceTree = "<group>"; };
 		60A7AB1615290D90009DD716 /* ARTransferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARTransferCell.h; path = Views/ARTransferCell.h; sourceTree = "<group>"; };
 		60A7AB1715290D90009DD716 /* ARTransferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARTransferCell.m; path = Views/ARTransferCell.m; sourceTree = "<group>"; };
+		60A7AB2E15291403009DD716 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = Models/Message.h; sourceTree = "<group>"; };
+		60A7AB2F15291404009DD716 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Message.m; path = Models/Message.m; sourceTree = "<group>"; };
+		60A7AB31152916BA009DD716 /* ORMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMessageCell.h; path = Views/ORMessageCell.h; sourceTree = "<group>"; };
+		60A7AB32152916BA009DD716 /* ORMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMessageCell.m; path = Views/ORMessageCell.m; sourceTree = "<group>"; };
 		60AB50D1151F650A00473448 /* UIColor+PutioColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PutioColours.h"; path = "Categories/UIColor+PutioColours.h"; sourceTree = "<group>"; };
 		60AB50D2151F650A00473448 /* UIColor+PutioColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PutioColours.m"; path = "Categories/UIColor+PutioColours.m"; sourceTree = "<group>"; };
 		60B1A933151E157E00FBCD27 /* V2PutIOAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V2PutIOAPIClient.h; path = Networking/V2PutIOAPIClient.h; sourceTree = "<group>"; };
@@ -198,6 +204,8 @@
 				60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */,
 				60A7AB1615290D90009DD716 /* ARTransferCell.h */,
 				60A7AB1715290D90009DD716 /* ARTransferCell.m */,
+				60A7AB31152916BA009DD716 /* ORMessageCell.h */,
+				60A7AB32152916BA009DD716 /* ORMessageCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -348,6 +356,8 @@
 				600104D31524F9CB005F5B33 /* Folder.m */,
 				60A7AB1315290771009DD716 /* Transfer.h */,
 				60A7AB1415290771009DD716 /* Transfer.m */,
+				60A7AB2E15291403009DD716 /* Message.h */,
+				60A7AB2F15291404009DD716 /* Message.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -516,6 +526,8 @@
 				60B326E81528A55C00462AA8 /* Analytics.m in Sources */,
 				60A7AB1515290771009DD716 /* Transfer.m in Sources */,
 				60A7AB1815290D90009DD716 /* ARTransferCell.m in Sources */,
+				60A7AB3015291404009DD716 /* Message.m in Sources */,
+				60A7AB33152916BA009DD716 /* ORMessageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

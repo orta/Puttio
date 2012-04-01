@@ -74,6 +74,12 @@
     }];
 }
 
+- (void)getMessages:(void(^)(id userInfoObject))onComplete {
+    [self.v1Client getMessages :^(id userInfoObject) {
+        onComplete(userInfoObject);  
+    }];
+}
+
 - (void)getTransfers:(void(^)(id userInfoObject))onComplete {
     [self.v2Client getTransfers :^(id userInfoObject) {
         onComplete(userInfoObject);  
