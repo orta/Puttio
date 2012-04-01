@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @class ORSimpleProgress;
-@interface StatusViewController : UIViewController
+@interface StatusViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet ORSimpleProgress *bandwidthProgressView;
 @property (weak, nonatomic) IBOutlet ORSimpleProgress *spaceProgressView;
 - (void)setup;

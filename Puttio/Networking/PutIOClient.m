@@ -74,6 +74,12 @@
     }];
 }
 
+- (void)getTransfers:(void(^)(id userInfoObject))onComplete {
+    [self.v2Client getTransfers :^(id userInfoObject) {
+        onComplete(userInfoObject);  
+    }];
+}
+
 - (void)requestMP4ForFile:(File*)file {
     [self.v2Client requestMP4ForFile:file];
 }

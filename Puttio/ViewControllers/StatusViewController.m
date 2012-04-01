@@ -10,11 +10,16 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ORSimpleProgress.h"
 
-@interface StatusViewController ()
+#import "ARTransferCell.h"
 
+@interface StatusViewController () {
+    NSArray *transfers;
+    NSArray *messages;
+}
 @end
 
 @implementation StatusViewController
+@synthesize tableView;
 @synthesize bandwidthProgressView;
 @synthesize spaceProgressView;
 
@@ -28,24 +33,69 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupShadow];
-    
+    [self getUserInfo];
+    [self getTransfers];
+    [self getMessages];
+}
+
+- (void)getTransfers {
+    [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
+        NSLog(@"transfers - %@", userInfoObject);
+        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+            transfers = userInfoObject;
+            [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
+    }];
+}
+
+- (void)getMessages {
+    // NO-OP
+}
+
+- (void)getUserInfo {
     [[PutIOClient sharedClient] getUserInfo:^(id userInfoObject) {
-        
         [[NSUserDefaults standardUserDefaults] setObject:[userInfoObject valueForKeyPath:@"id"] forKey:ORUserIdDefault];
         NSString *diskQuotaString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota"] objectAtIndex:0];
         NSString *diskQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota_available"] objectAtIndex:0];
-
+        
         NSString *bandwidthQuotaString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota"] objectAtIndex:0];
         NSString *bandwidthQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota_available"] objectAtIndex:0];
-
+        
         self.spaceProgressView.value = [diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue] ;
         self.bandwidthProgressView.value = [bandwidthQuotaAvailableString longLongValue] / [bandwidthQuotaString longLongValue];
     }];
 }
 
+#pragma mark tableview gubbins
+
+- (int)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = nil;
+    if (indexPath.section == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
+        if (cell) {
+            Transfer *item = [transfers objectAtIndex:indexPath.row];
+            ARTransferCell *theCell = (ARTransferCell*)cell;
+            theCell.nameLabel.text = item.name;
+            theCell.detailsLabel.text = [item.downloadSpeed stringValue];
+            theCell.progressView.progress = [item.percentDone floatValue]/100;
+        }
+    }
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
+    return transfers.count;
+}
+
 - (void)viewDidUnload {
     [self setBandwidthProgressView:nil];
     [self setSpaceProgressView:nil];
+    [self setTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

@@ -18,5 +18,5 @@
 - (void)getInfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete;
 - (void)getMP4InfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete;
 - (void)requestMP4ForFile:(File*)file;
-
+- (void)getTransfers:(void(^)(id userInfoObject))onComplete;
 @end

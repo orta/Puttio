@@ -40,6 +40,8 @@
 		60A7A6C6151FBA9900DB71E0 /* NetworkConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */; };
 		60A7A6D0151FD2A100DB71E0 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6CF151FD2A100DB71E0 /* File.m */; };
 		60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		60A7AB1515290771009DD716 /* Transfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB1415290771009DD716 /* Transfer.m */; };
+		60A7AB1815290D90009DD716 /* ARTransferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB1715290D90009DD716 /* ARTransferCell.m */; };
 		60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AB50D2151F650A00473448 /* UIColor+PutioColours.m */; };
 		60B1A935151E157F00FBCD27 /* V2PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */; };
 		60B326E51528A4A200462AA8 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326E31528A4A200462AA8 /* libTestFlight.a */; };
@@ -113,7 +115,7 @@
 		6085D26A151B9CEF0068929C /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		6085D26B151B9CEF0068929C /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		6085D26C151B9CEF0068929C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		6085D277151B9DBA0068929C /* V1PutIOAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; name = V1PutIOAPIClient.h; path = Utils/V1PutIOAPIClient.h; sourceTree = "<group>"; };
+		6085D277151B9DBA0068929C /* V1PutIOAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V1PutIOAPIClient.h; path = Utils/V1PutIOAPIClient.h; sourceTree = "<group>"; };
 		6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V1PutIOAPIClient.m; path = Utils/V1PutIOAPIClient.m; sourceTree = "<group>"; };
 		6085D27D151BA3AF0068929C /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSON.h"; sourceTree = "<group>"; };
 		6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
@@ -133,9 +135,13 @@
 		60A7A6CF151FD2A100DB71E0 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = File.m; path = Models/File.m; sourceTree = SOURCE_ROOT; };
 		60A7A6D2151FD34700DB71E0 /* NSManagedObject+ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+ActiveRecord.h"; sourceTree = "<group>"; };
 		60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+ActiveRecord.m"; sourceTree = "<group>"; };
+		60A7AB1315290771009DD716 /* Transfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transfer.h; path = Models/Transfer.h; sourceTree = "<group>"; };
+		60A7AB1415290771009DD716 /* Transfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transfer.m; path = Models/Transfer.m; sourceTree = "<group>"; };
+		60A7AB1615290D90009DD716 /* ARTransferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARTransferCell.h; path = Views/ARTransferCell.h; sourceTree = "<group>"; };
+		60A7AB1715290D90009DD716 /* ARTransferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARTransferCell.m; path = Views/ARTransferCell.m; sourceTree = "<group>"; };
 		60AB50D1151F650A00473448 /* UIColor+PutioColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PutioColours.h"; path = "Categories/UIColor+PutioColours.h"; sourceTree = "<group>"; };
 		60AB50D2151F650A00473448 /* UIColor+PutioColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PutioColours.m"; path = "Categories/UIColor+PutioColours.m"; sourceTree = "<group>"; };
-		60B1A933151E157E00FBCD27 /* V2PutIOAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; name = V2PutIOAPIClient.h; path = Networking/V2PutIOAPIClient.h; sourceTree = "<group>"; };
+		60B1A933151E157E00FBCD27 /* V2PutIOAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V2PutIOAPIClient.h; path = Networking/V2PutIOAPIClient.h; sourceTree = "<group>"; };
 		60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V2PutIOAPIClient.m; path = Networking/V2PutIOAPIClient.m; sourceTree = "<group>"; };
 		60B326E31528A4A200462AA8 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		60B326E41528A4A200462AA8 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
@@ -190,6 +196,8 @@
 				60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */,
 				60F5AD5F15224DF400DD7A6F /* ORImageViewCell.h */,
 				60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */,
+				60A7AB1615290D90009DD716 /* ARTransferCell.h */,
+				60A7AB1715290D90009DD716 /* ARTransferCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -338,6 +346,8 @@
 				60A7A6CF151FD2A100DB71E0 /* File.m */,
 				600104D21524F9CB005F5B33 /* Folder.h */,
 				600104D31524F9CB005F5B33 /* Folder.m */,
+				60A7AB1315290771009DD716 /* Transfer.h */,
+				60A7AB1415290771009DD716 /* Transfer.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -504,6 +514,8 @@
 				60A1B19815287343002A6A7E /* ModalZoomView.m in Sources */,
 				60A1B1B01528788E002A6A7E /* FileInfoViewController.m in Sources */,
 				60B326E81528A55C00462AA8 /* Analytics.m in Sources */,
+				60A7AB1515290771009DD716 /* Transfer.m in Sources */,
+				60A7AB1815290D90009DD716 /* ARTransferCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

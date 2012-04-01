@@ -22,6 +22,6 @@
     // models
     #import "File.h"
     #import "Folder.h"
-
+    #import "Transfer.h"
 #endif
 

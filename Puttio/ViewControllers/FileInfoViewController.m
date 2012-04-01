@@ -62,19 +62,20 @@
             }else{
                 NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
                 if ([status isEqualToString:@"NotAvailable"]) {
-                    additionalInfoLabel.text = @"Not streamable Yet";
+                    additionalInfoLabel.text = @"Requested an iPad version (this takes a *very* long time.)";
                     [[PutIOClient sharedClient] requestMP4ForFile:_item];
+                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:30];
                 }
                 if ([status isEqualToString:@"CONVERTING"]) {
-                    additionalInfoLabel.text = @"Converting to MP4 (this takes a *very* long time.)";
+                    additionalInfoLabel.text = @"Converting to iPad version (this takes a *very* long time.)";
                     if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
                         progressView.hidden = NO;
                         progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
                     }
-                }
-                if (!stopRefreshing) {
-                    #warning this loop can run multiple times 
-                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];                    
+                    if (!stopRefreshing) {
+                        #warning this loop can run multiple times 
+                        [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];                    
+                    }
                 }
             }
         }

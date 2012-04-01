@@ -109,6 +109,24 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     }];
 }
 
+- (void)getTransfers :(void(^)(id userInfoObject))onComplete {
+    [self genericGetAtPath:@"/v2/transfers/list" :^(id userInfoObject) {
+        NSArray *transfers = [userInfoObject valueForKeyPath:@"transfers"];
+        NSMutableArray *returnedTransfers = [NSMutableArray array];
+        if (transfers) {
+            for (NSDictionary *transferDict in transfers) {
+                Transfer *transfer = [[Transfer alloc] init];
+                transfer.name = [transferDict objectForKey:@"name"];
+                transfer.downloadSpeed =  [transferDict objectForKey:@"down_speed"];
+                transfer.percentDone =  [transferDict objectForKey:@"percent_done"];
+                transfer.estimatedTime = [transferDict objectForKey:@"estimated_time"];
+                [returnedTransfers addObject:transfer];
+            }
+        }
+        onComplete(returnedTransfers);
+    }];
+}
+
 - (void)requestMP4ForFile:(File*)file {
     NSString *path = [NSString stringWithFormat:@"/v2/files/%@/convert-to-mp4?oauth_token=%@", file.id, self.apiToken];
     [self postPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
