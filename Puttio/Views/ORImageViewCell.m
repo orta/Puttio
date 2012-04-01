@@ -7,6 +7,7 @@
 //
 
 #import "ORImageViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 55};
 

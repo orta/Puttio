@@ -34,6 +34,8 @@
 		6085D279151B9DBA0068929C /* V1PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOClient.m */; };
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
+		60A1B19815287343002A6A7E /* ModalZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B19715287343002A6A7E /* ModalZoomView.m */; };
+		60A1B1B01528788E002A6A7E /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */; };
 		60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */; };
 		60A7A6C6151FBA9900DB71E0 /* NetworkConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */; };
 		60A7A6D0151FD2A100DB71E0 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6CF151FD2A100DB71E0 /* File.m */; };
@@ -110,6 +112,10 @@
 		6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		6085D295151BAB230068929C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6085D296151BAB230068929C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		60A1B19615287343002A6A7E /* ModalZoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModalZoomView.h; path = ViewControllers/ModalZoomView.h; sourceTree = "<group>"; };
+		60A1B19715287343002A6A7E /* ModalZoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModalZoomView.m; path = ViewControllers/ModalZoomView.m; sourceTree = "<group>"; };
+		60A1B1AE1528788E002A6A7E /* FileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileInfoViewController.h; path = ViewControllers/FileInfoViewController.h; sourceTree = "<group>"; };
+		60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileInfoViewController.m; path = ViewControllers/FileInfoViewController.m; sourceTree = "<group>"; };
 		60A7A6B3151F6E0D00DB71E0 /* ORSimpleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSimpleProgress.h; path = Views/ORSimpleProgress.h; sourceTree = "<group>"; };
 		60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSimpleProgress.m; path = Views/ORSimpleProgress.m; sourceTree = "<group>"; };
 		60A7A6C3151FBA1D00DB71E0 /* APP_SECRET.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET.h; path = ../APP_SECRET.h; sourceTree = "<group>"; };
@@ -264,6 +270,8 @@
 		6085D27A151B9E4E0068929C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				60A1B19615287343002A6A7E /* ModalZoomView.h */,
+				60A1B19715287343002A6A7E /* ModalZoomView.m */,
 				6085D295151BAB230068929C /* Constants.h */,
 				6085D296151BAB230068929C /* Constants.m */,
 				60F5AD791522777600DD7A6F /* MoviePlayer.h */,
@@ -283,6 +291,8 @@
 				60064201151F24CD00EF85F9 /* BrowsingViewController.m */,
 				60064203151F24DA00EF85F9 /* RootViewController.h */,
 				60064204151F24DA00EF85F9 /* RootViewController.m */,
+				60A1B1AE1528788E002A6A7E /* FileInfoViewController.h */,
+				60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -464,6 +474,8 @@
 				60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */,
 				60F5AD7B1522777600DD7A6F /* MoviePlayer.m in Sources */,
 				600104D41524F9CB005F5B33 /* Folder.m in Sources */,
+				60A1B19815287343002A6A7E /* ModalZoomView.m in Sources */,
+				60A1B1B01528788E002A6A7E /* FileInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

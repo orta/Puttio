@@ -12,6 +12,7 @@
 
 #import "ORImageViewCell.h"
 #import "MoviePlayer.h"
+#import "ModalZoomView.h"
 
 @interface BrowsingViewController () {
     NSArray *gridViewItems;
@@ -57,13 +58,9 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 }
 
 - (void)loadFolder:(Folder *)folder {
-    NSLog(@"%@ %@", NSStringFromSelector(_cmd), folder.name);
-
     [[PutIOClient sharedClient] getFolder:folder :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
-            
             self.item = folder;
-
             gridViewItems = userInfoObject;
             [gridView reloadData];
         }
@@ -76,6 +73,10 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
         Folder *folder = (Folder *)item;
         [self loadFolder:folder];
     }else {
+        UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+        CGRect initialFrame = [kkGridView convertRect:[kkGridView rectForCellAtIndexPath:indexPath] toView:rootView];
+        [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"FileInfoView" andItem:item];
+        
         //    id contentType = [item objectForKey:@"content_type"];
         //    if (contentType != [NSNull null]  && [contentType isEqualToString:@"video/mp4"]) {
         //        [MoviePlayer streamMovieAtPath:[item objectForKey:@"mp4_url"]];
