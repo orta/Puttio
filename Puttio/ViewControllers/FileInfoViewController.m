@@ -9,11 +9,13 @@
 #import "FileInfoViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "MoviePlayer.h"
+#import "FileSizeUtils.h"
 
 @interface FileInfoViewController() {
-    id _item;
+    File *_item;
     NSString *streamPath;
     NSString *downloadPath;
+    NSInteger fileSize;
     BOOL stopRefreshing;
 }
 @end
@@ -33,16 +35,18 @@
     [super viewWillAppear:animated];
     streamButton.enabled = NO;
     progressView.hidden = YES;
+    fileSizeLabel.text = @"";
+    titleLabel.text = @"";
+    additionalInfoLabel.text = @"";
 }
 
-- (void)setItem:(id)item {
+- (void)setItem:(File *)item {
     if (![item conformsToProtocol:@protocol(ORDisplayItemProtocol)]) {
         [NSException raise:@"File Info item should conform to ORDisplayItemProtocol" format:@"File Info item should conform to ORDisplayItemProtocol"];
     }
     NSObject <ORDisplayItemProtocol> *object = item;
     titleLabel.text = object.name;
     _item = item;
-    additionalInfoLabel.text = object.description;
     [thumbnailImageView setImageWithURL:[NSURL URLWithString:[object.iconURL stringByReplacingOccurrencesOfString:@"shot/" withString:@"shot/b/"]]];
 
     [self getFileInfo];
@@ -54,6 +58,11 @@
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
             downloadPath = [[userInfoObject valueForKeyPath:@"download_url"] objectAtIndex:0]; 
+            
+            fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
+            fileSizeLabel.text = unitStringFromBytes(fileSize);
+            
+            additionalInfoLabel.text = [[userInfoObject valueForKeyPath:@"content_type"] objectAtIndex:0];
             
             streamButton.enabled = !!streamPath;
             downloadButton.enabled = !!downloadPath;

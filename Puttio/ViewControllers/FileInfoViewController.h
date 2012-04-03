@@ -21,6 +21,6 @@
 - (IBAction)streamTapped:(id)sender;
 - (IBAction)downloadTapped:(id)sender;
 
-@property (strong) id item;
+@property (strong) File *item;
 
 @end

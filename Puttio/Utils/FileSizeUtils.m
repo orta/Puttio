@@ -2,13 +2,12 @@
 //  FileSizeUtils.m
 //  Puttio
 //
-//  Created by orta therox on 03/04/2012.
-//  Copyright (c) 2012 ortatherox.com. All rights reserved.
+//  http://stackoverflow.com/questions/572614/objc-cocoa-class-for-converting-size-to-human-readable-string
 //
 
 #import "FileSizeUtils.h"
 
-NSString* unitStringFromBytes(double bytes, uint8_t flags){
+NSString* unitStringFromBytes(double bytes){
     
     static const char units[] = { '\0', 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y' };
     static int maxUnits = sizeof units - 1;
