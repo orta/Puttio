@@ -6,16 +6,21 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "FileInfoViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "MoviePlayer.h"
 #import "FileSizeUtils.h"
+
+#include <sys/param.h>  
+#include <sys/mount.h>  
 
 @interface FileInfoViewController() {
     File *_item;
     NSString *streamPath;
     NSString *downloadPath;
     NSInteger fileSize;
+    BOOL fileDownloaded;
     BOOL stopRefreshing;
 }
 @end
@@ -56,8 +61,10 @@
 - (void)getFileInfo {
     [[PutIOClient sharedClient] getInfoForFile:_item :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
+            
+            NSLog(@"%@", userInfoObject);
             streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
-            downloadPath = [[userInfoObject valueForKeyPath:@"download_url"] objectAtIndex:0]; 
+            downloadPath = [[userInfoObject valueForKeyPath:@"mp4_url"] objectAtIndex:0]; 
             
             fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
             fileSizeLabel.text = unitStringFromBytes(fileSize);
@@ -129,8 +136,79 @@
 }
 
 - (IBAction)downloadTapped:(id)sender {
-    if (downloadPath) {
-        
+    if (!fileDownloaded) {
+        if (downloadPath) {
+            self.progressView.hidden = NO;
+            self.progressView.progress = 0;
+            self.additionalInfoLabel.text = @"Downloading";
+            self.downloadButton.enabled = NO;
+            self.streamButton.enabled = NO;
+            [self downloadItem];
+        }                
+    }else{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"photos:"]];
     }
 }
+
+- (void)downloadItem {
+    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
+    struct statfs tStats;  
+    statfs([[paths lastObject] cString], &tStats);  
+    uint64_t totalSpace = tStats.f_bavail * tStats.f_bsize;  
+
+//    NSLog(@" %llu total", totalSpace);
+//    NSLog(@" %i ", fileSize);
+    
+    if (fileSize < totalSpace) {
+        NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];    
+        NSString* address= [NSString stringWithFormat:@"%@/atk/%@", downloadPath, token];
+        NSLog(@"downloading %@", address);
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:address]];
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+
+        [operation setDownloadProgressBlock:^(NSInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead) {
+            progressView.progress = (float)totalBytesRead/totalBytesExpectedToRead;
+        }];
+        
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:_item.id];
+            NSString *fullPath = [NSString stringWithFormat:@"%@.mp4", filePath];
+            
+            [operation.responseData writeToFile:fullPath atomically:YES];
+            ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];            
+            NSURL *filePathURL = [NSURL fileURLWithPath:fullPath isDirectory:NO];
+            if ([library videoAtPathIsCompatibleWithSavedPhotosAlbum:filePathURL]) {
+                [library writeVideoAtPathToSavedPhotosAlbum:filePathURL completionBlock:^(NSURL *assetURL, NSError *error){
+                    if (error) {
+                        // TODO: error handling
+                        NSLog(@"fail bail");
+                    } else {
+                        // TODO: success handling
+                        NSLog(@"success kid");
+                        self.additionalInfoLabel.text = @"Downloaded - open in Photos";
+                        self.downloadButton.titleLabel.text = @"Photos!";
+                        fileDownloaded = YES;
+                    }
+                }];
+            }
+            progressView.hidden = YES;
+            self.downloadButton.enabled = YES;
+            self.streamButton.enabled = NO;
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@", NSStringFromSelector(_cmd));
+            NSLog(@"mega fail");
+            progressView.hidden = YES;
+            self.downloadButton.enabled = YES;
+            self.streamButton.enabled = NO;
+
+        }];
+        [operation start];
+    }else {        
+        NSString *message = [NSString stringWithFormat:@"Your iPad doesn't have enough free disk space to sync."];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not enough disk space" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
+}
+
 @end
