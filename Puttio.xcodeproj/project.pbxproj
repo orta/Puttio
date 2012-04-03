@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600104D41524F9CB005F5B33 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 600104D31524F9CB005F5B33 /* Folder.m */; };
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
@@ -30,17 +31,30 @@
 		6085D274151B9CEF0068929C /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D268151B9CEF0068929C /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6085D275151B9CEF0068929C /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D26A151B9CEF0068929C /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6085D276151B9CEF0068929C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D26C151B9CEF0068929C /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6085D279151B9DBA0068929C /* V1PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOClient.m */; };
+		6085D279151B9DBA0068929C /* V1PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */; };
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
+		60A1B19815287343002A6A7E /* ModalZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B19715287343002A6A7E /* ModalZoomView.m */; };
+		60A1B1B01528788E002A6A7E /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */; };
 		60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */; };
 		60A7A6C6151FBA9900DB71E0 /* NetworkConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */; };
 		60A7A6D0151FD2A100DB71E0 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6CF151FD2A100DB71E0 /* File.m */; };
 		60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		60A7AB1515290771009DD716 /* Transfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB1415290771009DD716 /* Transfer.m */; };
+		60A7AB1815290D90009DD716 /* ARTransferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB1715290D90009DD716 /* ARTransferCell.m */; };
+		60A7AB3015291404009DD716 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB2F15291404009DD716 /* Message.m */; };
+		60A7AB33152916BA009DD716 /* ORMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB32152916BA009DD716 /* ORMessageCell.m */; };
 		60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AB50D2151F650A00473448 /* UIColor+PutioColours.m */; };
-		60B1A935151E157F00FBCD27 /* V2PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A934151E157F00FBCD27 /* V2PutIOClient.m */; };
+		60B1A935151E157F00FBCD27 /* V2PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */; };
+		60B326E51528A4A200462AA8 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326E31528A4A200462AA8 /* libTestFlight.a */; };
+		60B326E81528A55C00462AA8 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B326E71528A55C00462AA8 /* Analytics.m */; };
+		60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326F41528A6D200462AA8 /* libz.dylib */; };
 		60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BD4F46151C701300DCD686 /* PutIOClient.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
+		60F023861528AB55003491E4 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023851528AB55003491E4 /* icon72.png */; };
+		60F023881528AB5F003491E4 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023871528AB5F003491E4 /* icon144.png */; };
+		60F023891528AC24003491E4 /* libTestFlight.a in Resources */ = {isa = PBXBuildFile; fileRef = 60B326E31528A4A200462AA8 /* libTestFlight.a */; };
+		60F0238A1528AC47003491E4 /* libKKGridView.a in Resources */ = {isa = PBXBuildFile; fileRef = 60F5AD5D15224D7100DD7A6F /* libKKGridView.a */; };
 		60F5AD5E15224D7E00DD7A6F /* libKKGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F5AD5D15224D7100DD7A6F /* libKKGridView.a */; };
 		60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */; };
 		60F5AD781522739D00DD7A6F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F5AD771522739D00DD7A6F /* MediaPlayer.framework */; };
@@ -58,6 +72,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		600104D21524F9CB005F5B33 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Folder.h; path = Models/Folder.h; sourceTree = "<group>"; };
+		600104D31524F9CB005F5B33 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Folder.m; path = Models/Folder.m; sourceTree = "<group>"; };
+		6001050A1525025A005F5B33 /* ORDisplayItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ORDisplayItemProtocol.h; path = Protocols/ORDisplayItemProtocol.h; sourceTree = "<group>"; };
 		600641F9151F24AF00EF85F9 /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusViewController.h; path = ViewControllers/StatusViewController.h; sourceTree = "<group>"; };
 		600641FA151F24AF00EF85F9 /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusViewController.m; path = ViewControllers/StatusViewController.m; sourceTree = "<group>"; };
 		600641FD151F24C100EF85F9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ViewControllers/SearchViewController.h; sourceTree = "<group>"; };
@@ -100,12 +117,16 @@
 		6085D26A151B9CEF0068929C /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		6085D26B151B9CEF0068929C /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		6085D26C151B9CEF0068929C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		6085D277151B9DBA0068929C /* V1PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V1PutIOClient.h; path = Utils/V1PutIOClient.h; sourceTree = "<group>"; };
-		6085D278151B9DBA0068929C /* V1PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V1PutIOClient.m; path = Utils/V1PutIOClient.m; sourceTree = "<group>"; };
+		6085D277151B9DBA0068929C /* V1PutIOAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V1PutIOAPIClient.h; path = Utils/V1PutIOAPIClient.h; sourceTree = "<group>"; };
+		6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V1PutIOAPIClient.m; path = Utils/V1PutIOAPIClient.m; sourceTree = "<group>"; };
 		6085D27D151BA3AF0068929C /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSON.h"; sourceTree = "<group>"; };
 		6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		6085D295151BAB230068929C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6085D296151BAB230068929C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		60A1B19615287343002A6A7E /* ModalZoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModalZoomView.h; path = ViewControllers/ModalZoomView.h; sourceTree = "<group>"; };
+		60A1B19715287343002A6A7E /* ModalZoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModalZoomView.m; path = ViewControllers/ModalZoomView.m; sourceTree = "<group>"; };
+		60A1B1AE1528788E002A6A7E /* FileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileInfoViewController.h; path = ViewControllers/FileInfoViewController.h; sourceTree = "<group>"; };
+		60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileInfoViewController.m; path = ViewControllers/FileInfoViewController.m; sourceTree = "<group>"; };
 		60A7A6B3151F6E0D00DB71E0 /* ORSimpleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSimpleProgress.h; path = Views/ORSimpleProgress.h; sourceTree = "<group>"; };
 		60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSimpleProgress.m; path = Views/ORSimpleProgress.m; sourceTree = "<group>"; };
 		60A7A6C3151FBA1D00DB71E0 /* APP_SECRET.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET.h; path = ../APP_SECRET.h; sourceTree = "<group>"; };
@@ -116,14 +137,29 @@
 		60A7A6CF151FD2A100DB71E0 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = File.m; path = Models/File.m; sourceTree = SOURCE_ROOT; };
 		60A7A6D2151FD34700DB71E0 /* NSManagedObject+ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+ActiveRecord.h"; sourceTree = "<group>"; };
 		60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+ActiveRecord.m"; sourceTree = "<group>"; };
+		60A7AB1315290771009DD716 /* Transfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transfer.h; path = Models/Transfer.h; sourceTree = "<group>"; };
+		60A7AB1415290771009DD716 /* Transfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transfer.m; path = Models/Transfer.m; sourceTree = "<group>"; };
+		60A7AB1615290D90009DD716 /* ARTransferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARTransferCell.h; path = Views/ARTransferCell.h; sourceTree = "<group>"; };
+		60A7AB1715290D90009DD716 /* ARTransferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARTransferCell.m; path = Views/ARTransferCell.m; sourceTree = "<group>"; };
+		60A7AB2E15291403009DD716 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = Models/Message.h; sourceTree = "<group>"; };
+		60A7AB2F15291404009DD716 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Message.m; path = Models/Message.m; sourceTree = "<group>"; };
+		60A7AB31152916BA009DD716 /* ORMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMessageCell.h; path = Views/ORMessageCell.h; sourceTree = "<group>"; };
+		60A7AB32152916BA009DD716 /* ORMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMessageCell.m; path = Views/ORMessageCell.m; sourceTree = "<group>"; };
 		60AB50D1151F650A00473448 /* UIColor+PutioColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PutioColours.h"; path = "Categories/UIColor+PutioColours.h"; sourceTree = "<group>"; };
 		60AB50D2151F650A00473448 /* UIColor+PutioColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PutioColours.m"; path = "Categories/UIColor+PutioColours.m"; sourceTree = "<group>"; };
-		60B1A933151E157E00FBCD27 /* V2PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V2PutIOClient.h; path = Networking/V2PutIOClient.h; sourceTree = "<group>"; };
-		60B1A934151E157F00FBCD27 /* V2PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V2PutIOClient.m; path = Networking/V2PutIOClient.m; sourceTree = "<group>"; };
+		60B1A933151E157E00FBCD27 /* V2PutIOAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V2PutIOAPIClient.h; path = Networking/V2PutIOAPIClient.h; sourceTree = "<group>"; };
+		60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V2PutIOAPIClient.m; path = Networking/V2PutIOAPIClient.m; sourceTree = "<group>"; };
+		60B326E31528A4A200462AA8 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		60B326E41528A4A200462AA8 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		60B326E61528A55C00462AA8 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Utils/Analytics.h; sourceTree = "<group>"; };
+		60B326E71528A55C00462AA8 /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Analytics.m; path = Utils/Analytics.m; sourceTree = "<group>"; };
+		60B326F41528A6D200462AA8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		60BD4F45151C701300DCD686 /* PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOClient.h; path = Networking/PutIOClient.h; sourceTree = "<group>"; };
 		60BD4F46151C701300DCD686 /* PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOClient.m; path = Networking/PutIOClient.m; sourceTree = "<group>"; };
 		60DB0AB2151C670800DA8A33 /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthViewController.h; path = Networking/OAuthViewController.h; sourceTree = "<group>"; };
 		60DB0AB3151C670800DA8A33 /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthViewController.m; path = Networking/OAuthViewController.m; sourceTree = "<group>"; };
+		60F023851528AB55003491E4 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72.png; sourceTree = "<group>"; };
+		60F023871528AB5F003491E4 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
 		60F5AD5515224D7100DD7A6F /* KKGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KKGridView.xcodeproj; path = vendor/kkgridview/KKGridView.xcodeproj; sourceTree = SOURCE_ROOT; };
 		60F5AD5F15224DF400DD7A6F /* ORImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORImageViewCell.h; path = Views/ORImageViewCell.h; sourceTree = "<group>"; };
 		60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORImageViewCell.m; path = Views/ORImageViewCell.m; sourceTree = "<group>"; };
@@ -137,18 +173,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */,
 				60F5AD781522739D00DD7A6F /* MediaPlayer.framework in Frameworks */,
 				60F5AD5E15224D7E00DD7A6F /* libKKGridView.a in Frameworks */,
 				6085D228151B99490068929C /* UIKit.framework in Frameworks */,
 				6085D22A151B99490068929C /* Foundation.framework in Frameworks */,
 				6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */,
 				6085D22E151B99490068929C /* CoreData.framework in Frameworks */,
+				60B326E51528A4A200462AA8 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		600105091525022C005F5B33 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6001050A1525025A005F5B33 /* ORDisplayItemProtocol.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		6006420F151F639000EF85F9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +202,10 @@
 				60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */,
 				60F5AD5F15224DF400DD7A6F /* ORImageViewCell.h */,
 				60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */,
+				60A7AB1615290D90009DD716 /* ARTransferCell.h */,
+				60A7AB1715290D90009DD716 /* ARTransferCell.m */,
+				60A7AB31152916BA009DD716 /* ORMessageCell.h */,
+				60A7AB32152916BA009DD716 /* ORMessageCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -163,6 +213,8 @@
 		6085D218151B99480068929C = {
 			isa = PBXGroup;
 			children = (
+				60F023871528AB5F003491E4 /* icon144.png */,
+				60F023851528AB55003491E4 /* icon72.png */,
 				6085D22F151B99490068929C /* Puttio */,
 				6085D226151B99490068929C /* Frameworks */,
 				6085D224151B99490068929C /* Products */,
@@ -180,6 +232,9 @@
 		6085D226151B99490068929C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60B326E41528A4A200462AA8 /* TestFlight.h */,
+				60B326F41528A6D200462AA8 /* libz.dylib */,
+				60B326E31528A4A200462AA8 /* libTestFlight.a */,
 				6085D227151B99490068929C /* UIKit.framework */,
 				6085D229151B99490068929C /* Foundation.framework */,
 				6085D22B151B99490068929C /* CoreGraphics.framework */,
@@ -198,6 +253,7 @@
 				6085D23B151B99490068929C /* MainStoryboard.storyboard */,
 				6085D23E151B99490068929C /* Puttio.xcdatamodeld */,
 				60AB50CF151F64DE00473448 /* Categories */,
+				600105091525022C005F5B33 /* Protocols */,
 				60DB0AB1151C665E00DA8A33 /* Network */,
 				60A7A6CD151FD26A00DB71E0 /* Models */,
 				6085D27B151B9E550068929C /* View Controllers */,
@@ -251,10 +307,14 @@
 		6085D27A151B9E4E0068929C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				60A1B19615287343002A6A7E /* ModalZoomView.h */,
+				60A1B19715287343002A6A7E /* ModalZoomView.m */,
 				6085D295151BAB230068929C /* Constants.h */,
 				6085D296151BAB230068929C /* Constants.m */,
 				60F5AD791522777600DD7A6F /* MoviePlayer.h */,
 				60F5AD7A1522777600DD7A6F /* MoviePlayer.m */,
+				60B326E61528A55C00462AA8 /* Analytics.h */,
+				60B326E71528A55C00462AA8 /* Analytics.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -270,6 +330,8 @@
 				60064201151F24CD00EF85F9 /* BrowsingViewController.m */,
 				60064203151F24DA00EF85F9 /* RootViewController.h */,
 				60064204151F24DA00EF85F9 /* RootViewController.m */,
+				60A1B1AE1528788E002A6A7E /* FileInfoViewController.h */,
+				60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -290,6 +352,12 @@
 			children = (
 				60A7A6CE151FD2A100DB71E0 /* File.h */,
 				60A7A6CF151FD2A100DB71E0 /* File.m */,
+				600104D21524F9CB005F5B33 /* Folder.h */,
+				600104D31524F9CB005F5B33 /* Folder.m */,
+				60A7AB1315290771009DD716 /* Transfer.h */,
+				60A7AB1415290771009DD716 /* Transfer.m */,
+				60A7AB2E15291403009DD716 /* Message.h */,
+				60A7AB2F15291404009DD716 /* Message.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -321,10 +389,10 @@
 				60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */,
 				60DB0AB2151C670800DA8A33 /* OAuthViewController.h */,
 				60DB0AB3151C670800DA8A33 /* OAuthViewController.m */,
-				6085D277151B9DBA0068929C /* V1PutIOClient.h */,
-				6085D278151B9DBA0068929C /* V1PutIOClient.m */,
-				60B1A933151E157E00FBCD27 /* V2PutIOClient.h */,
-				60B1A934151E157F00FBCD27 /* V2PutIOClient.m */,
+				6085D277151B9DBA0068929C /* V1PutIOAPIClient.h */,
+				6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */,
+				60B1A933151E157E00FBCD27 /* V2PutIOAPIClient.h */,
+				60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */,
 				60BD4F45151C701300DCD686 /* PutIOClient.h */,
 				60BD4F46151C701300DCD686 /* PutIOClient.m */,
 			);
@@ -406,8 +474,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F023891528AC24003491E4 /* libTestFlight.a in Resources */,
 				6085D234151B99490068929C /* InfoPlist.strings in Resources */,
+				60F0238A1528AC47003491E4 /* libKKGridView.a in Resources */,
 				6085D23D151B99490068929C /* MainStoryboard.storyboard in Resources */,
+				60F023861528AB55003491E4 /* icon72.png in Resources */,
+				60F023881528AB5F003491E4 /* icon144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,12 +503,12 @@
 				6085D274151B9CEF0068929C /* AFURLConnectionOperation.m in Sources */,
 				6085D275151B9CEF0068929C /* AFXMLRequestOperation.m in Sources */,
 				6085D276151B9CEF0068929C /* UIImageView+AFNetworking.m in Sources */,
-				6085D279151B9DBA0068929C /* V1PutIOClient.m in Sources */,
+				6085D279151B9DBA0068929C /* V1PutIOAPIClient.m in Sources */,
 				6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */,
 				6085D297151BAB230068929C /* Constants.m in Sources */,
 				60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */,
 				60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */,
-				60B1A935151E157F00FBCD27 /* V2PutIOClient.m in Sources */,
+				60B1A935151E157F00FBCD27 /* V2PutIOAPIClient.m in Sources */,
 				600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */,
 				600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */,
 				60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */,
@@ -448,6 +520,14 @@
 				60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */,
 				60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */,
 				60F5AD7B1522777600DD7A6F /* MoviePlayer.m in Sources */,
+				600104D41524F9CB005F5B33 /* Folder.m in Sources */,
+				60A1B19815287343002A6A7E /* ModalZoomView.m in Sources */,
+				60A1B1B01528788E002A6A7E /* FileInfoViewController.m in Sources */,
+				60B326E81528A55C00462AA8 /* Analytics.m in Sources */,
+				60A7AB1515290771009DD716 /* Transfer.m in Sources */,
+				60A7AB1815290D90009DD716 /* ARTransferCell.m in Sources */,
+				60A7AB3015291404009DD716 /* Message.m in Sources */,
+				60A7AB33152916BA009DD716 /* ORMessageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +606,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -537,6 +621,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

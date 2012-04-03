@@ -8,7 +8,6 @@
 
 
 #import <KKGridView/KKGridView.h>
-#import "UIImageView+AFNetworking.h"
 
 @interface ORImageViewCell : KKGridViewCell {
     UIImageView *imageView;

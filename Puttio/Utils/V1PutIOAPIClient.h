@@ -8,8 +8,8 @@
 
 #import "AFHTTPClient.h"
 
-@interface V1PutIOClient : AFHTTPClient
-+ (V1PutIOClient *)sharedClient;
+@interface V1PutIOAPIClient : AFHTTPClient
++ (V1PutIOAPIClient *)sharedClient;
 + (NSDictionary *)paramsForRequestAtMethod:(NSString *)method withParams:(NSDictionary *)params;
 
 // Public API 
@@ -17,5 +17,6 @@
 - (void)getStreamToken;
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
 - (void)getFolderWithID:(NSString *)folderID :(void(^)(id userInfoObject))onComplete;
-
+- (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete;
+- (void)getMessages:(void(^)(id userInfoObject))onComplete;
 @end

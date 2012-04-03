@@ -7,10 +7,11 @@
 //
 
 #import "ORImageViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 55};
 
-static CGFloat TitleLabelHeight = 20;
+static CGFloat TitleLabelHeight = 40;
 static CGFloat SubTitleLabelHeight = 24;
 
 static CGFloat ImageBottomMargin = 10;
@@ -33,13 +34,13 @@ static CGFloat TitleBottomMargin = 1;
         self.accessoryPosition = KKGridViewCellAccessoryPositionTopLeft;
         self.selectedBackgroundView = [[UIView alloc] init];
         self.opaque = NO;
-        self.contentView.backgroundColor = [UIColor purpleColor];
-        self.backgroundView.backgroundColor = [UIColor redColor];
+        self.contentView.backgroundColor = [UIColor whiteColor];
+        self.backgroundView.backgroundColor = [UIColor yellowColor];
         self.contentView.opaque = NO;
         
         imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.backgroundColor = black;
+        imageView.backgroundColor = [UIColor clearColor];
         imageView.opaque = NO;
         
         CGRect imageFrame = frame;
@@ -57,21 +58,28 @@ static CGFloat TitleBottomMargin = 1;
         [self.contentView addSubview:activityIndicatorView];
         
         titleLabel = [[UILabel alloc] init];
-        titleLabel.textColor = [UIColor blueColor];
+        titleLabel.textColor = black;
         titleLabel.textAlignment = UITextAlignmentCenter;
-        titleLabel.backgroundColor = black;
+        titleLabel.backgroundColor = [UIColor whiteColor];
         titleLabel.opaque = NO;
         titleLabel.userInteractionEnabled = YES;
+        titleLabel.numberOfLines = 2;
         [self.contentView addSubview:titleLabel];
         
         subtitleLabel = [[UILabel alloc] init];
         subtitleLabel.textColor = [UIColor redColor];
         subtitleLabel.textAlignment = UITextAlignmentCenter;
-        subtitleLabel.backgroundColor = black;
+        subtitleLabel.backgroundColor = [UIColor whiteColor];
         subtitleLabel.opaque = NO;
         [self.contentView addSubview:subtitleLabel];
     }
     return self;
+}
+
+- (void)prepareForReuse {
+    titleLabel.text = @"";
+    subtitleLabel.text = @"";
+    self.image = nil;
 }
 
 - (void)layoutSubviews {
@@ -114,7 +122,6 @@ static CGFloat TitleBottomMargin = 1;
 }
 
 - (void)setImageURL:(NSURL *)anImageURL {
-    #warning add placeholder
     imageURL = anImageURL;
     [imageView setImageWithURL:anImageURL];
 }

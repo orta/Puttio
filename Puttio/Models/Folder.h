@@ -1,15 +1,15 @@
 //
-//  File.h
+//  Folder.h
 //  Puttio
 //
-//  Created by orta therox on 25/03/2012.
+//  Created by orta therox on 29/03/2012.
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
 #import <CoreData/CoreData.h>
 #import "ORDisplayItemProtocol.h"
 
-@interface File : NSManagedObject <ORDisplayItemProtocol>
+@interface Folder : NSManagedObject <ORDisplayItemProtocol>
 
 @property (strong) NSString *contentType;
 @property (strong) NSString *id;
@@ -17,5 +17,6 @@
 @property (strong) NSNumber *size;
 @property (strong) NSString *iconURL;
 @property (strong) NSString *parentID;
+@property (strong) Folder *parentFolder;
 
 @end

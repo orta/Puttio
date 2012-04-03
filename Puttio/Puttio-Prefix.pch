@@ -17,5 +17,12 @@
     #import "NetworkConstants.h"
     #import "UIColor+PutioColours.h"
     #import "NSManagedObject+ActiveRecord.h"
+    #import "Analytics.h"
+
+    // models
+    #import "File.h"
+    #import "Folder.h"
+    #import "Transfer.h"
+    #import "Message.h"    
 #endif
 

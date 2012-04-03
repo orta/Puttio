@@ -58,7 +58,8 @@
     NSNumber* reason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     switch ([reason intValue]) {
         case MPMovieFinishReasonPlaybackEnded:
-            NSLog(@"playbackFinished. Reason: Playback Ended");         
+            NSLog(@"playbackFinished. Reason: Playback Ended");
+            [Analytics event:@"User finished watching a movie"];
             break;
         case MPMovieFinishReasonPlaybackError:
             NSLog(@"playbackFinished. Reason: Playback Error");
@@ -79,20 +80,18 @@
     UIViewController *rootController = appDelegate.window.rootViewController;
     MoviePlayer *sharedPlayer = [self sharedPlayer];
     
-    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];
-    
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];    
     NSString* address= [NSString stringWithFormat:@"%@/atk/%@", path, token];
-    NSLog(@" %@  <- this will open in quicktime mac!", address);
-    
+    NSLog(@"stream address %@", address);
     MPMoviePlayerController *movieController = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];
     movieController.controlStyle = MPMovieControlStyleDefault;
     movieController.shouldAutoplay = YES;
     movieController.view.frame = rootController.view.bounds;
     [rootController.view addSubview:movieController.view];
-//    [movieController play];
     [movieController setFullscreen:YES animated:YES];
 
     sharedPlayer.mediaPlayer = movieController;
+    [Analytics event:@"User started watching a movie"];
 }
 
 

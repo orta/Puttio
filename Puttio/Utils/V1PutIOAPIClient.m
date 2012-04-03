@@ -6,27 +6,27 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "V1PutIOClient.h"
+#import "V1PutIOAPIClient.h"
 #import "AFJSONRequestOperation.h"
 #import "NSDictionary+JSON.h"
 
 // http://put.io/v2/docs/
 NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
-@interface V1PutIOClient ()
+@interface V1PutIOAPIClient ()
 @property(strong) NSString* apiKey;
 @property(strong) NSString* apiSecret;
 @end
 
-@implementation V1PutIOClient
+@implementation V1PutIOAPIClient
 
 @synthesize apiKey, apiSecret;
 
-+ (V1PutIOClient *)sharedClient {
-    static V1PutIOClient *_sharedClient = nil;
++ (V1PutIOAPIClient *)sharedClient {
+    static V1PutIOAPIClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[V1PutIOClient alloc] initWithBaseURL:[NSURL URLWithString:API_V1_ADDRESS]];
+        _sharedClient = [[V1PutIOAPIClient alloc] initWithBaseURL:[NSURL URLWithString:API_V1_ADDRESS]];
     });
     
     return _sharedClient;
@@ -69,7 +69,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 }
 
 - (void)getStreamToken {
-    NSDictionary *params = [V1PutIOClient paramsForRequestAtMethod:@"acctoken" withParams:[NSDictionary dictionary]];
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"acctoken" withParams:[NSDictionary dictionary]];
     [self getPath:@"user" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             [[NSUserDefaults standardUserDefaults] setObject:[responseObject valueForKeyPath:@"response.results.token"] forKey:ORStreamTokenDefault];
@@ -79,12 +79,11 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
         NSLog(@"v1 server said not ok %@", error);
         NSLog(@"request %@", operation.request.URL);
     }];
-
 }
 
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
     // no need for params on an info request
-    NSDictionary *params = [V1PutIOClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionary]];
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionary]];
     [self getPath:@"user" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             onComplete(responseObject);
@@ -98,7 +97,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
 - (void)getFolderWithID:(NSString *)folderID :(void(^)(id userInfoObject))onComplete {
     // no need for params on an info request
-    NSDictionary *params = [V1PutIOClient paramsForRequestAtMethod:@"list" withParams:[NSDictionary dictionaryWithObject:folderID forKey:@"parent_id"]];
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"list" withParams:[NSDictionary dictionaryWithObject:folderID forKey:@"parent_id"]];
     [self getPath:@"files" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             onComplete([responseObject valueForKeyPath:@"response.results"]);
@@ -110,8 +109,73 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
     }];
 }
 
+- (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete {
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionaryWithObject:file.id forKey:@"id"]];
+    [self getPath:@"files" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
+            onComplete([responseObject valueForKeyPath:@"response.results"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", NSStringFromSelector(_cmd));
+        NSLog(@"v1 server said not ok %@", error);
+        NSLog(@"request %@", operation.request.URL);
+    }];
+}
+
+- (void)getMessages:(void(^)(id userInfoObject))onComplete {
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"list" withParams:[NSDictionary dictionary]];
+    [self getPath:@"messages" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
+            
+            NSArray *messages = [responseObject valueForKeyPath:@"response.results"];
+            NSMutableArray *returnedMessages = [NSMutableArray array];
+            if (messages) {
+                for (NSDictionary *messageDict in messages) {
+                    Message *message = [[Message alloc] init];
+                    message.message = [self flattenHTML:[messageDict objectForKey:@"title"] trimWhiteSpace:YES];
+                    [returnedMessages addObject:message];
+                }
+            }
+            onComplete(returnedMessages);
+            
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", NSStringFromSelector(_cmd));
+        NSLog(@"v1 server said not ok %@", error);
+        NSLog(@"request %@", operation.request.URL);
+    }];
+}
+
+
 - (BOOL)ready {
     return (self.apiKey && self.apiSecret);
+}
+
+- (NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim {
+    
+    NSScanner *theScanner;
+    NSString *text = nil;
+    
+    theScanner = [NSScanner scannerWithString:html];
+    
+    while ([theScanner isAtEnd] == NO) {
+        
+        // find start of tag
+        [theScanner scanUpToString:@"<" intoString:NULL] ;                 
+        // find end of tag         
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        
+        // replace the found tag with a space
+        //(you can filter multi-spaces out later if you wish)
+        html = [html stringByReplacingOccurrencesOfString:
+                [ NSString stringWithFormat:@"%@>", text]
+                                               withString:@" "];
+        
+    } // while //
+    
+    // trim off whitespace
+    return trim ? [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] : html;
+    
 }
 
 @end

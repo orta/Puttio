@@ -8,13 +8,17 @@
 
 #import "AFHTTPClient.h"
 
-@class V1PutIOClient, V2PutIOClient;
+@class V1PutIOAPIClient, V2PutIOAPIClient, Folder, File;
 @interface PutIOClient : AFHTTPClient
 + (PutIOClient *)sharedClient;
 
 - (BOOL)ready;
 - (void)startup;
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
-- (void)getRootFolder:(void(^)(id userInfoObject))onComplete;
-- (void)getFolderWithID:(NSString*)folderID :(void(^)(id userInfoObject))onComplete;
+- (void)getFolder:(Folder *)folder :(void(^)(id userInfoObject))onComplete;
+- (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete;
+- (void)getMP4InfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete;
+- (void)requestMP4ForFile:(File*)file;
+- (void)getTransfers:(void(^)(id userInfoObject))onComplete;
+- (void)getMessages:(void(^)(id userInfoObject))onComplete;
 @end
