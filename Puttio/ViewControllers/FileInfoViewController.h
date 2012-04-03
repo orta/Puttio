@@ -11,12 +11,15 @@
 @interface FileInfoViewController : UIViewController <ModalZoomViewControllerProtocol>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *additionalInfoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fileSizeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *streamButton;
+@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 - (IBAction)backButton:(id)sender;
-- (IBAction)streamButton:(id)sender;
+- (IBAction)streamTapped:(id)sender;
+- (IBAction)downloadTapped:(id)sender;
 
 @property (strong) id item;
 

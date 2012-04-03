@@ -13,6 +13,7 @@
 @interface FileInfoViewController() {
     id _item;
     NSString *streamPath;
+    NSString *downloadPath;
     BOOL stopRefreshing;
 }
 @end
@@ -21,7 +22,9 @@
 @implementation FileInfoViewController 
 @synthesize titleLabel;
 @synthesize additionalInfoLabel;
+@synthesize fileSizeLabel;
 @synthesize streamButton;
+@synthesize downloadButton;
 @synthesize thumbnailImageView;
 @synthesize progressView;
 @dynamic item;
@@ -41,25 +44,33 @@
     _item = item;
     additionalInfoLabel.text = object.description;
     [thumbnailImageView setImageWithURL:[NSURL URLWithString:[object.iconURL stringByReplacingOccurrencesOfString:@"shot/" withString:@"shot/b/"]]];
-    if ([object.contentType isEqualToString:@"video/mp4"]) {
-        [[PutIOClient sharedClient] getInfoForFile:_item :^(id userInfoObject) {
-            if (![userInfoObject isMemberOfClass:[NSError class]]) {
-                streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
-                streamButton.enabled = YES;
-            }
-        }];
-    }else{
-        [self getMP4Info];        
-    }
+
+    [self getFileInfo];
+    [self getMP4Info];        
+}
+
+- (void)getFileInfo {
+    [[PutIOClient sharedClient] getInfoForFile:_item :^(id userInfoObject) {
+        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+            streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
+            downloadPath = [[userInfoObject valueForKeyPath:@"download_url"] objectAtIndex:0]; 
+            
+            streamButton.enabled = !!streamPath;
+            downloadButton.enabled = !!downloadPath;
+        }
+    }];
 }
 
 - (void)getMP4Info {
     [[PutIOClient sharedClient] getMP4InfoForFile:_item :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             streamPath = [userInfoObject valueForKeyPath:@"mp4.stream_url"];
-            if (streamPath) {
-                streamButton.enabled = YES;
-            }else{
+            downloadPath = [userInfoObject valueForKeyPath:@"mp4.download_url"];
+
+            streamButton.enabled = !!streamPath;
+            downloadButton.enabled = !!downloadPath;
+
+            if(!streamPath || !downloadPath) {
                 NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
                 if ([status isEqualToString:@"NotAvailable"]) {
                     additionalInfoLabel.text = @"Requested an iPad version (this takes a *very* long time.)";
@@ -93,6 +104,8 @@
     [self setStreamButton:nil];
     [self setProgressView:nil];
     stopRefreshing = YES;
+    [self setFileSizeLabel:nil];
+    [self setDownloadButton:nil];
     [super viewDidUnload];
 }
 
@@ -100,9 +113,15 @@
     
 }
 
-- (IBAction)streamButton:(id)sender {
+- (IBAction)streamTapped:(id)sender {
     if (streamPath) {
         [MoviePlayer streamMovieAtPath:streamPath];
+    }
+}
+
+- (IBAction)downloadTapped:(id)sender {
+    if (downloadPath) {
+        
     }
 }
 @end
