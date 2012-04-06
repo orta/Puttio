@@ -8,6 +8,7 @@
 
 #import "ORAppDelegate.h"
 
+#import "ORDefaults.h"
 #import "StatusViewController.h"
 #import "SearchViewController.h"
 #import "BrowsingViewController.h"
@@ -24,6 +25,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Analytics setup];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:ORDefaultsAreLoaded]) {
+        [ORDefaults registerDefaults];
+    }
+    
     if([PutIOClient sharedClient].ready){
         [self showApp];
     }else{
