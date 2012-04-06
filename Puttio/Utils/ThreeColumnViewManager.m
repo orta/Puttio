@@ -42,15 +42,17 @@
 }
 
 - (void)setupGestures {
-    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSidebarPanGesture:)];
-    [self.leftSidebar addGestureRecognizer:panGesture];
-
+    UIPanGestureRecognizer *leftPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSidebarPanGesture:)];
+    [self.leftSidebar addGestureRecognizer:leftPanGesture];
+    
+    UIPanGestureRecognizer *rightPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSidebarPanGesture:)];
+    [self.rightSidebar addGestureRecognizer:rightPanGesture];
     
 }
 
 - (void)handleLeftSidebarPanGesture:(UIPanGestureRecognizer *) gesture {
-    CGPoint location = [gesture locationInView:self.leftSidebar];  
-    CGPoint velocity = [gesture velocityInView:self.leftSidebar];
+    CGPoint location = [gesture locationInView:self.view];  
+    CGPoint velocity = [gesture velocityInView:self.view];
     
     switch (gesture.state) {
         case UIGestureRecognizerStatePossible:
@@ -62,7 +64,8 @@
             
         case UIGestureRecognizerStateChanged:{
             CGRect newFrame = self.leftSidebar.frame;
-            newFrame.origin.x = location.x - xTouchOffset;
+            newFrame.origin.x = location.x + xTouchOffset;
+            newFrame.origin.x = MIN(0, newFrame.origin.x);
             self.leftSidebar.frame = newFrame;
             break;
         }
@@ -81,6 +84,42 @@
         }
     }
 }
+
+- (void)handleRightSidebarPanGesture:(UIPanGestureRecognizer *) gesture {
+    CGPoint location = [gesture locationInView:self.view];  
+    CGPoint velocity = [gesture velocityInView:self.view];
+    
+    switch (gesture.state) {
+        case UIGestureRecognizerStatePossible:
+            break;
+            
+        case UIGestureRecognizerStateBegan:
+            xTouchOffset = self.rightSidebar.frame.origin.x - location.x;
+            break;
+            
+        case UIGestureRecognizerStateChanged:{
+            CGRect newFrame = self.rightSidebar.frame;
+            newFrame.origin.x = location.x + xTouchOffset;
+            newFrame.origin.x = MAX(self.view.frame.size.width, newFrame.origin.x);
+            self.rightSidebar.frame = newFrame;
+            break;
+        }
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateFailed: {
+            CGRect space = [self.rightSidebar.superview bounds];
+            if (velocity.x > 0) {
+                space.origin.x = self.view.bounds.size.width - 20;
+            }else{
+                space.origin.x = self.view.bounds.size.width - SidebarWidth;
+            }
+            space.size.width = SidebarWidth;
+            self.rightSidebar.frame = space;
+            break;
+        }
+    }
+}
+
 
 
 @end
