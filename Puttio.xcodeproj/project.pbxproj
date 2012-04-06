@@ -613,6 +613,7 @@
 		6085D24A151B99490068929C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
@@ -621,6 +622,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -628,6 +630,7 @@
 		6085D24B151B99490068929C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
@@ -636,6 +639,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

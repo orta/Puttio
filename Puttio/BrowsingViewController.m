@@ -59,7 +59,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 
 - (void)loadFolder:(Folder *)folder {
     [[PutIOClient sharedClient] getFolder:folder :^(id userInfoObject) {
-        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+        if (![userInfoObject isKindOfClass:[NSError class]]) {
             self.item = folder;
             gridViewItems = userInfoObject;
             [gridView reloadData];

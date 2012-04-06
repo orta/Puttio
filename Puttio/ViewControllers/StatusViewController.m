@@ -47,7 +47,7 @@ typedef enum {
 
 - (void)getTransfers {
     [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
-        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+        if (![userInfoObject isKindOfClass:[NSError class]]) {
             transfers = userInfoObject;
             [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
@@ -56,7 +56,7 @@ typedef enum {
 
 - (void)getMessages {
     [[PutIOClient sharedClient] getMessages:^(id userInfoObject) {
-        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+        if (![userInfoObject isKindOfClass:[NSError class]]) {
             messages = userInfoObject;
             [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
@@ -65,15 +65,18 @@ typedef enum {
 
 - (void)getUserInfo {
     [[PutIOClient sharedClient] getUserInfo:^(id userInfoObject) {
-        [[NSUserDefaults standardUserDefaults] setObject:[userInfoObject valueForKeyPath:@"id"] forKey:ORUserIdDefault];
-        NSString *diskQuotaString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota"] objectAtIndex:0];
-        NSString *diskQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota_available"] objectAtIndex:0];
-        
-        NSString *bandwidthQuotaString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota"] objectAtIndex:0];
-        NSString *bandwidthQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota_available"] objectAtIndex:0];
-        
-        self.spaceProgressView.value = [diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue] ;
-        self.bandwidthProgressView.value = [bandwidthQuotaAvailableString longLongValue] / [bandwidthQuotaString longLongValue];
+        if (![userInfoObject isKindOfClass:[NSError class]]) {
+
+            [[NSUserDefaults standardUserDefaults] setObject:[userInfoObject valueForKeyPath:@"id"] forKey:ORUserIdDefault];
+            NSString *diskQuotaString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota"] objectAtIndex:0];
+            NSString *diskQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota_available"] objectAtIndex:0];
+            
+            NSString *bandwidthQuotaString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota"] objectAtIndex:0];
+            NSString *bandwidthQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota_available"] objectAtIndex:0];
+            
+            self.spaceProgressView.value = [diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue] ;
+            self.bandwidthProgressView.value = [bandwidthQuotaAvailableString longLongValue] / [bandwidthQuotaString longLongValue];
+        }
     }];
 }
 
