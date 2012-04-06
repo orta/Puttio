@@ -12,11 +12,12 @@
 + (void)registerDefaults {
 	@autoreleasepool {	
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSLog(@"%@", NSStringFromSelector(_cmd));
         
         NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         [defaults setObject:appVersion forKey:ORAppVersion];
-        [defaults setBool:NO forKey:ORShowLeftSidebarDefault];
-        [defaults setBool:NO forKey:ORShowRightSidebarDefault];
+        [defaults setBool:YES forKey:ORShowLeftSidebarDefault];
+        [defaults setBool:YES forKey:ORShowRightSidebarDefault];
         
         // Mark defaults as loaded
         [defaults setBool:YES forKey:ORDefaultsAreLoaded];

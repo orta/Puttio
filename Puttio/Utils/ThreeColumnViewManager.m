@@ -8,6 +8,10 @@
 
 #import "ThreeColumnViewManager.h"
 
+CGFloat const SidebarWidth = 280;
+CGFloat const SidebarPokeOutWidth = 24;
+CGFloat const SidebarAnimationDuration = 0.15;
+
 @interface ThreeColumnViewManager () {
     CGFloat xTouchOffset;
 }
@@ -18,7 +22,6 @@
 @synthesize leftSidebar, rightSidebar, centerView;
 
 - (void)setup {
-
     [self setupGestures];
 }
 
@@ -30,8 +33,11 @@
         fullFrame.size.height = tempWidth;
     }
     
+    BOOL leftHidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ORShowLeftSidebarDefault];
+    BOOL rightHidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ORShowRightSidebarDefault];
+    
     CGRect leftSidebarSpace = fullFrame;
-    leftSidebarSpace.origin.y = 0;
+    leftSidebarSpace.origin.x = leftHidden? -SidebarWidth + SidebarPokeOutWidth : 0;
     leftSidebarSpace.size.width = SidebarWidth;
     leftSidebar.frame = leftSidebarSpace;
     
@@ -43,7 +49,7 @@
 
     CGRect rightSidebarSpace = fullFrame;
     rightSidebarSpace.origin.y = 0;
-    rightSidebarSpace.origin.x = rightSidebarSpace.size.width - SidebarWidth;
+    rightSidebarSpace.origin.x = rightHidden? rightSidebarSpace.size.width - SidebarPokeOutWidth : rightSidebarSpace.size.width - SidebarWidth;
     rightSidebarSpace.size.width = SidebarWidth;
     rightSidebar.frame = rightSidebarSpace;
 }
@@ -54,7 +60,6 @@
     
     UIPanGestureRecognizer *rightPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSidebarPanGesture:)];
     [self.rightSidebar addGestureRecognizer:rightPanGesture];
-    
 }
 
 - (void)handleLeftSidebarPanGesture:(UIPanGestureRecognizer *) gesture {
@@ -79,14 +84,22 @@
         case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateFailed: {
+            BOOL isShowingSidebar = YES;
             CGRect space = [self.leftSidebar.superview bounds];
+            
             if (velocity.x > 0) {
                 space.origin.x = 0;
             }else{
-                space.origin.x = -SidebarWidth + 20;
+                space.origin.x = -SidebarWidth + SidebarPokeOutWidth;
+                isShowingSidebar = NO;
             }
+            
+            [[NSUserDefaults standardUserDefaults] setBool:isShowingSidebar forKey:ORShowLeftSidebarDefault];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             space.size.width = SidebarWidth;
-            self.leftSidebar.frame = space;
+            [UIView animateWithDuration:SidebarAnimationDuration animations:^{                
+                self.leftSidebar.frame = space;
+            }];
             break;
         }
     }
@@ -114,14 +127,23 @@
         case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateFailed: {
+            BOOL isShowingSidebar = YES;
             CGRect space = [self.rightSidebar.superview bounds];
+            
             if (velocity.x > 0) {
-                space.origin.x = self.view.bounds.size.width - 20;
+                space.origin.x = self.view.bounds.size.width - SidebarPokeOutWidth;
+                isShowingSidebar = NO;
             }else{
                 space.origin.x = self.view.bounds.size.width - SidebarWidth;
+                NSLog(@"seetting right");
             }
+            
+            [[NSUserDefaults standardUserDefaults] setBool:isShowingSidebar forKey:ORShowRightSidebarDefault];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             space.size.width = SidebarWidth;
-            self.rightSidebar.frame = space;
+            [UIView animateWithDuration:SidebarAnimationDuration animations:^{                
+                self.rightSidebar.frame = space;
+            }];
             break;
         }
     }
