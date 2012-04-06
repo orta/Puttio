@@ -13,6 +13,10 @@
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
 		60064205151F24DA00EF85F9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064204151F24DA00EF85F9 /* RootViewController.m */; };
 		606C79A4152F508E00608C56 /* ORDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79A3152F508E00608C56 /* ORDefaults.m */; };
+		606C79AA152F5ACE00608C56 /* Tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A6152F5ACE00608C56 /* Tab.png */; };
+		606C79AB152F5ACE00608C56 /* TabActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A7152F5ACE00608C56 /* TabActive.png */; };
+		606C79AC152F5ACE00608C56 /* TabActive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A8152F5ACE00608C56 /* TabActive@2x.png */; };
+		606C79AD152F5ACE00608C56 /* Tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A9152F5ACE00608C56 /* Tab@2x.png */; };
 		6085D228151B99490068929C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D227151B99490068929C /* UIKit.framework */; };
 		6085D22A151B99490068929C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D229151B99490068929C /* Foundation.framework */; };
 		6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D22B151B99490068929C /* CoreGraphics.framework */; };
@@ -89,6 +93,10 @@
 		60064204151F24DA00EF85F9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		606C79A2152F508E00608C56 /* ORDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORDefaults.h; path = Utils/ORDefaults.h; sourceTree = "<group>"; };
 		606C79A3152F508E00608C56 /* ORDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDefaults.m; path = Utils/ORDefaults.m; sourceTree = "<group>"; };
+		606C79A6152F5ACE00608C56 /* Tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tab.png; sourceTree = "<group>"; };
+		606C79A7152F5ACE00608C56 /* TabActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabActive.png; sourceTree = "<group>"; };
+		606C79A8152F5ACE00608C56 /* TabActive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabActive@2x.png"; sourceTree = "<group>"; };
+		606C79A9152F5ACE00608C56 /* Tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tab@2x.png"; sourceTree = "<group>"; };
 		6085D223151B99490068929C /* Puttio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Puttio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6085D227151B99490068929C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6085D229151B99490068929C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -222,6 +230,17 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		606C79A5152F5AA600608C56 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				606C79A6152F5ACE00608C56 /* Tab.png */,
+				606C79A7152F5ACE00608C56 /* TabActive.png */,
+				606C79A8152F5ACE00608C56 /* TabActive@2x.png */,
+				606C79A9152F5ACE00608C56 /* Tab@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		6085D218151B99480068929C = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +290,7 @@
 				6085D27B151B9E550068929C /* View Controllers */,
 				6006420F151F639000EF85F9 /* Views */,
 				6085D27A151B9E4E0068929C /* Utils */,
+				606C79A5152F5AA600608C56 /* Resources */,
 				6085D27C151B9E6F0068929C /* Externals */,
 				6085D230151B99490068929C /* Supporting Files */,
 			);
@@ -499,6 +519,10 @@
 				6085D23D151B99490068929C /* MainStoryboard.storyboard in Resources */,
 				60F023861528AB55003491E4 /* icon72.png in Resources */,
 				60F023881528AB5F003491E4 /* icon144.png in Resources */,
+				606C79AA152F5ACE00608C56 /* Tab.png in Resources */,
+				606C79AB152F5ACE00608C56 /* TabActive.png in Resources */,
+				606C79AC152F5ACE00608C56 /* TabActive@2x.png in Resources */,
+				606C79AD152F5ACE00608C56 /* Tab@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
