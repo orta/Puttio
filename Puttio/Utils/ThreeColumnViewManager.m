@@ -27,31 +27,37 @@ CGFloat const SidebarAnimationDuration = 0.15;
 
 - (void)setupLayout {
     CGRect fullFrame = [[UIScreen mainScreen] applicationFrame];
-    if( UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ){
+    fullFrame.origin.y = 0;
+    BOOL isLandscape = UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]);
+    if(isLandscape){
         CGFloat tempWidth = fullFrame.size.width;
         fullFrame.size.width = fullFrame.size.height;
         fullFrame.size.height = tempWidth;
     }
     
     BOOL leftHidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ORShowLeftSidebarDefault];
-    BOOL rightHidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ORShowRightSidebarDefault];
+    BOOL rightHidden = ![[NSUserDefaults standardUserDefaults] boolForKey:ORShowRightSidebarDefault] && !isLandscape;
     
     CGRect leftSidebarSpace = fullFrame;
     leftSidebarSpace.origin.x = leftHidden? -SidebarWidth + SidebarPokeOutWidth : 0;
     leftSidebarSpace.size.width = SidebarWidth;
     leftSidebar.frame = leftSidebarSpace;
-    
-    CGRect centerViewSpace = fullFrame;
-    centerViewSpace.origin.x = SidebarWidth;
-    centerViewSpace.origin.y = 0;
-    centerViewSpace.size.width = centerViewSpace.size.width - (SidebarWidth * 2);
-    centerView.frame = centerViewSpace;
 
     CGRect rightSidebarSpace = fullFrame;
-    rightSidebarSpace.origin.y = 0;
     rightSidebarSpace.origin.x = rightHidden? rightSidebarSpace.size.width - SidebarPokeOutWidth : rightSidebarSpace.size.width - SidebarWidth;
     rightSidebarSpace.size.width = SidebarWidth;
     rightSidebar.frame = rightSidebarSpace;
+    
+    CGRect centerViewSpace = fullFrame;
+    centerView.frame = centerViewSpace;
+    [self updateCenterViewSize];
+}
+
+- (void)updateCenterViewSize {
+    CGRect centerViewSpace = centerView.frame;
+    centerViewSpace.origin.x = leftSidebar.frame.origin.x + SidebarWidth;
+    centerViewSpace.size.width = rightSidebar.frame.origin.x - centerViewSpace.origin.x;
+    centerView.frame = centerViewSpace;
 }
 
 - (void)setupGestures {
@@ -79,6 +85,7 @@ CGFloat const SidebarAnimationDuration = 0.15;
             newFrame.origin.x = location.x + xTouchOffset;
             newFrame.origin.x = MIN(0, newFrame.origin.x);
             self.leftSidebar.frame = newFrame;
+            [self updateCenterViewSize];
             break;
         }
         case UIGestureRecognizerStateCancelled:
@@ -99,6 +106,7 @@ CGFloat const SidebarAnimationDuration = 0.15;
             space.size.width = SidebarWidth;
             [UIView animateWithDuration:SidebarAnimationDuration animations:^{                
                 self.leftSidebar.frame = space;
+                [self updateCenterViewSize];
             }];
             break;
         }
@@ -122,6 +130,7 @@ CGFloat const SidebarAnimationDuration = 0.15;
             newFrame.origin.x = location.x + xTouchOffset;
             newFrame.origin.x = MAX(self.view.frame.size.width, newFrame.origin.x);
             self.rightSidebar.frame = newFrame;
+            [self updateCenterViewSize];
             break;
         }
         case UIGestureRecognizerStateCancelled:
@@ -135,7 +144,6 @@ CGFloat const SidebarAnimationDuration = 0.15;
                 isShowingSidebar = NO;
             }else{
                 space.origin.x = self.view.bounds.size.width - SidebarWidth;
-                NSLog(@"seetting right");
             }
             
             [[NSUserDefaults standardUserDefaults] setBool:isShowingSidebar forKey:ORShowRightSidebarDefault];
@@ -143,6 +151,7 @@ CGFloat const SidebarAnimationDuration = 0.15;
             space.size.width = SidebarWidth;
             [UIView animateWithDuration:SidebarAnimationDuration animations:^{                
                 self.rightSidebar.frame = space;
+                [self updateCenterViewSize];
             }];
             break;
         }
