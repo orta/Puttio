@@ -18,12 +18,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.columnManager setupLayout];
 }
 
 - (void)viewDidUnload {
     [self setColumnManager:nil];
     [super viewDidUnload];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [self.columnManager setupLayout];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

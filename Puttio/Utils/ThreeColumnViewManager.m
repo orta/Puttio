@@ -23,18 +23,25 @@
 }
 
 - (void)setupLayout {
-    CGRect leftSidebarSpace = [self.view bounds];
+    CGRect fullFrame = [[UIScreen mainScreen] applicationFrame];
+    if( UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ){
+        CGFloat tempWidth = fullFrame.size.width;
+        fullFrame.size.width = fullFrame.size.height;
+        fullFrame.size.height = tempWidth;
+    }
+    
+    CGRect leftSidebarSpace = fullFrame;
     leftSidebarSpace.origin.y = 0;
     leftSidebarSpace.size.width = SidebarWidth;
     leftSidebar.frame = leftSidebarSpace;
     
-    CGRect centerViewSpace = [self.view bounds];
+    CGRect centerViewSpace = fullFrame;
     centerViewSpace.origin.x = SidebarWidth;
     centerViewSpace.origin.y = 0;
     centerViewSpace.size.width = centerViewSpace.size.width - (SidebarWidth * 2);
     centerView.frame = centerViewSpace;
 
-    CGRect rightSidebarSpace = [self.view bounds];
+    CGRect rightSidebarSpace = fullFrame;
     rightSidebarSpace.origin.y = 0;
     rightSidebarSpace.origin.x = rightSidebarSpace.size.width - SidebarWidth;
     rightSidebarSpace.size.width = SidebarWidth;
