@@ -64,10 +64,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" id="eFg-0k-MsJ">
-                                                    <rect key="frame" x="12" y="59" width="256" height="9"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </progressView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Possible 2 line" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dVU-tr-veP">
                                                     <rect key="frame" x="12" y="5" width="191" height="46"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -82,13 +78,18 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" id="gza-sM-zWc" customClass="ORSimpleProgress">
+                                                    <rect key="frame" x="14" y="66" width="254" height="6"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
                                             <outlet property="detailsLabel" destination="8Vb-Bq-HVi" id="xs2-Ua-35D"/>
                                             <outlet property="nameLabel" destination="dVU-tr-veP" id="9CK-5v-zd0"/>
-                                            <outlet property="progressView" destination="eFg-0k-MsJ" id="tX9-Zn-h0t"/>
+                                            <outlet property="progressView" destination="gza-sM-zWc" id="BmO-hO-EVN"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="28" id="yfM-94-3VS" customClass="ORMessageCell">
@@ -391,7 +392,7 @@
             <relationships>
                 <relationship kind="outlet" name="detailsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="progressView" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
             </relationships>
         </class>
         <class className="BrowsingViewController" superclassName="UIViewController">
@@ -448,7 +449,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="bandwidthProgressView" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="spaceProgressView" candidateClass="ORSimpleProgress"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>

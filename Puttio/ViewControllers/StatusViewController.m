@@ -72,8 +72,8 @@ typedef enum {
             NSString *bandwidthQuotaString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota"] objectAtIndex:0];
             NSString *bandwidthQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota_available"] objectAtIndex:0];
             
-            self.spaceProgressView.value = [diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue] ;
-            self.bandwidthProgressView.value = [bandwidthQuotaAvailableString longLongValue] / [bandwidthQuotaString longLongValue];
+            self.spaceProgressView.progress = [diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue] ;
+            self.bandwidthProgressView.progress = [bandwidthQuotaAvailableString longLongValue] / [bandwidthQuotaString longLongValue];
         }
     }];
 }

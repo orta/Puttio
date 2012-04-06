@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ORSimpleProgress : UIView {
-    CGFloat value;
+    CGFloat _progress;
 }
 @property (strong) UILabel *label;
 @property (strong) UIColor *fillColour;
-@property CGFloat value;
+@property (assign) BOOL isLandscape;
+@property CGFloat progress;
 @end
