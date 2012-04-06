@@ -29,13 +29,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 @synthesize gridView, titleLabel;
 @dynamic item;
 
-- (void)setup {
-    CGRect space = [self.view.superview bounds];
-    space.origin.x = SidebarWidth;
-    space.origin.y = 0;
-    space.size.width = space.size.width - (SidebarWidth * 2);
-    self.view.frame = space;
-    
+- (void)setup {    
     [self setupGridView];
 }
 
@@ -147,10 +141,6 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [self setup];
 }
 
 - (BOOL)itemIsFolder:(NSObject*)item {

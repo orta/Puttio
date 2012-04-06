@@ -16,6 +16,8 @@
 @interface StatusViewController () {
     NSArray *transfers;
     NSArray *messages;
+    
+    CGFloat xOffset;
 }
 @end
 
@@ -31,10 +33,6 @@ typedef enum {
 @synthesize spaceProgressView;
 
 - (void)setup {
-    CGRect space = [self.view.superview bounds];
-    space.origin.y = 0;
-    space.size.width = SidebarWidth;
-    self.view.frame = space;
 }
 
 - (void)viewDidLoad {

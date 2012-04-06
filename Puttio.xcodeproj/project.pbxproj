@@ -61,6 +61,7 @@
 		60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */; };
 		60F5AD781522739D00DD7A6F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F5AD771522739D00DD7A6F /* MediaPlayer.framework */; };
 		60F5AD7B1522777600DD7A6F /* MoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD7A1522777600DD7A6F /* MoviePlayer.m */; };
+		60FE47BB152EA0D6008A5752 /* ThreeColumnViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,8 @@
 		60F5AD771522739D00DD7A6F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		60F5AD791522777600DD7A6F /* MoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoviePlayer.h; path = Utils/MoviePlayer.h; sourceTree = "<group>"; };
 		60F5AD7A1522777600DD7A6F /* MoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoviePlayer.m; path = Utils/MoviePlayer.m; sourceTree = "<group>"; };
+		60FE47B9152EA0D6008A5752 /* ThreeColumnViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeColumnViewManager.h; path = Utils/ThreeColumnViewManager.h; sourceTree = "<group>"; };
+		60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeColumnViewManager.m; path = Utils/ThreeColumnViewManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +326,8 @@
 				60B326E71528A55C00462AA8 /* Analytics.m */,
 				60F4ECBE152B902C00A9A627 /* FileSizeUtils.h */,
 				60F4ECBF152B902C00A9A627 /* FileSizeUtils.m */,
+				60FE47B9152EA0D6008A5752 /* ThreeColumnViewManager.h */,
+				60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				60A7AB3015291404009DD716 /* Message.m in Sources */,
 				60A7AB33152916BA009DD716 /* ORMessageCell.m in Sources */,
 				60F4ECC0152B902C00A9A627 /* FileSizeUtils.m in Sources */,
+				60FE47BB152EA0D6008A5752 /* ThreeColumnViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

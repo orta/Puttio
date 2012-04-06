@@ -17,11 +17,6 @@
 @synthesize searchBar;
 
 - (void)setup {
-    CGRect space = [self.view.superview bounds];
-    space.origin.y = 0;
-    space.origin.x = space.size.width - SidebarWidth;
-    space.size.width = SidebarWidth;
-    self.view.frame = space;
 }
 
 - (void)viewDidLoad {
@@ -40,9 +35,6 @@
     return YES;
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [self setup];
-}
 
 - (void)stylizeSearchTextField {    
     for (int i = [searchBar.subviews count] - 1; i >= 0; i--) {

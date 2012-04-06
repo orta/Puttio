@@ -7,18 +7,22 @@
 //
 
 #import "RootViewController.h"
+#import "ThreeColumnViewManager.h"
 
 @interface RootViewController ()
 
 @end
 
 @implementation RootViewController
+@synthesize columnManager;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.columnManager setupLayout];
 }
 
 - (void)viewDidUnload {
+    [self setColumnManager:nil];
     [super viewDidUnload];
 }
 

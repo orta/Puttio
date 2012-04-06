@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class ThreeColumnViewManager;
 @interface RootViewController : UIViewController
+@property (strong, nonatomic) IBOutlet ThreeColumnViewManager *columnManager;
 
 @end
