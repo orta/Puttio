@@ -29,12 +29,12 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 @synthesize gridView, titleLabel;
 @dynamic item;
 
-- (void)setup {    
-    [self setupGridView];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if(!gridView){
+        [self setupGridView];
+    }
+    
     
     Folder *rootFolder = [Folder object];
     rootFolder.id = @"0";
@@ -91,10 +91,11 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     cell.item = item;
     cell.title = item.name;
     if ([self itemIsFolder:item]) {
-        cell.imageURL = [NSURL URLWithString:item.iconURL];
-//        cell.subtitle = item.description;
+        cell.imageURL = [NSURL URLWithString:item.screenShotURL];
     }else{
-        cell.imageURL = [NSURL URLWithString:[item.iconURL stringByReplacingOccurrencesOfString:@"shot/" withString:@"shot/b/"]];
+        NSLog(@"%@", item.screenShotURL);
+        NSLog(@"%@", [PutIOClient appendOauthToken:item.screenShotURL]);
+        cell.imageURL = [NSURL URLWithString: [PutIOClient appendOauthToken:item.screenShotURL]];
     }
     return cell;
 }   

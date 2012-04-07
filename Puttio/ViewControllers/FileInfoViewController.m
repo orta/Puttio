@@ -52,7 +52,7 @@
     NSObject <ORDisplayItemProtocol> *object = item;
     titleLabel.text = object.name;
     _item = item;
-    [thumbnailImageView setImageWithURL:[NSURL URLWithString:[object.iconURL stringByReplacingOccurrencesOfString:@"shot/" withString:@"shot/b/"]]];
+    [thumbnailImageView setImageWithURL:[NSURL URLWithString:object.screenShotURL]];
 
     [self getFileInfo];
     [self getMP4Info];        
@@ -62,12 +62,13 @@
     [[PutIOClient sharedClient] getInfoForFile:_item :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             
-            NSLog(@"%@", userInfoObject);
             streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
             downloadPath = [[userInfoObject valueForKeyPath:@"mp4_url"] objectAtIndex:0]; 
-            
+            titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
             fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
             fileSizeLabel.text = unitStringFromBytes(fileSize);
+            
+            [thumbnailImageView setImageWithURL:[NSURL URLWithString:[[userInfoObject valueForKeyPath:@"screenshot_url"] objectAtIndex:0]]];
             
             additionalInfoLabel.text = [[userInfoObject valueForKeyPath:@"content_type"] objectAtIndex:0];
             

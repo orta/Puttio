@@ -79,10 +79,7 @@
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
     MoviePlayer *sharedPlayer = [self sharedPlayer];
-    
-    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];    
-    NSString* address= [NSString stringWithFormat:@"%@/atk/%@", path, token];
-    NSLog(@"stream address %@", address);
+    NSString *address = [PutIOClient appendStreamToken:path];
     MPMoviePlayerController *movieController = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];
     movieController.controlStyle = MPMovieControlStyleDefault;
     movieController.shouldAutoplay = YES;

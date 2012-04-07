@@ -15,6 +15,4 @@
 @property (strong) NSObject <ORDisplayItemProtocol> *item;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 - (IBAction)backPressed:(id)sender;
-
-- (void)setup;
 @end

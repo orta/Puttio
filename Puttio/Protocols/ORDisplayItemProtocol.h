@@ -14,7 +14,7 @@
 @property (strong) NSString *id;
 @property (strong) NSString *name;
 @property (strong) NSNumber *size;
-@property (strong) NSString *iconURL;
+@property (strong) NSString *screenShotURL;
 @property (strong) NSString *parentID;
 
 @end

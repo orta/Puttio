@@ -50,6 +50,16 @@
     [self.v1Client getStreamToken];
 }
 
++ (NSString *)appendOauthToken:(NSString *)inputURL {
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:AppAuthTokenDefault];    
+    return [NSString stringWithFormat:@"%@?oauth_token=%@", inputURL, token];    
+}
+
++ (NSString *)appendStreamToken:(NSString *)inputURL {
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];    
+    return [NSString stringWithFormat:@"%@/atk/%@", inputURL, token];
+}
+
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
     [self.v1Client getUserInfo:^(id userInfoObject) {
         onComplete(userInfoObject);

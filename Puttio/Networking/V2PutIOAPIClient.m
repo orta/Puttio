@@ -76,7 +76,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             Folder *folder = [Folder object];
             folder.id = [[dictionary objectForKey:@"id"] stringValue];
             folder.name = [dictionary objectForKey:@"name"];
-            folder.iconURL =  [dictionary objectForKey:@"icon"];
+            folder.screenShotURL =  [dictionary objectForKey:@"icon"];
             folder.parentID = [[dictionary objectForKey:@"parent_id"] stringValue];
             folder.size = [NSNumber numberWithInt:0];
             folder.parentFolder = parent;
@@ -85,7 +85,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             File *file = [File object];
             file.id = [[dictionary objectForKey:@"id"] stringValue];
             file.name = [dictionary objectForKey:@"name"];
-            file.iconURL =  [dictionary objectForKey:@"icon"];
+            file.screenShotURL =  [dictionary objectForKey:@"screenshot"];
             file.contentType =  [dictionary objectForKey:@"content_type"];
             file.parentID = [[dictionary objectForKey:@"parent_id"] stringValue];
             file.size = [dictionary objectForKey:@"size"];
@@ -135,13 +135,10 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     NSString *path = [NSString stringWithFormat:@"/v2/files/%@/convert-to-mp4?oauth_token=%@", file.id, self.apiToken];
     [self postPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        NSLog(@"requested MP4");
-        NSLog(@"req %@", operation.request);
-        NSLog(@"response %@", json);
     }
-           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-               NSLog(@"failure in requesting MP4 %@", error);
-           }];
+    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+       NSLog(@"failure in requesting MP4 %@", error);
+    }];
 }
 
 #pragma mark internal API gubbins
@@ -176,7 +173,6 @@ typedef void (^BlockWithCallback)(id userInfoObject);
         BlockWithCallback block = [self.actionBlocks objectForKey:action];
         block(error);
     }
-    
 }
 
 - (BOOL)ready {

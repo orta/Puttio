@@ -14,6 +14,11 @@
 
 - (BOOL)ready;
 - (void)startup;
+
+
++ (NSString *)appendOauthToken:(NSString *)inputURL;
++ (NSString *)appendStreamToken:(NSString *)inputURL;
+
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
 - (void)getFolder:(Folder *)folder :(void(^)(id userInfoObject))onComplete;
 - (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete;

@@ -206,6 +206,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="titleLabel" destination="qfh-cM-XrR" id="EJU-5x-ijc"/>
+                        <outlet property="view" destination="E5n-sY-E9O" id="aOv-I8-1Za"/>
                     </connections>
                 </viewController>
             </objects>
@@ -449,6 +450,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="bandwidthProgressView" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="spaceProgressView" candidateClass="ORSimpleProgress"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>

@@ -9,6 +9,6 @@
 #import "File.h"
 
 @implementation File
-@dynamic contentType, name, size, id, iconURL, parentID;
+@dynamic contentType, name, size, id, screenShotURL, parentID;
 
 @end
