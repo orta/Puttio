@@ -93,8 +93,6 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     if ([self itemIsFolder:item]) {
         cell.imageURL = [NSURL URLWithString:item.screenShotURL];
     }else{
-        NSLog(@"%@", item.screenShotURL);
-        NSLog(@"%@", [PutIOClient appendOauthToken:item.screenShotURL]);
         cell.imageURL = [NSURL URLWithString: [PutIOClient appendOauthToken:item.screenShotURL]];
     }
     return cell;

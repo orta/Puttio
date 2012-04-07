@@ -10,6 +10,7 @@
 
 #import "V2PutIOAPIClient.h"
 #import "ORAppDelegate.h"
+#import "NSDictionary+ObjectForKey.h"
 
 typedef void (^BlockWithCallback)(id userInfoObject);
 
@@ -85,7 +86,10 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             File *file = [File object];
             file.id = [[dictionary objectForKey:@"id"] stringValue];
             file.name = [dictionary objectForKey:@"name"];
-            file.screenShotURL =  [dictionary objectForKey:@"screenshot"];
+            file.screenShotURL =  [dictionary onlyStringForKey:@"screenshot"];
+            if (!file.screenShotURL) {
+                file.screenShotURL =  [dictionary onlyStringForKey:@"icon"];
+            }
             file.contentType =  [dictionary objectForKey:@"content_type"];
             file.parentID = [[dictionary objectForKey:@"parent_id"] stringValue];
             file.size = [dictionary objectForKey:@"size"];

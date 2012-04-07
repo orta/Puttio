@@ -17,6 +17,7 @@
 		606C79AB152F5ACE00608C56 /* TabActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A7152F5ACE00608C56 /* TabActive.png */; };
 		606C79AC152F5ACE00608C56 /* TabActive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A8152F5ACE00608C56 /* TabActive@2x.png */; };
 		606C79AD152F5ACE00608C56 /* Tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A9152F5ACE00608C56 /* Tab@2x.png */; };
+		606C79B01530A4B100608C56 /* NSDictionary+ObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */; };
 		6085D228151B99490068929C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D227151B99490068929C /* UIKit.framework */; };
 		6085D22A151B99490068929C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D229151B99490068929C /* Foundation.framework */; };
 		6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D22B151B99490068929C /* CoreGraphics.framework */; };
@@ -97,6 +98,8 @@
 		606C79A7152F5ACE00608C56 /* TabActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabActive.png; sourceTree = "<group>"; };
 		606C79A8152F5ACE00608C56 /* TabActive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabActive@2x.png"; sourceTree = "<group>"; };
 		606C79A9152F5ACE00608C56 /* Tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tab@2x.png"; sourceTree = "<group>"; };
+		606C79AE1530A4B100608C56 /* NSDictionary+ObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+ObjectForKey.h"; path = "Categories/NSDictionary+ObjectForKey.h"; sourceTree = "<group>"; };
+		606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+ObjectForKey.m"; path = "Categories/NSDictionary+ObjectForKey.m"; sourceTree = "<group>"; };
 		6085D223151B99490068929C /* Puttio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Puttio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6085D227151B99490068929C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6085D229151B99490068929C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -417,6 +420,8 @@
 				6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */,
 				60AB50D1151F650A00473448 /* UIColor+PutioColours.h */,
 				60AB50D2151F650A00473448 /* UIColor+PutioColours.m */,
+				606C79AE1530A4B100608C56 /* NSDictionary+ObjectForKey.h */,
+				606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -574,6 +579,7 @@
 				60F4ECC0152B902C00A9A627 /* FileSizeUtils.m in Sources */,
 				60FE47BB152EA0D6008A5752 /* ThreeColumnViewManager.m in Sources */,
 				606C79A4152F508E00608C56 /* ORDefaults.m in Sources */,
+				606C79B01530A4B100608C56 /* NSDictionary+ObjectForKey.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
