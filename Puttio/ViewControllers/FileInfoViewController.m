@@ -61,9 +61,12 @@
 - (void)getFileInfo {
     [[PutIOClient sharedClient] getInfoForFile:_item :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
-            
-            streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
-            downloadPath = [[userInfoObject valueForKeyPath:@"mp4_url"] objectAtIndex:0]; 
+
+            if ([self.item.contentType isEqualToString:@"video/mp4"]) {
+                streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
+                downloadPath = [[userInfoObject valueForKeyPath:@"mp4_url"] objectAtIndex:0];                
+            }
+
             titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
             fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
             fileSizeLabel.text = unitStringFromBytes(fileSize);
@@ -79,9 +82,11 @@
 - (void)getMP4Info {
     [[PutIOClient sharedClient] getMP4InfoForFile:_item :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
-            streamPath = [userInfoObject valueForKeyPath:@"mp4.stream_url"];
-            downloadPath = [userInfoObject valueForKeyPath:@"mp4.download_url"];
-
+            if (![self.item.contentType isEqualToString:@"video/mp4"]) {
+                streamPath = [userInfoObject valueForKeyPath:@"mp4.stream_url"];
+                downloadPath = [userInfoObject valueForKeyPath:@"mp4.download_url"];
+            }
+            
             streamButton.enabled = !!streamPath;
             downloadButton.enabled = !!downloadPath;
 

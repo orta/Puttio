@@ -139,6 +139,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     NSString *path = [NSString stringWithFormat:@"/v2/files/%@/convert-to-mp4?oauth_token=%@", file.id, self.apiToken];
     [self postPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        NSLog(@"request MP4 response %@", json);
     }
     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
        NSLog(@"failure in requesting MP4 %@", error);
