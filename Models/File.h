@@ -17,5 +17,7 @@
 @property (strong) NSNumber *size;
 @property (strong) NSString *screenShotURL;
 @property (strong) NSString *parentID;
+@property (strong) NSString *displayName;
 
+- (void)setupDisplayName;
 @end

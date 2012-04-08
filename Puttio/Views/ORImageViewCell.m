@@ -113,7 +113,7 @@ static CGFloat TitleBottomMargin = 1;
 
 - (void)setTitle:(NSString *)title {
     _title = title;
-    titleLabel.text = [title uppercaseString];
+    titleLabel.text = title;
 }
 
 - (void)setSubtitle:(NSString *)subtitle{

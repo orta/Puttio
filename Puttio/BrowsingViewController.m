@@ -89,7 +89,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 
     NSObject <ORDisplayItemProtocol> *item = [gridViewItems objectAtIndex:index];
     cell.item = item;
-    cell.title = item.name;
+    cell.title = item.displayName;
     if ([self itemIsFolder:item]) {
         cell.imageURL = [NSURL URLWithString:item.screenShotURL];
     }else{

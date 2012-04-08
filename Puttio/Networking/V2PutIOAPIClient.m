@@ -77,6 +77,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             Folder *folder = [Folder object];
             folder.id = [[dictionary objectForKey:@"id"] stringValue];
             folder.name = [dictionary objectForKey:@"name"];
+            folder.displayName = [folder.name capitalizedString];
             folder.screenShotURL =  [dictionary objectForKey:@"icon"];
             folder.parentID = [[dictionary objectForKey:@"parent_id"] stringValue];
             folder.size = [NSNumber numberWithInt:0];
@@ -86,6 +87,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             File *file = [File object];
             file.id = [[dictionary objectForKey:@"id"] stringValue];
             file.name = [dictionary objectForKey:@"name"];
+            [file setupDisplayName];
             file.screenShotURL =  [dictionary onlyStringForKey:@"screenshot"];
             if (!file.screenShotURL) {
                 file.screenShotURL =  [dictionary onlyStringForKey:@"icon"];
