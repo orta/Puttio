@@ -50,7 +50,7 @@
         [NSException raise:@"File Info item should conform to ORDisplayItemProtocol" format:@"File Info item should conform to ORDisplayItemProtocol"];
     }
     NSObject <ORDisplayItemProtocol> *object = item;
-    titleLabel.text = object.name;
+    titleLabel.text = object.displayName;
     _item = item;
     [thumbnailImageView setImageWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:object.screenShotURL]]];
 
@@ -159,9 +159,6 @@
     struct statfs tStats;  
     statfs([[paths lastObject] cString], &tStats);  
     uint64_t totalSpace = tStats.f_bavail * tStats.f_bsize;  
-
-//    NSLog(@" %llu total", totalSpace);
-//    NSLog(@" %i ", fileSize);
     
     if (fileSize < totalSpace) {
         NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];    

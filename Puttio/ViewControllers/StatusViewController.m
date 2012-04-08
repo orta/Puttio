@@ -47,7 +47,7 @@ typedef enum {
     [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
             transfers = userInfoObject;
-            [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            [tableView reloadData];
         }
     }];
 }
@@ -56,7 +56,7 @@ typedef enum {
     [[PutIOClient sharedClient] getMessages:^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
             messages = userInfoObject;
-            [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            [tableView reloadData];
         }
     }];
 }
