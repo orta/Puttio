@@ -23,6 +23,6 @@
     #import "File.h"
     #import "Folder.h"
     #import "Transfer.h"
-    #import "Message.h"    
+    #import "Message.h"
 #endif
 

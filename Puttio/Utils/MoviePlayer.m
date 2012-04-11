@@ -64,6 +64,7 @@
         case MPMovieFinishReasonPlaybackError:
             NSLog(@"playbackFinished. Reason: Playback Error");
             NSLog(@"error log %@", self.mediaPlayer.errorLog);
+            [Analytics event:@"Movie Playback Error %@ - ( %@ )", self.mediaPlayer.errorLog,             self.mediaPlayer.contentURL];
             break;
         case MPMovieFinishReasonUserExited:
             NSLog(@"playbackFinished. Reason: User Exited");

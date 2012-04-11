@@ -6,10 +6,19 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
+// http://www.mininova.org/vuze.php?search=michael%2Bjackson
+// http://isohunt.com/js/json.php?ihq=jacko
+
 #import "SearchViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SearchResult.h"
+#import "ORSearchCell.h"
+#import "FileSizeUtils.h"
 
-@interface SearchViewController ()
+@interface SearchViewController () {
+    NSArray *searchResults;
+}
+
 - (void)stylizeSearchTextField;
 @end
 
@@ -23,6 +32,7 @@
     [super viewDidLoad];
     [self stylizeSearchTextField];
     [self setupShadow];
+    [self fakeSearchResults];
 }
 
 - (void)viewDidUnload {
@@ -34,7 +44,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
-
 
 - (void)stylizeSearchTextField {    
     for (int i = [searchBar.subviews count] - 1; i >= 0; i--) {
@@ -57,6 +66,54 @@
     layer.shadowColor = [[UIColor blackColor] CGColor];
     layer.shadowRadius = 4;
     layer.shadowOpacity = 0.2;
+}
+
+#pragma mark tableview gubbins
+
+
+- (int)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = nil;
+    cell = [aTableView dequeueReusableCellWithIdentifier:@"SearchCell"];
+    if (cell) {
+        SearchResult *item = [searchResults objectAtIndex:indexPath.row];
+        ORSearchCell *theCell = (ORSearchCell*)cell;
+        theCell.fileNameLabel.text = item.name;
+        theCell.fileSizeLabel.text = unitStringFromBytes(item.size);
+        theCell.seedersLabel.text = [NSString stringWithFormat:@"%i seeders", item.seedersCount];
+    }    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
+    return searchResults.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 88;
+}
+
+
+- (void)fakeSearchResults {
+    SearchResult *results1 = [[SearchResult alloc] init];
+    results1.name = @"result1";
+    results1.size = 1233334;
+    results1.seedersCount = 11;
+    
+    SearchResult *results12 = [[SearchResult alloc] init];
+    results12.name = @"this is a pretty long one I think right? XVID MP4";
+    results12.size = 23321115352;
+    results12.seedersCount = 231;
+    
+    SearchResult *results13 = [[SearchResult alloc] init];
+    results13.name = @"another files a bit more ";
+    results13.size = 23124;
+    results13.seedersCount = 23;
+    
+    searchResults = [NSArray arrayWithObjects:results1, results12, results13, nil];
 }
 
 @end

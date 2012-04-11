@@ -56,6 +56,8 @@
 		60B326E81528A55C00462AA8 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B326E71528A55C00462AA8 /* Analytics.m */; };
 		60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326F41528A6D200462AA8 /* libz.dylib */; };
 		60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BD4F46151C701300DCD686 /* PutIOClient.m */; };
+		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
+		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
 		60F00EBA152BAC1800DA9230 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */; };
 		60F023861528AB55003491E4 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023851528AB55003491E4 /* icon72.png */; };
@@ -173,6 +175,10 @@
 		60B326F41528A6D200462AA8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		60BD4F45151C701300DCD686 /* PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOClient.h; path = Networking/PutIOClient.h; sourceTree = "<group>"; };
 		60BD4F46151C701300DCD686 /* PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOClient.m; path = Networking/PutIOClient.m; sourceTree = "<group>"; };
+		60D9B7E91535C30F00A64E0F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Models/SearchResult.h; sourceTree = "<group>"; };
+		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
+		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
+		60D9B7ED1535C67300A64E0F /* ORSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSearchCell.m; path = Views/ORSearchCell.m; sourceTree = "<group>"; };
 		60DB0AB2151C670800DA8A33 /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthViewController.h; path = Networking/OAuthViewController.h; sourceTree = "<group>"; };
 		60DB0AB3151C670800DA8A33 /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthViewController.m; path = Networking/OAuthViewController.m; sourceTree = "<group>"; };
 		60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -229,6 +235,8 @@
 				60A7AB1715290D90009DD716 /* ARTransferCell.m */,
 				60A7AB31152916BA009DD716 /* ORMessageCell.h */,
 				60A7AB32152916BA009DD716 /* ORMessageCell.m */,
+				60D9B7EC1535C67300A64E0F /* ORSearchCell.h */,
+				60D9B7ED1535C67300A64E0F /* ORSearchCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -400,6 +408,8 @@
 				60A7AB1415290771009DD716 /* Transfer.m */,
 				60A7AB2E15291403009DD716 /* Message.h */,
 				60A7AB2F15291404009DD716 /* Message.m */,
+				60D9B7E91535C30F00A64E0F /* SearchResult.h */,
+				60D9B7EA1535C30F00A64E0F /* SearchResult.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -580,6 +590,8 @@
 				60FE47BB152EA0D6008A5752 /* ThreeColumnViewManager.m in Sources */,
 				606C79A4152F508E00608C56 /* ORDefaults.m in Sources */,
 				606C79B01530A4B100608C56 /* NSDictionary+ObjectForKey.m in Sources */,
+				60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */,
+				60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
