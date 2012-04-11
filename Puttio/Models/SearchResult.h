@@ -20,4 +20,6 @@
 @property (strong) NSString *torrentURL;
 @property (strong) NSString *magenetURL;
 @property (strong) NSString *name;
+
+- (void)generateRanking;
 @end

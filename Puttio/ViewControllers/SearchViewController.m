@@ -96,22 +96,27 @@
     return 88;
 }
 
-
 - (void)fakeSearchResults {
     SearchResult *results1 = [[SearchResult alloc] init];
     results1.name = @"result1";
     results1.size = 1233334;
     results1.seedersCount = 11;
+    results1.peersCount = 10;
+    [results1 generateRanking];
     
     SearchResult *results12 = [[SearchResult alloc] init];
     results12.name = @"this is a pretty long one I think right? XVID MP4";
     results12.size = 23321115352;
     results12.seedersCount = 231;
+    results12.peersCount = 200;
+    [results12 generateRanking];
     
     SearchResult *results13 = [[SearchResult alloc] init];
     results13.name = @"another files a bit more ";
     results13.size = 23124;
     results13.seedersCount = 23;
+    results13.peersCount = 10;
+    [results13 generateRanking];
     
     searchResults = [NSArray arrayWithObjects:results1, results12, results13, nil];
 }
