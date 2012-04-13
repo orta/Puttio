@@ -12,6 +12,8 @@
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
 		60064205151F24DA00EF85F9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064204151F24DA00EF85F9 /* RootViewController.m */; };
+		601205391538CF2600052D89 /* mininovaresults.json in Resources */ = {isa = PBXBuildFile; fileRef = 601205381538CF2600052D89 /* mininovaresults.json */; };
+		6012053B1538CF5600052D89 /* isohunt.json in Resources */ = {isa = PBXBuildFile; fileRef = 6012053A1538CF5600052D89 /* isohunt.json */; };
 		606C79A4152F508E00608C56 /* ORDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79A3152F508E00608C56 /* ORDefaults.m */; };
 		606C79AA152F5ACE00608C56 /* Tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A6152F5ACE00608C56 /* Tab.png */; };
 		606C79AB152F5ACE00608C56 /* TabActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A7152F5ACE00608C56 /* TabActive.png */; };
@@ -94,6 +96,8 @@
 		60064201151F24CD00EF85F9 /* BrowsingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingViewController.m; sourceTree = "<group>"; };
 		60064203151F24DA00EF85F9 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		60064204151F24DA00EF85F9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		601205381538CF2600052D89 /* mininovaresults.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mininovaresults.json; sourceTree = "<group>"; };
+		6012053A1538CF5600052D89 /* isohunt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isohunt.json; sourceTree = "<group>"; };
 		606C79A2152F508E00608C56 /* ORDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORDefaults.h; path = Utils/ORDefaults.h; sourceTree = "<group>"; };
 		606C79A3152F508E00608C56 /* ORDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDefaults.m; path = Utils/ORDefaults.m; sourceTree = "<group>"; };
 		606C79A6152F5ACE00608C56 /* Tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tab.png; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 				606C79A7152F5ACE00608C56 /* TabActive.png */,
 				606C79A8152F5ACE00608C56 /* TabActive@2x.png */,
 				606C79A9152F5ACE00608C56 /* Tab@2x.png */,
+				601205381538CF2600052D89 /* mininovaresults.json */,
+				6012053A1538CF5600052D89 /* isohunt.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -538,6 +544,8 @@
 				606C79AB152F5ACE00608C56 /* TabActive.png in Resources */,
 				606C79AC152F5ACE00608C56 /* TabActive@2x.png in Resources */,
 				606C79AD152F5ACE00608C56 /* Tab@2x.png in Resources */,
+				601205391538CF2600052D89 /* mininovaresults.json in Resources */,
+				6012053B1538CF5600052D89 /* isohunt.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

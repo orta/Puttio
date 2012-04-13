@@ -11,6 +11,7 @@
 #import "V2PutIOAPIClient.h"
 #import "ORAppDelegate.h"
 #import "NSDictionary+ObjectForKey.h"
+#import "APP_SECRET.h"
 
 typedef void (^BlockWithCallback)(id userInfoObject);
 
@@ -44,6 +45,24 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     self.apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:AppAuthTokenDefault];
 }
 
+- (void)getAccessTokenFromOauthCode:(NSString *)code {
+    // https://api.put.io/v2/oauth2/access_token?client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&grant_type=authorization_code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&code=CODE
+    
+    NSString *address = [NSString stringWithFormat:PTFormatOauthTokenURL, @"10", APP_SECRET, @"authorization_code", PTCallbackOriginal, code];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:address]];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:[JSON valueForKeyPath:@"access_token"] forKey:AppAuthTokenDefault];
+        [defaults synchronize];
+        [[NSNotificationCenter defaultCenter] postNotificationName:OAuthTokenWasSavedNotification object:nil userInfo:nil];
+        
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"error %@", error);
+    }];
+    [operation start];
+}
+
 - (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete {
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", folder.id, @"parent_id", nil];
     [self getPath:@"/v2/files/list" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -53,7 +72,6 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             NSLog(@"%@", NSStringFromSelector(_cmd));
             NSLog(@"json parsing error.");
         }
-        
         if ([[json valueForKeyPath:@"status"] isEqualToString:@"OK"]) {
             onComplete([self filesAndFoldersFromJSONArray:[json valueForKeyPath:@"files"] withParent:folder]);
         }else{
@@ -151,8 +169,11 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 #pragma mark internal API gubbins
 
 - (void)genericGetAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete {
+    
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", nil];
     [self getPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"request %@", operation.request.URL);
+
         NSError *error= nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
         if (error) {

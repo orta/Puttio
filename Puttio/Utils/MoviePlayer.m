@@ -81,7 +81,7 @@
     UIViewController *rootController = appDelegate.window.rootViewController;
     MoviePlayer *sharedPlayer = [self sharedPlayer];
     NSString *address = [PutIOClient appendStreamToken:path];
-    NSLog(@"streamURL: %@ ", address );
+    
     MPMoviePlayerController *movieController = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];
     movieController.controlStyle = MPMovieControlStyleDefault;
     movieController.shouldAutoplay = YES;

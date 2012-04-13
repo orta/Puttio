@@ -72,6 +72,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
     NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"acctoken" withParams:[NSDictionary dictionary]];
     [self getPath:@"user" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
+            NSLog(@"got new token %@", [responseObject valueForKeyPath:@"response.results.token"]);
             [[NSUserDefaults standardUserDefaults] setObject:[responseObject valueForKeyPath:@"response.results.token"] forKey:ORStreamTokenDefault];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -13,6 +13,7 @@
 #import "ORImageViewCell.h"
 #import "MoviePlayer.h"
 #import "ModalZoomView.h"
+#import "TestFlight.h"
 
 @interface BrowsingViewController () {
     NSArray *gridViewItems;
@@ -49,6 +50,10 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     if (![currentFolder.id isEqualToString:@"0"]) {
         [self loadFolder:currentFolder.parentFolder];
     }
+}
+
+- (IBAction)feedbackPressed:(id)sender {
+    [TestFlight openFeedbackView];
 }
 
 - (void)loadFolder:(Folder *)folder {
@@ -150,5 +155,6 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     }
     return NO;
 }
+
 
 @end

@@ -54,18 +54,18 @@
     _item = item;
     [thumbnailImageView setImageWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:object.screenShotURL]]];
 
-    [self getFileInfo];
     [self getMP4Info];        
+    [self getFileInfo];
 }
 
 - (void)getFileInfo {
     [[PutIOClient sharedClient] getInfoForFile:_item :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
 
-            if ([self.item.contentType isEqualToString:@"video/mp4"]) {
-                streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
-                downloadPath = [[userInfoObject valueForKeyPath:@"mp4_url"] objectAtIndex:0];                
-            }
+//            if ([self.item.contentType isEqualToString:@"video/mp4"]) {
+//                streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
+//                downloadPath = [[userInfoObject valueForKeyPath:@"mp4_url"] objectAtIndex:0];                
+//            }
 
             titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
             fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
@@ -160,11 +160,13 @@
     statfs([[paths lastObject] cString], &tStats);  
     uint64_t totalSpace = tStats.f_bavail * tStats.f_bsize;  
     
+#warning this should be replaced with the real downloadPath
+    NSMutableArray *components = [[downloadPath componentsSeparatedByString:@"/"] mutableCopy];
+    [components replaceObjectAtIndex:components.count -1 withObject:_item.id];
+    NSString *requestURL = [components componentsJoinedByString:@"/"];
+    
     if (fileSize < totalSpace) {
-        NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];    
-        NSString* address= [NSString stringWithFormat:@"%@/atk/%@", downloadPath, token];
-        NSLog(@"downloading %@", address);
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:address]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:requestURL]]];
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
 
         [operation setDownloadProgressBlock:^(NSInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead) {
@@ -183,6 +185,7 @@
                     if (error) {
                         // TODO: error handling
                         NSLog(@"fail bail");
+
                     } else {
                         // TODO: success handling
                         NSLog(@"success kid");
@@ -199,6 +202,9 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"%@", NSStringFromSelector(_cmd));
             NSLog(@"mega fail");
+            NSLog(@"request %@", operation.request.URL);
+            
+            self.additionalInfoLabel.text = @"Download failed, oh no!";
             progressView.hidden = YES;
             self.downloadButton.enabled = YES;
             self.streamButton.enabled = NO;

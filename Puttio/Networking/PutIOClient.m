@@ -39,6 +39,7 @@
     
     self.v1Client = [V1PutIOAPIClient sharedClient];
     self.v2Client = [V2PutIOAPIClient setup];
+    
     return self;
 }
 
