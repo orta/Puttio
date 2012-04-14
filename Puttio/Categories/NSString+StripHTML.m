@@ -15,7 +15,7 @@
     NSString *text = nil;
     
     theScanner = [NSScanner scannerWithString:self];
-    NSString *returnedString = nil;
+    NSString *returnedString = self;
     
     while ([theScanner isAtEnd] == NO) {
         
@@ -26,9 +26,9 @@
         
         // replace the found tag with a space
         //(you can filter multi-spaces out later if you wish)
-        returnedString = [self stringByReplacingOccurrencesOfString:
+        returnedString = [returnedString stringByReplacingOccurrencesOfString:
                 [ NSString stringWithFormat:@"%@>", text]
-                                               withString:@" "];
+                                               withString:@""];
         
     } // while //
     
