@@ -49,12 +49,7 @@ static SearchController *sharedInstance;
         result.hostName = [item valueForKeyPath:@"original_site"];
         [searchResults addObject:result];
     }
-    
-    if ([self sharedInstance] && [self sharedInstance].delegate) {
-        if ([[self sharedInstance].delegate respondsToSelector:@selector(searchController:foundResults:)]) {
-            [[self sharedInstance].delegate searchController:[self sharedInstance] foundResults:searchResults];
-        }
-    }
+    [self passArrayToDelegate:searchResults];
 }
 
 + (void)searchMininova:(NSString *)query {
@@ -73,13 +68,15 @@ static SearchController *sharedInstance;
         result.hostName = @"mininova.org";
         [searchResults addObject:result];
     }
-    
+    [self passArrayToDelegate:searchResults];
+}
+
++ (void)passArrayToDelegate: (NSArray *)results {
     if ([self sharedInstance] && [self sharedInstance].delegate) {
         if ([[self sharedInstance].delegate respondsToSelector:@selector(searchController:foundResults:)]) {
-            [[self sharedInstance].delegate searchController:[self sharedInstance] foundResults:searchResults];
+            [[self sharedInstance].delegate searchController:[self sharedInstance] foundResults:results];
         }
     }
-
 }
 
 + (NSArray *)dictionariesForJSON:(NSString *)jsonString atKeyPath:(NSString *)keyPath {
