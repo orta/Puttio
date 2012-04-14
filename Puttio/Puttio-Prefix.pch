@@ -24,5 +24,6 @@
     #import "Folder.h"
     #import "Transfer.h"
     #import "Message.h"
+    #import "SearchResult.h"
 #endif
 

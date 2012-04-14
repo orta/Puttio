@@ -14,6 +14,7 @@
 #import "SearchResult.h"
 #import "ORSearchCell.h"
 #import "FileSizeUtils.h"
+#import "SearchController.h"
 
 @interface SearchViewController () {
     NSArray *searchResults;
@@ -24,6 +25,7 @@
 
 @implementation SearchViewController
 @synthesize searchBar;
+@synthesize tableView;
 
 - (void)setup {
 }
@@ -33,10 +35,12 @@
     [self stylizeSearchTextField];
     [self setupShadow];
     [self fakeSearchResults];
+    [SearchController sharedInstance].delegate = self;
 }
 
 - (void)viewDidUnload {
     [self setSearchBar:nil];
+    [self setTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -67,10 +71,13 @@
     layer.shadowRadius = 4;
     layer.shadowOpacity = 0.2;
 }
+#pragma mark searchbar gubbins
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)aSearchBar {
+    [SearchController searchForString:aSearchBar.text];    
+}
 
 #pragma mark tableview gubbins
-
-
 - (int)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -119,6 +126,11 @@
     [results13 generateRanking];
     
     searchResults = [NSArray arrayWithObjects:results1, results12, results13, nil];
+}
+
+- (void)searchController:(SearchController *)controller foundResults:(NSArray *)moreSearchResults {
+    searchResults = [searchResults arrayByAddingObjectsFromArray:moreSearchResults];
+    [self.tableView reloadData];
 }
 
 @end

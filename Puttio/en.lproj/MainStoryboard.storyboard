@@ -288,10 +288,13 @@
                                     <outlet property="delegate" destination="o5q-oo-v5b" id="8hv-id-kdb"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" id="dkf-Gz-Lrs">
+                            <searchBar contentMode="redraw" text="" id="dkf-Gz-Lrs">
                                 <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="o5q-oo-v5b" id="Rf5-eW-cvw"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.95050182481751821" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -302,6 +305,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="dkf-Gz-Lrs" id="Z4E-OY-HvH"/>
+                        <outlet property="tableView" destination="moV-xJ-uB0" id="NPE-pM-jBf"/>
                     </connections>
                 </viewController>
             </objects>
@@ -520,6 +524,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="StatusViewController" superclassName="UIViewController">

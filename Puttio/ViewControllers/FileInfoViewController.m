@@ -53,6 +53,7 @@
     titleLabel.text = object.displayName;
     _item = item;
     [thumbnailImageView setImageWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:object.screenShotURL]]];
+    [Analytics event:@"opened %@ content type more info", object.contentType];
 
     [self getMP4Info];        
     [self getFileInfo];
