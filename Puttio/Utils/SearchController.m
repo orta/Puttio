@@ -35,14 +35,8 @@ static SearchController *sharedInstance;
 
 + (void)searchISOHunt:(NSString *)query {
     NSString *JSONString = [self getExampleJSON:@"isohunt"];
-    NSError *error = nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[JSONString dataUsingEncoding:NSASCIIStringEncoding] options:0 error:&error];
-    if (error) {
-        NSLog(@"%@", NSStringFromSelector(_cmd));
-        NSLog(@"json parsing error.");
-    }
+    NSArray *results = [self dictionariesForJSON:JSONString atKeyPath:@"items.list"];
     
-    NSArray *results = [json valueForKeyPath:@"items.list"];
     NSMutableArray *searchResults = [NSMutableArray array];
     for (NSDictionary *item in results) {
 //        seedersCount, peersCount, hostName, torrentURL, magenetURL, name, ranking, size;
@@ -50,7 +44,8 @@ static SearchController *sharedInstance;
         result.seedersCount = [[item valueForKeyPath:@"Seeds"] intValue];
         result.peersCount = [[item valueForKeyPath:@"leechers"] intValue];
         result.torrentURL = [item valueForKeyPath:@"enclosure_url"];
-        result.name = [item valueForKeyPath:@"title"];
+        NSString *title = [item valueForKeyPath:@"title"];
+        result.name = [title stripHTMLtrimWhiteSpace:YES];
         result.hostName = [item valueForKeyPath:@"original_site"];
         [searchResults addObject:result];
     }
@@ -64,6 +59,38 @@ static SearchController *sharedInstance;
 
 + (void)searchMininova:(NSString *)query {
     NSString *JSONString = [self getExampleJSON:@"mininova"];
+    NSArray *results = [self dictionariesForJSON:JSONString atKeyPath:@"results"];
+
+    NSMutableArray *searchResults = [NSMutableArray array];
+    for (NSDictionary *item in results) {
+        //        seedersCount, peersCount, hostName, torrentURL, magenetURL, name, ranking, size;
+        SearchResult *result = [[SearchResult alloc] init];
+        result.seedersCount = [[item valueForKeyPath:@"seeds"] intValue];
+        result.peersCount = [[item valueForKeyPath:@"peers"] intValue];
+        result.torrentURL = [item valueForKeyPath:@"download"];
+        NSString *title = [item valueForKeyPath:@"title"];
+        result.name = [title stripHTMLtrimWhiteSpace:YES];
+        result.hostName = @"mininova.org";
+        [searchResults addObject:result];
+    }
+    
+    if ([self sharedInstance] && [self sharedInstance].delegate) {
+        if ([[self sharedInstance].delegate respondsToSelector:@selector(searchController:foundResults:)]) {
+            [[self sharedInstance].delegate searchController:[self sharedInstance] foundResults:searchResults];
+        }
+    }
+
+}
+
++ (NSArray *)dictionariesForJSON:(NSString *)jsonString atKeyPath:(NSString *)keyPath {
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSASCIIStringEncoding] options:0 error:&error];
+    if (error) {
+        NSLog(@"%@", NSStringFromSelector(_cmd));
+        NSLog(@"json parsing error.");
+    }
+    
+    return [json valueForKeyPath:keyPath];
 }
 
 + (NSString*)getExampleJSON:(NSString*)filename {

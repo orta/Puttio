@@ -15,6 +15,7 @@
 		601205391538CF2600052D89 /* mininova.json in Resources */ = {isa = PBXBuildFile; fileRef = 601205381538CF2600052D89 /* mininova.json */; };
 		6012053B1538CF5600052D89 /* isohunt.json in Resources */ = {isa = PBXBuildFile; fileRef = 6012053A1538CF5600052D89 /* isohunt.json */; };
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
+		6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */; };
 		606C79A4152F508E00608C56 /* ORDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79A3152F508E00608C56 /* ORDefaults.m */; };
 		606C79AA152F5ACE00608C56 /* Tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A6152F5ACE00608C56 /* Tab.png */; };
 		606C79AB152F5ACE00608C56 /* TabActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A7152F5ACE00608C56 /* TabActive.png */; };
@@ -101,6 +102,8 @@
 		6012053A1538CF5600052D89 /* isohunt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isohunt.json; sourceTree = "<group>"; };
 		6064D89915398E4600E454E5 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = Utils/SearchController.h; sourceTree = "<group>"; };
 		6064D89A15398E4600E454E5 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchController.m; path = Utils/SearchController.m; sourceTree = "<group>"; };
+		6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+StripHTML.h"; path = "Categories/NSString+StripHTML.h"; sourceTree = "<group>"; };
+		6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+StripHTML.m"; path = "Categories/NSString+StripHTML.m"; sourceTree = "<group>"; };
 		606C79A2152F508E00608C56 /* ORDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORDefaults.h; path = Utils/ORDefaults.h; sourceTree = "<group>"; };
 		606C79A3152F508E00608C56 /* ORDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDefaults.m; path = Utils/ORDefaults.m; sourceTree = "<group>"; };
 		606C79A6152F5ACE00608C56 /* Tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tab.png; sourceTree = "<group>"; };
@@ -437,6 +440,8 @@
 		60AB50CF151F64DE00473448 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */,
+				6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */,
 				6085D27D151BA3AF0068929C /* NSDictionary+JSON.h */,
 				6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */,
 				60AB50D1151F650A00473448 /* UIColor+PutioColours.h */,
@@ -606,6 +611,7 @@
 				60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */,
 				60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */,
 				6064D89B15398E4600E454E5 /* SearchController.m in Sources */,
+				6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
