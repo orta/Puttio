@@ -65,7 +65,6 @@ static SearchController *sharedInstance;
         NSLog(@"fail whale %@", error);
     }];
     [operation start];
-
 }
 
 + (void)searchMininova:(NSString *)query {
