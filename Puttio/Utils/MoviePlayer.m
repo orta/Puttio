@@ -8,6 +8,7 @@
 
 #import "MoviePlayer.h"
 #import "ORAppDelegate.h"
+#import "TestFlight.h"
 
 @implementation MoviePlayer
 @synthesize mediaPlayer;
@@ -58,16 +59,19 @@
     NSNumber* reason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     switch ([reason intValue]) {
         case MPMovieFinishReasonPlaybackEnded:
-            NSLog(@"playbackFinished. Reason: Playback Ended");
+            TFLog(@"playbackFinished. Reason: Playback Ended");
             [Analytics event:@"User finished watching a movie"];
             break;
         case MPMovieFinishReasonPlaybackError:
-            NSLog(@"playbackFinished. Reason: Playback Error");
-            NSLog(@"error log %@", self.mediaPlayer.errorLog);
-            [Analytics event:@"Movie Playback Error %@ - ( %@ )", self.mediaPlayer.errorLog,             self.mediaPlayer.contentURL];
+            TFLog(@"playbackFinished. Reason: Playback Error");
+            TFLog(@"error log %@", self.mediaPlayer.errorLog);
+            TFLog(@"network log %@", self.mediaPlayer.accessLog);
+            TFLog(@"note %@", notification);
+
+            [Analytics event:@"Movie Playback Error %@ - ( %@ )", self.mediaPlayer.contentURL, self.mediaPlayer.errorLog];
             break;
         case MPMovieFinishReasonUserExited:
-            NSLog(@"playbackFinished. Reason: User Exited");
+            TFLog(@"playbackFinished. Reason: User Exited");
             break;
         default:
             break;
@@ -76,10 +80,12 @@
 }
 
 + (void)streamMovieAtPath:(NSString *)path {
-    
+    TFLog(@"looking at %@", path);
+
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
     MoviePlayer *sharedPlayer = [self sharedPlayer];
+    path = [[path componentsSeparatedByString:@"/atk"] objectAtIndex:0];
     NSString *address = [PutIOClient appendStreamToken:path];
     
     MPMoviePlayerController *movieController = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];

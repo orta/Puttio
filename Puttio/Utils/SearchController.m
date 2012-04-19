@@ -7,6 +7,7 @@
 //
 
 #import "SearchController.h"
+#import "AFHTTPRequestOperation.h"
 
 static SearchController *sharedInstance;
 
@@ -34,41 +35,75 @@ static SearchController *sharedInstance;
 }
 
 + (void)searchISOHunt:(NSString *)query {
-    NSString *JSONString = [self getExampleJSON:@"isohunt"];
-    NSArray *results = [self dictionariesForJSON:JSONString atKeyPath:@"items.list"];
+#warning html encode for spaces
     
-    NSMutableArray *searchResults = [NSMutableArray array];
-    for (NSDictionary *item in results) {
-//        seedersCount, peersCount, hostName, torrentURL, magenetURL, name, ranking, size;
-        SearchResult *result = [[SearchResult alloc] init];
-        result.seedersCount = [[item valueForKeyPath:@"Seeds"] intValue];
-        result.peersCount = [[item valueForKeyPath:@"leechers"] intValue];
-        result.torrentURL = [item valueForKeyPath:@"enclosure_url"];
-        NSString *title = [item valueForKeyPath:@"title"];
-        result.name = [title stripHTMLtrimWhiteSpace:YES];
-        result.hostName = [item valueForKeyPath:@"original_site"];
-        [searchResults addObject:result];
-    }
-    [self passArrayToDelegate:searchResults];
+    NSString *address = [NSString stringWithFormat:@"http://isohunt.com/js/json.php?ihq=%@", query];
+    NSURL *url = [NSURL URLWithString:address];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, id responseObject) {
+        
+        NSArray *results = [self dictionariesForJSONData:responseObject atKeyPath:@"items.list"];
+        
+        NSMutableArray *searchResults = [NSMutableArray array];
+        for (NSDictionary *item in results) {
+            //        seedersCount, peersCount, hostName, torrentURL, magenetURL, name, ranking, size;
+            SearchResult *result = [[SearchResult alloc] init];
+            result.seedersCount = [[item valueForKeyPath:@"Seeds"] intValue];
+            result.peersCount = [[item valueForKeyPath:@"leechers"] intValue];
+            result.torrentURL = [item valueForKeyPath:@"enclosure_url"];
+            NSString *title = [item valueForKeyPath:@"title"];
+            result.name = [title stripHTMLtrimWhiteSpace:YES];
+            result.hostName = [item valueForKeyPath:@"original_site"];
+            [searchResults addObject:result];
+        }
+        [self passArrayToDelegate:searchResults];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+      
+        NSLog(@"fail whale %@", error);
+    }];
+    [operation start];
+
 }
 
 + (void)searchMininova:(NSString *)query {
-    NSString *JSONString = [self getExampleJSON:@"mininova"];
-    NSArray *results = [self dictionariesForJSON:JSONString atKeyPath:@"results"];
 
-    NSMutableArray *searchResults = [NSMutableArray array];
-    for (NSDictionary *item in results) {
-        //        seedersCount, peersCount, hostName, torrentURL, magenetURL, name, ranking, size;
-        SearchResult *result = [[SearchResult alloc] init];
-        result.seedersCount = [[item valueForKeyPath:@"seeds"] intValue];
-        result.peersCount = [[item valueForKeyPath:@"peers"] intValue];
-        result.torrentURL = [item valueForKeyPath:@"download"];
-        NSString *title = [item valueForKeyPath:@"title"];
-        result.name = [title stripHTMLtrimWhiteSpace:YES];
-        result.hostName = @"mininova.org";
-        [searchResults addObject:result];
-    }
-    [self passArrayToDelegate:searchResults];
+    NSString *address = [NSString stringWithFormat:@"http://www.mininova.org/vuze.php?search=%@", query];
+        NSLog(@"searching for %@", address);
+    NSURL *url = [NSURL URLWithString:address];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, id responseObject) {
+        
+//        NSArray *results = [self dictionariesForJSONData:responseObject atKeyPath:@"results"];
+        NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
+        result = [result stringByReplacingOccurrencesOfString:@"\"hash\"" withString:@",\"hash\""];
+        NSError *error = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSASCIIStringEncoding] options:0 error:&error];
+        NSArray *results = [json objectForKey:@"results"];
+
+        NSMutableArray *searchResults = [NSMutableArray array];
+        for (NSDictionary *item in results) {
+            //        seedersCount, peersCount, hostName, torrentURL, magenetURL, name, ranking, size;
+            SearchResult *result = [[SearchResult alloc] init];
+            result.seedersCount = [[item valueForKeyPath:@"seeds"] intValue];
+            result.peersCount = [[item valueForKeyPath:@"peers"] intValue];
+            result.torrentURL = [item valueForKeyPath:@"download"];
+            NSString *title = [item valueForKeyPath:@"title"];
+            result.name = [title stripHTMLtrimWhiteSpace:YES];
+            result.hostName = @"mininova.org";
+            [searchResults addObject:result];
+        }
+        [self passArrayToDelegate:searchResults];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"fail whale %@", error);
+    }];
+    [operation start];
 }
 
 + (void)passArrayToDelegate: (NSArray *)results {
@@ -79,9 +114,9 @@ static SearchController *sharedInstance;
     }
 }
 
-+ (NSArray *)dictionariesForJSON:(NSString *)jsonString atKeyPath:(NSString *)keyPath {
++ (NSArray *)dictionariesForJSONData:(NSData *)data atKeyPath:(NSString *)keyPath {
     NSError *error = nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSASCIIStringEncoding] options:0 error:&error];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         NSLog(@"%@", NSStringFromSelector(_cmd));
         NSLog(@"json parsing error.");

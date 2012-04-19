@@ -103,6 +103,12 @@
     return 88;
 }
 
+- (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
+    searchResults = [NSArray array];
+    [SearchController searchForString:aSearchBar.text];
+    [self.tableView reloadData];
+}
+
 - (void)searchController:(SearchController *)controller foundResults:(NSArray *)moreSearchResults {
     searchResults = [searchResults arrayByAddingObjectsFromArray:moreSearchResults];
     [self.tableView reloadData];
