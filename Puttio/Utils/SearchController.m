@@ -69,16 +69,13 @@ static SearchController *sharedInstance;
 }
 
 + (void)searchMininova:(NSString *)query {
-
     NSString *address = [NSString stringWithFormat:@"http://www.mininova.org/vuze.php?search=%@", query];
-        NSLog(@"searching for %@", address);
     NSURL *url = [NSURL URLWithString:address];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, id responseObject) {
         
-//        NSArray *results = [self dictionariesForJSONData:responseObject atKeyPath:@"results"];
         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
         result = [result stringByReplacingOccurrencesOfString:@"\"hash\"" withString:@",\"hash\""];
         NSError *error = nil;
@@ -87,7 +84,6 @@ static SearchController *sharedInstance;
 
         NSMutableArray *searchResults = [NSMutableArray array];
         for (NSDictionary *item in results) {
-            //        seedersCount, peersCount, hostName, torrentURL, magenetURL, name, ranking, size;
             SearchResult *result = [[SearchResult alloc] init];
             result.seedersCount = [[item valueForKeyPath:@"seeds"] intValue];
             result.peersCount = [[item valueForKeyPath:@"peers"] intValue];
@@ -121,7 +117,6 @@ static SearchController *sharedInstance;
         NSLog(@"%@", NSStringFromSelector(_cmd));
         NSLog(@"json parsing error.");
     }
-    
     return [json valueForKeyPath:keyPath];
 }
 
