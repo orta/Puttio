@@ -12,6 +12,6 @@ NSString *const PTCallbackModified = @"puttio://callback/%3Fcode";
 NSString *const PTRootURL = @"https://put.io/";
 
 NSString *const PTFormatOauthTokenURL = @"https://api.put.io/v2/oauth2/access_token?client_id=%@&client_secret=%@&grant_type=%@&redirect_uri=%@&code=%@";
-
+NSString *const PTFormatOauthLoginURL = @"https://api.put.io/v2/oauth2/authenticate?client_id=%@&response_type=code&redirect_uri=%@"
 NSString *const PTFormatOauthURL = @"https://api.put.io/v2/oauth2/authenticate?client_id=%@&response_type=code&redirect_uri=%@";
 NSString *const PTSettingsURL = @"https://put.io/account/settings";

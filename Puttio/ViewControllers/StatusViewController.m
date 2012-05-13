@@ -29,7 +29,6 @@ typedef enum {
 } Display;
 
 @synthesize tableView;
-@synthesize bandwidthProgressView;
 @synthesize spaceProgressView;
 
 - (void)setup {
@@ -68,12 +67,8 @@ typedef enum {
             [[NSUserDefaults standardUserDefaults] setObject:[userInfoObject valueForKeyPath:@"id"] forKey:ORUserIdDefault];
             NSString *diskQuotaString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota"] objectAtIndex:0];
             NSString *diskQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota_available"] objectAtIndex:0];
-            
-            NSString *bandwidthQuotaString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota"] objectAtIndex:0];
-            NSString *bandwidthQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota_available"] objectAtIndex:0];
-            
+                        
             self.spaceProgressView.progress = [diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue] ;
-            self.bandwidthProgressView.progress = [bandwidthQuotaAvailableString longLongValue] / [bandwidthQuotaString longLongValue];
         }
     }];
 }
@@ -131,7 +126,6 @@ typedef enum {
 }
 
 - (void)viewDidUnload {
-    [self setBandwidthProgressView:nil];
     [self setSpaceProgressView:nil];
     [self setTableView:nil];
     [super viewDidUnload];

@@ -35,7 +35,6 @@
     [self stylizeSearchTextField];
     [self setupShadow];
     [SearchController sharedInstance].delegate = self;
-    searchResults = [NSArray array];
 }
 
 - (void)viewDidUnload {
@@ -71,13 +70,32 @@
     layer.shadowRadius = 4;
     layer.shadowOpacity = 0.2;
 }
+
+#pragma mark -
 #pragma mark searchbar gubbins
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)aSearchBar {
-    [SearchController searchForString:aSearchBar.text];    
+    [self searchBarTextDidEndEditing:aSearchBar];
 }
 
+- (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
+    searchResults = [NSArray array];
+    [SearchController searchForString:aSearchBar.text];
+    [self.tableView reloadData];
+}
+
+#pragma mark -
+#pragma mark search controller
+
+- (void)searchController:(SearchController *)controller foundResults:(NSArray *)moreSearchResults {
+    searchResults = [searchResults arrayByAddingObjectsFromArray:moreSearchResults];
+    [self.tableView reloadData];
+}
+
+
+#pragma mark -
 #pragma mark tableview gubbins
+
 - (int)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -103,15 +121,5 @@
     return 88;
 }
 
-- (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
-    searchResults = [NSArray array];
-    [SearchController searchForString:aSearchBar.text];
-    [self.tableView reloadData];
-}
-
-- (void)searchController:(SearchController *)controller foundResults:(NSArray *)moreSearchResults {
-    searchResults = [searchResults arrayByAddingObjectsFromArray:moreSearchResults];
-    [self.tableView reloadData];
-}
 
 @end

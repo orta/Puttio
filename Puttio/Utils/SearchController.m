@@ -30,12 +30,12 @@ static SearchController *sharedInstance;
 }
 
 + (void)searchForString:(NSString *)query {
+    query = [query stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];    
     [self searchISOHunt:query];
     [self searchMininova:query];
 }
 
 + (void)searchISOHunt:(NSString *)query {
-#warning html encode for spaces
     
     NSString *address = [NSString stringWithFormat:@"http://isohunt.com/js/json.php?ihq=%@", query];
     NSURL *url = [NSURL URLWithString:address];

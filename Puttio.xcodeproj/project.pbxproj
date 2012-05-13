@@ -44,6 +44,7 @@
 		6085D279151B9DBA0068929C /* V1PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */; };
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
+		6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */; };
 		60A1B19815287343002A6A7E /* ModalZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B19715287343002A6A7E /* ModalZoomView.m */; };
 		60A1B1B01528788E002A6A7E /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */; };
 		60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */; };
@@ -152,6 +153,8 @@
 		6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		6085D295151BAB230068929C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6085D296151BAB230068929C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		6096FC19155FF0B1009C524C /* PutIOOAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOOAuthHelper.h; path = Networking/PutIOOAuthHelper.h; sourceTree = "<group>"; };
+		6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOOAuthHelper.m; path = Networking/PutIOOAuthHelper.m; sourceTree = "<group>"; };
 		60A1B19615287343002A6A7E /* ModalZoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModalZoomView.h; path = ViewControllers/ModalZoomView.h; sourceTree = "<group>"; };
 		60A1B19715287343002A6A7E /* ModalZoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModalZoomView.m; path = ViewControllers/ModalZoomView.m; sourceTree = "<group>"; };
 		60A1B1AE1528788E002A6A7E /* FileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileInfoViewController.h; path = ViewControllers/FileInfoViewController.h; sourceTree = "<group>"; };
@@ -385,6 +388,8 @@
 		6085D27B151B9E550068929C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				60DB0AB2151C670800DA8A33 /* OAuthViewController.h */,
+				60DB0AB3151C670800DA8A33 /* OAuthViewController.m */,
 				600641F9151F24AF00EF85F9 /* StatusViewController.h */,
 				600641FA151F24AF00EF85F9 /* StatusViewController.m */,
 				600641FD151F24C100EF85F9 /* SearchViewController.h */,
@@ -457,14 +462,14 @@
 			children = (
 				60A7A6C4151FBA9900DB71E0 /* NetworkConstants.h */,
 				60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */,
-				60DB0AB2151C670800DA8A33 /* OAuthViewController.h */,
-				60DB0AB3151C670800DA8A33 /* OAuthViewController.m */,
 				6085D277151B9DBA0068929C /* V1PutIOAPIClient.h */,
 				6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */,
 				60B1A933151E157E00FBCD27 /* V2PutIOAPIClient.h */,
 				60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */,
 				60BD4F45151C701300DCD686 /* PutIOClient.h */,
 				60BD4F46151C701300DCD686 /* PutIOClient.m */,
+				6096FC19155FF0B1009C524C /* PutIOOAuthHelper.h */,
+				6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -612,6 +617,7 @@
 				60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */,
 				6064D89B15398E4600E454E5 /* SearchController.m in Sources */,
 				6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */,
+				6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

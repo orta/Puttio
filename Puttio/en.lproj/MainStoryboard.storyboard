@@ -27,28 +27,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Space" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="JVc-iZ-mfQ">
-                                <rect key="frame" x="30" y="716" width="66" height="36"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Space" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="w79-AE-0mt">
+                                <rect key="frame" x="85" y="716" width="111" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bandwidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="w79-AE-0mt">
-                                <rect key="frame" x="158" y="716" width="111" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" id="iLk-Zv-WaC" customClass="ORSimpleProgress">
-                                <rect key="frame" x="30" y="635" width="66" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" id="EYi-oQ-Ygh" customClass="ORSimpleProgress">
-                                <rect key="frame" x="166" y="635" width="66" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="107" y="635" width="66" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" id="uHV-X3-dFo">
@@ -128,7 +116,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="bandwidthProgressView" destination="EYi-oQ-Ygh" id="NAX-gO-wMV"/>
-                        <outlet property="spaceProgressView" destination="iLk-Zv-WaC" id="rRm-Cg-doo"/>
+                        <outlet property="spaceProgressView" destination="EYi-oQ-Ygh" id="hYG-ZV-h1H"/>
                         <outlet property="tableView" destination="uHV-X3-dFo" id="vh6-6v-36J"/>
                     </connections>
                 </viewController>
@@ -425,7 +413,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-2251" y="-1257"/>
+            <point key="canvasLocation" x="-2222" y="-1169"/>
         </scene>
         <!--Auth View Controller-->
         <scene sceneID="SiC-1L-FYf">
@@ -518,6 +506,7 @@ Message</string>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="authHelper" destination="kuB-Ee-JBF" id="T2o-YW-IMN"/>
                         <outlet property="loginViewWrapper" destination="RTs-9t-64d" id="Qbn-HY-tTk"/>
                         <outlet property="passwordTextfield" destination="7qr-I8-ulE" id="UeA-O1-aYA"/>
                         <outlet property="usernameTextfield" destination="eU6-zT-B2t" id="Jac-y1-Suk"/>
@@ -525,6 +514,11 @@ Message</string>
                         <outlet property="webView" destination="vzR-Xs-Iu9" id="rin-xf-Y80"/>
                     </connections>
                 </viewController>
+                <customObject id="kuB-Ee-JBF" customClass="PutIOOAuthHelper">
+                    <connections>
+                        <outlet property="delegate" destination="gND-ap-Oq0" id="01f-hb-rfi"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-3426" y="454"/>
         </scene>
@@ -565,11 +559,11 @@ Message</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OAuthViewController.h"/>
             <relationships>
                 <relationship kind="action" name="loginPressed:"/>
+                <relationship kind="outlet" name="authHelper" candidateClass="PutIOOAuthHelper"/>
                 <relationship kind="outlet" name="loginViewWrapper" candidateClass="UIView"/>
                 <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameTextfield" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="warningLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="ORMessageCell" superclassName="UITableViewCell">
@@ -589,6 +583,13 @@ Message</string>
         <class className="ORSimpleProgress" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSimpleProgress.h"/>
         </class>
+        <class className="PutIOOAuthHelper" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PutIOOAuthHelper.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate" candidateClass="NSObject"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
         <class className="RootViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
             <relationships>
@@ -605,7 +606,6 @@ Message</string>
         <class className="StatusViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="bandwidthProgressView" candidateClass="ORSimpleProgress"/>
                 <relationship kind="outlet" name="spaceProgressView" candidateClass="ORSimpleProgress"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>

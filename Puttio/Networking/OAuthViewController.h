@@ -7,19 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PutIOOAuthHelper.h"
 
 @class OAuthViewController;
+
 @protocol OAuthVCDelegate <NSObject>
 - (void)authorizationDidFinishWithController:(OAuthViewController *)controller;
 @end
 
-@interface OAuthViewController : UIViewController <UIWebViewDelegate>
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@interface OAuthViewController : UIViewController <UIWebViewDelegate, PutIOOAuthHelperDelegate>
 @property (weak, nonatomic) id <OAuthVCDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextfield; 
 @property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 @property (weak, nonatomic) IBOutlet UIView *loginViewWrapper;
+@property (weak, nonatomic) IBOutlet PutIOOAuthHelper *authHelper;
 
 - (IBAction)loginPressed:(id)sender;
 
