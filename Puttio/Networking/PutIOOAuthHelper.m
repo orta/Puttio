@@ -9,6 +9,7 @@
 #import "PutIOOAuthHelper.h"
 #import "APP_SECRET.h"
 #import "AFNetworking.h"
+#import "PutIONetworkConstants.h"
 
 @implementation PutIOOAuthHelper
 

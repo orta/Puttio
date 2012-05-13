@@ -48,7 +48,7 @@
 		60A1B19815287343002A6A7E /* ModalZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B19715287343002A6A7E /* ModalZoomView.m */; };
 		60A1B1B01528788E002A6A7E /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */; };
 		60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */; };
-		60A7A6C6151FBA9900DB71E0 /* NetworkConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */; };
+		60A7A6C6151FBA9900DB71E0 /* PutIONetworkConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6C5151FBA9900DB71E0 /* PutIONetworkConstants.m */; };
 		60A7A6D0151FD2A100DB71E0 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6CF151FD2A100DB71E0 /* File.m */; };
 		60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60A7AB1515290771009DD716 /* Transfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB1415290771009DD716 /* Transfer.m */; };
@@ -162,8 +162,8 @@
 		60A7A6B3151F6E0D00DB71E0 /* ORSimpleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSimpleProgress.h; path = Views/ORSimpleProgress.h; sourceTree = "<group>"; };
 		60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSimpleProgress.m; path = Views/ORSimpleProgress.m; sourceTree = "<group>"; };
 		60A7A6C3151FBA1D00DB71E0 /* APP_SECRET.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET.h; path = ../APP_SECRET.h; sourceTree = "<group>"; };
-		60A7A6C4151FBA9900DB71E0 /* NetworkConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkConstants.h; path = Networking/NetworkConstants.h; sourceTree = "<group>"; };
-		60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkConstants.m; path = Networking/NetworkConstants.m; sourceTree = "<group>"; };
+		60A7A6C4151FBA9900DB71E0 /* PutIONetworkConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; name = PutIONetworkConstants.h; path = Networking/PutIONetworkConstants.h; sourceTree = "<group>"; };
+		60A7A6C5151FBA9900DB71E0 /* PutIONetworkConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIONetworkConstants.m; path = Networking/PutIONetworkConstants.m; sourceTree = "<group>"; };
 		60A7A6CB151FC1CF00DB71E0 /* APP_SECRET_EX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET_EX.h; path = ../APP_SECRET_EX.h; sourceTree = "<group>"; };
 		60A7A6CE151FD2A100DB71E0 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = File.h; path = Models/File.h; sourceTree = SOURCE_ROOT; };
 		60A7A6CF151FD2A100DB71E0 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = File.m; path = Models/File.m; sourceTree = SOURCE_ROOT; };
@@ -460,8 +460,8 @@
 		60DB0AB1151C665E00DA8A33 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				60A7A6C4151FBA9900DB71E0 /* NetworkConstants.h */,
-				60A7A6C5151FBA9900DB71E0 /* NetworkConstants.m */,
+				60A7A6C4151FBA9900DB71E0 /* PutIONetworkConstants.h */,
+				60A7A6C5151FBA9900DB71E0 /* PutIONetworkConstants.m */,
 				6085D277151B9DBA0068929C /* V1PutIOAPIClient.h */,
 				6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */,
 				60B1A933151E157E00FBCD27 /* V2PutIOAPIClient.h */,
@@ -596,7 +596,7 @@
 				60064205151F24DA00EF85F9 /* RootViewController.m in Sources */,
 				60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */,
 				60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */,
-				60A7A6C6151FBA9900DB71E0 /* NetworkConstants.m in Sources */,
+				60A7A6C6151FBA9900DB71E0 /* PutIONetworkConstants.m in Sources */,
 				60A7A6D0151FD2A100DB71E0 /* File.m in Sources */,
 				60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */,
 				60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */,
