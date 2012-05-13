@@ -11,12 +11,26 @@
 #import "AFNetworking.h"
 #import "PutIONetworkConstants.h"
 
+// http://put.io/v2/docs/#authentication
+
+// The order of this is
+
+// Login in via website in webkit
+// Redirect to the OAuth dialog
+// Make a request to the OAuth authenticate URL ( getAccessTokenFromOauthCode )
+// Load Accounts page and parse out the tokens
+// Then call delegate method.
+
 @implementation PutIOOAuthHelper
 
 @synthesize webView, delegate;
 
 - (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password {
+    webView.delegate = self;
+
     [self loadAuthPage];
+    
+    NSLog(@"%@ %s\n%@", NSStringFromSelector(_cmd), __FILE__, self);
     
     NSString *setUsername = [NSString stringWithFormat:@"document.getElementsByTagName('input')[0].value = '%@'", username];
     [webView stringByEvaluatingJavaScriptFromString:setUsername];
@@ -98,11 +112,11 @@
         if (error.code == 102) {
             // no-op as the puttio:// url causes both errors 101/102
         }else if (error.code == -1009) {
-            [self.delegate OAuthHelperLoginFailedWithDesription:@"Your iPad is currently offline."];
+            [self.delegate authHelperLoginFailedWithDesription:@"Your iPad is currently offline."];
         }else {
             // actually unexpected
             NSString *error = [NSString stringWithFormat:@"WebView not acting as expected %@", error];
-            [self.delegate OAuthHelperLoginFailedWithDesription:error];
+            [self.delegate authHelperLoginFailedWithDesription:error];
         }
     }
 }
@@ -110,7 +124,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
     if([aWebView.request.URL.absoluteString isEqualToString:PTSettingsURL]){
         [self parseForV1Tokens];
-        [self.delegate OAuthHelperDidLogin:self];
+        [self.delegate authHelperDidLogin:self];
     }
 }
 

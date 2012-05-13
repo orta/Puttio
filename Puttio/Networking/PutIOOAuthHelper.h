@@ -11,8 +11,8 @@
 @class PutIOOAuthHelper;
 @protocol PutIOOAuthHelperDelegate <NSObject>
 
-- (void)OAuthHelperDidLogin:(PutIOOAuthHelper *)helper;
-- (void)OAuthHelperLoginFailedWithDesription:(NSString *)errorDescription;
+- (void)authHelperDidLogin:(PutIOOAuthHelper *)helper;
+- (void)authHelperLoginFailedWithDesription:(NSString *)errorDescription;
 
 @end
 

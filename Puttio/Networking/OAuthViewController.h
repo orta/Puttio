@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextfield; 
 @property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 @property (weak, nonatomic) IBOutlet UIView *loginViewWrapper;
-@property (weak, nonatomic) IBOutlet PutIOOAuthHelper *authHelper;
+@property (strong, nonatomic) IBOutlet PutIOOAuthHelper *authHelper;
 
 - (IBAction)loginPressed:(id)sender;
 

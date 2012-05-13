@@ -10,22 +10,6 @@
 #import "OAuthViewController.h"
 #import "PutIOOAuthHelper.h"
 
-// http://put.io/v2/docs/#authentication
-
-// The order of this is
-
-// Login in via website in webkit
-// Redirect to the OAuth dialog
-// Make a request to the OAuth authenticate URL ( getAccessTokenFromOauthCode )
-// Load Accounts page and parse out the tokens
-// Then call delegate method.
-
-@interface OAuthViewController ()
-- (void)loadAuthPage;
-- (void)loadAccountSettingsPage;
-- (void)getAccessTokenFromOauthCode:(NSString *)code;
-@end
-
 @implementation OAuthViewController
 @synthesize usernameTextfield, passwordTextfield;
 @synthesize warningLabel;
@@ -65,14 +49,17 @@
 }
 
 - (IBAction)loginPressed:(id)sender {
-    #warning untested
     [authHelper loginWithUsername:usernameTextfield.text andPassword:passwordTextfield.text];
 }
 
-- (void)OAuthHelperDidLogin:(PutIOOAuthHelper *)helper {
+- (void)authHelperDidLogin:(PutIOOAuthHelper *)helper {
     if([delegate respondsToSelector:@selector(authorizationDidFinishWithController:)]){
         [delegate authorizationDidFinishWithController:self];
     }
+}
+
+- (void)authHelperLoginFailedWithDesription:(NSString *)errorDescription {
+    self.warningLabel.text = errorDescription;
 }
 
 @end
