@@ -444,54 +444,68 @@
                                     <outlet property="delegate" destination="gND-ap-Oq0" id="SaG-fq-xD7"/>
                                 </connections>
                             </webView>
-                            <view contentMode="scaleToFill" id="b2f-9e-LRi">
-                                <rect key="frame" x="210" y="211" width="464" height="44"/>
+                            <view contentMode="scaleToFill" id="RTs-9t-64d">
+                                <rect key="frame" x="260" y="147" width="504" height="455"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Log in to Put.io" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="jZL-kI-4uf">
-                                        <rect key="frame" x="20" y="4" width="376" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="itN-bJ-ed3">
-                                <rect key="frame" x="210" y="252" width="464" height="374"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" id="eU6-zT-B2t">
-                                        <rect key="frame" x="90" y="69" width="284" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" id="7qr-I8-ulE">
-                                        <rect key="frame" x="90" y="128" width="284" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Huw-f5-DTe">
-                                        <rect key="frame" x="291" y="193" width="83" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Log in">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="backPressed:" destination="u9h-fZ-wfU" eventType="touchUpInside" id="h1d-z4-Xld"/>
-                                            <action selector="feedbackPressed:" destination="u9h-fZ-wfU" eventType="touchUpInside" id="tf3-vT-fEI"/>
-                                            <action selector="loginPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="oMF-Za-XkE"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" id="itN-bJ-ed3">
+                                        <rect key="frame" x="20" y="61" width="464" height="374"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" id="eU6-zT-B2t">
+                                                <rect key="frame" x="90" y="40" width="284" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" id="7qr-I8-ulE">
+                                                <rect key="frame" x="90" y="89" width="284" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Huw-f5-DTe">
+                                                <rect key="frame" x="291" y="143" width="83" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Log in">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="backPressed:" destination="u9h-fZ-wfU" eventType="touchUpInside" id="h1d-z4-Xld"/>
+                                                    <action selector="feedbackPressed:" destination="u9h-fZ-wfU" eventType="touchUpInside" id="tf3-vT-fEI"/>
+                                                    <action selector="loginPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="oMF-Za-XkE"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Error Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="P60-EY-4Xo">
+                                                <rect key="frame" x="90" y="9" width="284" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="b2f-9e-LRi">
+                                        <rect key="frame" x="0.0" y="20" width="504" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Log in to Put.io" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="jZL-kI-4uf">
+                                                <rect key="frame" x="64" y="4" width="299" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -502,8 +516,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="loginViewWrapper" destination="RTs-9t-64d" id="Qbn-HY-tTk"/>
                         <outlet property="passwordTextfield" destination="7qr-I8-ulE" id="UeA-O1-aYA"/>
                         <outlet property="usernameTextfield" destination="eU6-zT-B2t" id="Jac-y1-Suk"/>
+                        <outlet property="warningLabel" destination="P60-EY-4Xo" id="Kw1-bf-PYa"/>
                         <outlet property="webView" destination="vzR-Xs-Iu9" id="rin-xf-Y80"/>
                     </connections>
                 </viewController>
@@ -547,9 +563,10 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OAuthViewController.h"/>
             <relationships>
                 <relationship kind="action" name="loginPressed:"/>
-                <relationship kind="action" name="okPressed:"/>
+                <relationship kind="outlet" name="loginViewWrapper" candidateClass="UIView"/>
                 <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="warningLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>

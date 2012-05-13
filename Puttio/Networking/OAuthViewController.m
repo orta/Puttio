@@ -6,9 +6,11 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "OAuthViewController.h"
 #import "APP_SECRET.h"
 #import "AFNetworking.h"
+
 
 // http://put.io/v2/docs/#authentication
 
@@ -21,7 +23,7 @@
 // Then call delegate method.
 
 @interface OAuthViewController ()
-- (void)auth;
+- (void)loadAuthPage;
 - (void)loadAccountSettingsPage;
 - (void)getAccessTokenFromOauthCode:(NSString *)code;
 @end
@@ -29,19 +31,34 @@
 @implementation OAuthViewController
 @synthesize usernameTextfield;
 @synthesize passwordTextfield;
+@synthesize warningLabel;
+@synthesize loginViewWrapper;
 @synthesize webView, delegate;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    [self auth];
+    [self setupShadow];
+    self.warningLabel.text = @"";
 }
 
-- (void)viewDidUnload
-{
+- (void)setupShadow {
+    self.loginViewWrapper.clipsToBounds = NO;
+    
+    CALayer *layer = self.loginViewWrapper.layer;
+    layer.masksToBounds = NO;
+    layer.shadowOffset = CGSizeZero;
+    layer.shadowColor = [[UIColor blackColor] CGColor];
+    layer.shadowRadius = 20;
+    layer.shadowOpacity = 0.15;
+}
+
+
+- (void)viewDidUnload {
     [self setWebView:nil];
     [self setUsernameTextfield:nil];
     [self setPasswordTextfield:nil];
+    [self setWarningLabel:nil];
+    [self setLoginViewWrapper:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -52,6 +69,8 @@
 
 - (IBAction)loginPressed:(id)sender {
     #warning untested
+    [self loadAuthPage];
+    
     NSString *setUsername = [NSString stringWithFormat:@"document.getElementsByTagName('input')[0].value = '%@'", usernameTextfield.text];
     [webView stringByEvaluatingJavaScriptFromString:setUsername];
     
@@ -59,13 +78,12 @@
     [webView stringByEvaluatingJavaScriptFromString:setPassword];
     
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
-
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     // after you log in, it redrects to root, we actually want it 
     if ([[request.URL absoluteString] isEqualToString: PTRootURL]) {
-        [self auth];
+        [self loadAuthPage];
         return NO;
     }
     return YES;
@@ -81,10 +99,13 @@
         }
     }else{
         if (error.code == 102) {
-            // no-op as the puttio:// url causes errors 101/102
-        }else{
+            // no-op as the puttio:// url causes both errors 101/102
+        }else if (error.code == 1009) {
+            warningLabel.text = @"Your iPad is currently offline.";
+        }else {
             // actually unexpected
-            NSLog(@"uh oh webview fail! %@", error);            
+            NSLog(@"uh oh webview fail! %@", error);
+            
         }
     }
 }
@@ -120,7 +141,7 @@
     }
 }
 
-- (void)auth {
+- (void)loadAuthPage {
     NSString *address = [NSString stringWithFormat:@"https://api.put.io/v2/oauth2/authenticate?client_id=%@&response_type=code&redirect_uri=%@", AppOAuthID, AppOAuthCallback];
     NSURL * url = [NSURL URLWithString:address];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
