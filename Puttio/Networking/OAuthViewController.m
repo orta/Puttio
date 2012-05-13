@@ -100,7 +100,7 @@
     }else{
         if (error.code == 102) {
             // no-op as the puttio:// url causes both errors 101/102
-        }else if (error.code == 1009) {
+        }else if (error.code == -1009) {
             warningLabel.text = @"Your iPad is currently offline.";
         }else {
             // actually unexpected
