@@ -127,7 +127,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 }
 
 - (void)getMP4InfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete {
-    NSString *path = [NSString stringWithFormat:@"/v2/files/%@/mp4-status", file.id];
+    NSString *path = [NSString stringWithFormat:@"/v2/files/%@/mp4", file.id];
     [self genericGetAtPath:path :^(id userInfoObject) {
         onComplete(userInfoObject);
     }];
@@ -156,7 +156,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 }
 
 - (void)requestMP4ForFile:(File*)file {
-    NSString *path = [NSString stringWithFormat:@"/v2/files/%@/convert-to-mp4?oauth_token=%@", file.id, self.apiToken];
+    NSString *path = [NSString stringWithFormat:@"/v2/files/%@/mp4?oauth_token=%@", file.id, self.apiToken];
     [self postPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         NSLog(@"request MP4 response %@", json);
@@ -183,6 +183,9 @@ typedef void (^BlockWithCallback)(id userInfoObject);
         onComplete(json);
     }
     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"request %@", operation.request.URL);
+
+        NSLog(@"failure!");
       onComplete(error);        
     }];
 }

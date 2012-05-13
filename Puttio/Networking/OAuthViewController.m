@@ -27,6 +27,8 @@
 @end
 
 @implementation OAuthViewController
+@synthesize usernameTextfield;
+@synthesize passwordTextfield;
 @synthesize webView, delegate;
 
 - (void)viewDidLoad
@@ -38,6 +40,8 @@
 - (void)viewDidUnload
 {
     [self setWebView:nil];
+    [self setUsernameTextfield:nil];
+    [self setPasswordTextfield:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -46,7 +50,16 @@
 	return YES;
 }
 
-- (IBAction)okPressed:(id)sender {
+- (IBAction)loginPressed:(id)sender {
+    #warning untested
+    NSString *setUsername = [NSString stringWithFormat:@"document.getElementsByTagName('input')[0].value = '%@'", usernameTextfield.text];
+    [webView stringByEvaluatingJavaScriptFromString:setUsername];
+    
+    NSString *setPassword = [NSString stringWithFormat:@"document.getElementsByTagName('input')[1].value = '%@'", passwordTextfield.text];
+    [webView stringByEvaluatingJavaScriptFromString:setPassword];
+    
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
+
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
@@ -80,7 +93,6 @@
     // https://api.put.io/v2/oauth2/access_token?client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&grant_type=authorization_code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&code=CODE
     
     NSString *address = [NSString stringWithFormat:PTFormatOauthTokenURL, @"10", APP_SECRET, @"authorization_code", PTCallbackOriginal, code];
-    NSLog(@"URL %@", address);
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:address]];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {

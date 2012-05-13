@@ -58,7 +58,7 @@
 
 + (NSString *)appendStreamToken:(NSString *)inputURL {
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];    
-    return [NSString stringWithFormat:@"%@/atk/%@", inputURL, token];
+    return [NSString stringWithFormat:@"%@?token=%@", inputURL, token];
 }
 
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete {

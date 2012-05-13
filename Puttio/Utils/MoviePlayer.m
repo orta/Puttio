@@ -88,6 +88,7 @@
     path = [[path componentsSeparatedByString:@"/atk"] objectAtIndex:0];
     NSString *address = [PutIOClient appendStreamToken:path];
     
+    TFLog(@"playing: %@", address);
     MPMoviePlayerController *movieController = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];
     movieController.controlStyle = MPMovieControlStyleDefault;
     movieController.shouldAutoplay = YES;

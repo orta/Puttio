@@ -16,7 +16,9 @@
 @interface OAuthViewController : UIViewController <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) id <OAuthVCDelegate>delegate;
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextfield;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextfield;
 
-- (IBAction)okPressed:(id)sender;
+- (IBAction)loginPressed:(id)sender;
 
 @end

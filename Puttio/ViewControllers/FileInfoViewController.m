@@ -17,11 +17,11 @@
 
 @interface FileInfoViewController() {
     File *_item;
-    NSString *streamPath;
-    NSString *downloadPath;
     NSInteger fileSize;
     BOOL fileDownloaded;
     BOOL stopRefreshing;
+    
+    BOOL _hasMP4;
 }
 @end
 
@@ -35,6 +35,7 @@
 @synthesize thumbnailImageView;
 @synthesize progressView;
 @dynamic item;
+@dynamic hasMP4;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -53,29 +54,22 @@
     titleLabel.text = object.displayName;
     _item = item;
     [thumbnailImageView setImageWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:object.screenShotURL]]];
-    [Analytics event:@"opened %@ content type more info", object.contentType];
 
-    [self getMP4Info];        
+    [self getMP4Info];
+    
     [self getFileInfo];
 }
 
 - (void)getFileInfo {
     [[PutIOClient sharedClient] getInfoForFile:_item :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
-
-//            if ([self.item.contentType isEqualToString:@"video/mp4"]) {
-//                streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
-//                downloadPath = [[userInfoObject valueForKeyPath:@"mp4_url"] objectAtIndex:0];                
-//            }
-
+            NSString *contentType = [[userInfoObject valueForKeyPath:@"content_type"] objectAtIndex:0];
+            
             titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
             fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
             fileSizeLabel.text = unitStringFromBytes(fileSize);
 
-            additionalInfoLabel.text = [[userInfoObject valueForKeyPath:@"content_type"] objectAtIndex:0];
-            
-            streamButton.enabled = !!streamPath;
-            downloadButton.enabled = !!downloadPath;
+            additionalInfoLabel.text = contentType;            
         }
     }];
 }
@@ -83,31 +77,28 @@
 - (void)getMP4Info {
     [[PutIOClient sharedClient] getMP4InfoForFile:_item :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
-            if (![self.item.contentType isEqualToString:@"video/mp4"]) {
-                streamPath = [userInfoObject valueForKeyPath:@"mp4.stream_url"];
-                downloadPath = [userInfoObject valueForKeyPath:@"mp4.download_url"];
+            NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
+
+            self.hasMP4 = NO;
+            if ([status isEqualToString:@"COMPLETED"]) {
+                self.hasMP4 = YES;
             }
             
-            streamButton.enabled = !!streamPath;
-            downloadButton.enabled = !!downloadPath;
-
-            if(!streamPath || !downloadPath) {
-                NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
-                if ([status isEqualToString:@"NotAvailable"]) {
-                    additionalInfoLabel.text = @"Requested an iPad version (this takes a *very* long time.)";
-                    [[PutIOClient sharedClient] requestMP4ForFile:_item];
-                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:30];
+            if ([status isEqualToString:@"NotAvailable"]) {
+                additionalInfoLabel.text = @"Requested an iPad version (this takes a *very* long time.)";
+                [[PutIOClient sharedClient] requestMP4ForFile:_item];
+                [self performSelector:@selector(getMP4Info) withObject:self afterDelay:30];
+            }
+            
+            if ([status isEqualToString:@"CONVERTING"]) {
+                additionalInfoLabel.text = @"Converting to iPad version (this takes a *very* long time.)";
+                if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
+                    progressView.hidden = NO;
+                    progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
                 }
-                if ([status isEqualToString:@"CONVERTING"]) {
-                    additionalInfoLabel.text = @"Converting to iPad version (this takes a *very* long time.)";
-                    if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
-                        progressView.hidden = NO;
-                        progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
-                    }
-                    if (!stopRefreshing) {
-                        #warning this loop can run multiple times 
-                        [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];                    
-                    }
+                if (!stopRefreshing) {
+                    #warning this loop can run multiple times 
+                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];                    
                 }
             }
         }
@@ -135,24 +126,18 @@
 }
 
 - (IBAction)streamTapped:(id)sender {
-    if (streamPath) {
-        [MoviePlayer streamMovieAtPath:streamPath];
+    if (_hasMP4) {
+        [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"http://put.io/v2/files/%@/mp4/stream", _item.id]];
     }
 }
 
 - (IBAction)downloadTapped:(id)sender {
-    if (!fileDownloaded) {
-        if (downloadPath) {
-            self.progressView.hidden = NO;
-            self.progressView.progress = 0;
-            self.additionalInfoLabel.text = @"Downloading";
-            self.downloadButton.enabled = NO;
-            self.streamButton.enabled = NO;
-            [self downloadItem];
-        }                
-    }else{
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"photos:"]];
-    }
+    self.progressView.hidden = NO;
+    self.progressView.progress = 0;
+    self.additionalInfoLabel.text = @"Downloading";
+    self.downloadButton.enabled = NO;
+    self.streamButton.enabled = NO;
+    [self downloadItem];
 }
 
 - (void)downloadItem {
@@ -160,11 +145,8 @@
     struct statfs tStats;  
     statfs([[paths lastObject] cString], &tStats);  
     uint64_t totalSpace = tStats.f_bavail * tStats.f_bsize;  
-    
-#warning this should be replaced with the real downloadPath
-    NSMutableArray *components = [[downloadPath componentsSeparatedByString:@"/"] mutableCopy];
-    [components replaceObjectAtIndex:components.count -1 withObject:_item.id];
-    NSString *requestURL = [components componentsJoinedByString:@"/"];
+        
+    NSString *requestURL = [NSString stringWithFormat:@"http://put.io/v2/files/%@/mp4/download", _item.id];
     
     if (fileSize < totalSpace) {
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:requestURL]]];
@@ -175,6 +157,8 @@
         }];
         
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            additionalInfoLabel.text = @"Moving to Photos app";
+            
             NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:_item.id];
             NSString *fullPath = [NSString stringWithFormat:@"%@.mp4", filePath];
             
@@ -190,8 +174,7 @@
                     } else {
                         // TODO: success handling
                         NSLog(@"success kid");
-                        self.additionalInfoLabel.text = @"Downloaded - open in Photos";
-                        self.downloadButton.titleLabel.text = @"Photos!";
+                        self.additionalInfoLabel.text = @"Downloaded - it's available in Photos";
                         fileDownloaded = YES;
                     }
                 }];
@@ -205,15 +188,15 @@
             NSLog(@"mega fail");
             NSLog(@"request %@", operation.request.URL);
             
-            self.additionalInfoLabel.text = @"Download failed, oh no!";
+            self.additionalInfoLabel.text = @"Download failed!";
             progressView.hidden = YES;
             self.downloadButton.enabled = YES;
             self.streamButton.enabled = NO;
-
         }];
         [operation start];
+        
     }else {        
-        NSString *message = [NSString stringWithFormat:@"Your iPad doesn't have enough free disk space to sync."];
+        NSString *message = [NSString stringWithFormat:@"Your iPad doesn't have enough free disk space to download."];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not enough disk space" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alert show];
     }

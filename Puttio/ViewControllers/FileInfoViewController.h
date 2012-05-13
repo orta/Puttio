@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (assign) BOOL hasMP4;
 
 - (IBAction)backButton:(id)sender;
 - (IBAction)streamTapped:(id)sender;
