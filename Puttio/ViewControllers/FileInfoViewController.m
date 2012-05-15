@@ -22,6 +22,7 @@
     BOOL stopRefreshing;
     
     BOOL _hasMP4;
+    BOOL _isMP4;
 }
 @end
 
@@ -36,6 +37,7 @@
 @synthesize progressView;
 @dynamic item;
 @dynamic hasMP4;
+@dynamic isMP4;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -64,6 +66,9 @@
     [[PutIOClient sharedClient] getInfoForFile:_item :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             NSString *contentType = [[userInfoObject valueForKeyPath:@"content_type"] objectAtIndex:0];
+            if ([contentType isEqualToString:@"video/mp4"]) {
+                self.isMP4 = YES;
+            }
             
             titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
             fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
@@ -111,8 +116,18 @@
     downloadButton.enabled = hasMP4;
 }
 
+- (void)setIsMP4:(BOOL)isMP4 {
+    _isMP4 = isMP4;
+    streamButton.enabled = _isMP4;
+    downloadButton.enabled = _isMP4;
+}
+
 - (BOOL)hasMP4 {
     return _hasMP4;
+}
+
+- (BOOL)isMP4 {
+    return _isMP4;
 }
 
 - (id)item {
@@ -139,6 +154,9 @@
     if (_hasMP4) {
         [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"http://put.io/v2/files/%@/mp4/stream", _item.id]];
     }
+    if (_isMP4) {
+        [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"http://put.io/v2/files/%@/stream", _item.id]];
+    }
 }
 
 - (IBAction)downloadTapped:(id)sender {
@@ -155,8 +173,14 @@
     struct statfs tStats;  
     statfs([[paths lastObject] cString], &tStats);  
     uint64_t totalSpace = tStats.f_bavail * tStats.f_bsize;  
-        
-    NSString *requestURL = [NSString stringWithFormat:@"http://put.io/v2/files/%@/mp4/download", _item.id];
+    
+    NSString *requestURL;
+    if (_hasMP4) {
+        requestURL = [NSString stringWithFormat:@"http://put.io/v2/files/%@/mp4/download", _item.id];   
+    } 
+    if (_isMP4) {
+        requestURL = [NSString stringWithFormat:@"http://put.io/v2/files/%@/download", _item.id];   
+    }
     
     if (fileSize < totalSpace) {
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:requestURL]]];
