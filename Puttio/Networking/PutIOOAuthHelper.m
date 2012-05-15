@@ -21,6 +21,13 @@
 // Load Accounts page and parse out the tokens
 // Then call delegate method.
 
+@interface PutIOOAuthHelper (){
+    NSString *_username;
+    NSString *_password;
+}
+
+@end
+
 @implementation PutIOOAuthHelper
 
 @synthesize webView, delegate;
@@ -28,17 +35,9 @@
 - (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password {
     webView.delegate = self;
 
-    [self loadAuthPage];
-    
-    NSLog(@"%@ %s\n%@", NSStringFromSelector(_cmd), __FILE__, self);
-    
-    NSString *setUsername = [NSString stringWithFormat:@"document.getElementsByTagName('input')[0].value = '%@'", username];
-    [webView stringByEvaluatingJavaScriptFromString:setUsername];
-
-    NSString *setPassword = [NSString stringWithFormat:@"document.getElementsByTagName('input')[1].value = '%@'", password];
-    [webView stringByEvaluatingJavaScriptFromString:setPassword];
-
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
+    [self loadRootPage];
+    _username = username;
+    _password = password;
 }
 
 - (void)getAccessTokenFromOauthCode:(NSString *)code {
@@ -61,7 +60,12 @@
     [operation start];
 }
 
-- (void)loadAuthPage {
+- (void)loadRootPage {
+    NSURL * url = [NSURL URLWithString:PTLoginURL];
+    [webView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
+- (void)loadAuthPage {    
     NSString *address = [NSString stringWithFormat:PTFormatOauthLoginURL, AppOAuthID, AppOAuthCallback];
     NSURL * url = [NSURL URLWithString:address];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
@@ -91,7 +95,7 @@
 #pragma mark -
 #pragma mark Webview delegate methods
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {    
     // after you log in, it redrects to root, we actually want it 
     if ([[request.URL absoluteString] isEqualToString: PTRootURL]) {
         [self loadAuthPage];
@@ -125,6 +129,15 @@
     if([aWebView.request.URL.absoluteString isEqualToString:PTSettingsURL]){
         [self parseForV1Tokens];
         [self.delegate authHelperDidLogin:self];
+    }
+    if([aWebView.request.URL.absoluteString isEqualToString:PTLoginURL]){
+        NSString *setUsername = [NSString stringWithFormat:@"document.getElementsByTagName('input')[0].value = '%@'", _username];
+        [webView stringByEvaluatingJavaScriptFromString:setUsername];
+        
+        NSString *setPassword = [NSString stringWithFormat:@"document.getElementsByTagName('input')[1].value = '%@'", _password];
+        [webView stringByEvaluatingJavaScriptFromString:setPassword];
+        
+        [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
     }
 }
 

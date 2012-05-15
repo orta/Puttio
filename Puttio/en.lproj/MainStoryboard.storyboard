@@ -115,7 +115,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="bandwidthProgressView" destination="EYi-oQ-Ygh" id="NAX-gO-wMV"/>
                         <outlet property="spaceProgressView" destination="EYi-oQ-Ygh" id="hYG-ZV-h1H"/>
                         <outlet property="tableView" destination="uHV-X3-dFo" id="vh6-6v-36J"/>
                     </connections>
@@ -425,7 +424,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="vzR-Xs-Iu9">
-                                <rect key="frame" x="776" y="542" width="235" height="199"/>
+                                <rect key="frame" x="772" y="33" width="239" height="708"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>

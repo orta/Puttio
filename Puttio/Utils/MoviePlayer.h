@@ -13,4 +13,5 @@
 @property (strong) MPMoviePlayerController *mediaPlayer;
 
 + (void)streamMovieAtPath:(NSString *)path;
++ (MoviePlayer *)sharedPlayer;
 @end

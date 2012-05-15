@@ -14,6 +14,8 @@
 		60064205151F24DA00EF85F9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064204151F24DA00EF85F9 /* RootViewController.m */; };
 		601205391538CF2600052D89 /* mininova.json in Resources */ = {isa = PBXBuildFile; fileRef = 601205381538CF2600052D89 /* mininova.json */; };
 		6012053B1538CF5600052D89 /* isohunt.json in Resources */ = {isa = PBXBuildFile; fileRef = 6012053A1538CF5600052D89 /* isohunt.json */; };
+		6043D0ED1562F529002193B3 /* ORMoviePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */; };
+		6043D0EF1562F5F4002193B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6043D0EE1562F5F4002193B3 /* AVFoundation.framework */; };
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
 		6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */; };
 		606C79A4152F508E00608C56 /* ORDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79A3152F508E00608C56 /* ORDefaults.m */; };
@@ -101,6 +103,9 @@
 		60064204151F24DA00EF85F9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		601205381538CF2600052D89 /* mininova.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mininova.json; sourceTree = "<group>"; };
 		6012053A1538CF5600052D89 /* isohunt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isohunt.json; sourceTree = "<group>"; };
+		6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMoviePlayerController.h; path = ViewControllers/ORMoviePlayerController.h; sourceTree = "<group>"; };
+		6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMoviePlayerController.m; path = ViewControllers/ORMoviePlayerController.m; sourceTree = "<group>"; };
+		6043D0EE1562F5F4002193B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6064D89915398E4600E454E5 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = Utils/SearchController.h; sourceTree = "<group>"; };
 		6064D89A15398E4600E454E5 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchController.m; path = Utils/SearchController.m; sourceTree = "<group>"; };
 		6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+StripHTML.h"; path = "Categories/NSString+StripHTML.h"; sourceTree = "<group>"; };
@@ -162,7 +167,7 @@
 		60A7A6B3151F6E0D00DB71E0 /* ORSimpleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSimpleProgress.h; path = Views/ORSimpleProgress.h; sourceTree = "<group>"; };
 		60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSimpleProgress.m; path = Views/ORSimpleProgress.m; sourceTree = "<group>"; };
 		60A7A6C3151FBA1D00DB71E0 /* APP_SECRET.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET.h; path = ../APP_SECRET.h; sourceTree = "<group>"; };
-		60A7A6C4151FBA9900DB71E0 /* PutIONetworkConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; name = PutIONetworkConstants.h; path = Networking/PutIONetworkConstants.h; sourceTree = "<group>"; };
+		60A7A6C4151FBA9900DB71E0 /* PutIONetworkConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIONetworkConstants.h; path = Networking/PutIONetworkConstants.h; sourceTree = "<group>"; };
 		60A7A6C5151FBA9900DB71E0 /* PutIONetworkConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIONetworkConstants.m; path = Networking/PutIONetworkConstants.m; sourceTree = "<group>"; };
 		60A7A6CB151FC1CF00DB71E0 /* APP_SECRET_EX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET_EX.h; path = ../APP_SECRET_EX.h; sourceTree = "<group>"; };
 		60A7A6CE151FD2A100DB71E0 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = File.h; path = Models/File.h; sourceTree = SOURCE_ROOT; };
@@ -214,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6043D0EF1562F5F4002193B3 /* AVFoundation.framework in Frameworks */,
 				60F00EBA152BAC1800DA9230 /* AssetsLibrary.framework in Frameworks */,
 				60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */,
 				60F5AD781522739D00DD7A6F /* MediaPlayer.framework in Frameworks */,
@@ -400,6 +406,8 @@
 				60064204151F24DA00EF85F9 /* RootViewController.m */,
 				60A1B1AE1528788E002A6A7E /* FileInfoViewController.h */,
 				60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */,
+				6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */,
+				6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -407,6 +415,7 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				6043D0EE1562F5F4002193B3 /* AVFoundation.framework */,
 				60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */,
 				60F5AD771522739D00DD7A6F /* MediaPlayer.framework */,
 				60F5AD5515224D7100DD7A6F /* KKGridView.xcodeproj */,
@@ -618,6 +627,7 @@
 				6064D89B15398E4600E454E5 /* SearchController.m in Sources */,
 				6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */,
 				6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */,
+				6043D0ED1562F529002193B3 /* ORMoviePlayerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

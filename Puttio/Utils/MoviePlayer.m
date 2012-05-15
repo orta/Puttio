@@ -9,6 +9,7 @@
 #import "MoviePlayer.h"
 #import "ORAppDelegate.h"
 #import "TestFlight.h"
+#import "ORMoviePlayerController.h"
 
 @implementation MoviePlayer
 @synthesize mediaPlayer;
@@ -56,6 +57,8 @@
 }
 
 - (void)playbackFinished:(NSNotification*)notification {
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+
     NSNumber* reason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     switch ([reason intValue]) {
         case MPMovieFinishReasonPlaybackEnded:
@@ -76,11 +79,14 @@
         default:
             break;
     }
+    
     [self.mediaPlayer setFullscreen:NO animated:YES];
 }
 
 + (void)streamMovieAtPath:(NSString *)path {
     TFLog(@"looking at %@", path);
+
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
@@ -89,14 +95,14 @@
     NSString *address = [PutIOClient appendStreamToken:path];
     
     TFLog(@"playing: %@", address);
-    MPMoviePlayerController *movieController = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];
-    movieController.controlStyle = MPMovieControlStyleDefault;
-    movieController.shouldAutoplay = YES;
+    ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];
+//    movieController.controlStyle = MPMovieControlStyleDefault;
+//    movieController.shouldAutoplay = YES;
     movieController.view.frame = rootController.view.bounds;
     [rootController.view addSubview:movieController.view];
-    [movieController setFullscreen:YES animated:YES];
+//    [movieController setFullscreen:YES animated:YES];
 
-    sharedPlayer.mediaPlayer = movieController;
+    sharedPlayer.mediaPlayer = movieController.moviePlayer;
     [Analytics event:@"User started watching a movie"];
 }
 

@@ -105,6 +105,16 @@
     }];
 }
 
+- (void)setHasMP4:(BOOL)hasMP4 {
+    _hasMP4 = hasMP4;
+    streamButton.enabled = hasMP4;
+    downloadButton.enabled = hasMP4;
+}
+
+- (BOOL)hasMP4 {
+    return _hasMP4;
+}
+
 - (id)item {
     return _item;
 }

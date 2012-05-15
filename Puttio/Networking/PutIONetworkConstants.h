@@ -10,7 +10,9 @@ extern NSString *const PTCallbackOriginal;
 extern NSString *const PTCallbackModified;
 
 extern NSString *const PTRootURL;
+extern NSString *const PTLoginURL;
+extern NSString *const PTSettingsURL;
+
 extern NSString *const PTFormatOauthTokenURL;
 extern NSString *const PTFormatOauthLoginURL;
 extern NSString *const PTFormatOauthURL;
-extern NSString *const PTSettingsURL;
