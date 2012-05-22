@@ -167,6 +167,21 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     }];
 }
 
+- (void)downloadTorrentOrMagnetURLAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete {
+    NSString *address = [NSString stringWithFormat:@"/v2/transfers/add?oauth_token=%@", self.apiToken];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys: path, @"url", nil];
+
+    [self postPath:address parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        NSLog(@"downloadTorrentOrMagnetURLAtPath completed %@", json);
+        onComplete(json);
+    }
+    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"failure in requesting torrent / magnet %@", error);
+        onComplete(error);
+    }];
+}
+
 #pragma mark internal API gubbins
 
 - (void)genericGetAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete {

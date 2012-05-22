@@ -18,8 +18,9 @@
 @property (assign) NSInteger size;
 @property (strong) NSString *hostName;
 @property (strong) NSString *torrentURL;
-@property (strong) NSString *magenetURL;
+@property (strong) NSString *magnetURL;
 @property (strong) NSString *name;
 
 - (void)generateRanking;
+- (NSString *)representedPath;
 @end

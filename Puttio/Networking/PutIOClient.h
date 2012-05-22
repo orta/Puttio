@@ -26,4 +26,5 @@
 - (void)requestMP4ForFile:(File*)file;
 - (void)getTransfers:(void(^)(id userInfoObject))onComplete;
 - (void)getMessages:(void(^)(id userInfoObject))onComplete;
+- (void)downloadTorrentOrMagnetURLAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete;
 @end

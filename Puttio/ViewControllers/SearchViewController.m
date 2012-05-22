@@ -82,6 +82,7 @@
     searchResults = [NSArray array];
     [SearchController searchForString:aSearchBar.text];
     [self.tableView reloadData];
+    [aSearchBar resignFirstResponder];
 }
 
 #pragma mark -
@@ -121,5 +122,21 @@
     return 88;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SearchResult *result = [searchResults objectAtIndex:indexPath.row];
+    PutIOClient *client = [PutIOClient sharedClient];
+    [client downloadTorrentOrMagnetURLAtPath:[result representedPath] :^(id userInfoObject) {
+        ORSearchCell *cell = (ORSearchCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+
+        if ([userInfoObject isMemberOfClass:[NSError class]]) {
+            NSLog(@"error");
+            [cell userHasFailedToAddFile];
+        }else {
+            [cell userHasAddedFile];
+            NSLog(@"ok!");
+        }
+    }];
+    
+}
 
 @end

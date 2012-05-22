@@ -101,4 +101,10 @@
     [self.v2Client requestMP4ForFile:file];
 }
 
+
+- (void)downloadTorrentOrMagnetURLAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete {
+    [self.v2Client downloadTorrentOrMagnetURLAtPath:path :^(id userInfoObject) {
+        onComplete(userInfoObject);
+    }];
+}
 @end
