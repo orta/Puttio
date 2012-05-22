@@ -76,6 +76,7 @@
 		60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */; };
 		60F5AD781522739D00DD7A6F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F5AD771522739D00DD7A6F /* MediaPlayer.framework */; };
 		60F5AD7B1522777600DD7A6F /* MoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD7A1522777600DD7A6F /* MoviePlayer.m */; };
+		60FE125E156C29DC000A0EB4 /* ORFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FE125D156C29DC000A0EB4 /* ORFlatButton.m */; };
 		60FE47BB152EA0D6008A5752 /* ThreeColumnViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +211,8 @@
 		60F5AD771522739D00DD7A6F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		60F5AD791522777600DD7A6F /* MoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoviePlayer.h; path = Utils/MoviePlayer.h; sourceTree = "<group>"; };
 		60F5AD7A1522777600DD7A6F /* MoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoviePlayer.m; path = Utils/MoviePlayer.m; sourceTree = "<group>"; };
+		60FE125C156C29DC000A0EB4 /* ORFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORFlatButton.h; path = Views/ORFlatButton.h; sourceTree = "<group>"; };
+		60FE125D156C29DC000A0EB4 /* ORFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORFlatButton.m; path = Views/ORFlatButton.m; sourceTree = "<group>"; };
 		60FE47B9152EA0D6008A5752 /* ThreeColumnViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeColumnViewManager.h; path = Utils/ThreeColumnViewManager.h; sourceTree = "<group>"; };
 		60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeColumnViewManager.m; path = Utils/ThreeColumnViewManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +259,8 @@
 				60A7AB32152916BA009DD716 /* ORMessageCell.m */,
 				60D9B7EC1535C67300A64E0F /* ORSearchCell.h */,
 				60D9B7ED1535C67300A64E0F /* ORSearchCell.m */,
+				60FE125C156C29DC000A0EB4 /* ORFlatButton.h */,
+				60FE125D156C29DC000A0EB4 /* ORFlatButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -628,6 +633,7 @@
 				6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */,
 				6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */,
 				6043D0ED1562F529002193B3 /* ORMoviePlayerController.m in Sources */,
+				60FE125E156C29DC000A0EB4 /* ORFlatButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
