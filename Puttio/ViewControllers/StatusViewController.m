@@ -18,6 +18,7 @@
     NSArray *messages;
     
     CGFloat xOffset;
+    NSTimer *dataLoopTimer;
 }
 @end
 
@@ -38,6 +39,16 @@ typedef enum {
     [super viewDidLoad];
     [self setupShadow];
     [self getUserInfo];
+
+    [self startTimer];
+}
+
+- (void)startTimer {
+    dataLoopTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(beat) userInfo:nil repeats:YES];
+    [dataLoopTimer fire];
+}
+
+- (void)beat {
     [self getTransfers];
     [self getMessages];
 }
