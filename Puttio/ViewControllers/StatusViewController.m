@@ -48,7 +48,7 @@ typedef enum {
     [dataLoopTimer fire];
 }
 
-- (void)beat {
+- (void)beat { 
     [self getTransfers];
     [self getMessages];
 }
@@ -133,7 +133,6 @@ typedef enum {
             return 28.0;            
     }
     return 0;
-
 }
 
 - (void)viewDidUnload {

@@ -7,10 +7,11 @@
 //
 
 #import "SearchResult.h"
+#import "FileSizeUtils.h"
 
 @implementation SearchResult
 
-@synthesize seedersCount, peersCount, hostName, torrentURL, magnetURL, name, ranking, size;
+@synthesize seedersCount, peersCount, hostName, torrentURL, magnetURL, name, ranking, size, sizeString;
 
 - (void)generateRanking {
     self.ranking = 99;
@@ -24,6 +25,14 @@
         return self.magnetURL;
     }
     return nil;
+}
+
+- (NSString *)representedSize {
+    if (self.sizeString) {
+        return self.sizeString;
+    }else {
+        return unitStringFromBytes(self.size);
+    }
 }
 
 @end

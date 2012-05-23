@@ -13,7 +13,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SearchResult.h"
 #import "ORSearchCell.h"
-#import "FileSizeUtils.h"
 #import "SearchController.h"
 
 @interface SearchViewController () {
@@ -108,7 +107,7 @@
         SearchResult *item = [searchResults objectAtIndex:indexPath.row];
         ORSearchCell *theCell = (ORSearchCell*)cell;
         theCell.fileNameLabel.text = item.name;
-        theCell.fileSizeLabel.text = unitStringFromBytes(item.size);
+        theCell.fileSizeLabel.text = item.representedSize;
         theCell.seedersLabel.text = [NSString stringWithFormat:@"%i seeders", item.seedersCount];
     }    
     return cell;
@@ -129,11 +128,9 @@
         ORSearchCell *cell = (ORSearchCell*)[self.tableView cellForRowAtIndexPath:indexPath];
 
         if ([userInfoObject isMemberOfClass:[NSError class]]) {
-            NSLog(@"error");
             [cell userHasFailedToAddFile];
         }else {
             [cell userHasAddedFile];
-            NSLog(@"ok!");
         }
     }];
     

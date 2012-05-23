@@ -56,6 +56,7 @@ static SearchController *sharedInstance;
             NSString *title = [item valueForKeyPath:@"title"];
             result.name = [title stripHTMLtrimWhiteSpace:YES];
             result.hostName = [item valueForKeyPath:@"original_site"];
+            result.sizeString = [item valueForKeyPath:@"size"];
             [searchResults addObject:result];
         }
         [self passArrayToDelegate:searchResults];
@@ -87,6 +88,7 @@ static SearchController *sharedInstance;
             result.seedersCount = [[item valueForKeyPath:@"seeds"] intValue];
             result.peersCount = [[item valueForKeyPath:@"peers"] intValue];
             result.torrentURL = [item valueForKeyPath:@"download"];
+            result.size = [[item valueForKeyPath:@"size"] intValue];
             NSString *title = [item valueForKeyPath:@"title"];
             result.name = [title stripHTMLtrimWhiteSpace:YES];
             result.hostName = @"mininova.org";

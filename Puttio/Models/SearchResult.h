@@ -20,7 +20,9 @@
 @property (strong) NSString *torrentURL;
 @property (strong) NSString *magnetURL;
 @property (strong) NSString *name;
+@property (strong) NSString *sizeString;
 
 - (void)generateRanking;
 - (NSString *)representedPath;
+- (NSString *)representedSize;
 @end
