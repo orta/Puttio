@@ -14,7 +14,7 @@
 @synthesize seedersCount, peersCount, hostName, torrentURL, magnetURL, name, ranking, size, sizeString;
 
 - (void)generateRanking {
-    self.ranking = 99;
+    self.ranking = seedersCount + (peersCount / 4) ;
 }
 
 - (NSString *)representedPath {

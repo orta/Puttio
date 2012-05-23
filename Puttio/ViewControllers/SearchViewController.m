@@ -88,7 +88,19 @@
 #pragma mark search controller
 
 - (void)searchController:(SearchController *)controller foundResults:(NSArray *)moreSearchResults {
-    searchResults = [searchResults arrayByAddingObjectsFromArray:moreSearchResults];
+    searchResults = [[searchResults arrayByAddingObjectsFromArray:moreSearchResults] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        if ([obj1 ranking] == [obj2 ranking]) {
+            return 0;
+        }
+        if ([obj1 ranking] > [obj2 ranking]) {
+            return 1;
+        }
+        if ([obj1 ranking] < [obj2 ranking]) {
+            return -1;
+        }
+        return 0;
+    }];
+    
     [self.tableView reloadData];
 }
 
