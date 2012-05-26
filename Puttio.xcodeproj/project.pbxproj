@@ -63,6 +63,7 @@
 		60B326E81528A55C00462AA8 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B326E71528A55C00462AA8 /* Analytics.m */; };
 		60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326F41528A6D200462AA8 /* libz.dylib */; };
 		60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BD4F46151C701300DCD686 /* PutIOClient.m */; };
+		60C04EA51571489600C23AB5 /* VideoFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EA41571489600C23AB5 /* VideoFileController.m */; };
 		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
 		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
@@ -194,6 +195,9 @@
 		60B326F41528A6D200462AA8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		60BD4F45151C701300DCD686 /* PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOClient.h; path = Networking/PutIOClient.h; sourceTree = "<group>"; };
 		60BD4F46151C701300DCD686 /* PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOClient.m; path = Networking/PutIOClient.m; sourceTree = "<group>"; };
+		60C04EA31571489600C23AB5 /* VideoFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoFileController.h; path = FileController/VideoFileController.h; sourceTree = "<group>"; };
+		60C04EA41571489600C23AB5 /* VideoFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoFileController.m; path = FileController/VideoFileController.m; sourceTree = "<group>"; };
+		60C04EA6157148B000C23AB5 /* FileController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileController.h; path = Protocols/FileController.h; sourceTree = "<group>"; };
 		60D9B7E91535C30F00A64E0F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Models/SearchResult.h; sourceTree = "<group>"; };
 		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
 		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
@@ -325,6 +329,7 @@
 				60DB0AB1151C665E00DA8A33 /* Network */,
 				60A7A6CD151FD26A00DB71E0 /* Models */,
 				6085D27B151B9E550068929C /* View Controllers */,
+				60C04EA21571483C00C23AB5 /* File Controllers */,
 				6006420F151F639000EF85F9 /* Views */,
 				6085D27A151B9E4E0068929C /* Utils */,
 				606C79A5152F5AA600608C56 /* Resources */,
@@ -469,6 +474,16 @@
 				606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		60C04EA21571483C00C23AB5 /* File Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				60C04EA6157148B000C23AB5 /* FileController.h */,
+				60C04EA31571489600C23AB5 /* VideoFileController.h */,
+				60C04EA41571489600C23AB5 /* VideoFileController.m */,
+			);
+			name = "File Controllers";
 			sourceTree = "<group>";
 		};
 		60DB0AB1151C665E00DA8A33 /* Network */ = {
@@ -634,6 +649,7 @@
 				6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */,
 				6043D0ED1562F529002193B3 /* ORMoviePlayerController.m in Sources */,
 				60FE125E156C29DC000A0EB4 /* ORFlatButton.m in Sources */,
+				60C04EA51571489600C23AB5 /* VideoFileController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

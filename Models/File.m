@@ -37,4 +37,8 @@
     self.displayName = display;
 }
 
+- (NSString *)extension {
+    return [[self.name pathExtension] lowercaseString];
+}
+
 @end

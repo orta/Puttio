@@ -19,5 +19,6 @@
 @property (strong) NSString *parentID;
 @property (strong) NSString *displayName;
 
+- (NSString *)extension;
 - (void)setupDisplayName;
 @end

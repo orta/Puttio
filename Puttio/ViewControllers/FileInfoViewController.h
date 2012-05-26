@@ -9,20 +9,19 @@
 #import "ModalZoomView.h"
 
 @interface FileInfoViewController : UIViewController <ModalZoomViewControllerProtocol>
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *additionalInfoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fileSizeLabel;
-@property (weak, nonatomic) IBOutlet UIButton *streamButton;
-@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *primaryButton;
+@property (weak, nonatomic) IBOutlet UIButton *secondaryButton;
+
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
-@property (assign) BOOL hasMP4;
-@property (assign) BOOL isMP4;
-
-- (IBAction)backButton:(id)sender;
-- (IBAction)streamTapped:(id)sender;
-- (IBAction)downloadTapped:(id)sender;
+- (IBAction)primaryButtonTapped:(id)sender;
+- (IBAction)secondaryButtonTapped:(id)sender;
 
 @property (strong) File *item;
 

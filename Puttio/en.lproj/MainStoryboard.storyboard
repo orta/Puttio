@@ -333,7 +333,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="streamTapped:" destination="TzT-Wi-2QZ" eventType="touchUpInside" id="KlB-q9-AhN"/>
+                                    <action selector="primaryButtonTapped:" destination="TzT-Wi-2QZ" eventType="touchUpInside" id="kCg-Kc-ZL5"/>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" id="7A1-dI-fla">
@@ -362,7 +362,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="downloadTapped:" destination="TzT-Wi-2QZ" eventType="touchUpInside" id="URR-HF-hV5"/>
+                                    <action selector="secondaryButtonTapped:" destination="TzT-Wi-2QZ" eventType="touchUpInside" id="sZS-6G-MMZ"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="GxT-bu-0QN">
@@ -388,10 +388,10 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="additionalInfoLabel" destination="6u4-Kk-WuD" id="avn-mG-Y8g"/>
-                        <outlet property="downloadButton" destination="UbE-Y6-RiZ" id="ucc-Mv-2JL"/>
                         <outlet property="fileSizeLabel" destination="oAh-Dx-MmN" id="fQv-Se-tho"/>
+                        <outlet property="primaryButton" destination="w2Z-MT-fgL" id="Dgo-1Q-8C2"/>
                         <outlet property="progressView" destination="7A1-dI-fla" id="Yeq-gJ-KgU"/>
-                        <outlet property="streamButton" destination="w2Z-MT-fgL" id="MTk-dS-BG8"/>
+                        <outlet property="secondaryButton" destination="UbE-Y6-RiZ" id="N3W-0Y-5W3"/>
                         <outlet property="thumbnailImageView" destination="LWj-5N-YVa" id="S3J-Ee-Tcu"/>
                         <outlet property="titleLabel" destination="1Rb-gH-Zjn" id="cHt-uy-7pm"/>
                     </connections>
