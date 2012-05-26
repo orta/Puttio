@@ -38,7 +38,6 @@ typedef enum {
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupShadow];
-    [self getUserInfo];
 
     [self startTimer];
 }
@@ -49,6 +48,7 @@ typedef enum {
 }
 
 - (void)beat { 
+    [self getUserInfo];
     [self getTransfers];
     [self getMessages];
 }
