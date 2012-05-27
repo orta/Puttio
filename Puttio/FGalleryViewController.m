@@ -1,4 +1,4 @@
-    //
+//
 //  FGalleryViewController.m
 //  FGallery
 //
@@ -1174,6 +1174,8 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    return YES;
+    
 	if([self.visibleViewController isKindOfClass:[FGalleryViewController class]]) 
 	{
         return YES;

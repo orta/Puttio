@@ -13,6 +13,7 @@
 - (void)killActivityIndicator;
 - (void)startTapTimer;
 - (void)stopTapTimer;
+- (CGRect)rectAroundPoint:(CGPoint)point atZoomScale:(CGFloat)zoomScale;
 @end
 
 
@@ -139,42 +140,34 @@
 	if (touch.tapCount == 2) {
 		[self stopTapTimer];
 		
-		if( _isZoomed ) 
-		{
-			_isZoomed = NO;
-			[self setZoomScale:self.minimumZoomScale animated:YES];
-		}
-		else {
-			
-			_isZoomed = YES;
-			
-			// define a rect to zoom to. 
-			CGPoint touchCenter = [touch locationInView:self];
-			CGSize zoomRectSize = CGSizeMake(self.frame.size.width / self.maximumZoomScale, self.frame.size.height / self.maximumZoomScale );
-			CGRect zoomRect = CGRectMake( touchCenter.x - zoomRectSize.width * .5, touchCenter.y - zoomRectSize.height * .5, zoomRectSize.width, zoomRectSize.height );
-			
-			// correct too far left
-			if( zoomRect.origin.x < 0 )
-				zoomRect = CGRectMake(0, zoomRect.origin.y, zoomRect.size.width, zoomRect.size.height );
-			
-			// correct too far up
-			if( zoomRect.origin.y < 0 )
-				zoomRect = CGRectMake(zoomRect.origin.x, 0, zoomRect.size.width, zoomRect.size.height );
-			
-			// correct too far right
-			if( zoomRect.origin.x + zoomRect.size.width > self.frame.size.width )
-				zoomRect = CGRectMake(self.frame.size.width - zoomRect.size.width, zoomRect.origin.y, zoomRect.size.width, zoomRect.size.height );
-			
-			// correct too far down
-			if( zoomRect.origin.y + zoomRect.size.height > self.frame.size.height )
-				zoomRect = CGRectMake( zoomRect.origin.x, self.frame.size.height - zoomRect.size.height, zoomRect.size.width, zoomRect.size.height );
-			
-			// zoom to it.
-			[self zoomToRect:zoomRect animated:YES];
-		}
+        if (self.zoomScale == self.maximumZoomScale) {
+            [self setZoomScale:self.minimumZoomScale animated:YES];
+        }else{
+            CGPoint tapCenter = [touch locationInView:imageView];
+            CGFloat newScale = MIN(self.zoomScale * 1.4, self.maximumZoomScale);
+            CGRect maxZoomRect = [self rectAroundPoint:tapCenter atZoomScale:newScale];
+            [self zoomToRect:maxZoomRect animated:YES];    
+        }
 	}
 }
-
+- (CGRect)rectAroundPoint:(CGPoint)point atZoomScale:(CGFloat)zoomScale {
+    
+    // Define the shape of the zoom rect.
+    CGSize boundsSize = self.bounds.size;
+    
+    // Modify the size according to the requested zoom level.
+    // For example, if we're zooming in to 0.5 zoom, then this will increase the bounds size
+    // by a factor of two.
+    CGSize scaledBoundsSize = CGSizeMake(boundsSize.width / zoomScale,
+                                         boundsSize.height / zoomScale);
+    
+    CGRect rect = CGRectMake(point.x - scaledBoundsSize.width / 2,
+                             point.y - scaledBoundsSize.height / 2,
+                             scaledBoundsSize.width,
+                             scaledBoundsSize.height);
+    
+    return rect;
+}
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {

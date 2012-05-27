@@ -155,7 +155,6 @@ enum ComicType {
 #pragma mark Photo Gallery Data Source Methods
 
 - (int)numberOfPhotosForPhotoGallery:(FGalleryViewController*)gallery {
-    NSLog(@"found %i", comicPages.count);
     return comicPages.count;
 }
 
@@ -164,7 +163,6 @@ enum ComicType {
 }
 
 - (NSString*)photoGallery:(FGalleryViewController*)gallery filePathForPhotoSize:(FGalleryPhotoSize)size atIndex:(NSUInteger)index {
-    NSLog(@"ok %@", [extractedFolderPath stringByAppendingPathComponent:[comicPages objectAtIndex:index]]);
     return [extractedFolderPath stringByAppendingPathComponent:[comicPages objectAtIndex:index]];
 }
 
