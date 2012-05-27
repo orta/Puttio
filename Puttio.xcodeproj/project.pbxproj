@@ -64,6 +64,10 @@
 		60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326F41528A6D200462AA8 /* libz.dylib */; };
 		60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BD4F46151C701300DCD686 /* PutIOClient.m */; };
 		60C04EA51571489600C23AB5 /* VideoFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EA41571489600C23AB5 /* VideoFileController.m */; };
+		60C04EA915715AFE00C23AB5 /* ComicFileController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EA815715AFE00C23AB5 /* ComicFileController.mm */; };
+		60C04EAC15715C5B00C23AB5 /* BaseFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EAB15715C5B00C23AB5 /* BaseFileController.m */; };
+		60C04ED9157211A800C23AB5 /* libMiniZip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C04ED81572119D00C23AB5 /* libMiniZip.a */; };
+		60C04EDA157211A800C23AB5 /* libUnRAR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C04ECF1572119900C23AB5 /* libUnRAR.a */; };
 		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
 		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
@@ -82,6 +86,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		60C04ECE1572119900C23AB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60C04EC71572119900C23AB5 /* UnRAR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = UnRAR;
+		};
+		60C04ED71572119D00C23AB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60C04ED01572119D00C23AB5 /* MiniZip.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = MiniZip;
+		};
 		60F5AD5C15224D7100DD7A6F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 60F5AD5515224D7100DD7A6F /* KKGridView.xcodeproj */;
@@ -198,6 +216,12 @@
 		60C04EA31571489600C23AB5 /* VideoFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoFileController.h; path = FileController/VideoFileController.h; sourceTree = "<group>"; };
 		60C04EA41571489600C23AB5 /* VideoFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoFileController.m; path = FileController/VideoFileController.m; sourceTree = "<group>"; };
 		60C04EA6157148B000C23AB5 /* FileController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileController.h; path = Protocols/FileController.h; sourceTree = "<group>"; };
+		60C04EA715715AFE00C23AB5 /* ComicFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComicFileController.h; path = FileController/ComicFileController.h; sourceTree = "<group>"; };
+		60C04EA815715AFE00C23AB5 /* ComicFileController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ComicFileController.mm; path = FileController/ComicFileController.mm; sourceTree = "<group>"; };
+		60C04EAA15715C5B00C23AB5 /* BaseFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseFileController.h; path = FileController/BaseFileController.h; sourceTree = "<group>"; };
+		60C04EAB15715C5B00C23AB5 /* BaseFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseFileController.m; path = FileController/BaseFileController.m; sourceTree = "<group>"; };
+		60C04EC71572119900C23AB5 /* UnRAR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UnRAR.xcodeproj; path = vendor/UnRAR/UnRAR.xcodeproj; sourceTree = SOURCE_ROOT; };
+		60C04ED01572119D00C23AB5 /* MiniZip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MiniZip.xcodeproj; path = vendor/MiniZip/MiniZip.xcodeproj; sourceTree = SOURCE_ROOT; };
 		60D9B7E91535C30F00A64E0F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Models/SearchResult.h; sourceTree = "<group>"; };
 		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
 		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
@@ -226,6 +250,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60C04ED9157211A800C23AB5 /* libMiniZip.a in Frameworks */,
+				60C04EDA157211A800C23AB5 /* libUnRAR.a in Frameworks */,
 				6043D0EF1562F5F4002193B3 /* AVFoundation.framework in Frameworks */,
 				60F00EBA152BAC1800DA9230 /* AssetsLibrary.framework in Frameworks */,
 				60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */,
@@ -425,6 +451,8 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				60C04ED01572119D00C23AB5 /* MiniZip.xcodeproj */,
+				60C04EC71572119900C23AB5 /* UnRAR.xcodeproj */,
 				6043D0EE1562F5F4002193B3 /* AVFoundation.framework */,
 				60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */,
 				60F5AD771522739D00DD7A6F /* MediaPlayer.framework */,
@@ -482,8 +510,28 @@
 				60C04EA6157148B000C23AB5 /* FileController.h */,
 				60C04EA31571489600C23AB5 /* VideoFileController.h */,
 				60C04EA41571489600C23AB5 /* VideoFileController.m */,
+				60C04EA715715AFE00C23AB5 /* ComicFileController.h */,
+				60C04EA815715AFE00C23AB5 /* ComicFileController.mm */,
+				60C04EAA15715C5B00C23AB5 /* BaseFileController.h */,
+				60C04EAB15715C5B00C23AB5 /* BaseFileController.m */,
 			);
 			name = "File Controllers";
+			sourceTree = "<group>";
+		};
+		60C04EC81572119900C23AB5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				60C04ECF1572119900C23AB5 /* libUnRAR.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		60C04ED11572119D00C23AB5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				60C04ED81572119D00C23AB5 /* libMiniZip.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		60DB0AB1151C665E00DA8A33 /* Network */ = {
@@ -555,6 +603,14 @@
 					ProductGroup = 60F5AD5615224D7100DD7A6F /* Products */;
 					ProjectRef = 60F5AD5515224D7100DD7A6F /* KKGridView.xcodeproj */;
 				},
+				{
+					ProductGroup = 60C04ED11572119D00C23AB5 /* Products */;
+					ProjectRef = 60C04ED01572119D00C23AB5 /* MiniZip.xcodeproj */;
+				},
+				{
+					ProductGroup = 60C04EC81572119900C23AB5 /* Products */;
+					ProjectRef = 60C04EC71572119900C23AB5 /* UnRAR.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -564,6 +620,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		60C04ECF1572119900C23AB5 /* libUnRAR.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libUnRAR.a;
+			remoteRef = 60C04ECE1572119900C23AB5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		60C04ED81572119D00C23AB5 /* libMiniZip.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMiniZip.a;
+			remoteRef = 60C04ED71572119D00C23AB5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		60F5AD5D15224D7100DD7A6F /* libKKGridView.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -650,6 +720,8 @@
 				6043D0ED1562F529002193B3 /* ORMoviePlayerController.m in Sources */,
 				60FE125E156C29DC000A0EB4 /* ORFlatButton.m in Sources */,
 				60C04EA51571489600C23AB5 /* VideoFileController.m in Sources */,
+				60C04EA915715AFE00C23AB5 /* ComicFileController.mm in Sources */,
+				60C04EAC15715C5B00C23AB5 /* BaseFileController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +804,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
@@ -749,6 +822,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";

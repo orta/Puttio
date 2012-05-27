@@ -25,4 +25,12 @@
 
 @property (strong) File *item;
 
+- (void)setProgressInfoHidden:(BOOL)hidden;
+
+- (void)enableButtons;
+- (void)disableButtons;
+
+- (void)showProgress;
+- (void)hideProgress;
+
 @end

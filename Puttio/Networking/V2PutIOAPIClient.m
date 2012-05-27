@@ -160,7 +160,6 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     NSString *path = [NSString stringWithFormat:@"/v2/files/%@/mp4?oauth_token=%@", file.id, self.apiToken];
     [self postPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        NSLog(@"request MP4 response %@", json);
     }
     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
        NSLog(@"failure in requesting MP4 %@", error);
@@ -188,7 +187,6 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", nil];
     [self getPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"request %@", operation.request.URL);
 
         NSError *error= nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];

@@ -15,8 +15,8 @@
 
 + (BOOL)fileSupportedByController:(File *)file;
 
-- (void)setFile:(File *)file;
-- (void)setInfoController:(FileInfoViewController *)controller;
+@property (strong) FileInfoViewController *infoController;
+@property (strong) File *file;
 
 - (NSString *)primaryButtonText;
 - (void)primaryButtonAction:(id)sender;

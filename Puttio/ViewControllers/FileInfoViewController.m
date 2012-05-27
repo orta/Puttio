@@ -11,6 +11,7 @@
 
 // File Controllers
 #import "VideoFileController.h"
+#import "ComicFileController.h"
 
 @interface FileInfoViewController() {
     NSArray *fileControllers;
@@ -35,7 +36,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    primaryButton.enabled = NO;
     progressView.hidden = YES;
     fileSizeLabel.text = @"";
     titleLabel.text = @"";
@@ -47,12 +47,15 @@
         [NSException raise:@"File Info item should conform to ORDisplayItemProtocol" format:@"File Info item should conform to ORDisplayItemProtocol"];
     }
     
-    fileControllers = [NSArray arrayWithObjects:[VideoFileController class], nil];
+    fileControllers = [NSArray arrayWithObjects:[VideoFileController class], [ComicFileController class], nil];
     for (Class <FileController> klass in fileControllers) {
         if ([klass fileSupportedByController: item]) {
             fileController = [klass controller];
+            break;
         }
     }
+    
+    NSLog(@"%@", fileController);
     
     NSObject <ORDisplayItemProtocol> *object = item;
     
@@ -63,10 +66,10 @@
     _item = item;
     [thumbnailImageView setImageWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:object.screenShotURL]]];
 
-    primaryButton.titleLabel.text = [fileController primaryButtonText];
-    
+    [primaryButton setTitle:[fileController primaryButtonText] forState:UIControlStateNormal];
+
     secondaryButton.hidden = ![fileController supportsSecondaryButton]; 
-    secondaryButton.titleLabel.text = [fileController secondaryButtonText];
+    [secondaryButton setTitle:[fileController secondaryButtonText] forState:UIControlStateNormal];
 }
 
 - (id)item {
@@ -85,10 +88,6 @@
     [super viewDidUnload];
 }
 
-- (IBAction)backButton:(id)sender {
-    
-}
-
 - (IBAction)primaryButtonTapped:(id)sender {
     [fileController primaryButtonAction:sender];
 }
@@ -97,9 +96,30 @@
     [fileController secondaryButtonAction:sender];
 }
 
-- (void)hideProgressInfo {
-    self.progressView.hidden = NO;
+- (void)setProgressInfoHidden:(BOOL)hidden {
+    self.progressView.hidden = hidden;
     self.progressView.progress = 0;    
 }
+
+- (void)enableButtons {
+    primaryButton.enabled = YES;
+    secondaryButton.enabled = YES;
+}
+
+- (void)disableButtons {
+    primaryButton.enabled = NO;
+    secondaryButton.enabled = NO;
+}
+
+- (void)showProgress {
+    progressView.progress = 0;
+    progressView.hidden = NO;
+    [self disableButtons];
+}
+
+- (void)hideProgress {
+    progressView.hidden = YES;    
+}
+
 
 @end
