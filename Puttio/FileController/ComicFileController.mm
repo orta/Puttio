@@ -11,6 +11,7 @@
 #import "FileInfoViewController.h"
 #import "UnRAR.h"
 #import "MiniZip.h"
+#import "ORAppDelegate.h"
 
 enum ComicType {
     ComicTypeZip,
@@ -20,6 +21,8 @@ enum ComicType {
 @implementation ComicFileController {
     File *_file;
     int _fileType;
+    NSString *extractedFolderPath;
+    NSArray *comicPages;
 }
 
 + (BOOL)fileSupportedByController:(File *)aFile {
@@ -89,14 +92,81 @@ enum ComicType {
 
 - (void)openRarAtPath:(NSString *)path {
     UnRAR *rar = [[UnRAR alloc] initWithArchiveAtPath:path];
-    [rar extractToPath:[NSTemporaryDirectory() stringByAppendingFormat:@"%@/", _file.id]];
-    NSLog(@"%@",[NSTemporaryDirectory() stringByAppendingFormat:@"%@/", _file.id]);
+    extractedFolderPath = [NSTemporaryDirectory() stringByAppendingFormat:@"%@/", _file.id];
+    if ([rar extractToPath:extractedFolderPath]){
+        [self openGalleryViewController];    
+    }else {
+        
+    }
+    
 }
 
 - (void)openZipAtPath:(NSString *)path {
     MiniZip *zip = [[MiniZip alloc] initWithArchiveAtPath:path];
-    [zip extractToPath:[NSTemporaryDirectory() stringByAppendingFormat:@"%@/", _file.id]];
-    NSLog(@"%@",[NSTemporaryDirectory() stringByAppendingFormat:@"%@/", _file.id]);
+    extractedFolderPath = [NSTemporaryDirectory() stringByAppendingFormat:@"%@/", _file.id];
+    if([zip extractToPath:extractedFolderPath]){
+        [self openGalleryViewController];    
+    }else{
+        #warning failed
+    }
+    
 }
+
+- (void)openGalleryViewController {
+    [self findExtractedFolderWithFiles];
+    comicPages = [self getComicPagePaths];
+    
+    FGalleryViewController *controller = [[FGalleryViewController alloc] initWithPhotoSource:self];
+    
+    ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
+    UIViewController *rootController = appDelegate.window.rootViewController;
+    [rootController presentModalViewController:controller animated:YES];
+}
+
+- (void)findExtractedFolderWithFiles {
+    NSFileManager *file = [NSFileManager defaultManager];
+    NSError *error = nil;
+    NSArray *files = [file contentsOfDirectoryAtPath:extractedFolderPath error:&error];
+    if (files.count == 1) {
+        extractedFolderPath = [extractedFolderPath stringByAppendingPathComponent:[files objectAtIndex:0]];
+        [self findExtractedFolderWithFiles];
+        return;
+    }
+    
+    NSLog(@"path = %@", extractedFolderPath);
+}
+
+- (NSArray *)getComicPagePaths {
+    NSFileManager *file = [NSFileManager defaultManager];
+    NSError *error = nil;
+    NSArray *files = [file contentsOfDirectoryAtPath:extractedFolderPath error:&error];
+    NSSet *fileTypes = [NSSet setWithObjects:@"jpg", @"jpeg", @"gif", @"png", @"tif", @"tiff", nil];
+    NSMutableArray *tempFiles = [NSMutableArray array];
+    
+    for (NSString *file in files) {
+        if ([fileTypes containsObject:[file pathExtension]]) {
+            [tempFiles addObject:file];
+        }
+    }
+    return tempFiles;
+}
+                 
+#pragma mark -
+#pragma mark Photo Gallery Data Source Methods
+
+- (int)numberOfPhotosForPhotoGallery:(FGalleryViewController*)gallery {
+    NSLog(@"found %i", comicPages.count);
+    return comicPages.count;
+}
+
+- (FGalleryPhotoSourceType)photoGallery:(FGalleryViewController*)gallery sourceTypeForPhotoAtIndex:(NSUInteger)index {
+    return FGalleryPhotoSourceTypeLocal;
+}
+
+- (NSString*)photoGallery:(FGalleryViewController*)gallery filePathForPhotoSize:(FGalleryPhotoSize)size atIndex:(NSUInteger)index {
+    NSLog(@"ok %@", [extractedFolderPath stringByAppendingPathComponent:[comicPages objectAtIndex:index]]);
+    return [extractedFolderPath stringByAppendingPathComponent:[comicPages objectAtIndex:index]];
+}
+
 
 @end

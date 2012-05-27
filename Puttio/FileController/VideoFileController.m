@@ -136,7 +136,7 @@
             
             if ([status isEqualToString:@"COMPLETED"]) {
                 _MP4Ready = YES;
-                self.enableButtons = YES;
+                [self.infoController enableButtons];
             }
             
             if ([status isEqualToString:@"NotAvailable"]) {

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "FileController.h"
 #import "BaseFileController.h"
-@interface ComicFileController : BaseFileController <FileController>
+#import "FGalleryViewController.h"
+
+@interface ComicFileController : BaseFileController <FileController, FGalleryViewControllerDelegate>
 
 @end

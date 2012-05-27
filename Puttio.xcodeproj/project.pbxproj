@@ -68,6 +68,10 @@
 		60C04EAC15715C5B00C23AB5 /* BaseFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EAB15715C5B00C23AB5 /* BaseFileController.m */; };
 		60C04ED9157211A800C23AB5 /* libMiniZip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C04ED81572119D00C23AB5 /* libMiniZip.a */; };
 		60C04EDA157211A800C23AB5 /* libUnRAR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C04ECF1572119900C23AB5 /* libUnRAR.a */; };
+		60C04F0815722E6700C23AB5 /* FGalleryPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04F0315722E6700C23AB5 /* FGalleryPhoto.m */; };
+		60C04F0915722E6700C23AB5 /* FGalleryPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04F0515722E6700C23AB5 /* FGalleryPhotoView.m */; };
+		60C04F0A15722E6700C23AB5 /* FGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04F0715722E6700C23AB5 /* FGalleryViewController.m */; };
+		60C04F0C15722E9E00C23AB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C04F0B15722E9E00C23AB5 /* QuartzCore.framework */; };
 		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
 		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
@@ -222,6 +226,13 @@
 		60C04EAB15715C5B00C23AB5 /* BaseFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseFileController.m; path = FileController/BaseFileController.m; sourceTree = "<group>"; };
 		60C04EC71572119900C23AB5 /* UnRAR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UnRAR.xcodeproj; path = vendor/UnRAR/UnRAR.xcodeproj; sourceTree = SOURCE_ROOT; };
 		60C04ED01572119D00C23AB5 /* MiniZip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MiniZip.xcodeproj; path = vendor/MiniZip/MiniZip.xcodeproj; sourceTree = SOURCE_ROOT; };
+		60C04F0215722E6700C23AB5 /* FGalleryPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGalleryPhoto.h; sourceTree = "<group>"; };
+		60C04F0315722E6700C23AB5 /* FGalleryPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGalleryPhoto.m; sourceTree = "<group>"; };
+		60C04F0415722E6700C23AB5 /* FGalleryPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGalleryPhotoView.h; sourceTree = "<group>"; };
+		60C04F0515722E6700C23AB5 /* FGalleryPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGalleryPhotoView.m; sourceTree = "<group>"; };
+		60C04F0615722E6700C23AB5 /* FGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGalleryViewController.h; sourceTree = "<group>"; };
+		60C04F0715722E6700C23AB5 /* FGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGalleryViewController.m; sourceTree = "<group>"; };
+		60C04F0B15722E9E00C23AB5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		60D9B7E91535C30F00A64E0F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Models/SearchResult.h; sourceTree = "<group>"; };
 		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
 		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
@@ -250,6 +261,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60C04F0C15722E9E00C23AB5 /* QuartzCore.framework in Frameworks */,
 				60C04ED9157211A800C23AB5 /* libMiniZip.a in Frameworks */,
 				60C04EDA157211A800C23AB5 /* libUnRAR.a in Frameworks */,
 				6043D0EF1562F5F4002193B3 /* AVFoundation.framework in Frameworks */,
@@ -451,6 +463,8 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				60C04F0B15722E9E00C23AB5 /* QuartzCore.framework */,
+				60C04EF315722D7E00C23AB5 /* FGPhotoViewer */,
 				60C04ED01572119D00C23AB5 /* MiniZip.xcodeproj */,
 				60C04EC71572119900C23AB5 /* UnRAR.xcodeproj */,
 				6043D0EE1562F5F4002193B3 /* AVFoundation.framework */,
@@ -532,6 +546,19 @@
 				60C04ED81572119D00C23AB5 /* libMiniZip.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		60C04EF315722D7E00C23AB5 /* FGPhotoViewer */ = {
+			isa = PBXGroup;
+			children = (
+				60C04F0215722E6700C23AB5 /* FGalleryPhoto.h */,
+				60C04F0315722E6700C23AB5 /* FGalleryPhoto.m */,
+				60C04F0415722E6700C23AB5 /* FGalleryPhotoView.h */,
+				60C04F0515722E6700C23AB5 /* FGalleryPhotoView.m */,
+				60C04F0615722E6700C23AB5 /* FGalleryViewController.h */,
+				60C04F0715722E6700C23AB5 /* FGalleryViewController.m */,
+			);
+			name = FGPhotoViewer;
 			sourceTree = "<group>";
 		};
 		60DB0AB1151C665E00DA8A33 /* Network */ = {
@@ -722,6 +749,9 @@
 				60C04EA51571489600C23AB5 /* VideoFileController.m in Sources */,
 				60C04EA915715AFE00C23AB5 /* ComicFileController.mm in Sources */,
 				60C04EAC15715C5B00C23AB5 /* BaseFileController.m in Sources */,
+				60C04F0815722E6700C23AB5 /* FGalleryPhoto.m in Sources */,
+				60C04F0915722E6700C23AB5 /* FGalleryPhotoView.m in Sources */,
+				60C04F0A15722E6700C23AB5 /* FGalleryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
