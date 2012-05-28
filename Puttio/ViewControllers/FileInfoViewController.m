@@ -54,9 +54,7 @@
             break;
         }
     }
-    
-    NSLog(@"%@", fileController);
-    
+        
     NSObject <ORDisplayItemProtocol> *object = item;
     
     fileController.infoController = self;

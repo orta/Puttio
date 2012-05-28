@@ -13,10 +13,7 @@
 #import "FileInfoViewController.h"
 #include "FileSizeUtils.h"
 
-@implementation BaseFileController {
-    NSInteger fileSize;
-    File *_file;
-}
+@implementation BaseFileController
 
 @synthesize file, infoController;
 

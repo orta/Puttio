@@ -17,7 +17,6 @@
 @implementation VideoFileController {
     BOOL _isMP4;
     BOOL _MP4Ready;
-    File *_file;
 }
 
 + (BOOL)fileSupportedByController:(File *)aFile {
@@ -30,8 +29,24 @@
 
 - (void)setFile:(File *)aFile {
     _file = aFile;
-    NSLog(@"crash?");
-    [self getInfoWithBlock:^(id userInfoObject) {
+    
+    [[PutIOClient sharedClient] getInfoForFile:_file :^(id userInfoObject) {
+        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+            fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
+            self.infoController.titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
+            self.infoController.fileSizeLabel.text = unitStringFromBytes(fileSize);
+            NSString *contentType = [[userInfoObject valueForKeyPath:@"content_type"] objectAtIndex:0];
+            if ([contentType isEqualToString:@"video/mp4"]) {
+                _isMP4 = YES;
+                [self.infoController enableButtons];
+                [self.infoController hideProgress];
+            }else{
+                [self getMP4Info];
+            }
+        }
+    }];
+    
+//    [self getInfoWithBlock:^(id userInfoObject) {
 //        NSString *contentType = [[userInfoObject valueForKeyPath:@"content_type"] objectAtIndex:0];
 //        if ([contentType isEqualToString:@"video/mp4"]) {
 //            _isMP4 = YES;
@@ -39,10 +54,8 @@
 //        }
 //                
 //        self.infoController.additionalInfoLabel.text = contentType;            
-    }];
-    NSLog(@"crash");
+//    }];
     
-    [self getMP4Info];
 }
 
 - (NSString *)descriptiveTextForFile {
@@ -104,7 +117,8 @@
                     // TODO: success handling
                     NSLog(@"success kid");
                     self.infoController.additionalInfoLabel.text = @"Downloaded - it's available in Photos";
-                    self.enableButtons = YES;
+                    [self.infoController enableButtons];
+                    [self.infoController hideProgress];
                 }
             }];
         }

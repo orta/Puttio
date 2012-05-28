@@ -10,12 +10,14 @@
 #import "FileController.h"
 
 @class AFHTTPRequestOperation;
-@interface BaseFileController : NSObject <FileController>
+@interface BaseFileController : NSObject <FileController>{
+    File *_file;
+    NSInteger fileSize;
+}
+
 @property (strong) FileInfoViewController *infoController;
 @property (strong) File *file;
 
 - (void)getInfoWithBlock:(void(^)(id userInfoObject))onComplete;
 - (void)downloadFileAtPath:(NSString*)path WithCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-- (void)setEnableButtons:(BOOL)enable;
 @end

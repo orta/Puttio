@@ -15,6 +15,7 @@
 #import "RootViewController.h"
 #import "OAuthViewController.h"
 #import "ThreeColumnViewManager.h"
+#import "TestFlight.h"
 
 @implementation ORAppDelegate
 
@@ -44,7 +45,8 @@
     StatusViewController *statusVC = [storyboard instantiateViewControllerWithIdentifier:@"statusView"];
     SearchViewController *searchVC = [storyboard instantiateViewControllerWithIdentifier:@"searchView"];
     
-    RootViewController *canvas = (RootViewController *)self.window.rootViewController;
+    UINavigationController *rootNav = (UINavigationController*)self.window.rootViewController;
+    RootViewController *canvas = (RootViewController *)rootNav.topViewController;
     canvas.columnManager.leftSidebar = statusVC.view;
     canvas.columnManager.centerView = browsingVC.view;
     canvas.columnManager.rightSidebar = searchVC.view;

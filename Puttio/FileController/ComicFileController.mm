@@ -12,6 +12,9 @@
 #import "UnRAR.h"
 #import "MiniZip.h"
 #import "ORAppDelegate.h"
+#import "FileSizeUtils.h"
+#include <sys/param.h>  
+#include <sys/mount.h>  
 
 enum ComicType {
     ComicTypeZip,
@@ -42,10 +45,16 @@ enum ComicType {
         _fileType = ComicTypeZip;
     }
     
+    [self.infoController hideProgress];
     [self.infoController enableButtons];
-//    [self getInfoWithBlock:^(id userInfoObject) {
-//        
-//    }];
+    [[PutIOClient sharedClient] getInfoForFile:_file :^(id userInfoObject) {
+        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+            fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
+            self.infoController.titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
+//            self.infoController.fileSizeLabel.text = unitStringFromBytes(fileSize);
+        }
+    }];
+    
 }
 
 - (NSString *)descriptiveTextForFile {
@@ -119,8 +128,8 @@ enum ComicType {
     FGalleryViewController *controller = [[FGalleryViewController alloc] initWithPhotoSource:self];
     
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
-    UIViewController *rootController = appDelegate.window.rootViewController;
-    [rootController presentModalViewController:controller animated:YES];
+    UINavigationController *rootController = (UINavigationController*)appDelegate.window.rootViewController;
+    [rootController pushViewController:controller animated:YES];
 }
 
 - (void)findExtractedFolderWithFiles {

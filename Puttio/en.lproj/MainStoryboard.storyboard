@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="TCb-XQ-jcM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="VQ5-Rz-QCj">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -122,17 +122,37 @@
             </objects>
             <point key="canvasLocation" x="-3607" y="-1544"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l1C-xh-OZT">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cYE-3d-pfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="rootView" definesPresentationContext="YES" navigationBarHidden="YES" id="VQ5-Rz-QCj" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="gad-Vq-mgi">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cXe-f8-NqY">
+                        <rect key="frame" x="0.0" y="960" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="TCb-XQ-jcM" kind="relationship" relationship="rootViewController" id="XKD-aJ-9Pm"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-4303" y="-662"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="Nee-nf-gDC">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MD4-hd-m3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="rootView" id="TCb-XQ-jcM" customClass="RootViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="" id="TCb-XQ-jcM" customClass="RootViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V1p-Oo-gHb">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="rootView"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yuE-Mg-Dme"/>
                     <connections>
                         <outlet property="columnManager" destination="6sq-sf-Bja" id="L4Y-EJ-i4m"/>
                     </connections>
@@ -143,7 +163,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="-3446" y="-679"/>
+            <point key="canvasLocation" x="-3338" y="-675"/>
         </scene>
         <!--Browsing View Controller-->
         <scene sceneID="GOQ-Lm-KHV">
