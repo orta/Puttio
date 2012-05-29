@@ -20,7 +20,7 @@
 }
 
 + (BOOL)fileSupportedByController:(File *)aFile {
-    NSSet *fileTypes = [NSSet setWithObjects:@"avi", @"mv4", @"m4v", @"mkv", @"mp4", nil];
+    NSSet *fileTypes = [NSSet setWithObjects: @"avi", @"mv4", @"m4v", @"mov", @"wmv", @"mkv", @"mp4", @"rmvb", nil];
     if ([fileTypes containsObject:aFile.extension]) {
         return YES;
     }
