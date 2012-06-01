@@ -36,7 +36,6 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
         [self setupGridView];
     }
     
-    
     Folder *rootFolder = [Folder object];
     rootFolder.id = @"0";
     rootFolder.name = @"Home";
@@ -66,30 +65,30 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     }];
 }
 
--(void)gridView:(KKGridView *)kkGridView didSelectItemAtIndexPath:(KKIndexPath *)indexPath {
-    NSObject <ORDisplayItemProtocol> *item = [gridViewItems objectAtIndex:indexPath.index];   
+- (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
+    NSObject <ORDisplayItemProtocol> *item = [gridViewItems objectAtIndex:position];   
     if ([self itemIsFolder:item]) {
         Folder *folder = (Folder *)item;
         [self loadFolder:folder];
     }else {
         UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
-        CGRect initialFrame = [kkGridView convertRect:[kkGridView rectForCellAtIndexPath:indexPath] toView:rootView];
+        CGRect initialFrame = [gridView convertRect:[[gridView cellForItemAtIndex:position] frame] toView:rootView];
         [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"FileInfoView" andItem:item];
     }
 }
 
-- (NSUInteger)gridView:(KKGridView *)gridView numberOfItemsInSection:(NSUInteger)section {
+- (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView {
     return [gridViewItems count];
 }
 
-- (KKGridViewCell *)gridView:(KKGridView *)aGridView cellForItemAtIndexPath:(KKIndexPath *)indexPath {
-    NSInteger index = indexPath.index;
+- (GMGridViewCell *)GMGridView:(GMGridView *)aGridView cellForItemAtIndex:(NSInteger)index {
+
     static NSString * CellIdentifier = @"GridViewCellIdentifier";
     ORImageViewCell *cell = (ORImageViewCell *)[aGridView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[ORImageViewCell alloc] initWithFrame:CGRectMake(0, 0, GridCellSize.width, GridCellSize.height)
-                                          reuseIdentifier:CellIdentifier];
+        cell = [[ORImageViewCell alloc] initWithFrame:CGRectMake(0, 0, GridCellSize.width, GridCellSize.height)];
+        cell.reuseIdentifier = CellIdentifier;
     }
 
     NSObject <ORDisplayItemProtocol> *item = [gridViewItems objectAtIndex:index];
@@ -111,13 +110,13 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     frame.origin.x = GridViewInsets.left;
     frame.origin.y = GridViewInsets.top;
 
-    gridView = [[KKGridView alloc] initWithFrame:frame];
+    gridView = [[GMGridView alloc] initWithFrame:frame];
     gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     gridView.autoresizesSubviews = YES;
-    gridView.gridDelegate = self;
+    gridView.actionDelegate = self;
     gridView.dataSource = self;
-    gridView.cellSize = GridCellSize;
-    gridView.cellPadding = CGSizeMake(7, 0);
+//    gridView.cellSize = GridCellSize;
+//    gridView.cellPadding = CGSizeMake(7, 0);
     gridView.userInteractionEnabled = YES;
     gridView.backgroundColor = [UIColor whiteColor];
     gridView.showsHorizontalScrollIndicator = NO;
@@ -125,6 +124,10 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     gridView.accessibilityLabel = @"GridView";
     
     [self.view addSubview:gridView];    
+}
+
+- (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation) orientation { 
+    return GridCellSize;
 }
 
 - (NSObject *)item {

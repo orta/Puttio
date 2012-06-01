@@ -26,6 +26,11 @@
     [super viewDidUnload];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:YES animated:YES];
+}
+
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self.columnManager setupLayout];
 }

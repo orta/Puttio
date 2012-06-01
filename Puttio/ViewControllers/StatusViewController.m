@@ -99,7 +99,7 @@ typedef enum {
             Transfer *item = [transfers objectAtIndex:indexPath.row];
             ARTransferCell *theCell = (ARTransferCell*)cell;
             theCell.nameLabel.text = item.name;
-            theCell.detailsLabel.text = [item.downloadSpeed stringValue];
+            theCell.detailsLabel.text = [NSString stringWithFormat:@"%.1f %", [item.percentDone floatValue]];
             theCell.progressView.progress = [item.percentDone floatValue]/100;
         }
     }
