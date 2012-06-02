@@ -13,5 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet ORSimpleProgress *spaceProgressView;
+@property (weak, nonatomic) IBOutlet UILabel *spaceLabel;
+
 - (void)setup;
 @end

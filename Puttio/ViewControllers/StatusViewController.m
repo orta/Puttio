@@ -30,7 +30,7 @@ typedef enum {
 } Display;
 
 @synthesize tableView;
-@synthesize spaceProgressView;
+@synthesize spaceProgressView, spaceLabel;
 
 - (void)setup {
 }
@@ -80,6 +80,7 @@ typedef enum {
             NSString *diskQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota_available"] objectAtIndex:0];
                         
             self.spaceProgressView.progress = [diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue] ;
+            self.spaceLabel.text = [NSString stringWithFormat:@"Space %@ / %@", diskQuotaAvailableString, diskQuotaString];
         }
     }];
 }
