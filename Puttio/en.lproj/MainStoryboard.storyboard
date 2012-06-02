@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Space" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="w79-AE-0mt">
-                                <rect key="frame" x="85" y="716" width="111" height="36"/>
+                                <rect key="frame" x="20" y="712" width="240" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -115,6 +115,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="spaceLabel" destination="w79-AE-0mt" id="7F9-Y5-rcn"/>
                         <outlet property="spaceProgressView" destination="EYi-oQ-Ygh" id="hYG-ZV-h1H"/>
                         <outlet property="tableView" destination="uHV-X3-dFo" id="vh6-6v-36J"/>
                     </connections>
@@ -612,6 +613,7 @@ Message</string>
         <class className="StatusViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="spaceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="spaceProgressView" candidateClass="ORSimpleProgress"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
