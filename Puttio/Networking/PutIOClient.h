@@ -14,6 +14,11 @@
 
 - (BOOL)ready;
 - (void)startup;
+
+
++ (NSString *)appendOauthToken:(NSString *)inputURL;
++ (NSString *)appendStreamToken:(NSString *)inputURL;
+
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
 - (void)getFolder:(Folder *)folder :(void(^)(id userInfoObject))onComplete;
 - (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete;
@@ -21,4 +26,5 @@
 - (void)requestMP4ForFile:(File*)file;
 - (void)getTransfers:(void(^)(id userInfoObject))onComplete;
 - (void)getMessages:(void(^)(id userInfoObject))onComplete;
+- (void)downloadTorrentOrMagnetURLAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete;
 @end

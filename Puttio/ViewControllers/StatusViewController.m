@@ -16,6 +16,9 @@
 @interface StatusViewController () {
     NSArray *transfers;
     NSArray *messages;
+    
+    CGFloat xOffset;
+    NSTimer *dataLoopTimer;
 }
 @end
 
@@ -27,19 +30,24 @@ typedef enum {
 } Display;
 
 @synthesize tableView;
-@synthesize bandwidthProgressView;
 @synthesize spaceProgressView;
 
 - (void)setup {
-    CGRect space = [self.view.superview bounds];
-    space.origin.y = 0;
-    space.size.width = SidebarWidth;
-    self.view.frame = space;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupShadow];
+
+    [self startTimer];
+}
+
+- (void)startTimer {
+    dataLoopTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(beat) userInfo:nil repeats:YES];
+    [dataLoopTimer fire];
+}
+
+- (void)beat { 
     [self getUserInfo];
     [self getTransfers];
     [self getMessages];
@@ -47,33 +55,32 @@ typedef enum {
 
 - (void)getTransfers {
     [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
-        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+        if (![userInfoObject isKindOfClass:[NSError class]]) {
             transfers = userInfoObject;
-            [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            [tableView reloadData];
         }
     }];
 }
 
 - (void)getMessages {
     [[PutIOClient sharedClient] getMessages:^(id userInfoObject) {
-        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+        if (![userInfoObject isKindOfClass:[NSError class]]) {
             messages = userInfoObject;
-            [tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            [tableView reloadData];
         }
     }];
 }
 
 - (void)getUserInfo {
     [[PutIOClient sharedClient] getUserInfo:^(id userInfoObject) {
-        [[NSUserDefaults standardUserDefaults] setObject:[userInfoObject valueForKeyPath:@"id"] forKey:ORUserIdDefault];
-        NSString *diskQuotaString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota"] objectAtIndex:0];
-        NSString *diskQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota_available"] objectAtIndex:0];
-        
-        NSString *bandwidthQuotaString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota"] objectAtIndex:0];
-        NSString *bandwidthQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.bw_quota_available"] objectAtIndex:0];
-        
-        self.spaceProgressView.value = [diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue] ;
-        self.bandwidthProgressView.value = [bandwidthQuotaAvailableString longLongValue] / [bandwidthQuotaString longLongValue];
+        if (![userInfoObject isKindOfClass:[NSError class]]) {
+
+            [[NSUserDefaults standardUserDefaults] setObject:[userInfoObject valueForKeyPath:@"id"] forKey:ORUserIdDefault];
+            NSString *diskQuotaString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota"] objectAtIndex:0];
+            NSString *diskQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota_available"] objectAtIndex:0];
+                        
+            self.spaceProgressView.progress = [diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue] ;
+        }
     }];
 }
 
@@ -92,7 +99,7 @@ typedef enum {
             Transfer *item = [transfers objectAtIndex:indexPath.row];
             ARTransferCell *theCell = (ARTransferCell*)cell;
             theCell.nameLabel.text = item.name;
-            theCell.detailsLabel.text = [item.downloadSpeed stringValue];
+            theCell.detailsLabel.text = [NSString stringWithFormat:@"%.1f %", [item.percentDone floatValue]];
             theCell.progressView.progress = [item.percentDone floatValue]/100;
         }
     }
@@ -126,11 +133,9 @@ typedef enum {
             return 28.0;            
     }
     return 0;
-
 }
 
 - (void)viewDidUnload {
-    [self setBandwidthProgressView:nil];
     [self setSpaceProgressView:nil];
     [self setTableView:nil];
     [super viewDidUnload];

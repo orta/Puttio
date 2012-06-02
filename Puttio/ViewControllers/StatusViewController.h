@@ -12,7 +12,6 @@
 @interface StatusViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet ORSimpleProgress *bandwidthProgressView;
 @property (weak, nonatomic) IBOutlet ORSimpleProgress *spaceProgressView;
 - (void)setup;
 @end

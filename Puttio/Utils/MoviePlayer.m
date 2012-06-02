@@ -8,6 +8,8 @@
 
 #import "MoviePlayer.h"
 #import "ORAppDelegate.h"
+#import "TestFlight.h"
+#import "ORMoviePlayerController.h"
 
 @implementation MoviePlayer
 @synthesize mediaPlayer;
@@ -55,42 +57,48 @@
 }
 
 - (void)playbackFinished:(NSNotification*)notification {
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+
     NSNumber* reason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     switch ([reason intValue]) {
         case MPMovieFinishReasonPlaybackEnded:
-            NSLog(@"playbackFinished. Reason: Playback Ended");
+            TFLog(@"playbackFinished. Reason: Playback Ended");
             [Analytics event:@"User finished watching a movie"];
             break;
         case MPMovieFinishReasonPlaybackError:
-            NSLog(@"playbackFinished. Reason: Playback Error");
-            NSLog(@"error log %@", self.mediaPlayer.errorLog);
+            TFLog(@"playbackFinished. Reason: Playback Error");
+            TFLog(@"error log %@", self.mediaPlayer.errorLog);
+            TFLog(@"network log %@", self.mediaPlayer.accessLog);
+            TFLog(@"note %@", notification);
+
+            [Analytics event:@"Movie Playback Error %@ - ( %@ )", self.mediaPlayer.contentURL, self.mediaPlayer.errorLog];
             break;
         case MPMovieFinishReasonUserExited:
-            NSLog(@"playbackFinished. Reason: User Exited");
+            TFLog(@"playbackFinished. Reason: User Exited");
             break;
         default:
             break;
     }
-    [self.mediaPlayer setFullscreen:NO animated:YES];
-}
-
-+ (void)streamMovieAtPath:(NSString *)path {
     
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
-    MoviePlayer *sharedPlayer = [self sharedPlayer];
-    
-    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];    
-    NSString* address= [NSString stringWithFormat:@"%@/atk/%@", path, token];
-    NSLog(@"stream address %@", address);
-    MPMoviePlayerController *movieController = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];
-    movieController.controlStyle = MPMovieControlStyleDefault;
-    movieController.shouldAutoplay = YES;
-    movieController.view.frame = rootController.view.bounds;
-    [rootController.view addSubview:movieController.view];
-    [movieController setFullscreen:YES animated:YES];
+    [rootController dismissMoviePlayerViewControllerAnimated];
+}
 
-    sharedPlayer.mediaPlayer = movieController;
++ (void)streamMovieAtPath:(NSString *)path {
+
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+
+    ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
+    UIViewController *rootController = appDelegate.window.rootViewController;
+    MoviePlayer *sharedPlayer = [self sharedPlayer];
+    path = [[path componentsSeparatedByString:@"/atk"] objectAtIndex:0];
+    NSString *address = [PutIOClient appendStreamToken:path];
+    
+    ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];
+    [rootController presentMoviePlayerViewControllerAnimated:movieController];
+
+    sharedPlayer.mediaPlayer = movieController.moviePlayer;
     [Analytics event:@"User started watching a movie"];
 }
 

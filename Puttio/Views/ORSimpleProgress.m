@@ -9,13 +9,13 @@
 #import "ORSimpleProgress.h"
 
 @implementation ORSimpleProgress
-@synthesize label, fillColour;
-@dynamic value;
+@synthesize label, fillColour, isLandscape;
+@dynamic progress;
 
 - (void)awakeFromNib {
     self.alpha = .3;
     self.label = [[UILabel alloc] initWithFrame:self.frame];
-    value = .3;
+    _progress = .3;
     self.backgroundColor = [UIColor putioBlue];
     self.fillColour = [UIColor putioYellow];
 }
@@ -27,14 +27,18 @@
     CGContextFillRect(c, self.bounds);
 
     CGRect filledRect = self.bounds;
-    filledRect.size.height = filledRect.size.height / value;
+    if (self.isLandscape) {
+        filledRect.size.width = filledRect.size.width / _progress;
+    }else{
+        filledRect.size.height = filledRect.size.height / _progress;
+    }
     CGContextSetFillColor(c, CGColorGetComponents(self.fillColour.CGColor));
     CGContextFillRect(c, filledRect);
 }
 
-- (void)setValue:(CGFloat)aValue {
+- (void)setProgress:(CGFloat)progress {
     self.alpha = 1;
-    value = aValue;
+    _progress = progress;
     [self setNeedsDisplay];
 }
 

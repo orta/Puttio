@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class ORSimpleProgress;
 @interface ARTransferCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
-@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet ORSimpleProgress *progressView;
 @end

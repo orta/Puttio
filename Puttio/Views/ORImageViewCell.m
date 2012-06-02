@@ -27,15 +27,12 @@ static CGFloat TitleBottomMargin = 1;
 @synthesize item = _item;
 
 
-- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)identifier {
-    if (self = [super initWithFrame:frame reuseIdentifier:identifier]) {
+- (id)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
         UIColor *black = [UIColor blackColor];
         
-        self.accessoryPosition = KKGridViewCellAccessoryPositionTopLeft;
-        self.selectedBackgroundView = [[UIView alloc] init];
         self.opaque = NO;
         self.contentView.backgroundColor = [UIColor whiteColor];
-        self.backgroundView.backgroundColor = [UIColor yellowColor];
         self.contentView.opaque = NO;
         
         imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
@@ -50,12 +47,12 @@ static CGFloat TitleBottomMargin = 1;
         imageFrame.origin.x = ImageContentInsets.left;
         imageFrame.origin.y = ImageContentInsets.top;
         imageView.frame = imageFrame;    
-        [self.contentView addSubview:imageView];
+        [self addSubview:imageView];
         
 		activityIndicatorView = 
         [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         [activityIndicatorView sizeToFit];
-        [self.contentView addSubview:activityIndicatorView];
+        [self addSubview:activityIndicatorView];
         
         titleLabel = [[UILabel alloc] init];
         titleLabel.textColor = black;
@@ -64,14 +61,14 @@ static CGFloat TitleBottomMargin = 1;
         titleLabel.opaque = NO;
         titleLabel.userInteractionEnabled = YES;
         titleLabel.numberOfLines = 2;
-        [self.contentView addSubview:titleLabel];
+        [self addSubview:titleLabel];
         
         subtitleLabel = [[UILabel alloc] init];
         subtitleLabel.textColor = [UIColor redColor];
         subtitleLabel.textAlignment = UITextAlignmentCenter;
         subtitleLabel.backgroundColor = [UIColor whiteColor];
         subtitleLabel.opaque = NO;
-        [self.contentView addSubview:subtitleLabel];
+        [self addSubview:subtitleLabel];
     }
     return self;
 }
@@ -113,7 +110,7 @@ static CGFloat TitleBottomMargin = 1;
 
 - (void)setTitle:(NSString *)title {
     _title = title;
-    titleLabel.text = [title uppercaseString];
+    titleLabel.text = title;
 }
 
 - (void)setSubtitle:(NSString *)subtitle{

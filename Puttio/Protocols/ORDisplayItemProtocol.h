@@ -13,8 +13,9 @@
 @property (strong) NSString *contentType;
 @property (strong) NSString *id;
 @property (strong) NSString *name;
+@property (strong) NSString *displayName;
 @property (strong) NSNumber *size;
-@property (strong) NSString *iconURL;
+@property (strong) NSString *screenShotURL;
 @property (strong) NSString *parentID;
 
 @end

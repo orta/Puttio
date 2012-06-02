@@ -8,11 +8,17 @@
 
 #import "FileInfoViewController.h"
 #import "UIImageView+AFNetworking.h"
-#import "MoviePlayer.h"
+
+// File Controllers
+#import "VideoFileController.h"
+#import "ComicFileController.h"
 
 @interface FileInfoViewController() {
-    id _item;
-    NSString *streamPath;
+    NSArray *fileControllers;
+    NSObject <FileController>*fileController;
+    
+    File *_item;
+    BOOL fileDownloaded;
     BOOL stopRefreshing;
 }
 @end
@@ -21,65 +27,47 @@
 @implementation FileInfoViewController 
 @synthesize titleLabel;
 @synthesize additionalInfoLabel;
-@synthesize streamButton;
+@synthesize fileSizeLabel;
+@synthesize primaryButton;
+@synthesize secondaryButton;
 @synthesize thumbnailImageView;
 @synthesize progressView;
 @dynamic item;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    streamButton.enabled = NO;
     progressView.hidden = YES;
+    fileSizeLabel.text = @"";
+    titleLabel.text = @"";
+    additionalInfoLabel.text = @"";
 }
 
-- (void)setItem:(id)item {
+- (void)setItem:(File *)item {
     if (![item conformsToProtocol:@protocol(ORDisplayItemProtocol)]) {
         [NSException raise:@"File Info item should conform to ORDisplayItemProtocol" format:@"File Info item should conform to ORDisplayItemProtocol"];
     }
-    NSObject <ORDisplayItemProtocol> *object = item;
-    titleLabel.text = object.name;
-    _item = item;
-    additionalInfoLabel.text = object.description;
-    [thumbnailImageView setImageWithURL:[NSURL URLWithString:[object.iconURL stringByReplacingOccurrencesOfString:@"shot/" withString:@"shot/b/"]]];
-    if ([object.contentType isEqualToString:@"video/mp4"]) {
-        [[PutIOClient sharedClient] getInfoForFile:_item :^(id userInfoObject) {
-            if (![userInfoObject isMemberOfClass:[NSError class]]) {
-                streamPath = [[userInfoObject valueForKey:@"stream_url"] objectAtIndex:0];
-                streamButton.enabled = YES;
-            }
-        }];
-    }else{
-        [self getMP4Info];        
-    }
-}
-
-- (void)getMP4Info {
-    [[PutIOClient sharedClient] getMP4InfoForFile:_item :^(id userInfoObject) {
-        if (![userInfoObject isMemberOfClass:[NSError class]]) {
-            streamPath = [userInfoObject valueForKeyPath:@"mp4.stream_url"];
-            if (streamPath) {
-                streamButton.enabled = YES;
-            }else{
-                NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
-                if ([status isEqualToString:@"NotAvailable"]) {
-                    additionalInfoLabel.text = @"Requested an iPad version (this takes a *very* long time.)";
-                    [[PutIOClient sharedClient] requestMP4ForFile:_item];
-                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:30];
-                }
-                if ([status isEqualToString:@"CONVERTING"]) {
-                    additionalInfoLabel.text = @"Converting to iPad version (this takes a *very* long time.)";
-                    if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
-                        progressView.hidden = NO;
-                        progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
-                    }
-                    if (!stopRefreshing) {
-                        #warning this loop can run multiple times 
-                        [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];                    
-                    }
-                }
-            }
+    
+    fileControllers = [NSArray arrayWithObjects:[VideoFileController class], [ComicFileController class], nil];
+    for (Class <FileController> klass in fileControllers) {
+        if ([klass fileSupportedByController: item]) {
+            fileController = [klass controller];
+            break;
         }
-    }];
+    }
+        
+    NSObject <ORDisplayItemProtocol> *object = item;
+    
+    fileController.infoController = self;
+    fileController.file = object;
+    
+    titleLabel.text = object.displayName;
+    _item = item;
+    [thumbnailImageView setImageWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:object.screenShotURL]]];
+
+    [primaryButton setTitle:[fileController primaryButtonText] forState:UIControlStateNormal];
+
+    secondaryButton.hidden = ![fileController supportsSecondaryButton]; 
+    [secondaryButton setTitle:[fileController secondaryButtonText] forState:UIControlStateNormal];
 }
 
 - (id)item {
@@ -90,19 +78,46 @@
     [self setTitleLabel:nil];
     [self setThumbnailImageView:nil];
     [self setAdditionalInfoLabel:nil];
-    [self setStreamButton:nil];
+    [self setPrimaryButton:nil];
     [self setProgressView:nil];
     stopRefreshing = YES;
+    [self setFileSizeLabel:nil];
+    [self setSecondaryButton:nil];
     [super viewDidUnload];
 }
 
-- (IBAction)backButton:(id)sender {
-    
+- (IBAction)primaryButtonTapped:(id)sender {
+    [fileController primaryButtonAction:sender];
 }
 
-- (IBAction)streamButton:(id)sender {
-    if (streamPath) {
-        [MoviePlayer streamMovieAtPath:streamPath];
-    }
+- (IBAction)secondaryButtonTapped:(id)sender {
+    [fileController secondaryButtonAction:sender];
 }
+
+- (void)setProgressInfoHidden:(BOOL)hidden {
+    self.progressView.hidden = hidden;
+    self.progressView.progress = 0;    
+}
+
+- (void)enableButtons {
+    primaryButton.enabled = YES;
+    secondaryButton.enabled = YES;
+}
+
+- (void)disableButtons {
+    primaryButton.enabled = NO;
+    secondaryButton.enabled = NO;
+}
+
+- (void)showProgress {
+    progressView.progress = 0;
+    progressView.hidden = NO;
+    [self disableButtons];
+}
+
+- (void)hideProgress {
+    progressView.hidden = YES;    
+}
+
+
 @end

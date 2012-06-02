@@ -8,11 +8,14 @@
 
 #import "ORAppDelegate.h"
 
+#import "ORDefaults.h"
 #import "StatusViewController.h"
 #import "SearchViewController.h"
 #import "BrowsingViewController.h"
 #import "RootViewController.h"
 #import "OAuthViewController.h"
+#import "ThreeColumnViewManager.h"
+#import "TestFlight.h"
 
 @implementation ORAppDelegate
 
@@ -23,6 +26,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Analytics setup];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:ORDefaultsAreLoaded]) {
+        [ORDefaults registerDefaults];
+    }
+    
     if([PutIOClient sharedClient].ready){
         [self showApp];
     }else{
@@ -38,12 +45,19 @@
     StatusViewController *statusVC = [storyboard instantiateViewControllerWithIdentifier:@"statusView"];
     SearchViewController *searchVC = [storyboard instantiateViewControllerWithIdentifier:@"searchView"];
     
-    RootViewController *canvas = (RootViewController *)self.window.rootViewController;
+    UINavigationController *rootNav = (UINavigationController*)self.window.rootViewController;
+    RootViewController *canvas = (RootViewController *)rootNav.topViewController;
+    canvas.columnManager.leftSidebar = statusVC.view;
+    canvas.columnManager.centerView = browsingVC.view;
+    canvas.columnManager.rightSidebar = searchVC.view;
+    
     NSArray *viewControllers = [NSArray arrayWithObjects:browsingVC, statusVC, searchVC, nil];
     for (UIViewController *controller in viewControllers) {
         [canvas.view addSubview:controller.view];
         [canvas addChildViewController:controller];
     }
+    
+    [canvas.columnManager setup];
 }
 
 - (void)showLogin {
@@ -172,8 +186,7 @@
 /**
  Returns the URL to the application's Documents directory.
  */
-- (NSURL *)applicationDocumentsDirectory
-{
+- (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 

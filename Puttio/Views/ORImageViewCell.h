@@ -7,9 +7,9 @@
 //
 
 
-#import <KKGridView/KKGridView.h>
+#import "GMGridViewCell.h"
 
-@interface ORImageViewCell : KKGridViewCell {
+@interface ORImageViewCell : GMGridViewCell {
     UIImageView *imageView;
     UIActivityIndicatorView *activityIndicatorView;
     UIImage *image;

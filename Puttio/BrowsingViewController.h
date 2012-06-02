@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <KKGridView/KKGridView.h>
+#import "GMGridView.h"
 #import "ORDisplayItemProtocol.h"
 
-@interface BrowsingViewController : UIViewController <KKGridViewDelegate, KKGridViewDataSource>
-@property (strong) KKGridView *gridView;
+@interface BrowsingViewController : UIViewController <GMGridViewDataSource, GMGridViewActionDelegate>
+@property (strong) GMGridView *gridView;
 @property (strong) NSObject <ORDisplayItemProtocol> *item;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 - (IBAction)backPressed:(id)sender;
-
-- (void)setup;
+- (IBAction)feedbackPressed:(id)sender;
 @end

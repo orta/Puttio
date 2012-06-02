@@ -14,8 +14,8 @@
     #import <CoreData/CoreData.h>
     #import "PutIOClient.h"
     #import "Constants.h"
-    #import "NetworkConstants.h"
     #import "UIColor+PutioColours.h"
+    #import "NSString+StripHTML.h"
     #import "NSManagedObject+ActiveRecord.h"
     #import "Analytics.h"
 
@@ -23,6 +23,7 @@
     #import "File.h"
     #import "Folder.h"
     #import "Transfer.h"
-    #import "Message.h"    
+    #import "Message.h"
+    #import "SearchResult.h"
 #endif
 

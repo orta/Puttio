@@ -39,6 +39,7 @@
     
     self.v1Client = [V1PutIOAPIClient sharedClient];
     self.v2Client = [V2PutIOAPIClient setup];
+    
     return self;
 }
 
@@ -48,6 +49,16 @@
 
 - (void)startup {
     [self.v1Client getStreamToken];
+}
+
++ (NSString *)appendOauthToken:(NSString *)inputURL {
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:AppAuthTokenDefault];    
+    return [NSString stringWithFormat:@"%@?oauth_token=%@", inputURL, token];    
+}
+
++ (NSString *)appendStreamToken:(NSString *)inputURL {
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:ORStreamTokenDefault];    
+    return [NSString stringWithFormat:@"%@?token=%@", inputURL, token];
 }
 
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
@@ -90,4 +101,10 @@
     [self.v2Client requestMP4ForFile:file];
 }
 
+
+- (void)downloadTorrentOrMagnetURLAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete {
+    [self.v2Client downloadTorrentOrMagnetURLAtPath:path :^(id userInfoObject) {
+        onComplete(userInfoObject);
+    }];
+}
 @end

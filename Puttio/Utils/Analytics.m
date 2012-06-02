@@ -20,7 +20,6 @@
 }
 
 + (void)event:(NSString*)string, ...{
-#ifndef TARGET_IPHONE_SIMULATOR
     if (string == nil) {
         NSLog(@"nil string in ARAnalytics::error");
         return;
@@ -30,17 +29,13 @@
     NSString* event = [[NSString alloc] initWithFormat:string arguments:listOfArguments];
 
     [TestFlight passCheckpoint:event];
-#endif
 }
 
 + (void)event:(NSString *)event withOptionString:(NSString *)message {
-#ifndef TARGET_IPHONE_SIMULATOR
     [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@ - %@", event, message]];
-#endif
 }
 
 + (void)error:(NSString*)string, ...{
-#ifndef TARGET_IPHONE_SIMULATOR
     if (string == nil) {
         NSLog(@"nil string in ARAnalytics::error");
         return;
@@ -50,13 +45,10 @@
     NSString* error = [[NSString alloc] initWithFormat:string arguments:listOfArguments];
     
     [TestFlight passCheckpoint:error];
-#endif
 }
 
 + (void)addCustomValue:(NSString*)value forKey:(NSString*)key {
-#ifndef TARGET_IPHONE_SIMULATOR
     [TestFlight addCustomEnvironmentInformation:value forKey:key];
-#endif
 }
 
 @end
