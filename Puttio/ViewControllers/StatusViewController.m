@@ -12,6 +12,7 @@
 
 #import "ARTransferCell.h"
 #import "ORMessageCell.h"
+#import "NSDate+StringParsing.h"
 
 @interface StatusViewController () {
     NSArray *transfers;
@@ -50,16 +51,40 @@ typedef enum {
 - (void)beat { 
     [self getUserInfo];
     [self getTransfers];
-    [self getMessages];
+//    [self getMessages];
 }
 
 - (void)getTransfers {
     [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
             transfers = userInfoObject;
+            transfers = [self onlyRecentTransfers:transfers];
             [tableView reloadData];
         }
     }];
+}
+
+- (NSArray *)onlyRecentTransfers: (NSArray*)inTransfers {
+    NSMutableArray *newTransfers = [NSMutableArray array];
+    
+    NSDate *today = [[NSDate alloc] init];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *minusDaysComponents = [[NSDateComponents alloc] init];
+    NSDate *threeDaysAgo = [calendar dateByAddingComponents:minusDaysComponents toDate:today options:0];
+    
+    for (Transfer *transfer in inTransfers) {
+        if (transfer.percentDone.intValue != 100) {
+            [newTransfers addObject:transfer];
+        }else{    
+            #warning this doesnt work
+            NSDate *date = [NSDate dateWithISO8601String:transfer.createdAt];
+            NSLog(@"err ok %@ vs %@ (%@)", threeDaysAgo, date, transfer.createdAt);
+            if ([threeDaysAgo earlierDate:date]) {
+                [newTransfers addObject:transfer];
+            }
+        }
+    }
+    return newTransfers;
 }
 
 - (void)getMessages {

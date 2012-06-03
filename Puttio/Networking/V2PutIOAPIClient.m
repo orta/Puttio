@@ -146,6 +146,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
                     transfer.downloadSpeed =  [transferDict objectForKey:@"down_speed"];
                     transfer.percentDone =  [transferDict objectForKey:@"percent_done"];
                     transfer.estimatedTime = [transferDict objectForKey:@"estimated_time"];
+                    transfer.createdAt = [transferDict objectForKey:@"created_at"];
                     [returnedTransfers addObject:transfer];
                 }
             }

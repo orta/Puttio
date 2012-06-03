@@ -15,6 +15,7 @@
 		60064205151F24DA00EF85F9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064204151F24DA00EF85F9 /* RootViewController.m */; };
 		601205391538CF2600052D89 /* mininova.json in Resources */ = {isa = PBXBuildFile; fileRef = 601205381538CF2600052D89 /* mininova.json */; };
 		6012053B1538CF5600052D89 /* isohunt.json in Resources */ = {isa = PBXBuildFile; fileRef = 6012053A1538CF5600052D89 /* isohunt.json */; };
+		6026A043157B5B9F0031509D /* NSDate+StringParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A042157B5B9F0031509D /* NSDate+StringParsing.m */; };
 		6043D0ED1562F529002193B3 /* ORMoviePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */; };
 		6043D0EF1562F5F4002193B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6043D0EE1562F5F4002193B3 /* AVFoundation.framework */; };
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
@@ -125,6 +126,8 @@
 		60064204151F24DA00EF85F9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		601205381538CF2600052D89 /* mininova.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mininova.json; sourceTree = "<group>"; };
 		6012053A1538CF5600052D89 /* isohunt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isohunt.json; sourceTree = "<group>"; };
+		6026A041157B5B9F0031509D /* NSDate+StringParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+StringParsing.h"; path = "Categories/NSDate+StringParsing.h"; sourceTree = "<group>"; };
+		6026A042157B5B9F0031509D /* NSDate+StringParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+StringParsing.m"; path = "Categories/NSDate+StringParsing.m"; sourceTree = "<group>"; };
 		6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMoviePlayerController.h; path = ViewControllers/ORMoviePlayerController.h; sourceTree = "<group>"; };
 		6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMoviePlayerController.m; path = ViewControllers/ORMoviePlayerController.m; sourceTree = "<group>"; };
 		6043D0EE1562F5F4002193B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -541,6 +544,8 @@
 				60AB50D2151F650A00473448 /* UIColor+PutioColours.m */,
 				606C79AE1530A4B100608C56 /* NSDictionary+ObjectForKey.h */,
 				606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */,
+				6026A041157B5B9F0031509D /* NSDate+StringParsing.h */,
+				6026A042157B5B9F0031509D /* NSDate+StringParsing.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -766,6 +771,7 @@
 				608069B01574054F0070BF86 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
 				608069B11574054F0070BF86 /* UIView+GMGridViewAdditions.m in Sources */,
 				557DAE76157ABF2900325E84 /* RarFileController.m in Sources */,
+				6026A043157B5B9F0031509D /* NSDate+StringParsing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

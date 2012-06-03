@@ -12,6 +12,7 @@
 
 @property (strong) NSNumber* estimatedTime;
 @property (strong) NSString* name;
+@property (strong) NSString* createdAt;
 @property (strong) NSNumber* percentDone;
 @property (strong) NSNumber* downloadSpeed;
 
