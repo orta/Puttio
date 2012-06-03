@@ -38,6 +38,7 @@
 
 - (void)showApp {
     [[PutIOClient sharedClient] startup];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     SearchViewController *searchVC = [storyboard instantiateViewControllerWithIdentifier:@"searchView"];
     
@@ -61,7 +62,6 @@
     [self showApp];
     [controller removeFromParentViewController];
     [controller.view removeFromSuperview];
-
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
