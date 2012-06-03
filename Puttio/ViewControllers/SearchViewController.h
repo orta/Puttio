@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "SearchController.h"
 
+@class StatusViewController;
+
 @interface SearchViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, SearchResultsDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet StatusViewController *statusViewController;
 - (void)setup;
 @end

@@ -23,7 +23,7 @@
 - (BOOL)itemIsFolder:(NSObject*)item;
 @end
 
-static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 6, .bottom = 5};
+static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 66, .bottom = 5};
 const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 
 @implementation BrowsingViewController
@@ -65,7 +65,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     }];
 }
 
-- (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
+- (void)GMGridView:(GMGridView *)aGridView didTapOnItemAtIndex:(NSInteger)position {
     NSObject <ORDisplayItemProtocol> *item = [gridViewItems objectAtIndex:position];   
     if ([self itemIsFolder:item]) {
         Folder *folder = (Folder *)item;

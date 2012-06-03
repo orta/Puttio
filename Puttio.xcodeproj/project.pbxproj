@@ -12,7 +12,6 @@
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
-		60064205151F24DA00EF85F9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064204151F24DA00EF85F9 /* RootViewController.m */; };
 		601205391538CF2600052D89 /* mininova.json in Resources */ = {isa = PBXBuildFile; fileRef = 601205381538CF2600052D89 /* mininova.json */; };
 		6012053B1538CF5600052D89 /* isohunt.json in Resources */ = {isa = PBXBuildFile; fileRef = 6012053A1538CF5600052D89 /* isohunt.json */; };
 		6026A043157B5B9F0031509D /* NSDate+StringParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A042157B5B9F0031509D /* NSDate+StringParsing.m */; };
@@ -21,6 +20,10 @@
 		6026A06D157BEA0F0031509D /* GMGridViewLayoutStrategies.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A066157BEA0F0031509D /* GMGridViewLayoutStrategies.m */; };
 		6026A06E157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A068157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m */; };
 		6026A06F157BEA0F0031509D /* UIView+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A06A157BEA0F0031509D /* UIView+GMGridViewAdditions.m */; };
+		6026A072157BEB700031509D /* TwoColumnViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A071157BEB700031509D /* TwoColumnViewManager.m */; };
+		6026A07E157BF1BA0031509D /* DCControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A079157BF1BA0031509D /* DCControl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6026A07F157BF1BA0031509D /* DCKnob.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A07B157BF1BA0031509D /* DCKnob.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6026A080157BF1BA0031509D /* DCSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A07D157BF1BA0031509D /* DCSlider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6043D0ED1562F529002193B3 /* ORMoviePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */; };
 		6043D0EF1562F5F4002193B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6043D0EE1562F5F4002193B3 /* AVFoundation.framework */; };
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
@@ -122,8 +125,6 @@
 		600641FE151F24C100EF85F9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ViewControllers/SearchViewController.m; sourceTree = "<group>"; };
 		60064200151F24CD00EF85F9 /* BrowsingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowsingViewController.h; sourceTree = "<group>"; };
 		60064201151F24CD00EF85F9 /* BrowsingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingViewController.m; sourceTree = "<group>"; };
-		60064203151F24DA00EF85F9 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		60064204151F24DA00EF85F9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		601205381538CF2600052D89 /* mininova.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mininova.json; sourceTree = "<group>"; };
 		6012053A1538CF5600052D89 /* isohunt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isohunt.json; sourceTree = "<group>"; };
 		6026A041157B5B9F0031509D /* NSDate+StringParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+StringParsing.h"; path = "Categories/NSDate+StringParsing.h"; sourceTree = "<group>"; };
@@ -140,6 +141,14 @@
 		6026A068157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+GMGridViewAdditions.m"; path = "GMGridView/UIGestureRecognizer+GMGridViewAdditions.m"; sourceTree = "<group>"; };
 		6026A069157BEA0F0031509D /* UIView+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+GMGridViewAdditions.h"; path = "GMGridView/UIView+GMGridViewAdditions.h"; sourceTree = "<group>"; };
 		6026A06A157BEA0F0031509D /* UIView+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+GMGridViewAdditions.m"; path = "GMGridView/UIView+GMGridViewAdditions.m"; sourceTree = "<group>"; };
+		6026A070157BEB700031509D /* TwoColumnViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoColumnViewManager.h; path = Utils/TwoColumnViewManager.h; sourceTree = "<group>"; };
+		6026A071157BEB700031509D /* TwoColumnViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoColumnViewManager.m; path = Utils/TwoColumnViewManager.m; sourceTree = "<group>"; };
+		6026A078157BF1BA0031509D /* DCControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCControl.h; sourceTree = "<group>"; };
+		6026A079157BF1BA0031509D /* DCControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCControl.m; sourceTree = "<group>"; };
+		6026A07A157BF1BA0031509D /* DCKnob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCKnob.h; sourceTree = "<group>"; };
+		6026A07B157BF1BA0031509D /* DCKnob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCKnob.m; sourceTree = "<group>"; };
+		6026A07C157BF1BA0031509D /* DCSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSlider.h; sourceTree = "<group>"; };
+		6026A07D157BF1BA0031509D /* DCSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSlider.m; sourceTree = "<group>"; };
 		6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMoviePlayerController.h; path = ViewControllers/ORMoviePlayerController.h; sourceTree = "<group>"; };
 		6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMoviePlayerController.m; path = ViewControllers/ORMoviePlayerController.m; sourceTree = "<group>"; };
 		6043D0EE1562F5F4002193B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -330,6 +339,12 @@
 		6026A045157BE91D0031509D /* DCControls */ = {
 			isa = PBXGroup;
 			children = (
+				6026A078157BF1BA0031509D /* DCControl.h */,
+				6026A079157BF1BA0031509D /* DCControl.m */,
+				6026A07A157BF1BA0031509D /* DCKnob.h */,
+				6026A07B157BF1BA0031509D /* DCKnob.m */,
+				6026A07C157BF1BA0031509D /* DCSlider.h */,
+				6026A07D157BF1BA0031509D /* DCSlider.m */,
 			);
 			name = DCControls;
 			sourceTree = "<group>";
@@ -473,12 +488,14 @@
 				60B326E71528A55C00462AA8 /* Analytics.m */,
 				60F4ECBE152B902C00A9A627 /* FileSizeUtils.h */,
 				60F4ECBF152B902C00A9A627 /* FileSizeUtils.m */,
-				60FE47B9152EA0D6008A5752 /* ThreeColumnViewManager.h */,
-				60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */,
 				606C79A2152F508E00608C56 /* ORDefaults.h */,
 				606C79A3152F508E00608C56 /* ORDefaults.m */,
 				6064D89915398E4600E454E5 /* SearchController.h */,
 				6064D89A15398E4600E454E5 /* SearchController.m */,
+				60FE47B9152EA0D6008A5752 /* ThreeColumnViewManager.h */,
+				60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */,
+				6026A070157BEB700031509D /* TwoColumnViewManager.h */,
+				6026A071157BEB700031509D /* TwoColumnViewManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -494,8 +511,6 @@
 				600641FE151F24C100EF85F9 /* SearchViewController.m */,
 				60064200151F24CD00EF85F9 /* BrowsingViewController.h */,
 				60064201151F24CD00EF85F9 /* BrowsingViewController.m */,
-				60064203151F24DA00EF85F9 /* RootViewController.h */,
-				60064204151F24DA00EF85F9 /* RootViewController.m */,
 				60A1B1AE1528788E002A6A7E /* FileInfoViewController.h */,
 				60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */,
 				6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */,
@@ -748,7 +763,6 @@
 				600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */,
 				600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */,
 				60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */,
-				60064205151F24DA00EF85F9 /* RootViewController.m in Sources */,
 				60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */,
 				60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */,
 				60A7A6C6151FBA9900DB71E0 /* PutIONetworkConstants.m in Sources */,
@@ -788,6 +802,10 @@
 				6026A06D157BEA0F0031509D /* GMGridViewLayoutStrategies.m in Sources */,
 				6026A06E157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
 				6026A06F157BEA0F0031509D /* UIView+GMGridViewAdditions.m in Sources */,
+				6026A072157BEB700031509D /* TwoColumnViewManager.m in Sources */,
+				6026A07E157BF1BA0031509D /* DCControl.m in Sources */,
+				6026A07F157BF1BA0031509D /* DCKnob.m in Sources */,
+				6026A080157BF1BA0031509D /* DCSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

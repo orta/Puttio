@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class ORSimpleProgress;
+@class ORSimpleProgress, DCKnob;
 @interface StatusViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet ORSimpleProgress *spaceProgressView;
+@property (weak, nonatomic) IBOutlet DCKnob *spaceProgressView;
+@property (weak, nonatomic) IBOutlet DCKnob *spaceProgressBG;
+
 @property (weak, nonatomic) IBOutlet UILabel *spaceLabel;
 
 - (void)setup;

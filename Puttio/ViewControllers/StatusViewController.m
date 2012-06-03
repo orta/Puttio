@@ -13,6 +13,8 @@
 #import "ARTransferCell.h"
 #import "ORMessageCell.h"
 #import "NSDate+StringParsing.h"
+#import "UIColor+PutioColours.h"
+#import "DCKnob.h"
 
 @interface StatusViewController () {
     NSArray *transfers;
@@ -31,24 +33,35 @@ typedef enum {
 } Display;
 
 @synthesize tableView;
-@synthesize spaceProgressView, spaceLabel;
-
-
-
-- (void)setup {
-    NSLog(@"setup");
-    [self setupShadow];
-    [self startTimer];
-}
+@synthesize spaceProgressView, spaceProgressBG, spaceLabel;
 
 - (void)awakeFromNib {
     [self setup];
 }
 
+- (void)setup {
+    [self setupShadow];
+    [self startTimer];
+}
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setup];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.spaceProgressBG.max = 1;
+    self.spaceProgressBG.value = 1;
+    self.spaceProgressBG.allowsGestures = NO;
+    self.spaceProgressBG.valueArcWidth = 6.0;
+    self.spaceProgressBG.color = [UIColor putioYellow];
+    self.spaceProgressBG.backgroundColor = [UIColor clearColor];
+
+    
+    self.spaceProgressView.min = 0.0;
+	self.spaceProgressView.max = 1.0;
+    self.spaceProgressView.value = 0;
+    self.spaceProgressView.allowsGestures = NO;
+    self.spaceProgressView.valueArcWidth = 6.0;
+    self.spaceProgressView.color = [UIColor putioBlue];
+    self.spaceProgressView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)startTimer {
@@ -114,7 +127,8 @@ typedef enum {
             NSString *diskQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota_available"] objectAtIndex:0];
 
             float quotaPercentage = (float)[diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue];
-            self.spaceProgressView.progress = quotaPercentage;
+            self.spaceProgressView.value = quotaPercentage;
+
             self.spaceLabel.text = [NSString stringWithFormat:@"%0.0f%%", (quotaPercentage*100)];
         }
     }];
@@ -137,6 +151,7 @@ typedef enum {
             theCell.nameLabel.text = item.name;
             theCell.detailsLabel.text = [NSString stringWithFormat:@"%.1f %", [item.percentDone floatValue]];
             theCell.progressView.progress = [item.percentDone floatValue]/100;
+            theCell.progressView.isLandscape = YES;
         }
     }
     if (indexPath.section == 1) {
@@ -164,9 +179,9 @@ typedef enum {
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case DisplayTransfers:
-            return 76.0;
+            return 24.0;
         case DisplayMessages:
-            return 28.0;            
+            return 24.0;            
     }
     return 0;
 }

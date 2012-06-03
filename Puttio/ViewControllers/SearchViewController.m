@@ -6,14 +6,12 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-// http://www.mininova.org/vuze.php?search=michael%2Bjackson
-// http://isohunt.com/js/json.php?ihq=jacko
-
 #import "SearchViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SearchResult.h"
 #import "ORSearchCell.h"
 #import "SearchController.h"
+#import "StatusViewController.h"
 
 @interface SearchViewController () {
     NSArray *searchResults;
@@ -23,8 +21,8 @@
 @end
 
 @implementation SearchViewController
-@synthesize searchBar;
-@synthesize tableView;
+
+@synthesize searchBar,tableView, statusViewController;
 
 - (void)setup {
 }
@@ -41,6 +39,12 @@
     [self setTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self makeSmallAnimated:NO];
+    [self.statusViewController viewWillAppear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -144,8 +148,16 @@
         }else {
             [cell userHasAddedFile];
         }
-    }];
-    
+    }];    
 }
+
+- (void)makeSmallAnimated:(BOOL)animate {
+    CGRect frame = [self.view superview].frame;
+    CGFloat newWidth = 60;
+    frame.origin.x = frame.size.width - newWidth;
+    frame.size.width = newWidth;
+    self.view.frame = frame;
+}
+
 
 @end

@@ -12,9 +12,7 @@
 #import "StatusViewController.h"
 #import "SearchViewController.h"
 #import "BrowsingViewController.h"
-#import "RootViewController.h"
 #import "OAuthViewController.h"
-#import "ThreeColumnViewManager.h"
 #import "TestFlight.h"
 
 @implementation ORAppDelegate
@@ -41,23 +39,13 @@
 - (void)showApp {
     [[PutIOClient sharedClient] startup];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
-    BrowsingViewController *browsingVC = [storyboard instantiateViewControllerWithIdentifier:@"browsingView"];
-    StatusViewController *statusVC = [storyboard instantiateViewControllerWithIdentifier:@"statusView"];
     SearchViewController *searchVC = [storyboard instantiateViewControllerWithIdentifier:@"searchView"];
     
     UINavigationController *rootNav = (UINavigationController*)self.window.rootViewController;
-    RootViewController *canvas = (RootViewController *)rootNav.topViewController;
-    canvas.columnManager.leftSidebar = statusVC.view;
-    canvas.columnManager.centerView = browsingVC.view;
-    canvas.columnManager.rightSidebar = searchVC.view;
-    
-    NSArray *viewControllers = [NSArray arrayWithObjects:browsingVC, statusVC, searchVC, nil];
-    for (UIViewController *controller in viewControllers) {
-        [canvas.view addSubview:controller.view];
-        [canvas addChildViewController:controller];
-    }
-    
-    [canvas.columnManager setup];
+    BrowsingViewController *canvas = (BrowsingViewController *)rootNav.topViewController;
+
+    [canvas addChildViewController:searchVC];
+    [canvas.view addSubview:searchVC.view];
 }
 
 - (void)showLogin {

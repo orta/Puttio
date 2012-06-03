@@ -117,6 +117,7 @@ enum ComicType {
         [self openGalleryViewController];    
     }else{
         #warning failed
+        self.infoController.fileSizeLabel.text = @"ERROR";
     }
     
 }
