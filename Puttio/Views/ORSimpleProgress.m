@@ -28,9 +28,9 @@
 
     CGRect filledRect = self.bounds;
     if (self.isLandscape) {
-        filledRect.size.width = filledRect.size.width / _progress;
+        filledRect.size.width = filledRect.size.width * _progress;
     }else{
-        filledRect.size.height = filledRect.size.height / _progress;
+        filledRect.size.height = filledRect.size.height * _progress;
     }
     CGContextSetFillColor(c, CGColorGetComponents(self.fillColour.CGColor));
     CGContextFillRect(c, filledRect);

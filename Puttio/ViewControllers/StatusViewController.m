@@ -78,9 +78,10 @@ typedef enum {
             [[NSUserDefaults standardUserDefaults] setObject:[userInfoObject valueForKeyPath:@"id"] forKey:ORUserIdDefault];
             NSString *diskQuotaString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota"] objectAtIndex:0];
             NSString *diskQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota_available"] objectAtIndex:0];
-                        
-            self.spaceProgressView.progress = [diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue] ;
-            self.spaceLabel.text = [NSString stringWithFormat:@"Space %@ / %@", diskQuotaAvailableString, diskQuotaString];
+
+            float quotaPercentage = (float)[diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue];
+            self.spaceProgressView.progress = quotaPercentage;
+            self.spaceLabel.text = [NSString stringWithFormat:@"%0.0f%%", (quotaPercentage*100)];
         }
     }];
 }
