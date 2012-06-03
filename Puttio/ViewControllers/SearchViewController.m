@@ -31,6 +31,7 @@
     [super viewDidLoad];
     [self stylizeSearchTextField];
     [self setupShadow];
+    [self setupGestures];
     [SearchController sharedInstance].delegate = self;
 }
 
@@ -72,6 +73,16 @@
     layer.shadowColor = [[UIColor blackColor] CGColor];
     layer.shadowRadius = 4;
     layer.shadowOpacity = 0.2;
+}
+
+- (void)setupGestures {
+    UISwipeGestureRecognizer *backSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(backSwipeRecognised:)];
+    backSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:backSwipe];
+}
+
+- (void)backSwipeRecognised:(UISwipeGestureRecognizer *)gesture {
+    [self makeSmallAnimated:YES];
 }
 
 #pragma mark -
@@ -151,13 +162,37 @@
     }];    
 }
 
-- (void)makeSmallAnimated:(BOOL)animate {
-    CGRect frame = [self.view superview].frame;
-    CGFloat newWidth = 60;
-    frame.origin.x = frame.size.width - newWidth;
-    frame.size.width = newWidth;
-    self.view.frame = frame;
+- (void)makeBigAnimated:(BOOL)animate {
+    [self resizeToWidth:360 animated:animate];
 }
+
+- (void)makeSmallAnimated:(BOOL)animate {
+    searchBar.text = @"";
+    [searchBar performSelector: @selector(resignFirstResponder) 
+                    withObject: nil 
+                    afterDelay: 0.1];
+    [self resizeToWidth:60 animated:animate];
+}
+
+- (void)resizeToWidth:(CGFloat)width animated:(BOOL)animate {
+    CGFloat duration = animate? 0.2 : 0;
+    [UIView animateWithDuration:duration animations:^{
+        CGRect frame = [self.view superview].bounds;
+        CGFloat newWidth = width;
+        frame.origin.x = frame.size.width - newWidth;
+        frame.size.width = newWidth;
+        self.view.frame = frame;
+    }];
+
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [self makeBigAnimated:YES];    
+}
+//
+//- (void) searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+//    [self makeBigAnimated:NO];
+//}
 
 
 @end
