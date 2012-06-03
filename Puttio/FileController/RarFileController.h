@@ -8,6 +8,6 @@
 
 #import "BaseFileController.h"
 
-@interface RarFileController : BaseFileController
+@interface RarFileController : BaseFileController <FileController>
 
 @end
