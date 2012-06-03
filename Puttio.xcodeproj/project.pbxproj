@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		557DAE76157ABF2900325E84 /* RarFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557DAE75157ABF2900325E84 /* RarFileController.m */; };
 		600104D41524F9CB005F5B33 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 600104D31524F9CB005F5B33 /* Folder.m */; };
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
@@ -109,6 +110,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		557DAE74157ABF2900325E84 /* RarFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RarFileController.h; path = FileController/RarFileController.h; sourceTree = "<group>"; };
+		557DAE75157ABF2900325E84 /* RarFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RarFileController.m; path = FileController/RarFileController.m; sourceTree = "<group>"; };
 		600104D21524F9CB005F5B33 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Folder.h; path = Models/Folder.h; sourceTree = "<group>"; };
 		600104D31524F9CB005F5B33 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Folder.m; path = Models/Folder.m; sourceTree = "<group>"; };
 		6001050A1525025A005F5B33 /* ORDisplayItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ORDisplayItemProtocol.h; path = Protocols/ORDisplayItemProtocol.h; sourceTree = "<group>"; };
@@ -552,6 +555,8 @@
 				60C04EA815715AFE00C23AB5 /* ComicFileController.mm */,
 				60C04EAA15715C5B00C23AB5 /* BaseFileController.h */,
 				60C04EAB15715C5B00C23AB5 /* BaseFileController.m */,
+				557DAE74157ABF2900325E84 /* RarFileController.h */,
+				557DAE75157ABF2900325E84 /* RarFileController.m */,
 			);
 			name = "File Controllers";
 			sourceTree = "<group>";
@@ -760,6 +765,7 @@
 				608069AF1574054F0070BF86 /* GMGridViewLayoutStrategies.m in Sources */,
 				608069B01574054F0070BF86 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
 				608069B11574054F0070BF86 /* UIView+GMGridViewAdditions.m in Sources */,
+				557DAE76157ABF2900325E84 /* RarFileController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
