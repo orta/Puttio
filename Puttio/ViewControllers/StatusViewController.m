@@ -33,19 +33,29 @@ typedef enum {
 @synthesize tableView;
 @synthesize spaceProgressView, spaceLabel;
 
+
+
 - (void)setup {
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+    NSLog(@"setup");
     [self setupShadow];
-
     [self startTimer];
 }
 
+- (void)awakeFromNib {
+    [self setup];
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setup];
+}
+
 - (void)startTimer {
-    dataLoopTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(beat) userInfo:nil repeats:YES];
-    [dataLoopTimer fire];
+    if (!dataLoopTimer) {
+        dataLoopTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(beat) userInfo:nil repeats:YES];
+        [dataLoopTimer fire];        
+    }
 }
 
 - (void)beat { 
@@ -78,7 +88,6 @@ typedef enum {
         }else{    
             #warning this doesnt work
             NSDate *date = [NSDate dateWithISO8601String:transfer.createdAt];
-            NSLog(@"err ok %@ vs %@ (%@)", threeDaysAgo, date, transfer.createdAt);
             if ([threeDaysAgo earlierDate:date]) {
                 [newTransfers addObject:transfer];
             }

@@ -16,6 +16,11 @@
 		601205391538CF2600052D89 /* mininova.json in Resources */ = {isa = PBXBuildFile; fileRef = 601205381538CF2600052D89 /* mininova.json */; };
 		6012053B1538CF5600052D89 /* isohunt.json in Resources */ = {isa = PBXBuildFile; fileRef = 6012053A1538CF5600052D89 /* isohunt.json */; };
 		6026A043157B5B9F0031509D /* NSDate+StringParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A042157B5B9F0031509D /* NSDate+StringParsing.m */; };
+		6026A06B157BEA0F0031509D /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A061157BEA0F0031509D /* GMGridView.m */; };
+		6026A06C157BEA0F0031509D /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A063157BEA0F0031509D /* GMGridViewCell.m */; };
+		6026A06D157BEA0F0031509D /* GMGridViewLayoutStrategies.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A066157BEA0F0031509D /* GMGridViewLayoutStrategies.m */; };
+		6026A06E157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A068157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m */; };
+		6026A06F157BEA0F0031509D /* UIView+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A06A157BEA0F0031509D /* UIView+GMGridViewAdditions.m */; };
 		6043D0ED1562F529002193B3 /* ORMoviePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */; };
 		6043D0EF1562F5F4002193B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6043D0EE1562F5F4002193B3 /* AVFoundation.framework */; };
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
@@ -26,11 +31,6 @@
 		606C79AC152F5ACE00608C56 /* TabActive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A8152F5ACE00608C56 /* TabActive@2x.png */; };
 		606C79AD152F5ACE00608C56 /* Tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A9152F5ACE00608C56 /* Tab@2x.png */; };
 		606C79B01530A4B100608C56 /* NSDictionary+ObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */; };
-		608069AD1574054F0070BF86 /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6080699D1574054F0070BF86 /* GMGridView.m */; };
-		608069AE1574054F0070BF86 /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 608069A31574054F0070BF86 /* GMGridViewCell.m */; };
-		608069AF1574054F0070BF86 /* GMGridViewLayoutStrategies.m in Sources */ = {isa = PBXBuildFile; fileRef = 608069A51574054F0070BF86 /* GMGridViewLayoutStrategies.m */; };
-		608069B01574054F0070BF86 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 608069A71574054F0070BF86 /* UIGestureRecognizer+GMGridViewAdditions.m */; };
-		608069B11574054F0070BF86 /* UIView+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 608069A91574054F0070BF86 /* UIView+GMGridViewAdditions.m */; };
 		6085D228151B99490068929C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D227151B99490068929C /* UIKit.framework */; };
 		6085D22A151B99490068929C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D229151B99490068929C /* Foundation.framework */; };
 		6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D22B151B99490068929C /* CoreGraphics.framework */; };
@@ -128,6 +128,18 @@
 		6012053A1538CF5600052D89 /* isohunt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isohunt.json; sourceTree = "<group>"; };
 		6026A041157B5B9F0031509D /* NSDate+StringParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+StringParsing.h"; path = "Categories/NSDate+StringParsing.h"; sourceTree = "<group>"; };
 		6026A042157B5B9F0031509D /* NSDate+StringParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+StringParsing.m"; path = "Categories/NSDate+StringParsing.m"; sourceTree = "<group>"; };
+		6026A05F157BEA0F0031509D /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GMGridView-Constants.h"; path = "GMGridView/GMGridView-Constants.h"; sourceTree = "<group>"; };
+		6026A060157BEA0F0031509D /* GMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMGridView.h; path = GMGridView/GMGridView.h; sourceTree = "<group>"; };
+		6026A061157BEA0F0031509D /* GMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GMGridView.m; path = GMGridView/GMGridView.m; sourceTree = "<group>"; };
+		6026A062157BEA0F0031509D /* GMGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMGridViewCell.h; path = GMGridView/GMGridViewCell.h; sourceTree = "<group>"; };
+		6026A063157BEA0F0031509D /* GMGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GMGridViewCell.m; path = GMGridView/GMGridViewCell.m; sourceTree = "<group>"; };
+		6026A064157BEA0F0031509D /* GMGridViewCell+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GMGridViewCell+Extended.h"; path = "GMGridView/GMGridViewCell+Extended.h"; sourceTree = "<group>"; };
+		6026A065157BEA0F0031509D /* GMGridViewLayoutStrategies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMGridViewLayoutStrategies.h; path = GMGridView/GMGridViewLayoutStrategies.h; sourceTree = "<group>"; };
+		6026A066157BEA0F0031509D /* GMGridViewLayoutStrategies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GMGridViewLayoutStrategies.m; path = GMGridView/GMGridViewLayoutStrategies.m; sourceTree = "<group>"; };
+		6026A067157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIGestureRecognizer+GMGridViewAdditions.h"; path = "GMGridView/UIGestureRecognizer+GMGridViewAdditions.h"; sourceTree = "<group>"; };
+		6026A068157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+GMGridViewAdditions.m"; path = "GMGridView/UIGestureRecognizer+GMGridViewAdditions.m"; sourceTree = "<group>"; };
+		6026A069157BEA0F0031509D /* UIView+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+GMGridViewAdditions.h"; path = "GMGridView/UIView+GMGridViewAdditions.h"; sourceTree = "<group>"; };
+		6026A06A157BEA0F0031509D /* UIView+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+GMGridViewAdditions.m"; path = "GMGridView/UIView+GMGridViewAdditions.m"; sourceTree = "<group>"; };
 		6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMoviePlayerController.h; path = ViewControllers/ORMoviePlayerController.h; sourceTree = "<group>"; };
 		6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMoviePlayerController.m; path = ViewControllers/ORMoviePlayerController.m; sourceTree = "<group>"; };
 		6043D0EE1562F5F4002193B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -143,18 +155,6 @@
 		606C79A9152F5ACE00608C56 /* Tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tab@2x.png"; sourceTree = "<group>"; };
 		606C79AE1530A4B100608C56 /* NSDictionary+ObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+ObjectForKey.h"; path = "Categories/NSDictionary+ObjectForKey.h"; sourceTree = "<group>"; };
 		606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+ObjectForKey.m"; path = "Categories/NSDictionary+ObjectForKey.m"; sourceTree = "<group>"; };
-		6080699B1574054F0070BF86 /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridView-Constants.h"; sourceTree = "<group>"; };
-		6080699C1574054F0070BF86 /* GMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridView.h; sourceTree = "<group>"; };
-		6080699D1574054F0070BF86 /* GMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridView.m; sourceTree = "<group>"; };
-		608069A11574054F0070BF86 /* GMGridViewCell+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridViewCell+Extended.h"; sourceTree = "<group>"; };
-		608069A21574054F0070BF86 /* GMGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridViewCell.h; sourceTree = "<group>"; };
-		608069A31574054F0070BF86 /* GMGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridViewCell.m; sourceTree = "<group>"; };
-		608069A41574054F0070BF86 /* GMGridViewLayoutStrategies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridViewLayoutStrategies.h; sourceTree = "<group>"; };
-		608069A51574054F0070BF86 /* GMGridViewLayoutStrategies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridViewLayoutStrategies.m; sourceTree = "<group>"; };
-		608069A61574054F0070BF86 /* UIGestureRecognizer+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+GMGridViewAdditions.h"; sourceTree = "<group>"; };
-		608069A71574054F0070BF86 /* UIGestureRecognizer+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+GMGridViewAdditions.m"; sourceTree = "<group>"; };
-		608069A81574054F0070BF86 /* UIView+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GMGridViewAdditions.h"; sourceTree = "<group>"; };
-		608069A91574054F0070BF86 /* UIView+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GMGridViewAdditions.m"; sourceTree = "<group>"; };
 		6085D223151B99490068929C /* Puttio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Puttio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6085D227151B99490068929C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6085D229151B99490068929C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -318,6 +318,41 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		6026A044157BE9180031509D /* Testflight */ = {
+			isa = PBXGroup;
+			children = (
+				60C04F201572419900C23AB5 /* TestFlight.h */,
+				60C04F1E1572418B00C23AB5 /* libTestFlight.a */,
+			);
+			name = Testflight;
+			sourceTree = "<group>";
+		};
+		6026A045157BE91D0031509D /* DCControls */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DCControls;
+			sourceTree = "<group>";
+		};
+		6026A05E157BEA030031509D /* GMGridView */ = {
+			isa = PBXGroup;
+			children = (
+				6026A05F157BEA0F0031509D /* GMGridView-Constants.h */,
+				6026A060157BEA0F0031509D /* GMGridView.h */,
+				6026A061157BEA0F0031509D /* GMGridView.m */,
+				6026A062157BEA0F0031509D /* GMGridViewCell.h */,
+				6026A063157BEA0F0031509D /* GMGridViewCell.m */,
+				6026A064157BEA0F0031509D /* GMGridViewCell+Extended.h */,
+				6026A065157BEA0F0031509D /* GMGridViewLayoutStrategies.h */,
+				6026A066157BEA0F0031509D /* GMGridViewLayoutStrategies.m */,
+				6026A067157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.h */,
+				6026A068157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m */,
+				6026A069157BEA0F0031509D /* UIView+GMGridViewAdditions.h */,
+				6026A06A157BEA0F0031509D /* UIView+GMGridViewAdditions.m */,
+			);
+			name = GMGridView;
+			sourceTree = "<group>";
+		};
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,25 +364,6 @@
 				6012053A1538CF5600052D89 /* isohunt.json */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		6080699A1574054F0070BF86 /* GMGridView */ = {
-			isa = PBXGroup;
-			children = (
-				6080699B1574054F0070BF86 /* GMGridView-Constants.h */,
-				6080699C1574054F0070BF86 /* GMGridView.h */,
-				6080699D1574054F0070BF86 /* GMGridView.m */,
-				608069A11574054F0070BF86 /* GMGridViewCell+Extended.h */,
-				608069A21574054F0070BF86 /* GMGridViewCell.h */,
-				608069A31574054F0070BF86 /* GMGridViewCell.m */,
-				608069A41574054F0070BF86 /* GMGridViewLayoutStrategies.h */,
-				608069A51574054F0070BF86 /* GMGridViewLayoutStrategies.m */,
-				608069A61574054F0070BF86 /* UIGestureRecognizer+GMGridViewAdditions.h */,
-				608069A71574054F0070BF86 /* UIGestureRecognizer+GMGridViewAdditions.m */,
-				608069A81574054F0070BF86 /* UIView+GMGridViewAdditions.h */,
-				608069A91574054F0070BF86 /* UIView+GMGridViewAdditions.m */,
-			);
-			path = GMGridView;
 			sourceTree = "<group>";
 		};
 		6085D218151B99480068929C = {
@@ -491,8 +507,9 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
-				60C04F201572419900C23AB5 /* TestFlight.h */,
-				60C04F1E1572418B00C23AB5 /* libTestFlight.a */,
+				6026A05E157BEA030031509D /* GMGridView */,
+				6026A045157BE91D0031509D /* DCControls */,
+				6026A044157BE9180031509D /* Testflight */,
 				60C04F0B15722E9E00C23AB5 /* QuartzCore.framework */,
 				60C04EF315722D7E00C23AB5 /* FGPhotoViewer */,
 				60C04ED01572119D00C23AB5 /* MiniZip.xcodeproj */,
@@ -500,11 +517,10 @@
 				6043D0EE1562F5F4002193B3 /* AVFoundation.framework */,
 				60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */,
 				60F5AD771522739D00DD7A6F /* MediaPlayer.framework */,
-				6080699A1574054F0070BF86 /* GMGridView */,
 				60A7A6D1151FD33600DB71E0 /* RestKit */,
 				6085D257151B9CEF0068929C /* AFNetworking */,
 			);
-			name = Externals;
+			path = Externals;
 			sourceTree = "<group>";
 		};
 		60A7A6CD151FD26A00DB71E0 /* Models */ = {
@@ -765,13 +781,13 @@
 				60C04F0815722E6700C23AB5 /* FGalleryPhoto.m in Sources */,
 				60C04F0915722E6700C23AB5 /* FGalleryPhotoView.m in Sources */,
 				60C04F0A15722E6700C23AB5 /* FGalleryViewController.m in Sources */,
-				608069AD1574054F0070BF86 /* GMGridView.m in Sources */,
-				608069AE1574054F0070BF86 /* GMGridViewCell.m in Sources */,
-				608069AF1574054F0070BF86 /* GMGridViewLayoutStrategies.m in Sources */,
-				608069B01574054F0070BF86 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
-				608069B11574054F0070BF86 /* UIView+GMGridViewAdditions.m in Sources */,
 				557DAE76157ABF2900325E84 /* RarFileController.m in Sources */,
 				6026A043157B5B9F0031509D /* NSDate+StringParsing.m in Sources */,
+				6026A06B157BEA0F0031509D /* GMGridView.m in Sources */,
+				6026A06C157BEA0F0031509D /* GMGridViewCell.m in Sources */,
+				6026A06D157BEA0F0031509D /* GMGridViewLayoutStrategies.m in Sources */,
+				6026A06E157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
+				6026A06F157BEA0F0031509D /* UIView+GMGridViewAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +870,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Puttio/Externals\"",
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -872,6 +889,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Puttio/Externals\"",
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
