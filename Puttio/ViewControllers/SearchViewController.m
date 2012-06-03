@@ -48,6 +48,10 @@
     [self.statusViewController viewWillAppear:animated];
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [self reposition];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
@@ -162,6 +166,10 @@
     }];    
 }
 
+- (void)reposition {
+    [self resizeToWidth:self.view.frame.size.width animated:NO];
+}
+
 - (void)makeBigAnimated:(BOOL)animate {
     [self resizeToWidth:360 animated:animate];
 }
@@ -189,10 +197,5 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     [self makeBigAnimated:YES];    
 }
-//
-//- (void) searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-//    [self makeBigAnimated:NO];
-//}
-
 
 @end

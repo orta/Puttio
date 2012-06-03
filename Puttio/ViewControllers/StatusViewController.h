@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ORSlidingTableView.h"
 
 @class ORSimpleProgress, DCKnob;
-@interface StatusViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface StatusViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ORSlidingTableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet DCKnob *spaceProgressView;

@@ -212,4 +212,19 @@ typedef enum {
     layer.shadowOpacity = 0.2;
 }
 
+#pragma mark -
+#pragma mark Sliding TableView
+
+- (void)slidingTableDidBeginTouch:(ORSlidingTableView *)table {
+    
+}
+
+- (void)slidingTable:(ORSlidingTableView *)table didMoveToCell:(UITableViewCell *)cell {
+    
+}
+
+- (void)slidingTableDidEndTouch:(ORSlidingTableView *)table {
+    
+}
+
 @end
