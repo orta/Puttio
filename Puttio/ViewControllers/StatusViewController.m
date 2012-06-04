@@ -20,7 +20,7 @@
     NSArray *transfers;
     NSArray *messages;
     
-    CGFloat xOffset;
+    CGFloat currentIndex;
     NSTimer *dataLoopTimer;
     
     UIPopoverController *popoverController;
@@ -221,23 +221,27 @@ typedef enum {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     TransferPopoverViewController *transferVC = [storyboard instantiateViewControllerWithIdentifier:@"transferPopoverView"];
     popoverController = [[UIPopoverController alloc] initWithContentViewController:transferVC];
+    currentIndex = -1;
 }
 
 - (void)slidingTable:(ORSlidingTableView *)table didMoveToCellAtIndex:(NSInteger)index {
     index = MIN(index, transfers.count - 1);
-    
-    NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
-    
-    UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-    TransferPopoverViewController * transferVC = (TransferPopoverViewController*) popoverController.contentViewController;
-    CGRect originalRect = [tableView rectForRowAtIndexPath:path];
-    transferVC.transfer = [transfers objectAtIndex:index];
-
-	[popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+    if (index != currentIndex) {
+        NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
+        
+        UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+        TransferPopoverViewController * transferVC = (TransferPopoverViewController*) popoverController.contentViewController;
+        CGRect originalRect = [tableView rectForRowAtIndexPath:path];
+        transferVC.transfer = [transfers objectAtIndex:index];
+        
+        [popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+        currentIndex = index;   
+    }    
 }
 
 - (void)slidingTableDidEndTouch:(ORSlidingTableView *)table {
     [popoverController dismissPopoverAnimated:YES];
+        currentIndex = -1;
 }
 
 @end
