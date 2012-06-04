@@ -141,6 +141,7 @@ typedef enum
 
 @required
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position;
+- (void)GMGridView:(GMGridView *)gridView didLongTapOnItemAtIndex:(NSInteger)position;
 
 @optional
 // Tap on space without any items

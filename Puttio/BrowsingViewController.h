@@ -10,7 +10,7 @@
 #import "GMGridView.h"
 #import "ORDisplayItemProtocol.h"
 
-@interface BrowsingViewController : UIViewController <GMGridViewActionDelegate>
+@interface BrowsingViewController : UIViewController <GMGridViewActionDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 

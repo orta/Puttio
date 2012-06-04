@@ -28,6 +28,10 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     [gridView reloadData];
 }
 
+- (Folder *)folder {
+    return _folder;
+}
+
 - (void)loadView {
     CGRect frame = CGRectMake(0, 0, 400, 400);
     

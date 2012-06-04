@@ -35,6 +35,7 @@ static ModalZoomView *sharedInstance;
     if (this) {
         UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
         this.viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:viewControllerID];
+        
         if ([this validated]) {
             this.originalFrame = initialFrame;
             this.backgroundView = [[UIView alloc] initWithFrame:rootView.bounds];

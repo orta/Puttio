@@ -218,6 +218,7 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
     _longPressGesture.delegate = self;
     _longPressGesture.cancelsTouchesInView = NO;
     [self addGestureRecognizer:_longPressGesture];
+    [_tapGesture requireGestureRecognizerToFail:_longPressGesture];
     
     ////////////////////////
     // Gesture dependencies
@@ -487,7 +488,11 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
     BOOL valid = YES;
     BOOL isScrolling = self.isDragging || self.isDecelerating;
     
-    if (gestureRecognizer == _tapGesture) 
+    if (gestureRecognizer == _longPressGesture)
+    {
+        valid = !isScrolling && !self.isEditing;
+    }
+    else if (gestureRecognizer == _tapGesture) 
     {
         if (self.editing && self.disableEditOnEmptySpaceTap) {
             CGPoint locationTouch = [_tapGesture locationInView:self];
@@ -497,10 +502,6 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
         } else {
             valid = !isScrolling && !self.isEditing && ![_longPressGesture hasRecognizedValidGesture];
         }
-    }
-    else if (gestureRecognizer == _longPressGesture)
-    {
-        valid = (self.sortingDelegate || self.enableEditOnLongPress) && !isScrolling && !self.isEditing;
     }
     else if (gestureRecognizer == _sortingPanGesture) 
     {
@@ -550,19 +551,23 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
     {
         case UIGestureRecognizerStateBegan:
         {
-            if (!_sortMovingItem) 
-            { 
-                CGPoint location = [longPressGesture locationInView:self];
-                
-                NSInteger position = [self.layoutStrategy itemPositionFromLocation:location];
-                
-                if (position != GMGV_INVALID_POSITION) 
-                {
-                    [self sortingMoveDidStartAtPoint:location];
-                }
-            }
-            
-            break;
+            CGPoint locationTouch = [longPressGesture locationInView:self];
+            NSInteger position = [self.layoutStrategy itemPositionFromLocation:locationTouch];
+            [self.actionDelegate GMGridView:self didLongTapOnItemAtIndex:position];
+
+//            if (!_sortMovingItem) 
+//            { 
+//                CGPoint location = [longPressGesture locationInView:self];
+//                
+//                NSInteger position = [self.layoutStrategy itemPositionFromLocation:location];
+//                
+//                if (position != GMGV_INVALID_POSITION) 
+//                {
+//                    [self sortingMoveDidStartAtPoint:location];
+//                }
+//            }
+//            
+//            break;
         }
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateCancelled:
