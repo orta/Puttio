@@ -171,7 +171,7 @@
 }
 
 - (void)makeBigAnimated:(BOOL)animate {
-    [self resizeToWidth:360 animated:animate];
+    [self resizeToWidth:428 animated:animate];
 }
 
 - (void)makeSmallAnimated:(BOOL)animate {
@@ -179,7 +179,7 @@
     [searchBar performSelector: @selector(resignFirstResponder) 
                     withObject: nil 
                     afterDelay: 0.1];
-    [self resizeToWidth:60 animated:animate];
+    [self resizeToWidth:88 animated:animate];
 }
 
 - (void)resizeToWidth:(CGFloat)width animated:(BOOL)animate {

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="VQ5-Rz-QCj">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -155,23 +154,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kya-ho-HgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="searchView" modalPresentationStyle="currentContext" id="o5q-oo-v5b" customClass="SearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ghP-Gs-p1e">
-                        <rect key="frame" x="0.0" y="0.0" width="260" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="57" sectionHeaderHeight="22" sectionFooterHeight="22" id="moV-xJ-uB0">
-                                <rect key="frame" x="-3" y="44" width="195" height="724"/>
+                                <rect key="frame" x="0.0" y="44" width="330" height="724"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="88" id="GCK-DE-EGa" customClass="ORSearchCell">
-                                        <rect key="frame" x="0.0" y="22" width="195" height="88"/>
+                                        <rect key="frame" x="0.0" y="22" width="330" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="195" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="t7X-Y2-mEG">
-                                                    <rect key="frame" x="20" y="11" width="149" height="49"/>
+                                                    <rect key="frame" x="20" y="11" width="284" height="49"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <string key="text">The title of my cool cat film s
 2x as g</string>
@@ -180,14 +179,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="120 seeders" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="nwd-IC-Drc">
-                                                    <rect key="frame" x="20" y="57" width="108" height="24"/>
+                                                    <rect key="frame" x="20" y="57" width="243" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="720Mb" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="pB5-We-4CD">
-                                                    <rect key="frame" x="126" y="57" width="56" height="26"/>
+                                                    <rect key="frame" x="126" y="57" width="191" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -209,7 +208,7 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" text="" id="dkf-Gz-Lrs">
-                                <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="440" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -217,20 +216,20 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" id="q2p-nK-He9" customClass="ORSlidingTableView">
-                                <rect key="frame" x="200" y="44" width="60" height="659"/>
+                                <rect key="frame" x="352" y="44" width="88" height="659"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.69519844890000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="TransferCell" rowHeight="23" id="KQY-04-lHC" customClass="ARTransferCell">
-                                        <rect key="frame" x="0.0" y="22" width="60" height="23"/>
+                                        <rect key="frame" x="0.0" y="22" width="88" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="22"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="88" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" id="gZr-mQ-JvW" customClass="ORSimpleProgress">
-                                                    <rect key="frame" x="14" y="8" width="32" height="6"/>
+                                                    <rect key="frame" x="20" y="8" width="48" height="6"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
@@ -242,10 +241,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="28" id="m6f-Z1-UYH" customClass="ORMessageCell">
-                                        <rect key="frame" x="0.0" y="45" width="60" height="28"/>
+                                        <rect key="frame" x="0.0" y="45" width="88" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="27"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="88" height="27"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="hYH-w6-9V1">
@@ -270,16 +269,16 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="9TD-i0-eZg">
-                                <rect key="frame" x="200" y="703" width="60" height="60"/>
+                                <rect key="frame" x="352" y="680" width="88" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" id="5Xc-yK-bG1" customClass="DCKnob">
-                                        <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                        <rect key="frame" x="12" y="13" width="64" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.62408759124087587" alpha="0.68000000000000005" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" id="NAy-LS-PlV" customClass="DCKnob">
-                                        <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                        <rect key="frame" x="12" y="13" width="64" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.62408759120000001" alpha="0.68000000000000005" colorSpace="calibratedWhite"/>
                                     </view>
@@ -520,6 +519,113 @@ Message</string>
             <point key="canvasLocation" x="-5708" y="-751"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ARTransferCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARTransferCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+            </relationships>
+        </class>
+        <class className="BrowsingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backPressed:"/>
+                <relationship kind="action" name="feedbackPressed:"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DCControl" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCControl.h"/>
+        </class>
+        <class className="DCKnob" superclassName="DCControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCKnob.h"/>
+        </class>
+        <class className="FileInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FileInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="primaryButtonTapped:"/>
+                <relationship kind="action" name="secondaryButtonTapped:"/>
+                <relationship kind="outlet" name="additionalInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="primaryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="progressView" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="secondaryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="thumbnailImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="OAuthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OAuthViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginPressed:"/>
+                <relationship kind="outlet" name="authHelper" candidateClass="PutIOOAuthHelper"/>
+                <relationship kind="outlet" name="loginViewWrapper" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernameTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="warningLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORFlatButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORFlatButton.h"/>
+        </class>
+        <class className="ORMessageCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORMessageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORSearchCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSearchCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="seedersLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORSimpleProgress" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSimpleProgress.h"/>
+        </class>
+        <class className="ORSlidingTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSlidingTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="slidingDelegate" candidateClass="NSObject"/>
+            </relationships>
+        </class>
+        <class className="PutIOOAuthHelper" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PutIOOAuthHelper.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate" candidateClass="NSObject"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="statusViewController" candidateClass="StatusViewController"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="StatusViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="spaceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="spaceProgressBG" candidateClass="DCKnob"/>
+                <relationship kind="outlet" name="spaceProgressView" candidateClass="DCKnob"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="TransferPopoverViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TransferPopoverViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="progressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

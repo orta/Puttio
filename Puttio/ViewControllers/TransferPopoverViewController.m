@@ -30,7 +30,7 @@
     _transfer = transfer;
     
     self.titleLabel.text = transfer.name;
-    self.progressLabel.text = [NSString stringWithFormat:@"%.1f %", [transfer.percentDone floatValue]];
+    self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", [transfer.percentDone floatValue]];
     self.progressView.progress = [transfer.percentDone floatValue]/100;
     self.progressView.isLandscape = YES;
 
