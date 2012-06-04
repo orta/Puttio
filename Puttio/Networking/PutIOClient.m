@@ -79,6 +79,13 @@
     }];
 }
 
+- (void)requestDeletionForDisplayItemID:(NSString *)itemID :(void(^)(id userInfoObject))onComplete {
+    [self.v2Client requestDeletionForDisplayItemID:itemID :^(id userInfoObject)  {
+        onComplete(userInfoObject);  
+    }];
+
+}
+
 - (void)getMP4InfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete {
     [self.v2Client getMP4InfoForFile:file :^(id userInfoObject)  {
         onComplete(userInfoObject);  

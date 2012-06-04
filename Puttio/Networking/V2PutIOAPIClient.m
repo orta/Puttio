@@ -127,6 +127,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     }];
 }
 
+
 - (void)getMP4InfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete {
     NSString *path = [NSString stringWithFormat:@"/v2/files/%@/mp4", file.id];
     [self genericGetAtPath:path :^(id userInfoObject) {
@@ -155,6 +156,18 @@ typedef void (^BlockWithCallback)(id userInfoObject);
         }
         onComplete(userInfoObject);
     }];
+}
+
+- (void)requestDeletionForDisplayItemID:(NSString *)itemID :(void(^)(id userInfoObject))onComplete {
+    NSString *path = [NSString stringWithFormat:@"/v2/files/delete?oauth_token=%@", self.apiToken];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys: itemID, @"file_ids", nil];
+    [self postPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        onComplete(json);
+    }
+   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+       NSLog(@"failure in requesting delete %@", error);
+   }];
 }
 
 - (void)requestMP4ForFile:(File*)file {

@@ -32,7 +32,9 @@
 }
 
 - (IBAction)deleteTapped:(id)sender {
-    [ModalZoomView fadeOutViewAnimated:YES];
+    [[PutIOClient sharedClient] requestDeletionForDisplayItemID:_item.id :^(id userInfoObject) {
+        [ModalZoomView fadeOutViewAnimated:YES];        
+    }];
 }
 
 - (IBAction)cancelTapped:(id)sender {
