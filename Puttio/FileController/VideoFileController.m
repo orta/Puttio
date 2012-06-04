@@ -35,27 +35,17 @@
             fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
             self.infoController.titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
             self.infoController.fileSizeLabel.text = unitStringFromBytes(fileSize);
+            [self.infoController hideProgress];
+            
             NSString *contentType = [[userInfoObject valueForKeyPath:@"content_type"] objectAtIndex:0];
             if ([contentType isEqualToString:@"video/mp4"]) {
                 _isMP4 = YES;
                 [self.infoController enableButtons];
-                [self.infoController hideProgress];
             }else{
                 [self getMP4Info];
             }
         }
     }];
-    
-//    [self getInfoWithBlock:^(id userInfoObject) {
-//        NSString *contentType = [[userInfoObject valueForKeyPath:@"content_type"] objectAtIndex:0];
-//        if ([contentType isEqualToString:@"video/mp4"]) {
-//            _isMP4 = YES;
-//            self.enableButtons = YES;
-//        }
-//                
-//        self.infoController.additionalInfoLabel.text = contentType;            
-//    }];
-    
 }
 
 - (NSString *)descriptiveTextForFile {
@@ -162,6 +152,7 @@
             if ([status isEqualToString:@"CONVERTING"]) {
                 self.infoController.additionalInfoLabel.text = @"Converting to iPad version (this takes a *very* long time.)";
                 if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
+                    [self.infoController showProgress];
                     self.infoController.progressView.hidden = NO;
                     self.infoController.progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
                 }

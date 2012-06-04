@@ -77,20 +77,27 @@ static ModalZoomView *sharedInstance;
     }
 }
 
-- (void)backgroundViewTapped:(UITapGestureRecognizer *)gesture {
-    [UIView animateWithDuration:0.3 animations:^{
-        self.backgroundView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
-        self.viewController.view.frame = self.originalFrame;
-
++ (void)fadeOutViewAnimated:(BOOL)animated {
+    CGFloat duration = animated? 0.3 : 0;
+    
+    ModalZoomView *this = [self sharedInstance];
+    [UIView animateWithDuration:duration animations:^{
+        this.backgroundView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
+        this.viewController.view.frame = this.originalFrame;
+        
     } completion:^(BOOL finished) {
-        [self.backgroundView removeFromSuperview];
-        [self.viewController viewWillDisappear:NO];
-        [self.viewController viewWillUnload];
-        [self.viewController.view removeFromSuperview];
-        [self.viewController viewDidDisappear:NO];
-        [self.viewController viewDidUnload];
-        self.viewController = nil;
+        [this.backgroundView removeFromSuperview];
+        [this.viewController viewWillDisappear:NO];
+        [this.viewController viewWillUnload];
+        [this.viewController.view removeFromSuperview];
+        [this.viewController viewDidDisappear:NO];
+        [this.viewController viewDidUnload];
+        this.viewController = nil;
     }];
+}
+
+- (void)backgroundViewTapped:(UITapGestureRecognizer *)gesture {
+    [self.class fadeOutViewAnimated:YES];
 }
 
 - (BOOL)validated {

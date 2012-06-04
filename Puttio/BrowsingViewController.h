@@ -10,10 +10,10 @@
 #import "GMGridView.h"
 #import "ORDisplayItemProtocol.h"
 
-@interface BrowsingViewController : UIViewController <GMGridViewDataSource, GMGridViewActionDelegate>
-@property (strong) GMGridView *gridView;
-@property (strong) NSObject <ORDisplayItemProtocol> *item;
+@interface BrowsingViewController : UIViewController <GMGridViewActionDelegate>
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 - (IBAction)backPressed:(id)sender;
-- (IBAction)feedbackPressed:(id)sender;
+
 @end

@@ -10,6 +10,12 @@
 #import "ORAppDelegate.h"
 #import "TestFlight.h"
 #import "ORMoviePlayerController.h"
+#import "ModalZoomView.h"
+
+@interface MoviePlayer (){
+    BOOL completed;
+}
+@end
 
 @implementation MoviePlayer
 @synthesize mediaPlayer;
@@ -64,6 +70,7 @@
         case MPMovieFinishReasonPlaybackEnded:
             TFLog(@"playbackFinished. Reason: Playback Ended");
             [Analytics event:@"User finished watching a movie"];
+            completed = YES;
             break;
         case MPMovieFinishReasonPlaybackError:
             TFLog(@"playbackFinished. Reason: Playback Error");

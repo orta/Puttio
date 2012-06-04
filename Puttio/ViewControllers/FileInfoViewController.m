@@ -40,6 +40,7 @@
     fileSizeLabel.text = @"";
     titleLabel.text = @"";
     additionalInfoLabel.text = @"";
+    [self hideProgress];
 }
 
 - (void)setItem:(File *)item {
