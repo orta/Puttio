@@ -10,14 +10,16 @@
 
 @implementation NSDate (StringParsing)
 
+// this has been hacked and chopped into simple pieces, and isnt really ISO8601 anymore.
 + (NSDate *)dateWithISO8601String:(NSString *)dateString
 {
     if (!dateString) return nil;
     if ([dateString hasSuffix:@"Z"]) {
         dateString = [[dateString substringToIndex:(dateString.length-1)] stringByAppendingString:@"-0000"];
     }
+    dateString = [[dateString componentsSeparatedByString:@"T"] objectAtIndex:0];
     return [self dateFromString:dateString
-                     withFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+                     withFormat:@"yyyy-MM-dd"];
 }
 
 + (NSDate *)dateFromString:(NSString *)dateString 

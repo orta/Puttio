@@ -95,15 +95,15 @@ typedef enum {
     NSDate *today = [[NSDate alloc] init];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *minusDaysComponents = [[NSDateComponents alloc] init];
+    [minusDaysComponents setDay: -3];
     NSDate *threeDaysAgo = [calendar dateByAddingComponents:minusDaysComponents toDate:today options:0];
     
     for (Transfer *transfer in inTransfers) {
         if (transfer.percentDone.intValue != 100) {
             [newTransfers addObject:transfer];
         }else{    
-            #warning this doesnt work
             NSDate *date = [NSDate dateWithISO8601String:transfer.createdAt];
-            if ([threeDaysAgo earlierDate:date]) {
+            if ([threeDaysAgo compare:date] == NSOrderedAscending) {
                 [newTransfers addObject:transfer];
             }
         }
