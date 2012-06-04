@@ -83,6 +83,8 @@
 		60C04F0C15722E9E00C23AB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C04F0B15722E9E00C23AB5 /* QuartzCore.framework */; };
 		60C04F1F1572418C00C23AB5 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C04F1E1572418B00C23AB5 /* libTestFlight.a */; };
 		60C45D5C157C16750059D4B4 /* ORSlidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45D5B157C16750059D4B4 /* ORSlidingTableView.m */; };
+		60C45DCC157C45360059D4B4 /* UINavigationController+ForceRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45DCB157C45360059D4B4 /* UINavigationController+ForceRotate.m */; };
+		60C45DE0157C498B0059D4B4 /* TransferPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45DDF157C498A0059D4B4 /* TransferPopoverViewController.m */; };
 		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
 		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
@@ -258,6 +260,10 @@
 		60C04F201572419900C23AB5 /* TestFlight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		60C45D5A157C16750059D4B4 /* ORSlidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSlidingTableView.h; path = Views/ORSlidingTableView.h; sourceTree = "<group>"; };
 		60C45D5B157C16750059D4B4 /* ORSlidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSlidingTableView.m; path = Views/ORSlidingTableView.m; sourceTree = "<group>"; };
+		60C45DCA157C45360059D4B4 /* UINavigationController+ForceRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+ForceRotate.h"; path = "Categories/UINavigationController+ForceRotate.h"; sourceTree = "<group>"; };
+		60C45DCB157C45360059D4B4 /* UINavigationController+ForceRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+ForceRotate.m"; path = "Categories/UINavigationController+ForceRotate.m"; sourceTree = "<group>"; };
+		60C45DDE157C498A0059D4B4 /* TransferPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = TransferPopoverViewController.h; path = ViewControllers/TransferPopoverViewController.h; sourceTree = "<group>"; };
+		60C45DDF157C498A0059D4B4 /* TransferPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransferPopoverViewController.m; path = ViewControllers/TransferPopoverViewController.m; sourceTree = "<group>"; };
 		60D9B7E91535C30F00A64E0F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Models/SearchResult.h; sourceTree = "<group>"; };
 		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
 		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
@@ -520,6 +526,8 @@
 				60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */,
 				6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */,
 				6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */,
+				60C45DDE157C498A0059D4B4 /* TransferPopoverViewController.h */,
+				60C45DDF157C498A0059D4B4 /* TransferPopoverViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -582,6 +590,8 @@
 				606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */,
 				6026A041157B5B9F0031509D /* NSDate+StringParsing.h */,
 				6026A042157B5B9F0031509D /* NSDate+StringParsing.m */,
+				60C45DCA157C45360059D4B4 /* UINavigationController+ForceRotate.h */,
+				60C45DCB157C45360059D4B4 /* UINavigationController+ForceRotate.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -812,6 +822,8 @@
 				6026A07F157BF1BA0031509D /* DCKnob.m in Sources */,
 				6026A080157BF1BA0031509D /* DCSlider.m in Sources */,
 				60C45D5C157C16750059D4B4 /* ORSlidingTableView.m in Sources */,
+				60C45DCC157C45360059D4B4 /* UINavigationController+ForceRotate.m in Sources */,
+				60C45DE0157C498B0059D4B4 /* TransferPopoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

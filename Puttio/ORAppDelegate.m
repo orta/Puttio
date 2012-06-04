@@ -23,6 +23,7 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	
     [Analytics setup];
     if (![[NSUserDefaults standardUserDefaults] objectForKey:ORDefaultsAreLoaded]) {
         [ORDefaults registerDefaults];

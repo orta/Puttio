@@ -9,7 +9,7 @@
 #import "StatusViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ORSimpleProgress.h"
-
+#import "TransferPopoverViewController.h"
 #import "ARTransferCell.h"
 #import "ORMessageCell.h"
 #import "NSDate+StringParsing.h"
@@ -22,6 +22,8 @@
     
     CGFloat xOffset;
     NSTimer *dataLoopTimer;
+    
+    UIPopoverController *popoverController;
 }
 @end
 
@@ -216,15 +218,26 @@ typedef enum {
 #pragma mark Sliding TableView
 
 - (void)slidingTableDidBeginTouch:(ORSlidingTableView *)table {
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+    TransferPopoverViewController *transferVC = [storyboard instantiateViewControllerWithIdentifier:@"transferPopoverView"];
+    popoverController = [[UIPopoverController alloc] initWithContentViewController:transferVC];
 }
 
-- (void)slidingTable:(ORSlidingTableView *)table didMoveToCell:(UITableViewCell *)cell {
+- (void)slidingTable:(ORSlidingTableView *)table didMoveToCellAtIndex:(NSInteger)index {
+    index = MIN(index, transfers.count - 1);
     
+    NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
+    
+    UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+    TransferPopoverViewController * transferVC = (TransferPopoverViewController*) popoverController.contentViewController;
+    CGRect originalRect = [tableView rectForRowAtIndexPath:path];
+    transferVC.transfer = [transfers objectAtIndex:index];
+
+	[popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
 }
 
 - (void)slidingTableDidEndTouch:(ORSlidingTableView *)table {
-    
+    [popoverController dismissPopoverAnimated:YES];
 }
 
 @end

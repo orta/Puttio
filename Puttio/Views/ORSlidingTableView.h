@@ -11,7 +11,7 @@
 @class ORSlidingTableView;
 @protocol ORSlidingTableViewDelegate <NSObject>
 - (void)slidingTableDidBeginTouch:(ORSlidingTableView *)table;
-- (void)slidingTable:(ORSlidingTableView *)table didMoveToCell:(UITableViewCell *)cell;
+- (void)slidingTable:(ORSlidingTableView *)table didMoveToCellAtIndex:(NSInteger)index;
 - (void)slidingTableDidEndTouch:(ORSlidingTableView *)table;
 @end
 
