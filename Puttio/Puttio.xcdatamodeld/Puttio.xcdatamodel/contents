@@ -21,8 +21,17 @@
         <relationship name="parentFolder" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="subFolders" inverseEntity="Folder" syncable="YES"/>
         <relationship name="subFolders" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="parentFolder" inverseEntity="Folder" syncable="YES"/>
     </entity>
+    <entity name="WatchedItem" syncable="YES">
+        <relationship name="list" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WatchedList" inverseName="items" inverseEntity="WatchedList" syncable="YES"/>
+    </entity>
+    <entity name="WatchedList" syncable="YES">
+        <attribute name="folderID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WatchedItem" inverseName="list" inverseEntity="WatchedItem" syncable="YES"/>
+    </entity>
     <elements>
         <element name="File" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Folder" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="WatchedList" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="WatchedItem" positionX="160" positionY="192" width="128" height="60"/>
     </elements>
 </model>

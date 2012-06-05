@@ -217,6 +217,7 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
     _longPressGesture.numberOfTouchesRequired = 1;
     _longPressGesture.delegate = self;
     _longPressGesture.cancelsTouchesInView = NO;
+    _longPressGesture.minimumPressDuration = 0.8;
     [self addGestureRecognizer:_longPressGesture];
     [_tapGesture requireGestureRecognizerToFail:_longPressGesture];
     

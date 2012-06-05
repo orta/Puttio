@@ -20,6 +20,7 @@ static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 94, .bottom
 
 @interface BrowsingViewController (){
     UINavigationController *_gridNavController;
+    Folder *currentFolder;
 }
 @end
 
@@ -35,6 +36,11 @@ static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 94, .bottom
     rootFolder.name = @"Home";
     rootFolder.parentID = @"0";
     [self loadFolder:rootFolder];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self reloadFolder];
 }
 
 - (IBAction)backPressed:(id)sender {
@@ -73,7 +79,20 @@ static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 94, .bottom
     [_gridNavController popViewControllerAnimated:YES];
 }
 
+- (void)reloadFolder {
+    [[PutIOClient sharedClient] getFolder:currentFolder :^(id userInfoObject) {
+        if (![userInfoObject isKindOfClass:[NSError class]]) {
+            FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
+            topFolder.folderItems = (NSArray *)userInfoObject;
+            topFolder.folder = currentFolder;
+        }
+    }];
+
+}
+
 - (void)loadFolder:(Folder *)folder {
+    currentFolder = folder;
+    
     [[PutIOClient sharedClient] getFolder:folder :^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
             
@@ -105,7 +124,6 @@ static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 94, .bottom
 }
 
 - (void)GMGridView:(GMGridView *)gridView didLongTapOnItemAtIndex:(NSInteger)position {
-    NSLog(@"long tap");
     FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
     NSObject <ORDisplayItemProtocol> *item = [topFolder.folderItems objectAtIndex:position];   
     
@@ -113,7 +131,6 @@ static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 94, .bottom
     CGRect initialFrame = [topFolder.gridView convertRect:[[topFolder.gridView cellForItemAtIndex:position] frame] toView:rootView];
     
     [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"deleteView" andItem:item];
-
 }
 
 
