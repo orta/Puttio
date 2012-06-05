@@ -14,6 +14,10 @@
 #import "MoviePlayer.h"
 #import "FileSizeUtils.h"
 
+#import "WatchedItem.h"
+#import "WatchedList.h"
+#import "NSManagedObject+ActiveRecord.h"
+
 @implementation VideoFileController {
     BOOL _isMP4;
     BOOL _MP4Ready;
@@ -62,6 +66,8 @@
     }else{
         [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"http://put.io/v2/files/%@/mp4/stream", _file.id]];
     }
+    
+    [self markFileAsViewed];
 }
 
 - (BOOL)supportsSecondaryButton {
@@ -161,5 +167,19 @@
         }
     }];
 }
+
+- (void) markFileAsViewed {
+    WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_file.id];
+    if (!list) {
+        list = [WatchedList object];
+        list.folderID = _file.folder.id;
+    }
+    WatchedItem *item = [WatchedItem object];
+    item.fileID = _file.id;
+    [list addItemsObject:item];
+
+    [[WatchedItem managedObjectContext] save:nil];
+}
+
 
 @end

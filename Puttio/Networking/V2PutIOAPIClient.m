@@ -111,9 +111,15 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             if (!file.screenShotURL) {
                 file.screenShotURL =  [dictionary onlyStringForKey:@"icon"];
             }
+            if ([dictionary objectForKey:@"is_mp4_available"] != [NSNull null]) {
+                file.hasMP4 = [NSNumber numberWithBool:YES];
+            }
+            
             file.contentType =  [dictionary objectForKey:@"content_type"];
             file.parentID = [[dictionary objectForKey:@"parent_id"] stringValue];
             file.size = [dictionary objectForKey:@"size"];
+            file.folder = parent;
+            
             [objects addObject:file];
         }
     }

@@ -10,12 +10,12 @@
 
 @protocol ORDisplayItemProtocol <NSObject>
 
-@property (strong) NSString *contentType;
-@property (strong) NSString *id;
-@property (strong) NSString *name;
-@property (strong) NSString *displayName;
-@property (strong) NSNumber *size;
-@property (strong) NSString *screenShotURL;
-@property (strong) NSString *parentID;
+@property (nonatomic, retain) NSString *contentType;
+@property (nonatomic, retain) NSString *id;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *displayName;
+@property (nonatomic, retain) NSNumber *size;
+@property (nonatomic, retain) NSString *screenShotURL;
+@property (nonatomic, retain) NSString *parentID;
 
 @end

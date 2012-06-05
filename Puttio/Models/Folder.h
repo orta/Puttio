@@ -11,13 +11,27 @@
 
 @interface Folder : NSManagedObject <ORDisplayItemProtocol>
 
-@property (strong) NSString *contentType;
-@property (strong) NSString *id;
-@property (strong) NSString *name;
-@property (strong) NSString *displayName;
-@property (strong) NSNumber *size;
-@property (strong) NSString *screenShotURL;
-@property (strong) NSString *parentID;
-@property (strong) Folder *parentFolder;
+@property (nonatomic, retain) NSString * displayName;
+@property (nonatomic, retain) NSString * id;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * parentID;
+@property (nonatomic, retain) NSString * screenShotURL;
+@property (nonatomic, retain) NSNumber * size;
+@property (nonatomic, retain) NSSet *files;
+@property (nonatomic, retain) Folder *parentFolder;
+@property (nonatomic, retain) NSSet *subFolders;
+@end
+
+@interface Folder (CoreDataGeneratedAccessors)
+
+- (void)addFilesObject:(File *)value;
+- (void)removeFilesObject:(File *)value;
+- (void)addFiles:(NSSet *)values;
+- (void)removeFiles:(NSSet *)values;
+
+- (void)addSubFoldersObject:(Folder *)value;
+- (void)removeSubFoldersObject:(Folder *)value;
+- (void)addSubFolders:(NSSet *)values;
+- (void)removeSubFolders:(NSSet *)values;
 
 @end

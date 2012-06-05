@@ -24,7 +24,7 @@
 
 - (void)setItem:(NSObject<ORDisplayItemProtocol> *)item {
     _item = item;
-    self.titleLabel.text = [NSString stringWithFormat:@"Delete %@?", item.name];
+    self.titleLabel.text = [NSString stringWithFormat:@"Delete %@?", item.displayName];
 }
 
 - (NSObject <ORDisplayItemProtocol> *)item {

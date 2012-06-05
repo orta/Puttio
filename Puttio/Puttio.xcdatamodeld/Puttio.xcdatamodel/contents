@@ -3,11 +3,13 @@
     <entity name="File" representedClassName="File" syncable="YES">
         <attribute name="contentType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasMP4" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" minValueString="0" maxValueString="100" indexed="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="parentID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="screenShotURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="watched" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="folder" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="files" inverseEntity="Folder" syncable="YES"/>
     </entity>
     <entity name="Folder" representedClassName="Folder" syncable="YES">
@@ -17,21 +19,22 @@
         <attribute name="parentID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="screenShotURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="files" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="File" inverseName="folder" inverseEntity="File" syncable="YES"/>
+        <relationship name="files" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="File" inverseName="folder" inverseEntity="File" syncable="YES"/>
         <relationship name="parentFolder" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="subFolders" inverseEntity="Folder" syncable="YES"/>
-        <relationship name="subFolders" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="parentFolder" inverseEntity="Folder" syncable="YES"/>
+        <relationship name="subFolders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Folder" inverseName="parentFolder" inverseEntity="Folder" syncable="YES"/>
     </entity>
-    <entity name="WatchedItem" syncable="YES">
-        <relationship name="list" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WatchedList" inverseName="items" inverseEntity="WatchedList" syncable="YES"/>
+    <entity name="WatchedItem" representedClassName="WatchedItem" syncable="YES">
+        <attribute name="fileID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WatchedList" inverseName="items" inverseEntity="WatchedList" syncable="YES"/>
     </entity>
-    <entity name="WatchedList" syncable="YES">
+    <entity name="WatchedList" representedClassName="WatchedList" syncable="YES">
         <attribute name="folderID" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WatchedItem" inverseName="list" inverseEntity="WatchedItem" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WatchedItem" inverseName="list" inverseEntity="WatchedItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="File" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="File" positionX="160" positionY="192" width="128" height="195"/>
         <element name="Folder" positionX="160" positionY="192" width="128" height="180"/>
         <element name="WatchedList" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="WatchedItem" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="WatchedItem" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

@@ -67,21 +67,20 @@
 
     NSNumber* reason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     switch ([reason intValue]) {
-        case MPMovieFinishReasonPlaybackEnded:
-            TFLog(@"playbackFinished. Reason: Playback Ended");
-            [Analytics event:@"User finished watching a movie"];
-            completed = YES;
-            break;
         case MPMovieFinishReasonPlaybackError:
             TFLog(@"playbackFinished. Reason: Playback Error");
             TFLog(@"error log %@", self.mediaPlayer.errorLog);
             TFLog(@"network log %@", self.mediaPlayer.accessLog);
             TFLog(@"note %@", notification);
-
+            
             [Analytics event:@"Movie Playback Error %@ - ( %@ )", self.mediaPlayer.contentURL, self.mediaPlayer.errorLog];
             break;
+
+        case MPMovieFinishReasonPlaybackEnded:
+            TFLog(@"playbackFinished. Reason: Playback Ended");
         case MPMovieFinishReasonUserExited:
             TFLog(@"playbackFinished. Reason: User Exited");
+            [Analytics event:@"User finished watching a movie"];
             break;
         default:
             break;

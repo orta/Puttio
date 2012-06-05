@@ -10,6 +10,8 @@
 		557DAE76157ABF2900325E84 /* RarFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557DAE75157ABF2900325E84 /* RarFileController.m */; };
 		60001912157CDDFC00E5FE06 /* FolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60001911157CDDFC00E5FE06 /* FolderViewController.m */; };
 		60001926157D274F00E5FE06 /* ItemDeletionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60001925157D274E00E5FE06 /* ItemDeletionViewController.m */; };
+		6000193D157E655C00E5FE06 /* WatchedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6000193C157E655C00E5FE06 /* WatchedItem.m */; };
+		60001943157E6BCC00E5FE06 /* WatchedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 60001942157E6BCB00E5FE06 /* WatchedList.m */; };
 		600104D41524F9CB005F5B33 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 600104D31524F9CB005F5B33 /* Folder.m */; };
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
@@ -125,6 +127,10 @@
 		60001911157CDDFC00E5FE06 /* FolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FolderViewController.m; path = ViewControllers/FolderViewController.m; sourceTree = "<group>"; };
 		60001924157D274E00E5FE06 /* ItemDeletionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemDeletionViewController.h; path = ViewControllers/ItemDeletionViewController.h; sourceTree = "<group>"; };
 		60001925157D274E00E5FE06 /* ItemDeletionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemDeletionViewController.m; path = ViewControllers/ItemDeletionViewController.m; sourceTree = "<group>"; };
+		6000193B157E655B00E5FE06 /* WatchedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WatchedItem.h; path = Models/WatchedItem.h; sourceTree = "<group>"; };
+		6000193C157E655C00E5FE06 /* WatchedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WatchedItem.m; path = Models/WatchedItem.m; sourceTree = "<group>"; };
+		60001941157E6BCA00E5FE06 /* WatchedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WatchedList.h; path = ../Models/WatchedList.h; sourceTree = "<group>"; };
+		60001942157E6BCB00E5FE06 /* WatchedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WatchedList.m; path = ../Models/WatchedList.m; sourceTree = "<group>"; };
 		600104D21524F9CB005F5B33 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Folder.h; path = Models/Folder.h; sourceTree = "<group>"; };
 		600104D31524F9CB005F5B33 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Folder.m; path = Models/Folder.m; sourceTree = "<group>"; };
 		6001050A1525025A005F5B33 /* ORDisplayItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ORDisplayItemProtocol.h; path = Protocols/ORDisplayItemProtocol.h; sourceTree = "<group>"; };
@@ -574,6 +580,10 @@
 				60A7AB2F15291404009DD716 /* Message.m */,
 				60D9B7E91535C30F00A64E0F /* SearchResult.h */,
 				60D9B7EA1535C30F00A64E0F /* SearchResult.m */,
+				6000193B157E655B00E5FE06 /* WatchedItem.h */,
+				6000193C157E655C00E5FE06 /* WatchedItem.m */,
+				60001941157E6BCA00E5FE06 /* WatchedList.h */,
+				60001942157E6BCB00E5FE06 /* WatchedList.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -836,6 +846,8 @@
 				60C45DE0157C498B0059D4B4 /* TransferPopoverViewController.m in Sources */,
 				60001912157CDDFC00E5FE06 /* FolderViewController.m in Sources */,
 				60001926157D274F00E5FE06 /* ItemDeletionViewController.m in Sources */,
+				6000193D157E655C00E5FE06 /* WatchedItem.m in Sources */,
+				60001943157E6BCC00E5FE06 /* WatchedList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

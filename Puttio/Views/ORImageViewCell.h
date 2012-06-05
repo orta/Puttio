@@ -23,6 +23,6 @@
 @property (nonatomic) UIImage *image;
 @property (nonatomic) NSURL *imageURL;
 @property (nonatomic) id item;
-
+@property (nonatomic, assign) BOOL watched;
 
 @end

@@ -9,9 +9,13 @@
 #import "FolderViewController.h"
 #import "ORImageViewCell.h"
 #import "BrowsingViewController.h"
+#import "WatchedList.h"
+#import "WatchedItem.h"
+#import "NSManagedObject+ActiveRecord.h"
 
 @interface FolderViewController (){
     Folder *_folder;
+    NSArray *_folderItems;
 }
 @end
 
@@ -19,18 +23,33 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 
 @implementation FolderViewController
 
-@dynamic folder;
-@synthesize gridView, folderItems, browsingViewController;
+@dynamic folder, folderItems;
+@synthesize gridView, browsingViewController;
+
+#pragma mark -
+#pragma mark Properties
 
 - (void)setFolder:(Folder *)folder {
     _folder = folder;
-
     [gridView reloadData];
+}
+
+- (void)setFolderItems:(NSArray *)folderItems {
+    _folderItems = folderItems;
+    [self checkForWatched];
+    [gridView reloadData];
+}
+
+- (NSArray *)folderItems {
+    return  _folderItems;
 }
 
 - (Folder *)folder {
     return _folder;
 }
+
+#pragma mark -
+#pragma mark View Handling
 
 - (void)loadView {
     CGRect frame = CGRectMake(0, 0, 400, 400);
@@ -54,7 +73,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 #pragma mark GridView DataSource Methods
 
 - (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView {
-    return [folderItems count];
+    return [_folderItems count];
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)aGridView cellForItemAtIndex:(NSInteger)index {
@@ -67,13 +86,16 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
         cell.reuseIdentifier = CellIdentifier;
     }
     
-    NSObject <ORDisplayItemProtocol> *item = [folderItems objectAtIndex:index];
+    NSObject <ORDisplayItemProtocol> *item = [_folderItems objectAtIndex:index];
     cell.item = item;
     cell.title = item.displayName;
-    if ([self itemIsFolder:item]) {
-        cell.imageURL = [NSURL URLWithString:item.screenShotURL];
-    }else{
-        cell.imageURL = [NSURL URLWithString: [PutIOClient appendOauthToken:item.screenShotURL]];
+    cell.imageURL = [NSURL URLWithString:item.screenShotURL];
+    
+    if (![self itemIsFolder:item]) {
+        File * file = (File *)item;
+        if (file.watched.boolValue == YES) {
+            cell.watched = YES;
+        }
     }
     return cell;
 }   
@@ -82,11 +104,27 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     return GridCellSize;
 }
 
+#pragma mark -
+#pragma mark Misc
+
 - (BOOL)itemIsFolder:(NSObject <ORDisplayItemProtocol>*)item {
-    if ([item.size intValue] == 0) {
-        return YES;
+    return ([item.size intValue] == 0);
+}
+
+- (void)checkForWatched {
+    WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_folder.id];
+    if (list) {
+        for (id item in _folderItems) {
+            if ([item isKindOfClass:[File class]]) {
+                File *file = item;
+                for (WatchedItem *item in list.items) {
+                    if ([item.fileID isEqualToString:file.id]) {
+                        file.watched = [NSNumber numberWithBool:YES];;
+                    }
+                }
+            }
+        }
     }
-    return NO;
 }
 
 @end

@@ -9,7 +9,17 @@
 #import "File.h"
 
 @implementation File
-@dynamic contentType, name, size, id, screenShotURL, parentID, displayName;
+
+@dynamic contentType;
+@dynamic displayName;
+@dynamic id;
+@dynamic name;
+@dynamic parentID;
+@dynamic screenShotURL;
+@dynamic size;
+@dynamic hasMP4;
+@dynamic watched;
+@dynamic folder;
 
 - (void)setupDisplayName {
     NSString *display = @"";

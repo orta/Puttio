@@ -25,16 +25,12 @@ static CGFloat TitleBottomMargin = 1;
 @synthesize subtitle = _subtitle;
 @synthesize title = _title;
 @synthesize item = _item;
-
+@synthesize watched = _watched;
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         UIColor *black = [UIColor blackColor];
-        
-        self.opaque = NO;
-        self.contentView.backgroundColor = [UIColor whiteColor];
-        self.contentView.opaque = NO;
-        
+                
         imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.backgroundColor = [UIColor clearColor];
@@ -121,6 +117,11 @@ static CGFloat TitleBottomMargin = 1;
 - (void)setImageURL:(NSURL *)anImageURL {
     imageURL = anImageURL;
     [imageView setImageWithURL:anImageURL];
+}
+
+- (void)setWatched:(BOOL)watched {
+    _watched = watched;
+    self.backgroundColor = [[UIColor putioYellow] colorWithAlphaComponent:0.5];
 }
 
 @end
