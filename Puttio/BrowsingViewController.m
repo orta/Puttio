@@ -31,6 +31,8 @@ static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 94, .bottom
     [super viewDidLoad];
     [self setupGestures];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFolder) name:ORReloadFolderNotification object:nil];
+    
     Folder *rootFolder = [Folder object];
     rootFolder.id = @"0";
     rootFolder.name = @"Home";
@@ -87,6 +89,7 @@ static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 94, .bottom
             
             topFolder.folderItems = (NSArray *)userInfoObject;
             topFolder.folder = currentFolder;
+            topFolder.browsingViewController = self;
         }
     }];
 
@@ -102,6 +105,7 @@ static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 94, .bottom
             folderGrid.browsingViewController = self;
             folderGrid.folder = folder;
             folderGrid.folderItems = (NSArray *)userInfoObject;
+            folderGrid.browsingViewController = self;
             
             if (_gridNavController) {
                 [_gridNavController pushViewController:folderGrid animated:YES];   

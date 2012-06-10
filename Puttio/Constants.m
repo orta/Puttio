@@ -25,3 +25,4 @@ NSString *const ORShowLeftSidebarDefault = @"ORShowLeftSidebarDefault";
 NSString *const ORShowRightSidebarDefault = @"ORShowRightSidebarDefault";
 
 NSString *const ORReloadGridNotification = @"ORReloadGridNotification";
+NSString *const ORReloadFolderNotification = @"ORReloadFolderNotification";

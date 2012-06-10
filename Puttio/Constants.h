@@ -25,3 +25,4 @@ extern NSString *const ORShowLeftSidebarDefault;
 extern NSString *const ORShowRightSidebarDefault;
 
 extern NSString *const ORReloadGridNotification;
+extern NSString *const ORReloadFolderNotification;
