@@ -14,10 +14,6 @@
 #import "MoviePlayer.h"
 #import "FileSizeUtils.h"
 
-#import "WatchedItem.h"
-#import "WatchedList.h"
-#import "NSManagedObject+ActiveRecord.h"
-
 @implementation VideoFileController {
     BOOL _isMP4;
     BOOL _MP4Ready;
@@ -168,20 +164,5 @@
         }
     }];
 }
-
-- (void) markFileAsViewed {
-    WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_file.folder.id];
-    if (!list) {
-        list = [WatchedList object];
-        list.folderID = _file.folder.id;
-    }
-    WatchedItem *item = [WatchedItem object];
-    item.fileID = _file.id;
-    [list addItemsObject:item];
-
-    [[WatchedItem managedObjectContext] save:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:ORReloadGridNotification object:nil];
-}
-
 
 @end

@@ -65,7 +65,9 @@ enum ComicType {
     return @"Read";
 }
 
-- (void)primaryButtonAction:(id)sender {    
+- (void)primaryButtonAction:(id)sender {
+    [self markFileAsViewed];
+    
     NSString *requestURL = [NSString stringWithFormat:@"http://put.io/v2/files/%@/download", _file.id];   
 
     [self downloadFileAtPath:requestURL WithCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -53,7 +53,7 @@ static CGFloat TitleBottomMargin = 1;
         titleLabel = [[UILabel alloc] init];
         titleLabel.textColor = black;
         titleLabel.textAlignment = UITextAlignmentCenter;
-        titleLabel.backgroundColor = [UIColor whiteColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.opaque = NO;
         titleLabel.userInteractionEnabled = YES;
         titleLabel.numberOfLines = 2;
@@ -122,7 +122,6 @@ static CGFloat TitleBottomMargin = 1;
 - (void)setWatched:(BOOL)watched {
     _watched = watched;
     self.backgroundColor = [[UIColor putioYellow] colorWithAlphaComponent:0.5];
-    titleLabel.backgroundColor = [[UIColor putioYellow] colorWithAlphaComponent:0.5];
 }
 
 @end

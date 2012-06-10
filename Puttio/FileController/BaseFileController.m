@@ -13,6 +13,10 @@
 #import "FileInfoViewController.h"
 #include "FileSizeUtils.h"
 
+#import "WatchedItem.h"
+#import "WatchedList.h"
+#import "NSManagedObject+ActiveRecord.h"
+
 @implementation BaseFileController
 
 @synthesize file, infoController;
@@ -76,9 +80,21 @@
         NSString *message = [NSString stringWithFormat:@"Your iPad doesn't have enough free disk space to download."];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not enough disk space" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alert show];
-    }    
+    }
+}
 
+- (void) markFileAsViewed {
+    WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_file.folder.id];
+    if (!list) {
+        list = [WatchedList object];
+        list.folderID = _file.folder.id;
+    }
+    WatchedItem *item = [WatchedItem object];
+    item.fileID = _file.id;
+    [list addItemsObject:item];
     
+    [[WatchedItem managedObjectContext] save:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ORReloadGridNotification object:nil];
 }
 
 @end
