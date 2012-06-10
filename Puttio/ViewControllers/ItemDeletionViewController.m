@@ -33,9 +33,12 @@
 
 - (IBAction)deleteTapped:(id)sender {
     [[PutIOClient sharedClient] requestDeletionForDisplayItemID:_item.id :^(id userInfoObject) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:ORReloadFolderNotification object:nil];
         [ModalZoomView fadeOutViewAnimated:YES];
     }];
+}
+
+- (void)zoomViewWillDissapear:(ModalZoomView *)zoomView {
+    [[NSNotificationCenter defaultCenter] postNotificationName:ORReloadFolderNotification object:nil];
 }
 
 - (IBAction)cancelTapped:(id)sender {

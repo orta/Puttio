@@ -13,6 +13,7 @@
 @interface BaseFileController : NSObject <FileController>{
     File *_file;
     NSInteger fileSize;
+    AFHTTPRequestOperation *downloadOperation;
 }
 
 @property (strong) FileInfoViewController *infoController;

@@ -26,4 +26,5 @@
 - (void)secondaryButtonAction:(id)sender;
 
 -(NSString *)descriptiveTextForFile;
+- (void)viewWillDissapear;
 @end

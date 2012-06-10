@@ -8,6 +8,7 @@
 
 #import "FileInfoViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "AFHTTPClient.h"
 
 // File Controllers
 #import "VideoFileController.h"
@@ -49,7 +50,7 @@
         [NSException raise:@"File Info item should conform to ORDisplayItemProtocol" format:@"File Info item should conform to ORDisplayItemProtocol"];
     }
     
-    fileControllers = [NSArray arrayWithObjects: [ComicFileController class], [UnknownFileController class], nil];
+    fileControllers = [NSArray arrayWithObjects:[VideoFileController class], [ComicFileController class], [UnknownFileController class], nil];
     for (Class <FileController> klass in fileControllers) {
         if ([klass fileSupportedByController: item]) {
             fileController = [klass controller];
@@ -60,7 +61,7 @@
     NSObject <ORDisplayItemProtocol> *object = item;
     
     fileController.infoController = self;
-    fileController.file = object;
+    fileController.file = (File*)object;
     
     titleLabel.text = object.displayName;
     _item = item;
@@ -122,5 +123,7 @@
     progressView.hidden = YES;    
 }
 
-
+- (void)zoomViewWillDissapear:(ModalZoomView *)zoomView {
+//    [[[AFHTTPClient ] operationQueue] cancelAllOperations];
+}
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class ModalZoomView;
-@protocol ModalZoomViewControllerProtocol <NSObject>
+@protocol ModalZoomViewControllerDelegate <NSObject>
 - (void)setItem:(id)item;
 
 @optional

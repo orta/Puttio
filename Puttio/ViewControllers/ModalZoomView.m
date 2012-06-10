@@ -12,7 +12,7 @@ static ModalZoomView *sharedInstance;
 
 @interface ModalZoomView ()
 @property (strong) UIView *backgroundView;
-@property (strong) UIViewController <ModalZoomViewControllerProtocol> *viewController;
+@property (strong) UIViewController <ModalZoomViewControllerDelegate> *viewController;
 @property (assign) CGRect originalFrame;
 - (BOOL)validated;
 @end
@@ -85,6 +85,7 @@ static ModalZoomView *sharedInstance;
     [UIView animateWithDuration:duration animations:^{
         this.backgroundView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
         this.viewController.view.frame = this.originalFrame;
+        [this.viewController zoomViewWillDissapear:this];
         
     } completion:^(BOOL finished) {
         [this.backgroundView removeFromSuperview];
@@ -105,7 +106,7 @@ static ModalZoomView *sharedInstance;
     if (!self.viewController) {
         [NSException raise:@"No View Controller Found in Storyboard" format:@"No View Controller Found in Storyboard"];
     }
-    if (![self.viewController conformsToProtocol:@protocol(ModalZoomViewControllerProtocol)]) {
+    if (![self.viewController conformsToProtocol:@protocol(ModalZoomViewControllerDelegate)]) {
         [NSException raise:@"View Controller doesn't conform to ModalZoomViewControllerProtocol" format:@"View Controller doesn't conform to ModalZoomViewControllerProtocol"];            
     }
     return YES;

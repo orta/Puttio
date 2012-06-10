@@ -133,6 +133,8 @@ enum ComicType {
     extractedFolderPath = [NSTemporaryDirectory() stringByAppendingFormat:@"%@/", _file.id];
     if ([rar extractToPath:extractedFolderPath]){
         [self openGalleryViewController];    
+    }else{
+        self.infoController.additionalInfoLabel.text = @"Un-Rar error, try opening in another app";
     }
 }
 
@@ -142,8 +144,7 @@ enum ComicType {
     if([zip extractToPath:extractedFolderPath]){
         [self openGalleryViewController];    
     }else{
-        #warning failed
-        self.infoController.fileSizeLabel.text = @"ERROR";
+        self.infoController.additionalInfoLabel.text = @"Un-Zip error, try opening in another app";
     }    
 }
 
