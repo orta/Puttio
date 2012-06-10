@@ -25,4 +25,5 @@
 - (NSString *)secondaryButtonText;
 - (void)secondaryButtonAction:(id)sender;
 
+-(NSString *)descriptiveTextForFile;
 @end

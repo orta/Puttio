@@ -49,7 +49,7 @@
 }
 
 - (NSString *)descriptiveTextForFile {
-    return @"TEXT";
+    return @"Stream or Download Video";
 }
 
 - (NSString *)primaryButtonText {

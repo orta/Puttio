@@ -58,7 +58,7 @@ enum ComicType {
 }
 
 - (NSString *)descriptiveTextForFile {
-    return @"TEXT";
+    return @"Read Comic Book";
 }
 
 - (NSString *)primaryButtonText {

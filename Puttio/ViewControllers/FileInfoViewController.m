@@ -12,6 +12,7 @@
 // File Controllers
 #import "VideoFileController.h"
 #import "ComicFileController.h"
+#import "UnknownFileController.h"
 
 @interface FileInfoViewController() {
     NSArray *fileControllers;
@@ -48,7 +49,7 @@
         [NSException raise:@"File Info item should conform to ORDisplayItemProtocol" format:@"File Info item should conform to ORDisplayItemProtocol"];
     }
     
-    fileControllers = [NSArray arrayWithObjects:[VideoFileController class], [ComicFileController class], nil];
+    fileControllers = [NSArray arrayWithObjects:[VideoFileController class], [ComicFileController class], [UnknownFileController class], nil];
     for (Class <FileController> klass in fileControllers) {
         if ([klass fileSupportedByController: item]) {
             fileController = [klass controller];
@@ -64,7 +65,8 @@
     titleLabel.text = object.displayName;
     _item = item;
     [thumbnailImageView setImageWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:object.screenShotURL]]];
-
+    additionalInfoLabel.text = [fileController descriptiveTextForFile];
+    
     [primaryButton setTitle:[fileController primaryButtonText] forState:UIControlStateNormal];
 
     secondaryButton.hidden = ![fileController supportsSecondaryButton]; 
