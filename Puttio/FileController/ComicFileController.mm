@@ -26,6 +26,8 @@ enum ComicType {
     int _fileType;
     NSString *extractedFolderPath;
     NSArray *comicPages;
+    BOOL useNativeReader;
+    UIDocumentInteractionController *_docController;
 }
 
 + (BOOL)fileSupportedByController:(File *)aFile {
@@ -94,11 +96,36 @@ enum ComicType {
 }
 
 - (BOOL)supportsSecondaryButton {
-    return NO;
+    return YES;
 }
 
 - (NSString *)secondaryButtonText {
-    return @"Download";
+    return @"Other App";
+}
+
+- (void)secondaryButtonAction:(id)sender {
+    NSString *requestURL = [NSString stringWithFormat:@"http://put.io/v2/files/%@/download", _file.id];   
+    
+    [self downloadFileAtPath:requestURL WithCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:_file.name];
+        [operation.responseData writeToFile:filePath atomically:YES];
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+            NSURL *downloadURL = [NSURL fileURLWithPath:filePath isDirectory:NO];    
+            _docController = [UIDocumentInteractionController interactionControllerWithURL:downloadURL];
+            
+            UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+            CGRect rect = [rootView convertRect:self.infoController.secondaryButton.frame fromView:self.infoController.view];
+            [_docController presentOpenInMenuFromRect:rect inView:rootView animated:YES];
+        }
+    }andFailureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
+
+- (void)documentInteractionController:(UIDocumentInteractionController *)controller willBeginSendingToApplication:(NSString *)application {
+    [self markFileAsViewed];
+    self.infoController.additionalInfoLabel = [NSString stringWithFormat:@"Sending to %@", application];
 }
 
 - (void)openRarAtPath:(NSString *)path {
@@ -106,10 +133,7 @@ enum ComicType {
     extractedFolderPath = [NSTemporaryDirectory() stringByAppendingFormat:@"%@/", _file.id];
     if ([rar extractToPath:extractedFolderPath]){
         [self openGalleryViewController];    
-    }else {
-        
     }
-    
 }
 
 - (void)openZipAtPath:(NSString *)path {
@@ -120,8 +144,7 @@ enum ComicType {
     }else{
         #warning failed
         self.infoController.fileSizeLabel.text = @"ERROR";
-    }
-    
+    }    
 }
 
 - (void)openGalleryViewController {

@@ -11,6 +11,6 @@
 #import "BaseFileController.h"
 #import "FGalleryViewController.h"
 
-@interface ComicFileController : BaseFileController <FileController, FGalleryViewControllerDelegate>
+@interface ComicFileController : BaseFileController <FileController, FGalleryViewControllerDelegate, UIDocumentInteractionControllerDelegate>
 
 @end

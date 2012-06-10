@@ -63,8 +63,7 @@
 }
 
 - (void)primaryButtonAction:(id)sender {
-    NSURL *downloadURL = [NSURL fileURLWithPath:downloadedFilepath isDirectory:NO];
-    
+    NSURL *downloadURL = [NSURL fileURLWithPath:downloadedFilepath isDirectory:NO];    
     _docController = [UIDocumentInteractionController interactionControllerWithURL:downloadURL];
     _docController.delegate = self;
 
@@ -99,6 +98,7 @@
 -(void)documentInteractionController:(UIDocumentInteractionController *)controller 
        willBeginSendingToApplication:(NSString *)application {
     [self markFileAsViewed];
+    self.infoController.additionalInfoLabel = [NSString stringWithFormat:@"Sending to %@", application];
 }
 
 @end
