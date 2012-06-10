@@ -60,6 +60,7 @@ static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 94, .bottom
     _gridNavController.delegate = self;
     _gridNavController.navigationBarHidden = YES;
     [self.view addSubview:_gridNavController.view];
+    [self.view sendSubviewToBack:_gridNavController.view];
 }
 
 - (void)setupGestures {
