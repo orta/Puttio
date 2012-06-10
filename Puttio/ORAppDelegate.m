@@ -94,16 +94,21 @@
  Returns the managed object context for the application.
  If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
  */
-- (NSManagedObjectContext *)managedObjectContext
-{
+- (NSManagedObjectContext *)managedObjectContext {
     if (__managedObjectContext != nil) {
         return __managedObjectContext;
     }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil) {
-        __managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [__managedObjectContext setPersistentStoreCoordinator:coordinator];
+        NSManagedObjectContext* moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        
+        [moc performBlockAndWait:^{
+            [moc setPersistentStoreCoordinator: coordinator];
+            
+            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(mergeChangesFrom_iCloud:) name:NSPersistentStoreDidImportUbiquitousContentChangesNotification object:coordinator];
+        }];
+        __managedObjectContext = moc;
     }
     return __managedObjectContext;
 }
@@ -127,47 +132,82 @@
  */
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    if (__persistentStoreCoordinator != nil) {
+    if (__persistentStoreCoordinator != nil)
+    {
         return __persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Puttio.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"<sqlite file>.sqlite"];
     
-    NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-         
-         Typical reasons for an error here include:
-         * The persistent store is not accessible;
-         * The schema for the persistent store is incompatible with current managed object model.
-         Check the error message to determine what the actual problem was.
-         
-         
-         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-         
-         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-         * Simply deleting the existing store:
-         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-         
-         * Performing automatic lightweight migration by passing the following dictionary as the options parameter: 
-         [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-         
-         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-         
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
-
-        abort();
-    }    
+    
+    
+    NSPersistentStoreCoordinator* psc = __persistentStoreCoordinator;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        // Migrate datamodel
+        NSDictionary *options = nil;
+        
+        // this needs to match the entitlements and provisioning profile
+        NSURL *cloudURL = [fileManager URLForUbiquityContainerIdentifier:@"NETCV7NTVF.com.github.orta.puttio"];
+        NSString* coreDataCloudContent = [[cloudURL path] stringByAppendingPathComponent:@"data"];
+        if ([coreDataCloudContent length] != 0) {
+            // iCloud is available
+            cloudURL = [NSURL fileURLWithPath:coreDataCloudContent];
+            
+            options = [NSDictionary dictionaryWithObjectsAndKeys:
+                       [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                       [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
+                       @"Puttio.store", NSPersistentStoreUbiquitousContentNameKey,
+                       cloudURL, NSPersistentStoreUbiquitousContentURLKey,
+                       nil];
+        } else {
+            // iCloud is not available
+            options = [NSDictionary dictionaryWithObjectsAndKeys:
+                       [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                       [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
+                       nil];
+        }
+        
+        NSError *error = nil;
+        [psc lock];
+        if (![psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error])
+        {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        [psc unlock];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"asynchronously added persistent store!");
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"RefetchAllDatabaseData" object:self userInfo:nil];
+        });
+        
+    });
     
     return __persistentStoreCoordinator;
+}
+
+- (void)mergeiCloudChanges:(NSNotification*)note forContext:(NSManagedObjectContext*)moc {
+    [moc mergeChangesFromContextDidSaveNotification:note]; 
+    
+    NSNotification* refreshNotification = [NSNotification notificationWithName:@"RefreshAllViews" object:self  userInfo:[note userInfo]];
+    
+    [[NSNotificationCenter defaultCenter] postNotification:refreshNotification];
+}
+
+// NSNotifications are posted synchronously on the caller's thread
+// make sure to vector this back to the thread we want, in this case
+// the main thread for our views & controller
+- (void)mergeChangesFrom_iCloud:(NSNotification *)notification {
+    NSManagedObjectContext* moc = [self managedObjectContext];
+    
+    // this only works if you used NSMainQueueConcurrencyType
+    // otherwise use a dispatch_async back to the main thread yourself
+    [moc performBlock:^{
+        [self mergeiCloudChanges:notification forContext:moc];
+    }];
 }
 
 #pragma mark - Application's Documents directory

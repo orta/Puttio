@@ -167,6 +167,7 @@
 		6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMoviePlayerController.h; path = ViewControllers/ORMoviePlayerController.h; sourceTree = "<group>"; };
 		6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMoviePlayerController.m; path = ViewControllers/ORMoviePlayerController.m; sourceTree = "<group>"; };
 		6043D0EE1562F5F4002193B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		605BB5CF158512FE00839FE8 /* Puttio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Puttio.entitlements; sourceTree = "<group>"; };
 		6064D89915398E4600E454E5 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = Utils/SearchController.h; sourceTree = "<group>"; };
 		6064D89A15398E4600E454E5 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchController.m; path = Utils/SearchController.m; sourceTree = "<group>"; };
 		6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+StripHTML.h"; path = "Categories/NSString+StripHTML.h"; sourceTree = "<group>"; };
@@ -438,6 +439,7 @@
 		6085D22F151B99490068929C /* Puttio */ = {
 			isa = PBXGroup;
 			children = (
+				605BB5CF158512FE00839FE8 /* Puttio.entitlements */,
 				60A7A6CB151FC1CF00DB71E0 /* APP_SECRET_EX.h */,
 				60A7A6C3151FBA1D00DB71E0 /* APP_SECRET.h */,
 				6085D238151B99490068929C /* ORAppDelegate.h */,
@@ -924,6 +926,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = Puttio/Puttio.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
@@ -944,6 +947,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = Puttio/Puttio.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
