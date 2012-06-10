@@ -167,7 +167,6 @@
 		6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMoviePlayerController.h; path = ViewControllers/ORMoviePlayerController.h; sourceTree = "<group>"; };
 		6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMoviePlayerController.m; path = ViewControllers/ORMoviePlayerController.m; sourceTree = "<group>"; };
 		6043D0EE1562F5F4002193B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		605BB5CF158512FE00839FE8 /* Puttio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Puttio.entitlements; sourceTree = "<group>"; };
 		6064D89915398E4600E454E5 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = Utils/SearchController.h; sourceTree = "<group>"; };
 		6064D89A15398E4600E454E5 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchController.m; path = Utils/SearchController.m; sourceTree = "<group>"; };
 		6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+StripHTML.h"; path = "Categories/NSString+StripHTML.h"; sourceTree = "<group>"; };
@@ -180,7 +179,7 @@
 		606C79A9152F5ACE00608C56 /* Tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tab@2x.png"; sourceTree = "<group>"; };
 		606C79AE1530A4B100608C56 /* NSDictionary+ObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+ObjectForKey.h"; path = "Categories/NSDictionary+ObjectForKey.h"; sourceTree = "<group>"; };
 		606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+ObjectForKey.m"; path = "Categories/NSDictionary+ObjectForKey.m"; sourceTree = "<group>"; };
-		6085D223151B99490068929C /* Puttio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Puttio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6085D223151B99490068929C /* puttio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = puttio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6085D227151B99490068929C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6085D229151B99490068929C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6085D22B151B99490068929C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -222,6 +221,7 @@
 		6085D296151BAB230068929C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		6096FC19155FF0B1009C524C /* PutIOOAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOOAuthHelper.h; path = Networking/PutIOOAuthHelper.h; sourceTree = "<group>"; };
 		6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOOAuthHelper.m; path = Networking/PutIOOAuthHelper.m; sourceTree = "<group>"; };
+		609CAE2115851B64000BE57E /* Putio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Putio.entitlements; path = puttio/Putio.entitlements; sourceTree = "<group>"; };
 		60A1B19615287343002A6A7E /* ModalZoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModalZoomView.h; path = ViewControllers/ModalZoomView.h; sourceTree = "<group>"; };
 		60A1B19715287343002A6A7E /* ModalZoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModalZoomView.m; path = ViewControllers/ModalZoomView.m; sourceTree = "<group>"; };
 		60A1B1AE1528788E002A6A7E /* FileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileInfoViewController.h; path = ViewControllers/FileInfoViewController.h; sourceTree = "<group>"; };
@@ -284,8 +284,8 @@
 		60DB0AB2151C670800DA8A33 /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthViewController.h; path = Networking/OAuthViewController.h; sourceTree = "<group>"; };
 		60DB0AB3151C670800DA8A33 /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthViewController.m; path = Networking/OAuthViewController.m; sourceTree = "<group>"; };
 		60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		60F023851528AB55003491E4 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72.png; sourceTree = "<group>"; };
-		60F023871528AB5F003491E4 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
+		60F023851528AB55003491E4 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
+		60F023871528AB5F003491E4 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
 		60F4ECBE152B902C00A9A627 /* FileSizeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileSizeUtils.h; path = Utils/FileSizeUtils.h; sourceTree = "<group>"; };
 		60F4ECBF152B902C00A9A627 /* FileSizeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileSizeUtils.m; path = Utils/FileSizeUtils.m; sourceTree = "<group>"; };
 		60F5AD5F15224DF400DD7A6F /* ORImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORImageViewCell.h; path = Views/ORImageViewCell.h; sourceTree = "<group>"; };
@@ -408,8 +408,7 @@
 		6085D218151B99480068929C = {
 			isa = PBXGroup;
 			children = (
-				60F023871528AB5F003491E4 /* icon144.png */,
-				60F023851528AB55003491E4 /* icon72.png */,
+				609CAE2115851B64000BE57E /* Putio.entitlements */,
 				6085D22F151B99490068929C /* Puttio */,
 				6085D226151B99490068929C /* Frameworks */,
 				6085D224151B99490068929C /* Products */,
@@ -419,7 +418,7 @@
 		6085D224151B99490068929C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6085D223151B99490068929C /* Puttio.app */,
+				6085D223151B99490068929C /* puttio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -439,7 +438,8 @@
 		6085D22F151B99490068929C /* Puttio */ = {
 			isa = PBXGroup;
 			children = (
-				605BB5CF158512FE00839FE8 /* Puttio.entitlements */,
+				60F023871528AB5F003491E4 /* icon144.png */,
+				60F023851528AB55003491E4 /* icon72.png */,
 				60A7A6CB151FC1CF00DB71E0 /* APP_SECRET_EX.h */,
 				60A7A6C3151FBA1D00DB71E0 /* APP_SECRET.h */,
 				6085D238151B99490068929C /* ORAppDelegate.h */,
@@ -683,9 +683,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6085D222151B99490068929C /* Puttio */ = {
+		6085D222151B99490068929C /* puttio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6085D249151B99490068929C /* Build configuration list for PBXNativeTarget "Puttio" */;
+			buildConfigurationList = 6085D249151B99490068929C /* Build configuration list for PBXNativeTarget "puttio" */;
 			buildPhases = (
 				6085D21F151B99490068929C /* Sources */,
 				6085D220151B99490068929C /* Frameworks */,
@@ -695,9 +695,9 @@
 			);
 			dependencies = (
 			);
-			name = Puttio;
+			name = puttio;
 			productName = Puttio;
-			productReference = 6085D223151B99490068929C /* Puttio.app */;
+			productReference = 6085D223151B99490068929C /* puttio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -731,7 +731,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				6085D222151B99490068929C /* Puttio */,
+				6085D222151B99490068929C /* puttio */,
 			);
 		};
 /* End PBXProject section */
@@ -926,7 +926,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_ENTITLEMENTS = Puttio/Puttio.entitlements;
+				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
@@ -947,7 +947,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_ENTITLEMENTS = Puttio/Puttio.entitlements;
+				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
@@ -976,7 +976,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6085D249151B99490068929C /* Build configuration list for PBXNativeTarget "Puttio" */ = {
+		6085D249151B99490068929C /* Build configuration list for PBXNativeTarget "puttio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6085D24A151B99490068929C /* Debug */,

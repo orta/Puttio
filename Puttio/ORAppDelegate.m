@@ -60,9 +60,10 @@
 }
 
 - (void)authorizationDidFinishWithController:(OAuthViewController *)controller {
-    [self showApp];
     [controller removeFromParentViewController];
     [controller.view removeFromSuperview];
+
+    [self showApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -183,7 +184,6 @@
             NSLog(@"asynchronously added persistent store!");
             [[NSNotificationCenter defaultCenter] postNotificationName:@"RefetchAllDatabaseData" object:self userInfo:nil];
         });
-        
     });
     
     return __persistentStoreCoordinator;
