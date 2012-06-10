@@ -67,6 +67,8 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     gridView.accessibilityLabel = @"GridView";
     
     self.view = gridView;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadGrid) name:ORReloadGridNotification object:nil];
 }
 
 #pragma mark -
@@ -106,6 +108,10 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 
 #pragma mark -
 #pragma mark Misc
+
+- (void)reloadGrid {
+    self.folderItems = self.folderItems;
+}
 
 - (BOOL)itemIsFolder:(NSObject <ORDisplayItemProtocol>*)item {
     return ([item.size intValue] == 0);

@@ -445,7 +445,6 @@
 				6085D23B151B99490068929C /* MainStoryboard.storyboard */,
 				6085D23E151B99490068929C /* Puttio.xcdatamodeld */,
 				60AB50CF151F64DE00473448 /* Categories */,
-				600105091525022C005F5B33 /* Protocols */,
 				60DB0AB1151C665E00DA8A33 /* Network */,
 				60A7A6CD151FD26A00DB71E0 /* Models */,
 				6085D27B151B9E550068929C /* View Controllers */,
@@ -612,6 +611,7 @@
 				6026A042157B5B9F0031509D /* NSDate+StringParsing.m */,
 				60C45DCA157C45360059D4B4 /* UINavigationController+ForceRotate.h */,
 				60C45DCB157C45360059D4B4 /* UINavigationController+ForceRotate.m */,
+				600105091525022C005F5B33 /* Protocols */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -934,6 +934,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -953,6 +954,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
 			};

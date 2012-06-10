@@ -467,7 +467,7 @@
                                 </connections>
                             </webView>
                             <view contentMode="scaleToFill" id="RTs-9t-64d">
-                                <rect key="frame" x="260" y="147" width="504" height="455"/>
+                                <rect key="frame" x="260" y="32" width="504" height="455"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="itN-bJ-ed3">

@@ -11,7 +11,7 @@
 @implementation UINavigationController (ForceRotate)
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return YES;
+    return NO;
 }
 
 @end

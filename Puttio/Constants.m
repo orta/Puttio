@@ -23,3 +23,5 @@ NSString *const ORStreamTokenDefault = @"ORStreamTokenDefault";
 NSString *const ORAppVersion = @"ORAppVersion";
 NSString *const ORShowLeftSidebarDefault = @"ORShowLeftSidebarDefault";
 NSString *const ORShowRightSidebarDefault = @"ORShowRightSidebarDefault";
+
+NSString *const ORReloadGridNotification = @"ORReloadGridNotification";

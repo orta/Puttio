@@ -122,6 +122,7 @@ static CGFloat TitleBottomMargin = 1;
 - (void)setWatched:(BOOL)watched {
     _watched = watched;
     self.backgroundColor = [[UIColor putioYellow] colorWithAlphaComponent:0.5];
+    titleLabel.backgroundColor = [[UIColor putioYellow] colorWithAlphaComponent:0.5];
 }
 
 @end

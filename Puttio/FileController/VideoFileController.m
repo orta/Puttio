@@ -76,6 +76,7 @@
 
 - (NSString *)secondaryButtonText {
     return @"Download";
+    [self markFileAsViewed];
 }
 
 - (void)secondaryButtonAction:(id)sender {
@@ -156,7 +157,7 @@
             }
             
             if ([status isEqualToString:@"CONVERTING"]) {
-                self.infoController.additionalInfoLabel.text = @"Converting to iPad version (this takes a *very* long time.)";
+                self.infoController.additionalInfoLabel.text = @"Converting to iPad version.";
                 if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
                     [self.infoController showProgress];
                     self.infoController.progressView.hidden = NO;
@@ -169,7 +170,7 @@
 }
 
 - (void) markFileAsViewed {
-    WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_file.id];
+    WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_file.folder.id];
     if (!list) {
         list = [WatchedList object];
         list.folderID = _file.folder.id;
@@ -179,6 +180,7 @@
     [list addItemsObject:item];
 
     [[WatchedItem managedObjectContext] save:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ORReloadGridNotification object:nil];
 }
 
 

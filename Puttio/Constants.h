@@ -23,3 +23,5 @@ extern NSString *const ORStreamTokenDefault;
 extern NSString *const ORAppVersion;
 extern NSString *const ORShowLeftSidebarDefault;
 extern NSString *const ORShowRightSidebarDefault;
+
+extern NSString *const ORReloadGridNotification;
