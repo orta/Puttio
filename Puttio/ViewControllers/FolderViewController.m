@@ -37,6 +37,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 - (void)setFolderItems:(NSArray *)folderItems {
     _folderItems = folderItems;
     [self checkForWatched];
+    [self orderItems];
     [gridView reloadData];
 }
 
@@ -131,6 +132,12 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
             }
         }
     }
+}
+
+- (void)orderItems {
+    _folderItems = [_folderItems sortedArrayUsingComparator:^(NSObject <ORDisplayItemProtocol>* a, NSObject <ORDisplayItemProtocol>* b) { 
+        return [a.name localizedStandardCompare:b.name];
+    }];
 }
 
 @end
