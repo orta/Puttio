@@ -32,6 +32,7 @@
 - (NSString *)secondaryButtonText { return @"SECONDARY"; }
 - (void)secondaryButtonAction:(id)sender {}
 
+-(NSString *)descriptiveTextForFile { return @"NO TEXT SET"; }
 
 - (void)getInfoWithBlock:(void(^)(id infoObject))onComplete {
     NSLog(@"info!");
@@ -60,13 +61,13 @@
         [self.infoController showProgress];
         
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:path]]];
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        downloadOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         
-        [operation setDownloadProgressBlock:^(NSInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead) {
+        [downloadOperation setDownloadProgressBlock:^(NSInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead) {
             infoController.progressView.progress = (float)totalBytesRead/totalBytesExpectedToRead;
         }];
         
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [downloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             [self.infoController enableButtons];
             success(operation, responseObject);
             
@@ -74,7 +75,7 @@
             failure(operation, error); 
         }];
         
-        [operation start];
+        [downloadOperation start];
         
     }else {        
         NSString *message = [NSString stringWithFormat:@"Your iPad doesn't have enough free disk space to download."];
@@ -97,4 +98,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:ORReloadGridNotification object:nil];
 }
 
+- (void)viewWillDissapear {
+    if ([downloadOperation isExecuting]) {
+        [downloadOperation cancel];        
+    }
+}
 @end

@@ -23,5 +23,5 @@
 @property (nonatomic, retain) Folder *folder;
 
 - (NSString *)extension;
-- (void)setupDisplayName;
++ (NSString *)createDisplayNameFromName:(NSString *)fullName;
 @end

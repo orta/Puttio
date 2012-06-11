@@ -8,7 +8,7 @@
 
 #import "ModalZoomView.h"
 
-@interface FileInfoViewController : UIViewController <ModalZoomViewControllerProtocol>
+@interface FileInfoViewController : UIViewController <ModalZoomViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *additionalInfoLabel;

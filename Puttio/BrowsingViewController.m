@@ -16,7 +16,7 @@
 #import "ModalZoomView.h"
 #import "TestFlight.h"
 
-static UIEdgeInsets GridViewInsets = {.top = 60, .left = 6, .right = 94, .bottom = 5};
+static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .bottom = 8};
 
 @interface BrowsingViewController (){
     UINavigationController *_gridNavController;

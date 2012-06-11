@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ModalZoomView.h"
 
-@interface ItemDeletionViewController : UIViewController <ModalZoomViewControllerProtocol>
+@interface ItemDeletionViewController : UIViewController <ModalZoomViewControllerDelegate>
 
 @property (strong) NSObject <ORDisplayItemProtocol> *item;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

@@ -21,10 +21,11 @@
 @dynamic watched;
 @dynamic folder;
 
-- (void)setupDisplayName {
++ (NSString *)createDisplayNameFromName:(NSString *)fullName {
     NSString *display = @"";
-    if (self.name.length > 1) {
-        display = self.name;
+    display = fullName;
+
+    if (fullName.length > 1) {
         
         // remove prefix brackets - usually group names
         NSArray *prefixOpeners = [NSArray arrayWithObjects:@"[", @"{", @"(", nil];
@@ -44,7 +45,7 @@
         }
     }
     
-    self.displayName = display;
+    return display;
 }
 
 - (NSString *)extension {
