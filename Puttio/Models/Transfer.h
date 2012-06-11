@@ -15,5 +15,5 @@
 @property (strong) NSString* createdAt;
 @property (strong) NSNumber* percentDone;
 @property (strong) NSNumber* downloadSpeed;
-
+@property (strong) NSString* displayName;
 @end

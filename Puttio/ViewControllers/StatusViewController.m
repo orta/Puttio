@@ -15,6 +15,7 @@
 #import "NSDate+StringParsing.h"
 #import "UIColor+PutioColours.h"
 #import "DCKnob.h"
+#import "WEPopoverController.h"
 
 @interface StatusViewController () {
     NSArray *transfers;
@@ -23,7 +24,7 @@
     CGFloat currentIndex;
     NSTimer *dataLoopTimer;
     
-    UIPopoverController *popoverController;
+    WEPopoverController *popoverController;
 }
 @end
 
@@ -220,7 +221,7 @@ typedef enum {
 - (void)slidingTableDidBeginTouch:(ORSlidingTableView *)table {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     TransferPopoverViewController *transferVC = [storyboard instantiateViewControllerWithIdentifier:@"transferPopoverView"];
-    popoverController = [[UIPopoverController alloc] initWithContentViewController:transferVC];
+    popoverController = [[WEPopoverController alloc] initWithContentViewController:transferVC];
     currentIndex = -1;
 }
 
@@ -236,7 +237,7 @@ typedef enum {
         
         [popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
         currentIndex = index;   
-    }    
+    }
 }
 
 - (void)slidingTableDidEndTouch:(ORSlidingTableView *)table {

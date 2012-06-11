@@ -106,7 +106,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             File *file = [File object];
             file.id = [[dictionary objectForKey:@"id"] stringValue];
             file.name = [dictionary objectForKey:@"name"];
-            [file setupDisplayName];
+            file.displayName = [File createDisplayNameFromName:file.name];
             file.screenShotURL =  [dictionary onlyStringForKey:@"screenshot"];
             if (!file.screenShotURL) {
                 file.screenShotURL =  [dictionary onlyStringForKey:@"icon"];
@@ -154,6 +154,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
                     transfer.percentDone =  [transferDict objectForKey:@"percent_done"];
                     transfer.estimatedTime = [transferDict objectForKey:@"estimated_time"];
                     transfer.createdAt = [transferDict objectForKey:@"created_at"];
+                    transfer.displayName = [File createDisplayNameFromName:transfer.name];
                     [returnedTransfers addObject:transfer];
                 }
             }

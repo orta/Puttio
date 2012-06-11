@@ -16,7 +16,7 @@ static CGFloat SIZE_OF_CELLS = 24;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.slidingDelegate slidingTableDidBeginTouch:self];
-    [self touchesMoved:touches withEvent:event];
+    [self touchesMoved:touches withEvent:event];        
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
