@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551FBC6115855CAE00AEBD31 /* LocalBrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551FBC6015855CAE00AEBD31 /* LocalBrowsingViewController.m */; };
+		551FBC6415855F3800AEBD31 /* LocalFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 551FBC6315855F3800AEBD31 /* LocalFile.m */; };
 		557DAE76157ABF2900325E84 /* RarFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557DAE75157ABF2900325E84 /* RarFileController.m */; };
 		60001912157CDDFC00E5FE06 /* FolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60001911157CDDFC00E5FE06 /* FolderViewController.m */; };
 		60001926157D274F00E5FE06 /* ItemDeletionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60001925157D274E00E5FE06 /* ItemDeletionViewController.m */; };
@@ -122,6 +124,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		551FBC5F15855CAD00AEBD31 /* LocalBrowsingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalBrowsingViewController.h; path = ViewControllers/LocalBrowsingViewController.h; sourceTree = "<group>"; };
+		551FBC6015855CAE00AEBD31 /* LocalBrowsingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalBrowsingViewController.m; path = ViewControllers/LocalBrowsingViewController.m; sourceTree = "<group>"; };
+		551FBC6215855F3800AEBD31 /* LocalFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalFile.h; sourceTree = "<group>"; };
+		551FBC6315855F3800AEBD31 /* LocalFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalFile.m; sourceTree = "<group>"; };
 		557DAE74157ABF2900325E84 /* RarFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RarFileController.h; path = FileController/RarFileController.h; sourceTree = "<group>"; };
 		557DAE75157ABF2900325E84 /* RarFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RarFileController.m; path = FileController/RarFileController.m; sourceTree = "<group>"; };
 		60001910157CDDFC00E5FE06 /* FolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FolderViewController.h; path = ViewControllers/FolderViewController.h; sourceTree = "<group>"; };
@@ -548,6 +554,8 @@
 				60001911157CDDFC00E5FE06 /* FolderViewController.m */,
 				60001924157D274E00E5FE06 /* ItemDeletionViewController.h */,
 				60001925157D274E00E5FE06 /* ItemDeletionViewController.m */,
+				551FBC5F15855CAD00AEBD31 /* LocalBrowsingViewController.h */,
+				551FBC6015855CAE00AEBD31 /* LocalBrowsingViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -588,6 +596,8 @@
 				6000193C157E655C00E5FE06 /* WatchedItem.m */,
 				60001941157E6BCA00E5FE06 /* WatchedList.h */,
 				60001942157E6BCB00E5FE06 /* WatchedList.m */,
+				551FBC6215855F3800AEBD31 /* LocalFile.h */,
+				551FBC6315855F3800AEBD31 /* LocalFile.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -856,6 +866,8 @@
 				6000193D157E655C00E5FE06 /* WatchedItem.m in Sources */,
 				60001943157E6BCC00E5FE06 /* WatchedList.m in Sources */,
 				609CAE2415853D51000BE57E /* UnknownFileController.m in Sources */,
+				551FBC6115855CAE00AEBD31 /* LocalBrowsingViewController.m in Sources */,
+				551FBC6415855F3800AEBD31 /* LocalFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -932,7 +944,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
@@ -953,7 +964,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";

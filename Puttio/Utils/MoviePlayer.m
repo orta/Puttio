@@ -108,5 +108,20 @@
     [Analytics event:@"User started watching a movie"];
 }
 
++ (void)watchLocalMovieAtPath:(NSString *)path {
+    
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
+    ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
+    UIViewController *rootController = appDelegate.window.rootViewController;
+    MoviePlayer *sharedPlayer = [self sharedPlayer];
+    
+    ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
+    [rootController presentMoviePlayerViewControllerAnimated:movieController];
+    
+    sharedPlayer.mediaPlayer = movieController.moviePlayer;
+    [Analytics event:@"User started watching a downloaded movie"];
+}
+
 
 @end
