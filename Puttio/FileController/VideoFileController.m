@@ -92,30 +92,28 @@
     }
 
     [self downloadFileAtPath:requestURL WithCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.infoController.additionalInfoLabel.text = @"Moving to Photos app";
+        self.infoController.additionalInfoLabel.text = @"Saving file";
         
-        NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:_file.id];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:_file.id];
         NSString *fullPath = [NSString stringWithFormat:@"%@.mp4", filePath];
         
         [operation.responseData writeToFile:fullPath atomically:YES];
-        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];            
-        NSURL *filePathURL = [NSURL fileURLWithPath:fullPath isDirectory:NO];
-        if ([library videoAtPathIsCompatibleWithSavedPhotosAlbum:filePathURL]) {
-            [library writeVideoAtPathToSavedPhotosAlbum:filePathURL completionBlock:^(NSURL *assetURL, NSError *error){
-                if (error) {
-                    // TODO: error handling
-                    NSLog(@"fail bail");
-                    
-                } else {
-                    // TODO: success handling
-                    NSLog(@"success kid");
-                    self.infoController.additionalInfoLabel.text = @"Downloaded - it's available in Photos";
-                    [self.infoController enableButtons];
-                    [self.infoController hideProgress];
-                }
-            }];
-        }
+
+        NSURL *fileUrl = [NSURL fileURLWithPath:fullPath];
+        assert([[NSFileManager defaultManager] fileExistsAtPath: [fileUrl path]]);
         
+        NSError *error = nil;
+        BOOL success = [fileUrl setResourceValue:[NSNumber numberWithBool: YES] forKey:NSURLIsExcludedFromBackupKey error:&error];
+//            if(!success){
+//                NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+//            }
+        
+        self.infoController.additionalInfoLabel.text = @"Downloaded - it's available for offline viewing";
+        [self.infoController enableButtons];
+        [self.infoController hideProgress];
+
         self.infoController.progressInfoHidden = YES;
         self.infoController.secondaryButton.enabled = YES;
         self.infoController.primaryButton.enabled = NO;
@@ -129,7 +127,6 @@
         self.infoController.progressView.hidden = YES;
         self.infoController.secondaryButton.enabled = NO;
         self.infoController.primaryButton.enabled = YES;
-
     }];
     
 }
