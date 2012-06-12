@@ -32,9 +32,9 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WatchedItem" inverseName="list" inverseEntity="WatchedItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="File" positionX="160" positionY="192" width="128" height="195"/>
-        <element name="Folder" positionX="160" positionY="192" width="128" height="180"/>
-        <element name="WatchedList" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="WatchedItem" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="File" positionX="394" positionY="201" width="128" height="195"/>
+        <element name="Folder" positionX="142" positionY="90" width="128" height="180"/>
+        <element name="WatchedItem" positionX="-45" positionY="357" width="128" height="75"/>
+        <element name="WatchedList" positionX="-54" positionY="165" width="128" height="75"/>
     </elements>
 </model>
