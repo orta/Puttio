@@ -38,6 +38,8 @@
     [self loadRootPage];
     _username = username;
     _password = password;
+    
+    NSLog(@"%@ %s\n%@", NSStringFromSelector(_cmd), __FILE__, self);
 }
 
 - (void)getAccessTokenFromOauthCode:(NSString *)code {
@@ -113,7 +115,7 @@
             [self getAccessTokenFromOauthCode:[URLComponents objectAtIndex:1]];
         }
     }else{
-        if (error.code == 102) {
+        if (error.code == 102 || error.code == -999) {
             // no-op as the puttio:// url causes both errors 101/102
         }else if (error.code == -1009) {
             [self.delegate authHelperLoginFailedWithDesription:@"Your iPad is currently offline."];
@@ -126,18 +128,30 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
-    if([aWebView.request.URL.absoluteString isEqualToString:PTSettingsURL]){
-        [self parseForV1Tokens];
-        [self.delegate authHelperDidLogin:self];
-    }
-    if([aWebView.request.URL.absoluteString isEqualToString:PTLoginURL]){
-        NSString *setUsername = [NSString stringWithFormat:@"document.getElementsByTagName('input')[0].value = '%@'", _username];
-        [webView stringByEvaluatingJavaScriptFromString:setUsername];
+    NSString *address = aWebView.request.URL.absoluteString;
+    NSLog(@"addrsses %@", address);
+
+    if (![address hasPrefix:@"https://put.io/?err=1"]) {
         
-        NSString *setPassword = [NSString stringWithFormat:@"document.getElementsByTagName('input')[1].value = '%@'", _password];
-        [webView stringByEvaluatingJavaScriptFromString:setPassword];
+        if([aWebView.request.URL.absoluteString isEqualToString:PTSettingsURL]){
+            [self parseForV1Tokens];
+            [self.delegate authHelperDidLogin:self];
+        }
         
-        [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
+        if([address isEqualToString:PTLoginURL]){
+            
+            NSString *setUsername = [NSString stringWithFormat:@"document.getElementsByTagName('input')[0].value = '%@'", _username];
+            [webView stringByEvaluatingJavaScriptFromString:setUsername];
+            
+            NSString *setPassword = [NSString stringWithFormat:@"document.getElementsByTagName('input')[1].value = '%@'", _password];
+            [webView stringByEvaluatingJavaScriptFromString:setPassword];
+            
+            [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
+        }    
+    } else { 
+        NSLog(@"URH?");
+        NSLog(@"addrses %@", address);
+        [self.delegate authHelperLoginFailedWithDesription:@"Wrong Username / Password combo"];
     }
 }
 

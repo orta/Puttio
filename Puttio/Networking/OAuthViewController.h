@@ -16,12 +16,15 @@
 @end
 
 @interface OAuthViewController : UIViewController <UIWebViewDelegate, PutIOOAuthHelperDelegate>
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) id <OAuthVCDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextfield; 
 @property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 @property (weak, nonatomic) IBOutlet UIView *loginViewWrapper;
 @property (strong, nonatomic) IBOutlet PutIOOAuthHelper *authHelper;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
 
 - (IBAction)loginPressed:(id)sender;
 

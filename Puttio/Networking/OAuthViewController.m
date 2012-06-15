@@ -13,8 +13,9 @@
 @implementation OAuthViewController
 @synthesize usernameTextfield, passwordTextfield;
 @synthesize warningLabel;
-@synthesize loginViewWrapper;
+@synthesize loginViewWrapper, loginButton;
 @synthesize authHelper;
+@synthesize activityView;
 @synthesize delegate;
 
 - (void)viewDidLoad {
@@ -40,6 +41,8 @@
     [self setPasswordTextfield:nil];
     [self setWarningLabel:nil];
     [self setLoginViewWrapper:nil];
+    [self setLoginButton:nil];
+    [self setActivityView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -49,6 +52,12 @@
 }
 
 - (IBAction)loginPressed:(id)sender {
+    [self.loginButton setEnabled:NO];
+    [self.usernameTextfield setEnabled:NO];
+    [self.passwordTextfield setEnabled:NO];
+    [self.activityView startAnimating];
+    self.warningLabel.text = @"";
+    
     [authHelper loginWithUsername:usernameTextfield.text andPassword:passwordTextfield.text];
 }
 
@@ -60,6 +69,10 @@
 
 - (void)authHelperLoginFailedWithDesription:(NSString *)errorDescription {
     self.warningLabel.text = errorDescription;
+    [self.loginButton setEnabled:YES];
+    [self.usernameTextfield setEnabled:YES];
+    [self.passwordTextfield setEnabled:YES];
+    [self.activityView stopAnimating];
 }
 
 @end

@@ -517,7 +517,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="vzR-Xs-Iu9">
-                                <rect key="frame" x="772" y="33" width="239" height="708"/>
+                                <rect key="frame" x="260" y="495" width="504" height="248"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -553,13 +553,14 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <state key="disabled">
+                                                    <color key="titleShadowColor" white="0.59369297445255476" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <state key="highlighted">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="backPressed:" destination="u9h-fZ-wfU" eventType="touchUpInside" id="h1d-z4-Xld"/>
-                                                    <action selector="feedbackPressed:" destination="u9h-fZ-wfU" eventType="touchUpInside" id="tf3-vT-fEI"/>
-                                                    <action selector="loginPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="oMF-Za-XkE"/>
+                                                    <action selector="loginPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="1D7-Mf-Q3o"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="P60-EY-4Xo">
@@ -571,6 +572,11 @@ Message</string>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="EAk-Xx-on8">
+                                                <rect key="frame" x="97" y="150" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -598,7 +604,9 @@ Message</string>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="activityView" destination="EAk-Xx-on8" id="847-uD-Rnj"/>
                         <outlet property="authHelper" destination="kuB-Ee-JBF" id="T2o-YW-IMN"/>
+                        <outlet property="loginButton" destination="Huw-f5-DTe" id="UJg-zk-e9s"/>
                         <outlet property="loginViewWrapper" destination="RTs-9t-64d" id="Qbn-HY-tTk"/>
                         <outlet property="passwordTextfield" destination="7qr-I8-ulE" id="UeA-O1-aYA"/>
                         <outlet property="usernameTextfield" destination="eU6-zT-B2t" id="Jac-y1-Suk"/>
@@ -670,7 +678,9 @@ Message</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OAuthViewController.h"/>
             <relationships>
                 <relationship kind="action" name="loginPressed:"/>
+                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="authHelper" candidateClass="PutIOOAuthHelper"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="loginViewWrapper" candidateClass="UIView"/>
                 <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameTextfield" candidateClass="UITextField"/>
