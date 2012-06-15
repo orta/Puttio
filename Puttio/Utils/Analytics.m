@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-@implementation Analytics
-
 #import "TestFlight.h"
 #import "APP_SECRET.h"
+
+@implementation Analytics
 
 + (void)setup {
     [TestFlight takeOff: TESTFLIGHT_SECRET];

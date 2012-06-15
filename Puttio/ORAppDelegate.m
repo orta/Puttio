@@ -48,6 +48,7 @@
 
     [canvas addChildViewController:searchVC];
     [canvas.view addSubview:searchVC.view];
+    [searchVC viewWillAppear:NO];
 }
 
 - (void)showLogin {
@@ -56,14 +57,12 @@
     OAuthViewController *oauthVC = [storyboard instantiateViewControllerWithIdentifier:@"oauthView"];
     oauthVC.delegate = self;
 
-    [self.window.rootViewController addChildViewController:oauthVC];
-    [self.window.rootViewController.view addSubview:oauthVC.view];
+    [self.window makeKeyAndVisible];
+    [self.window.rootViewController presentModalViewController:oauthVC animated:YES];
 }
 
 - (void)authorizationDidFinishWithController:(OAuthViewController *)controller {
-    [controller removeFromParentViewController];
-    [controller.view removeFromSuperview];
-
+    [self.window.rootViewController dismissModalViewControllerAnimated:YES];
     [self showApp];
 }
 
