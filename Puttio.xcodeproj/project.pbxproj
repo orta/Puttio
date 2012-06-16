@@ -107,7 +107,7 @@
 		60C04F1F1572418C00C23AB5 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C04F1E1572418B00C23AB5 /* libTestFlight.a */; };
 		60C45D5C157C16750059D4B4 /* ORSlidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45D5B157C16750059D4B4 /* ORSlidingTableView.m */; };
 		60C45DCC157C45360059D4B4 /* UINavigationController+ForceRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45DCB157C45360059D4B4 /* UINavigationController+ForceRotate.m */; };
-		60C45DE0157C498B0059D4B4 /* TransferPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45DDF157C498A0059D4B4 /* TransferPopoverViewController.m */; };
+		60C45DE0157C498B0059D4B4 /* ProcessPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45DDF157C498A0059D4B4 /* ProcessPopoverViewController.m */; };
 		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
 		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
@@ -324,8 +324,8 @@
 		60C45D5B157C16750059D4B4 /* ORSlidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSlidingTableView.m; path = Views/ORSlidingTableView.m; sourceTree = "<group>"; };
 		60C45DCA157C45360059D4B4 /* UINavigationController+ForceRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+ForceRotate.h"; path = "Categories/UINavigationController+ForceRotate.h"; sourceTree = "<group>"; };
 		60C45DCB157C45360059D4B4 /* UINavigationController+ForceRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+ForceRotate.m"; path = "Categories/UINavigationController+ForceRotate.m"; sourceTree = "<group>"; };
-		60C45DDE157C498A0059D4B4 /* TransferPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransferPopoverViewController.h; path = ViewControllers/TransferPopoverViewController.h; sourceTree = "<group>"; };
-		60C45DDF157C498A0059D4B4 /* TransferPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransferPopoverViewController.m; path = ViewControllers/TransferPopoverViewController.m; sourceTree = "<group>"; };
+		60C45DDE157C498A0059D4B4 /* ProcessPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = ProcessPopoverViewController.h; path = ViewControllers/ProcessPopoverViewController.h; sourceTree = "<group>"; };
+		60C45DDF157C498A0059D4B4 /* ProcessPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProcessPopoverViewController.m; path = ViewControllers/ProcessPopoverViewController.m; sourceTree = "<group>"; };
 		60D9B7E91535C30F00A64E0F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Models/SearchResult.h; sourceTree = "<group>"; };
 		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
 		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
@@ -594,8 +594,8 @@
 				60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */,
 				6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */,
 				6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */,
-				60C45DDE157C498A0059D4B4 /* TransferPopoverViewController.h */,
-				60C45DDF157C498A0059D4B4 /* TransferPopoverViewController.m */,
+				60C45DDE157C498A0059D4B4 /* ProcessPopoverViewController.h */,
+				60C45DDF157C498A0059D4B4 /* ProcessPopoverViewController.m */,
 				60001910157CDDFC00E5FE06 /* FolderViewController.h */,
 				60001911157CDDFC00E5FE06 /* FolderViewController.m */,
 				60001924157D274E00E5FE06 /* ItemDeletionViewController.h */,
@@ -957,7 +957,7 @@
 				6026A080157BF1BA0031509D /* DCSlider.m in Sources */,
 				60C45D5C157C16750059D4B4 /* ORSlidingTableView.m in Sources */,
 				60C45DCC157C45360059D4B4 /* UINavigationController+ForceRotate.m in Sources */,
-				60C45DE0157C498B0059D4B4 /* TransferPopoverViewController.m in Sources */,
+				60C45DE0157C498B0059D4B4 /* ProcessPopoverViewController.m in Sources */,
 				60001912157CDDFC00E5FE06 /* FolderViewController.m in Sources */,
 				60001926157D274F00E5FE06 /* ItemDeletionViewController.m in Sources */,
 				6000193D157E655C00E5FE06 /* WatchedItem.m in Sources */,

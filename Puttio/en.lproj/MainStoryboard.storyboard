@@ -46,7 +46,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="bRt-Fo-5hT">
+                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" id="bRt-Fo-5hT">
                                 <rect key="frame" x="74" y="188" width="856" height="538"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -93,7 +93,7 @@
                                         <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="-4809" y="-1744"/>
         </scene>
-        <!--Transfer Popover View Controller-->
+        <!--Process Popover View Controller-->
         <scene sceneID="dWG-SH-U0B">
             <objects>
-                <viewController storyboardIdentifier="transferPopoverView" id="z4Z-E6-DNG" customClass="TransferPopoverViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="transferPopoverView" id="z4Z-E6-DNG" customClass="ProcessPopoverViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uDk-MX-aSj">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="140"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -238,7 +238,6 @@
         <!--Local Browsing View Controller-->
         <scene sceneID="BKe-J5-e5T">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D7e-SQ-3Ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ZlB-EP-lVa" customClass="LocalBrowsingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eks-bd-AAO">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
@@ -268,6 +267,7 @@
                         <outlet property="view" destination="Eks-bd-AAO" id="zD4-yK-KbA"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D7e-SQ-3Ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2580" y="-2115"/>
         </scene>
@@ -338,7 +338,7 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" id="q2p-nK-He9" customClass="ORSlidingTableView">
-                                <rect key="frame" x="352" y="50" width="88" height="497"/>
+                                <rect key="frame" x="352" y="50" width="88" height="542"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.69519844890000004" alpha="1" colorSpace="calibratedWhite"/>
@@ -672,126 +672,6 @@ Message</string>
     <resources>
         <image name="MediaLibrary.png" width="64" height="64"/>
     </resources>
-    <classes>
-        <class className="ARTransferCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARTransferCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
-            </relationships>
-        </class>
-        <class className="BrowsingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backPressed:"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DCControl" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCControl.h"/>
-        </class>
-        <class className="DCKnob" superclassName="DCControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCKnob.h"/>
-        </class>
-        <class className="FileInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FileInfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="primaryButtonTapped:"/>
-                <relationship kind="action" name="secondaryButtonTapped:"/>
-                <relationship kind="outlet" name="additionalInfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="primaryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="progressView" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="secondaryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="thumbnailImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ItemDeletionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemDeletionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelTapped:"/>
-                <relationship kind="action" name="deleteTapped:"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LocalBrowsingViewController" superclassName="BrowsingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocalBrowsingViewController.h"/>
-        </class>
-        <class className="OAuthViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OAuthViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loginPressed:"/>
-                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="authHelper" candidateClass="PutIOOAuthHelper"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loginViewWrapper" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameTextfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="warningLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ORFlatButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORFlatButton.h"/>
-        </class>
-        <class className="ORMessageCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORMessageCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ORSearchCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSearchCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="fileNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="seedersLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ORSimpleProgress" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSimpleProgress.h"/>
-        </class>
-        <class className="ORSlidingTableView" superclassName="UITableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSlidingTableView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="slidingDelegate" candidateClass="NSObject"/>
-            </relationships>
-        </class>
-        <class className="PutIOOAuthHelper" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PutIOOAuthHelper.h"/>
-            <relationships>
-                <relationship kind="outlet" name="delegate" candidateClass="NSObject"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="mediaButtonTapped:"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="statusViewController" candidateClass="StatusViewController"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="StatusViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="spaceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="spaceProgressBG" candidateClass="DCKnob"/>
-                <relationship kind="outlet" name="spaceProgressView" candidateClass="DCKnob"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="TransferPopoverViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TransferPopoverViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="progressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

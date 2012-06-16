@@ -9,7 +9,7 @@
 #import "StatusViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ORSimpleProgress.h"
-#import "TransferPopoverViewController.h"
+#import "ProcessPopoverViewController.h"
 #import "ARTransferCell.h"
 #import "ORMessageCell.h"
 #import "NSDate+StringParsing.h"
@@ -247,7 +247,7 @@ typedef enum {
     }
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
-    TransferPopoverViewController *transferVC = [storyboard instantiateViewControllerWithIdentifier:@"transferPopoverView"];
+    ProcessPopoverViewController *transferVC = [storyboard instantiateViewControllerWithIdentifier:@"transferPopoverView"];
     popoverController = [[WEPopoverController alloc] initWithContentViewController:transferVC];
     currentIndex = -1;
 }
@@ -262,9 +262,9 @@ typedef enum {
         NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
         
         UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-        TransferPopoverViewController * transferVC = (TransferPopoverViewController*) popoverController.contentViewController;
+        ProcessPopoverViewController * transferVC = (ProcessPopoverViewController*) popoverController.contentViewController;
         CGRect originalRect = [tableView rectForRowAtIndexPath:path];
-        transferVC.transfer = [transfers objectAtIndex:index];
+        transferVC.item = [transfers objectAtIndex:index];
         
         [popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
         currentIndex = index;   
