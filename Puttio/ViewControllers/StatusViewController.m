@@ -90,6 +90,13 @@ typedef enum {
 }
 
 - (void)getTransfers {
+    Transfer *transfer = [[Transfer alloc] init];
+    transfer.name = @"2123";
+    transfer.downloadSpeed =  @44;
+    transfer.percentDone =  @33;
+    transfer.displayName = @"23123 display";
+    transfers = @[transfer, transfer, transfer];
+    
     [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
             transfers = userInfoObject;
@@ -253,21 +260,28 @@ typedef enum {
 }
 
 - (void)slidingTable:(ORSlidingTableView *)table didMoveToCellAtIndex:(NSInteger)index {
-    if (!transfers.count) {
-        return;
-    }
-    
-    index = MIN(index, transfers.count - 1);
     if (index != currentIndex) {
         NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
         
-        UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-        ProcessPopoverViewController * transferVC = (ProcessPopoverViewController*) popoverController.contentViewController;
-        CGRect originalRect = [tableView rectForRowAtIndexPath:path];
-        transferVC.item = [transfers objectAtIndex:index];
+        id item = nil;
+        if (index < transfers.count) {
+            item = [transfers objectAtIndex:index];
+        }else {
+            if (index - transfers.count > processes.count) {
+                item = [processes objectAtIndex:index - transfers.count];
+            }
+        }
         
-        [popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
-        currentIndex = index;   
+        if (item) {
+            CGRect originalRect = [tableView rectForRowAtIndexPath:path];
+            UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+            
+            ProcessPopoverViewController * transferVC = (ProcessPopoverViewController*) popoverController.contentViewController;
+            transferVC.item = item;
+            
+            [popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+            currentIndex = index;
+        }
     }
 }
 
