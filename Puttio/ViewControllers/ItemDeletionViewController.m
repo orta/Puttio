@@ -7,6 +7,7 @@
 //
 
 #import "ItemDeletionViewController.h"
+#import "LocalFile.h"
 
 @interface ItemDeletionViewController (){
     NSObject <ORDisplayItemProtocol> *_item;
@@ -24,7 +25,11 @@
 
 - (void)setItem:(NSObject<ORDisplayItemProtocol> *)item {
     _item = item;
-    self.titleLabel.text = [NSString stringWithFormat:@"Delete %@?", item.displayName];
+    if ([item respondsToSelector:@selector(displayName)]) {
+        self.titleLabel.text = [NSString stringWithFormat:@"Delete %@?", item.displayName];
+    }else {
+        self.titleLabel.text = [NSString stringWithFormat:@"Delete %@?", item.name];
+    }
 }
 
 - (NSObject <ORDisplayItemProtocol> *)item {
@@ -32,9 +37,20 @@
 }
 
 - (IBAction)deleteTapped:(id)sender {
-    [[PutIOClient sharedClient] requestDeletionForDisplayItemID:_item.id :^(id userInfoObject) {
+    if ([self.item isMemberOfClass:[File class]]) {
+        [[PutIOClient sharedClient] requestDeletionForDisplayItemID:_item.id :^(id userInfoObject) {
+            [ModalZoomView fadeOutViewAnimated:YES];
+        }];
+    }
+    
+    if ([self.item isMemberOfClass:[LocalFile class]]) {
+        LocalFile *file = (LocalFile *)self.item;
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *path = [documentsDirectory stringByAppendingPathComponent:file.filepath];
+        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
         [ModalZoomView fadeOutViewAnimated:YES];
-    }];
+    }
 }
 
 - (void)zoomViewWillDissapear:(ModalZoomView *)zoomView {

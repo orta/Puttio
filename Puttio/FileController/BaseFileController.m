@@ -16,6 +16,12 @@
 #import "WatchedItem.h"
 #import "WatchedList.h"
 #import "NSManagedObject+ActiveRecord.h"
+#import "FileDownloadProcess.h"
+
+@interface BaseFileController (){
+    FileDownloadProcess *fileDownloadProcess;
+}
+@end
 
 @implementation BaseFileController
 
@@ -51,7 +57,9 @@
 
 - (void)downloadFileAtPath:(NSString*)path WithCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
-    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
+
+    
+    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     struct statfs tStats;  
     statfs([[paths lastObject] cString], &tStats);  
     uint64_t totalSpace = tStats.f_bavail * tStats.f_bsize;  
@@ -62,6 +70,8 @@
         
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:path]]];
         downloadOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation];
+        
         
         [downloadOperation setDownloadProgressBlock:^(NSInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead) {
             infoController.progressView.progress = (float)totalBytesRead/totalBytesExpectedToRead;

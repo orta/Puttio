@@ -10,6 +10,4 @@
 
 @implementation LocalFile
 
-@synthesize name, screenShot;
-
 @end

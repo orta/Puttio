@@ -6,15 +6,7 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "GMGridView.h"
+#import "BrowsingViewController.h"
 
-@interface LocalBrowsingViewController : UIViewController <GMGridViewActionDelegate, GMGridViewDataSource>
-
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) NSMutableArray *files;
-@property (strong) GMGridView *gridView;
-
-- (IBAction)backPressed:(id)sender;
-
+@interface LocalBrowsingViewController : BrowsingViewController <GMGridViewDataSource>
 @end

@@ -63,6 +63,7 @@
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
 		6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */; };
+		6098899A158CE29E0077CE35 /* MediaLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = 60988999158CE29E0077CE35 /* MediaLibrary.png */; };
 		609CAE2415853D51000BE57E /* UnknownFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609CAE2315853D51000BE57E /* UnknownFileController.m */; };
 		609CAE2F15856309000BE57E /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 609CAE2715856309000BE57E /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		609CAE3015856309000BE57E /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609CAE2915856309000BE57E /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -78,6 +79,7 @@
 		609CAE4B15856336000BE57E /* popoverArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 609CAE3D15856336000BE57E /* popoverArrowUp@2x.png */; };
 		609CAE4D15856336000BE57E /* popoverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 609CAE3F15856336000BE57E /* popoverBg.png */; };
 		609CAE4E15856336000BE57E /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 609CAE4015856336000BE57E /* popoverBg@2x.png */; };
+		609FABDC158C83A6000C9B30 /* BaseProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 609FABDB158C83A6000C9B30 /* BaseProcess.m */; };
 		60A1B19815287343002A6A7E /* ModalZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B19715287343002A6A7E /* ModalZoomView.m */; };
 		60A1B1B01528788E002A6A7E /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */; };
 		60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */; };
@@ -109,6 +111,8 @@
 		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
 		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
+		60DBF382158CA5250061F059 /* ConvertToMP4Process.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DBF381158CA5250061F059 /* ConvertToMP4Process.m */; };
+		60DBF385158CA7EE0061F059 /* FileDownloadProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */; };
 		60F00EBA152BAC1800DA9230 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */; };
 		60F023861528AB55003491E4 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023851528AB55003491E4 /* icon72.png */; };
 		60F023881528AB5F003491E4 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023871528AB5F003491E4 /* icon144.png */; };
@@ -242,6 +246,7 @@
 		6085D296151BAB230068929C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		6096FC19155FF0B1009C524C /* PutIOOAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOOAuthHelper.h; path = Networking/PutIOOAuthHelper.h; sourceTree = "<group>"; };
 		6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOOAuthHelper.m; path = Networking/PutIOOAuthHelper.m; sourceTree = "<group>"; };
+		60988999158CE29E0077CE35 /* MediaLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MediaLibrary.png; sourceTree = "<group>"; };
 		609CAE2115851B64000BE57E /* Putio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Putio.entitlements; path = puttio/Putio.entitlements; sourceTree = "<group>"; };
 		609CAE2215853D51000BE57E /* UnknownFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnknownFileController.h; path = FileController/UnknownFileController.h; sourceTree = "<group>"; };
 		609CAE2315853D51000BE57E /* UnknownFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnknownFileController.m; path = FileController/UnknownFileController.m; sourceTree = "<group>"; };
@@ -264,6 +269,8 @@
 		609CAE3D15856336000BE57E /* popoverArrowUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowUp@2x.png"; sourceTree = "<group>"; };
 		609CAE3F15856336000BE57E /* popoverBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
 		609CAE4015856336000BE57E /* popoverBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
+		609FABDA158C83A6000C9B30 /* BaseProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseProcess.h; path = Processes/BaseProcess.h; sourceTree = "<group>"; };
+		609FABDB158C83A6000C9B30 /* BaseProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseProcess.m; path = Processes/BaseProcess.m; sourceTree = "<group>"; };
 		60A1B19615287343002A6A7E /* ModalZoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModalZoomView.h; path = ViewControllers/ModalZoomView.h; sourceTree = "<group>"; };
 		60A1B19715287343002A6A7E /* ModalZoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModalZoomView.m; path = ViewControllers/ModalZoomView.m; sourceTree = "<group>"; };
 		60A1B1AE1528788E002A6A7E /* FileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileInfoViewController.h; path = ViewControllers/FileInfoViewController.h; sourceTree = "<group>"; };
@@ -325,6 +332,10 @@
 		60D9B7ED1535C67300A64E0F /* ORSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSearchCell.m; path = Views/ORSearchCell.m; sourceTree = "<group>"; };
 		60DB0AB2151C670800DA8A33 /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthViewController.h; path = Networking/OAuthViewController.h; sourceTree = "<group>"; };
 		60DB0AB3151C670800DA8A33 /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthViewController.m; path = Networking/OAuthViewController.m; sourceTree = "<group>"; };
+		60DBF380158CA5250061F059 /* ConvertToMP4Process.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConvertToMP4Process.h; path = Processes/ConvertToMP4Process.h; sourceTree = "<group>"; };
+		60DBF381158CA5250061F059 /* ConvertToMP4Process.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConvertToMP4Process.m; path = Processes/ConvertToMP4Process.m; sourceTree = "<group>"; };
+		60DBF383158CA7EE0061F059 /* FileDownloadProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileDownloadProcess.h; path = Processes/FileDownloadProcess.h; sourceTree = "<group>"; };
+		60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileDownloadProcess.m; path = Processes/FileDownloadProcess.m; sourceTree = "<group>"; };
 		60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		60F023851528AB55003491E4 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
 		60F023871528AB5F003491E4 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
@@ -437,6 +448,7 @@
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60988999158CE29E0077CE35 /* MediaLibrary.png */,
 				606C79A6152F5ACE00608C56 /* Tab.png */,
 				606C79A7152F5ACE00608C56 /* TabActive.png */,
 				606C79A8152F5ACE00608C56 /* TabActive@2x.png */,
@@ -491,6 +503,7 @@
 				60AB50CF151F64DE00473448 /* Categories */,
 				60DB0AB1151C665E00DA8A33 /* Network */,
 				60A7A6CD151FD26A00DB71E0 /* Models */,
+				609FABD9158C8386000C9B30 /* Processes */,
 				6085D27B151B9E550068929C /* View Controllers */,
 				60C04EA21571483C00C23AB5 /* File Controllers */,
 				6006420F151F639000EF85F9 /* Views */,
@@ -637,6 +650,19 @@
 				609CAE2E15856309000BE57E /* WETouchableView.m */,
 			);
 			name = WEPopover;
+			sourceTree = "<group>";
+		};
+		609FABD9158C8386000C9B30 /* Processes */ = {
+			isa = PBXGroup;
+			children = (
+				609FABDA158C83A6000C9B30 /* BaseProcess.h */,
+				609FABDB158C83A6000C9B30 /* BaseProcess.m */,
+				60DBF380158CA5250061F059 /* ConvertToMP4Process.h */,
+				60DBF381158CA5250061F059 /* ConvertToMP4Process.m */,
+				60DBF383158CA7EE0061F059 /* FileDownloadProcess.h */,
+				60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */,
+			);
+			name = Processes;
 			sourceTree = "<group>";
 		};
 		60A7A6CD151FD26A00DB71E0 /* Models */ = {
@@ -853,6 +879,7 @@
 				609CAE4B15856336000BE57E /* popoverArrowUp@2x.png in Resources */,
 				609CAE4D15856336000BE57E /* popoverBg.png in Resources */,
 				609CAE4E15856336000BE57E /* popoverBg@2x.png in Resources */,
+				6098899A158CE29E0077CE35 /* MediaLibrary.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,6 +969,9 @@
 				609CAE3015856309000BE57E /* WEPopoverContainerView.m in Sources */,
 				609CAE3115856309000BE57E /* WEPopoverController.m in Sources */,
 				609CAE3215856309000BE57E /* WETouchableView.m in Sources */,
+				609FABDC158C83A6000C9B30 /* BaseProcess.m in Sources */,
+				60DBF382158CA5250061F059 /* ConvertToMP4Process.m in Sources */,
+				60DBF385158CA7EE0061F059 /* FileDownloadProcess.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

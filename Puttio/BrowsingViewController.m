@@ -26,6 +26,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
 @implementation BrowsingViewController
 @synthesize titleLabel;
+@synthesize offlineView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,6 +39,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     rootFolder.name = @"Home";
     rootFolder.parentID = @"0";
     [self loadFolder:rootFolder];
+    self.titleLabel.text = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -92,7 +94,6 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
             topFolder.browsingViewController = self;
         }
     }];
-
 }
 
 - (void)loadFolder:(Folder *)folder {
@@ -100,6 +101,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     
     [[PutIOClient sharedClient] getFolder:folder :^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
+            self.offlineView.hidden = YES;
             
             FolderViewController *folderGrid = [[FolderViewController alloc] init];
             folderGrid.browsingViewController = self;
@@ -111,6 +113,12 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
                 [_gridNavController pushViewController:folderGrid animated:YES];   
             }else{
                 [self setupNavWithFolderVC:folderGrid];
+            }
+        }else {
+            NSError *error = (NSError *)userInfoObject;
+            // offline error code
+            if (error.code == -1009) {
+                [self isOffline];
             }
         }
     }];
@@ -146,6 +154,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
 - (void)viewDidUnload {
     [self setTitleLabel:nil];
+    [self setOfflineView:nil];
     [super viewDidUnload];
 }
 
@@ -158,6 +167,10 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
         FolderViewController *folderVC = (FolderViewController *)viewController;
         self.titleLabel.text = folderVC.folder.name;
     }
+}
+
+- (void)isOffline {
+    self.offlineView.hidden = NO;
 }
 
 @end

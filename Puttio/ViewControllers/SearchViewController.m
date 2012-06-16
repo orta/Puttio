@@ -170,6 +170,10 @@
     [self resizeToWidth:self.view.frame.size.width animated:NO];
 }
 
+- (IBAction)mediaButtonTapped:(id)sender {
+    
+}
+
 - (void)makeBigAnimated:(BOOL)animate {
     [self resizeToWidth:428 animated:animate];
 }

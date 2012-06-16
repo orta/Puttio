@@ -16,30 +16,34 @@
 #import "ModalZoomView.h"
 #import "TestFlight.h"
 
-static UIEdgeInsets GridViewInsets = {.top = 44 + 8, .left = 8, .right = 8, .bottom = 8};
+static UIEdgeInsets GridViewInsets = {.top = 88 + 8, .left = 8, .right = 8, .bottom = 8};
 
 const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 
+@interface LocalBrowsingViewController (){
+    NSMutableArray *files;
+    GMGridView *gridView;
+}
+
+@end
+
 @implementation LocalBrowsingViewController
-@synthesize files, gridView, titleLabel;
+
+#pragma mark -
+#pragma mark View Setup
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupGestures];
 
-    CGRect frame = CGRectMake(0, 44, 400, 400);
-
-    files = [NSMutableArray array];
-    [self reloadFolder];
-
-    gridView = [[GMGridView alloc] initWithFrame:frame];
+    gridView = [[GMGridView alloc] initWithFrame:CGRectNull];
     gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     gridView.autoresizesSubviews = YES;
     gridView.actionDelegate = self;
     gridView.dataSource = self;
     gridView.clipsToBounds = YES;
     gridView.userInteractionEnabled = YES;
-    gridView.backgroundColor = [UIColor yellowColor];
+    gridView.backgroundColor = [UIColor whiteColor];
     gridView.showsHorizontalScrollIndicator = NO;
     gridView.contentInset = UIEdgeInsetsZero;
     gridView.accessibilityLabel = @"GridView";
@@ -50,9 +54,6 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self reloadFolder];
-
     CGRect frame = CGRectNull;
     frame.size.width = self.view.frame.size.width - GridViewInsets.left - GridViewInsets.right;
     frame.size.height = self.view.frame.size.height - GridViewInsets.top - GridViewInsets.bottom;
@@ -62,9 +63,41 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     [gridView setFrame:frame];
 }
 
-- (IBAction)backPressed:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+- (void)viewDidUnload {
+    [self setTitleLabel:nil];
+    [super viewDidUnload];
 }
+
+#pragma mark -
+#pragma mark Folder handlings
+
+- (void)loadFolder:(Folder *)folder {
+    [self reloadFolder];
+}
+
+- (void)reloadFolder {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    files = [NSMutableArray array];
+    
+    NSArray *fileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
+    for (NSString *fileName in fileNames) {
+        //iterate through all the files and look for mp4 files
+        if( [fileName hasSuffix:@"mp4"] ) {
+            NSLog(@"loading mp4 file for local view: %@", fileName);
+            LocalFile *localFile = [[LocalFile alloc] init];
+            localFile.name = fileName;
+            localFile.filepath = fileName;
+            
+            // this would be the place to check for a screenshot
+            [files addObject:localFile];
+        }
+    }
+    [gridView reloadData];
+}
+
+#pragma mark -
+#pragma mark Gestures
 
 - (void)setupGestures {
     UISwipeGestureRecognizer *backSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(backSwipeRecognised:)];
@@ -83,48 +116,25 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)reloadFolder {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-    NSArray *fileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
-    for (NSString *fileName in fileNames) {
-        //iterate through all the files and look for mp4 files
-        if( [fileName hasSuffix:@"mp4"] ) {
-            NSLog(@"loading mp4 file for local view: %@", fileName);
-            LocalFile *localFile = [[LocalFile alloc] init];
-            localFile.name = fileName;
-            // this would be the place to check for a screenshot
-            [files addObject:localFile];
-        }
+#pragma mark -
+#pragma mark GridView Action Methods
+
+- (void)GMGridView:(GMGridView *)aGridView didTapOnItemAtIndex:(NSInteger)position {
+    LocalFile *file = [files objectAtIndex:position];
+    if([file.name hasSuffix:@"mp4"]) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[file name]];
+        NSString *fullPath = [NSString stringWithFormat:@"%@", filePath];
+        [MoviePlayer watchLocalMovieAtPath:fullPath];
     }
 }
 
-//
-// open the file view to play the movie
-//
-- (void)GMGridView:(GMGridView *)aGridView didTapOnItemAtIndex:(NSInteger)position {
-    LocalFile *file = [files objectAtIndex:position]; 
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[file name]];
-    NSString *fullPath = [NSString stringWithFormat:@"%@", filePath];
-    [MoviePlayer watchLocalMovieAtPath:fullPath];
-//    
-//    UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
-//    CGRect initialFrame = [gridView convertRect:[[gridView cellForItemAtIndex:position] frame] toView:rootView];
-//    [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"FileInfoView" andItem:file];
-}
-
-//
-// delete the file
-//
 - (void)GMGridView:(GMGridView *)aGridView didLongTapOnItemAtIndex:(NSInteger)position {
     LocalFile *file = [files objectAtIndex:position]; 
 
     UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
-    CGRect initialFrame = [gridView convertRect:[[gridView cellForItemAtIndex:position] frame] toView:rootView];
+    CGRect initialFrame = [aGridView convertRect:[[aGridView cellForItemAtIndex:position] frame] toView:rootView];
     
     [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"deleteView" andItem:file];
 }
@@ -133,8 +143,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 #pragma mark GridView DataSource Methods
 
 - (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView {
-    NSLog(@"numberOfItems");
-    return [files count];
+    return files.count;
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)aGridView cellForItemAtIndex:(NSInteger)index {
@@ -150,11 +159,11 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     
     cell.item = file;
     cell.title = file.name;
+
+    #warning we should be grabbing thumbnails
     cell.imageURL = [NSURL URLWithString:@"https://put.io/thumbnails/aItkkZFhXV5lXl1miGlmYmOOWpSLV5FYZ2SRlmNfYl6JYlqYY5FoYg.jpg"];
 
-    //
-    // we currently don't keep track of wacthing local media
-    //
+    #warning  we currently don't keep track of watching local media
     cell.watched = NO;
 
     return cell;
@@ -164,16 +173,10 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     return LocalFileGridCellSize;
 }
 
-- (void)viewDidUnload {
-    [self setTitleLabel:nil];
-    [super viewDidUnload];
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
-
-
 
 @end
 

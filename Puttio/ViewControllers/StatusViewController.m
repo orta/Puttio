@@ -16,10 +16,14 @@
 #import "UIColor+PutioColours.h"
 #import "DCKnob.h"
 #import "WEPopoverController.h"
+#import "BaseProcess.h"
+
+static StatusViewController *_sharedController;
 
 @interface StatusViewController () {
     NSArray *transfers;
     NSArray *messages;
+    NSArray *processes;
     
     CGFloat currentIndex;
     NSTimer *dataLoopTimer;
@@ -32,13 +36,19 @@
 
 typedef enum {
     DisplayTransfers,
+    DisplayProcesses,
     DisplayMessages
 } Display;
 
 @synthesize tableView;
 @synthesize spaceProgressView, spaceProgressBG, spaceLabel;
 
++ (StatusViewController *)sharedController {
+    return _sharedController;
+}
+
 - (void)awakeFromNib {
+    _sharedController = self;
     [self setup];
 }
 
@@ -56,7 +66,6 @@ typedef enum {
     self.spaceProgressBG.valueArcWidth = 6.0;
     self.spaceProgressBG.color = [UIColor putioYellow];
     self.spaceProgressBG.backgroundColor = [UIColor clearColor];
-
     
     self.spaceProgressView.min = 0.0;
 	self.spaceProgressView.max = 1.0;
@@ -137,6 +146,14 @@ typedef enum {
     }];
 }
 
+- (void)addProcess:(BaseProcess *)process {
+    if (!processes) {
+        processes = [NSArray arrayWithObject:process];
+    }else{
+        processes = [processes arrayByAddingObject:process];
+    }
+}
+
 #pragma mark tableview gubbins
 
 - (int)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -146,18 +163,28 @@ typedef enum {
 -(UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = nil;
-    if (indexPath.section == 0) {
+    if (indexPath.section == DisplayTransfers) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
         if (cell) {
             Transfer *item = [transfers objectAtIndex:indexPath.row];
             ARTransferCell *theCell = (ARTransferCell*)cell;
             theCell.nameLabel.text = item.name;
-            theCell.detailsLabel.text = [NSString stringWithFormat:@"%.1f %", [item.percentDone floatValue]];
             theCell.progressView.progress = [item.percentDone floatValue]/100;
             theCell.progressView.isLandscape = YES;
         }
     }
-    if (indexPath.section == 1) {
+    
+    if (indexPath.section == DisplayProcesses) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
+        if (cell) {
+            BaseProcess *item = [processes objectAtIndex:indexPath.row];
+            ARTransferCell *theCell = (ARTransferCell*)cell;
+            theCell.progressView.progress = item.progress;
+            theCell.progressView.isLandscape = YES;
+        }
+    }
+    
+    if (indexPath.section == DisplayMessages) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell"];
         if (cell) {
             Message *item = [messages objectAtIndex:indexPath.row];
@@ -165,7 +192,7 @@ typedef enum {
             theCell.messageLabel.text = item.message;
         }
     }
-
+    
     return cell;
 }
 
@@ -174,19 +201,15 @@ typedef enum {
         case DisplayTransfers:
             return transfers.count;
         case DisplayMessages:
-            return messages.count;            
+            return messages.count;
+        case DisplayProcesses:
+            return processes.count;
     }
     return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.section) {
-        case DisplayTransfers:
-            return 24.0;
-        case DisplayMessages:
-            return 24.0;            
-    }
-    return 0;
+    return 24;
 }
 
 - (void)viewDidUnload {
@@ -219,6 +242,10 @@ typedef enum {
 #pragma mark Sliding TableView
 
 - (void)slidingTableDidBeginTouch:(ORSlidingTableView *)table {
+    if (!transfers.count) {
+        return;
+    }
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     TransferPopoverViewController *transferVC = [storyboard instantiateViewControllerWithIdentifier:@"transferPopoverView"];
     popoverController = [[WEPopoverController alloc] initWithContentViewController:transferVC];
@@ -226,6 +253,10 @@ typedef enum {
 }
 
 - (void)slidingTable:(ORSlidingTableView *)table didMoveToCellAtIndex:(NSInteger)index {
+    if (!transfers.count) {
+        return;
+    }
+    
     index = MIN(index, transfers.count - 1);
     if (index != currentIndex) {
         NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
@@ -242,7 +273,7 @@ typedef enum {
 
 - (void)slidingTableDidEndTouch:(ORSlidingTableView *)table {
     [popoverController dismissPopoverAnimated:YES];
-        currentIndex = -1;
+    currentIndex = -1;
 }
 
 @end

@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LocalFile : NSObject
+@interface LocalFile : NSObject <ORDisplayItemProtocol>
 
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *screenShot;
+@property (strong) NSString *name;
+@property (strong) NSString *screenShot;
+@property (strong) NSString *filepath;
 
 @end

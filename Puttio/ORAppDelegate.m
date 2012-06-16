@@ -29,7 +29,7 @@
         [ORDefaults registerDefaults];
     }
     
-    if(![PutIOClient sharedClient].ready){
+    if([PutIOClient sharedClient].ready){
         [self showApp];
     }else{
         [self showLogin];
@@ -52,7 +52,6 @@
 }
 
 - (void)showLogin {
-
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     OAuthViewController *oauthVC = [storyboard instantiateViewControllerWithIdentifier:@"oauthView"];
     oauthVC.delegate = self;

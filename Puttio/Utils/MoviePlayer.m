@@ -109,7 +109,6 @@
 }
 
 + (void)watchLocalMovieAtPath:(NSString *)path {
-    
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
