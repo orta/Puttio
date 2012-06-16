@@ -89,19 +89,7 @@ typedef enum {
 //    [self getMessages];
 }
 
-- (void)getTransfers {
-    Transfer *transfer = [[Transfer alloc] init];
-    transfer.name = @"2123";
-    transfer.downloadSpeed =  @44;
-    transfer.percentDone =  @33;
-    transfer.displayName = @"23123 display";
-    transfers = @[transfer, transfer, transfer];
-    
-    BaseProcess *process = [[BaseProcess alloc] init];
-    process.progress = 44;
-    processes = @[ process, process, process];
-    
-    
+- (void)getTransfers {    
     [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
             transfers = userInfoObject;

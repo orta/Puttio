@@ -31,6 +31,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 
 #pragma mark -
 #pragma mark View Setup
+@synthesize noItemsView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,8 +50,8 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     gridView.accessibilityLabel = @"GridView";
     
     [self.view addSubview:gridView];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFolder) name:ORReloadFolderNotification object:nil];
+
+    self.titleLabel.text = @"Saved Media Library";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -65,6 +66,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 
 - (void)viewDidUnload {
     [self setTitleLabel:nil];
+    [self setNoItemsView:nil];
     [super viewDidUnload];
 }
 
@@ -76,6 +78,8 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 }
 
 - (void)reloadFolder {
+    self.noItemsView.hidden = NO;
+
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     files = [NSMutableArray array];
@@ -84,13 +88,13 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     for (NSString *fileName in fileNames) {
         //iterate through all the files and look for mp4 files
         if( [fileName hasSuffix:@"mp4"] ) {
-            NSLog(@"loading mp4 file for local view: %@", fileName);
             LocalFile *localFile = [[LocalFile alloc] init];
             localFile.name = fileName;
             localFile.filepath = fileName;
             
             // this would be the place to check for a screenshot
             [files addObject:localFile];
+            self.noItemsView.hidden = YES;
         }
     }
     [gridView reloadData];
@@ -122,6 +126,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 - (void)GMGridView:(GMGridView *)aGridView didTapOnItemAtIndex:(NSInteger)position {
     LocalFile *file = [files objectAtIndex:position];
     if([file.name hasSuffix:@"mp4"]) {
+        NSLog(@"found soemthing");
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[file name]];

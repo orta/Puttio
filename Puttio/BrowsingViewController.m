@@ -147,7 +147,6 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"deleteView" andItem:item];
 }
 
-
 - (BOOL)itemIsFolder:(NSObject <ORDisplayItemProtocol> *)item {
     return ([item.size intValue] == 0) ? YES : NO;
 }

@@ -9,4 +9,5 @@
 #import "BrowsingViewController.h"
 
 @interface LocalBrowsingViewController : BrowsingViewController <GMGridViewDataSource>
+@property (strong, nonatomic) IBOutlet UIView *noItemsView;
 @end

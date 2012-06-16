@@ -67,7 +67,6 @@ static CGFloat SIZE_OF_CELLS = 24;
         sectionIndex++;
     }
     
-    NSLog(@"found row %i section %i", cellIndex, sectionIndex);
     [self.slidingDelegate slidingTable:self didMoveToCellAtRow:cellIndex inSection:sectionIndex];
 }
 
