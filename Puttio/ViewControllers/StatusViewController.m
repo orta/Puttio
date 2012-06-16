@@ -97,6 +97,11 @@ typedef enum {
     transfer.displayName = @"23123 display";
     transfers = @[transfer, transfer, transfer];
     
+    BaseProcess *process = [[BaseProcess alloc] init];
+    process.progress = 44;
+    processes = @[ process, process, process];
+    
+    
     [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
             transfers = userInfoObject;
