@@ -259,28 +259,32 @@ typedef enum {
     currentIndex = -1;
 }
 
-- (void)slidingTable:(ORSlidingTableView *)table didMoveToCellAtIndex:(NSInteger)index {
-    if (index != currentIndex) {
-        NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
-        
+- (void)slidingTable:(ORSlidingTableView *)table didMoveToCellAtRow:(NSInteger)row inSection:(NSInteger)section {
+    if (row != currentIndex) {
         id item = nil;
-        if (index < transfers.count) {
-            item = [transfers objectAtIndex:index];
-        }else {
-            if (index - transfers.count > processes.count) {
-                item = [processes objectAtIndex:index - transfers.count];
+        if (section == DisplayTransfers) {
+            if (row < transfers.count) {
+                item = [transfers objectAtIndex:row];
+            }
+        }
+        
+        if (section == DisplayProcesses) {
+            if (row < processes.count) {
+                 item = [processes objectAtIndex:row];   
             }
         }
         
         if (item) {
+            NSIndexPath *path = [NSIndexPath indexPathForRow:row inSection:section];
             CGRect originalRect = [tableView rectForRowAtIndexPath:path];
             UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
             
             ProcessPopoverViewController * transferVC = (ProcessPopoverViewController*) popoverController.contentViewController;
-            transferVC.item = item;
             
             [popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
-            currentIndex = index;
+            
+            transferVC.item = item;
+            currentIndex = row;
         }
     }
 }
