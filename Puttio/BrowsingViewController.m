@@ -171,6 +171,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
 - (void)isOffline {
     self.offlineView.hidden = NO;
+    [self.view bringSubviewToFront:self.offlineView];
 }
 
 @end
