@@ -205,7 +205,6 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 #pragma mark internal API gubbins
 
 - (void)genericGetAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete {
-    
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", nil];
     [self getPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
 

@@ -146,12 +146,13 @@ typedef enum {
     }];
 }
 
-- (void)addProcess:(BaseProcess *)process {
+- (void)addProcess:(BaseProcess *)process {    
     if (!processes) {
         processes = [NSArray arrayWithObject:process];
     }else{
         processes = [processes arrayByAddingObject:process];
     }
+    [tableView reloadData];
 }
 
 #pragma mark tableview gubbins

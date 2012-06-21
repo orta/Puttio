@@ -13,10 +13,12 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "MoviePlayer.h"
 #import "FileSizeUtils.h"
+#import "ConvertToMP4Process.h"
 
 @implementation VideoFileController {
     BOOL _isMP4;
     BOOL _MP4Ready;
+    BOOL requested;
 }
 
 + (BOOL)fileSupportedByController:(File *)aFile {
@@ -29,7 +31,8 @@
 
 - (void)setFile:(File *)aFile {
     _file = aFile;
-    
+    [self.infoController disableButtons];
+
     [[PutIOClient sharedClient] getInfoForFile:_file :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
@@ -106,9 +109,9 @@
         
         NSError *error = nil;
         BOOL success = [fileUrl setResourceValue:[NSNumber numberWithBool: YES] forKey:NSURLIsExcludedFromBackupKey error:&error];
-//            if(!success){
-//                NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
-//            }
+            if(!success){
+                NSLog(@"Error excluding %@ from backup %@", fileUrl, error);
+            }
         
         self.infoController.additionalInfoLabel.text = @"Downloaded - it's available for offline viewing";
         [self.infoController enableButtons];
@@ -132,6 +135,11 @@
 }
 
 - (void)getMP4Info {
+    if (!requested) {
+        [ConvertToMP4Process processWithFile:_file];
+        requested = YES;
+    }
+
     [[PutIOClient sharedClient] getMP4InfoForFile:_file :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             
@@ -143,10 +151,10 @@
                 [self.infoController enableButtons];
             }
             
-            if ([status isEqualToString:@"NotAvailable"]) {
+            if ([status isEqualToString:@"NOT_AVAILABLE"]) {
                 self.infoController.additionalInfoLabel.text = @"Requested an iPad version (this takes a *very* long time.)";
                 [[PutIOClient sharedClient] requestMP4ForFile:_file];
-                [self performSelector:@selector(getMP4Info) withObject:self afterDelay:3];
+                [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];
             }
             
             if ([status isEqualToString:@"CONVERTING"]) {

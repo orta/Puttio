@@ -13,6 +13,7 @@ static CGFloat SIZE_OF_CELLS = 24;
 @interface ORSlidingTableView (){
     BOOL respondsToHeaderHeight;
     BOOL respondsToCellHeight;
+    BOOL respondsToNumberOfSections;
 }
 
 @end
@@ -27,7 +28,7 @@ static CGFloat SIZE_OF_CELLS = 24;
     [super setDelegate:delegate];
     respondsToHeaderHeight = ([self.delegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)]);
     respondsToCellHeight = ([self.delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]);
-
+    respondsToNumberOfSections = ([self.delegate respondsToSelector:@selector(numberOfSectionsInTableView:)]);
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -39,7 +40,8 @@ static CGFloat SIZE_OF_CELLS = 24;
     CGPoint touchPoint = [[touches anyObject] locationInView:self];
 
     CGFloat fingerY = touchPoint.y;
-    int sectionIndex = 0, cellIndex = 0;
+    NSInteger sectionIndex = 0, cellIndex = 0;
+    NSInteger numberOfSections = respondsToNumberOfSections ? [self.dataSource numberOfSectionsInTableView:self] : 1;
     
     while (true){
         CGFloat headerHeight = respondsToHeaderHeight ? [self.delegate tableView:self heightForHeaderInSection:sectionIndex] : 0;
@@ -50,7 +52,7 @@ static CGFloat SIZE_OF_CELLS = 24;
         
         // check that its not gone too far that we should just give up
         int cellCount = [self.dataSource tableView:self numberOfRowsInSection:sectionIndex];
-        if (cellCount == 0) {
+        if (cellCount == 0 && sectionIndex >= numberOfSections) {
             break;
         }
         

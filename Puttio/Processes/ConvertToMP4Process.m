@@ -25,12 +25,15 @@
 }
 
 - (void)tick {
-    [[PutIOClient sharedClient] getMP4InfoForFile:_file :^(id userInfoObject) {
+    
+    
+    [[PutIOClient sharedClient] getMP4InfoForFile:self.file :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             
             NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
             if ([status isEqualToString:@"COMPLETED"]) {
                 #warning kill self
+                [self end];
             }
             
             if ([status isEqualToString:@"CONVERTING"]) {

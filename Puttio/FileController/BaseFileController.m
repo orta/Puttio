@@ -25,7 +25,7 @@
 
 @implementation BaseFileController
 
-@synthesize file, infoController;
+@synthesize infoController;
 
 + (id)controller { return [[self alloc] init]; }
 
@@ -56,8 +56,6 @@
 }
 
 - (void)downloadFileAtPath:(NSString*)path WithCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    
-
     
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     struct statfs tStats;  
@@ -112,5 +110,13 @@
     if ([downloadOperation isExecuting]) {
         [downloadOperation cancel];        
     }
+}
+
+- (File *)file {
+    return _file;
+}
+
+- (void)setFile:(File *)file {
+    _file = file;
 }
 @end
