@@ -220,6 +220,10 @@
                                     <action selector="loginPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="euq-mp-UED"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="CHk-uT-JK3">
+                                <rect key="frame" x="190" y="131" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -228,6 +232,9 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="cancelButton" destination="bot-GH-0JH" id="NkM-9h-Szz"/>
+                        <outlet property="deleteButton" destination="SL1-Ae-5Gi" id="Nc2-CU-uMF"/>
+                        <outlet property="networkActivityView" destination="CHk-uT-JK3" id="59v-K9-ilo"/>
                         <outlet property="titleLabel" destination="43n-5r-ebW" id="Kps-cf-cGc"/>
                     </connections>
                 </viewController>
@@ -764,6 +771,9 @@ Message</string>
             <relationships>
                 <relationship kind="action" name="cancelTapped:"/>
                 <relationship kind="action" name="deleteTapped:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="ORFlatButton"/>
+                <relationship kind="outlet" name="deleteButton" candidateClass="ORFlatButton"/>
+                <relationship kind="outlet" name="networkActivityView" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

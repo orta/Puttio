@@ -12,7 +12,6 @@
 #import "UnRAR.h"
 #import "MiniZip.h"
 #import "ORAppDelegate.h"
-#import "FileSizeUtils.h"
 #include <sys/param.h>  
 #include <sys/mount.h>  
 
@@ -53,7 +52,7 @@ enum ComicType {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
             self.infoController.titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
-//            self.infoController.fileSizeLabel.text = unitStringFromBytes(fileSize);
+            self.infoController.fileSizeLabel.text = @"";
         }
     }];
     

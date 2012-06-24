@@ -9,6 +9,7 @@
 #import "VideoFileController.h"
 #import "FileInfoViewController.h"
 #import "AFNetworking.h"
+#import "LocalFile.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "MoviePlayer.h"
@@ -97,23 +98,30 @@
     [self downloadFileAtPath:requestURL WithCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.infoController.additionalInfoLabel.text = @"Saving file";
         
+        // Save it
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString *filePath = [documentsDirectory stringByAppendingPathComponent:_file.id];
         NSString *fullPath = [NSString stringWithFormat:@"%@.mp4", filePath];
-        
         [operation.responseData writeToFile:fullPath atomically:YES];
 
+        
+        // Make sure its not in iCloud
         NSURL *fileUrl = [NSURL fileURLWithPath:fullPath];
         assert([[NSFileManager defaultManager] fileExistsAtPath: [fileUrl path]]);
         
         NSError *error = nil;
         BOOL success = [fileUrl setResourceValue:[NSNumber numberWithBool: YES] forKey:NSURLIsExcludedFromBackupKey error:&error];
-            if(!success){
-                NSLog(@"Error excluding %@ from backup %@", fileUrl, error);
-            }
+        if(!success){
+            NSLog(@"Error excluding %@ from backup %@", fileUrl, error);
+        }
         
-        self.infoController.additionalInfoLabel.text = @"Downloaded - it's available for offline viewing";
+        // Give it a localfile core data entity
+        LocalFile *localFile = [LocalFile localFileWithFile:_file];
+        [[localFile managedObjectContext] save:nil];
+        
+        // Set the UI state 
+        self.infoController.additionalInfoLabel.text = @"Downloaded - It's in your media library!";
         [self.infoController enableButtons];
         [self.infoController hideProgress];
 

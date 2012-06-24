@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LocalFile : NSObject <ORDisplayItemProtocol>
-
-@property (strong) NSString *name;
-@property (strong) NSString *screenShot;
-@property (strong) NSString *filepath;
-
+@interface LocalFile : File
++ (LocalFile *) localFileWithFile:(File *)file;
+- (void)deleteItem;
+- (NSString *)localPathForFile;
+- (NSString *)localPathForScreenshot;
 @end

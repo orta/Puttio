@@ -8,7 +8,7 @@
 
 #import "ItemDeletionViewController.h"
 #import "LocalFile.h"
-
+#import "ORFlatButton.h"
 @interface ItemDeletionViewController (){
     NSObject <ORDisplayItemProtocol> *_item;
 }
@@ -17,6 +17,9 @@
 
 @implementation ItemDeletionViewController
 @synthesize titleLabel;
+@synthesize networkActivityView;
+@synthesize deleteButton;
+@synthesize cancelButton;
 @dynamic item;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -38,17 +41,16 @@
 
 - (IBAction)deleteTapped:(id)sender {
     if ([self.item isMemberOfClass:[File class]]) {
+        [self disableButtons];
         [[PutIOClient sharedClient] requestDeletionForDisplayItemID:_item.id :^(id userInfoObject) {
+            [self enableButtons];
             [ModalZoomView fadeOutViewAnimated:YES];
         }];
     }
     
     if ([self.item isMemberOfClass:[LocalFile class]]) {
         LocalFile *file = (LocalFile *)self.item;
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *path = [documentsDirectory stringByAppendingPathComponent:file.filepath];
-        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+        [file deleteItem];
         [ModalZoomView fadeOutViewAnimated:YES];
     }
 }
@@ -61,4 +63,23 @@
     [ModalZoomView fadeOutViewAnimated:YES];    
 }
 
+
+- (void)enableButtons {
+    self.deleteButton.enabled = YES;
+    self.cancelButton.enabled = YES;
+    [self.networkActivityView stopAnimating];
+}
+
+- (void)disableButtons {
+    self.deleteButton.enabled = NO;
+    self.cancelButton.enabled = NO;
+    [self.networkActivityView startAnimating];
+}
+
+- (void)viewDidUnload {
+    [self setNetworkActivityView:nil];
+    [self setDeleteButton:nil];
+    [self setCancelButton:nil];
+    [super viewDidUnload];
+}
 @end

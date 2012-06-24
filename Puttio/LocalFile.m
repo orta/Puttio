@@ -10,6 +10,37 @@
 
 @implementation LocalFile
 
++ (LocalFile *) localFileWithFile:(File *)file {
+    LocalFile *localFile = [LocalFile object];
+    localFile.displayName = file.displayName;
+    localFile.id = file.id;
+    localFile.name = file.name;
+    localFile.parentID = file.parentID;
+    
+#warning stubbed screenShotURL
+    localFile.screenShotURL = file.screenShotURL;
+    
+    return localFile;
+}
+
+- (void)deleteItem {
+    [[NSFileManager defaultManager] removeItemAtPath:[self localPathForFile] error:nil];
+    [[NSFileManager defaultManager] removeItemAtPath:[self localPathForScreenshot] error:nil];
+    
+    [self deleteEntity];
+}
+
+- (NSString *)localPathForFile {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:self.id];
+}
+
+- (NSString *)localPathForScreenshot {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:[self.id stringByAppendingPathExtension:@"jpg"]];
+}
 
 
 @end

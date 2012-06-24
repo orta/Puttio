@@ -171,7 +171,13 @@
 }
 
 - (void)makeBigAnimated:(BOOL)animate {
-    [self resizeToWidth:428 animated:animate];
+    CGFloat width;
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        width = 320;
+    }else {
+        width = 428;
+    }
+    [self resizeToWidth:width animated:animate];
 }
 
 - (void)makeSmallAnimated:(BOOL)animate {

@@ -174,6 +174,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     }
    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
        NSLog(@"failure in requesting delete %@", error);
+       onComplete(error);
    }];
 }
 
