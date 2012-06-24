@@ -107,10 +107,10 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 #pragma mark GridView Action Methods
 
 - (void)GMGridView:(GMGridView *)aGridView didTapOnItemAtIndex:(NSInteger)position {
-    LocalFile *file = [files objectAtIndex:position];
+    LocalFile *file = files[position];
     if([file.name hasSuffix:@"mp4"]) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *documentsDirectory = paths[0];
         NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[file name]];
         NSString *fullPath = [NSString stringWithFormat:@"%@", filePath];
         [MoviePlayer watchLocalMovieAtPath:fullPath];
@@ -118,7 +118,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 }
 
 - (void)GMGridView:(GMGridView *)aGridView didLongTapOnItemAtIndex:(NSInteger)position {
-    LocalFile *file = [files objectAtIndex:position]; 
+    LocalFile *file = files[position]; 
 
     UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
     CGRect initialFrame = [aGridView convertRect:[[aGridView cellForItemAtIndex:position] frame] toView:rootView];
@@ -142,7 +142,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
         cell.reuseIdentifier = CellIdentifier;
     }
     
-    LocalFile *file = [files objectAtIndex:index]; 
+    LocalFile *file = files[index]; 
     
     cell.item = file;
     cell.title = file.name;

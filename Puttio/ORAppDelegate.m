@@ -154,18 +154,14 @@
             // iCloud is available
             cloudURL = [NSURL fileURLWithPath:coreDataCloudContent];
             
-            options = [NSDictionary dictionaryWithObjectsAndKeys:
-                       [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                       [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
-                       @"Puttio.store", NSPersistentStoreUbiquitousContentNameKey,
-                       cloudURL, NSPersistentStoreUbiquitousContentURLKey,
-                       nil];
+            options = @{NSMigratePersistentStoresAutomaticallyOption: @YES,
+                       NSInferMappingModelAutomaticallyOption: @YES,
+                       NSPersistentStoreUbiquitousContentNameKey: @"Puttio.store",
+                       NSPersistentStoreUbiquitousContentURLKey: cloudURL};
         } else {
             // iCloud is not available
-            options = [NSDictionary dictionaryWithObjectsAndKeys:
-                       [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                       [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
-                       nil];
+            options = @{NSMigratePersistentStoresAutomaticallyOption: @YES,
+                       NSInferMappingModelAutomaticallyOption: @YES};
         }
         
         NSError *error = nil;

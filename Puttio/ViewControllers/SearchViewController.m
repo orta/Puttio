@@ -58,7 +58,7 @@
 
 - (void)stylizeSearchTextField {    
     for (int i = [searchBar.subviews count] - 1; i >= 0; i--) {
-        UIView *subview = [searchBar.subviews objectAtIndex:i];                        
+        UIView *subview = (searchBar.subviews)[i];                        
 
         // This is the gradient behind the textfield
         if ([subview.description hasPrefix:@"<UISearchBarBackground"]) {
@@ -97,7 +97,7 @@
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
-    searchResults = [NSArray array];
+    searchResults = @[];
     [SearchController searchForString:aSearchBar.text];
     [self.tableView reloadData];
     [aSearchBar resignFirstResponder];
@@ -135,7 +135,7 @@
     UITableViewCell *cell = nil;
     cell = [aTableView dequeueReusableCellWithIdentifier:@"SearchCell"];
     if (cell) {
-        SearchResult *item = [searchResults objectAtIndex:indexPath.row];
+        SearchResult *item = searchResults[indexPath.row];
         ORSearchCell *theCell = (ORSearchCell*)cell;
         theCell.fileNameLabel.text = item.name;
         theCell.fileSizeLabel.text = item.representedSize;
@@ -153,7 +153,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SearchResult *result = [searchResults objectAtIndex:indexPath.row];
+    SearchResult *result = searchResults[indexPath.row];
     PutIOClient *client = [PutIOClient sharedClient];
     [client downloadTorrentOrMagnetURLAtPath:[result representedPath] :^(id userInfoObject) {
         ORSearchCell *cell = (ORSearchCell*)[self.tableView cellForRowAtIndexPath:indexPath];

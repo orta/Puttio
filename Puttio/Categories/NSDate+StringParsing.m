@@ -17,7 +17,7 @@
     if ([dateString hasSuffix:@"Z"]) {
         dateString = [[dateString substringToIndex:(dateString.length-1)] stringByAppendingString:@"-0000"];
     }
-    dateString = [[dateString componentsSeparatedByString:@"T"] objectAtIndex:0];
+    dateString = [dateString componentsSeparatedByString:@"T"][0];
     return [self dateFromString:dateString
                      withFormat:@"yyyy-MM-dd"];
 }

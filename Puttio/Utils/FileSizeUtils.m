@@ -22,5 +22,5 @@ NSString* unitStringFromBytes(double bytes){
     NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
     [formatter setMaximumFractionDigits:2];
     // Beware of reusing this format string. -[NSString stringWithFormat] ignores \0, *printf does not.
-    return [NSString stringWithFormat:@"%@ %cB", [formatter stringFromNumber: [NSNumber numberWithDouble: bytes]], units[exponent]];
+    return [NSString stringWithFormat:@"%@ %cB", [formatter stringFromNumber: @(bytes)], units[exponent]];
 }

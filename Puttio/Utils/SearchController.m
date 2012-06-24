@@ -80,7 +80,7 @@ static SearchController *sharedInstance;
         result = [result stringByReplacingOccurrencesOfString:@"\"hash\"" withString:@",\"hash\""];
         NSError *error = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSASCIIStringEncoding] options:0 error:&error];
-        NSArray *results = [json objectForKey:@"results"];
+        NSArray *results = json[@"results"];
 
         NSMutableArray *searchResults = [NSMutableArray array];
         for (NSDictionary *item in results) {

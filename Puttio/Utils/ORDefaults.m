@@ -14,7 +14,7 @@
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSLog(@"%@", NSStringFromSelector(_cmd));
         
-        NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        NSString *appVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
         [defaults setObject:appVersion forKey:ORAppVersion];
         [defaults setBool:YES forKey:ORShowLeftSidebarDefault];
         [defaults setBool:YES forKey:ORShowRightSidebarDefault];

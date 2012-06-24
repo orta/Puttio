@@ -108,11 +108,11 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     if (error.code == 101) {
-        NSString *code = [[error userInfo] objectForKey:@"NSErrorFailingURLStringKey"];
+        NSString *code = [error userInfo][@"NSErrorFailingURLStringKey"];
         NSArray *URLComponents = [code componentsSeparatedByString:@"%3D"];
         
         if (URLComponents.count > 1 && [code hasPrefix: PTCallbackModified]) {            
-            [self getAccessTokenFromOauthCode:[URLComponents objectAtIndex:1]];
+            [self getAccessTokenFromOauthCode:URLComponents[1]];
         }
     }else{
         if (error.code == 102 || error.code == -999) {

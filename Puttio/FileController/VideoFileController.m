@@ -36,12 +36,12 @@
 
     [[PutIOClient sharedClient] getInfoForFile:_file :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
-            fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
-            self.infoController.titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
+            fileSize = [[userInfoObject valueForKeyPath:@"size"][0] intValue];
+            self.infoController.titleLabel.text = [userInfoObject valueForKeyPath:@"name"][0]; 
             self.infoController.fileSizeLabel.text = unitStringFromBytes(fileSize);
             [self.infoController hideProgress];
             
-            NSString *contentType = [[userInfoObject valueForKeyPath:@"content_type"] objectAtIndex:0];
+            NSString *contentType = [userInfoObject valueForKeyPath:@"content_type"][0];
             if ([contentType isEqualToString:@"video/mp4"]) {
                 _isMP4 = YES;
                 [self.infoController enableButtons];
@@ -100,7 +100,7 @@
         
         // Save it
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *documentsDirectory = paths[0];
         NSString *filePath = [documentsDirectory stringByAppendingPathComponent:_file.id];
         NSString *fullPath = [NSString stringWithFormat:@"%@.mp4", filePath];
         [operation.responseData writeToFile:fullPath atomically:YES];
@@ -111,7 +111,7 @@
         assert([[NSFileManager defaultManager] fileExistsAtPath: [fileUrl path]]);
         
         NSError *error = nil;
-        BOOL success = [fileUrl setResourceValue:[NSNumber numberWithBool: YES] forKey:NSURLIsExcludedFromBackupKey error:&error];
+        BOOL success = [fileUrl setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:&error];
         if(!success){
             NSLog(@"Error excluding %@ from backup %@", fileUrl, error);
         }

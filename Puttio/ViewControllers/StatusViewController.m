@@ -135,8 +135,8 @@ typedef enum {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
 
             [[NSUserDefaults standardUserDefaults] setObject:[userInfoObject valueForKeyPath:@"id"] forKey:ORUserIdDefault];
-            NSString *diskQuotaString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota"] objectAtIndex:0];
-            NSString *diskQuotaAvailableString = [[userInfoObject valueForKeyPath:@"response.results.disk_quota_available"] objectAtIndex:0];
+            NSString *diskQuotaString = [userInfoObject valueForKeyPath:@"response.results.disk_quota"][0];
+            NSString *diskQuotaAvailableString = [userInfoObject valueForKeyPath:@"response.results.disk_quota_available"][0];
 
             float quotaPercentage = (float)[diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue];
             self.spaceProgressView.value = quotaPercentage;
@@ -148,7 +148,7 @@ typedef enum {
 
 - (void)addProcess:(BaseProcess *)process {    
     if (!processes) {
-        processes = [NSArray arrayWithObject:process];
+        processes = @[process];
     }else{
         processes = [processes arrayByAddingObject:process];
     }
@@ -167,7 +167,7 @@ typedef enum {
     if (indexPath.section == DisplayTransfers) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
         if (cell) {
-            Transfer *item = [transfers objectAtIndex:indexPath.row];
+            Transfer *item = transfers[indexPath.row];
             ARTransferCell *theCell = (ARTransferCell*)cell;
             theCell.nameLabel.text = item.name;
             theCell.progressView.progress = [item.percentDone floatValue]/100;
@@ -178,7 +178,7 @@ typedef enum {
     if (indexPath.section == DisplayProcesses) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
         if (cell) {
-            BaseProcess *item = [processes objectAtIndex:indexPath.row];
+            BaseProcess *item = processes[indexPath.row];
             ARTransferCell *theCell = (ARTransferCell*)cell;
             theCell.progressView.progress = item.progress;
             theCell.progressView.isLandscape = YES;
@@ -188,7 +188,7 @@ typedef enum {
     if (indexPath.section == DisplayMessages) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell"];
         if (cell) {
-            Message *item = [messages objectAtIndex:indexPath.row];
+            Message *item = messages[indexPath.row];
             ORMessageCell *theCell = (ORMessageCell*)cell;
             theCell.messageLabel.text = item.message;
         }
@@ -258,13 +258,13 @@ typedef enum {
         id item = nil;
         if (section == DisplayTransfers) {
             if (row < transfers.count) {
-                item = [transfers objectAtIndex:row];
+                item = transfers[row];
             }
         }
         
         if (section == DisplayProcesses) {
             if (row < processes.count) {
-                 item = [processes objectAtIndex:row];   
+                 item = processes[row];   
             }
         }
         

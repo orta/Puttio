@@ -65,7 +65,7 @@
 - (void)playbackFinished:(NSNotification*)notification {
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 
-    NSNumber* reason = [[notification userInfo] objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+    NSNumber* reason = [notification userInfo][MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     switch ([reason intValue]) {
         case MPMovieFinishReasonPlaybackError:
             TFLog(@"playbackFinished. Reason: Playback Error");
@@ -98,7 +98,7 @@
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
     MoviePlayer *sharedPlayer = [self sharedPlayer];
-    path = [[path componentsSeparatedByString:@"/atk"] objectAtIndex:0];
+    path = [path componentsSeparatedByString:@"/atk"][0];
     NSString *address = [PutIOClient appendStreamToken:path];
     
     ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];

@@ -89,7 +89,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
         cell.reuseIdentifier = CellIdentifier;
     }
     
-    NSObject <ORDisplayItemProtocol> *item = [_folderItems objectAtIndex:index];
+    NSObject <ORDisplayItemProtocol> *item = _folderItems[index];
     cell.item = item;
     cell.title = item.displayName;
     cell.imageURL = [NSURL URLWithString:item.screenShotURL];
@@ -126,7 +126,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
                 File *file = item;
                 for (WatchedItem *item in list.items) {
                     if ([item.fileID isEqualToString:file.id]) {
-                        file.watched = [NSNumber numberWithBool:YES];;
+                        file.watched = @YES;;
                     }
                 }
             }

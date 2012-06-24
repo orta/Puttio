@@ -50,7 +50,7 @@
         [NSException raise:@"File Info item should conform to ORDisplayItemProtocol" format:@"File Info item should conform to ORDisplayItemProtocol"];
     }
     
-    fileControllers = [NSArray arrayWithObjects:[VideoFileController class], [ComicFileController class], [UnknownFileController class], nil];
+    fileControllers = @[[VideoFileController class], [ComicFileController class], [UnknownFileController class]];
     for (Class <FileController> klass in fileControllers) {
         if ([klass fileSupportedByController: item]) {
             fileController = [klass controller];

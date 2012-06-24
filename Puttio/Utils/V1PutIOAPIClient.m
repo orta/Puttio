@@ -36,10 +36,10 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
     // http://api.put.io/v1/user?method=info&request={"api_key":"YOUR_API_KEY","api_secret":"YOUR_API_SECRET","params":{}} 
 
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:method forKey:@"method"];
+    dict[@"method"] = method;
     NSMutableDictionary *request = [NSMutableDictionary dictionaryWithObjectsAndKeys:[self sharedClient].apiKey, @"api_key", [self sharedClient].apiSecret, @"api_secret", nil];
-    [request setObject:params forKey:@"params"];
-    [dict setObject:[request toJSONString] forKey:@"request"];
+    request[@"params"] = params;
+    dict[@"request"] = [request toJSONString];
     return dict;
 }
 
@@ -69,7 +69,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 }
 
 - (void)getStreamToken {
-    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"acctoken" withParams:[NSDictionary dictionary]];
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"acctoken" withParams:@{}];
     [self getPath:@"user" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             NSLog(@"got new token %@", [responseObject valueForKeyPath:@"response.results.token"]);
@@ -84,7 +84,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
     // no need for params on an info request
-    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionary]];
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"info" withParams:@{}];
     [self getPath:@"user" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             onComplete(responseObject);
@@ -98,7 +98,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
 - (void)getFolderWithID:(NSString *)folderID :(void(^)(id userInfoObject))onComplete {
     // no need for params on an info request
-    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"list" withParams:[NSDictionary dictionaryWithObject:folderID forKey:@"parent_id"]];
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"list" withParams:@{@"parent_id": folderID}];
     [self getPath:@"files" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             onComplete([responseObject valueForKeyPath:@"response.results"]);
@@ -111,7 +111,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 }
 
 - (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete {
-    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"info" withParams:[NSDictionary dictionaryWithObject:file.id forKey:@"id"]];
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"info" withParams:@{@"id": file.id}];
     [self getPath:@"files" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             onComplete([responseObject valueForKeyPath:@"response.results"]);
@@ -124,7 +124,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 }
 
 - (void)getMessages:(void(^)(id userInfoObject))onComplete {
-    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"list" withParams:[NSDictionary dictionary]];
+    NSDictionary *params = [V1PutIOAPIClient paramsForRequestAtMethod:@"list" withParams:@{}];
     [self getPath:@"messages" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject valueForKeyPath:@"error"] boolValue] == NO) {
             
@@ -133,7 +133,7 @@ NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
             if (messages) {
                 for (NSDictionary *messageDict in messages) {
                     Message *message = [[Message alloc] init];
-                    NSString *title = [messageDict objectForKey:@"title"];
+                    NSString *title = messageDict[@"title"];
                     message.message = [title stripHTMLtrimWhiteSpace:YES];
                     [returnedMessages addObject:message];
                 }

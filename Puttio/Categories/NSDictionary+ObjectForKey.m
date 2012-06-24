@@ -11,7 +11,7 @@
 @implementation NSDictionary (ObjectForKey)
 
 - (NSString *)onlyStringForKey:(NSString *)key {
-    id object = [self objectForKey:key];
+    id object = self[key];
     if ([[object class] isSubclassOfClass:[NSString class]]) {
         return object;
     }
@@ -19,7 +19,7 @@
 }
 
 - (NSDictionary *)onlyDictionaryForKey:(NSString *)key {
-    id object = [self objectForKey:key];
+    id object = self[key];
     if ([[object class] isSubclassOfClass:[NSDictionary class]]) {
         return object;
     }
@@ -27,7 +27,7 @@
 }
 
 - (NSArray *)onlyArrayForKey:(NSString *)key {
-    id object = [self objectForKey:key];
+    id object = self[key];
     if ([[object class] isSubclassOfClass:[NSArray class]]) {
         return object;
     }
@@ -35,7 +35,7 @@
 }
 
 - (NSDecimalNumber *)onlyDecimalForKey:(NSString *)key {
-    id object = [self objectForKey:key];
+    id object = self[key];
     if ([[object class] isSubclassOfClass:[NSDecimalNumber class]]) {
         return object;
     }
@@ -47,7 +47,7 @@
 }
 
 - (id)objectForKeyNotNull:(id)key {
-    id object = [self objectForKey:key];
+    id object = self[key];
     if (object == [NSNull null])
         return nil;
     

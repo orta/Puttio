@@ -65,7 +65,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 }
 
 - (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", folder.id, @"parent_id", nil];
+    NSDictionary *params = @{@"oauth_token": self.apiToken, @"parent_id": folder.id};
     [self getPath:@"/v2/files/list" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
@@ -91,33 +91,33 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     NSMutableArray *objects = [NSMutableArray array];
     for (NSDictionary *dictionary in dictionaries) {
         
-        id contentType = [dictionary objectForKey:@"content_type"];
+        id contentType = dictionary[@"content_type"];
         if ( contentType == [NSNull null] || [contentType isEqualToString:@"application/x-directory"]) {
             Folder *folder = [Folder object];
-            folder.id = [[dictionary objectForKey:@"id"] stringValue];
-            folder.name = [dictionary objectForKey:@"name"];
+            folder.id = [dictionary[@"id"] stringValue];
+            folder.name = dictionary[@"name"];
             folder.displayName = [folder.name capitalizedString];
-            folder.screenShotURL =  [dictionary objectForKey:@"icon"];
-            folder.parentID = [[dictionary objectForKey:@"parent_id"] stringValue];
-            folder.size = [NSNumber numberWithInt:0];
+            folder.screenShotURL =  dictionary[@"icon"];
+            folder.parentID = [dictionary[@"parent_id"] stringValue];
+            folder.size = @0;
             folder.parentFolder = parent;
             [objects addObject:folder];
         }else{
             File *file = [File object];
-            file.id = [[dictionary objectForKey:@"id"] stringValue];
-            file.name = [dictionary objectForKey:@"name"];
+            file.id = [dictionary[@"id"] stringValue];
+            file.name = dictionary[@"name"];
             file.displayName = [File createDisplayNameFromName:file.name];
             file.screenShotURL =  [dictionary onlyStringForKey:@"screenshot"];
             if (!file.screenShotURL) {
                 file.screenShotURL =  [dictionary onlyStringForKey:@"icon"];
             }
-            if ([dictionary objectForKey:@"is_mp4_available"] != [NSNull null]) {
-                file.hasMP4 = [NSNumber numberWithBool:YES];
+            if (dictionary[@"is_mp4_available"] != [NSNull null]) {
+                file.hasMP4 = @YES;
             }
             
-            file.contentType =  [dictionary objectForKey:@"content_type"];
-            file.parentID = [[dictionary objectForKey:@"parent_id"] stringValue];
-            file.size = [dictionary objectForKey:@"size"];
+            file.contentType =  dictionary[@"content_type"];
+            file.parentID = [dictionary[@"parent_id"] stringValue];
+            file.size = dictionary[@"size"];
             file.folder = parent;
             
             [objects addObject:file];
@@ -149,11 +149,11 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             if (transfers) {
                 for (NSDictionary *transferDict in transfers) {
                     Transfer *transfer = [[Transfer alloc] init];
-                    transfer.name = [transferDict objectForKey:@"name"];
-                    transfer.downloadSpeed =  [transferDict objectForKey:@"down_speed"];
-                    transfer.percentDone =  [transferDict objectForKey:@"percent_done"];
-                    transfer.estimatedTime = [transferDict objectForKey:@"estimated_time"];
-                    transfer.createdAt = [transferDict objectForKey:@"created_at"];
+                    transfer.name = transferDict[@"name"];
+                    transfer.downloadSpeed =  transferDict[@"down_speed"];
+                    transfer.percentDone =  transferDict[@"percent_done"];
+                    transfer.estimatedTime = transferDict[@"estimated_time"];
+                    transfer.createdAt = transferDict[@"created_at"];
                     transfer.displayName = [File createDisplayNameFromName:transfer.name];
                     [returnedTransfers addObject:transfer];
                 }
@@ -167,7 +167,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 
 - (void)requestDeletionForDisplayItemID:(NSString *)itemID :(void(^)(id userInfoObject))onComplete {
     NSString *path = [NSString stringWithFormat:@"/v2/files/delete?oauth_token=%@", self.apiToken];
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys: itemID, @"file_ids", nil];
+    NSDictionary *params = @{@"file_ids": itemID};
     [self postPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         onComplete(json);
@@ -190,7 +190,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 
 - (void)downloadTorrentOrMagnetURLAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete {
     NSString *address = [NSString stringWithFormat:@"/v2/transfers/add?oauth_token=%@", self.apiToken];
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys: path, @"url", nil];
+    NSDictionary *params = @{@"url": path};
 
     [self postPath:address parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
@@ -206,7 +206,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 #pragma mark internal API gubbins
 
 - (void)genericGetAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.apiToken, @"oauth_token", nil];
+    NSDictionary *params = @{@"oauth_token": self.apiToken};
     [self getPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
         NSError *error= nil;
@@ -228,15 +228,15 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 -(void)apiDidReturn:(id)arrOrDict forRoute:(NSString*)action { 
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
-    if ([self.actionBlocks objectForKey:action]) {
-       BlockWithCallback block = [self.actionBlocks objectForKey:action];
+    if ((self.actionBlocks)[action]) {
+       BlockWithCallback block = (self.actionBlocks)[action];
         block(arrOrDict);
     }
 }
 
 -(void)apiDidFail:(NSError*)error forRoute:(NSString*)action {
-    if ([self.actionBlocks objectForKey:action]) {
-        BlockWithCallback block = [self.actionBlocks objectForKey:action];
+    if ((self.actionBlocks)[action]) {
+        BlockWithCallback block = (self.actionBlocks)[action];
         block(error);
     }
 }

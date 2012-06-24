@@ -27,7 +27,7 @@
 	if (!hasCustomView) {
 		self.customView = nil;
 	}
-	UIView *button = [parentView.subviews objectAtIndex:indexOfView];
+	UIView *button = (parentView.subviews)[indexOfView];
 	return [parentView convertRect:button.frame toView:v];
 }
 

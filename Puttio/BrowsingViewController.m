@@ -126,7 +126,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
 - (void)GMGridView:(GMGridView *)aGridView didTapOnItemAtIndex:(NSInteger)position {
     FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
-    NSObject <ORDisplayItemProtocol> *item = [topFolder.folderItems objectAtIndex:position];   
+    NSObject <ORDisplayItemProtocol> *item = (topFolder.folderItems)[position];   
     if ([self itemIsFolder:item]) {
         Folder *folder = (Folder *)item;
         [self loadFolder:folder];
@@ -139,7 +139,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
 - (void)GMGridView:(GMGridView *)gridView didLongTapOnItemAtIndex:(NSInteger)position {
     FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
-    NSObject <ORDisplayItemProtocol> *item = [topFolder.folderItems objectAtIndex:position];   
+    NSObject <ORDisplayItemProtocol> *item = (topFolder.folderItems)[position];   
     
     UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
     CGRect initialFrame = [topFolder.gridView convertRect:[[topFolder.gridView cellForItemAtIndex:position] frame] toView:rootView];

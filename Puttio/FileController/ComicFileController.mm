@@ -50,8 +50,8 @@ enum ComicType {
     [self.infoController enableButtons];
     [[PutIOClient sharedClient] getInfoForFile:_file :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
-            fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
-            self.infoController.titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
+            fileSize = [[userInfoObject valueForKeyPath:@"size"][0] intValue];
+            self.infoController.titleLabel.text = [userInfoObject valueForKeyPath:@"name"][0]; 
             self.infoController.fileSizeLabel.text = @"";
         }
     }];
@@ -163,7 +163,7 @@ enum ComicType {
     NSError *error = nil;
     NSArray *files = [file contentsOfDirectoryAtPath:extractedFolderPath error:&error];
     if (files.count == 1) {
-        extractedFolderPath = [extractedFolderPath stringByAppendingPathComponent:[files objectAtIndex:0]];
+        extractedFolderPath = [extractedFolderPath stringByAppendingPathComponent:files[0]];
         [self findExtractedFolderWithFiles];
         return;
     }
@@ -198,7 +198,7 @@ enum ComicType {
 }
 
 - (NSString*)photoGallery:(FGalleryViewController*)gallery filePathForPhotoSize:(FGalleryPhotoSize)size atIndex:(NSUInteger)index {
-    return [extractedFolderPath stringByAppendingPathComponent:[comicPages objectAtIndex:index]];
+    return [extractedFolderPath stringByAppendingPathComponent:comicPages[index]];
 }
 
 
