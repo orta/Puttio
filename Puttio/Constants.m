@@ -23,6 +23,8 @@ NSString *const ORStreamTokenDefault = @"ORStreamTokenDefault";
 NSString *const ORAppVersion = @"ORAppVersion";
 NSString *const ORShowLeftSidebarDefault = @"ORShowLeftSidebarDefault";
 NSString *const ORShowRightSidebarDefault = @"ORShowRightSidebarDefault";
+NSString *const ORCurrentSpaceUsedPercentageDefault = @"ORCurrentSpaceUsedPercentageDefault";
+NSString *const ORDiskQuotaAvailableDefault = @"ORDiskQuotaAvailableDefault";
 
 NSString *const ORReloadGridNotification = @"ORReloadGridNotification";
 NSString *const ORReloadFolderNotification = @"ORReloadFolderNotification";

@@ -63,6 +63,8 @@
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
 		6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */; };
+		609719991597531600F9398F /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609719981597531600F9398F /* AccountViewController.m */; };
+		6097199C15975A5900F9398F /* UIDevice+SpaceStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097199B15975A5900F9398F /* UIDevice+SpaceStats.m */; };
 		6098899A158CE29E0077CE35 /* MediaLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = 60988999158CE29E0077CE35 /* MediaLibrary.png */; };
 		609CAE2415853D51000BE57E /* UnknownFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609CAE2315853D51000BE57E /* UnknownFileController.m */; };
 		609CAE2F15856309000BE57E /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 609CAE2715856309000BE57E /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -246,6 +248,10 @@
 		6085D296151BAB230068929C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		6096FC19155FF0B1009C524C /* PutIOOAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOOAuthHelper.h; path = Networking/PutIOOAuthHelper.h; sourceTree = "<group>"; };
 		6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOOAuthHelper.m; path = Networking/PutIOOAuthHelper.m; sourceTree = "<group>"; };
+		609719971597531500F9398F /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountViewController.h; path = ViewControllers/AccountViewController.h; sourceTree = "<group>"; };
+		609719981597531600F9398F /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountViewController.m; path = ViewControllers/AccountViewController.m; sourceTree = "<group>"; };
+		6097199A15975A5800F9398F /* UIDevice+SpaceStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+SpaceStats.h"; path = "Categories/UIDevice+SpaceStats.h"; sourceTree = "<group>"; };
+		6097199B15975A5900F9398F /* UIDevice+SpaceStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+SpaceStats.m"; path = "Categories/UIDevice+SpaceStats.m"; sourceTree = "<group>"; };
 		60988999158CE29E0077CE35 /* MediaLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MediaLibrary.png; sourceTree = "<group>"; };
 		609CAE2115851B64000BE57E /* Putio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Putio.entitlements; path = puttio/Putio.entitlements; sourceTree = "<group>"; };
 		609CAE2215853D51000BE57E /* UnknownFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnknownFileController.h; path = FileController/UnknownFileController.h; sourceTree = "<group>"; };
@@ -602,6 +608,8 @@
 				60001925157D274E00E5FE06 /* ItemDeletionViewController.m */,
 				551FBC5F15855CAD00AEBD31 /* LocalBrowsingViewController.h */,
 				551FBC6015855CAE00AEBD31 /* LocalBrowsingViewController.m */,
+				609719971597531500F9398F /* AccountViewController.h */,
+				609719981597531600F9398F /* AccountViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -713,6 +721,8 @@
 				60C45DCA157C45360059D4B4 /* UINavigationController+ForceRotate.h */,
 				60C45DCB157C45360059D4B4 /* UINavigationController+ForceRotate.m */,
 				600105091525022C005F5B33 /* Protocols */,
+				6097199A15975A5800F9398F /* UIDevice+SpaceStats.h */,
+				6097199B15975A5900F9398F /* UIDevice+SpaceStats.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -972,6 +982,8 @@
 				609FABDC158C83A6000C9B30 /* BaseProcess.m in Sources */,
 				60DBF382158CA5250061F059 /* ConvertToMP4Process.m in Sources */,
 				60DBF385158CA7EE0061F059 /* FileDownloadProcess.m in Sources */,
+				609719991597531600F9398F /* AccountViewController.m in Sources */,
+				6097199C15975A5900F9398F /* UIDevice+SpaceStats.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,6 +1063,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1071,6 +1084,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

@@ -19,8 +19,6 @@
 @property (weak, nonatomic) IBOutlet DCKnob *spaceProgressView;
 @property (weak, nonatomic) IBOutlet DCKnob *spaceProgressBG;
 
-@property (weak, nonatomic) IBOutlet UILabel *spaceLabel;
-
 - (void)setup;
 - (void)addProcess:(BaseProcess *)process;
 

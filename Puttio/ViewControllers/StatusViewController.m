@@ -41,7 +41,7 @@ typedef enum {
 } Display;
 
 @synthesize tableView;
-@synthesize spaceProgressView, spaceProgressBG, spaceLabel;
+@synthesize spaceProgressView, spaceProgressBG;
 
 + (StatusViewController *)sharedController {
     return _sharedController;
@@ -74,6 +74,22 @@ typedef enum {
     self.spaceProgressView.valueArcWidth = 6.0;
     self.spaceProgressView.color = [UIColor putioBlue];
     self.spaceProgressView.backgroundColor = [UIColor clearColor];
+    
+#warning this isnt good enough
+    UITapGestureRecognizer *accountSettingsTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapProgressView:)];
+    [self.spaceProgressView.superview addGestureRecognizer:accountSettingsTapGesture];
+}
+
+- (void)didTapProgressView:(UITapGestureRecognizer*)gesture {
+    
+    NSLog(@"ASDASD");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+    
+    UIViewController *accountVC =  [storyboard instantiateViewControllerWithIdentifier:@"accountView"];
+    
+    popoverController = [[WEPopoverController alloc] initWithContentViewController:accountVC];
+
+    [popoverController presentPopoverFromRect:gesture.view.superview.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
 }
 
 - (void)startTimer {
@@ -139,9 +155,12 @@ typedef enum {
             NSString *diskQuotaAvailableString = [userInfoObject valueForKeyPath:@"response.results.disk_quota_available"][0];
 
             float quotaPercentage = (float)[diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue];
+            
+            [[NSUserDefaults standardUserDefaults] setFloat:quotaPercentage forKey:ORCurrentSpaceUsedPercentageDefault];
+            [[NSUserDefaults standardUserDefaults] setObject:diskQuotaAvailableString forKey:ORDiskQuotaAvailableDefault];
+            
+            
             self.spaceProgressView.value = quotaPercentage;
-
-            self.spaceLabel.text = [NSString stringWithFormat:@"%0.0f%%", (quotaPercentage*100)];
         }
     }];
 }

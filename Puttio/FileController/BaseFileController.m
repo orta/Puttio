@@ -18,6 +18,8 @@
 #import "NSManagedObject+ActiveRecord.h"
 #import "FileDownloadProcess.h"
 
+
+
 @interface BaseFileController (){
     FileDownloadProcess *fileDownloadProcess;
 }
