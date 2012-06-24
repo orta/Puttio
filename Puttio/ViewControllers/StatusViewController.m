@@ -23,7 +23,7 @@ static StatusViewController *_sharedController;
 @interface StatusViewController () {
     NSArray *transfers;
     NSArray *messages;
-    NSArray *processes;
+    NSMutableArray *processes;
     
     CGFloat currentIndex;
     NSTimer *dataLoopTimer;
@@ -148,9 +148,9 @@ typedef enum {
 
 - (void)addProcess:(BaseProcess *)process {    
     if (!processes) {
-        processes = @[process];
+        processes = [@[process] mutableCopy];
     }else{
-        processes = [processes arrayByAddingObject:process];
+        [processes addObject:process];
     }
     [tableView reloadData];
 }
@@ -286,6 +286,11 @@ typedef enum {
 - (void)slidingTableDidEndTouch:(ORSlidingTableView *)table {
     [popoverController dismissPopoverAnimated:YES];
     currentIndex = -1;
+}
+
+- (void)processDidFinish:(BaseProcess *)process {
+    [processes removeObject:process];
+    [tableView reloadSections:[NSIndexSet indexSetWithIndex:DisplayProcesses] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 @end

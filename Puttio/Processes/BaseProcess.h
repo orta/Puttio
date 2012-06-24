@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class BaseProcess;
+@protocol BaseProcessDelegate <NSObject>
+- (void)processDidFinish:(BaseProcess *)process;
+@end
+
 @interface BaseProcess : NSObject
 
 @property (assign) CGFloat progress;
 @property (assign) BOOL finished;
-
+@property (weak) id <BaseProcessDelegate> delegate;
 - (void)start;
 - (void)tick;
 - (void)end;

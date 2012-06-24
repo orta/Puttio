@@ -19,6 +19,4 @@
 
 - (void)setup;
 - (void)reposition;
-- (IBAction)mediaButtonTapped:(id)sender;
-
 @end

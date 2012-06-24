@@ -8,8 +8,6 @@
 
 #import "ORSlidingTableView.h"
 
-static CGFloat SIZE_OF_CELLS = 24;
-
 @interface ORSlidingTableView (){
     BOOL respondsToHeaderHeight;
     BOOL respondsToCellHeight;

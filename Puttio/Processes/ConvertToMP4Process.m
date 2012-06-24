@@ -32,7 +32,6 @@
             
             NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
             if ([status isEqualToString:@"COMPLETED"]) {
-                #warning kill self
                 [self end];
             }
             

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ORSlidingTableView.h"
+#import "BaseProcess.h"
 
-@class ORSimpleProgress, DCKnob, BaseProcess;
-@interface StatusViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ORSlidingTableViewDelegate>
+@class ORSimpleProgress, DCKnob;
+@interface StatusViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ORSlidingTableViewDelegate, BaseProcessDelegate>
 
 + (StatusViewController *)sharedController;
 

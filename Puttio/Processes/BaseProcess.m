@@ -11,6 +11,7 @@
 
 @interface BaseProcess(){
     NSTimer *timer_;
+    int killCount;
 }
 @end
 
@@ -18,7 +19,8 @@
 
 - (id)init {
     if (self = [super init]) {
-        [[StatusViewController sharedController] addProcess:self];
+        [StatusViewController.sharedController addProcess:self];
+        self.delegate = StatusViewController.sharedController;
         [self start];
     }
     return self;
