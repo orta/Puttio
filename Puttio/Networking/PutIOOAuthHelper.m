@@ -38,8 +38,6 @@
     [self loadRootPage];
     _username = username;
     _password = password;
-    
-    NSLog(@"%@ %s\n%@", NSStringFromSelector(_cmd), __FILE__, self);
 }
 
 - (void)getAccessTokenFromOauthCode:(NSString *)code {

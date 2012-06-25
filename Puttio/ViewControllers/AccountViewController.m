@@ -32,14 +32,14 @@
     
     // Space Used on Device
     self.deviceStoredLabel.text = [NSString stringWithFormat:@"Put.io is using %@ on this device", [self getDeviceSpaceUsed]];
-    self.deviceSpaceLeftProgress.progress = 0;
-    self.deviceSpaceLeftProgress.isLandscape = YES;
+    
+    CGFloat progress = [UIDevice numberOfBytesUsedInDocumentsDirectory] / [UIDevice numberOfBytesOnDevice];
+    self.deviceStoredProgress.progress = progress;
+    self.deviceStoredProgress.isLandscape = YES;
     
     // Space Left on Put.io
-//    [[NSUserDefaults standardUserDefaults] setFloat:quotaPercentage forKey:ORCurrentSpaceUsedPercentageDefault];
-//    [[NSUserDefaults standardUserDefaults] setObject:diskQuotaAvailableString forKey:ORDiskQuotaAvailableDefault
      NSString *deviceUsedString = [[NSUserDefaults standardUserDefaults] objectForKey:ORDiskQuotaAvailableDefault];
-    self.accountSpaceLabel.text = [NSString stringWithFormat:@"You are using %@ on the site", deviceUsedString];
+    self.accountSpaceLabel.text = [NSString stringWithFormat:@"You are using %@ on the site", [UIDevice humanStringFromBytes:[deviceUsedString doubleValue]]];
     self.accountSpaceLeftProgress.progress = [[NSUserDefaults standardUserDefaults] doubleForKey:ORCurrentSpaceUsedPercentageDefault];
     self.accountSpaceLeftProgress.isLandscape = YES;
      
@@ -63,6 +63,7 @@
     [defaults removeObjectForKey:AppAuthTokenDefault];
     [defaults removeObjectForKey:APIKeyDefault];
     [defaults removeObjectForKey:APISecretDefault];
+    [defaults synchronize];
     
     #warning not good enough
     self.welcomeAccountLabel.text = @"Logged out please restart App";

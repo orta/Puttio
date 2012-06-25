@@ -159,7 +159,6 @@ typedef enum {
             [[NSUserDefaults standardUserDefaults] setFloat:quotaPercentage forKey:ORCurrentSpaceUsedPercentageDefault];
             [[NSUserDefaults standardUserDefaults] setObject:diskQuotaAvailableString forKey:ORDiskQuotaAvailableDefault];
             
-            
             self.spaceProgressView.value = quotaPercentage;
         }
     }];

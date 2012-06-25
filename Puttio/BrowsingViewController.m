@@ -85,6 +85,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 }
 
 - (void)reloadFolder {
+    if (![PutIOClient.sharedClient ready]) return;
+    
     [[PutIOClient sharedClient] getFolder:currentFolder :^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
             FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
@@ -97,6 +99,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 }
 
 - (void)loadFolder:(Folder *)folder {
+    if (![PutIOClient.sharedClient ready]) return;
+
     currentFolder = folder;
     
     [[PutIOClient sharedClient] getFolder:folder :^(id userInfoObject) {

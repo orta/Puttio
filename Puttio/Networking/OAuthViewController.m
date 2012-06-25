@@ -19,12 +19,9 @@
 @synthesize delegate;
 
 - (void)viewDidLoad {
-    NSLog(@"SADASDASD");
-    
     [super viewDidLoad];
     [self setupShadow];
     self.warningLabel.text = @"";
-    NSLog(@"SADASD");
 }
 
 - (void)setupShadow {

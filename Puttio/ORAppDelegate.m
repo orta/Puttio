@@ -29,7 +29,6 @@
         [ORDefaults registerDefaults];
     }
     
-    NSLog(@"gfchgchgchgchg");
     if([PutIOClient sharedClient].ready){
         [self showApp];
     }else{
@@ -40,7 +39,6 @@
 
 - (void)showApp {
     [[PutIOClient sharedClient] startup];
-    NSLog(@"startup");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     SearchViewController *searchVC = [storyboard instantiateViewControllerWithIdentifier:@"searchView"];
     
@@ -58,7 +56,9 @@
     oauthVC.delegate = self;
     NSLog(@"KK");
     [self.window makeKeyAndVisible];
+    NSLog(@"KD");
     [self.window.rootViewController presentModalViewController:oauthVC animated:YES];
+    NSLog(@"KZ");
 }
 
 - (void)authorizationDidFinishWithController:(OAuthViewController *)controller {
