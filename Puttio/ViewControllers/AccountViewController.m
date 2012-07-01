@@ -25,6 +25,9 @@
 @synthesize deviceSpaceLeftLabel;
 
 - (void)viewWillAppear:(BOOL)animated {
+    // Welcome message
+    self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Welcome %@", [[NSUserDefaults standardUserDefaults] objectForKey:ORUserAccountNameDefault]];
+    
     // Space Left on Device
     self.deviceSpaceLeftLabel.text = [NSString stringWithFormat:@"You have %@ left on this device", [self getSpaceLeft]];
     self.deviceSpaceLeftProgress.progress = [UIDevice numberOfBytesFree] / [UIDevice numberOfBytesOnDevice];

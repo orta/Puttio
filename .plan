@@ -9,4 +9,4 @@ Transfers that failed are not shown, I had gone over the account limit a few tim
 Accounts popover fixed positions, I think it might be prudent to make a function that does show from viewInRootView because I use the same code in artsy
 Looks like file deletion isn't working anyymore
 Still possible to break the navigation stack and replace the root view from home with something else. When that happens there's no way to go back.
-
+Stores account name so we can say "welcome x" on the account popover

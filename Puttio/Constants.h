@@ -25,6 +25,7 @@ extern NSString *const ORShowLeftSidebarDefault;
 extern NSString *const ORShowRightSidebarDefault;
 extern NSString *const ORCurrentSpaceUsedPercentageDefault;
 extern NSString *const ORDiskQuotaAvailableDefault;
+extern NSString *const ORUserAccountNameDefault;
 
 extern NSString *const ORReloadGridNotification;
 extern NSString *const ORReloadFolderNotification;
