@@ -10,7 +10,7 @@
 #import "AFJSONRequestOperation.h"
 #import "NSDictionary+JSON.h"
 
-// http://put.io/v2/docs/
+// https://put.io/v2/docs/
 NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
 @interface V1PutIOAPIClient ()

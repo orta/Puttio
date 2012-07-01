@@ -30,7 +30,7 @@
     [self.infoController showProgress];
     [self.infoController disableButtons];
     
-    NSString *requestURL = [NSString stringWithFormat:@"http://put.io/v2/files/%@/download", _file.id];
+    NSString *requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/download", _file.id];
     [self downloadFileAtPath:requestURL WithCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         downloadedFilepath = [NSTemporaryDirectory() stringByAppendingPathComponent:_file.name];
         [operation.responseData writeToFile:downloadedFilepath atomically:YES];

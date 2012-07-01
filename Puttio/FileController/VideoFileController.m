@@ -62,9 +62,9 @@
 
 - (void)primaryButtonAction:(id)sender {
     if (_isMP4) {
-        [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"http://put.io/v2/files/%@/stream", _file.id]];
+        [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"https://put.io/v2/files/%@/stream", _file.id]];
     }else{
-        [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"http://put.io/v2/files/%@/mp4/stream", _file.id]];
+        [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"https://put.io/v2/files/%@/mp4/stream", _file.id]];
     }
     
     [self markFileAsViewed];
@@ -90,9 +90,9 @@
 - (void)downloadFile {
     NSString *requestURL;
     if (_isMP4) {
-        requestURL = [NSString stringWithFormat:@"http://put.io/v2/files/%@/download", _file.id];   
+        requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/download", _file.id];   
     }else{
-        requestURL = [NSString stringWithFormat:@"http://put.io/v2/files/%@/mp4/download", _file.id];   
+        requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/mp4/download", _file.id];   
     }
 
     [self downloadFileAtPath:requestURL WithCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -11,7 +11,7 @@
 #import "AFNetworking.h"
 #import "PutIONetworkConstants.h"
 
-// http://put.io/v2/docs/#authentication
+// https://put.io/v2/docs/#authentication
 
 // The order of this is
 
@@ -42,7 +42,7 @@
 
 - (void)getAccessTokenFromOauthCode:(NSString *)code {
     // https://api.put.io/v2/oauth2/access_token?client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&grant_type=authorization_code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&code=CODE
-    
+    //
     NSString *address = [NSString stringWithFormat:PTFormatOauthTokenURL, @"10", APP_SECRET, @"authorization_code", PTCallbackOriginal, code];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:address]];

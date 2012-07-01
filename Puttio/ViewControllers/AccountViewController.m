@@ -39,7 +39,7 @@
     
     // Space Left on Put.io
      NSString *deviceUsedString = [[NSUserDefaults standardUserDefaults] objectForKey:ORDiskQuotaAvailableDefault];
-    self.accountSpaceLabel.text = [NSString stringWithFormat:@"You are using %@ on the site", [UIDevice humanStringFromBytes:[deviceUsedString doubleValue]]];
+    self.accountSpaceLabel.text = [NSString stringWithFormat:@"You have %@ left on the site", [UIDevice humanStringFromBytes:[deviceUsedString doubleValue]]];
     self.accountSpaceLeftProgress.progress = [[NSUserDefaults standardUserDefaults] doubleForKey:ORCurrentSpaceUsedPercentageDefault];
     self.accountSpaceLeftProgress.isLandscape = YES;
      

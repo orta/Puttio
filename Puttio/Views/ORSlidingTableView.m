@@ -55,7 +55,7 @@
         }
         
         // loop through all the cells subtracting the height
-        for (cellIndex = 0; cellIndex < cellCount - 1; cellIndex++) {
+        for (cellIndex = 0; cellIndex < cellCount; cellIndex++) {
             fingerY -= cellHeight;
             if (fingerY < 0) break;
         }
@@ -77,6 +77,5 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.slidingDelegate slidingTableDidEndTouch:self];
 }
-
 
 @end

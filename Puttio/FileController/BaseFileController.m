@@ -43,7 +43,6 @@
 -(NSString *)descriptiveTextForFile { return @"NO TEXT SET"; }
 
 - (void)getInfoWithBlock:(void(^)(id infoObject))onComplete {
-    NSLog(@"info!");
 //    [[PutIOClient sharedClient] getInfoForFile:_file :^(id userInfoObject) {
 //        NSLog(@"asdafsfAF");
 //        if (![userInfoObject isMemberOfClass:[NSError class]]) {

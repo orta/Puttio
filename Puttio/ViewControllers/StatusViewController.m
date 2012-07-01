@@ -81,15 +81,14 @@ typedef enum {
 }
 
 - (void)didTapProgressView:(UITapGestureRecognizer*)gesture {
-    
-    NSLog(@"ASDASD");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     
     UIViewController *accountVC =  [storyboard instantiateViewControllerWithIdentifier:@"accountView"];
     
     popoverController = [[WEPopoverController alloc] initWithContentViewController:accountVC];
-
-    [popoverController presentPopoverFromRect:gesture.view.superview.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+    UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    [popoverController presentPopoverFromRect:[rootController.view convertRect:gesture.view.frame fromView:gesture.view.superview] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
 }
 
 - (void)startTimer {
@@ -125,6 +124,8 @@ typedef enum {
     NSDate *threeDaysAgo = [calendar dateByAddingComponents:minusDaysComponents toDate:today options:0];
     
     for (Transfer *transfer in inTransfers) {
+        if (transfer.status == TransferStatusERROR) continue;
+        
         if (transfer.percentDone.intValue != 100) {
             [newTransfers addObject:transfer];
         }else{    

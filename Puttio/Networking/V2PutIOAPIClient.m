@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-// http://put.io/v2/docs/
+// https://put.io/v2/docs/
 
 #import "V2PutIOAPIClient.h"
 #import "PutIONetworkConstants.h"
@@ -28,7 +28,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 @synthesize apiToken, actionBlocks;
 
 + (id)setup {
-    V2PutIOAPIClient *api = [[V2PutIOAPIClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.put.io/"]];
+    V2PutIOAPIClient *api = [[V2PutIOAPIClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.put.io/"]];
                           
     if (api) {
         [[NSNotificationCenter defaultCenter] addObserver:api 
@@ -155,6 +155,11 @@ typedef void (^BlockWithCallback)(id userInfoObject);
                     transfer.estimatedTime = transferDict[@"estimated_time"];
                     transfer.createdAt = transferDict[@"created_at"];
                     transfer.displayName = [File createDisplayNameFromName:transfer.name];
+                    if (transferDict[@"error_message"] != [NSNull null]) {
+                        transfer.status = TransferStatusERROR;
+                    }else {
+                        transfer.status = TransferStatusOK;
+                    }
                     [returnedTransfers addObject:transfer];
                 }
             }
