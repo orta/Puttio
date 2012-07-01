@@ -1,0 +1,12 @@
+
+July 1 2012
+
+unRARing possibly broke.
+Put.IO broke and now only uses HTTPS. 
+Support native m4v there's your simpsons support.
+The sliding table view now lets you select all of the items, looks like I was off by a fence post error.
+Transfers that failed are not shown, I had gone over the account limit a few times.
+Accounts popover fixed positions, I think it might be prudent to make a function that does show from viewInRootView because I use the same code in artsy
+Looks like file deletion isn't working anyymore
+Still possible to break the navigation stack and replace the root view from home with something else. When that happens there's no way to go back.
+
