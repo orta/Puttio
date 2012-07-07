@@ -216,6 +216,8 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:ORLoggedOutDefault]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:ORLoggedOutDefault];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         exit(YES);
     }
 }

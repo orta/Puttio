@@ -5,7 +5,7 @@ I've spent some time thinking about the background processes, and now only actua
 Added a reload folder button, I think it's got a nice aesthetic and doesn't detract from the title, works too, magic.
 New folder icons - looks much more polished now
 Awesome, killed off that really annoying "what folder is this?" bug where your root folder could change to some random folder that you've visited before effectively killing your ability to navigate.
-
+I was sitting at the giant whiteboard in my office talking to @dbgrandi about how to make the login screen awesome, and we spent a bit of time thinking about the kinds of metaphors that we're working with in put.io and he gave this amazing idea which is the current login background which is based off the torrent pieces grid that's normally used in clients. I've toyed before with core animation in Mixtapes but pulling this one off was a bit easier. I think its a great introduction to the app. I also fixed all the annoyances in setting up ( until now it required a restart after logging in) and on that subject I came up with a nice way to deal with logging out. I essentially ask them to to hit the home button, and instead of backgrounding we kill the app. Then it reloads naturally, I doubt that logging in and out is something people'll do a lot so this is useful.
 July 2nd
 July 1 2012
 
