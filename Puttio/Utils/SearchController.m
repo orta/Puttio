@@ -14,6 +14,7 @@ static SearchController *sharedInstance;
 @interface SearchController ()
 + (void)searchISOHunt:(NSString *)query;
 + (void)searchMininova:(NSString *)query;
++ (void)searchFenopy:(NSString *)query;
 @end
 
 @implementation SearchController
@@ -33,6 +34,32 @@ static SearchController *sharedInstance;
     query = [query stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];    
     [self searchISOHunt:query];
     [self searchMininova:query];
+    [self searchFenopy:query];
+}
+
++ (void)searchFenopy:(NSString *)query {
+    NSString *address = [NSString stringWithFormat:@"http://fenopy.eu/module/search/api.php?keyword=%@&format=json", query];
+    NSURL *url = [NSURL URLWithString:address];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, id responseObject) {
+        NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
+        NSError *error = nil;
+        NSArray *results = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSASCIIStringEncoding] options:0 error:&error];
+
+        NSMutableArray *searchResults = [NSMutableArray array];
+        for (NSDictionary *dictionary in results) {
+            SearchResult * searchResult = [SearchResult resultWithFenopyDictionary:dictionary];
+            [searchResults addObject:searchResult];
+        }
+        [self passArrayToDelegate:searchResults];
+            
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"fail whale fenopy %@", error);
+
+    }];
+    [operation start];
 }
 
 + (void)searchISOHunt:(NSString *)query {
@@ -48,15 +75,7 @@ static SearchController *sharedInstance;
         
         NSMutableArray *searchResults = [NSMutableArray array];
         for (NSDictionary *item in results) {
-            //        seedersCount, peersCount, hostName, torrentURL, magenetURL, name, ranking, size;
-            SearchResult *result = [[SearchResult alloc] init];
-            result.seedersCount = [[item valueForKeyPath:@"Seeds"] intValue];
-            result.peersCount = [[item valueForKeyPath:@"leechers"] intValue];
-            result.torrentURL = [item valueForKeyPath:@"enclosure_url"];
-            NSString *title = [item valueForKeyPath:@"title"];
-            result.name = [title stripHTMLtrimWhiteSpace:YES];
-            result.hostName = [item valueForKeyPath:@"original_site"];
-            result.sizeString = [item valueForKeyPath:@"size"];
+            SearchResult *result = [SearchResult resultWithISOHuntDictionary:item];
             [searchResults addObject:result];
         }
         [self passArrayToDelegate:searchResults];
@@ -84,14 +103,7 @@ static SearchController *sharedInstance;
 
         NSMutableArray *searchResults = [NSMutableArray array];
         for (NSDictionary *item in results) {
-            SearchResult *result = [[SearchResult alloc] init];
-            result.seedersCount = [[item valueForKeyPath:@"seeds"] intValue];
-            result.peersCount = [[item valueForKeyPath:@"peers"] intValue];
-            result.torrentURL = [item valueForKeyPath:@"download"];
-            result.size = [[item valueForKeyPath:@"size"] intValue];
-            NSString *title = [item valueForKeyPath:@"title"];
-            result.name = [title stripHTMLtrimWhiteSpace:YES];
-            result.hostName = @"mininova.org";
+            SearchResult *result = [SearchResult resultWithMininovaDictionary:item];
             [searchResults addObject:result];
         }
         [self passArrayToDelegate:searchResults];

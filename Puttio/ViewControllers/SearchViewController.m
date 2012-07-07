@@ -111,10 +111,10 @@
         if ([obj1 ranking] == [obj2 ranking]) {
             return 0;
         }
-        if ([obj1 ranking] > [obj2 ranking]) {
+        if ([obj1 ranking] < [obj2 ranking]) {
             return 1;
         }
-        if ([obj1 ranking] < [obj2 ranking]) {
+        if ([obj1 ranking] > [obj2 ranking]) {
             return -1;
         }
         return 0;

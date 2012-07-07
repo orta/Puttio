@@ -1,4 +1,9 @@
+July 7th
+Search results from fenopy are now in, all went pretty smooth and it was a good move to make the SearchResult handle the dictionary instead of the search results controller. Also, turns out this entire time we'd been doing the rankings backwards. so now it's ordered correctly.
+I wrote down my TODO before v1 release on a whieboard, and it fills it. Sigh. Gonna really put a dint in it this weekend.
 
+
+July 2nd
 July 1 2012
 
 unRARing possibly broke.

@@ -25,4 +25,8 @@
 - (void)generateRanking;
 - (NSString *)representedPath;
 - (NSString *)representedSize;
+
++ (SearchResult *)resultWithMininovaDictionary: (NSDictionary *)item;
++ (SearchResult *)resultWithISOHuntDictionary: (NSDictionary *)item;
++ (SearchResult *)resultWithFenopyDictionary: (NSDictionary *)item;
 @end
