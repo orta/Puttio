@@ -18,8 +18,6 @@
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
-		601205391538CF2600052D89 /* mininova.json in Resources */ = {isa = PBXBuildFile; fileRef = 601205381538CF2600052D89 /* mininova.json */; };
-		6012053B1538CF5600052D89 /* isohunt.json in Resources */ = {isa = PBXBuildFile; fileRef = 6012053A1538CF5600052D89 /* isohunt.json */; };
 		6026A043157B5B9F0031509D /* NSDate+StringParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A042157B5B9F0031509D /* NSDate+StringParsing.m */; };
 		6026A06B157BEA0F0031509D /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A061157BEA0F0031509D /* GMGridView.m */; };
 		6026A06C157BEA0F0031509D /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A063157BEA0F0031509D /* GMGridViewCell.m */; };
@@ -166,8 +164,6 @@
 		600641FE151F24C100EF85F9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ViewControllers/SearchViewController.m; sourceTree = "<group>"; };
 		60064200151F24CD00EF85F9 /* BrowsingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowsingViewController.h; sourceTree = "<group>"; };
 		60064201151F24CD00EF85F9 /* BrowsingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingViewController.m; sourceTree = "<group>"; };
-		601205381538CF2600052D89 /* mininova.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mininova.json; sourceTree = "<group>"; };
-		6012053A1538CF5600052D89 /* isohunt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isohunt.json; sourceTree = "<group>"; };
 		6026A041157B5B9F0031509D /* NSDate+StringParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+StringParsing.h"; path = "Categories/NSDate+StringParsing.h"; sourceTree = "<group>"; };
 		6026A042157B5B9F0031509D /* NSDate+StringParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+StringParsing.m"; path = "Categories/NSDate+StringParsing.m"; sourceTree = "<group>"; };
 		6026A05F157BEA0F0031509D /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GMGridView-Constants.h"; path = "GMGridView/GMGridView-Constants.h"; sourceTree = "<group>"; };
@@ -455,8 +451,6 @@
 				60FFFB4615A85F2600DB7668 /* RefreshButton.png */,
 				60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */,
 				60988999158CE29E0077CE35 /* MediaLibrary.png */,
-				601205381538CF2600052D89 /* mininova.json */,
-				6012053A1538CF5600052D89 /* isohunt.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -870,8 +864,6 @@
 				6085D23D151B99490068929C /* MainStoryboard.storyboard in Resources */,
 				60F023861528AB55003491E4 /* icon72.png in Resources */,
 				60F023881528AB5F003491E4 /* icon144.png in Resources */,
-				601205391538CF2600052D89 /* mininova.json in Resources */,
-				6012053B1538CF5600052D89 /* isohunt.json in Resources */,
 				609CAE4115856336000BE57E /* popoverArrowDown.png in Resources */,
 				609CAE4215856336000BE57E /* popoverArrowDown@2x.png in Resources */,
 				609CAE4415856336000BE57E /* popoverArrowLeft.png in Resources */,
