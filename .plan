@@ -3,6 +3,8 @@ Search results from fenopy are now in, all went pretty smooth and it was a good 
 I wrote down my TODO before v1 release on a whieboard, and it fills it. Sigh. Gonna really put a dint in it this weekend.
 I've spent some time thinking about the background processes, and now only actual downloads to your media library get them. 
 Added a reload folder button, I think it's got a nice aesthetic and doesn't detract from the title, works too, magic.
+New folder icons - looks much more polished now
+Awesome, killed off that really annoying "what folder is this?" bug where your root folder could change to some random folder that you've visited before effectively killing your ability to navigate.
 
 July 2nd
 July 1 2012

@@ -87,15 +87,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 - (void)reloadFolder {
     if (![PutIOClient.sharedClient ready]) return;
     
-    [[PutIOClient sharedClient] getFolder:currentFolder :^(id userInfoObject) {
-        if (![userInfoObject isKindOfClass:[NSError class]]) {
-            FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
-            
-            topFolder.folderItems = (NSArray *)userInfoObject;
-            topFolder.folder = currentFolder;
-            topFolder.browsingViewController = self;
-        }
-    }];
+    FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
+    [topFolder reloadItemsFromServer];
 }
 
 - (void)loadFolder:(Folder *)folder {
@@ -119,11 +112,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
                 [self setupNavWithFolderVC:folderGrid];
             }
         }else {
-            NSError *error = (NSError *)userInfoObject;
-            // offline error code
-//            if (error.code == -1009) {
-                [self isOffline];
-//            }
+            [self isOffline];
         }
     }];
 }

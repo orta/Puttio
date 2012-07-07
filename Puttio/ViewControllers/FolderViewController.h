@@ -12,9 +12,10 @@
 @class BrowsingViewController;
 @interface FolderViewController : UIViewController <GMGridViewDataSource>
 
-@property (strong) Folder *folder;
-@property (strong) NSArray *folderItems;
+@property (nonatomic, strong) Folder *folder;
+@property (nonatomic, strong) NSArray *folderItems;
 @property (strong) GMGridView *gridView;
 @property (weak) BrowsingViewController *browsingViewController;
 
+- (void)reloadItemsFromServer;
 @end

@@ -40,18 +40,16 @@
 }
 
 - (IBAction)deleteTapped:(id)sender {
-    if ([self.item isMemberOfClass:[File class]]) {
+    if ([self.item isMemberOfClass:[LocalFile class]]) {
+        LocalFile *file = (LocalFile *)self.item;
+        [file deleteItem];
+        [ModalZoomView fadeOutViewAnimated:YES];
+    }else{
         [self disableButtons];
         [[PutIOClient sharedClient] requestDeletionForDisplayItemID:_item.id :^(id userInfoObject) {
             [self enableButtons];
             [ModalZoomView fadeOutViewAnimated:YES];
         }];
-    }
-    
-    if ([self.item isMemberOfClass:[LocalFile class]]) {
-        LocalFile *file = (LocalFile *)self.item;
-        [file deleteItem];
-        [ModalZoomView fadeOutViewAnimated:YES];
     }
 }
 

@@ -171,6 +171,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 }
 
 - (void)requestDeletionForDisplayItemID:(NSString *)itemID :(void(^)(id userInfoObject))onComplete {
+    
     NSString *path = [NSString stringWithFormat:@"/v2/files/delete?oauth_token=%@", self.apiToken];
     NSDictionary *params = @{@"file_ids": itemID};
     [self postPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -186,7 +187,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 - (void)requestMP4ForFile:(File*)file {
     NSString *path = [NSString stringWithFormat:@"/v2/files/%@/mp4?oauth_token=%@", file.id, self.apiToken];
     [self postPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        NSLog(@"requested MP for %@", file.name);
     }
     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
        NSLog(@"failure in requesting MP4 %@", error);
@@ -228,22 +229,6 @@ typedef void (^BlockWithCallback)(id userInfoObject);
         NSLog(@"failure!");
       onComplete(error);        
     }];
-}
-
--(void)apiDidReturn:(id)arrOrDict forRoute:(NSString*)action { 
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-    
-    if ((self.actionBlocks)[action]) {
-       BlockWithCallback block = (self.actionBlocks)[action];
-        block(arrOrDict);
-    }
-}
-
--(void)apiDidFail:(NSError*)error forRoute:(NSString*)action {
-    if ((self.actionBlocks)[action]) {
-        BlockWithCallback block = (self.actionBlocks)[action];
-        block(error);
-    }
 }
 
 - (BOOL)ready {

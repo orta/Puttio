@@ -13,40 +13,20 @@
 #import "WatchedItem.h"
 #import "NSManagedObject+ActiveRecord.h"
 
-@interface FolderViewController (){
-    Folder *_folder;
-    NSArray *_folderItems;
-}
-@end
-
 const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 
 @implementation FolderViewController
 
-@dynamic folder, folderItems;
-@synthesize gridView, browsingViewController;
-
-#pragma mark -
-#pragma mark Properties
-
 - (void)setFolder:(Folder *)folder {
     _folder = folder;
-    [gridView reloadData];
+    [_gridView reloadData];
 }
 
 - (void)setFolderItems:(NSArray *)folderItems {
     _folderItems = folderItems;
     [self checkForWatched];
     [self orderItems];
-    [gridView reloadData];
-}
-
-- (NSArray *)folderItems {
-    return  _folderItems;
-}
-
-- (Folder *)folder {
-    return _folder;
+    [_gridView reloadData];
 }
 
 #pragma mark -
@@ -55,19 +35,19 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 - (void)loadView {
     CGRect frame = CGRectMake(0, 0, 400, 400);
     
-    gridView = [[GMGridView alloc] initWithFrame:frame];
-    gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    gridView.autoresizesSubviews = YES;
-    gridView.actionDelegate = browsingViewController;
-    gridView.dataSource = self;
-    gridView.clipsToBounds = YES;
-    gridView.userInteractionEnabled = YES;
-    gridView.backgroundColor = [UIColor whiteColor];
-    gridView.showsHorizontalScrollIndicator = NO;
-    gridView.contentInset = UIEdgeInsetsZero;
-    gridView.accessibilityLabel = @"GridView";
+    _gridView = [[GMGridView alloc] initWithFrame:frame];
+    _gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _gridView.autoresizesSubviews = YES;
+    _gridView.actionDelegate = _browsingViewController;
+    _gridView.dataSource = self;
+    _gridView.clipsToBounds = YES;
+    _gridView.userInteractionEnabled = YES;
+    _gridView.backgroundColor = [UIColor whiteColor];
+    _gridView.showsHorizontalScrollIndicator = NO;
+    _gridView.contentInset = UIEdgeInsetsZero;
+    _gridView.accessibilityLabel = @"GridView";
     
-    self.view = gridView;
+    self.view = _gridView;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadGrid) name:ORReloadGridNotification object:nil];
 }
@@ -76,7 +56,7 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 #pragma mark GridView DataSource Methods
 
 - (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView {
-    return [_folderItems count];
+    return _folderItems.count;
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)aGridView cellForItemAtIndex:(NSInteger)index {
@@ -141,6 +121,14 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
 - (void)orderItems {
     _folderItems = [_folderItems sortedArrayUsingComparator:^(NSObject <ORDisplayItemProtocol>* a, NSObject <ORDisplayItemProtocol>* b) { 
         return [a.name localizedStandardCompare:b.name];
+    }];
+}
+
+- (void)reloadItemsFromServer {
+    [[PutIOClient sharedClient] getFolder:self.folder :^(id userInfoObject) {
+        if (![userInfoObject isKindOfClass:[NSError class]]) {
+            self.folderItems = (NSArray *)userInfoObject;
+        }
     }];
 }
 
