@@ -54,16 +54,17 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     OAuthViewController *oauthVC = [storyboard instantiateViewControllerWithIdentifier:@"oauthView"];
     oauthVC.delegate = self;
-    NSLog(@"KK");
     [self.window makeKeyAndVisible];
-    NSLog(@"KD");
-    [self.window.rootViewController presentModalViewController:oauthVC animated:YES];
-    NSLog(@"KZ");
+    [self.window.rootViewController presentModalViewController:oauthVC animated:NO];
 }
 
 - (void)authorizationDidFinishWithController:(OAuthViewController *)controller {
     [self.window.rootViewController dismissModalViewControllerAnimated:YES];
     [self showApp];
+
+    UINavigationController *rootNav = (UINavigationController*)self.window.rootViewController;
+    BrowsingViewController *canvas = (BrowsingViewController *)rootNav.topViewController;
+    [canvas setupRootFolder];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIView *loginViewWrapper;
 @property (strong, nonatomic) IBOutlet PutIOOAuthHelper *authHelper;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 
 - (IBAction)loginPressed:(id)sender;

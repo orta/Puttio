@@ -27,7 +27,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     // Welcome message
-    self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Welcome %@", [[NSUserDefaults standardUserDefaults] objectForKey:ORUserAccountNameDefault]];
+    self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Hey there, %@", [[NSUserDefaults standardUserDefaults] objectForKey:ORUserAccountNameDefault]];
     
     // Space Left on Device
     self.deviceSpaceLeftLabel.text = [NSString stringWithFormat:@"You have %@ left on this device", [self getSpaceLeft]];
@@ -35,7 +35,7 @@
     self.deviceSpaceLeftProgress.isLandscape = YES;
     
     // Space Used on Device
-    self.deviceStoredLabel.text = [NSString stringWithFormat:@"Put.io is using %@ on this device", [self getDeviceSpaceUsed]];
+    self.deviceStoredLabel.text = [NSString stringWithFormat:@"This app is using %@", [self getDeviceSpaceUsed]];
     
     CGFloat progress = [UIDevice numberOfBytesUsedInDocumentsDirectory] / [UIDevice numberOfBytesOnDevice];
     self.deviceStoredProgress.progress = progress;

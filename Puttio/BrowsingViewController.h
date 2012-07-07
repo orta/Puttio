@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIView *offlineView;
 
+- (void)setupRootFolder;
 - (IBAction)backPressed:(id)sender;
 - (IBAction)reloadPressed:(id)sender;
-
 @end

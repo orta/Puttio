@@ -84,9 +84,9 @@
         [defaults setObject:apiKey forKey:APIKeyDefault];
         [defaults setObject:apiSecret forKey:APISecretDefault];
         [defaults synchronize];
-        
     }else{
-        NSLog(@"HTML Syntax changed!");
+        NSString *error = [NSString stringWithFormat:@"WebView not acting as expected %@", error];
+        [self.delegate authHelperLoginFailedWithDesription:error];
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:V1TokensWereSavedNotification object:nil userInfo:nil];
@@ -97,7 +97,8 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {    
     // after you log in, it redrects to root, we actually want it 
-    if ([[request.URL absoluteString] isEqualToString: PTRootURL]) {
+    if ([[request.URL absoluteString] isEqualToString: PTRootURL] ||
+        [[request.URL absoluteString] hasPrefix: @"https://put.io/search"]) {
         [self loadAuthPage];
         return NO;
     }

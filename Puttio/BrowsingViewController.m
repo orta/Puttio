@@ -34,6 +34,12 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFolder) name:ORReloadFolderNotification object:nil];
     
+    if ([PutIOClient sharedClient].ready) {
+        [self setupRootFolder];
+    }
+}
+
+- (void)setupRootFolder {
     Folder *rootFolder = [Folder object];
     rootFolder.id = @"0";
     rootFolder.name = @"Home";

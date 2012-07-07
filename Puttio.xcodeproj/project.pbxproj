@@ -123,6 +123,7 @@
 		60FFFB4A15A85F2700DB7668 /* RefreshButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */; };
 		60FFFB4E15A86B3C00DB7668 /* Folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4C15A86B3C00DB7668 /* Folder.png */; };
 		60FFFB4F15A86B3C00DB7668 /* Folder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4D15A86B3C00DB7668 /* Folder@2x.png */; };
+		60FFFB5215A8CBF400DB7668 /* TorrentLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FFFB5115A8CBF400DB7668 /* TorrentLikeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +355,8 @@
 		60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RefreshButton@2x.png"; sourceTree = "<group>"; };
 		60FFFB4C15A86B3C00DB7668 /* Folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Folder.png; sourceTree = "<group>"; };
 		60FFFB4D15A86B3C00DB7668 /* Folder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder@2x.png"; sourceTree = "<group>"; };
+		60FFFB5015A8CBF400DB7668 /* TorrentLikeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentLikeView.h; path = Views/TorrentLikeView.h; sourceTree = "<group>"; };
+		60FFFB5115A8CBF400DB7668 /* TorrentLikeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentLikeView.m; path = Views/TorrentLikeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,6 +407,8 @@
 				60FE125D156C29DC000A0EB4 /* ORFlatButton.m */,
 				60C45D5A157C16750059D4B4 /* ORSlidingTableView.h */,
 				60C45D5B157C16750059D4B4 /* ORSlidingTableView.m */,
+				60FFFB5015A8CBF400DB7668 /* TorrentLikeView.h */,
+				60FFFB5115A8CBF400DB7668 /* TorrentLikeView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -980,6 +985,7 @@
 				60DBF385158CA7EE0061F059 /* FileDownloadProcess.m in Sources */,
 				609719991597531600F9398F /* AccountViewController.m in Sources */,
 				6097199C15975A5900F9398F /* UIDevice+SpaceStats.m in Sources */,
+				60FFFB5215A8CBF400DB7668 /* TorrentLikeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

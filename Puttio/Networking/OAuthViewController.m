@@ -11,17 +11,16 @@
 #import "PutIOOAuthHelper.h"
 
 @implementation OAuthViewController
-@synthesize usernameTextfield, passwordTextfield;
-@synthesize warningLabel;
-@synthesize loginViewWrapper, loginButton;
-@synthesize authHelper;
-@synthesize activityView;
-@synthesize delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupShadow];
     self.warningLabel.text = @"";
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.usernameTextfield becomeFirstResponder];
 }
 
 - (void)setupShadow {
@@ -42,6 +41,7 @@
     [self setLoginViewWrapper:nil];
     [self setLoginButton:nil];
     [self setActivityView:nil];
+    [self setWebView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -57,21 +57,33 @@
     [self.activityView startAnimating];
     self.warningLabel.text = @"";
     
-    [authHelper loginWithUsername:usernameTextfield.text andPassword:passwordTextfield.text];
+    [_authHelper loginWithUsername:_usernameTextfield.text andPassword:_passwordTextfield.text];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)aTextField {
+    if ([aTextField isEqual:_usernameTextfield]) {
+        [_passwordTextfield becomeFirstResponder];
+    }
+    else {
+        [self loginPressed:self];
+    }
+    return YES;
+}
+
+
 - (void)authHelperDidLogin:(PutIOOAuthHelper *)helper {
-    if([delegate respondsToSelector:@selector(authorizationDidFinishWithController:)]){
-        [delegate authorizationDidFinishWithController:self];
+    if([_delegate respondsToSelector:@selector(authorizationDidFinishWithController:)]){
+        [_delegate authorizationDidFinishWithController:self];
     }
 }
 
 - (void)authHelperLoginFailedWithDesription:(NSString *)errorDescription {
     self.warningLabel.text = errorDescription;
-    [self.loginButton setEnabled:YES];
-    [self.usernameTextfield setEnabled:YES];
-    [self.passwordTextfield setEnabled:YES];
-    [self.activityView stopAnimating];
+    self.loginButton.enabled = YES;
+    self.usernameTextfield.enabled = YES;
+    self.passwordTextfield.enabled = YES;
+    self.webView.hidden = NO;
+    [self.activityView stopAnimating];    
 }
 
 @end

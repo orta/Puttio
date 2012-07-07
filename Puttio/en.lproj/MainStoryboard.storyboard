@@ -779,20 +779,17 @@
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView hidden="YES" contentMode="scaleToFill" scalesPageToFit="YES" id="vzR-Xs-Iu9">
-                                <rect key="frame" x="260" y="495" width="504" height="248"/>
+                            <view contentMode="scaleToFill" id="fYD-U6-VkC" customClass="TorrentLikeView">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kuB-Ee-JBF" id="KC9-uR-IRO"/>
-                                </connections>
-                            </webView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="RTs-9t-64d">
-                                <rect key="frame" x="260" y="32" width="504" height="455"/>
+                                <rect key="frame" x="260" y="157" width="504" height="264"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="itN-bJ-ed3">
-                                        <rect key="frame" x="20" y="61" width="464" height="374"/>
+                                        <rect key="frame" x="20" y="61" width="464" height="203"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" id="eU6-zT-B2t">
@@ -800,12 +797,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="gND-ap-Oq0" id="Yho-wi-eT0"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" id="7qr-I8-ulE">
                                                 <rect key="frame" x="90" y="89" width="284" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="gND-ap-Oq0" id="qbl-dc-xLm"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Huw-f5-DTe" customClass="ORFlatButton">
                                                 <rect key="frame" x="291" y="143" width="83" height="33"/>
@@ -860,8 +863,16 @@ Message</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <webView hidden="YES" opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" id="vzR-Xs-Iu9">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kuB-Ee-JBF" id="KC9-uR-IRO"/>
+                                </connections>
+                            </webView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="0.87237682481751821" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -874,6 +885,7 @@ Message</string>
                         <outlet property="passwordTextfield" destination="7qr-I8-ulE" id="UeA-O1-aYA"/>
                         <outlet property="usernameTextfield" destination="eU6-zT-B2t" id="Jac-y1-Suk"/>
                         <outlet property="warningLabel" destination="P60-EY-4Xo" id="Kw1-bf-PYa"/>
+                        <outlet property="webView" destination="vzR-Xs-Iu9" id="H4h-jK-WFu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pj6-ce-7og" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -971,6 +983,7 @@ Message</string>
                 <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameTextfield" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="warningLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="ORFlatButton" superclassName="UIButton">
@@ -1029,6 +1042,9 @@ Message</string>
                 <relationship kind="outlet" name="spaceProgressView" candidateClass="DCKnob"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
+        </class>
+        <class className="TorrentLikeView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TorrentLikeView.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
