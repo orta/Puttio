@@ -33,12 +33,14 @@
 
 - (void)tick {
     if (self.finished) {
-        [self.delegate processDidFinish:self];
+        [self end];
     }
 }
 
 - (void)end {
+    self.finished = 1;
     [timer_ invalidate];
+    [self.delegate processDidFinish:self];
 }
 
 - (NSString *)primaryDescription {

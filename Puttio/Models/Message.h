@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface Message : NSObject
-@property (strong) NSString *message;
+@property  NSString *message;
 @end

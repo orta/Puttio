@@ -140,6 +140,20 @@
         theCell.fileNameLabel.text = item.name;
         theCell.fileSizeLabel.text = item.representedSize;
         theCell.seedersLabel.text = [NSString stringWithFormat:@"%i seeders", item.seedersCount];
+        
+        switch (item.selectedState) {
+            case SearchResultNormal:
+                break;
+            case SearchResultFailed:
+                [theCell userHasFailedToAddFile];
+                break;
+            case SearchResultSending:
+                [theCell userHasSelectedFile];
+                break;
+            case SearchResultSent:
+                [theCell userHasAddedFile];
+                break;
+        }
     }    
     return cell;
 }
@@ -155,14 +169,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SearchResult *result = searchResults[indexPath.row];
     PutIOClient *client = [PutIOClient sharedClient];
-    [client downloadTorrentOrMagnetURLAtPath:[result representedPath] :^(id userInfoObject) {
-        ORSearchCell *cell = (ORSearchCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    result.selectedState = SearchResultSending;
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
+    [client downloadTorrentOrMagnetURLAtPath:[result representedPath] :^(id userInfoObject) {              
         if ([userInfoObject isMemberOfClass:[NSError class]]) {
-            [cell userHasFailedToAddFile];
+            result.selectedState = SearchResultFailed;
         }else {
-            [cell userHasAddedFile];
+            result.selectedState = SearchResultSent;
         }
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }];    
 }
 

@@ -37,7 +37,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Foo / Bar" autoshrinkMode="minimumFontSize" id="qfh-cM-XrR">
-                                        <rect key="frame" x="20" y="4" width="801" height="80"/>
+                                        <rect key="frame" x="20" y="4" width="806" height="80"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <nil key="highlightedColor"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -144,7 +144,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Foo / Bar" autoshrinkMode="minimumFontSize" id="JrK-XH-B8K">
-                                        <rect key="frame" x="19" y="3" width="321" height="38"/>
+                                        <rect key="frame" x="20" y="3" width="361" height="38"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <nil key="highlightedColor"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -276,22 +276,10 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="48"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="fEI-1d-e4z">
-                                        <rect key="frame" x="832" y="0.0" width="90" height="88"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="RefreshButton.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" id="Jgw-9d-7Sf">
+                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" id="Jgw-9d-7Sf">
                                 <rect key="frame" x="296" y="114" width="432" height="521"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -346,7 +334,7 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="noItemsView" destination="Jgw-9d-7Sf" id="ind-Z4-QNs"/>
+                        <outlet property="noItemsView" destination="Jgw-9d-7Sf" id="33f-FO-dzb"/>
                         <outlet property="titleLabel" destination="H7j-wM-Ado" id="4sd-Cv-bDb"/>
                         <outlet property="view" destination="Eks-bd-AAO" id="zD4-yK-KbA"/>
                     </connections>
@@ -376,7 +364,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" autoshrinkMode="minimumFontSize" id="t7X-Y2-mEG">
-                                                    <rect key="frame" x="20" y="11" width="284" height="49"/>
+                                                    <rect key="frame" x="20" y="11" width="290" height="49"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <nil key="highlightedColor"/>
                                                     <string key="text">The title of my cool cat film s
@@ -385,14 +373,14 @@
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="120 seeders" autoshrinkMode="minimumFontSize" id="nwd-IC-Drc">
-                                                    <rect key="frame" x="20" y="57" width="243" height="24"/>
+                                                    <rect key="frame" x="20" y="59" width="217" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <nil key="highlightedColor"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="720Mb" textAlignment="right" autoshrinkMode="minimumFontSize" id="pB5-We-4CD">
-                                                    <rect key="frame" x="126" y="57" width="191" height="26"/>
+                                                    <rect key="frame" x="233" y="57" width="77" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <nil key="highlightedColor"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -889,6 +877,7 @@ Message</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backPressed:"/>
+                <relationship kind="action" name="reloadPressed:"/>
                 <relationship kind="outlet" name="offlineView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>

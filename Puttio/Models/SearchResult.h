@@ -8,19 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
+enum cellSelectedState {
+    SearchResultNormal,
+    SearchResultSending, 
+    SearchResultSent,
+    SearchResultFailed
+};
+
 @interface SearchResult : NSObject
 
-// higher is better in the ranking
 @property (assign) NSInteger ranking;
 @property (assign) NSInteger seedersCount;
 @property (assign) NSInteger peersCount;
 
-@property (assign) NSInteger size;
+@property (assign) double size;
 @property (strong) NSString *hostName;
 @property (strong) NSString *torrentURL;
 @property (strong) NSString *magnetURL;
 @property (strong) NSString *name;
 @property (strong) NSString *sizeString;
+
+@property (assign) int selectedState;
 
 - (void)generateRanking;
 - (NSString *)representedPath;

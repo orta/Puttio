@@ -11,8 +11,8 @@
 @interface ORSimpleProgress : UIView {
     CGFloat _progress;
 }
-@property (strong) UILabel *label;
-@property (strong) UIColor *fillColour;
+@property  UILabel *label;
+@property  UIColor *fillColour;
 @property (assign) BOOL isLandscape;
 @property CGFloat progress;
 @end

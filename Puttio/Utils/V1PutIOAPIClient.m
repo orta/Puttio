@@ -14,8 +14,8 @@
 NSString* API_V1_ADDRESS = @"http://api.put.io/v1/";
 
 @interface V1PutIOAPIClient ()
-@property(strong) NSString* apiKey;
-@property(strong) NSString* apiSecret;
+@property NSString* apiKey;
+@property NSString* apiSecret;
 @end
 
 @implementation V1PutIOAPIClient

@@ -17,9 +17,7 @@
     localFile.name = file.name;
     localFile.parentID = file.parentID;
     
-#warning stubbed screenShotURL
     localFile.screenShotURL = file.screenShotURL;
-    
     return localFile;
 }
 
@@ -27,13 +25,15 @@
     [[NSFileManager defaultManager] removeItemAtPath:[self localPathForFile] error:nil];
     [[NSFileManager defaultManager] removeItemAtPath:[self localPathForScreenshot] error:nil];
     
+    NSManagedObjectContext *context = [self managedObjectContext];
     [self deleteEntity];
+    [context save:nil];
 }
 
 - (NSString *)localPathForFile {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = paths[0];
-    return [documentsDirectory stringByAppendingPathComponent:self.id];
+    return [documentsDirectory stringByAppendingPathComponent:[self.id stringByAppendingPathExtension:@"mp4"]];
 }
 
 - (NSString *)localPathForScreenshot {

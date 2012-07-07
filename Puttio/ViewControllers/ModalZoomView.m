@@ -11,8 +11,8 @@
 static ModalZoomView *sharedInstance;
 
 @interface ModalZoomView ()
-@property (strong) UIView *backgroundView;
-@property (strong) UIViewController <ModalZoomViewControllerDelegate> *viewController;
+@property  UIView *backgroundView;
+@property  UIViewController <ModalZoomViewControllerDelegate> *viewController;
 @property (assign) CGRect originalFrame;
 - (BOOL)validated;
 @end

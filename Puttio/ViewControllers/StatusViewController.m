@@ -310,7 +310,7 @@ typedef enum {
 
 - (void)processDidFinish:(BaseProcess *)process {
     [processes removeObject:process];
-    [tableView reloadSections:[NSIndexSet indexSetWithIndex:DisplayProcesses] withRowAnimation:UITableViewRowAnimationNone];
+    [tableView reloadData];
 }
 
 @end

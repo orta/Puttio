@@ -11,14 +11,12 @@
 
 @implementation SearchResult
 
-@synthesize seedersCount, peersCount, hostName, torrentURL, magnetURL, name, ranking, size, sizeString;
-
 + (SearchResult *)resultWithMininovaDictionary: (NSDictionary *)item {
     SearchResult *result = [[SearchResult alloc] init];
     result.seedersCount = [[item valueForKeyPath:@"seeds"] intValue];
     result.peersCount = [[item valueForKeyPath:@"peers"] intValue];
     result.torrentURL = [item valueForKeyPath:@"download"];
-    result.size = [[item valueForKeyPath:@"size"] intValue];
+    result.size = [[item valueForKeyPath:@"size"] doubleValue];
     NSString *title = [item valueForKeyPath:@"title"];
     result.name = [title stripHTMLtrimWhiteSpace:YES];
     result.hostName = @"mininova.org";
@@ -45,7 +43,7 @@
     NSString *title = [item valueForKeyPath:@"name"];
     result.name = [title stripHTMLtrimWhiteSpace:YES];
     result.hostName = @"Fenopy";
-    result.size = [[item valueForKeyPath:@"size"] longLongValue];
+    result.size = [[item valueForKeyPath:@"size"] doubleValue];
     
     if ([[item valueForKeyPath:@"verified"] integerValue] == 1) {
          result.ranking = result.seedersCount + (result.peersCount / 4) * 4;
@@ -56,7 +54,7 @@
 }
 
 - (void)generateRanking {
-    self.ranking = seedersCount + (peersCount / 4) ;
+    self.ranking = _seedersCount + (_peersCount / 4) ;
 }
 
 - (NSString *)representedPath {

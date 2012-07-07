@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1480" systemVersion="12A248" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1800" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="File" representedClassName="File" syncable="YES">
         <attribute name="contentType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
@@ -23,7 +23,7 @@
         <relationship name="parentFolder" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="subFolders" inverseEntity="Folder" syncable="YES"/>
         <relationship name="subFolders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Folder" inverseName="parentFolder" inverseEntity="Folder" syncable="YES"/>
     </entity>
-    <entity name="LocalFile" parentEntity="File" syncable="YES"/>
+    <entity name="LocalFile" representedClassName="LocalFile" parentEntity="File" syncable="YES"/>
     <entity name="WatchedItem" representedClassName="WatchedItem" syncable="YES">
         <attribute name="fileID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WatchedList" inverseName="items" inverseEntity="WatchedList" syncable="YES"/>
@@ -33,10 +33,10 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WatchedItem" inverseName="list" inverseEntity="WatchedItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="File" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Folder" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="WatchedItem" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="WatchedList" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="LocalFile" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="File" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="Folder" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="LocalFile" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="WatchedItem" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="WatchedList" positionX="0" positionY="0" width="128" height="75"/>
     </elements>
 </model>

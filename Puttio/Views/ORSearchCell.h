@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *fileSizeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *seedersLabel;
 
+- (void)userHasSelectedFile;
 - (void)userHasFailedToAddFile;
 - (void)userHasAddedFile;
 @end

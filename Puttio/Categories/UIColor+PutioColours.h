@@ -14,5 +14,5 @@
 + (UIColor *)putioBlue;
 + (UIColor *)putioDarkBlue;
 + (UIColor *)putioLightGray;
-
++ (UIColor *)putioRed;
 @end

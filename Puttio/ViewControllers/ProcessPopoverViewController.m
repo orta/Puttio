@@ -48,6 +48,12 @@
         self.progressView.progress = [item progress];
     }
 
+    if ([item respondsToSelector:@selector(message)]) {
+        if ([item message] != nil) {
+            self.progressLabel.text = [item message];
+        }
+    }
+    
     self.progressView.isLandscape = YES;
 }
 

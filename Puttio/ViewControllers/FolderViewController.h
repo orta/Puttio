@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) Folder *folder;
 @property (nonatomic, strong) NSArray *folderItems;
-@property (strong) GMGridView *gridView;
+@property  GMGridView *gridView;
 @property (weak) BrowsingViewController *browsingViewController;
 
 - (void)reloadItemsFromServer;

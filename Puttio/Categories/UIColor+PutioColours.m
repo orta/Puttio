@@ -18,6 +18,10 @@
     return [UIColor colorWithRed:0.426 green:0.732 blue:1.000 alpha:1.000];
 }
 
++ (UIColor *)putioRed {
+   return [UIColor colorWithRed:1.000 green:0.301 blue:0.050 alpha:1.000];
+}
+
 + (UIColor *)putioDarkBlue {
    return [UIColor colorWithRed:0.300 green:0.459 blue:1.000 alpha:1.000];
 }

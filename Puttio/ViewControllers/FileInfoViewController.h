@@ -23,7 +23,7 @@
 - (IBAction)primaryButtonTapped:(id)sender;
 - (IBAction)secondaryButtonTapped:(id)sender;
 
-@property (strong) File *item;
+@property  File *item;
 
 - (void)setProgressInfoHidden:(BOOL)hidden;
 

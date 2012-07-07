@@ -10,7 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface MoviePlayer : NSObject 
-@property (strong) MPMoviePlayerController *mediaPlayer;
+@property  MPMoviePlayerController *mediaPlayer;
 
 + (void)streamMovieAtPath:(NSString *)path;
 + (void)watchLocalMovieAtPath:(NSString *)path;

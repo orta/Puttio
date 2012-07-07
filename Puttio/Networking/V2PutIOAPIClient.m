@@ -17,8 +17,8 @@
 typedef void (^BlockWithCallback)(id userInfoObject);
 
 @interface V2PutIOAPIClient ()
-@property (strong) NSMutableDictionary *actionBlocks;
-@property (strong) NSString* apiToken;
+@property  NSMutableDictionary *actionBlocks;
+@property  NSString* apiToken;
 
 - (NSArray *)filesAndFoldersFromJSONArray:(NSArray *)dictionaries withParent:(Folder *)folder;
 - (void)genericGetAtPath:(NSString *)path :(void(^)(id userInfoObject))onComplete;

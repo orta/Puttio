@@ -12,4 +12,6 @@
 
 + (ConvertToMP4Process *)processWithFile:(File *)file;
 
+@property NSString *message;
+
 @end

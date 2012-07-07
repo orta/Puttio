@@ -13,8 +13,8 @@
 #import "V2PutIOAPIClient.h"
 
 @interface PutIOClient ()
-@property(strong) V1PutIOAPIClient *v1Client;
-@property(strong) V2PutIOAPIClient *v2Client;
+@property V1PutIOAPIClient *v1Client;
+@property V2PutIOAPIClient *v2Client;
 @end
 
 @implementation PutIOClient

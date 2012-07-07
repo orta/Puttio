@@ -9,7 +9,7 @@
 #import "ConvertToMP4Process.h"
 
 @interface ConvertToMP4Process ()
-@property (strong) File *file;
+@property  File *file;
 @end
 
 @implementation ConvertToMP4Process
@@ -25,8 +25,6 @@
 }
 
 - (void)tick {
-    
-    
     [[PutIOClient sharedClient] getMP4InfoForFile:self.file :^(id userInfoObject) {
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             
@@ -37,8 +35,13 @@
             
             if ([status isEqualToString:@"CONVERTING"]) {
                 if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
+                    _message = nil;
                     self.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
                 }
+            }
+            
+            if ([status isEqualToString:@"IN_QUEUE"]) {
+                _message = @"In Queue";
             }
         }
     }];

@@ -10,9 +10,9 @@
 
 @interface ThreeColumnViewManager : NSObject
 
-@property (strong) UIView *leftSidebar;
-@property (strong) UIView *rightSidebar;
-@property (strong) UIView *centerView;
+@property  UIView *leftSidebar;
+@property  UIView *rightSidebar;
+@property  UIView *centerView;
 @property (weak, nonatomic) IBOutlet UIView *view;
 
 - (void)setup;

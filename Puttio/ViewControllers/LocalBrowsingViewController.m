@@ -49,7 +49,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     gridView.contentInset = UIEdgeInsetsZero;
     gridView.accessibilityLabel = @"GridView";
     
-    [self.view addSubview:gridView];
+    [self.view insertSubview:gridView belowSubview:self.noItemsView];
 
     self.titleLabel.text = @"Saved Media Library";
 }
@@ -78,9 +78,10 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 }
 
 - (void)reloadFolder {
-    self.noItemsView.hidden = NO;
     files = [[LocalFile allObjects] mutableCopy];
     [gridView reloadData];
+    
+    self.noItemsView.hidden = NO;// files.count > 0;
 }
 
 #pragma mark -
@@ -108,13 +109,11 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 
 - (void)GMGridView:(GMGridView *)aGridView didTapOnItemAtIndex:(NSInteger)position {
     LocalFile *file = files[position];
-    if([file.name hasSuffix:@"mp4"]) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = paths[0];
-        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[file name]];
-        NSString *fullPath = [NSString stringWithFormat:@"%@", filePath];
-        [MoviePlayer watchLocalMovieAtPath:fullPath];
-    }
+    [MoviePlayer watchLocalMovieAtPath:[file localPathForFile]];
+
+    file.watched = @YES;
+    [[file managedObjectContext] save:nil];
+    [self reloadFolder];
 }
 
 - (void)GMGridView:(GMGridView *)aGridView didLongTapOnItemAtIndex:(NSInteger)position {
@@ -142,7 +141,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
         cell.reuseIdentifier = CellIdentifier;
     }
     
-    LocalFile *file = files[index]; 
+    LocalFile *file = files[index];
     
     cell.item = file;
     cell.title = file.name;
@@ -150,8 +149,9 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     #warning we should be grabbing thumbnails
     cell.imageURL = [NSURL URLWithString:@"https://put.io/thumbnails/aItkkZFhXV5lXl1miGlmYmOOWpSLV5FYZ2SRlmNfYl6JYlqYY5FoYg.jpg"];
 
-    #warning  we currently don't keep track of watching local media
-    cell.watched = NO;
+    if (file.watched.boolValue == YES) {
+        cell.watched = YES;
+    }
 
     return cell;
 }   

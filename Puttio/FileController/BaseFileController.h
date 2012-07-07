@@ -16,8 +16,8 @@
     AFHTTPRequestOperation *downloadOperation;
 }
 
-@property (strong) FileInfoViewController *infoController;
-@property (strong) File *file;
+@property  FileInfoViewController *infoController;
+@property  File *file;
 
 - (void)markFileAsViewed;
 - (void)downloadFileAtPath:(NSString*)path backgroundable:(BOOL)showTransferInBG withCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;

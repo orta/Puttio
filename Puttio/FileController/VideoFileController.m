@@ -80,6 +80,11 @@
 }
 
 - (void)secondaryButtonAction:(id)sender {
+    if ([LocalFile findByAttribute:@"id" withValue:_file.id].count) {
+        self.infoController.additionalInfoLabel.text = @"You have already downloaded this.";
+        return;
+    }
+    
     self.infoController.additionalInfoLabel.text = @"Downloading";
     self.infoController.secondaryButton.enabled = NO;
     self.infoController.primaryButton.enabled = NO;
@@ -87,7 +92,7 @@
     [self downloadFile];
 }
 
-- (void)downloadFile {
+- (void)downloadFile {    
     NSString *requestURL;
     if (_isMP4) {
         requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/download", _file.id];   
@@ -143,9 +148,8 @@
 }
 
 - (void)getMP4Info {
-    if (!requested) {
-        [ConvertToMP4Process processWithFile:_file];
-        requested = YES;
+    if (_file == nil) {
+        NSLog(@"getting info for nil");
     }
 
     [[PutIOClient sharedClient] getMP4InfoForFile:_file :^(id userInfoObject) {
@@ -157,22 +161,33 @@
             if ([status isEqualToString:@"COMPLETED"]) {
                 _MP4Ready = YES;
                 [self.infoController enableButtons];
-            }
-            
-            if ([status isEqualToString:@"NOT_AVAILABLE"]) {
-                self.infoController.additionalInfoLabel.text = @"Requested an iPad version (this takes a *very* long time.)";
-                [[PutIOClient sharedClient] requestMP4ForFile:_file];
-                [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];
-            }
-            
-            if ([status isEqualToString:@"CONVERTING"]) {
-                self.infoController.additionalInfoLabel.text = @"Converting to iPad version.";
-                if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
-                    [self.infoController showProgress];
-                    self.infoController.progressView.hidden = NO;
-                    self.infoController.progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
+            }else{
+                
+                if (!requested) {
+                    [ConvertToMP4Process processWithFile:_file];
+                    requested = YES;
                 }
-                [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];                    
+                
+                if ([status isEqualToString:@"IN_QUEUE"]) {
+                    self.infoController.additionalInfoLabel.text = @"The conversion is queued up.";
+                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];
+                }
+                
+                if ([status isEqualToString:@"NOT_AVAILABLE"]) {
+                    self.infoController.additionalInfoLabel.text = @"Requested an iPad version (this takes a *very* long time.)";
+                    [[PutIOClient sharedClient] requestMP4ForFile:_file];
+                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];
+                }
+                
+                if ([status isEqualToString:@"CONVERTING"]) {
+                    self.infoController.additionalInfoLabel.text = @"Converting to iPad version.";
+                    if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
+                        [self.infoController showProgress];
+                        self.infoController.progressView.hidden = NO;
+                        self.infoController.progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
+                    }
+                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];                    
+                }
             }
         }
     }];
