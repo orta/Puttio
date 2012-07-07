@@ -92,14 +92,18 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     NSObject <ORDisplayItemProtocol> *item = _folderItems[index];
     cell.item = item;
     cell.title = item.displayName;
-    cell.imageURL = [NSURL URLWithString:item.screenShotURL];
     
     if (![self itemIsFolder:item]) {
+        cell.imageURL = [NSURL URLWithString:item.screenShotURL];
+
         File * file = (File *)item;
         if (file.watched.boolValue == YES) {
             cell.watched = YES;
         }
+    }else{
+        cell.image = [UIImage imageNamed:@"Folder"];
     }
+    
     return cell;
 }   
 

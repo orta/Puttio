@@ -121,6 +121,8 @@
 		60FE47BB152EA0D6008A5752 /* ThreeColumnViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */; };
 		60FFFB4915A85F2700DB7668 /* RefreshButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4615A85F2600DB7668 /* RefreshButton.png */; };
 		60FFFB4A15A85F2700DB7668 /* RefreshButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */; };
+		60FFFB4E15A86B3C00DB7668 /* Folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4C15A86B3C00DB7668 /* Folder.png */; };
+		60FFFB4F15A86B3C00DB7668 /* Folder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4D15A86B3C00DB7668 /* Folder@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -350,6 +352,8 @@
 		60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeColumnViewManager.m; path = Utils/ThreeColumnViewManager.m; sourceTree = "<group>"; };
 		60FFFB4615A85F2600DB7668 /* RefreshButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RefreshButton.png; sourceTree = "<group>"; };
 		60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RefreshButton@2x.png"; sourceTree = "<group>"; };
+		60FFFB4C15A86B3C00DB7668 /* Folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Folder.png; sourceTree = "<group>"; };
+		60FFFB4D15A86B3C00DB7668 /* Folder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +452,8 @@
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60FFFB4C15A86B3C00DB7668 /* Folder.png */,
+				60FFFB4D15A86B3C00DB7668 /* Folder@2x.png */,
 				60FFFB4615A85F2600DB7668 /* RefreshButton.png */,
 				60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */,
 				60988999158CE29E0077CE35 /* MediaLibrary.png */,
@@ -878,6 +884,8 @@
 				60B86E7E15A061040063461D /* .plan in Resources */,
 				60FFFB4915A85F2700DB7668 /* RefreshButton.png in Resources */,
 				60FFFB4A15A85F2700DB7668 /* RefreshButton@2x.png in Resources */,
+				60FFFB4E15A86B3C00DB7668 /* Folder.png in Resources */,
+				60FFFB4F15A86B3C00DB7668 /* Folder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

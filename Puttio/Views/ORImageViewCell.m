@@ -17,15 +17,7 @@ static CGFloat SubTitleLabelHeight = 24;
 static CGFloat ImageBottomMargin = 10;
 static CGFloat TitleBottomMargin = 1;
 
-
 @implementation ORImageViewCell
-
-@synthesize image;
-@synthesize imageURL;
-@synthesize subtitle = _subtitle;
-@synthesize title = _title;
-@synthesize item = _item;
-@synthesize watched = _watched;
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -42,10 +34,10 @@ static CGFloat TitleBottomMargin = 1;
         
         imageFrame.origin.x = ImageContentInsets.left;
         imageFrame.origin.y = ImageContentInsets.top;
-        imageView.frame = imageFrame;    
+        imageView.frame = imageFrame;  
         [self addSubview:imageView];
         
-		activityIndicatorView = 
+		activityIndicatorView =
         [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         [activityIndicatorView sizeToFit];
         [self addSubview:activityIndicatorView];
@@ -115,8 +107,13 @@ static CGFloat TitleBottomMargin = 1;
 }
 
 - (void)setImageURL:(NSURL *)anImageURL {
-    imageURL = anImageURL;
+    _imageURL = anImageURL;
     [imageView setImageWithURL:anImageURL];
+}
+
+- (void)setImage:(UIImage *)anImage {
+    _image = anImage;
+    [imageView setImage:anImage];
 }
 
 - (void)setWatched:(BOOL)watched {
