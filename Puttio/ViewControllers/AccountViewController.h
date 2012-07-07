@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet ORSimpleProgress *deviceSpaceLeftProgress;
 
 @property (weak, nonatomic) IBOutlet UILabel *welcomeAccountLabel;
+@property (strong, nonatomic) IBOutlet UIView *loggedOutMessageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *accountSpaceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *deviceStoredLabel;

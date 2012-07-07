@@ -20,6 +20,7 @@
 @synthesize deviceStoredProgress;
 @synthesize deviceSpaceLeftProgress;
 @synthesize welcomeAccountLabel;
+@synthesize loggedOutMessageView;
 @synthesize accountSpaceLabel;
 @synthesize deviceStoredLabel;
 @synthesize deviceSpaceLeftLabel;
@@ -61,17 +62,18 @@
     return [UIDevice humanStringFromBytes:[UIDevice numberOfBytesFree]];
 }
 
-- (IBAction)logOutTapped:(id)sender {
+- (IBAction)logOutTapped:(UIButton *)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:AppAuthTokenDefault];
     [defaults removeObjectForKey:APIKeyDefault];
     [defaults removeObjectForKey:APISecretDefault];
+    [defaults setBool:YES forKey:ORLoggedOutDefault];
     [defaults synchronize];
     
-    #warning not good enough
-    self.welcomeAccountLabel.text = @"Logged out please restart App";
+    self.loggedOutMessageView.hidden = NO;
+    sender.enabled = NO;
+    sender.alpha = 0.5;
 }
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
@@ -85,6 +87,7 @@
     [self setDeviceStoredLabel:nil];
     [self setDeviceSpaceLeftLabel:nil];
     [self setWelcomeAccountLabel:nil];
+    [self setLoggedOutMessageView:nil];
     [super viewDidUnload];
 }
 

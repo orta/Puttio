@@ -213,4 +213,9 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:ORLoggedOutDefault]) {
+        exit(YES);
+    }
+}
 @end
