@@ -100,7 +100,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
 - (void)loadFolder:(Folder *)folder {
     if (![PutIOClient.sharedClient ready]) return;
-
+    
     currentFolder = folder;
     
     [[PutIOClient sharedClient] getFolder:folder :^(id userInfoObject) {
@@ -121,9 +121,9 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
         }else {
             NSError *error = (NSError *)userInfoObject;
             // offline error code
-            if (error.code == -1009) {
+//            if (error.code == -1009) {
                 [self isOffline];
-            }
+//            }
         }
     }];
 }
@@ -176,5 +176,10 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     self.offlineView.hidden = NO;
     [self.view bringSubviewToFront:self.offlineView];
 }
+
+- (IBAction)reloadPressed:(id)sender {
+    [self reloadFolder];
+}
+
 
 @end

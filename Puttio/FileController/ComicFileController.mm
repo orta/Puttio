@@ -71,7 +71,7 @@ enum ComicType {
     
     NSString *requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/download", _file.id];   
 
-    [self downloadFileAtPath:requestURL WithCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self downloadFileAtPath:requestURL backgroundable:NO withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:_file.id];
         NSString *fullPath;
         if (_fileType == ComicTypeRar) {
@@ -105,7 +105,7 @@ enum ComicType {
 - (void)secondaryButtonAction:(id)sender {
     NSString *requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/download", _file.id];   
     
-    [self downloadFileAtPath:requestURL WithCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self downloadFileAtPath:requestURL backgroundable:NO withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:_file.name];
         [operation.responseData writeToFile:filePath atomically:YES];
         

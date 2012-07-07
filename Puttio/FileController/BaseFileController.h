@@ -20,6 +20,6 @@
 @property (strong) File *file;
 
 - (void)markFileAsViewed;
-- (void)getInfoWithBlock:(void(^)(id userInfoObject))onComplete;
-- (void)downloadFileAtPath:(NSString*)path WithCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (void)downloadFileAtPath:(NSString*)path backgroundable:(BOOL)showTransferInBG withCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 @end

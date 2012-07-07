@@ -18,10 +18,8 @@
 #import "NSManagedObject+ActiveRecord.h"
 #import "FileDownloadProcess.h"
 
-
-
 @interface BaseFileController (){
-    FileDownloadProcess *fileDownloadProcess;
+    FileDownloadProcess *_fileDownloadProcess;
 }
 @end
 
@@ -42,21 +40,7 @@
 
 -(NSString *)descriptiveTextForFile { return @"NO TEXT SET"; }
 
-- (void)getInfoWithBlock:(void(^)(id infoObject))onComplete {
-//    [[PutIOClient sharedClient] getInfoForFile:_file :^(id userInfoObject) {
-//        NSLog(@"asdafsfAF");
-//        if (![userInfoObject isMemberOfClass:[NSError class]]) {
-//            fileSize = [[[userInfoObject valueForKeyPath:@"size"] objectAtIndex:0] intValue];
-//            self.infoController.titleLabel.text = [[userInfoObject valueForKeyPath:@"name"] objectAtIndex:0]; 
-//            self.infoController.fileSizeLabel.text = unitStringFromBytes(fileSize);
-//            NSLog(@"%@ %s\n%@", NSStringFromSelector(_cmd), __FILE__, self);
-//
-//            onComplete(userInfoObject);
-//        }
-//    }];
-}
-
-- (void)downloadFileAtPath:(NSString*)path WithCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+- (void)downloadFileAtPath:(NSString*)path backgroundable:(BOOL)showTransferInBG withCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     struct statfs tStats;  
@@ -69,16 +53,20 @@
         
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:path]]];
         downloadOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-        fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation];
-        
+        if (showTransferInBG) {
+            _fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation];
+        }
         
         [downloadOperation setDownloadProgressBlock:^(NSInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead) {
-            infoController.progressView.progress = (float)totalBytesRead/totalBytesExpectedToRead;
+            CGFloat progress = (float)totalBytesRead/totalBytesExpectedToRead;
+            infoController.progressView.progress = progress;
+            _fileDownloadProcess.progress = progress;
         }];
         
         [downloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             [self.infoController enableButtons];
             success(operation, responseObject);
+            _fileDownloadProcess.finished = YES;
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(operation, error); 

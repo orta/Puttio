@@ -95,7 +95,7 @@
         requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/mp4/download", _file.id];   
     }
 
-    [self downloadFileAtPath:requestURL WithCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self downloadFileAtPath:requestURL backgroundable:YES withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.infoController.additionalInfoLabel.text = @"Saving file";
         
         // Save it

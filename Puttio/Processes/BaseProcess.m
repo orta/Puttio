@@ -32,7 +32,9 @@
 }
 
 - (void)tick {
-
+    if (self.finished) {
+        [self.delegate processDidFinish:self];
+    }
 }
 
 - (void)end {

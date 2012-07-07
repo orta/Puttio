@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIView *offlineView;
 
 - (IBAction)backPressed:(id)sender;
+- (IBAction)reloadPressed:(id)sender;
 
 @end

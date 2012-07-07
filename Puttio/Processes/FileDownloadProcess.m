@@ -21,8 +21,4 @@
     return this;
 }
 
-- (void)tick {
-//    self.progress = self.request.request;
-}
-
 @end

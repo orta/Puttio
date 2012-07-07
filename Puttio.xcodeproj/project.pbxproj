@@ -35,10 +35,6 @@
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
 		6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */; };
 		606C79A4152F508E00608C56 /* ORDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79A3152F508E00608C56 /* ORDefaults.m */; };
-		606C79AA152F5ACE00608C56 /* Tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A6152F5ACE00608C56 /* Tab.png */; };
-		606C79AB152F5ACE00608C56 /* TabActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A7152F5ACE00608C56 /* TabActive.png */; };
-		606C79AC152F5ACE00608C56 /* TabActive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A8152F5ACE00608C56 /* TabActive@2x.png */; };
-		606C79AD152F5ACE00608C56 /* Tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606C79A9152F5ACE00608C56 /* Tab@2x.png */; };
 		606C79B01530A4B100608C56 /* NSDictionary+ObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */; };
 		6085D228151B99490068929C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D227151B99490068929C /* UIKit.framework */; };
 		6085D22A151B99490068929C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D229151B99490068929C /* Foundation.framework */; };
@@ -125,6 +121,8 @@
 		60F5AD7B1522777600DD7A6F /* MoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD7A1522777600DD7A6F /* MoviePlayer.m */; };
 		60FE125E156C29DC000A0EB4 /* ORFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FE125D156C29DC000A0EB4 /* ORFlatButton.m */; };
 		60FE47BB152EA0D6008A5752 /* ThreeColumnViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */; };
+		60FFFB4915A85F2700DB7668 /* RefreshButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4615A85F2600DB7668 /* RefreshButton.png */; };
+		60FFFB4A15A85F2700DB7668 /* RefreshButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,10 +199,6 @@
 		6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+StripHTML.m"; path = "Categories/NSString+StripHTML.m"; sourceTree = "<group>"; };
 		606C79A2152F508E00608C56 /* ORDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORDefaults.h; path = Utils/ORDefaults.h; sourceTree = "<group>"; };
 		606C79A3152F508E00608C56 /* ORDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDefaults.m; path = Utils/ORDefaults.m; sourceTree = "<group>"; };
-		606C79A6152F5ACE00608C56 /* Tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tab.png; sourceTree = "<group>"; };
-		606C79A7152F5ACE00608C56 /* TabActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabActive.png; sourceTree = "<group>"; };
-		606C79A8152F5ACE00608C56 /* TabActive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabActive@2x.png"; sourceTree = "<group>"; };
-		606C79A9152F5ACE00608C56 /* Tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tab@2x.png"; sourceTree = "<group>"; };
 		606C79AE1530A4B100608C56 /* NSDictionary+ObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+ObjectForKey.h"; path = "Categories/NSDictionary+ObjectForKey.h"; sourceTree = "<group>"; };
 		606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+ObjectForKey.m"; path = "Categories/NSDictionary+ObjectForKey.m"; sourceTree = "<group>"; };
 		6085D223151B99490068929C /* puttio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = puttio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,6 +352,8 @@
 		60FE125D156C29DC000A0EB4 /* ORFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORFlatButton.m; path = Views/ORFlatButton.m; sourceTree = "<group>"; };
 		60FE47B9152EA0D6008A5752 /* ThreeColumnViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeColumnViewManager.h; path = Utils/ThreeColumnViewManager.h; sourceTree = "<group>"; };
 		60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeColumnViewManager.m; path = Utils/ThreeColumnViewManager.m; sourceTree = "<group>"; };
+		60FFFB4615A85F2600DB7668 /* RefreshButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RefreshButton.png; sourceTree = "<group>"; };
+		60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RefreshButton@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -456,11 +452,9 @@
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60FFFB4615A85F2600DB7668 /* RefreshButton.png */,
+				60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */,
 				60988999158CE29E0077CE35 /* MediaLibrary.png */,
-				606C79A6152F5ACE00608C56 /* Tab.png */,
-				606C79A7152F5ACE00608C56 /* TabActive.png */,
-				606C79A8152F5ACE00608C56 /* TabActive@2x.png */,
-				606C79A9152F5ACE00608C56 /* Tab@2x.png */,
 				601205381538CF2600052D89 /* mininova.json */,
 				6012053A1538CF5600052D89 /* isohunt.json */,
 			);
@@ -876,10 +870,6 @@
 				6085D23D151B99490068929C /* MainStoryboard.storyboard in Resources */,
 				60F023861528AB55003491E4 /* icon72.png in Resources */,
 				60F023881528AB5F003491E4 /* icon144.png in Resources */,
-				606C79AA152F5ACE00608C56 /* Tab.png in Resources */,
-				606C79AB152F5ACE00608C56 /* TabActive.png in Resources */,
-				606C79AC152F5ACE00608C56 /* TabActive@2x.png in Resources */,
-				606C79AD152F5ACE00608C56 /* Tab@2x.png in Resources */,
 				601205391538CF2600052D89 /* mininova.json in Resources */,
 				6012053B1538CF5600052D89 /* isohunt.json in Resources */,
 				609CAE4115856336000BE57E /* popoverArrowDown.png in Resources */,
@@ -894,6 +884,8 @@
 				609CAE4E15856336000BE57E /* popoverBg@2x.png in Resources */,
 				6098899A158CE29E0077CE35 /* MediaLibrary.png in Resources */,
 				60B86E7E15A061040063461D /* .plan in Resources */,
+				60FFFB4915A85F2700DB7668 /* RefreshButton.png in Resources */,
+				60FFFB4A15A85F2700DB7668 /* RefreshButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
