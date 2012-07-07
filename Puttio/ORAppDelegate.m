@@ -25,7 +25,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
     [Analytics setup];
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:ORDefaultsAreLoaded]) {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:ORLoggedOutDefault];
+    if (![defaults boolForKey:ORDefaultsAreLoaded]) {
         [ORDefaults registerDefaults];
     }
     
@@ -216,8 +219,6 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:ORLoggedOutDefault]) {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:ORLoggedOutDefault];
-        [[NSUserDefaults standardUserDefaults] synchronize];
         exit(YES);
     }
 }

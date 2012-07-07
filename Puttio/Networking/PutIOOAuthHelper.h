@@ -10,10 +10,9 @@
 
 @class PutIOOAuthHelper;
 @protocol PutIOOAuthHelperDelegate <NSObject>
-
 - (void)authHelperDidLogin:(PutIOOAuthHelper *)helper;
 - (void)authHelperLoginFailedWithDesription:(NSString *)errorDescription;
-
+- (void)authHelperHasDeclaredItScrewed;
 @end
 
 @interface PutIOOAuthHelper : NSObject <UIWebViewDelegate>

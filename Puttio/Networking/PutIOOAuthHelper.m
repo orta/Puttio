@@ -85,8 +85,7 @@
         [defaults setObject:apiSecret forKey:APISecretDefault];
         [defaults synchronize];
     }else{
-        NSString *error = [NSString stringWithFormat:@"WebView not acting as expected %@", error];
-        [self.delegate authHelperLoginFailedWithDesription:error];
+        [self.delegate authHelperHasDeclaredItScrewed];
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:V1TokensWereSavedNotification object:nil userInfo:nil];
@@ -120,18 +119,15 @@
             [self.delegate authHelperLoginFailedWithDesription:@"Your iPad is currently offline."];
         }else {
             // actually unexpected
-            NSString *error = [NSString stringWithFormat:@"WebView not acting as expected %@", error];
-            [self.delegate authHelperLoginFailedWithDesription:error];
+            [self.delegate authHelperHasDeclaredItScrewed];
         }
     }
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
     NSString *address = aWebView.request.URL.absoluteString;
-    NSLog(@"addrsses %@", address);
 
-    if (![address hasPrefix:@"https://put.io/?err=1"]) {
-        
+    if (![address hasSuffix:@"?err=1"]) {
         if([aWebView.request.URL.absoluteString isEqualToString:PTSettingsURL]){
             [self parseForV1Tokens];
             [self.delegate authHelperDidLogin:self];
@@ -148,8 +144,6 @@
             [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
         }    
     } else { 
-        NSLog(@"URH?");
-        NSLog(@"addrses %@", address);
         [self.delegate authHelperLoginFailedWithDesription:@"Wrong Username / Password combo"];
     }
 }

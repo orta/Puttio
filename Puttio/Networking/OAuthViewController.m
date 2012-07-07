@@ -78,12 +78,17 @@
 }
 
 - (void)authHelperLoginFailedWithDesription:(NSString *)errorDescription {
+    NSLog(@"%@ %s\n%@", NSStringFromSelector(_cmd), __FILE__, self);
+    
     self.warningLabel.text = errorDescription;
     self.loginButton.enabled = YES;
     self.usernameTextfield.enabled = YES;
     self.passwordTextfield.enabled = YES;
-    self.webView.hidden = NO;
     [self.activityView stopAnimating];    
+}
+
+- (void)authHelperHasDeclaredItScrewed {
+    self.webView.hidden = NO;
 }
 
 @end
