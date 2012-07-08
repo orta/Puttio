@@ -79,7 +79,11 @@ static ModalZoomView *sharedInstance;
             [UIView animateWithDuration:0.5 animations:^{
                 this.backgroundView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
                 theView.frame = finalFrame;
-            }];            
+            }completion:^(BOOL finished) {
+                if ([this.viewController respondsToSelector:@selector(zoomViewDidFinishZooming:)]) {
+                    [this.viewController zoomViewDidFinishZooming:this];
+                }
+            } ];
         }
     }
 }

@@ -653,11 +653,11 @@
                             </view>
                             <view contentMode="scaleToFill" id="qGE-AF-h0b" customClass="DCRoundSwitch">
                                 <rect key="frame" x="178" y="253" width="120" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Search Results:" textAlignment="right" autoshrinkMode="minimumFontSize" id="7NE-eW-WZM">
-                                <rect key="frame" x="19" y="249" width="154" height="38"/>
+                                <rect key="frame" x="19" y="250" width="154" height="38"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -942,6 +942,156 @@ Message</string>
         <image name="MediaLibrary.png" width="64" height="64"/>
         <image name="RefreshButton.png" width="54" height="54"/>
     </resources>
+    <classes>
+        <class className="ARTransferCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARTransferCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+            </relationships>
+        </class>
+        <class className="AccountViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AccountViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logOutTapped:"/>
+                <relationship kind="outlet" name="accountSpaceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="accountSpaceLeftProgress" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="copyrightWarning" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="creativeCommonsSwitch" candidateClass="DCRoundSwitch"/>
+                <relationship kind="outlet" name="deviceSpaceLeftLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="deviceSpaceLeftProgress" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="deviceStoredLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="deviceStoredProgress" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="loggedOutMessageView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="welcomeAccountLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BrowsingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backPressed:"/>
+                <relationship kind="action" name="reloadPressed:"/>
+                <relationship kind="outlet" name="offlineView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DCControl" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCControl.h"/>
+        </class>
+        <class className="DCKnob" superclassName="DCControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCKnob.h"/>
+        </class>
+        <class className="DCRoundSwitch" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCRoundSwitch.h"/>
+        </class>
+        <class className="FileInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FileInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="primaryButtonTapped:"/>
+                <relationship kind="action" name="secondaryButtonTapped:"/>
+                <relationship kind="outlet" name="additionalInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="primaryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="secondaryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="thumbnailImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ItemDeletionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemDeletionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelTapped:"/>
+                <relationship kind="action" name="deleteTapped:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="ORFlatButton"/>
+                <relationship kind="outlet" name="deleteButton" candidateClass="ORFlatButton"/>
+                <relationship kind="outlet" name="networkActivityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LocalBrowsingViewController" superclassName="BrowsingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocalBrowsingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="noItemsView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="OAuthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OAuthViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginPressed:"/>
+                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="authHelper" candidateClass="PutIOOAuthHelper"/>
+                <relationship kind="outlet" name="errorHeaderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loginViewWrapper" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernameTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="warningLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="ORFlatButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORFlatButton.h"/>
+        </class>
+        <class className="ORMessageCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORMessageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORSearchCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSearchCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="seedersLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORSimpleProgress" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSimpleProgress.h"/>
+        </class>
+        <class className="ORSlidingTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSlidingTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="slidingDelegate" candidateClass="NSObject"/>
+            </relationships>
+        </class>
+        <class className="ProcessPopoverViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProcessPopoverViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="progressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PutIOOAuthHelper" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PutIOOAuthHelper.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate" candidateClass="NSObject"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="statusViewController" candidateClass="StatusViewController"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="StatusViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="spaceProgressBG" candidateClass="DCKnob"/>
+                <relationship kind="outlet" name="spaceProgressView" candidateClass="DCKnob"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="TorrentLikeView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TorrentLikeView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -43,6 +43,11 @@
     titleLabel.text = @"";
     additionalInfoLabel.text = @"";
     progressView.isLandscape = YES;
+    
+    primaryButton.alpha = 0;
+    secondaryButton.alpha = 0;
+    fileSizeLabel.alpha = 0;
+    additionalInfoLabel.alpha = 0;
 }
 
 - (void)setItem:(File *)item {
@@ -121,6 +126,15 @@
 
 - (void)hideProgress {
     progressView.hidden = YES;    
+}
+
+- (void)zoomViewDidFinishZooming:(ModalZoomView *)zoomView {
+    [UIView animateWithDuration:0.3 animations:^{
+        primaryButton.alpha = 1;
+        secondaryButton.alpha = 1;
+        fileSizeLabel.alpha = 1;
+        additionalInfoLabel.alpha = 1;
+    }];    
 }
 
 - (void)zoomViewWillDissapear:(ModalZoomView *)zoomView {

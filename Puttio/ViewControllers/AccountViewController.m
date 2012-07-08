@@ -28,6 +28,11 @@
 @synthesize deviceStoredLabel;
 @synthesize deviceSpaceLeftLabel;
 
+- (void)viewDidLoad {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self.creativeCommonsSwitch setOn:![defaults boolForKey:ORUseAllSearchEngines] animated:NO];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -52,8 +57,6 @@
     self.accountSpaceLeftProgress.progress = [defaults doubleForKey:ORCurrentSpaceUsedPercentageDefault];
     self.accountSpaceLeftProgress.isLandscape = YES;
      
-    
-    [self.creativeCommonsSwitch setOn:![defaults boolForKey:ORUseAllSearchEngines] animated:NO];
     [self.creativeCommonsSwitch addTarget:self action:@selector(ccSwitched:) forControlEvents:UIControlEventValueChanged];
 
     self.copyrightWarning.alpha = [defaults boolForKey:ORUseAllSearchEngines] ? 1 : 0;

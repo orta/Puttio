@@ -13,6 +13,7 @@
 - (void)setItem:(id)item;
 
 @optional
+- (void)zoomViewDidFinishZooming:(ModalZoomView *)zoomView;
 - (void)zoomViewWillDissapear:(ModalZoomView *)zoomView;
 @end
 

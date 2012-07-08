@@ -89,7 +89,7 @@ static float textOffset = 1;
 	// 'ON' state label (self.onString)
 	CGSize onTextSize = [self.onString sizeWithFont:self.labelFont];
 	CGPoint onTextPoint = CGPointMake((textSpaceWidth - onTextSize.width) / 2.0 + knobRadius * .15, floorf((self.bounds.size.height - onTextSize.height) / 2.0));
-	[[UIColor putioYellow] set]; // .2 & .4
+	[[UIColor putioDarkBlue] set]; // .2 & .4
 	[self.onString drawAtPoint:CGPointMake(onTextPoint.x, onTextPoint.y + textOffset) withFont:self.labelFont];
 //	[[UIColor whiteColor] set];
 //	[self.onString drawAtPoint:onTextPoint withFont:self.labelFont];
