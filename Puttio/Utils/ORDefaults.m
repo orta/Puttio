@@ -12,7 +12,6 @@
 + (void)registerDefaults {
 	@autoreleasepool {	
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSLog(@"%@", NSStringFromSelector(_cmd));
         
         NSString *appVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
         [defaults setObject:appVersion forKey:ORAppVersion];

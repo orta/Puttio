@@ -10,6 +10,7 @@
 
 @interface Analytics : NSObject
 + (void)setup;
++ (void)setUserAccount:(NSString *)username;
 + (void)event:(NSString*)string, ...;
 + (void)event:(NSString *)event withOptionString:(NSString *)message;
 + (void)error:(NSString*)string, ...;

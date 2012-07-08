@@ -41,6 +41,8 @@
 }
 
 - (void)showApp {
+    [Analytics setUserAccount:[[NSUserDefaults standardUserDefaults] objectForKey:ORUserAccountNameDefault]];
+
     [[PutIOClient sharedClient] startup];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     SearchViewController *searchVC = [storyboard instantiateViewControllerWithIdentifier:@"searchView"];
@@ -55,6 +57,7 @@
 
 - (void)showLogin {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+
     OAuthViewController *oauthVC = [storyboard instantiateViewControllerWithIdentifier:@"oauthView"];
     oauthVC.delegate = self;
     [self.window makeKeyAndVisible];
@@ -62,6 +65,8 @@
 }
 
 - (void)authorizationDidFinishWithController:(OAuthViewController *)controller {
+    [[NSUserDefaults standardUserDefaults] setObject:controller.usernameTextfield.text forKey:ORUserAccountNameDefault];
+    
     [self.window.rootViewController dismissModalViewControllerAnimated:YES];
     [self showApp];
 
@@ -78,10 +83,8 @@
 - (void)saveContext {
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil)
-    {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
-        {
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
             /*
              Replace this implementation with code to handle the error appropriately.
              
@@ -163,7 +166,6 @@
     // Set up iCloud in another thread:
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
 
         NSString *iCloudEnabledAppID = @"NETCV7NTVF.com.github.orta.puttio";
         NSString *dataFileName = @"Puttio.sqlite";

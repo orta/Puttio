@@ -10,7 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "UIImageView+ImageRect.h"
 
-static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 35};
+static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 45};
 
 static CGFloat TitleLabelHeight = 44;
 static CGFloat ImageBottomMargin = 10;
@@ -24,7 +24,7 @@ static CGFloat ImageBottomMargin = 10;
 
 @implementation ORImageViewCell
 
-+ (CGFloat) cellHeight { return 140; }
++ (CGFloat) cellHeight { return 150; }
 + (CGFloat) cellWidth { return 150; }
 
 - (id)initWithFrame:(CGRect)frame {

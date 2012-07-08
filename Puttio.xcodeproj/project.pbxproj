@@ -18,6 +18,12 @@
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
+		6020360215AA135B0021CE21 /* MPCJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 602035F515AA135B0021CE21 /* MPCJSONDataSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6020360315AA135B0021CE21 /* MPCJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 602035F715AA135B0021CE21 /* MPCJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6020360415AA135B0021CE21 /* MPCSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 602035F915AA135B0021CE21 /* MPCSerializedJSONData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6020360515AA135B0021CE21 /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 602035FC15AA135B0021CE21 /* NSData+MPBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6020360615AA135B0021CE21 /* MixpanelAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 602035FE15AA135B0021CE21 /* MixpanelAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6020360715AA135B0021CE21 /* MixpanelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020360115AA135B0021CE21 /* MixpanelEvent.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6026A043157B5B9F0031509D /* NSDate+StringParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A042157B5B9F0031509D /* NSDate+StringParsing.m */; };
 		6026A06B157BEA0F0031509D /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A061157BEA0F0031509D /* GMGridView.m */; };
 		6026A06C157BEA0F0031509D /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A063157BEA0F0031509D /* GMGridViewCell.m */; };
@@ -174,6 +180,19 @@
 		600641FE151F24C100EF85F9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ViewControllers/SearchViewController.m; sourceTree = "<group>"; };
 		60064200151F24CD00EF85F9 /* BrowsingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowsingViewController.h; sourceTree = "<group>"; };
 		60064201151F24CD00EF85F9 /* BrowsingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingViewController.m; sourceTree = "<group>"; };
+		602035F415AA135B0021CE21 /* MPCJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONDataSerializer.h; sourceTree = "<group>"; };
+		602035F515AA135B0021CE21 /* MPCJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONDataSerializer.m; sourceTree = "<group>"; };
+		602035F615AA135B0021CE21 /* MPCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONSerializer.h; sourceTree = "<group>"; };
+		602035F715AA135B0021CE21 /* MPCJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONSerializer.m; sourceTree = "<group>"; };
+		602035F815AA135B0021CE21 /* MPCSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCSerializedJSONData.h; sourceTree = "<group>"; };
+		602035F915AA135B0021CE21 /* MPCSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCSerializedJSONData.m; sourceTree = "<group>"; };
+		602035FB15AA135B0021CE21 /* NSData+MPBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MPBase64.h"; sourceTree = "<group>"; };
+		602035FC15AA135B0021CE21 /* NSData+MPBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MPBase64.m"; sourceTree = "<group>"; };
+		602035FD15AA135B0021CE21 /* MixpanelAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixpanelAPI.h; sourceTree = "<group>"; };
+		602035FE15AA135B0021CE21 /* MixpanelAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixpanelAPI.m; sourceTree = "<group>"; };
+		602035FF15AA135B0021CE21 /* MixpanelAPI_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixpanelAPI_Private.h; sourceTree = "<group>"; };
+		6020360015AA135B0021CE21 /* MixpanelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixpanelEvent.h; sourceTree = "<group>"; };
+		6020360115AA135B0021CE21 /* MixpanelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixpanelEvent.m; sourceTree = "<group>"; };
 		6026A041157B5B9F0031509D /* NSDate+StringParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+StringParsing.h"; path = "Categories/NSDate+StringParsing.h"; sourceTree = "<group>"; };
 		6026A042157B5B9F0031509D /* NSDate+StringParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+StringParsing.m"; path = "Categories/NSDate+StringParsing.m"; sourceTree = "<group>"; };
 		6026A05F157BEA0F0031509D /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GMGridView-Constants.h"; path = "GMGridView/GMGridView-Constants.h"; sourceTree = "<group>"; };
@@ -432,6 +451,58 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		602035F015AA13490021CE21 /* Mixpanel */ = {
+			isa = PBXGroup;
+			children = (
+				602035F115AA135B0021CE21 /* MPLib */,
+			);
+			name = Mixpanel;
+			sourceTree = "<group>";
+		};
+		602035F115AA135B0021CE21 /* MPLib */ = {
+			isa = PBXGroup;
+			children = (
+				602035F215AA135B0021CE21 /* lib */,
+				602035FD15AA135B0021CE21 /* MixpanelAPI.h */,
+				602035FE15AA135B0021CE21 /* MixpanelAPI.m */,
+				602035FF15AA135B0021CE21 /* MixpanelAPI_Private.h */,
+				6020360015AA135B0021CE21 /* MixpanelEvent.h */,
+				6020360115AA135B0021CE21 /* MixpanelEvent.m */,
+			);
+			path = MPLib;
+			sourceTree = "<group>";
+		};
+		602035F215AA135B0021CE21 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				602035F315AA135B0021CE21 /* JSON */,
+				602035FA15AA135B0021CE21 /* NSData_Base64 */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		602035F315AA135B0021CE21 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				602035F415AA135B0021CE21 /* MPCJSONDataSerializer.h */,
+				602035F515AA135B0021CE21 /* MPCJSONDataSerializer.m */,
+				602035F615AA135B0021CE21 /* MPCJSONSerializer.h */,
+				602035F715AA135B0021CE21 /* MPCJSONSerializer.m */,
+				602035F815AA135B0021CE21 /* MPCSerializedJSONData.h */,
+				602035F915AA135B0021CE21 /* MPCSerializedJSONData.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		602035FA15AA135B0021CE21 /* NSData_Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				602035FB15AA135B0021CE21 /* NSData+MPBase64.h */,
+				602035FC15AA135B0021CE21 /* NSData+MPBase64.m */,
+			);
+			path = NSData_Base64;
+			sourceTree = "<group>";
+		};
 		6026A044157BE9180031509D /* Testflight */ = {
 			isa = PBXGroup;
 			children = (
@@ -642,6 +713,7 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				602035F015AA13490021CE21 /* Mixpanel */,
 				609CAE25158562FD000BE57E /* WEPopover */,
 				6026A05E157BEA030031509D /* GMGridView */,
 				6026A045157BE91D0031509D /* DCControls */,
@@ -1020,6 +1092,12 @@
 				60FFFB6D15A9840A00DB7668 /* UIImageView+ImageRect.m in Sources */,
 				60E8DECF15A99D7000058314 /* UIDevice+deviceInfo.m in Sources */,
 				60E8DED215A9A16B00058314 /* ORHorizontalImageViewCell.m in Sources */,
+				6020360215AA135B0021CE21 /* MPCJSONDataSerializer.m in Sources */,
+				6020360315AA135B0021CE21 /* MPCJSONSerializer.m in Sources */,
+				6020360415AA135B0021CE21 /* MPCSerializedJSONData.m in Sources */,
+				6020360515AA135B0021CE21 /* NSData+MPBase64.m in Sources */,
+				6020360615AA135B0021CE21 /* MixpanelAPI.m in Sources */,
+				6020360715AA135B0021CE21 /* MixpanelEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

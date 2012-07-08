@@ -42,6 +42,7 @@
     fileSizeLabel.text = @"";
     titleLabel.text = @"";
     additionalInfoLabel.text = @"";
+    progressView.isLandscape = YES;
 }
 
 - (void)setItem:(File *)item {

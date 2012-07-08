@@ -26,6 +26,9 @@
     display = fullName;
 
     if (fullName.length > 1) {
+        // kill all preceding whitespace
+        NSRange range = [display rangeOfString:@"^\\s*" options:NSRegularExpressionSearch];
+        display = [display stringByReplacingCharactersInRange:range withString:@""];
         
         // remove prefix brackets - usually group names
         NSArray *prefixOpeners = @[@"[", @"{", @"("];

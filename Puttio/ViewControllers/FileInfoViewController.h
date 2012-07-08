@@ -7,6 +7,7 @@
 //
 
 #import "ModalZoomView.h"
+#import "ORSimpleProgress.h"
 
 @interface FileInfoViewController : UIViewController <ModalZoomViewControllerDelegate>
 
@@ -18,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *secondaryButton;
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
-@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet ORSimpleProgress *progressView;
 
 - (IBAction)primaryButtonTapped:(id)sender;
 - (IBAction)secondaryButtonTapped:(id)sender;
