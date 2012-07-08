@@ -9,10 +9,15 @@
 
 #import "GMGridViewCell.h"
 
-@interface ORImageViewCell : GMGridViewCell
+@interface ORImageViewCell : GMGridViewCell {
+    UIImageView *imageView;
+    UILabel *titleLabel;
+}
+
++ (CGFloat) cellHeight;
++ (CGFloat) cellWidth;
 
 @property (nonatomic) NSString *title;
-@property (nonatomic) NSString *subtitle;
 @property (nonatomic) UIImage *image;
 @property (nonatomic) NSURL *imageURL;
 @property (nonatomic) id item;

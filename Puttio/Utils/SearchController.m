@@ -30,7 +30,7 @@ static SearchController *sharedInstance;
     return sharedInstance;
 }
 
-+ (void)searchForString:(NSString *)query {
++ (void)searchForString:(NSString *)query {    
     query = [query stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];    
     [self searchISOHunt:query];
     [self searchMininova:query];

@@ -93,7 +93,7 @@
 #pragma mark searchbar gubbins
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)aSearchBar {
-    [self searchBarTextDidEndEditing:aSearchBar];
+    [aSearchBar resignFirstResponder];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
@@ -106,7 +106,7 @@
 #pragma mark -
 #pragma mark search controller
 
-- (void)searchController:(SearchController *)controller foundResults:(NSArray *)moreSearchResults {
+- (void)searchController:(SearchController *)controller foundResults:(NSArray *)moreSearchResults {    
     searchResults = [[searchResults arrayByAddingObjectsFromArray:moreSearchResults] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         if ([obj1 ranking] == [obj2 ranking]) {
             return 0;

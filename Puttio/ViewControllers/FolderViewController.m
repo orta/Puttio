@@ -12,8 +12,7 @@
 #import "WatchedList.h"
 #import "WatchedItem.h"
 #import "NSManagedObject+ActiveRecord.h"
-
-const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
+#import "ORHorizontalImageViewCell.h"
 
 @implementation FolderViewController
 
@@ -65,7 +64,12 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     ORImageViewCell *cell = (ORImageViewCell *)[aGridView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[ORImageViewCell alloc] initWithFrame:CGRectMake(0, 0, GridCellSize.width, GridCellSize.height)];
+        if ([UIDevice isPad]) {
+            cell = [[ORImageViewCell alloc] initWithFrame:CGRectMake(0, 0, [ORImageViewCell cellWidth], [ORImageViewCell cellHeight])];
+        }else{
+            cell = [[ORHorizontalImageViewCell alloc] initWithFrame:CGRectMake(0, 0, [ORHorizontalImageViewCell cellWidth], [ORHorizontalImageViewCell cellHeight])];
+        }
+        
         cell.reuseIdentifier = CellIdentifier;
     }
     
@@ -87,8 +91,11 @@ const CGSize GridCellSize = { .width = 140.0, .height = 160.0 };
     return cell;
 }   
 
-- (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation) orientation { 
-    return GridCellSize;
+- (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation) orientation {
+    if ([UIDevice isPhone]) {
+        return CGSizeMake([ORHorizontalImageViewCell cellWidth], [ORHorizontalImageViewCell cellHeight]);
+    }
+    return CGSizeMake([ORImageViewCell cellWidth], [ORImageViewCell cellHeight]);
 }
 
 #pragma mark -

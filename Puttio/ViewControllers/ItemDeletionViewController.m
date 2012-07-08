@@ -28,6 +28,7 @@
 
 - (void)setItem:(NSObject<ORDisplayItemProtocol> *)item {
     _item = item;
+    
     if ([item respondsToSelector:@selector(displayName)]) {
         self.titleLabel.text = [NSString stringWithFormat:@"Delete %@?", item.displayName];
     }else {

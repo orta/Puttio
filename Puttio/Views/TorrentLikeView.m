@@ -88,7 +88,7 @@
     NSString *key = [NSString stringWithFormat:@"%i-%i", x, y];
     CALayer *layer = _tiles[key];
     [CATransaction begin];
-    [CATransaction setValue:[NSNumber numberWithFloat:0.3]
+    [CATransaction setValue:[NSNumber numberWithFloat:0.5]
                      forKey:kCATransactionAnimationDuration];
 
     int color = arc4random() % 8;

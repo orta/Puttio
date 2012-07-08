@@ -12,24 +12,20 @@
 
 static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 35};
 
-static CGFloat TitleLabelHeight = 40;
-static CGFloat SubTitleLabelHeight = 24;
-
+static CGFloat TitleLabelHeight = 44;
 static CGFloat ImageBottomMargin = 10;
-static CGFloat TitleBottomMargin = 1;
 
 @interface ORImageViewCell (){
-    UIImageView *imageView;
     UIImage *image;
     UIImageView *watchedSash;
-
-    UILabel *titleLabel;
-    UILabel *subtitleLabel;
 }
 
 @end
 
 @implementation ORImageViewCell
+
++ (CGFloat) cellHeight { return 140; }
++ (CGFloat) cellWidth { return 160; }
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -37,8 +33,8 @@ static CGFloat TitleBottomMargin = 1;
                 
         imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.backgroundColor = [UIColor clearColor];
-        imageView.opaque = NO;
+        imageView.backgroundColor = [UIColor whiteColor];
+        imageView.opaque = YES;
         
         CGRect imageFrame = frame;
         imageFrame.size.width = CGRectGetWidth(self.frame) - ImageContentInsets.left - ImageContentInsets.right;
@@ -57,20 +53,12 @@ static CGFloat TitleBottomMargin = 1;
         titleLabel.userInteractionEnabled = YES;
         titleLabel.numberOfLines = 2;
         [self addSubview:titleLabel];
-        
-        subtitleLabel = [[UILabel alloc] init];
-        subtitleLabel.textColor = [UIColor redColor];
-        subtitleLabel.textAlignment = UITextAlignmentCenter;
-        subtitleLabel.backgroundColor = [UIColor whiteColor];
-        subtitleLabel.opaque = NO;
-        [self addSubview:subtitleLabel];
     }
     return self;
 }
 
 - (void)prepareForReuse {
     titleLabel.text = @"";
-    subtitleLabel.text = @"";
     self.image = nil;
 
     self.watched = NO;
@@ -92,10 +80,6 @@ static CGFloat TitleBottomMargin = 1;
                                       CGRectGetWidth(self.bounds) - ImageContentInsets.left - ImageContentInsets.right, 
                                       0);
     }
-    subtitleLabel.frame = CGRectMake(ImageContentInsets.left, 
-                                     CGRectGetMaxY(titleLabel.frame) + TitleBottomMargin, 
-                                     CGRectGetWidth(self.bounds) - ImageContentInsets.left - ImageContentInsets.right, 
-                                     SubTitleLabelHeight);
 }
 
 - (void)setTitle:(NSString *)title {
@@ -103,20 +87,16 @@ static CGFloat TitleBottomMargin = 1;
     titleLabel.text = title;
 }
 
-- (void)setSubtitle:(NSString *)subtitle{
-    _subtitle = subtitle;
-    subtitleLabel.text = _subtitle;
-}
-
 - (void)setImageURL:(NSURL *)anImageURL {
     _imageURL = anImageURL;
     NSURLRequest *request = [NSURLRequest requestWithURL:anImageURL];
 
-    ORImageViewCell *this = self;
+    __weak ORImageViewCell *this = self;
     [imageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"Placeholder"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
 
-        if([this watched]){
-            [this addWatchedEffects];
+        __strong ORImageViewCell *strongSelf = this;
+        if([strongSelf watched]){
+            [strongSelf addWatchedEffects];
         }
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {

@@ -110,6 +110,8 @@
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
 		60DBF382158CA5250061F059 /* ConvertToMP4Process.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DBF381158CA5250061F059 /* ConvertToMP4Process.m */; };
 		60DBF385158CA7EE0061F059 /* FileDownloadProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */; };
+		60E8DECF15A99D7000058314 /* UIDevice+deviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */; };
+		60E8DED215A9A16B00058314 /* ORHorizontalImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8DED115A9A16B00058314 /* ORHorizontalImageViewCell.m */; };
 		60F00EBA152BAC1800DA9230 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */; };
 		60F023861528AB55003491E4 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023851528AB55003491E4 /* icon72.png */; };
 		60F023881528AB5F003491E4 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023871528AB5F003491E4 /* icon144.png */; };
@@ -342,6 +344,10 @@
 		60DBF381158CA5250061F059 /* ConvertToMP4Process.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConvertToMP4Process.m; path = Processes/ConvertToMP4Process.m; sourceTree = "<group>"; };
 		60DBF383158CA7EE0061F059 /* FileDownloadProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileDownloadProcess.h; path = Processes/FileDownloadProcess.h; sourceTree = "<group>"; };
 		60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileDownloadProcess.m; path = Processes/FileDownloadProcess.m; sourceTree = "<group>"; };
+		60E8DECD15A99D7000058314 /* UIDevice+deviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+deviceInfo.h"; path = "Categories/UIDevice+deviceInfo.h"; sourceTree = "<group>"; };
+		60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+deviceInfo.m"; path = "Categories/UIDevice+deviceInfo.m"; sourceTree = "<group>"; };
+		60E8DED015A9A16B00058314 /* ORHorizontalImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORHorizontalImageViewCell.h; path = Views/ORHorizontalImageViewCell.h; sourceTree = "<group>"; };
+		60E8DED115A9A16B00058314 /* ORHorizontalImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORHorizontalImageViewCell.m; path = Views/ORHorizontalImageViewCell.m; sourceTree = "<group>"; };
 		60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		60F023851528AB55003491E4 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
 		60F023871528AB5F003491E4 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
@@ -420,6 +426,8 @@
 				60C45D5B157C16750059D4B4 /* ORSlidingTableView.m */,
 				60FFFB5015A8CBF400DB7668 /* TorrentLikeView.h */,
 				60FFFB5115A8CBF400DB7668 /* TorrentLikeView.m */,
+				60E8DED015A9A16B00058314 /* ORHorizontalImageViewCell.h */,
+				60E8DED115A9A16B00058314 /* ORHorizontalImageViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -742,6 +750,8 @@
 				6097199B15975A5900F9398F /* UIDevice+SpaceStats.m */,
 				60FFFB6B15A9840A00DB7668 /* UIImageView+ImageRect.h */,
 				60FFFB6C15A9840A00DB7668 /* UIImageView+ImageRect.m */,
+				60E8DECD15A99D7000058314 /* UIDevice+deviceInfo.h */,
+				60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1008,6 +1018,8 @@
 				6097199C15975A5900F9398F /* UIDevice+SpaceStats.m in Sources */,
 				60FFFB5215A8CBF400DB7668 /* TorrentLikeView.m in Sources */,
 				60FFFB6D15A9840A00DB7668 /* UIImageView+ImageRect.m in Sources */,
+				60E8DECF15A99D7000058314 /* UIDevice+deviceInfo.m in Sources */,
+				60E8DED215A9A16B00058314 /* ORHorizontalImageViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

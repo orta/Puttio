@@ -18,6 +18,7 @@
     #import "NSString+StripHTML.h"
     #import "NSManagedObject+ActiveRecord.h"
     #import "Analytics.h"
+    #import "UIDevice+deviceInfo.h"
 
     // models
     #import "File.h"

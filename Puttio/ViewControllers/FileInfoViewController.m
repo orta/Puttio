@@ -36,20 +36,19 @@
 @synthesize progressView;
 @dynamic item;
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     progressView.hidden = YES;
     fileSizeLabel.text = @"";
     titleLabel.text = @"";
     additionalInfoLabel.text = @"";
-    [self hideProgress];
 }
 
 - (void)setItem:(File *)item {
     if (![item conformsToProtocol:@protocol(ORDisplayItemProtocol)]) {
         [NSException raise:@"File Info item should conform to ORDisplayItemProtocol" format:@"File Info item should conform to ORDisplayItemProtocol"];
     }
-    
+
     fileControllers = @[[VideoFileController class], [ComicFileController class], [UnknownFileController class]];
     for (Class <FileController> klass in fileControllers) {
         if ([klass fileSupportedByController: item]) {
