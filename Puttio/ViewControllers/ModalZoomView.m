@@ -90,12 +90,15 @@ static ModalZoomView *sharedInstance;
 
 + (void)fadeOutViewAnimated:(BOOL)animated {
     CGFloat duration = animated? 0.3 : 0;
-    
     ModalZoomView *this = [self sharedInstance];
+    
+    if([this.viewController respondsToSelector:@selector(zoomViewWillDissapear:)]){
+        [this.viewController zoomViewWillDissapear:this];
+    }
+    
     [UIView animateWithDuration:duration animations:^{
         this.backgroundView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
         this.viewController.view.frame = this.originalFrame;
-        [this.viewController zoomViewWillDissapear:this];
         
     } completion:^(BOOL finished) {
         [this.backgroundView removeFromSuperview];

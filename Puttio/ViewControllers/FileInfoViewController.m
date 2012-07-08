@@ -48,6 +48,12 @@
     secondaryButton.alpha = 0;
     fileSizeLabel.alpha = 0;
     additionalInfoLabel.alpha = 0;
+    
+    if ([UIDevice isPhone]) {
+        CGRect imageFrame = thumbnailImageView.frame;
+        imageFrame.origin.y = 0;
+//        thumbnailImageView.backgroundColor = [UIColor greenColor];
+    }
 }
 
 - (void)setItem:(File *)item {
@@ -138,6 +144,11 @@
 }
 
 - (void)zoomViewWillDissapear:(ModalZoomView *)zoomView {
-//    [[[AFHTTPClient ] operationQueue] cancelAllOperations];
+    [UIView animateWithDuration:0.1 animations:^{
+        primaryButton.alpha = 0;
+        secondaryButton.alpha = 0;
+        fileSizeLabel.alpha = 0;
+        additionalInfoLabel.alpha = 0;
+    }];
 }
 @end
