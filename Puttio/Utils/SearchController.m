@@ -32,9 +32,12 @@ static SearchController *sharedInstance;
 
 + (void)searchForString:(NSString *)query {    
     query = [query stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];    
-    [self searchISOHunt:query];
     [self searchMininova:query];
-    [self searchFenopy:query];
+
+    if([[NSUserDefaults standardUserDefaults] boolForKey:ORUseAllSearchEngines]){
+        [self searchISOHunt:query];
+        [self searchFenopy:query];
+    }
 }
 
 + (void)searchFenopy:(NSString *)query {
@@ -55,7 +58,7 @@ static SearchController *sharedInstance;
         [self passArrayToDelegate:searchResults];
             
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        [Analytics error:@"fenopy search failed"];
         NSLog(@"fail whale fenopy %@", error);
 
     }];
@@ -81,7 +84,7 @@ static SearchController *sharedInstance;
         [self passArrayToDelegate:searchResults];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-      
+        [Analytics error:@"isohunt search failed"];
         NSLog(@"fail whale %@", error);
     }];
     [operation start];
@@ -109,7 +112,7 @@ static SearchController *sharedInstance;
         [self passArrayToDelegate:searchResults];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        [Analytics error:@"mininova search failed"];
         NSLog(@"fail whale %@", error);
     }];
     [operation start];
@@ -131,11 +134,6 @@ static SearchController *sharedInstance;
         NSLog(@"json parsing error.");
     }
     return [json valueForKeyPath:keyPath];
-}
-
-+ (NSString*)getExampleJSON:(NSString*)filename {
-    NSString * response = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"json"] encoding:NSASCIIStringEncoding error:nil];
-    return response;
 }
 
 @end

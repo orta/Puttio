@@ -24,6 +24,12 @@
 		6020360515AA135B0021CE21 /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 602035FC15AA135B0021CE21 /* NSData+MPBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6020360615AA135B0021CE21 /* MixpanelAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 602035FE15AA135B0021CE21 /* MixpanelAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6020360715AA135B0021CE21 /* MixpanelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020360115AA135B0021CE21 /* MixpanelEvent.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6020361B15AA2C120021CE21 /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361215AA2C120021CE21 /* DCRoundSwitch.m */; };
+		6020361C15AA2C120021CE21 /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361415AA2C120021CE21 /* DCRoundSwitchKnobLayer.m */; };
+		6020361D15AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361615AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m */; };
+		6020361E15AA2C120021CE21 /* DCRoundSwitchToggleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361815AA2C120021CE21 /* DCRoundSwitchToggleLayer.m */; };
+		6020361F15AA2C120021CE21 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6020361915AA2C120021CE21 /* license.txt */; };
+		6020362015AA2C120021CE21 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 6020361A15AA2C120021CE21 /* readme.md */; };
 		6026A043157B5B9F0031509D /* NSDate+StringParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A042157B5B9F0031509D /* NSDate+StringParsing.m */; };
 		6026A06B157BEA0F0031509D /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A061157BEA0F0031509D /* GMGridView.m */; };
 		6026A06C157BEA0F0031509D /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A063157BEA0F0031509D /* GMGridViewCell.m */; };
@@ -193,6 +199,16 @@
 		602035FF15AA135B0021CE21 /* MixpanelAPI_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixpanelAPI_Private.h; sourceTree = "<group>"; };
 		6020360015AA135B0021CE21 /* MixpanelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixpanelEvent.h; sourceTree = "<group>"; };
 		6020360115AA135B0021CE21 /* MixpanelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixpanelEvent.m; sourceTree = "<group>"; };
+		6020361115AA2C120021CE21 /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
+		6020361215AA2C120021CE21 /* DCRoundSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitch.m; sourceTree = "<group>"; };
+		6020361315AA2C120021CE21 /* DCRoundSwitchKnobLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchKnobLayer.h; sourceTree = "<group>"; };
+		6020361415AA2C120021CE21 /* DCRoundSwitchKnobLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchKnobLayer.m; sourceTree = "<group>"; };
+		6020361515AA2C120021CE21 /* DCRoundSwitchOutlineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchOutlineLayer.h; sourceTree = "<group>"; };
+		6020361615AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchOutlineLayer.m; sourceTree = "<group>"; };
+		6020361715AA2C120021CE21 /* DCRoundSwitchToggleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchToggleLayer.h; sourceTree = "<group>"; };
+		6020361815AA2C120021CE21 /* DCRoundSwitchToggleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchToggleLayer.m; sourceTree = "<group>"; };
+		6020361915AA2C120021CE21 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		6020361A15AA2C120021CE21 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
 		6026A041157B5B9F0031509D /* NSDate+StringParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+StringParsing.h"; path = "Categories/NSDate+StringParsing.h"; sourceTree = "<group>"; };
 		6026A042157B5B9F0031509D /* NSDate+StringParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+StringParsing.m"; path = "Categories/NSDate+StringParsing.m"; sourceTree = "<group>"; };
 		6026A05F157BEA0F0031509D /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GMGridView-Constants.h"; path = "GMGridView/GMGridView-Constants.h"; sourceTree = "<group>"; };
@@ -503,6 +519,23 @@
 			path = NSData_Base64;
 			sourceTree = "<group>";
 		};
+		6020361015AA2C110021CE21 /* DCRoundSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				6020361115AA2C120021CE21 /* DCRoundSwitch.h */,
+				6020361215AA2C120021CE21 /* DCRoundSwitch.m */,
+				6020361315AA2C120021CE21 /* DCRoundSwitchKnobLayer.h */,
+				6020361415AA2C120021CE21 /* DCRoundSwitchKnobLayer.m */,
+				6020361515AA2C120021CE21 /* DCRoundSwitchOutlineLayer.h */,
+				6020361615AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m */,
+				6020361715AA2C120021CE21 /* DCRoundSwitchToggleLayer.h */,
+				6020361815AA2C120021CE21 /* DCRoundSwitchToggleLayer.m */,
+				6020361915AA2C120021CE21 /* license.txt */,
+				6020361A15AA2C120021CE21 /* readme.md */,
+			);
+			path = DCRoundSwitch;
+			sourceTree = "<group>";
+		};
 		6026A044157BE9180031509D /* Testflight */ = {
 			isa = PBXGroup;
 			children = (
@@ -713,6 +746,7 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				6020361015AA2C110021CE21 /* DCRoundSwitch */,
 				602035F015AA13490021CE21 /* Mixpanel */,
 				609CAE25158562FD000BE57E /* WEPopover */,
 				6026A05E157BEA030031509D /* GMGridView */,
@@ -994,6 +1028,8 @@
 				60FFFB5E15A97CCE00DB7668 /* Placeholder@2x.png in Resources */,
 				60FFFB6115A9836400DB7668 /* WatchedSash.png in Resources */,
 				60FFFB6215A9836400DB7668 /* WatchedSash@2x.png in Resources */,
+				6020361F15AA2C120021CE21 /* license.txt in Resources */,
+				6020362015AA2C120021CE21 /* readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,6 +1134,10 @@
 				6020360515AA135B0021CE21 /* NSData+MPBase64.m in Sources */,
 				6020360615AA135B0021CE21 /* MixpanelAPI.m in Sources */,
 				6020360715AA135B0021CE21 /* MixpanelEvent.m in Sources */,
+				6020361B15AA2C120021CE21 /* DCRoundSwitch.m in Sources */,
+				6020361C15AA2C120021CE21 /* DCRoundSwitchKnobLayer.m in Sources */,
+				6020361D15AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m in Sources */,
+				6020361E15AA2C120021CE21 /* DCRoundSwitchToggleLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

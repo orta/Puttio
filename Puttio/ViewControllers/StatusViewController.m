@@ -69,7 +69,6 @@ typedef enum {
     
     self.spaceProgressView.min = 0.0;
 	self.spaceProgressView.max = 1.0;
-    self.spaceProgressView.value = 0;
     self.spaceProgressView.allowsGestures = NO;
     self.spaceProgressView.valueArcWidth = 6.0;
     self.spaceProgressView.color = [UIColor putioBlue];

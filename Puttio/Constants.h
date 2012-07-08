@@ -27,6 +27,7 @@ extern NSString *const ORCurrentSpaceUsedPercentageDefault;
 extern NSString *const ORDiskQuotaAvailableDefault;
 extern NSString *const ORUserAccountNameDefault;
 extern NSString *const ORLoggedOutDefault;
+extern NSString *const ORUseAllSearchEngines;
 
 extern NSString *const ORReloadGridNotification;
 extern NSString *const ORReloadFolderNotification;

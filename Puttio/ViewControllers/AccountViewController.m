@@ -10,6 +10,7 @@
 #import "UIDevice+SpaceStats.h"
 #import "ORSimpleProgress.h"
 #import "Constants.h"
+#import "DCRoundSwitch.h"
 
 @interface AccountViewController ()
 
@@ -19,15 +20,19 @@
 @synthesize accountSpaceLeftProgress;
 @synthesize deviceStoredProgress;
 @synthesize deviceSpaceLeftProgress;
+@synthesize copyrightWarning;
 @synthesize welcomeAccountLabel;
 @synthesize loggedOutMessageView;
+@synthesize creativeCommonsSwitch;
 @synthesize accountSpaceLabel;
 @synthesize deviceStoredLabel;
 @synthesize deviceSpaceLeftLabel;
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     // Welcome message
-    self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Hey there, %@", [[NSUserDefaults standardUserDefaults] objectForKey:ORUserAccountNameDefault]];
+    self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Hey there, %@", [defaults objectForKey:ORUserAccountNameDefault]];
     
     // Space Left on Device
     self.deviceSpaceLeftLabel.text = [NSString stringWithFormat:@"You have %@ left on this device", [self getSpaceLeft]];
@@ -42,12 +47,30 @@
     self.deviceStoredProgress.isLandscape = YES;
     
     // Space Left on Put.io
-     NSString *deviceUsedString = [[NSUserDefaults standardUserDefaults] objectForKey:ORDiskQuotaAvailableDefault];
+     NSString *deviceUsedString = [defaults objectForKey:ORDiskQuotaAvailableDefault];
     self.accountSpaceLabel.text = [NSString stringWithFormat:@"You have %@ left on the site", [UIDevice humanStringFromBytes:[deviceUsedString doubleValue]]];
-    self.accountSpaceLeftProgress.progress = [[NSUserDefaults standardUserDefaults] doubleForKey:ORCurrentSpaceUsedPercentageDefault];
+    self.accountSpaceLeftProgress.progress = [defaults doubleForKey:ORCurrentSpaceUsedPercentageDefault];
     self.accountSpaceLeftProgress.isLandscape = YES;
      
+    
+    [self.creativeCommonsSwitch setOn:![defaults boolForKey:ORUseAllSearchEngines] animated:NO];
+    [self.creativeCommonsSwitch addTarget:self action:@selector(ccSwitched:) forControlEvents:UIControlEventValueChanged];
+
+    self.copyrightWarning.alpha = [defaults boolForKey:ORUseAllSearchEngines] ? 1 : 0;
+    
     [super viewWillAppear:animated];
+}
+
+- (void)ccSwitched:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    DCRoundSwitch *commonsSwitch = sender;
+    // its opposite what's expected, means the switch flows better visually
+    [defaults setBool:!commonsSwitch.on forKey:ORUseAllSearchEngines];
+    [defaults synchronize];
+
+    [UIView animateWithDuration:0.2 animations:^{
+        self.copyrightWarning.alpha = [defaults boolForKey:ORUseAllSearchEngines] ? 1 : 0;
+    }];
 }
 
 - (NSString *)getDeviceSpaceUsed {
@@ -88,6 +111,8 @@
     [self setDeviceSpaceLeftLabel:nil];
     [self setWelcomeAccountLabel:nil];
     [self setLoggedOutMessageView:nil];
+    [self setCreativeCommonsSwitch:nil];
+    [self setCopyrightWarning:nil];
     [super viewDidUnload];
 }
 

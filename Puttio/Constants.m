@@ -27,6 +27,7 @@ NSString *const ORCurrentSpaceUsedPercentageDefault = @"ORCurrentSpaceUsedPercen
 NSString *const ORDiskQuotaAvailableDefault = @"ORDiskQuotaAvailableDefault";
 NSString *const ORUserAccountNameDefault = @"ORUserAccountNameDefault";
 NSString *const ORLoggedOutDefault = @"ORLoggedOutDefault";
+NSString *const ORUseAllSearchEngines = @"ORUseAllSearchEngines";
 
 NSString *const ORReloadGridNotification = @"ORReloadGridNotification";
 NSString *const ORReloadFolderNotification = @"ORReloadFolderNotification";
