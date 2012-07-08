@@ -42,5 +42,4 @@
     return [documentsDirectory stringByAppendingPathComponent:[self.id stringByAppendingPathExtension:@"jpg"]];
 }
 
-
 @end

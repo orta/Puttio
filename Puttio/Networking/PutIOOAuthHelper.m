@@ -142,7 +142,8 @@
             [webView stringByEvaluatingJavaScriptFromString:setPassword];
             
             [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
-        }    
+        }
+        
     } else { 
         [self.delegate authHelperLoginFailedWithDesription:@"Wrong Username / Password combo"];
     }

@@ -81,7 +81,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     files = [[LocalFile allObjects] mutableCopy];
     [gridView reloadData];
     
-    self.noItemsView.hidden = NO;// files.count > 0;
+    self.noItemsView.hidden = files.count > 0;
 }
 
 #pragma mark -
@@ -145,9 +145,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     
     cell.item = file;
     cell.title = file.name;
-
-    #warning we should be grabbing thumbnails
-    cell.imageURL = [NSURL URLWithString:@"https://put.io/thumbnails/aItkkZFhXV5lXl1miGlmYmOOWpSLV5FYZ2SRlmNfYl6JYlqYY5FoYg.jpg"];
+    cell.imageURL = [NSURL fileURLWithPath:[file localPathForScreenshot]];
 
     if (file.watched.boolValue == YES) {
         cell.watched = YES;

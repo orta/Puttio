@@ -11,6 +11,7 @@
 #import "PutIOOAuthHelper.h"
 
 @implementation OAuthViewController
+@synthesize errorHeaderView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,6 +43,7 @@
     [self setLoginButton:nil];
     [self setActivityView:nil];
     [self setWebView:nil];
+    [self setErrorHeaderView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -77,9 +79,7 @@
     }
 }
 
-- (void)authHelperLoginFailedWithDesription:(NSString *)errorDescription {
-    NSLog(@"%@ %s\n%@", NSStringFromSelector(_cmd), __FILE__, self);
-    
+- (void)authHelperLoginFailedWithDesription:(NSString *)errorDescription {   
     self.warningLabel.text = errorDescription;
     self.loginButton.enabled = YES;
     self.usernameTextfield.enabled = YES;
@@ -89,6 +89,7 @@
 
 - (void)authHelperHasDeclaredItScrewed {
     self.webView.hidden = NO;
+    self.errorHeaderView.hidden = NO;
 }
 
 @end

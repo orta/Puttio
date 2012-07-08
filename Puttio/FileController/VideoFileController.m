@@ -100,6 +100,20 @@
         requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/mp4/download", _file.id];   
     }
 
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_file.screenShotURL]];
+    AFHTTPRequestOperation *screenShotOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [screenShotOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = paths[0];
+        NSString *screenShotPath = [documentsDirectory stringByAppendingPathComponent:[_file.id stringByAppendingPathExtension:@"jpg"]];
+        
+        [operation.responseData writeToFile:screenShotPath atomically:YES];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"screenshot op died");
+    }];
+    [screenShotOperation start];
+    
     [self downloadFileAtPath:requestURL backgroundable:YES withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.infoController.additionalInfoLabel.text = @"Saving file";
         
@@ -110,8 +124,7 @@
         NSString *fullPath = [NSString stringWithFormat:@"%@.mp4", filePath];
         [operation.responseData writeToFile:fullPath atomically:YES];
 
-        
-        // Make sure its not in iCloud
+        // Make sure its not backed up in iCloud
         NSURL *fileUrl = [NSURL fileURLWithPath:fullPath];
         assert([[NSFileManager defaultManager] fileExistsAtPath: [fileUrl path]]);
         

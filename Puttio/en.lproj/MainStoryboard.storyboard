@@ -864,13 +864,27 @@ Message</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <webView hidden="YES" opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" id="vzR-Xs-Iu9">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                                <rect key="frame" x="0.0" y="77" width="1024" height="671"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="kuB-Ee-JBF" id="KC9-uR-IRO"/>
                                 </connections>
                             </webView>
+                            <view hidden="YES" contentMode="scaleToFill" id="8C8-jP-KXA">
+                                <rect key="frame" x="0.0" y="18" width="1024" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="There was a problem logging in, please manually log in to the site and the app should take over" autoshrinkMode="minimumFontSize" id="Iva-TW-NFu">
+                                        <rect key="frame" x="11" y="4" width="849" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -880,6 +894,7 @@ Message</string>
                     <connections>
                         <outlet property="activityView" destination="EAk-Xx-on8" id="847-uD-Rnj"/>
                         <outlet property="authHelper" destination="kuB-Ee-JBF" id="T2o-YW-IMN"/>
+                        <outlet property="errorHeaderView" destination="8C8-jP-KXA" id="Suh-8D-Jbb"/>
                         <outlet property="loginButton" destination="Huw-f5-DTe" id="UJg-zk-e9s"/>
                         <outlet property="loginViewWrapper" destination="RTs-9t-64d" id="Qbn-HY-tTk"/>
                         <outlet property="passwordTextfield" destination="7qr-I8-ulE" id="UeA-O1-aYA"/>
@@ -978,6 +993,7 @@ Message</string>
                 <relationship kind="action" name="loginPressed:"/>
                 <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="authHelper" candidateClass="PutIOOAuthHelper"/>
+                <relationship kind="outlet" name="errorHeaderView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="loginViewWrapper" candidateClass="UIView"/>
                 <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>

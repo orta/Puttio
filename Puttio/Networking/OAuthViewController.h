@@ -20,6 +20,7 @@
 @property (weak, nonatomic) id <OAuthVCDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextfield; 
+@property (weak, nonatomic) IBOutlet UIView *errorHeaderView;
 @property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 @property (weak, nonatomic) IBOutlet UIView *loginViewWrapper;
 @property (strong, nonatomic) IBOutlet PutIOOAuthHelper *authHelper;
