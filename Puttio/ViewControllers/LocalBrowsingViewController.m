@@ -158,10 +158,8 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     return LocalFileGridCellSize;
 }
 
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
 
 @end
-

@@ -8,14 +8,26 @@
 
 #import "ORImageViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "UIImageView+ImageRect.h"
 
-static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 55};
+static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 35};
 
 static CGFloat TitleLabelHeight = 40;
 static CGFloat SubTitleLabelHeight = 24;
 
 static CGFloat ImageBottomMargin = 10;
 static CGFloat TitleBottomMargin = 1;
+
+@interface ORImageViewCell (){
+    UIImageView *imageView;
+    UIImage *image;
+    UIImageView *watchedSash;
+
+    UILabel *titleLabel;
+    UILabel *subtitleLabel;
+}
+
+@end
 
 @implementation ORImageViewCell
 
@@ -36,11 +48,6 @@ static CGFloat TitleBottomMargin = 1;
         imageFrame.origin.y = ImageContentInsets.top;
         imageView.frame = imageFrame;  
         [self addSubview:imageView];
-        
-		activityIndicatorView =
-        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        [activityIndicatorView sizeToFit];
-        [self addSubview:activityIndicatorView];
         
         titleLabel = [[UILabel alloc] init];
         titleLabel.textColor = black;
@@ -65,19 +72,14 @@ static CGFloat TitleBottomMargin = 1;
     titleLabel.text = @"";
     subtitleLabel.text = @"";
     self.image = nil;
+
+    self.watched = NO;
+    [watchedSash removeFromSuperview];
+    watchedSash = nil;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    if (imageView.image) {
-        [activityIndicatorView stopAnimating];
-        activityIndicatorView.frame = CGRectZero;
-    }
-    else {
-        [activityIndicatorView stopAnimating];
-        [activityIndicatorView sizeToFit];
-        activityIndicatorView.center = imageView.center;
-    }
     if ([_title length]) {
         titleLabel.frame = CGRectMake(ImageContentInsets.left, 
                                       CGRectGetMaxY(imageView.frame) + ImageBottomMargin, 
@@ -108,7 +110,18 @@ static CGFloat TitleBottomMargin = 1;
 
 - (void)setImageURL:(NSURL *)anImageURL {
     _imageURL = anImageURL;
-    [imageView setImageWithURL:anImageURL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:anImageURL];
+
+    ORImageViewCell *this = self;
+    [imageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"Placeholder"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+
+        if([this watched]){
+            [this addWatchedEffects];
+        }
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        
+    }];
 }
 
 - (void)setImage:(UIImage *)anImage {
@@ -116,9 +129,16 @@ static CGFloat TitleBottomMargin = 1;
     [imageView setImage:anImage];
 }
 
-- (void)setWatched:(BOOL)watched {
-    _watched = watched;
-    self.backgroundColor = [[UIColor putioYellow] colorWithAlphaComponent:0.5];
+- (void) addWatchedEffects {
+    bool isRetina = [[UIScreen mainScreen] scale] > 1;
+    CGRect imageRect = [imageView frameForImage];
+    
+    watchedSash = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WatchedSash"]];
+    imageRect.size.width = CGRectGetWidth(watchedSash.frame);
+    imageRect.size.height = CGRectGetHeight(watchedSash.frame);
+    imageRect.origin.x -= isRetina? 1 : 2;
+    imageRect.origin.y -= isRetina? 1 : 2;;
+    watchedSash.frame = imageRect;
+    [imageView addSubview:watchedSash];
 }
-
 @end

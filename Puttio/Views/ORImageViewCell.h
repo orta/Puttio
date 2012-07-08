@@ -9,14 +9,7 @@
 
 #import "GMGridViewCell.h"
 
-@interface ORImageViewCell : GMGridViewCell {
-    UIImageView *imageView;
-    UIActivityIndicatorView *activityIndicatorView;
-    UIImage *image;
-    
-    UILabel *titleLabel;
-    UILabel *subtitleLabel;
-}
+@interface ORImageViewCell : GMGridViewCell
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *subtitle;
