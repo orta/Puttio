@@ -9,10 +9,13 @@
 #import "TorrentLikeView.h"
 #import "UIColor+PutioColours.h"
 
-
 @interface TorrentLikeView (){
     NSDictionary *_tiles;
     NSTimer *_colorChangeTimer;
+    
+    int tileSize;
+    int tileCount;
+    BOOL animates;
 }
 @end
 
@@ -33,6 +36,37 @@
 - (void)setup {
     self.alpha = 0;
     self.backgroundColor = [UIColor colorWithWhite:0.877 alpha:1.000];
+
+    switch ([UIDevice deviceType]) {
+        case DeviceIpad1:
+            tileCount = 25;
+            tileSize = 40;
+            break;
+        case DeviceIpad2:
+            tileCount = 35;
+            tileSize = 30;
+            animates = YES;
+            break;
+        case DeviceIpad3Plus:
+            tileCount = 52;
+            tileSize = 20;
+            animates = YES;
+            break;
+        case DeviceIphone3GS:
+            tileCount = 25;
+            tileSize = 40;
+            break;
+        case DeviceIphone4Plus:
+            tileCount = 35;
+            tileSize = 30;
+            animates = YES;
+            break;
+        default:
+            tileCount = 52;
+            tileSize = 20;
+            animates = YES;
+            break;
+    }
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     [self performSelector:@selector(createTiles) withObject:nil afterDelay:0.1];
@@ -43,10 +77,9 @@
     CGColorRef whiteColor = [UIColor whiteColor].CGColor;
     CGColorRef yellowColor = [UIColor putioYellow].CGColor;
     CGColorRef blueColor = [UIColor putioBlue].CGColor;
-
     
-    for (int i = 0; i < 52; i++) {
-        for (int j = 0; j < 52; j++) {
+    for (int i = 0; i < tileCount; i++) {
+        for (int j = 0; j < tileCount; j++) {
             CALayer* myLayer = [CALayer layer];
             int color = arc4random() % 10;
             switch (color) {
@@ -60,8 +93,8 @@
                     myLayer.backgroundColor = whiteColor;
                     break;
             }
-            myLayer.bounds = CGRectMake(0,0, 18, 18);
-            myLayer.position = CGPointMake(i * 20 - 1, j * 20 - 1);
+            myLayer.bounds = CGRectMake(0,0, tileSize - 2, tileSize - 2);
+            myLayer.position = CGPointMake(i * tileSize - 1, j * tileSize - 1);
             NSString *key = [NSString stringWithFormat:@"%i-%i", i,j];
             [tempLayers setObject:myLayer forKey:key];
             [self.layer addSublayer:myLayer];
@@ -78,13 +111,15 @@
         self.alpha = 1;
     }];
 
-    _colorChangeTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(tick) userInfo:nil repeats:YES];
-    [_colorChangeTimer fire];
+    if(animates){
+        _colorChangeTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+        [_colorChangeTimer fire];
+    }
 }
 
 - (void)tick {
-    int x = arc4random() % 52;
-    int y = arc4random() % 52;
+    int x = arc4random() % tileCount;
+    int y = arc4random() % tileCount;
     NSString *key = [NSString stringWithFormat:@"%i-%i", x, y];
     CALayer *layer = _tiles[key];
     [CATransaction begin];

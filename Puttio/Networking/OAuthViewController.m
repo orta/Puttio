@@ -17,6 +17,12 @@
     [super viewDidLoad];
     [self setupShadow];
     self.warningLabel.text = @"";
+
+    if ([UIDevice isPhone]) {
+        CGRect frame = self.loginViewWrapper.frame;
+        frame.origin.y = 0;
+        self.loginViewWrapper.frame = frame;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

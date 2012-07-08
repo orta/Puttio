@@ -25,7 +25,7 @@ static CGFloat ImageBottomMargin = 10;
 @implementation ORImageViewCell
 
 + (CGFloat) cellHeight { return 140; }
-+ (CGFloat) cellWidth { return 160; }
++ (CGFloat) cellWidth { return 150; }
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {

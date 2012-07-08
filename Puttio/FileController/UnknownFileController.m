@@ -83,8 +83,10 @@
 #pragma mark Document related stuff
 
 -(BOOL)canOpenDocumentWithURL:(NSURL*)url inView:(UIView*)view {
+    #warning can get a crash here
+    
     BOOL canOpen = NO;
-    UIDocumentInteractionController* docController = [UIDocumentInteractionController 
+    UIDocumentInteractionController* docController = [UIDocumentInteractionController
                                                       interactionControllerWithURL:url];
     if (docController) {
         docController.delegate = self;
