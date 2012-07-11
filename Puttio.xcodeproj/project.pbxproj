@@ -386,6 +386,7 @@
 		60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		60F023851528AB55003491E4 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
 		60F023871528AB5F003491E4 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
+		60F28C4015AB93EB0089AE8B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = ../../vendor/Crashlytics.framework; sourceTree = "<group>"; };
 		60F4ECBE152B902C00A9A627 /* FileSizeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileSizeUtils.h; path = Utils/FileSizeUtils.h; sourceTree = "<group>"; };
 		60F4ECBF152B902C00A9A627 /* FileSizeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileSizeUtils.m; path = Utils/FileSizeUtils.m; sourceTree = "<group>"; };
 		60F5AD5F15224DF400DD7A6F /* ORImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORImageViewCell.h; path = Views/ORImageViewCell.h; sourceTree = "<group>"; };
@@ -752,6 +753,7 @@
 				6026A05E157BEA030031509D /* GMGridView */,
 				6026A045157BE91D0031509D /* DCControls */,
 				6026A044157BE9180031509D /* Testflight */,
+				60F28C4015AB93EB0089AE8B /* Crashlytics.framework */,
 				60C04F0B15722E9E00C23AB5 /* QuartzCore.framework */,
 				60C04EF315722D7E00C23AB5 /* FGPhotoViewer */,
 				60C04ED01572119D00C23AB5 /* MiniZip.xcodeproj */,
@@ -936,6 +938,7 @@
 				6085D21F151B99490068929C /* Sources */,
 				6085D220151B99490068929C /* Frameworks */,
 				6085D221151B99490068929C /* Resources */,
+				60F28C3F15AB5CBF0089AE8B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1034,6 +1037,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		60F28C3F15AB5CBF0089AE8B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6085D21F151B99490068929C /* Sources */ = {
@@ -1215,6 +1234,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/vendor\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
@@ -1237,6 +1260,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/vendor\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Puttio/Puttio-Prefix.pch";
 				INFOPLIST_FILE = "Puttio/Puttio-Info.plist";
