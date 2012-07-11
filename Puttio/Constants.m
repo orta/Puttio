@@ -25,6 +25,7 @@ NSString *const ORShowLeftSidebarDefault = @"ORShowLeftSidebarDefault";
 NSString *const ORShowRightSidebarDefault = @"ORShowRightSidebarDefault";
 NSString *const ORCurrentSpaceUsedPercentageDefault = @"ORCurrentSpaceUsedPercentageDefault";
 NSString *const ORDiskQuotaAvailableDefault = @"ORDiskQuotaAvailableDefault";
+NSString *const ORDiskQuotaTotalDefault = @"ORDiskQuotaTotalDefault";
 NSString *const ORUserAccountNameDefault = @"ORUserAccountNameDefault";
 NSString *const ORLoggedOutDefault = @"ORLoggedOutDefault";
 NSString *const ORUseAllSearchEngines = @"ORUseAllSearchEngines";

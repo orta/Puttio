@@ -13,7 +13,6 @@
 #import "SearchViewController.h"
 #import "BrowsingViewController.h"
 #import "OAuthViewController.h"
-#import "TestFlight.h"
 
 @implementation ORAppDelegate
 
@@ -42,6 +41,7 @@
 
 - (void)showApp {
     [Analytics setUserAccount:[[NSUserDefaults standardUserDefaults] objectForKey:ORUserAccountNameDefault]];
+    [Analytics incrementCounter:@"User App Launched" byInt:1];
 
     [[PutIOClient sharedClient] startup];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];

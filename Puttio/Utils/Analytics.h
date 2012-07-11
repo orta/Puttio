@@ -15,4 +15,5 @@
 + (void)event:(NSString *)event withOptionString:(NSString *)message;
 + (void)error:(NSString*)string, ...;
 + (void)addCustomValue:(NSString*)value forKey:(NSString*)key;
++ (void)incrementCounter:(NSString*)counterName byInt:(int)amount;
 @end

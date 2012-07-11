@@ -70,6 +70,9 @@
     // its opposite what's expected, means the switch flows better visually
     [defaults setBool:!commonsSwitch.on forKey:ORUseAllSearchEngines];
     [defaults synchronize];
+    
+    [Analytics incrementCounter:@"User Switched CreativeCommons Setting" byInt:1];
+    [Analytics event:@"Switched CC Setting"];
 
     [self setCopyrightText];
 }
@@ -81,7 +84,10 @@
     [defaults removeObjectForKey:APISecretDefault];
     [defaults setBool:YES forKey:ORLoggedOutDefault];
     [defaults synchronize];
-    
+
+    [Analytics incrementCounter:@"User Logged Out" byInt:1];
+    [Analytics event:@"User Logged Out"];
+
     self.loggedOutMessageView.hidden = NO;
     sender.enabled = NO;
     sender.alpha = 0.5;
