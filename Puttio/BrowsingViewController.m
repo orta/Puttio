@@ -48,7 +48,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 - (void)setupRootFolder {
     Folder *rootFolder = [Folder object];
     rootFolder.id = @"0";
-    rootFolder.name = @"Home";
+    rootFolder.name = @"";
     rootFolder.parentID = @"0";
     [self loadFolder:rootFolder];
     self.titleLabel.text = @"";
