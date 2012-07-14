@@ -13,8 +13,6 @@
 @interface AccountViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet ORSimpleProgress *accountSpaceLeftProgress;
-@property (weak, nonatomic) IBOutlet ORSimpleProgress *deviceStoredProgress;
-@property (weak, nonatomic) IBOutlet ORSimpleProgress *deviceSpaceLeftProgress;
 @property (weak, nonatomic) IBOutlet UILabel *copyrightWarning;
 
 @property (weak, nonatomic) IBOutlet UILabel *welcomeAccountLabel;
@@ -22,8 +20,6 @@
 @property (weak, nonatomic) IBOutlet DCRoundSwitch *creativeCommonsSwitch;
 
 @property (weak, nonatomic) IBOutlet UILabel *accountSpaceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *deviceStoredLabel;
-@property (weak, nonatomic) IBOutlet UILabel *deviceSpaceLeftLabel;
 
 - (IBAction)logOutTapped:(id)sender;
 - (IBAction)addToTwitter:(id)sender;

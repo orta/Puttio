@@ -10,13 +10,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "FolderViewController.h"
 #import "LocalFile.h"
+#import "UIDevice+SpaceStats.h"
 
 #import "ORImageViewCell.h"
 #import "MoviePlayer.h"
 #import "ModalZoomView.h"
-#import "TestFlight.h"
 
-static UIEdgeInsets GridViewInsets = {.top = 88 + 8, .left = 8, .right = 8, .bottom = 8};
+static UIEdgeInsets GridViewInsets = {.top = 126 + 8, .left = 8, .right = 8, .bottom = 8};
 
 const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 
@@ -31,7 +31,6 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 
 #pragma mark -
 #pragma mark View Setup
-@synthesize noItemsView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,7 +51,26 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     [self.view insertSubview:gridView belowSubview:self.noItemsView];
 
     self.titleLabel.text = @"Saved Media Library";
+
+    // Space Left on Device
+    self.deviceSpaceLeftLabel.text = [NSString stringWithFormat:@"You have %@ left on this device", [self getSpaceLeft]];
+
+    // Space Used on Device
+    self.deviceStoredLabel.text = [NSString stringWithFormat:@"This app is using %@", [self getDeviceSpaceUsed]];
 }
+
+- (NSString *)getDeviceSpaceUsed {
+    double bytes = [UIDevice numberOfBytesUsedInDocumentsDirectory];
+    if (bytes != 0) {
+        return [UIDevice humanStringFromBytes:bytes];
+    }
+    return @"no space";
+}
+
+- (NSString *)getSpaceLeft {
+    return [UIDevice humanStringFromBytes:[UIDevice numberOfBytesFree]];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     CGRect frame = CGRectNull;

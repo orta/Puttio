@@ -22,16 +22,6 @@
 @end
 
 @implementation AccountViewController
-@synthesize accountSpaceLeftProgress;
-@synthesize deviceStoredProgress;
-@synthesize deviceSpaceLeftProgress;
-@synthesize copyrightWarning;
-@synthesize welcomeAccountLabel;
-@synthesize loggedOutMessageView;
-@synthesize creativeCommonsSwitch;
-@synthesize accountSpaceLabel;
-@synthesize deviceStoredLabel;
-@synthesize deviceSpaceLeftLabel;
 
 - (void)viewDidLoad {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -42,30 +32,18 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // Welcome message
-    self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Hey there, %@", [defaults objectForKey:ORUserAccountNameDefault]];
-    
-    // Space Left on Device
-    self.deviceSpaceLeftLabel.text = [NSString stringWithFormat:@"You have %@ left on this device", [self getSpaceLeft]];
-    self.deviceSpaceLeftProgress.progress = [UIDevice numberOfBytesFree] / [UIDevice numberOfBytesOnDevice];
-    self.deviceSpaceLeftProgress.isLandscape = YES;
-    
-    // Space Used on Device
-    self.deviceStoredLabel.text = [NSString stringWithFormat:@"This app is using %@", [self getDeviceSpaceUsed]];
-    
-    CGFloat progress = [UIDevice numberOfBytesUsedInDocumentsDirectory] / [UIDevice numberOfBytesOnDevice];
-    self.deviceStoredProgress.progress = progress;
-    self.deviceStoredProgress.isLandscape = YES;
+    self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Hey there, %@", [defaults objectForKey:ORUserAccountNameDefault]];    
     
     // Space Left on Put.io
      NSString *deviceUsedString = [defaults objectForKey:ORDiskQuotaAvailableDefault];
     self.accountSpaceLabel.text = [NSString stringWithFormat:@"You have %@ left on the site", [UIDevice humanStringFromBytes:[deviceUsedString doubleValue]]];
     self.accountSpaceLeftProgress.progress = [defaults doubleForKey:ORCurrentSpaceUsedPercentageDefault];
     self.accountSpaceLeftProgress.isLandscape = YES;
-     
+
     [self.creativeCommonsSwitch addTarget:self action:@selector(ccSwitched:) forControlEvents:UIControlEventValueChanged];
 
     self.copyrightWarning.alpha = [defaults boolForKey:ORUseAllSearchEngines] ? 1 : 0;
-    
+
     [super viewWillAppear:animated];
 }
 
@@ -79,18 +57,6 @@
     [UIView animateWithDuration:0.2 animations:^{
         self.copyrightWarning.alpha = [defaults boolForKey:ORUseAllSearchEngines] ? 1 : 0;
     }];
-}
-
-- (NSString *)getDeviceSpaceUsed {
-    double bytes = [UIDevice numberOfBytesUsedInDocumentsDirectory];
-    if (bytes != 0) {
-        [UIDevice humanStringFromBytes:bytes];
-    }
-    return @"no space";
-}
-
-- (NSString *)getSpaceLeft {
-    return [UIDevice humanStringFromBytes:[UIDevice numberOfBytesFree]];
 }
 
 - (IBAction)logOutTapped:(UIButton *)sender {
@@ -148,11 +114,7 @@
 
 - (void)viewDidUnload {
     [self setAccountSpaceLeftProgress:nil];
-    [self setDeviceStoredProgress:nil];
-    [self setDeviceSpaceLeftProgress:nil];
     [self setAccountSpaceLabel:nil];
-    [self setDeviceStoredLabel:nil];
-    [self setDeviceSpaceLeftLabel:nil];
     [self setWelcomeAccountLabel:nil];
     [self setLoggedOutMessageView:nil];
     [self setCreativeCommonsSwitch:nil];

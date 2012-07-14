@@ -9,5 +9,9 @@
 #import "BrowsingViewController.h"
 
 @interface LocalBrowsingViewController : BrowsingViewController <GMGridViewDataSource>
+
 @property (strong, nonatomic) IBOutlet UIView *noItemsView;
+@property (weak, nonatomic) IBOutlet UILabel *deviceStoredLabel;
+@property (weak, nonatomic) IBOutlet UILabel *deviceSpaceLeftLabel;
+
 @end
