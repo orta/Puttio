@@ -23,7 +23,7 @@
 {
 	if ((self = [super init]))
 	{
-		self.onString = @"CC ONLY";
+		self.onString = @"CC";
 		self.offString = @"ALL";
 		self.onTintColor = anOnTintColor;
 	}

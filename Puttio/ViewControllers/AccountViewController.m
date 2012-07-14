@@ -14,6 +14,7 @@
 #import "UIDevice+SpaceStats.h"
 #import "ORSimpleProgress.h"
 #import "DCRoundSwitch.h"
+#import "BBCyclingLabel.h"
 
 #import "Constants.h"
 
@@ -22,10 +23,28 @@
 @end
 
 @implementation AccountViewController
+@synthesize searchInfoLabel;
 
 - (void)viewDidLoad {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self.creativeCommonsSwitch setOn:![defaults boolForKey:ORUseAllSearchEngines] animated:NO];
+
+    self.searchInfoLabel.transitionEffect = BBCyclingLabelTransitionEffectScrollDown;
+    self.searchInfoLabel.transitionDuration = 0.3;
+    self.searchInfoLabel.backgroundColor = [UIColor whiteColor];
+    self.searchInfoLabel.font = [UIFont fontWithName:@"Futura-CondensedMedium" size:16];
+    self.searchInfoLabel.numberOfLines = 2;
+
+    [self setCopyrightText];
+}
+
+- (void)setCopyrightText {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([defaults boolForKey:ORUseAllSearchEngines]){
+        [self.searchInfoLabel setText: @"Warning: Search is unfiltered." animated:YES];
+    }else{
+        [self.searchInfoLabel setText: @"Only search for Creative Commons works." animated:YES];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -36,13 +55,11 @@
     
     // Space Left on Put.io
      NSString *deviceUsedString = [defaults objectForKey:ORDiskQuotaAvailableDefault];
-    self.accountSpaceLabel.text = [NSString stringWithFormat:@"You have %@ left on the site", [UIDevice humanStringFromBytes:[deviceUsedString doubleValue]]];
+    self.accountSpaceLabel.text = [NSString stringWithFormat:@"%@ left on Put.IO", [UIDevice humanStringFromBytes:[deviceUsedString doubleValue]]];
     self.accountSpaceLeftProgress.progress = [defaults doubleForKey:ORCurrentSpaceUsedPercentageDefault];
     self.accountSpaceLeftProgress.isLandscape = YES;
 
     [self.creativeCommonsSwitch addTarget:self action:@selector(ccSwitched:) forControlEvents:UIControlEventValueChanged];
-
-    self.copyrightWarning.alpha = [defaults boolForKey:ORUseAllSearchEngines] ? 1 : 0;
 
     [super viewWillAppear:animated];
 }
@@ -54,9 +71,7 @@
     [defaults setBool:!commonsSwitch.on forKey:ORUseAllSearchEngines];
     [defaults synchronize];
 
-    [UIView animateWithDuration:0.2 animations:^{
-        self.copyrightWarning.alpha = [defaults boolForKey:ORUseAllSearchEngines] ? 1 : 0;
-    }];
+    [self setCopyrightText];
 }
 
 - (IBAction)logOutTapped:(UIButton *)sender {
@@ -118,7 +133,7 @@
     [self setWelcomeAccountLabel:nil];
     [self setLoggedOutMessageView:nil];
     [self setCreativeCommonsSwitch:nil];
-    [self setCopyrightWarning:nil];
+    [self setSearchInfoLabel:nil];
     [super viewDidUnload];
 }
 

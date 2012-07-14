@@ -28,7 +28,7 @@
     [self setBackgroundColor:[UIColor putioDarkBlue] forState:UIControlStateHighlighted];
     
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state {

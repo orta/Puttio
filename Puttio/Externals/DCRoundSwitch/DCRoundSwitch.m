@@ -75,7 +75,7 @@
 	if (mask & UIViewAutoresizingFlexibleWidth)
 		self.autoresizingMask ^= UIViewAutoresizingFlexibleWidth;
 
-	self.onText = @"CC ONLY";
+	self.onText = @"CC";
 	self.offText = @"ALL";
 
 	// the switch has three layers, (ordered from bottom to top):

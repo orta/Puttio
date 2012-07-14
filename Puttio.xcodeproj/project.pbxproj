@@ -45,6 +45,14 @@
 		604678EB15B1999000A2BFA8 /* ORRotatingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 604678EA15B1999000A2BFA8 /* ORRotatingButton.m */; };
 		604678EE15B1C5A600A2BFA8 /* LoadingSpinner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678EC15B1C5A600A2BFA8 /* LoadingSpinner@2x.png */; };
 		604678EF15B1C5A600A2BFA8 /* LoadingSpinner.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678ED15B1C5A600A2BFA8 /* LoadingSpinner.png */; };
+		604678F715B1E76C00A2BFA8 /* DotSlash.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F015B1E76800A2BFA8 /* DotSlash.png */; };
+		604678F815B1E76C00A2BFA8 /* TwitterBird.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F115B1E76800A2BFA8 /* TwitterBird.png */; };
+		604678F915B1E76C00A2BFA8 /* Github.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F215B1E76900A2BFA8 /* Github.png */; };
+		604678FB15B1E76C00A2BFA8 /* Github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F415B1E76900A2BFA8 /* Github@2x.png */; };
+		604678FC15B1E76C00A2BFA8 /* TwitterBird@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F515B1E76A00A2BFA8 /* TwitterBird@2x.png */; };
+		604678FD15B1E76C00A2BFA8 /* DotSlash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F615B1E76B00A2BFA8 /* DotSlash@2x.png */; };
+		6046790115B1EA2B00A2BFA8 /* BBCyclingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6046790015B1EA2B00A2BFA8 /* BBCyclingLabel.m */; };
+		6046790715B1F0EC00A2BFA8 /* ORDestructiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */; };
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
 		6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */; };
 		606C79A4152F508E00608C56 /* ORDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79A3152F508E00608C56 /* ORDefaults.m */; };
@@ -90,8 +98,6 @@
 		609CAE4B15856336000BE57E /* popoverArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 609CAE3D15856336000BE57E /* popoverArrowUp@2x.png */; };
 		609CAE4D15856336000BE57E /* popoverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 609CAE3F15856336000BE57E /* popoverBg.png */; };
 		609CAE4E15856336000BE57E /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 609CAE4015856336000BE57E /* popoverBg@2x.png */; };
-		609F288B15AF97C0008AAAAC /* TwitterBird@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 609F288A15AF97C0008AAAAC /* TwitterBird@2x.png */; };
-		609F288D15AF97F2008AAAAC /* TwitterBird.png in Resources */ = {isa = PBXBuildFile; fileRef = 609F288C15AF97F2008AAAAC /* TwitterBird.png */; };
 		609F288F15AF9A53008AAAAC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609F288E15AF9A53008AAAAC /* Twitter.framework */; };
 		609F289315AF9AF1008AAAAC /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609F289215AF9AF1008AAAAC /* Accounts.framework */; };
 		609FABDC158C83A6000C9B30 /* BaseProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 609FABDB158C83A6000C9B30 /* BaseProcess.m */; };
@@ -222,6 +228,16 @@
 		604678EA15B1999000A2BFA8 /* ORRotatingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORRotatingButton.m; path = Views/ORRotatingButton.m; sourceTree = "<group>"; };
 		604678EC15B1C5A600A2BFA8 /* LoadingSpinner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LoadingSpinner@2x.png"; sourceTree = "<group>"; };
 		604678ED15B1C5A600A2BFA8 /* LoadingSpinner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingSpinner.png; sourceTree = "<group>"; };
+		604678F015B1E76800A2BFA8 /* DotSlash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DotSlash.png; sourceTree = "<group>"; };
+		604678F115B1E76800A2BFA8 /* TwitterBird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwitterBird.png; sourceTree = "<group>"; };
+		604678F215B1E76900A2BFA8 /* Github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Github.png; sourceTree = "<group>"; };
+		604678F415B1E76900A2BFA8 /* Github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Github@2x.png"; sourceTree = "<group>"; };
+		604678F515B1E76A00A2BFA8 /* TwitterBird@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TwitterBird@2x.png"; sourceTree = "<group>"; };
+		604678F615B1E76B00A2BFA8 /* DotSlash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DotSlash@2x.png"; sourceTree = "<group>"; };
+		604678FF15B1EA2B00A2BFA8 /* BBCyclingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCyclingLabel.h; sourceTree = "<group>"; };
+		6046790015B1EA2B00A2BFA8 /* BBCyclingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCyclingLabel.m; sourceTree = "<group>"; };
+		6046790515B1F0EC00A2BFA8 /* ORDestructiveButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORDestructiveButton.h; path = Views/ORDestructiveButton.h; sourceTree = "<group>"; };
+		6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDestructiveButton.m; path = Views/ORDestructiveButton.m; sourceTree = "<group>"; };
 		6064D89915398E4600E454E5 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = Utils/SearchController.h; sourceTree = "<group>"; };
 		6064D89A15398E4600E454E5 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchController.m; path = Utils/SearchController.m; sourceTree = "<group>"; };
 		6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+StripHTML.h"; path = "Categories/NSString+StripHTML.h"; sourceTree = "<group>"; };
@@ -299,8 +315,6 @@
 		609CAE3D15856336000BE57E /* popoverArrowUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowUp@2x.png"; sourceTree = "<group>"; };
 		609CAE3F15856336000BE57E /* popoverBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
 		609CAE4015856336000BE57E /* popoverBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
-		609F288A15AF97C0008AAAAC /* TwitterBird@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TwitterBird@2x.png"; sourceTree = "<group>"; };
-		609F288C15AF97F2008AAAAC /* TwitterBird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwitterBird.png; sourceTree = "<group>"; };
 		609F288E15AF9A53008AAAAC /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		609F289015AF9AA5008AAAAC /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		609F289215AF9AF1008AAAAC /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -448,6 +462,8 @@
 				60E8DED115A9A16B00058314 /* ORHorizontalImageViewCell.m */,
 				604678E915B1999000A2BFA8 /* ORRotatingButton.h */,
 				604678EA15B1999000A2BFA8 /* ORRotatingButton.m */,
+				6046790515B1F0EC00A2BFA8 /* ORDestructiveButton.h */,
+				6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -562,13 +578,26 @@
 			name = GMGridView;
 			sourceTree = "<group>";
 		};
+		604678FE15B1EA1400A2BFA8 /* BBCyclingLabel */ = {
+			isa = PBXGroup;
+			children = (
+				604678FF15B1EA2B00A2BFA8 /* BBCyclingLabel.h */,
+				6046790015B1EA2B00A2BFA8 /* BBCyclingLabel.m */,
+			);
+			name = BBCyclingLabel;
+			sourceTree = "<group>";
+		};
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				604678F015B1E76800A2BFA8 /* DotSlash.png */,
+				604678F115B1E76800A2BFA8 /* TwitterBird.png */,
+				604678F215B1E76900A2BFA8 /* Github.png */,
+				604678F415B1E76900A2BFA8 /* Github@2x.png */,
+				604678F515B1E76A00A2BFA8 /* TwitterBird@2x.png */,
+				604678F615B1E76B00A2BFA8 /* DotSlash@2x.png */,
 				604678EC15B1C5A600A2BFA8 /* LoadingSpinner@2x.png */,
 				604678ED15B1C5A600A2BFA8 /* LoadingSpinner.png */,
-				609F288C15AF97F2008AAAAC /* TwitterBird.png */,
-				609F288A15AF97C0008AAAAC /* TwitterBird@2x.png */,
 				60FFFB5F15A9836400DB7668 /* WatchedSash.png */,
 				60FFFB6015A9836400DB7668 /* WatchedSash@2x.png */,
 				60FFFB5B15A97CCE00DB7668 /* Placeholder.png */,
@@ -738,6 +767,7 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				604678FE15B1EA1400A2BFA8 /* BBCyclingLabel */,
 				6020361015AA2C110021CE21 /* DCRoundSwitch */,
 				602035F015AA13490021CE21 /* Mixpanel */,
 				609CAE25158562FD000BE57E /* WEPopover */,
@@ -962,10 +992,14 @@
 				60FFFB6215A9836400DB7668 /* WatchedSash@2x.png in Resources */,
 				6020361F15AA2C120021CE21 /* license.txt in Resources */,
 				6020362015AA2C120021CE21 /* readme.md in Resources */,
-				609F288B15AF97C0008AAAAC /* TwitterBird@2x.png in Resources */,
-				609F288D15AF97F2008AAAAC /* TwitterBird.png in Resources */,
 				604678EE15B1C5A600A2BFA8 /* LoadingSpinner@2x.png in Resources */,
 				604678EF15B1C5A600A2BFA8 /* LoadingSpinner.png in Resources */,
+				604678F715B1E76C00A2BFA8 /* DotSlash.png in Resources */,
+				604678F815B1E76C00A2BFA8 /* TwitterBird.png in Resources */,
+				604678F915B1E76C00A2BFA8 /* Github.png in Resources */,
+				604678FB15B1E76C00A2BFA8 /* Github@2x.png in Resources */,
+				604678FC15B1E76C00A2BFA8 /* TwitterBird@2x.png in Resources */,
+				604678FD15B1E76C00A2BFA8 /* DotSlash@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1087,6 +1121,8 @@
 				6020361D15AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m in Sources */,
 				6020361E15AA2C120021CE21 /* DCRoundSwitchToggleLayer.m in Sources */,
 				604678EB15B1999000A2BFA8 /* ORRotatingButton.m in Sources */,
+				6046790115B1EA2B00A2BFA8 /* BBCyclingLabel.m in Sources */,
+				6046790715B1F0EC00A2BFA8 /* ORDestructiveButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

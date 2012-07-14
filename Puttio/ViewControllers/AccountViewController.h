@@ -9,12 +9,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class ORSimpleProgress, DCRoundSwitch;
+@class ORSimpleProgress, DCRoundSwitch, BBCyclingLabel;
 @interface AccountViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet ORSimpleProgress *accountSpaceLeftProgress;
-@property (weak, nonatomic) IBOutlet UILabel *copyrightWarning;
-
+@property (weak, nonatomic) IBOutlet BBCyclingLabel *searchInfoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *welcomeAccountLabel;
 @property (strong, nonatomic) IBOutlet UIView *loggedOutMessageView;
 @property (weak, nonatomic) IBOutlet DCRoundSwitch *creativeCommonsSwitch;

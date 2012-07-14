@@ -10,4 +10,6 @@
 
 @interface ORFlatButton : UIButton
 
+- (UIImage *) imageFromColor:(UIColor *)color;
+
 @end
