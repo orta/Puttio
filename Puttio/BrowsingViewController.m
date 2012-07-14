@@ -137,7 +137,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     }else {
         UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
         CGRect initialFrame = [topFolder.gridView convertRect:[[topFolder.gridView cellForItemAtIndex:position] frame] toView:rootView];
-        [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"FileInfoView" andItem:item];
+        NSString *identifier = [UIDevice isPhone]? @"FileInfoPhoneView" : @"FileInfoView";
+        [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:identifier andItem:item];
     }
 }
 

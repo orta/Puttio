@@ -19,6 +19,7 @@ enum DeviceType {
     DeviceOther
 };
 
++ (NSString *)deviceString;
 + (int)deviceType;
 + (BOOL)isPad;
 + (BOOL)isPhone;

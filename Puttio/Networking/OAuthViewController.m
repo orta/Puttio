@@ -85,7 +85,7 @@
     }
 }
 
-- (void)authHelperLoginFailedWithDesription:(NSString *)errorDescription {   
+- (void)authHelperLoginFailedWithDescription:(NSString *)errorDescription {   
     self.warningLabel.text = errorDescription;
     self.loginButton.enabled = YES;
     self.usernameTextfield.enabled = YES;

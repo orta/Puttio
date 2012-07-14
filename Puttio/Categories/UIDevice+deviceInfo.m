@@ -10,6 +10,13 @@
 
 @implementation UIDevice (deviceInfo)
 
++ (NSString *)deviceString {
+    if ([self isPad]) {
+        return @"iPad";
+    }
+    return @"iPhone";
+}
+
 + (BOOL)isPad {
     return UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPhone;
 }

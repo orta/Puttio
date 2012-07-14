@@ -255,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="suM-Kp-wxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3698" y="-614"/>
+            <point key="canvasLocation" x="-2705" y="-479"/>
         </scene>
         <!--Local Browsing View Controller-->
         <scene sceneID="BKe-J5-e5T">
@@ -709,25 +709,25 @@
         <!--File Info View Controller-->
         <scene sceneID="hjb-ve-Qmk">
             <objects>
-                <viewController storyboardIdentifier="FileInfoView" autoresizesArchivedViewToFullSize="NO" id="TzT-Wi-2QZ" customClass="FileInfoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FileInfoPhoneView" autoresizesArchivedViewToFullSize="NO" id="TzT-Wi-2QZ" customClass="FileInfoViewController" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="neJ-1z-1iM">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="LWj-5N-YVa">
-                                <rect key="frame" x="32" y="70" width="336" height="178"/>
+                                <rect key="frame" x="10" y="84" width="260" height="190"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Label" autoshrinkMode="minimumFontSize" id="6u4-Kk-WuD">
-                                <rect key="frame" x="35" y="272" width="333" height="55"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Label with two lines because it's realllly long" autoshrinkMode="minimumFontSize" id="6u4-Kk-WuD">
+                                <rect key="frame" x="21" y="278" width="239" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w2Z-MT-fgL" customClass="ORFlatButton">
-                                <rect key="frame" x="32" y="331" width="87" height="37"/>
+                                <rect key="frame" x="20" y="350" width="87" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Primary">
@@ -745,7 +745,7 @@
                                 </connections>
                             </button>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="2.4Mb" textAlignment="center" autoshrinkMode="minimumFontSize" id="oAh-Dx-MmN">
-                                <rect key="frame" x="267" y="226" width="101" height="22"/>
+                                <rect key="frame" x="169" y="253" width="101" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -753,7 +753,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UbE-Y6-RiZ" customClass="ORFlatButton">
-                                <rect key="frame" x="267" y="331" width="101" height="37"/>
+                                <rect key="frame" x="159" y="350" width="101" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Secondary">
@@ -771,13 +771,15 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="GxT-bu-0QN">
-                                <rect key="frame" x="-11" y="0.0" width="464" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="76"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="The title of my cool cat film" autoshrinkMode="minimumFontSize" id="1Rb-gH-Zjn">
-                                        <rect key="frame" x="20" y="4" width="376" height="36"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" autoshrinkMode="minimumFontSize" id="1Rb-gH-Zjn">
+                                        <rect key="frame" x="10" y="1" width="260" height="73"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <nil key="highlightedColor"/>
+                                        <string key="text">The title of my
+ cool cat film</string>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
                                     </label>
@@ -785,7 +787,7 @@
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="9bN-ql-V1o" customClass="ORSimpleProgress">
-                                <rect key="frame" x="32" y="246" width="336" height="8"/>
+                                <rect key="frame" x="32" y="332" width="216" height="8"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -808,7 +810,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPP-lZ-DFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4169" y="-604"/>
+            <point key="canvasLocation" x="-3720" y="-579"/>
         </scene>
         <!--Auth View Controller-->
         <scene sceneID="SiC-1L-FYf">
@@ -951,6 +953,110 @@ Message</string>
                 </customObject>
             </objects>
             <point key="canvasLocation" x="-5708" y="-751"/>
+        </scene>
+        <!--File Info View Controller-->
+        <scene sceneID="iEq-Rf-L66">
+            <objects>
+                <viewController storyboardIdentifier="FileInfoView" autoresizesArchivedViewToFullSize="NO" id="ryj-pF-28t" customClass="FileInfoViewController" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="XWn-AJ-9Sx">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="lGt-VM-Aim">
+                                <rect key="frame" x="32" y="70" width="336" height="178"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Label" autoshrinkMode="minimumFontSize" id="8cB-7L-0Vl">
+                                <rect key="frame" x="35" y="257" width="333" height="55"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UvX-QC-IGP" customClass="ORFlatButton">
+                                <rect key="frame" x="32" y="331" width="87" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Primary">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.75686281919999998" green="0.79215693470000004" blue="0.85490202900000001" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="primaryButtonTapped:" destination="ryj-pF-28t" eventType="touchUpInside" id="lEt-zY-yNK"/>
+                                </connections>
+                            </button>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="2.4Mb" textAlignment="center" autoshrinkMode="minimumFontSize" id="x5Y-p7-Pma">
+                                <rect key="frame" x="267" y="226" width="101" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pjz-Mf-xC9" customClass="ORFlatButton">
+                                <rect key="frame" x="267" y="331" width="101" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Secondary">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.75686281919999998" green="0.79215693470000004" blue="0.85490202900000001" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="secondaryButtonTapped:" destination="ryj-pF-28t" eventType="touchUpInside" id="al9-zh-4Bc"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="fEA-Ww-CLK">
+                                <rect key="frame" x="-11" y="0.0" width="464" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="The title of my cool cat film" autoshrinkMode="minimumFontSize" id="Dad-Vc-t9x">
+                                        <rect key="frame" x="20" y="4" width="376" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="lZe-Jf-1Xk" customClass="ORSimpleProgress">
+                                <rect key="frame" x="32" y="311" width="336" height="8"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="additionalInfoLabel" destination="8cB-7L-0Vl" id="sdd-xV-A0S"/>
+                        <outlet property="fileSizeLabel" destination="x5Y-p7-Pma" id="XWo-ML-PkI"/>
+                        <outlet property="primaryButton" destination="UvX-QC-IGP" id="eg0-1D-pL2"/>
+                        <outlet property="progressView" destination="lZe-Jf-1Xk" id="uy6-e7-f5x"/>
+                        <outlet property="secondaryButton" destination="pjz-Mf-xC9" id="0yB-ea-Hdw"/>
+                        <outlet property="thumbnailImageView" destination="lGt-VM-Aim" id="SLV-qi-dpM"/>
+                        <outlet property="titleLabel" destination="Dad-Vc-t9x" id="qR2-iF-x5R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DjI-Of-XXp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4184" y="-587"/>
         </scene>
     </scenes>
     <resources>

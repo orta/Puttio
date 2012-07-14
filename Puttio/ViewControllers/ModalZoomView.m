@@ -56,12 +56,11 @@ static ModalZoomView *sharedInstance;
             UIView *theView = this.viewController.view;
             CGRect finalFrame = theView.bounds;
 
-            if ([UIDevice isPhone]) {
-                finalFrame.size.width = 260;
-                finalFrame.size.height = 300;
+//            if ([UIDevice isPhone]) {
+//                finalFrame.size.width = 260;
+//                finalFrame.size.height = 300;
+//            }
 
-            }
-            
             BOOL isLandscape = UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]);
             if (isLandscape) {                
                 finalFrame.origin.x = rootView.frame.size.height / 2 - finalFrame.size.height / 2;

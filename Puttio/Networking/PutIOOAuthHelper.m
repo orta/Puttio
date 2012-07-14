@@ -116,7 +116,7 @@
         if (error.code == 102 || error.code == -999) {
             // no-op as the puttio:// url causes both errors 101/102
         }else if (error.code == -1009) {
-            [self.delegate authHelperLoginFailedWithDesription:@"Your iPad is currently offline."];
+            [self.delegate authHelperLoginFailedWithDescription:[NSString stringWithFormat:@"Your %@ is currently offline.", [UIDevice deviceString]]];
         }else {
             // actually unexpected
             [self.delegate authHelperHasDeclaredItScrewed];
@@ -145,7 +145,7 @@
         }
         
     } else { 
-        [self.delegate authHelperLoginFailedWithDesription:@"Wrong Username / Password combo"];
+        [self.delegate authHelperLoginFailedWithDescription:@"Wrong Username / Password combo"];
     }
 }
 

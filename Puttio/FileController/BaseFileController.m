@@ -77,8 +77,8 @@
         
         [downloadOperation start];
         
-    }else {        
-        NSString *message = [NSString stringWithFormat:@"Your iPad doesn't have enough free disk space to download."];
+    }else {
+        NSString *message = [NSString stringWithFormat:@"Your %@ doesn't have enough free disk space to download.", [UIDevice deviceString]];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not enough disk space" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alert show];
     }

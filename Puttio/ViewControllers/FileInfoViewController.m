@@ -47,11 +47,11 @@
     secondaryButton.alpha = 0;
     fileSizeLabel.alpha = 0;
     additionalInfoLabel.alpha = 0;
-    
+    progressView.alpha = 0;
+
     if ([UIDevice isPhone]) {
         CGRect imageFrame = thumbnailImageView.frame;
         imageFrame.origin.y = 0;
-//        thumbnailImageView.backgroundColor = [UIColor greenColor];
     }
 }
 
@@ -125,7 +125,11 @@
 
 - (void)showProgress {
     progressView.progress = 0;
-    progressView.hidden = NO;
+    if (progressView.alpha == 0) {
+        [UIView animateWithDuration:0.3 animations:^{
+            progressView.alpha = 1;
+        }];
+    }
     [self disableButtons];
 }
 
@@ -139,15 +143,18 @@
         secondaryButton.alpha = 1;
         fileSizeLabel.alpha = 1;
         additionalInfoLabel.alpha = 1;
+        progressView.alpha = 1;
     }];    
 }
 
 - (void)zoomViewWillDissapear:(ModalZoomView *)zoomView {
+    [fileController viewWillDissapear];
     [UIView animateWithDuration:0.1 animations:^{
         primaryButton.alpha = 0;
         secondaryButton.alpha = 0;
         fileSizeLabel.alpha = 0;
         additionalInfoLabel.alpha = 0;
+        progressView.alpha = 0;
     }];
 }
 @end

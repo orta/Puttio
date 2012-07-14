@@ -187,13 +187,15 @@
                 }
                 
                 if ([status isEqualToString:@"NOT_AVAILABLE"]) {
-                    self.infoController.additionalInfoLabel.text = @"Requested an iPad version (this takes a *very* long time.)";
+                    self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Requested an %@ version.", [UIDevice deviceString]];
+
                     [[PutIOClient sharedClient] requestMP4ForFile:_file];
                     [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];
                 }
                 
                 if ([status isEqualToString:@"CONVERTING"]) {
-                    self.infoController.additionalInfoLabel.text = @"Converting to iPad version.";
+                    self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Converting to %@ version.", [UIDevice deviceString]];
+
                     if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
                         [self.infoController showProgress];
                         self.infoController.progressView.hidden = NO;

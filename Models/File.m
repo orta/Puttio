@@ -39,13 +39,15 @@
             }                
         }
         
-        display = [display capitalizedString];
+        display = [display lowercaseString];
         display = [display stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"[]{}()"]];
 
-        NSArray *removeStrings = @[@".", @"_", @" 5 1aac ", @" 5.1aac ", @" Dvdrip ", @" Brrip ", @" x264 ", @" Hdtv ", @" 720 ", @" 1080 ", @" 480 ", @" Wmv", @" Mp4", @" M4v", @" Mkv", @" Hd "];
+        NSArray *removeStrings = @[@".", @"_", @" 5 1aac ", @" 5.1aac ", @" dvdrip ", @" brrip ", @" x264 ", @" hdtv ", @" 720 ", @" 1080 ", @" 480 ", @" wmv", @" mp4", @" m4v", @" mkv", @" hd ", @"720p", @"avi"];
         for (NSString *remove in removeStrings) {
             display = [display stringByReplacingOccurrencesOfString:remove withString:@" "];
         }
+        display = [display capitalizedString];
+
     }
     
     return display;
