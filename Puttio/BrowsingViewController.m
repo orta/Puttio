@@ -145,6 +145,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 }
 
 - (void)GMGridView:(GMGridView *)gridView didLongTapOnItemAtIndex:(NSInteger)position {
+    if (position == -1) return;
+
     FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
     NSObject <ORDisplayItemProtocol> *item = (topFolder.folderItems)[position];   
     

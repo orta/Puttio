@@ -19,6 +19,20 @@
 
 CGFloat RotationDuration = 0.9;
 
+- (void)fadeIn {
+    if (self.alpha) return;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.alpha = 1;
+    }];
+}
+
+- (void)fadeOut {
+    if (!self.alpha) return;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.alpha = 0;
+    }];
+}
+
 - (void)startAnimating {
     if (rotationAnimation) return;
 

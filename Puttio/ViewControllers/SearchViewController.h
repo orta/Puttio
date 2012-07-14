@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "SearchController.h"
 
-@class StatusViewController;
+@class StatusViewController, ORRotatingButton;
 
 @interface SearchViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, SearchResultsDelegate>
 
+@property (weak, nonatomic) IBOutlet ORRotatingButton *activitySpinner;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet StatusViewController *statusViewController;
 
-- (void)setup;
 - (void)reposition;
 @end

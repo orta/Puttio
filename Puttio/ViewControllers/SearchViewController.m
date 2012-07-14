@@ -12,20 +12,14 @@
 #import "ORSearchCell.h"
 #import "SearchController.h"
 #import "StatusViewController.h"
+#import "ORRotatingButton.h"
 
 @interface SearchViewController () {
     NSArray *searchResults;
 }
-
-- (void)stylizeSearchTextField;
 @end
 
 @implementation SearchViewController
-
-@synthesize searchBar,tableView, statusViewController;
-
-- (void)setup {
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,11 +27,13 @@
     [self setupShadow];
     [self setupGestures];
     [SearchController sharedInstance].delegate = self;
+    self.activitySpinner.alpha = 0;
 }
 
 - (void)viewDidUnload {
     [self setSearchBar:nil];
     [self setTableView:nil];
+    [self setActivitySpinner:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -57,15 +53,15 @@
 }
 
 - (void)stylizeSearchTextField {    
-    for (int i = [searchBar.subviews count] - 1; i >= 0; i--) {
-        UIView *subview = (searchBar.subviews)[i];                        
+    for (int i = [_searchBar.subviews count] - 1; i >= 0; i--) {
+        UIView *subview = (_searchBar.subviews)[i];                        
 
         // This is the gradient behind the textfield
         if ([subview.description hasPrefix:@"<UISearchBarBackground"]) {
             [subview removeFromSuperview];
         }
     }
-    searchBar.backgroundColor = [UIColor putioYellow];
+    _searchBar.backgroundColor = [UIColor putioYellow];
 }
 
 - (void)setupShadow {
@@ -99,6 +95,7 @@
 - (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
     searchResults = @[];
     [SearchController searchForString:aSearchBar.text];
+    [self.activitySpinner fadeIn];
     [self.tableView reloadData];
     [aSearchBar resignFirstResponder];
 }
@@ -119,7 +116,8 @@
         }
         return 0;
     }];
-    
+
+    [self.activitySpinner fadeOut];
     [self.tableView reloadData];
 }
 
@@ -198,10 +196,11 @@
 }
 
 - (void)makeSmallAnimated:(BOOL)animate {
-    searchBar.text = @"";
-    [searchBar performSelector: @selector(resignFirstResponder) 
+    _searchBar.text = @"";
+    [_searchBar performSelector: @selector(resignFirstResponder) 
                     withObject: nil 
                     afterDelay: 0.1];
+    [self.activitySpinner fadeOut];
     [self resizeToWidth:88 animated:animate];
 }
 

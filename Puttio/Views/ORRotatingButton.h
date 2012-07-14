@@ -10,6 +10,9 @@
 
 @interface ORRotatingButton : UIButton
 
+- (void)fadeIn;
+- (void)fadeOut;
+
 - (void)startAnimating;
 - (void)stopAnimating;
 

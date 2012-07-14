@@ -135,7 +135,8 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 }
 
 - (void)GMGridView:(GMGridView *)aGridView didLongTapOnItemAtIndex:(NSInteger)position {
-    LocalFile *file = files[position]; 
+    if (position == -1) return;
+    LocalFile *file = files[position];
 
     UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
     CGRect initialFrame = [aGridView convertRect:[[aGridView cellForItemAtIndex:position] frame] toView:rootView];
@@ -168,7 +169,6 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     if (file.watched.boolValue == YES) {
         cell.watched = YES;
     }
-
     return cell;
 }   
 

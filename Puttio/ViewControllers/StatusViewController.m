@@ -40,9 +40,6 @@ typedef enum {
     DisplayMessages
 } Display;
 
-@synthesize tableView;
-@synthesize spaceProgressView, spaceProgressBG;
-
 + (StatusViewController *)sharedController {
     return _sharedController;
 }
@@ -108,7 +105,7 @@ typedef enum {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
             transfers = userInfoObject;
             transfers = [self onlyRecentTransfers:transfers];
-            [tableView reloadData];
+            [self.tableView reloadData];
         }
     }];
 }
@@ -141,7 +138,7 @@ typedef enum {
     [[PutIOClient sharedClient] getMessages:^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
             messages = userInfoObject;
-            [tableView reloadData];
+            [self.tableView reloadData];
         }
     }];
 }
@@ -169,7 +166,7 @@ typedef enum {
     }else{
         [processes addObject:process];
     }
-    [tableView reloadData];
+    [self.tableView reloadData];
 }
 
 #pragma mark tableview gubbins
@@ -182,7 +179,7 @@ typedef enum {
     
     UITableViewCell *cell = nil;
     if (indexPath.section == DisplayTransfers) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
         if (cell) {
             Transfer *item = transfers[indexPath.row];
             ARTransferCell *theCell = (ARTransferCell*)cell;
@@ -193,7 +190,7 @@ typedef enum {
     }
     
     if (indexPath.section == DisplayProcesses) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
         if (cell) {
             BaseProcess *item = processes[indexPath.row];
             ARTransferCell *theCell = (ARTransferCell*)cell;
@@ -203,7 +200,7 @@ typedef enum {
     }
     
     if (indexPath.section == DisplayMessages) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell"];
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"MessageCell"];
         if (cell) {
             Message *item = messages[indexPath.row];
             ORMessageCell *theCell = (ORMessageCell*)cell;
@@ -287,12 +284,12 @@ typedef enum {
         
         if (item) {
             NSIndexPath *path = [NSIndexPath indexPathForRow:row inSection:section];
-            CGRect originalRect = [tableView rectForRowAtIndexPath:path];
+            CGRect originalRect = [self.tableView rectForRowAtIndexPath:path];
             UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
             
             ProcessPopoverViewController * transferVC = (ProcessPopoverViewController*) popoverController.contentViewController;
             
-            [popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+            [popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:self.tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
             
             transferVC.item = item;
             currentIndex = row;
@@ -307,7 +304,7 @@ typedef enum {
 
 - (void)processDidFinish:(BaseProcess *)process {
     [processes removeObject:process];
-    [tableView reloadData];
+    [self.tableView reloadData];
 }
 
 @end
