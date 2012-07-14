@@ -12,7 +12,6 @@
 
 // File Controllers
 #import "VideoFileController.h"
-#import "ComicFileController.h"
 #import "UnknownFileController.h"
 
 @interface FileInfoViewController() {
@@ -61,7 +60,7 @@
         [NSException raise:@"File Info item should conform to ORDisplayItemProtocol" format:@"File Info item should conform to ORDisplayItemProtocol"];
     }
 
-    fileControllers = @[[VideoFileController class], [ComicFileController class], [UnknownFileController class]];
+    fileControllers = @[[VideoFileController class], [UnknownFileController class]];
     for (Class <FileController> klass in fileControllers) {
         if ([klass fileSupportedByController: item]) {
             fileController = [klass controller];
