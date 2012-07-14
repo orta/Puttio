@@ -57,9 +57,9 @@
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:path]]];
         downloadOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         if (showTransferInBG) {
-            _fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation];
+            _fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation andName:_file.displayName];
         }
-        
+
         [downloadOperation setDownloadProgressBlock:^(NSInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead) {
             CGFloat progress = (float)totalBytesRead/totalBytesExpectedToRead;
             infoController.progressView.progress = progress;

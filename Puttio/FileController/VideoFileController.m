@@ -86,9 +86,7 @@
     }
     
     self.infoController.additionalInfoLabel.text = @"Downloading";
-    self.infoController.secondaryButton.enabled = NO;
-    self.infoController.primaryButton.enabled = NO;
-
+    [self.infoController showProgress];
     [self downloadFile];
 }
 
@@ -153,7 +151,7 @@
         NSLog(@"request %@", operation.request.URL);
         
         self.infoController.additionalInfoLabel.text = @"Download failed!";
-        self.infoController.progressView.hidden = YES;
+        [self.infoController hideProgress];
         self.infoController.secondaryButton.enabled = NO;
         self.infoController.primaryButton.enabled = YES;
     }];
@@ -198,7 +196,6 @@
 
                     if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
                         [self.infoController showProgress];
-                        self.infoController.progressView.hidden = NO;
                         self.infoController.progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
                     }
                     [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];                    

@@ -140,12 +140,20 @@
             
             NSString *setPassword = [NSString stringWithFormat:@"document.getElementsByTagName('input')[1].value = '%@'", _password];
             [webView stringByEvaluatingJavaScriptFromString:setPassword];
-            
+
             [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
+            [self performSelector:@selector(testForLogin) withObject:nil afterDelay:8];
         }
         
-    } else { 
+    } else {
         [self.delegate authHelperLoginFailedWithDescription:@"Wrong Username / Password combo"];
+    }
+}
+
+- (void)testForLogin {
+    // if it's not hit a page other than login after 8 seconds
+    if ([webView.request.URL.absoluteString isEqualToString:PTLoginURL]) {
+        [self.delegate authHelperHasDeclaredItScrewed];
     }
 }
 

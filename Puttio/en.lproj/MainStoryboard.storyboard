@@ -43,7 +43,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="48"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="mFu-TC-0eG">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="mFu-TC-0eG" customClass="ORRotatingButton">
                                         <rect key="frame" x="844" y="0.0" width="90" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -118,6 +118,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="offlineView" destination="bRt-Fo-5hT" id="hru-8o-BPf"/>
+                        <outlet property="refreshButton" destination="mFu-TC-0eG" id="L0H-sH-qFk"/>
                         <outlet property="titleLabel" destination="qfh-cM-XrR" id="EJU-5x-ijc"/>
                         <outlet property="view" destination="E5n-sY-E9O" id="aOv-I8-1Za"/>
                     </connections>
@@ -1096,6 +1097,7 @@ Message</string>
                 <relationship kind="action" name="backPressed:"/>
                 <relationship kind="action" name="reloadPressed:"/>
                 <relationship kind="outlet" name="offlineView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -1162,6 +1164,9 @@ Message</string>
             <relationships>
                 <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="ORRotatingButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORRotatingButton.h"/>
         </class>
         <class className="ORSearchCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSearchCell.h"/>

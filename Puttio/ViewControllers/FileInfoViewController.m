@@ -37,17 +37,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    progressView.hidden = YES;
     fileSizeLabel.text = @"";
     titleLabel.text = @"";
     additionalInfoLabel.text = @"";
-    progressView.isLandscape = YES;
-    
+
     primaryButton.alpha = 0;
     secondaryButton.alpha = 0;
     fileSizeLabel.alpha = 0;
     additionalInfoLabel.alpha = 0;
+
+    progressView.isLandscape = YES;
     progressView.alpha = 0;
+    progressView.progress = 0;
 
     if ([UIDevice isPhone]) {
         CGRect imageFrame = thumbnailImageView.frame;
@@ -134,7 +135,7 @@
 }
 
 - (void)hideProgress {
-    progressView.hidden = YES;    
+    progressView.alpha = 0;
 }
 
 - (void)zoomViewDidFinishZooming:(ModalZoomView *)zoomView {

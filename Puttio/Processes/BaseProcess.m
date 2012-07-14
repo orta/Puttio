@@ -43,8 +43,4 @@
     [self.delegate processDidFinish:self];
 }
 
-- (NSString *)primaryDescription {
-    return @"DESCRIPTION";
-}
-
 @end

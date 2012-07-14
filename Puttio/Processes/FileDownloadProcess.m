@@ -15,9 +15,10 @@
 
 @implementation FileDownloadProcess
 
-+ (FileDownloadProcess *)processWithHTTPRequest:(AFHTTPRequestOperation *)operation {
++ (FileDownloadProcess *)processWithHTTPRequest:(AFHTTPRequestOperation *)operation andName:(NSString*)name{
     FileDownloadProcess *this = [[self alloc] init];
     this.request = operation;
+    this.primaryDescription = name;
     return this;
 }
 

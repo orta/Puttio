@@ -42,6 +42,7 @@
 		6026A080157BF1BA0031509D /* DCSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A07D157BF1BA0031509D /* DCSlider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6043D0ED1562F529002193B3 /* ORMoviePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */; };
 		6043D0EF1562F5F4002193B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6043D0EE1562F5F4002193B3 /* AVFoundation.framework */; };
+		604678EB15B1999000A2BFA8 /* ORRotatingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 604678EA15B1999000A2BFA8 /* ORRotatingButton.m */; };
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
 		6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */; };
 		606C79A4152F508E00608C56 /* ORDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79A3152F508E00608C56 /* ORDefaults.m */; };
@@ -215,6 +216,8 @@
 		6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMoviePlayerController.h; path = ViewControllers/ORMoviePlayerController.h; sourceTree = "<group>"; };
 		6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMoviePlayerController.m; path = ViewControllers/ORMoviePlayerController.m; sourceTree = "<group>"; };
 		6043D0EE1562F5F4002193B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		604678E915B1999000A2BFA8 /* ORRotatingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORRotatingButton.h; path = Views/ORRotatingButton.h; sourceTree = "<group>"; };
+		604678EA15B1999000A2BFA8 /* ORRotatingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORRotatingButton.m; path = Views/ORRotatingButton.m; sourceTree = "<group>"; };
 		6064D89915398E4600E454E5 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = Utils/SearchController.h; sourceTree = "<group>"; };
 		6064D89A15398E4600E454E5 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchController.m; path = Utils/SearchController.m; sourceTree = "<group>"; };
 		6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+StripHTML.h"; path = "Categories/NSString+StripHTML.h"; sourceTree = "<group>"; };
@@ -439,6 +442,8 @@
 				60FFFB5115A8CBF400DB7668 /* TorrentLikeView.m */,
 				60E8DED015A9A16B00058314 /* ORHorizontalImageViewCell.h */,
 				60E8DED115A9A16B00058314 /* ORHorizontalImageViewCell.m */,
+				604678E915B1999000A2BFA8 /* ORRotatingButton.h */,
+				604678EA15B1999000A2BFA8 /* ORRotatingButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1073,6 +1078,7 @@
 				6020361C15AA2C120021CE21 /* DCRoundSwitchKnobLayer.m in Sources */,
 				6020361D15AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m in Sources */,
 				6020361E15AA2C120021CE21 /* DCRoundSwitchToggleLayer.m in Sources */,
+				604678EB15B1999000A2BFA8 /* ORRotatingButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

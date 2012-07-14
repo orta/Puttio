@@ -12,6 +12,7 @@
 #import "FolderViewController.h"
 
 #import "ORImageViewCell.h"
+#import "ORRotatingButton.h"
 #import "MoviePlayer.h"
 #import "ModalZoomView.h"
 #import "TestFlight.h"
@@ -25,8 +26,6 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 @end
 
 @implementation BrowsingViewController
-@synthesize titleLabel;
-@synthesize offlineView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -106,8 +105,11 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     if (![PutIOClient.sharedClient ready]) return;
     
     currentFolder = folder;
-    
+    self.networkActivity = YES;
+
     [[PutIOClient sharedClient] getFolder:folder :^(id userInfoObject) {
+        self.networkActivity = NO;
+
         if (![userInfoObject isKindOfClass:[NSError class]]) {
             self.offlineView.hidden = YES;
             
@@ -159,6 +161,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 - (void)viewDidUnload {
     [self setTitleLabel:nil];
     [self setOfflineView:nil];
+    [self setRefreshButton:nil];
     [super viewDidUnload];
 }
 
@@ -182,5 +185,12 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     [self reloadFolder];
 }
 
+- (void)setNetworkActivity:(BOOL)networkActivity {
+    if (networkActivity) {
+        [_refreshButton startAnimating];
+    }else{
+        [_refreshButton stopAnimating];
+    }
+}
 
 @end

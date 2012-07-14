@@ -17,10 +17,11 @@
 
 @property (nonatomic, assign) CGFloat progress;
 @property (assign) BOOL finished;
+@property NSString *primaryDescription;
 @property (weak) id <BaseProcessDelegate> delegate;
+
 - (void)start;
 - (void)tick;
 - (void)end;
 
-- (NSString *)primaryDescription;
 @end
