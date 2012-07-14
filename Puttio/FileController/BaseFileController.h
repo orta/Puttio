@@ -10,14 +10,16 @@
 #import "FileController.h"
 
 @class AFHTTPRequestOperation;
+
+// these are here so the subclasses can access them if needs be
+
 @interface BaseFileController : NSObject <FileController>{
     File *_file;
     NSInteger fileSize;
-    AFHTTPRequestOperation *downloadOperation;
 }
 
-@property  FileInfoViewController *infoController;
-@property  File *file;
+@property FileInfoViewController *infoController;
+@property File *file;
 
 - (void)markFileAsViewed;
 - (void)downloadFileAtPath:(NSString*)path backgroundable:(BOOL)showTransferInBG withCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;

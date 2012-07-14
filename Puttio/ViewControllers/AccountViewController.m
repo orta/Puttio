@@ -6,11 +6,16 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
+#import <Twitter/Twitter.h>
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
+
 #import "AccountViewController.h"
 #import "UIDevice+SpaceStats.h"
 #import "ORSimpleProgress.h"
-#import "Constants.h"
 #import "DCRoundSwitch.h"
+
+#import "Constants.h"
 
 @interface AccountViewController ()
 
@@ -99,6 +104,42 @@
     self.loggedOutMessageView.hidden = NO;
     sender.enabled = NO;
     sender.alpha = 0.5;
+}
+
+- (IBAction)addToTwitter:(id)sender {
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error) {
+        if(granted) {
+            // Get the list of Twitter accounts.
+            NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
+            
+            // For the sake of brevity, we'll assume there is only one Twitter account present.
+            // You would ideally ask the user which account they want to tweet from, if there is more than one Twitter account present.
+            if ([accountsArray count] > 0) {
+                // Grab the initial Twitter account to tweet from.
+                ACAccount *twitterAccount = [accountsArray objectAtIndex:0];
+                
+                NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
+                [tempDict setValue:@"orta" forKey:@"screen_name"];
+                [tempDict setValue:@"true" forKey:@"follow"];
+                
+                TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"https://api.twitter.com/1/friendships/create.json"]
+                                                             parameters:tempDict
+                                                          requestMethod:TWRequestMethodPOST];
+                
+                
+                [postRequest setAccount:twitterAccount];
+                
+                [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+                    NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
+                    NSLog(@"%@", output);
+                    
+                }];
+            }
+        }
+    }];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

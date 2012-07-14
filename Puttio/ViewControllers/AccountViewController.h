@@ -1,3 +1,4 @@
+
 //
 //  AccountViewController.h
 //  Puttio
@@ -25,5 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *deviceSpaceLeftLabel;
 
 - (IBAction)logOutTapped:(id)sender;
+- (IBAction)addToTwitter:(id)sender;
 
 @end

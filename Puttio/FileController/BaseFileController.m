@@ -20,6 +20,8 @@
 
 @interface BaseFileController (){
     FileDownloadProcess *_fileDownloadProcess;
+    AFHTTPRequestOperation *downloadOperation;
+    BOOL shouldCancelOnHide;
 }
 @end
 
@@ -42,6 +44,7 @@
 
 - (void)downloadFileAtPath:(NSString*)path backgroundable:(BOOL)showTransferInBG withCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
+    shouldCancelOnHide = !showTransferInBG;
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     struct statfs tStats;  
     statfs([[paths lastObject] cString], &tStats);  
@@ -96,16 +99,9 @@
 }
 
 - (void)viewWillDissapear {
-    if ([downloadOperation isExecuting]) {
-        [downloadOperation cancel];        
+    if (downloadOperation && shouldCancelOnHide) {
+        [downloadOperation cancel];
     }
 }
 
-- (File *)file {
-    return _file;
-}
-
-- (void)setFile:(File *)file {
-    _file = file;
-}
 @end

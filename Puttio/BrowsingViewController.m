@@ -42,7 +42,6 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
         self.titleLabel.numberOfLines = 2;
         self.titleLabel.font = [self.titleLabel.font fontWithSize:20];
     }
-
 }
 
 - (void)setupRootFolder {

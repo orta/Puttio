@@ -16,6 +16,10 @@
     int tileSize;
     int tileCount;
     BOOL animates;
+
+    CGColorRef whiteColor;
+    CGColorRef yellowColor;
+    CGColorRef blueColor;
 }
 @end
 
@@ -34,6 +38,11 @@
 }
 
 - (void)setup {
+    // store and retain our colorrefs as iVars. Jeez.
+    whiteColor =  (CGColorRef)CFRetain( [UIColor whiteColor].CGColor );
+    yellowColor = (CGColorRef)CFRetain( [UIColor putioYellow].CGColor );
+    blueColor =   (CGColorRef)CFRetain( [UIColor putioBlue].CGColor );
+
     self.alpha = 0;
     self.backgroundColor = [UIColor colorWithWhite:0.877 alpha:1.000];
 
@@ -74,10 +83,7 @@
 
 - (void)createTiles {
     NSMutableDictionary *tempLayers = [NSMutableDictionary dictionary];
-    CGColorRef whiteColor = [UIColor whiteColor].CGColor;
-    CGColorRef yellowColor = [UIColor putioYellow].CGColor;
-    CGColorRef blueColor = [UIColor putioBlue].CGColor;
-    
+
     for (int i = 0; i < tileCount; i++) {
         for (int j = 0; j < tileCount; j++) {
             CALayer* myLayer = [CALayer layer];
@@ -101,10 +107,6 @@
         }
     }
     
-    CGColorRelease(whiteColor);
-    CGColorRelease(yellowColor);
-    CGColorRelease(blueColor);
-    
     _tiles = tempLayers;
     
     [UIView animateWithDuration:0.6 animations:^{
@@ -115,6 +117,12 @@
         _colorChangeTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(tick) userInfo:nil repeats:YES];
         [_colorChangeTimer fire];
     }
+}
+
+- (void)dealloc {
+    CFRelease(whiteColor);
+    CFRelease(yellowColor);
+    CFRelease(blueColor);
 }
 
 - (void)tick {
@@ -128,11 +136,11 @@
 
     int color = arc4random() % 8;
     if (color <= 1) {
-        layer.backgroundColor = [UIColor whiteColor].CGColor;
+        layer.backgroundColor = whiteColor;
     }else if (color > 1 && color < 4) {
-        layer.backgroundColor = [UIColor putioBlue].CGColor;
+        layer.backgroundColor = blueColor;
     }else {
-        layer.backgroundColor = [UIColor putioYellow].CGColor;
+        layer.backgroundColor = yellowColor;
     }
     [CATransaction commit];
 }
