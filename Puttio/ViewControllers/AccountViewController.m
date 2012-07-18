@@ -54,7 +54,7 @@
     self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Hey there, %@", [defaults objectForKey:ORUserAccountNameDefault]];    
     
     // Space Left on Put.io
-     NSString *deviceUsedString = [defaults objectForKey:ORDiskQuotaAvailableDefault];
+    NSString *deviceUsedString = [defaults objectForKey:ORDiskQuotaAvailableDefault];
     self.accountSpaceLabel.text = [NSString stringWithFormat:@"%@ left on Put.IO", [UIDevice humanStringFromBytes:[deviceUsedString doubleValue]]];
     self.accountSpaceLeftProgress.progress = [defaults doubleForKey:ORCurrentSpaceUsedPercentageDefault];
     self.accountSpaceLeftProgress.isLandscape = YES;
@@ -66,13 +66,17 @@
 
 - (void)ccSwitched:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    bool oldCCValue = [defaults boolForKey:ORUseAllSearchEngines];
+
     DCRoundSwitch *commonsSwitch = sender;
     // its opposite what's expected, means the switch flows better visually
     [defaults setBool:!commonsSwitch.on forKey:ORUseAllSearchEngines];
     [defaults synchronize];
     
-    [Analytics incrementCounter:@"User Switched CreativeCommons Setting" byInt:1];
-    [Analytics event:@"Switched CC Setting"];
+    if ( oldCCValue != !commonsSwitch.on ) {
+        [Analytics incrementCounter:@"User Switched CreativeCommons Setting" byInt:1];
+        [Analytics event:@"Switched CC Setting"];
+    }
 
     [self setCopyrightText];
 }

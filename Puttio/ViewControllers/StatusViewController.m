@@ -14,6 +14,7 @@
 #import "ORMessageCell.h"
 #import "NSDate+StringParsing.h"
 #import "UIColor+PutioColours.h"
+#import "UIDevice+SpaceStats.h"
 #import "DCKnob.h"
 #import "WEPopoverController.h"
 #import "BaseProcess.h"
@@ -150,18 +151,18 @@ typedef enum {
             [[NSUserDefaults standardUserDefaults] setObject:[userInfoObject valueForKeyPath:@"id"] forKey:ORUserIdDefault];
 
             // compare the diskQuota, if it has changed from last time, record it in our Analytics
-            NSString *oldDiskQuotaTotalString = [NSUserDefaults standardUserDefaults] objectForKey:
-            double newDiskQuotaDouble = [[[userInfoObject valueForKeyPath:@"response.results.disk_quota"][0]] doubleValue];
+            NSString *oldDiskQuotaTotalString = [[NSUserDefaults standardUserDefaults] objectForKey:ORDiskQuotaTotalDefault];
+
+            NSString *newDiskQuotaTotalString = [userInfoObject valueForKeyPath:@"response.results.disk_quota"][0];
+            double newDiskQuotaDouble = [newDiskQuotaTotalString doubleValue];
             NSString *diskQuotaTotalString = [UIDevice humanStringFromBytes:newDiskQuotaDouble];
             
-            if( [oldDiskQuotaTotalString isEqualToString:diskQuotaTotalString] ) {
-                [Analytics event]
+            if( ![oldDiskQuotaTotalString isEqualToString:diskQuotaTotalString] ) {
+                [Analytics event:@"User has changed thier Put.io account size"];
             }
             
-            
             NSString *diskQuotaAvailableString = [userInfoObject valueForKeyPath:@"response.results.disk_quota_available"][0];
-
-            float quotaPercentage = (float)[diskQuotaAvailableString longLongValue] / [diskQuotaString longLongValue];
+            float quotaPercentage = (float)[diskQuotaAvailableString longLongValue] / [newDiskQuotaTotalString longLongValue];
             
             [[NSUserDefaults standardUserDefaults] setFloat:quotaPercentage forKey:ORCurrentSpaceUsedPercentageDefault];
             [[NSUserDefaults standardUserDefaults] setObject:diskQuotaAvailableString forKey:ORDiskQuotaAvailableDefault];
