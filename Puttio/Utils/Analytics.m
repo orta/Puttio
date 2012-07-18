@@ -24,6 +24,7 @@
 + (void)setUserAccount:(NSString *)username {
     [TestFlight addCustomEnvironmentInformation:username forKey:@"username"];
     [[MixpanelAPI sharedAPI] identifyUser:username];
+    [[MixpanelAPI sharedAPI] setNameTag:username];
 }
 
 + (void)event:(NSString*)string, ...{
@@ -61,5 +62,10 @@
     [TestFlight addCustomEnvironmentInformation:value forKey:key];
     [[MixpanelAPI sharedAPI] registerSuperProperties:@{ key : value }];
 }
+
++ (void)incrementCounter:(NSString*)counterName byInt:(int)amount {
+    [[MixpanelAPI sharedAPI] incrementUserPropertyWithKey:counterName byInt:amount];
+}
+
 
 @end
