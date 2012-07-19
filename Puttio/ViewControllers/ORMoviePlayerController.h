@@ -11,5 +11,4 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface ORMoviePlayerController : MPMoviePlayerViewController
-
 @end

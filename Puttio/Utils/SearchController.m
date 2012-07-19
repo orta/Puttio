@@ -30,14 +30,16 @@ static SearchController *sharedInstance;
     return sharedInstance;
 }
 
-+ (void)searchForString:(NSString *)query {    
-    query = [query stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];    
++ (void)searchForString:(NSString *)query {
+    query = [query stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     [self searchMininova:query];
 
     if([[NSUserDefaults standardUserDefaults] boolForKey:ORUseAllSearchEngines]){
         [self searchISOHunt:query];
         [self searchFenopy:query];
     }
+    [Analytics incrementCounter:@"Started Search" byInt:1];
+    [Analytics event:@"User Started a Search"];
 }
 
 + (void)searchFenopy:(NSString *)query {
@@ -58,7 +60,7 @@ static SearchController *sharedInstance;
         [self passArrayToDelegate:searchResults];
             
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Analytics error:@"fenopy search failed"];
+        [Analytics incrementCounter:@"Fenopy Search Failed" byInt:1];
         NSLog(@"fail whale fenopy %@", error);
 
     }];
@@ -84,7 +86,7 @@ static SearchController *sharedInstance;
         [self passArrayToDelegate:searchResults];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Analytics error:@"isohunt search failed"];
+        [Analytics incrementCounter:@"Isohunt Search Failed" byInt:1];
         NSLog(@"fail whale %@", error);
     }];
     [operation start];
@@ -112,7 +114,7 @@ static SearchController *sharedInstance;
         [self passArrayToDelegate:searchResults];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Analytics error:@"mininova search failed"];
+        [Analytics incrementCounter:@"Mininova Search Failed" byInt:1];
         NSLog(@"fail whale %@", error);
     }];
     [operation start];
