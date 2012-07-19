@@ -74,7 +74,7 @@
     [defaults synchronize];
     
     if ( oldCCValue != !commonsSwitch.on ) {
-        [Analytics incrementCounter:@"User Switched CreativeCommons Setting" byInt:1];
+        [Analytics incrementUserProperty:@"User Switched CreativeCommons Setting" byInt:1];
         [Analytics event:@"Switched CC Setting"];
     }
 
@@ -89,7 +89,7 @@
     [defaults setBool:YES forKey:ORLoggedOutDefault];
     [defaults synchronize];
 
-    [Analytics incrementCounter:@"User Logged Out" byInt:1];
+    [Analytics incrementUserProperty:@"User Logged Out" byInt:1];
     [Analytics event:@"User Logged Out"];
 
     self.loggedOutMessageView.hidden = NO;

@@ -44,12 +44,12 @@
     if ([self.item isMemberOfClass:[LocalFile class]]) {
         LocalFile *file = (LocalFile *)self.item;
         [file deleteItem];
-        [Analytics incrementCounter:@"User Deleted LocalFile" byInt:1];
+        [Analytics incrementUserProperty:@"User Deleted LocalFile" byInt:1];
         [ModalZoomView fadeOutViewAnimated:YES];
     }else{
         [self disableButtons];
         [[PutIOClient sharedClient] requestDeletionForDisplayItemID:_item.id :^(id userInfoObject) {
-            [Analytics incrementCounter:@"User Deleted RemoteFile" byInt:1];
+            [Analytics incrementUserProperty:@"User Deleted RemoteFile" byInt:1];
             [self enableButtons];
             [ModalZoomView fadeOutViewAnimated:YES];
         }];

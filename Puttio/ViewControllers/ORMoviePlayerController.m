@@ -67,7 +67,7 @@
 - (void)airplayActiveDidChange {
     if ( [self.moviePlayer isAirPlayVideoActive] ) {
         [Analytics event:@"Using Airplay"];
-        [Analytics incrementCounter:@"Using Airplay" byInt:1];
+        [Analytics incrementUserProperty:@"Using Airplay" byInt:1];
     }
 }
 

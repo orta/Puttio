@@ -41,7 +41,7 @@
 
 - (void)showApp {
     [Analytics setUserAccount:[[NSUserDefaults standardUserDefaults] objectForKey:ORUserAccountNameDefault]];
-    [Analytics incrementCounter:@"User App Launched" byInt:1];
+    [Analytics incrementUserProperty:@"User App Launched" byInt:1];
 
     [[PutIOClient sharedClient] startup];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];

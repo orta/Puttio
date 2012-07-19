@@ -126,7 +126,6 @@
 	//First force a load view for the contentViewController so the popoverContentSize is properly initialized
     contentViewController.view;
 
-    
 	if (CGSizeEqualToSize(popoverContentSize, CGSizeZero)) {
 		popoverContentSize = contentViewController.contentSizeForViewInPopover;
 	}

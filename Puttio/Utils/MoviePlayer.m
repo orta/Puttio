@@ -17,6 +17,8 @@
 }
 @end
 
+static NSDate *movieStartedDate;
+
 @implementation MoviePlayer
 @synthesize mediaPlayer;
 
@@ -80,20 +82,20 @@
             TFLog(@"playbackFinished. Reason: Playback Ended");
         case MPMovieFinishReasonUserExited:
             TFLog(@"playbackFinished. Reason: User Exited");
-            [Analytics incrementCounter:@"User Finished Watching a Movie" byInt:1];
+            [Analytics incrementUserProperty:@"User Finished Watching a Movie" byInt:1];
             [Analytics event:@"User Finished Watching a Movie"];
             break;
         default:
             break;
     }
-    
+
+    [Analytics event:@"Finished Watching Something" withTimeIntervalSinceDate:movieStartedDate];
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
     [rootController dismissMoviePlayerViewControllerAnimated];
 }
 
 + (void)streamMovieAtPath:(NSString *)path {
-
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
@@ -106,8 +108,9 @@
     [rootController presentMoviePlayerViewControllerAnimated:movieController];
 
     sharedPlayer.mediaPlayer = movieController.moviePlayer;
-    [Analytics incrementCounter:@"User Started Watching a Movie" byInt:1];
+    [Analytics incrementUserProperty:@"User Started Watching a Movie" byInt:1];
     [Analytics event:@"User Started Watching a Movie"];
+    movieStartedDate = [NSDate date];
 }
 
 + (void)watchLocalMovieAtPath:(NSString *)path {
@@ -121,8 +124,9 @@
     [rootController presentMoviePlayerViewControllerAnimated:movieController];
     
     sharedPlayer.mediaPlayer = movieController.moviePlayer;
-    [Analytics incrementCounter:@"User Started Watching a Movie" byInt:1];
+    [Analytics incrementUserProperty:@"User Started Watching a Movie" byInt:1];
     [Analytics event:@"User Started Watching a Movie"];
+    movieStartedDate = [NSDate date];
 }
 
 

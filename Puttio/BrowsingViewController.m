@@ -185,7 +185,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
 - (IBAction)reloadPressed:(id)sender {
     [self reloadFolder];
-    [Analytics incrementCounter:@"User Pressed Reload Button In Main View" byInt:1];
+    [Analytics incrementUserProperty:@"User Pressed Reload Button In Main View" byInt:1];
 }
 
 - (void)setNetworkActivity:(BOOL)networkActivity {

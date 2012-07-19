@@ -11,9 +11,13 @@
 @interface Analytics : NSObject
 + (void)setup;
 + (void)setUserAccount:(NSString *)username;
+
 + (void)event:(NSString*)string, ...;
 + (void)event:(NSString *)event withOptionString:(NSString *)message;
++ (void)event:(NSString *)event withTimeIntervalSinceDate:(NSDate *)date;
+
 + (void)error:(NSString*)string, ...;
+
 + (void)addCustomValue:(NSString*)value forKey:(NSString*)key;
-+ (void)incrementCounter:(NSString*)counterName byInt:(int)amount;
++ (void)incrementUserProperty:(NSString*)counterName byInt:(int)amount;
 @end

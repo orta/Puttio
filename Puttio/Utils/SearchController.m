@@ -38,7 +38,7 @@ static SearchController *sharedInstance;
         [self searchISOHunt:query];
         [self searchFenopy:query];
     }
-    [Analytics incrementCounter:@"Started Search" byInt:1];
+    [Analytics incrementUserProperty:@"Started Search" byInt:1];
     [Analytics event:@"User Started a Search"];
 }
 
@@ -60,7 +60,7 @@ static SearchController *sharedInstance;
         [self passArrayToDelegate:searchResults];
             
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Analytics incrementCounter:@"Fenopy Search Failed" byInt:1];
+        [Analytics incrementUserProperty:@"Fenopy Search Failed" byInt:1];
         NSLog(@"fail whale fenopy %@", error);
 
     }];
@@ -86,7 +86,7 @@ static SearchController *sharedInstance;
         [self passArrayToDelegate:searchResults];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Analytics incrementCounter:@"Isohunt Search Failed" byInt:1];
+        [Analytics incrementUserProperty:@"Isohunt Search Failed" byInt:1];
         NSLog(@"fail whale %@", error);
     }];
     [operation start];
@@ -114,7 +114,7 @@ static SearchController *sharedInstance;
         [self passArrayToDelegate:searchResults];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Analytics incrementCounter:@"Mininova Search Failed" byInt:1];
+        [Analytics incrementUserProperty:@"Mininova Search Failed" byInt:1];
         NSLog(@"fail whale %@", error);
     }];
     [operation start];

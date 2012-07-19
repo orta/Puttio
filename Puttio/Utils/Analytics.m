@@ -45,6 +45,16 @@
     [[MixpanelAPI sharedAPI] track:event properties:@{ @"options" : message }];
 }
 
++ (void)event:(NSString *)string withProperties:(NSDictionary *)properties {
+    [TestFlight passCheckpoint:string];
+    [[MixpanelAPI sharedAPI] track:string properties:properties];
+}
+
++ (void)event:(NSString *)event withTimeIntervalSinceDate:(NSDate *)date {
+    NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:date];
+    [self event:event withProperties:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithDouble:interval], @"seconds", [self stringFromInterval:interval], @"time", nil]];
+}
+
 + (void)error:(NSString*)string, ...{
     if (string == nil) {
         NSLog(@"nil string in ARAnalytics::error");
@@ -63,9 +73,22 @@
     [[MixpanelAPI sharedAPI] registerSuperProperties:@{ key : value }];
 }
 
-+ (void)incrementCounter:(NSString*)counterName byInt:(int)amount {
++ (void)incrementUserProperty:(NSString*)counterName byInt:(int)amount {
     [[MixpanelAPI sharedAPI] incrementUserPropertyWithKey:counterName byInt:amount];
 }
 
++ (NSString *) stringFromInterval:(NSTimeInterval)interval {
+    unsigned long seconds = interval;
+    unsigned long minutes = seconds / 60;
+    seconds %= 60;
+    unsigned long hours = minutes / 60;
+    minutes %= 60;
+
+    NSMutableString * result = [NSMutableString string];
+    [result appendFormat: @"%0.2ld:", hours];
+    [result appendFormat: @"%0.2ld:", minutes];
+    [result appendFormat: @"%0.2ld", seconds];
+    return result;
+}
 
 @end
