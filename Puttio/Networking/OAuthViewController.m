@@ -87,6 +87,7 @@
 - (void)authHelperDidLogin:(PutIOOAuthHelper *)helper {
     if([_delegate respondsToSelector:@selector(authorizationDidFinishWithController:)]){
         [_delegate authorizationDidFinishWithController:self];
+        [Analytics incrementCounter:@"User Logged In" byInt:1];
     }
 }
 

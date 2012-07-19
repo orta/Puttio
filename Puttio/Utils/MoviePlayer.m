@@ -80,7 +80,8 @@
             TFLog(@"playbackFinished. Reason: Playback Ended");
         case MPMovieFinishReasonUserExited:
             TFLog(@"playbackFinished. Reason: User Exited");
-            [Analytics event:@"User finished watching a movie"];
+            [Analytics incrementCounter:@"User Finished Watching a Movie" byInt:1];
+            [Analytics event:@"User Finished Watching a Movie"];
             break;
         default:
             break;
@@ -105,7 +106,8 @@
     [rootController presentMoviePlayerViewControllerAnimated:movieController];
 
     sharedPlayer.mediaPlayer = movieController.moviePlayer;
-    [Analytics event:@"User started watching a movie"];
+    [Analytics incrementCounter:@"User Started Watching a Movie" byInt:1];
+    [Analytics event:@"User Started Watching a Movie"];
 }
 
 + (void)watchLocalMovieAtPath:(NSString *)path {
@@ -119,7 +121,8 @@
     [rootController presentMoviePlayerViewControllerAnimated:movieController];
     
     sharedPlayer.mediaPlayer = movieController.moviePlayer;
-    [Analytics event:@"User started watching a downloaded movie"];
+    [Analytics incrementCounter:@"User Started Watching a Movie" byInt:1];
+    [Analytics event:@"User Started Watching a Movie"];
 }
 
 

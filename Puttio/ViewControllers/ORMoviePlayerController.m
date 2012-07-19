@@ -15,7 +15,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(airplayActiveDidChange) name:MPMoviePlayerIsAirPlayVideoActiveDidChangeNotification object:nil];
+
     self.moviePlayer.allowsAirPlay = YES;
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
@@ -59,6 +61,13 @@
             else
                 [self.moviePlayer pause];
         }
+    }
+}
+
+- (void)airplayActiveDidChange {
+    if ( [self.moviePlayer isAirPlayVideoActive] ) {
+        [Analytics event:@"Using Airplay"];
+        [Analytics incrementCounter:@"Using Airplay" byInt:1];
     }
 }
 
