@@ -29,13 +29,13 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self.creativeCommonsSwitch setOn:![defaults boolForKey:ORUseAllSearchEngines] animated:NO];
 
-    self.searchInfoLabel.transitionEffect = BBCyclingLabelTransitionEffectScrollDown;
+    [self setCopyrightText];
+
+    self.searchInfoLabel.transitionEffect = BBCyclingLabelTransitionEffectZoomIn;
     self.searchInfoLabel.transitionDuration = 0.3;
     self.searchInfoLabel.backgroundColor = [UIColor whiteColor];
     self.searchInfoLabel.font = [UIFont fontWithName:@"Futura-CondensedMedium" size:16];
     self.searchInfoLabel.numberOfLines = 2;
-
-    [self setCopyrightText];
 }
 
 - (void)setCopyrightText {

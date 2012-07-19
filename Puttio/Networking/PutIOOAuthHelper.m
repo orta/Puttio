@@ -24,6 +24,8 @@
 @interface PutIOOAuthHelper (){
     NSString *_username;
     NSString *_password;
+
+    BOOL didRequestSettings;
 }
 
 @end
@@ -74,6 +76,7 @@
 - (void)loadAccountSettingsPage {
     NSURL * url = [NSURL URLWithString:PTSettingsURL];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
+    didRequestSettings = YES;
 }
 
 - (void)parseForV1Tokens {
@@ -128,9 +131,11 @@
     NSString *address = aWebView.request.URL.absoluteString;
 
     if (![address hasSuffix:@"?err=1"]) {
-        if([aWebView.request.URL.absoluteString isEqualToString:PTSettingsURL]){
+        
+        if(didRequestSettings){
             [self parseForV1Tokens];
             [self.delegate authHelperDidLogin:self];
+            return;
         }
         
         if([address isEqualToString:PTLoginURL]){

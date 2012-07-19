@@ -71,7 +71,6 @@ typedef enum {
     self.spaceProgressView.color = [UIColor putioBlue];
     self.spaceProgressView.backgroundColor = [UIColor clearColor];
     
-#warning this isnt good enough
     UITapGestureRecognizer *accountSettingsTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapProgressView:)];
     [self.spaceProgressView.superview addGestureRecognizer:accountSettingsTapGesture];
 }

@@ -96,7 +96,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             Folder *folder = [Folder object];
             folder.id = [dictionary[@"id"] stringValue];
             folder.name = dictionary[@"name"];
-            folder.displayName = [folder.name capitalizedString];
+            folder.displayName = [File createDisplayNameFromName:folder.name];
             folder.screenShotURL =  dictionary[@"icon"];
             folder.parentID = [dictionary[@"parent_id"] stringValue];
             folder.size = @0;

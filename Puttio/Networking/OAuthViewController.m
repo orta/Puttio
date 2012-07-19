@@ -59,6 +59,11 @@
 }
 
 - (IBAction)loginPressed:(id)sender {
+    if (!self.passwordTextfield.text.length) {
+        [self.passwordTextfield becomeFirstResponder];
+        return;
+    }
+
     [self.loginButton setEnabled:NO];
     [self.usernameTextfield setEnabled:NO];
     [self.passwordTextfield setEnabled:NO];

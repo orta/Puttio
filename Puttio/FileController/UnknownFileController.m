@@ -40,7 +40,9 @@
             if (canOpen) {
                 self.infoController.primaryButton.enabled = YES;                
             }else{
-                self.infoController.additionalInfoLabel.text = @"There isn't an app to open this file";                
+                self.infoController.additionalInfoLabel.text = @"There isn't an app to open this file";
+                self.infoController.additionalInfoLabel.textAlignment = UITextAlignmentCenter;
+                self.infoController.primaryButton.hidden = YES;
             }
         }
     } andFailureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -83,11 +85,8 @@
 #pragma mark Document related stuff
 
 -(BOOL)canOpenDocumentWithURL:(NSURL*)url inView:(UIView*)view {
-    #warning can get a crash here
-    
     BOOL canOpen = NO;
-    UIDocumentInteractionController* docController = [UIDocumentInteractionController
-                                                      interactionControllerWithURL:url];
+    UIDocumentInteractionController* docController = [UIDocumentInteractionController interactionControllerWithURL:url];
     if (docController) {
         docController.delegate = self;
         canOpen = [docController presentOpenInMenuFromRect:CGRectMake(0, 0, 1, 1) inView:view animated:NO];
