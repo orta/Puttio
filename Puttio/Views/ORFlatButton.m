@@ -26,7 +26,8 @@
 - (void)setup {
     self.backgroundColor = [UIColor putioBlue];
     [self setBackgroundColor:[UIColor putioDarkBlue] forState:UIControlStateHighlighted];
-    
+    [self setBackgroundColor:[[UIColor putioBlue] colorWithAlphaComponent:0.3] forState:UIControlStateDisabled];
+
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
 }

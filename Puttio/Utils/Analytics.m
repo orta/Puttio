@@ -10,9 +10,15 @@
 #import "TestFlight.h"
 #import "APP_SECRET.h"
 
+static BOOL ignore = NO;
+
 @implementation Analytics
 
 + (void)setup {
+#if TARGET_IPHONE_SIMULATOR
+    ignore = YES;
+#endif
+
     [TestFlight takeOff: TESTFLIGHT_SECRET];
     [MixpanelAPI sharedAPIWithToken:MIXPANEL_TOKEN];
     
@@ -28,6 +34,8 @@
 }
 
 + (void)event:(NSString*)string, ...{
+    if (ignore) return;
+
     if (string == nil) {
         NSLog(@"nil string in ARAnalytics::error");
         return;
@@ -41,11 +49,15 @@
 }
 
 + (void)event:(NSString *)event withOptionString:(NSString *)message {
+    if (ignore) return;
+    
     [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@ - %@", event, message]];
     [[MixpanelAPI sharedAPI] track:event properties:@{ @"options" : message }];
 }
 
 + (void)event:(NSString *)string withProperties:(NSDictionary *)properties {
+    if (ignore) return;
+    
     [TestFlight passCheckpoint:string];
     [[MixpanelAPI sharedAPI] track:string properties:properties];
 }
@@ -56,6 +68,8 @@
 }
 
 + (void)error:(NSString*)string, ...{
+    if (ignore) return;
+    
     if (string == nil) {
         NSLog(@"nil string in ARAnalytics::error");
         return;
@@ -69,11 +83,15 @@
 }
 
 + (void)addCustomValue:(NSString*)value forKey:(NSString*)key {
+    if (ignore) return;
+    
     [TestFlight addCustomEnvironmentInformation:value forKey:key];
     [[MixpanelAPI sharedAPI] registerSuperProperties:@{ key : value }];
 }
 
 + (void)incrementUserProperty:(NSString*)counterName byInt:(int)amount {
+    if (ignore) return;
+    
     [[MixpanelAPI sharedAPI] incrementUserPropertyWithKey:counterName byInt:amount];
 }
 

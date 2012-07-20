@@ -13,6 +13,10 @@
 @implementation UIDevice (SpaceStats)
 
 + (NSString *)humanStringFromBytes:(double)bytes {
+    if (bytes < 0) {
+        bytes *= -1;
+    }
+    
     static const char units[] = { '\0', 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y' };
     static int maxUnits = sizeof units - 1;
     

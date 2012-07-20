@@ -21,7 +21,6 @@
 
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
 - (void)getFolder:(Folder *)folder :(void(^)(id userInfoObject))onComplete;
-- (void)getInfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete;
 - (void)getMP4InfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete;
 - (void)requestMP4ForFile:(File*)file;
 - (void)getTransfers:(void(^)(id userInfoObject))onComplete;

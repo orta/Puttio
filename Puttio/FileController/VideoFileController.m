@@ -15,6 +15,7 @@
 #import "MoviePlayer.h"
 #import "FileSizeUtils.h"
 #import "ConvertToMP4Process.h"
+#import "UIDevice+SpaceStats.h"
 
 @implementation VideoFileController {
     BOOL _isMP4;
@@ -34,22 +35,21 @@
     _file = aFile;
     [self.infoController disableButtons];
 
-    [[PutIOClient sharedClient] getInfoForFile:_file :^(id userInfoObject) {
-        if (![userInfoObject isMemberOfClass:[NSError class]]) {
-            fileSize = [[userInfoObject valueForKeyPath:@"size"][0] intValue];
-            self.infoController.titleLabel.text = [userInfoObject valueForKeyPath:@"name"][0]; 
-            self.infoController.fileSizeLabel.text = unitStringFromBytes(fileSize);
-            [self.infoController hideProgress];
-            
-            NSString *contentType = [userInfoObject valueForKeyPath:@"content_type"][0];
-            if ([contentType isEqualToString:@"video/mp4"]) {
-                _isMP4 = YES;
-                [self.infoController enableButtons];
-            }else{
-                [self getMP4Info];
-            }
+    self.infoController.titleLabel.text = _file.displayName;
+    self.infoController.fileSizeLabel.text = [UIDevice humanStringFromBytes:[[_file size] doubleValue]];
+    [self.infoController hideProgress];
+
+    if ([_file.contentType isEqualToString:@"video/mp4"]) {
+        _isMP4 = YES;
+        [self.infoController enableButtons];
+        
+    }else{
+        if ([_file.hasMP4 boolValue]) {
+            [self.infoController enableButtons];
+        }else{
+            [self getMP4Info];
         }
-    }];
+    }
 }
 
 - (NSString *)descriptiveTextForFile {

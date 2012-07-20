@@ -101,10 +101,9 @@ static NSDate *movieStartedDate;
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
     MoviePlayer *sharedPlayer = [self sharedPlayer];
-    path = [path componentsSeparatedByString:@"/atk"][0];
-    NSString *address = [PutIOClient appendStreamToken:path];
-    
-    ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:address]];
+    path = [PutIOClient appendOauthToken:path];
+
+    ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:path]];
     [rootController presentMoviePlayerViewControllerAnimated:movieController];
 
     sharedPlayer.mediaPlayer = movieController.moviePlayer;

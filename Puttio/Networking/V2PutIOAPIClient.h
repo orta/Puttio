@@ -11,6 +11,8 @@
 @class Folder;
 @interface V2PutIOAPIClient : AFHTTPClient
 
+@property NSString* apiToken;
+
 + (id)setup;
 - (BOOL)ready;
 
