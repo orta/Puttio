@@ -44,7 +44,7 @@
 }
 
 - (BOOL)ready {
-    return ([self.v1Client ready] && [self.v2Client ready]);
+    return [self.v2Client ready];
 }
 
 - (void)startup {
@@ -92,6 +92,7 @@
     }];
 }
 
+// this isnt used in this app.
 - (void)getMessages:(void(^)(id userInfoObject))onComplete {
     [self.v1Client getMessages :^(id userInfoObject) {
         onComplete(userInfoObject);  

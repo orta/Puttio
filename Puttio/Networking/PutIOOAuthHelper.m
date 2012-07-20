@@ -24,8 +24,6 @@
 @interface PutIOOAuthHelper (){
     NSString *_username;
     NSString *_password;
-
-    BOOL didRequestSettings;
 }
 
 @end
@@ -49,13 +47,14 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:address]];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        [self loadAccountSettingsPage];
-        
+
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:[JSON valueForKeyPath:@"access_token"] forKey:AppAuthTokenDefault];
         [defaults synchronize];
         [[NSNotificationCenter defaultCenter] postNotificationName:OAuthTokenWasSavedNotification object:nil userInfo:nil];
-        
+
+        [self.delegate authHelperDidLogin:self];
+
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"error %@", error);
     }];
@@ -71,27 +70,6 @@
     NSString *address = [NSString stringWithFormat:PTFormatOauthLoginURL, AppOAuthID, AppOAuthCallback];
     NSURL * url = [NSURL URLWithString:address];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
-}
-
-- (void)loadAccountSettingsPage {
-    NSURL * url = [NSURL URLWithString:PTSettingsURL];
-    [webView loadRequest:[NSURLRequest requestWithURL:url]];
-    didRequestSettings = YES;
-}
-
-- (void)parseForV1Tokens {
-    NSString *apiKey = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('api-key')[0].getElementsByTagName('input')[0].value"];
-    NSString *apiSecret = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('api-key')[0].getElementsByTagName('input')[1].value"];
-    if (apiKey && apiSecret) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:apiKey forKey:APIKeyDefault];
-        [defaults setObject:apiSecret forKey:APISecretDefault];
-        [defaults synchronize];
-    }else{
-        [self.delegate authHelperHasDeclaredItScrewed];
-    }
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:V1TokensWereSavedNotification object:nil userInfo:nil];
 }
 
 #pragma mark -
@@ -131,14 +109,7 @@
     NSString *address = aWebView.request.URL.absoluteString;
 
     if (![address hasSuffix:@"?err=1"]) {
-        
-        if(didRequestSettings){
-            [self parseForV1Tokens];
-            [self.delegate authHelperDidLogin:self];
-            return;
-        }
-        
-        if([address isEqualToString:PTLoginURL]){
+        if([address hasPrefix:PTLoginURL]){
             
             NSString *setUsername = [NSString stringWithFormat:@"document.getElementsByTagName('input')[0].value = '%@'", _username];
             [webView stringByEvaluatingJavaScriptFromString:setUsername];
