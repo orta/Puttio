@@ -152,7 +152,7 @@ typedef enum {
             // compare the diskQuota, if it has changed from last time, record it in our Analytics
             NSString *oldDiskQuotaTotalString = [[NSUserDefaults standardUserDefaults] objectForKey:ORDiskQuotaTotalDefault];
 
-            NSString *newDiskQuotaTotalString = [userInfoObject valueForKeyPath:@"response.results.disk_quota"][0];
+            NSString *newDiskQuotaTotalString = [userInfoObject valueForKeyPath:@"info.disk.size"];
             double newDiskQuotaDouble = [newDiskQuotaTotalString doubleValue];
             NSString *diskQuotaTotalString = [UIDevice humanStringFromBytes:newDiskQuotaDouble];
             
@@ -160,7 +160,7 @@ typedef enum {
                 [Analytics event:@"User has changed thier Put.io account size"];
             }
             
-            NSString *diskQuotaAvailableString = [userInfoObject valueForKeyPath:@"response.results.disk_quota_available"][0];
+            NSString *diskQuotaAvailableString = [userInfoObject valueForKeyPath:@"info.disk.avail"];
             float quotaPercentage = (float)[diskQuotaAvailableString longLongValue] / [newDiskQuotaTotalString longLongValue];
             
             [[NSUserDefaults standardUserDefaults] setFloat:quotaPercentage forKey:ORCurrentSpaceUsedPercentageDefault];

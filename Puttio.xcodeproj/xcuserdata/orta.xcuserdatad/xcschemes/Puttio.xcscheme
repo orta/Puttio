@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6085D222151B99490068929C"
                BuildableName = "puttio.app"
-               BlueprintName = "puttio"
+               BlueprintName = "Put.IO"
                ReferencedContainer = "container:Puttio.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,7 +34,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6085D222151B99490068929C"
             BuildableName = "puttio.app"
-            BlueprintName = "puttio"
+            BlueprintName = "Put.IO"
             ReferencedContainer = "container:Puttio.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -54,7 +54,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6085D222151B99490068929C"
             BuildableName = "puttio.app"
-            BlueprintName = "puttio"
+            BlueprintName = "Put.IO"
             ReferencedContainer = "container:Puttio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -78,7 +78,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6085D222151B99490068929C"
             BuildableName = "puttio.app"
-            BlueprintName = "puttio"
+            BlueprintName = "Put.IO"
             ReferencedContainer = "container:Puttio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

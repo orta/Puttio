@@ -919,9 +919,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6085D222151B99490068929C /* puttio */ = {
+		6085D222151B99490068929C /* Put.IO */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6085D249151B99490068929C /* Build configuration list for PBXNativeTarget "puttio" */;
+			buildConfigurationList = 6085D249151B99490068929C /* Build configuration list for PBXNativeTarget "Put.IO" */;
 			buildPhases = (
 				6085D21F151B99490068929C /* Sources */,
 				6085D220151B99490068929C /* Frameworks */,
@@ -932,7 +932,7 @@
 			);
 			dependencies = (
 			);
-			name = puttio;
+			name = Put.IO;
 			productName = Puttio;
 			productReference = 6085D223151B99490068929C /* puttio.app */;
 			productType = "com.apple.product-type.application";
@@ -958,7 +958,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6085D222151B99490068929C /* puttio */,
+				6085D222151B99490068929C /* Put.IO */,
 			);
 		};
 /* End PBXProject section */
@@ -1261,7 +1261,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6085D249151B99490068929C /* Build configuration list for PBXNativeTarget "puttio" */ = {
+		6085D249151B99490068929C /* Build configuration list for PBXNativeTarget "Put.IO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6085D24A151B99490068929C /* Debug */,

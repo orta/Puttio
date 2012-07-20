@@ -62,7 +62,7 @@
 }
 
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
-    [self.v1Client getUserInfo:^(id userInfoObject) {
+    [self.v2Client getUserInfo:^(id userInfoObject) {
         onComplete(userInfoObject);
     }];
 }

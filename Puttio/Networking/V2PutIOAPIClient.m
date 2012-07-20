@@ -64,6 +64,27 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     [operation start];
 }
 
+- (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
+    [self getPath:@"/v2/account/info" parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+        if (error) {
+            NSLog(@"%@", NSStringFromSelector(_cmd));
+            NSLog(@"json parsing error. %@", error.localizedFailureReason);
+        }
+        if ([[json valueForKeyPath:@"status"] isEqualToString:@"OK"]) {
+            onComplete(json);
+        }else{
+            NSLog(@"%@", NSStringFromSelector(_cmd));
+            NSLog(@"server said not ok");
+            NSLog(@"request %@", operation.request.URL);
+            NSLog(@"data %@", json);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        onComplete(error);
+    }];
+}
+
 - (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete {
     NSDictionary *params = @{@"oauth_token": self.apiToken, @"parent_id": folder.id};
     [self getPath:@"/v2/files/list" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

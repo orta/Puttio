@@ -14,6 +14,7 @@
 + (id)setup;
 - (BOOL)ready;
 
+- (void)getUserInfo:(void(^)(id userInfoObject))onComplete;
 - (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete;
 - (void)getInfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete;
 - (void)getMP4InfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete;
