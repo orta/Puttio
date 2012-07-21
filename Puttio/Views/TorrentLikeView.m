@@ -48,7 +48,7 @@
 
     switch ([UIDevice deviceType]) {
         case DeviceIpad1:
-            tileCount = 25;
+            tileCount = 28;
             tileSize = 40;
             break;
         case DeviceIpad2:

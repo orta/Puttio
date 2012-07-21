@@ -51,12 +51,16 @@
 		604678FB15B1E76C00A2BFA8 /* Github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F415B1E76900A2BFA8 /* Github@2x.png */; };
 		604678FC15B1E76C00A2BFA8 /* TwitterBird@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F515B1E76A00A2BFA8 /* TwitterBird@2x.png */; };
 		604678FD15B1E76C00A2BFA8 /* DotSlash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F615B1E76B00A2BFA8 /* DotSlash@2x.png */; };
-		6046790115B1EA2B00A2BFA8 /* BBCyclingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6046790015B1EA2B00A2BFA8 /* BBCyclingLabel.m */; };
 		6046790715B1F0EC00A2BFA8 /* ORDestructiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */; };
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
 		6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */; };
 		606C79A4152F508E00608C56 /* ORDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79A3152F508E00608C56 /* ORDefaults.m */; };
 		606C79B01530A4B100608C56 /* NSDictionary+ObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */; };
+		6080914415BAED0800BDB3D7 /* orta.png in Resources */ = {isa = PBXBuildFile; fileRef = 6080914215BAED0800BDB3D7 /* orta.png */; };
+		6080914515BAED0800BDB3D7 /* orta@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6080914315BAED0800BDB3D7 /* orta@2x.png */; };
+		6080914915BAF5AA00BDB3D7 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6080914815BAF5AA00BDB3D7 /* FeedbackViewController.m */; };
+		6080915515BB015900BDB3D7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6080915415BB015800BDB3D7 /* MessageUI.framework */; };
+		6080915715BB038A00BDB3D7 /* mail.html in Resources */ = {isa = PBXBuildFile; fileRef = 6080915615BB038A00BDB3D7 /* mail.html */; };
 		6085D228151B99490068929C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D227151B99490068929C /* UIKit.framework */; };
 		6085D22A151B99490068929C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D229151B99490068929C /* Foundation.framework */; };
 		6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D22B151B99490068929C /* CoreGraphics.framework */; };
@@ -234,8 +238,6 @@
 		604678F415B1E76900A2BFA8 /* Github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Github@2x.png"; sourceTree = "<group>"; };
 		604678F515B1E76A00A2BFA8 /* TwitterBird@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TwitterBird@2x.png"; sourceTree = "<group>"; };
 		604678F615B1E76B00A2BFA8 /* DotSlash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DotSlash@2x.png"; sourceTree = "<group>"; };
-		604678FF15B1EA2B00A2BFA8 /* BBCyclingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCyclingLabel.h; sourceTree = "<group>"; };
-		6046790015B1EA2B00A2BFA8 /* BBCyclingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCyclingLabel.m; sourceTree = "<group>"; };
 		6046790515B1F0EC00A2BFA8 /* ORDestructiveButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORDestructiveButton.h; path = Views/ORDestructiveButton.h; sourceTree = "<group>"; };
 		6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDestructiveButton.m; path = Views/ORDestructiveButton.m; sourceTree = "<group>"; };
 		6064D89915398E4600E454E5 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = Utils/SearchController.h; sourceTree = "<group>"; };
@@ -246,6 +248,13 @@
 		606C79A3152F508E00608C56 /* ORDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDefaults.m; path = Utils/ORDefaults.m; sourceTree = "<group>"; };
 		606C79AE1530A4B100608C56 /* NSDictionary+ObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+ObjectForKey.h"; path = "Categories/NSDictionary+ObjectForKey.h"; sourceTree = "<group>"; };
 		606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+ObjectForKey.m"; path = "Categories/NSDictionary+ObjectForKey.m"; sourceTree = "<group>"; };
+		6080914215BAED0800BDB3D7 /* orta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orta.png; sourceTree = "<group>"; };
+		6080914315BAED0800BDB3D7 /* orta@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orta@2x.png"; sourceTree = "<group>"; };
+		6080914715BAF5A900BDB3D7 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackViewController.h; path = ViewControllers/FeedbackViewController.h; sourceTree = "<group>"; };
+		6080914815BAF5AA00BDB3D7 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackViewController.m; path = ViewControllers/FeedbackViewController.m; sourceTree = "<group>"; };
+		6080915215BB012E00BDB3D7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		6080915415BB015800BDB3D7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		6080915615BB038A00BDB3D7 /* mail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mail.html; sourceTree = "<group>"; };
 		6085D223151B99490068929C /* Put.IO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Put.IO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6085D227151B99490068929C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6085D229151B99490068929C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -414,6 +423,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6080915515BB015900BDB3D7 /* MessageUI.framework in Frameworks */,
 				609F289315AF9AF1008AAAAC /* Accounts.framework in Frameworks */,
 				609F288F15AF9A53008AAAAC /* Twitter.framework in Frameworks */,
 				60C04F0C15722E9E00C23AB5 /* QuartzCore.framework in Frameworks */,
@@ -579,18 +589,12 @@
 			name = GMGridView;
 			sourceTree = "<group>";
 		};
-		604678FE15B1EA1400A2BFA8 /* BBCyclingLabel */ = {
-			isa = PBXGroup;
-			children = (
-				604678FF15B1EA2B00A2BFA8 /* BBCyclingLabel.h */,
-				6046790015B1EA2B00A2BFA8 /* BBCyclingLabel.m */,
-			);
-			name = BBCyclingLabel;
-			sourceTree = "<group>";
-		};
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6080915615BB038A00BDB3D7 /* mail.html */,
+				6080914215BAED0800BDB3D7 /* orta.png */,
+				6080914315BAED0800BDB3D7 /* orta@2x.png */,
 				604678F015B1E76800A2BFA8 /* DotSlash.png */,
 				604678F115B1E76800A2BFA8 /* TwitterBird.png */,
 				604678F215B1E76900A2BFA8 /* Github.png */,
@@ -761,6 +765,8 @@
 				551FBC6015855CAE00AEBD31 /* LocalBrowsingViewController.m */,
 				609719971597531500F9398F /* AccountViewController.h */,
 				609719981597531600F9398F /* AccountViewController.m */,
+				6080914715BAF5A900BDB3D7 /* FeedbackViewController.h */,
+				6080914815BAF5AA00BDB3D7 /* FeedbackViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -768,7 +774,8 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
-				604678FE15B1EA1400A2BFA8 /* BBCyclingLabel */,
+				6080915415BB015800BDB3D7 /* MessageUI.framework */,
+				6080915215BB012E00BDB3D7 /* MobileCoreServices.framework */,
 				6020361015AA2C110021CE21 /* DCRoundSwitch */,
 				602035F015AA13490021CE21 /* Mixpanel */,
 				609CAE25158562FD000BE57E /* WEPopover */,
@@ -1002,6 +1009,9 @@
 				604678FB15B1E76C00A2BFA8 /* Github@2x.png in Resources */,
 				604678FC15B1E76C00A2BFA8 /* TwitterBird@2x.png in Resources */,
 				604678FD15B1E76C00A2BFA8 /* DotSlash@2x.png in Resources */,
+				6080914415BAED0800BDB3D7 /* orta.png in Resources */,
+				6080914515BAED0800BDB3D7 /* orta@2x.png in Resources */,
+				6080915715BB038A00BDB3D7 /* mail.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1123,8 +1133,8 @@
 				6020361D15AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m in Sources */,
 				6020361E15AA2C120021CE21 /* DCRoundSwitchToggleLayer.m in Sources */,
 				604678EB15B1999000A2BFA8 /* ORRotatingButton.m in Sources */,
-				6046790115B1EA2B00A2BFA8 /* BBCyclingLabel.m in Sources */,
 				6046790715B1F0EC00A2BFA8 /* ORDestructiveButton.m in Sources */,
+				6080914915BAF5AA00BDB3D7 /* FeedbackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

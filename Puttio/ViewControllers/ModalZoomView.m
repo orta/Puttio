@@ -29,6 +29,9 @@ static ModalZoomView *sharedInstance;
     return sharedInstance;
 }
 
++ (void)showWithViewControllerIdentifier:(NSString *)viewControllerID {
+    [self showFromRect:CGRectNull withViewControllerIdentifier:viewControllerID andItem:nil];
+}
 
 + (void)showFromRect:(CGRect)initialFrame withViewControllerIdentifier:(NSString *)viewControllerID andItem:(id)item {
     ModalZoomView *this = [self sharedInstance];
@@ -38,28 +41,17 @@ static ModalZoomView *sharedInstance;
         
         if ([this validated]) {
             this.originalFrame = initialFrame;
-            this.backgroundView = [[UIView alloc] initWithFrame:rootView.bounds];
-            this.backgroundView.contentMode = UIViewContentModeScaleToFill;
-            this.backgroundView.autoresizingMask = ( UIViewAutoresizingFlexibleLeftMargin |
-                                               UIViewAutoresizingFlexibleWidth |
-                                               UIViewAutoresizingFlexibleRightMargin |
-                                               UIViewAutoresizingFlexibleTopMargin |
-                                               UIViewAutoresizingFlexibleHeight |
-                                               UIViewAutoresizingFlexibleBottomMargin);
-            this.backgroundView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.1];
-            
+
+            // setup background
+            this.backgroundView = [self createBackgroundView];
             UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:this action:@selector(backgroundViewTapped:)];
             [this.backgroundView addGestureRecognizer:tapGesture];
-            
             [rootView addSubview:this.backgroundView];
-            
-            UIView *theView = this.viewController.view;
-            CGRect finalFrame = theView.bounds;
 
-//            if ([UIDevice isPhone]) {
-//                finalFrame.size.width = 260;
-//                finalFrame.size.height = 300;
-//            }
+            // get frames for the modal
+            UIView *theView = this.viewController.view;
+            theView.alpha = 0;
+            CGRect finalFrame = theView.bounds;
 
             BOOL isLandscape = UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]);
             if (isLandscape) {                
@@ -69,15 +61,26 @@ static ModalZoomView *sharedInstance;
                 finalFrame.origin.x = rootView.frame.size.width / 2 - finalFrame.size.width / 2;
                 finalFrame.origin.y = rootView.frame.size.height / 2 - finalFrame.size.height / 2;                
             }
+
+            // if its got an initial frame use it, else don't
+            BOOL animatesFromFrame = !CGRectEqualToRect(initialFrame, CGRectNull);
+            if (animatesFromFrame) {
+                this.viewController.view.frame = initialFrame;
+            }else{
+                this.viewController.view.frame = finalFrame;
+            }
             
-            this.viewController.view.frame = initialFrame;
-            this.viewController.item = item;
-            
+            if (item && [this.viewController respondsToSelector:@selector(setItem:)]) {
+                this.viewController.item = item;
+            }
+
             [rootView addSubview:this.viewController.view];
 
-            [UIView animateWithDuration:0.5 animations:^{
+            CGFloat duration = animatesFromFrame? 0.5 : 0.3;
+            [UIView animateWithDuration:duration animations:^{
                 this.backgroundView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
                 theView.frame = finalFrame;
+                theView.alpha = 1;
             }completion:^(BOOL finished) {
                 if ([this.viewController respondsToSelector:@selector(zoomViewDidFinishZooming:)]) {
                     [this.viewController zoomViewDidFinishZooming:this];
@@ -97,6 +100,7 @@ static ModalZoomView *sharedInstance;
     
     [UIView animateWithDuration:duration animations:^{
         this.backgroundView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
+        this.backgroundView.alpha = 0;
         this.viewController.view.frame = this.originalFrame;
         
     } completion:^(BOOL finished) {
@@ -112,6 +116,20 @@ static ModalZoomView *sharedInstance;
 
 - (void)backgroundViewTapped:(UITapGestureRecognizer *)gesture {
     [self.class fadeOutViewAnimated:YES];
+}
+
++ (UIView *)createBackgroundView {
+    UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+    UIView *background = [[UIView alloc] initWithFrame:rootView.bounds];
+    background.contentMode = UIViewContentModeScaleToFill;
+    background.autoresizingMask = ( UIViewAutoresizingFlexibleLeftMargin |
+                                            UIViewAutoresizingFlexibleWidth |
+                                            UIViewAutoresizingFlexibleRightMargin |
+                                            UIViewAutoresizingFlexibleTopMargin |
+                                            UIViewAutoresizingFlexibleHeight |
+                                            UIViewAutoresizingFlexibleBottomMargin);
+    background.backgroundColor = [UIColor colorWithWhite:0 alpha:0.1];
+    return background;
 }
 
 - (BOOL)validated {

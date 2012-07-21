@@ -14,7 +14,7 @@
 #import "UIDevice+SpaceStats.h"
 #import "ORSimpleProgress.h"
 #import "DCRoundSwitch.h"
-#import "BBCyclingLabel.h"
+#import "ModalZoomView.h"
 
 #import "Constants.h"
 
@@ -23,27 +23,20 @@
 @end
 
 @implementation AccountViewController
-@synthesize searchInfoLabel;
 
 - (void)viewDidLoad {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self.creativeCommonsSwitch setOn:![defaults boolForKey:ORUseAllSearchEngines] animated:NO];
 
     [self setCopyrightText];
-
-    self.searchInfoLabel.transitionEffect = BBCyclingLabelTransitionEffectZoomIn;
-    self.searchInfoLabel.transitionDuration = 0.3;
-    self.searchInfoLabel.backgroundColor = [UIColor whiteColor];
-    self.searchInfoLabel.font = [UIFont fontWithName:@"Futura-CondensedMedium" size:16];
-    self.searchInfoLabel.numberOfLines = 2;
 }
 
 - (void)setCopyrightText {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if([defaults boolForKey:ORUseAllSearchEngines]){
-        [self.searchInfoLabel setText: @"Warning: Search is unfiltered." animated:YES];
+        self.searchInfoLabel.text =  @"Warning: Search is unfiltered.";
     }else{
-        [self.searchInfoLabel setText: @"Only search for Creative Commons works." animated:YES];
+        self.searchInfoLabel.text = @"Only search for Creative Commons works.";
     }
 }
 
@@ -125,12 +118,54 @@
                 
                 [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
                     NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
+
                     NSLog(@"%@", output);
-                    
                 }];
             }
         }
     }];
+}
+
+- (IBAction)githubTapped:(id)sender {
+    BOOL hasChrome = [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"googlechrome://"]];
+    NSString *target = @"https://github.com/orta";
+    NSURL *inputURL = [NSURL URLWithString:target];
+
+    if (hasChrome) {
+        NSString *scheme = inputURL.scheme;
+
+        // Replace the URL Scheme with the Chrome equivalent.
+        NSString *chromeScheme = nil;
+        if ([scheme isEqualToString:@"http"]) {
+            chromeScheme = @"googlechrome";
+        } else if ([scheme isEqualToString:@"https"]) {
+            chromeScheme = @"googlechromes";
+        }
+
+        // Proceed only if a valid Google Chrome URI Scheme is available.
+        if (chromeScheme) {
+            NSString *absoluteString = [inputURL absoluteString];
+            NSRange rangeForScheme = [absoluteString rangeOfString:@":"];
+            NSString *urlNoScheme =
+            [absoluteString substringFromIndex:rangeForScheme.location];
+            NSString *chromeURLString =
+            [chromeScheme stringByAppendingString:urlNoScheme];
+            NSURL *chromeURL = [NSURL URLWithString:chromeURLString];
+            
+            // Open the URL with Chrome.
+            [[UIApplication sharedApplication] openURL:chromeURL];
+        }
+    }else{
+        [[UIApplication sharedApplication] openURL:inputURL];
+    }
+
+}
+
+- (IBAction)ortaTapped:(id)sender {
+}
+
+- (IBAction)feedbackTapped:(id)sender {
+    [ModalZoomView showWithViewControllerIdentifier:@"feedbackView"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

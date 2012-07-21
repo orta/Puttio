@@ -10,15 +10,16 @@
 
 @class ModalZoomView;
 @protocol ModalZoomViewControllerDelegate <NSObject>
-- (void)setItem:(id)item;
 
 @optional
+- (void)setItem:(id)item;
 - (void)zoomViewDidFinishZooming:(ModalZoomView *)zoomView;
 - (void)zoomViewWillDissapear:(ModalZoomView *)zoomView;
 @end
 
 
 @interface ModalZoomView : NSObject
++ (void)showWithViewControllerIdentifier:(NSString *)viewControllerID;
 + (void)showFromRect:(CGRect)initialFrame withViewControllerIdentifier:(NSString *)viewControllerID andItem:(id)item;
 + (void)fadeOutViewAnimated:(BOOL)animated;
 @end

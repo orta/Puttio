@@ -211,10 +211,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backPressed:" destination="u9h-fZ-wfU" eventType="touchUpInside" id="WHv-aP-1HL"/>
                                     <action selector="deleteTapped:" destination="xCT-Cq-B2X" eventType="touchUpInside" id="ayF-Oi-Xhl"/>
-                                    <action selector="feedbackPressed:" destination="u9h-fZ-wfU" eventType="touchUpInside" id="eQX-PB-ICO"/>
-                                    <action selector="loginPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="Nmd-Gb-81G"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="bot-GH-0JH" customClass="ORFlatButton">
@@ -230,10 +227,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backPressed:" destination="u9h-fZ-wfU" eventType="touchUpInside" id="BK4-Es-xIG"/>
                                     <action selector="cancelTapped:" destination="xCT-Cq-B2X" eventType="touchUpInside" id="FUa-N7-mCe"/>
-                                    <action selector="feedbackPressed:" destination="u9h-fZ-wfU" eventType="touchUpInside" id="ZGP-0s-tqB"/>
-                                    <action selector="loginPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="euq-mp-UED"/>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="CHk-uT-JK3">
@@ -256,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="suM-Kp-wxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2705" y="-479"/>
+            <point key="canvasLocation" x="-2459" y="-459"/>
         </scene>
         <!--Local Browsing View Controller-->
         <scene sceneID="BKe-J5-e5T">
@@ -617,19 +611,19 @@
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="ZnF-cK-k5g" customClass="ORSimpleProgress">
-                                <rect key="frame" x="202" y="163" width="88" height="36"/>
+                                <rect key="frame" x="212" y="178" width="88" height="36"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="You have XXGb left" autoshrinkMode="minimumFontSize" id="8tX-CA-8fg">
-                                <rect key="frame" x="30" y="165" width="166" height="38"/>
+                                <rect key="frame" x="20" y="180" width="166" height="38"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="KV8-5Y-SOc" customClass="ORDestructiveButton">
-                                <rect key="frame" x="202" y="227" width="88" height="33"/>
+                                <rect key="frame" x="180" y="258" width="120" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -659,11 +653,80 @@
                                 </state>
                                 <connections>
                                     <action selector="logOutTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="kDH-0Y-uDm"/>
-                                    <action selector="loginPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="2xC-D9-ji4"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" id="gQ1-lA-giN">
-                                <rect key="frame" x="305" y="318" width="320" height="101"/>
+                            <view contentMode="scaleToFill" id="qGE-AF-h0b" customClass="DCRoundSwitch">
+                                <rect key="frame" x="212" y="94" width="88" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Search Results:" autoshrinkMode="minimumFontSize" id="7NE-eW-WZM">
+                                <rect key="frame" x="20" y="93" width="130" height="38"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="03U-7T-pZo" customClass="ORFlatButton">
+                                <rect key="frame" x="20" y="258" width="120" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Feedback">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="feedbackTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="fTx-9E-7O1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="MCq-od-MhF" userLabel="Twitter Button">
+                                <rect key="frame" x="212" y="372" width="88" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="TwitterBird.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToTwitter:" destination="VGZ-tq-wND" eventType="touchUpInside" id="l28-76-FyN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="fu9-nc-jby" userLabel="Github Button">
+                                <rect key="frame" x="116" y="372" width="88" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="Github.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="githubTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="yTA-tM-ZTI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="srs-zJ-fQ3" userLabel="Orta Button">
+                                <rect key="frame" x="20" y="372" width="88" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="orta.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ortaTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="13D-K8-e6f"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" id="gQ1-lA-giN" userLabel="Logout Help">
+                                <rect key="frame" x="0.0" y="225" width="320" height="101"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="9qz-e1-ecx">
@@ -697,73 +760,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="qGE-AF-h0b" customClass="DCRoundSwitch">
-                                <rect key="frame" x="202" y="84" width="88" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Search Results:" autoshrinkMode="minimumFontSize" id="7NE-eW-WZM">
-                                <rect key="frame" x="30" y="84" width="130" height="38"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="You should always have it on all search results" autoshrinkMode="minimumFontSize" id="mw0-jG-ILz">
+                                <rect key="frame" x="20" y="129" width="280" height="24"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="03U-7T-pZo" customClass="ORFlatButton">
-                                <rect key="frame" x="30" y="227" width="88" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Feedback">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logOutTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="9p4-IJ-wKg"/>
-                                    <action selector="loginPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="Rmo-ub-zq1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="pCb-v7-3wi">
-                                <rect key="frame" x="108" y="351" width="88" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="DotSlash.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="MCq-od-MhF">
-                                <rect key="frame" x="30" y="351" width="88" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="TwitterBird.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="fu9-nc-jby">
-                                <rect key="frame" x="200" y="351" width="88" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="Github.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <view contentMode="scaleToFill" id="4ob-sl-hTe" customClass="BBCyclingLabel">
-                                <rect key="frame" x="30" y="121" width="260" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.46478672445255476" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -773,13 +776,13 @@
                         <outlet property="accountSpaceLeftProgress" destination="ZnF-cK-k5g" id="5s3-VG-OAC"/>
                         <outlet property="creativeCommonsSwitch" destination="qGE-AF-h0b" id="Ggi-64-jPa"/>
                         <outlet property="loggedOutMessageView" destination="gQ1-lA-giN" id="Q99-Hb-ORS"/>
-                        <outlet property="searchInfoLabel" destination="4ob-sl-hTe" id="nwR-4s-MIU"/>
+                        <outlet property="searchInfoLabel" destination="mw0-jG-ILz" id="HyY-I5-yZ6"/>
                         <outlet property="welcomeAccountLabel" destination="exz-4M-jJU" id="X1T-yF-snK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfM-CH-uQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2782" y="-1164"/>
+            <point key="canvasLocation" x="-2823" y="-1000"/>
         </scene>
         <!--File Info View Controller-->
         <scene sceneID="hjb-ve-Qmk">
@@ -1135,14 +1138,96 @@ Message</string>
             </objects>
             <point key="canvasLocation" x="-4293" y="-579"/>
         </scene>
+        <!--Feedback View Controller-->
+        <scene sceneID="Dkg-ND-KPk">
+            <objects>
+                <viewController storyboardIdentifier="feedbackView" autoresizesArchivedViewToFullSize="NO" id="1Ba-ha-uFV" customClass="FeedbackViewController" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="03F-0i-Ckx">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="4M0-Hj-Ftc">
+                                <rect key="frame" x="0.0" y="24" width="400" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Give some feedback!" autoshrinkMode="minimumFontSize" id="a2s-bU-ZuB">
+                                        <rect key="frame" x="20" y="3" width="321" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="YAp-GX-t7w" customClass="ORDestructiveButton">
+                                <rect key="frame" x="232" y="133" width="131" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.68063446969999997" green="0.1410663757" blue="0.081873605969999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Email orta">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="emailDeveloper:" destination="1Ba-ha-uFV" eventType="touchUpInside" id="5Mn-On-UvH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="EMt-tg-1dO" customClass="ORFlatButton">
+                                <rect key="frame" x="42" y="133" width="120" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Review Put.IO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="review:" destination="1Ba-ha-uFV" eventType="touchUpInside" id="aAi-h5-AmT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Like it? Leave it a good review in the app store" textAlignment="center" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="165" id="yKb-cj-cfH">
+                                <rect key="frame" x="20" y="76" width="165" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" textAlignment="center" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="165" id="67c-F6-QcZ">
+                                <rect key="frame" x="215" y="76" width="165" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <string key="text">Something sucks? 
+Email the developer</string>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qwE-yp-hVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2359" y="-809"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="DotSlash.png" width="88" height="88"/>
         <image name="Github.png" width="88" height="88"/>
         <image name="LoadingSpinner.png" width="54" height="54"/>
         <image name="MediaLibrary.png" width="64" height="64"/>
         <image name="RefreshButton.png" width="54" height="54"/>
         <image name="TwitterBird.png" width="88" height="88"/>
+        <image name="orta.png" width="88" height="88"/>
     </resources>
     <classes>
         <class className="ARTransferCell" superclassName="UITableViewCell">
@@ -1157,17 +1242,17 @@ Message</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AccountViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addToTwitter:"/>
+                <relationship kind="action" name="feedbackTapped:"/>
+                <relationship kind="action" name="githubTapped:"/>
                 <relationship kind="action" name="logOutTapped:"/>
+                <relationship kind="action" name="ortaTapped:"/>
                 <relationship kind="outlet" name="accountSpaceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="accountSpaceLeftProgress" candidateClass="ORSimpleProgress"/>
                 <relationship kind="outlet" name="creativeCommonsSwitch" candidateClass="DCRoundSwitch"/>
                 <relationship kind="outlet" name="loggedOutMessageView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="searchInfoLabel" candidateClass="BBCyclingLabel"/>
+                <relationship kind="outlet" name="searchInfoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="welcomeAccountLabel" candidateClass="UILabel"/>
             </relationships>
-        </class>
-        <class className="BBCyclingLabel" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BBCyclingLabel.h"/>
         </class>
         <class className="BrowsingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
@@ -1187,6 +1272,13 @@ Message</string>
         </class>
         <class className="DCRoundSwitch" superclassName="UIControl">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DCRoundSwitch.h"/>
+        </class>
+        <class className="FeedbackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedbackViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="emailDeveloper:"/>
+                <relationship kind="action" name="review:"/>
+            </relationships>
         </class>
         <class className="FileInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FileInfoViewController.h"/>

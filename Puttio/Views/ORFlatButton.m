@@ -35,7 +35,7 @@
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state {
-    [self setImage:[self imageFromColor:backgroundColor]
+    [self setBackgroundImage:[self imageFromColor:backgroundColor]
                     forState:state];
 
 }
