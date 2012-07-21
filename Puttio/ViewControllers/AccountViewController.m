@@ -91,44 +91,34 @@
 }
 
 - (IBAction)addToTwitter:(id)sender {
-    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    
-    [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error) {
-        if(granted) {
-            // Get the list of Twitter accounts.
-            NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
-            
-            // For the sake of brevity, we'll assume there is only one Twitter account present.
-            // You would ideally ask the user which account they want to tweet from, if there is more than one Twitter account present.
-            if ([accountsArray count] > 0) {
-                // Grab the initial Twitter account to tweet from.
-                ACAccount *twitterAccount = [accountsArray objectAtIndex:0];
-                
-                NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
-                [tempDict setValue:@"orta" forKey:@"screen_name"];
-                [tempDict setValue:@"true" forKey:@"follow"];
-                
-                TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"https://api.twitter.com/1/friendships/create.json"]
-                                                             parameters:tempDict
-                                                          requestMethod:TWRequestMethodPOST];
-                
-                
-                [postRequest setAccount:twitterAccount];
-                
-                [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-                    NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
+    BOOL hasTweetBot = [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"tweetbot://"]];
+    if (hasTweetBot) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tweetbot://orta/user_profile/orta"]];
+        return;
+    }
 
-                    NSLog(@"%@", output);
-                }];
-            }
-        }
-    }];
+    BOOL hasOfficialTwitter = [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"twitter://user"]];
+    if (hasOfficialTwitter) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=orta"]];
+    }
+
+    [self openURL:@"https://twitter.com/orta"];
 }
 
 - (IBAction)githubTapped:(id)sender {
+    [self openURL:@"https://github.com/orta"];
+}
+
+- (IBAction)ortaTapped:(id)sender {
+
+}
+
+- (IBAction)feedbackTapped:(id)sender {
+    [ModalZoomView showWithViewControllerIdentifier:@"feedbackView"];
+}
+
+- (void)openURL:(NSString *)target {
     BOOL hasChrome = [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"googlechrome://"]];
-    NSString *target = @"https://github.com/orta";
     NSURL *inputURL = [NSURL URLWithString:target];
 
     if (hasChrome) {
@@ -151,21 +141,13 @@
             NSString *chromeURLString =
             [chromeScheme stringByAppendingString:urlNoScheme];
             NSURL *chromeURL = [NSURL URLWithString:chromeURLString];
-            
+
             // Open the URL with Chrome.
             [[UIApplication sharedApplication] openURL:chromeURL];
         }
     }else{
         [[UIApplication sharedApplication] openURL:inputURL];
     }
-
-}
-
-- (IBAction)ortaTapped:(id)sender {
-}
-
-- (IBAction)feedbackTapped:(id)sender {
-    [ModalZoomView showWithViewControllerIdentifier:@"feedbackView"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
