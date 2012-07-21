@@ -42,9 +42,9 @@ CGFloat RotationDuration = 0.9;
 
 	rotationAnimation = [CAKeyframeAnimation animation];
 	rotationAnimation.values = [NSArray arrayWithObjects:
-						   [NSValue valueWithCATransform3D:CATransform3DMakeRotation(0, 0,0,1)],
-						   [NSValue valueWithCATransform3D:CATransform3DMakeRotation(3.13, 0,0,1)],
-						   [NSValue valueWithCATransform3D:CATransform3DMakeRotation(6.26, 0,0,1)],
+						   [NSValue valueWithCATransform3D:CATransform3DMakeRotation(0, 0, 0, 1)],
+						   [NSValue valueWithCATransform3D:CATransform3DMakeRotation(3.11, 0, 0, 1)],
+						   [NSValue valueWithCATransform3D:CATransform3DMakeRotation(6.24, 0, 0, 1)],
 						   nil];
 	rotationAnimation.cumulative = YES;
 	rotationAnimation.duration = RotationDuration;

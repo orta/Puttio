@@ -14,7 +14,9 @@
 
 #import "Constants.h"
 
-@interface AccountViewController ()
+@interface AccountViewController (){
+    BOOL _showingOrtaInfo;
+}
 
 @end
 
@@ -49,6 +51,10 @@
     self.accountSpaceLeftProgress.isLandscape = YES;
 
     [self.creativeCommonsSwitch addTarget:self action:@selector(ccSwitched:) forControlEvents:UIControlEventValueChanged];
+
+    self.ortaInfoBackground.alpha = 0;
+    self.ortaInfoBodyLAbel.alpha = 0;
+    self.ortaInfoTitleLabel.alpha = 0;
 
     [super viewWillAppear:animated];
 }
@@ -87,30 +93,42 @@
 }
 
 - (IBAction)addToTwitter:(id)sender {
-    BOOL hasTweetBot = [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"tweetbot://"]];
-    if (hasTweetBot) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tweetbot://orta/user_profile/orta"]];
-        return;
-    }
-
-    BOOL hasOfficialTwitter = [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"twitter://user"]];
-    if (hasOfficialTwitter) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=orta"]];
-    }
-
-    [self openURL:@"https://twitter.com/orta"];
+    [self openTwitter:@"orta"];
 }
 
 - (IBAction)githubTapped:(id)sender {
     [self openURL:@"https://github.com/orta"];
 }
 
-- (IBAction)ortaTapped:(id)sender {
-
-}
-
 - (IBAction)feedbackTapped:(id)sender {
     [ModalZoomView showWithViewControllerIdentifier:@"feedbackView"];
+}
+
+- (IBAction)dbgrandiTapped:(id)sender {
+    [self openTwitter:@"dbgrandi"];
+}
+
+- (IBAction)putIOTapped:(id)sender {
+    [self openURL:@"http://put.io"];
+}
+
+- (void)openTwitter:(NSString *)username {
+    BOOL hasTweetBot = [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"tweetbot://"]];
+    if (hasTweetBot) {
+        NSString * url = [NSString stringWithFormat:@"tweetbot://%@/user_profile/%@",username, username];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        return;
+    }
+
+    BOOL hasOfficialTwitter = [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"twitter://user"]];
+    if (hasOfficialTwitter) {
+        NSString * url = [NSString stringWithFormat:@"twitter://user?screen_name=%@", username];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        return;
+    }
+    
+    NSString * url = [NSString stringWithFormat:@"https://twitter.com/%@", username];
+    [self openURL:url];
 }
 
 - (void)openURL:(NSString *)target {
@@ -146,6 +164,24 @@
     }
 }
 
+
+- (IBAction)ortaTapped:(id)sender {
+    if (_showingOrtaInfo) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.ortaInfoBackground.alpha = 0;
+            self.ortaInfoBodyLAbel.alpha = 0;
+            self.ortaInfoTitleLabel.alpha = 0;
+        }];
+    }else{
+        [UIView animateWithDuration:0.3 animations:^{
+            self.ortaInfoBackground.alpha = 1;
+            self.ortaInfoBodyLAbel.alpha = 1;
+            self.ortaInfoTitleLabel.alpha = 1;
+        }];
+    }
+    _showingOrtaInfo = !_showingOrtaInfo;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
@@ -157,6 +193,9 @@
     [self setLoggedOutMessageView:nil];
     [self setCreativeCommonsSwitch:nil];
     [self setSearchInfoLabel:nil];
+    [self setOrtaInfoBackground:nil];
+    [self setOrtaInfoTitleLabel:nil];
+    [self setOrtaInfoBodyLAbel:nil];
     [super viewDidUnload];
 }
 

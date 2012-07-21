@@ -117,11 +117,15 @@
 - (void)enableButtons {
     primaryButton.enabled = YES;
     secondaryButton.enabled = YES;
+    primaryButton.alpha = 1;
+    secondaryButton.alpha = 1;
 }
 
 - (void)disableButtons {
     primaryButton.enabled = NO;
     secondaryButton.enabled = NO;
+    primaryButton.alpha = 0.5;
+    secondaryButton.alpha = 0.5;
 }
 
 - (void)showProgress {

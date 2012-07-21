@@ -26,4 +26,10 @@
 - (IBAction)ortaTapped:(id)sender;
 - (IBAction)feedbackTapped:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIView *ortaInfoBackground;
+@property (weak, nonatomic) IBOutlet UILabel *ortaInfoTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ortaInfoBodyLAbel;
+- (IBAction)dbgrandiTapped:(id)sender;
+- (IBAction)putIOTapped:(id)sender;
+
 @end
