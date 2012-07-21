@@ -78,8 +78,9 @@ typedef enum {
 
 - (void)didTapProgressView:(UITapGestureRecognizer*)gesture {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
-    
-    UIViewController *accountVC =  [storyboard instantiateViewControllerWithIdentifier:@"accountView"];
+
+    NSString *identifier = [UIDevice isPad] ? @"accountView" : @"accountViewPhone";
+    UIViewController *accountVC =  [storyboard instantiateViewControllerWithIdentifier:identifier];
     
     popoverController = [[WEPopoverController alloc] initWithContentViewController:accountVC];
     UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
