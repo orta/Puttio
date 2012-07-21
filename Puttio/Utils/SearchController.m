@@ -12,6 +12,8 @@
 static SearchController *sharedInstance;
 
 @interface SearchController ()
+@property (assign) int foundNoResultsCount;
+
 + (void)searchISOHunt:(NSString *)query;
 + (void)searchMininova:(NSString *)query;
 + (void)searchFenopy:(NSString *)query;
@@ -31,6 +33,8 @@ static SearchController *sharedInstance;
 }
 
 + (void)searchForString:(NSString *)query {
+    sharedInstance.foundNoResultsCount = 0;
+    
     query = [query stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     [self searchMininova:query];
 
@@ -51,14 +55,17 @@ static SearchController *sharedInstance;
         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
         NSError *error = nil;
         NSArray *results = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSASCIIStringEncoding] options:0 error:&error];
-
-        NSMutableArray *searchResults = [NSMutableArray array];
-        for (NSDictionary *dictionary in results) {
-            SearchResult * searchResult = [SearchResult resultWithFenopyDictionary:dictionary];
-            [searchResults addObject:searchResult];
+        if (results.count) {
+            NSMutableArray *searchResults = [NSMutableArray array];
+            for (NSDictionary *dictionary in results) {
+                SearchResult * searchResult = [SearchResult resultWithFenopyDictionary:dictionary];
+                [searchResults addObject:searchResult];
+            }
+            [self passArrayToDelegate:searchResults];
+        }else{
+            [self foundNoResults];
         }
-        [self passArrayToDelegate:searchResults];
-            
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Analytics incrementUserProperty:@"Fenopy Search Failed" byInt:1];
         NSLog(@"fail whale fenopy %@", error);
@@ -77,14 +84,17 @@ static SearchController *sharedInstance;
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, id responseObject) {
         
         NSArray *results = [self dictionariesForJSONData:responseObject atKeyPath:@"items.list"];
-        
-        NSMutableArray *searchResults = [NSMutableArray array];
-        for (NSDictionary *item in results) {
-            SearchResult *result = [SearchResult resultWithISOHuntDictionary:item];
-            [searchResults addObject:result];
+        if (results.count) {
+            NSMutableArray *searchResults = [NSMutableArray array];
+            for (NSDictionary *item in results) {
+                SearchResult *result = [SearchResult resultWithISOHuntDictionary:item];
+                [searchResults addObject:result];
+            }
+            [self passArrayToDelegate:searchResults];
+        }else{
+            [self foundNoResults];
         }
-        [self passArrayToDelegate:searchResults];
-        
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Analytics incrementUserProperty:@"Isohunt Search Failed" byInt:1];
         NSLog(@"fail whale %@", error);
@@ -105,19 +115,36 @@ static SearchController *sharedInstance;
         NSError *error = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSASCIIStringEncoding] options:0 error:&error];
         NSArray *results = json[@"results"];
-
-        NSMutableArray *searchResults = [NSMutableArray array];
-        for (NSDictionary *item in results) {
-            SearchResult *result = [SearchResult resultWithMininovaDictionary:item];
-            [searchResults addObject:result];
+        if (results.count) {
+            NSMutableArray *searchResults = [NSMutableArray array];
+            for (NSDictionary *item in results) {
+                SearchResult *result = [SearchResult resultWithMininovaDictionary:item];
+                [searchResults addObject:result];
+            }
+            [self passArrayToDelegate:searchResults];
+        }else{
+            [self foundNoResults];
         }
-        [self passArrayToDelegate:searchResults];
-        
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [Analytics incrementUserProperty:@"Mininova Search Failed" byInt:1];
         NSLog(@"fail whale %@", error);
     }];
     [operation start];
+}
+
++ (void)foundNoResults {
+    sharedInstance.foundNoResultsCount++;
+    BOOL allSearchEngines = [[NSUserDefaults standardUserDefaults] boolForKey:ORUseAllSearchEngines];
+    int neededResults = allSearchEngines? 3 : 1;
+    
+    if (neededResults == sharedInstance.foundNoResultsCount) {
+        if ([self sharedInstance] && [self sharedInstance].delegate) {
+            if ([[self sharedInstance].delegate respondsToSelector:@selector(searchControllerFoundNoResults:)]) {
+                [[self sharedInstance].delegate searchControllerFoundNoResults:[self sharedInstance]];
+            }
+        }
+    }
 }
 
 + (void)passArrayToDelegate: (NSArray *)results {

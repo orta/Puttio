@@ -217,7 +217,7 @@
                                     <action selector="loginPressed:" destination="gND-ap-Oq0" eventType="touchUpInside" id="Nmd-Gb-81G"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bot-GH-0JH" customClass="ORFlatButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="bot-GH-0JH" customClass="ORFlatButton">
                                 <rect key="frame" x="272" y="124" width="88" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -530,6 +530,41 @@
                                     <action selector="reloadPressed:" destination="u9h-fZ-wfU" eventType="touchUpInside" id="y1n-25-VUY"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" id="Tbn-fI-aur">
+                                <rect key="frame" x="6" y="417" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="No results found" textAlignment="center" autoshrinkMode="minimumFontSize" id="Sch-fD-tH6">
+                                        <rect key="frame" x="59" y="4" width="202" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" id="ecX-8f-BoN">
+                                <rect key="frame" x="6" y="702" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Try changing your search settings" textAlignment="center" autoshrinkMode="minimumFontSize" id="hYW-Ob-8LF">
+                                        <rect key="frame" x="3" y="4" width="295" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text=">" textAlignment="center" autoshrinkMode="minimumFontSize" id="n5E-Ys-OVf">
+                                        <rect key="frame" x="299" y="6" width="23" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -541,9 +576,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="activitySpinner" destination="FwL-XG-JK4" id="oJ4-GJ-ND1"/>
+                        <outlet property="noResultsFoundView" destination="Tbn-fI-aur" id="q39-qs-7e7"/>
                         <outlet property="searchBar" destination="dkf-Gz-Lrs" id="Z4E-OY-HvH"/>
                         <outlet property="statusViewController" destination="muD-ra-mYO" id="Rwy-wz-L9D"/>
                         <outlet property="tableView" destination="moV-xJ-uB0" id="NPE-pM-jBf"/>
+                        <outlet property="tryChangingSettingsView" destination="ecX-8f-BoN" id="LCa-m6-VT0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kya-ho-HgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1006,7 +1043,7 @@ Message</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Label" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="433" id="8cB-7L-0Vl">
-                                <rect key="frame" x="35" y="254" width="433" height="55"/>
+                                <rect key="frame" x="35" y="268" width="433" height="55"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1030,11 +1067,13 @@ Message</string>
                                     <action selector="primaryButtonTapped:" destination="ryj-pF-28t" eventType="touchUpInside" id="lEt-zY-yNK"/>
                                 </connections>
                             </button>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="2.4Mb" textAlignment="center" autoshrinkMode="minimumFontSize" id="x5Y-p7-Pma">
-                                <rect key="frame" x="367" y="226" width="101" height="22"/>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="2.4Mb" textAlignment="right" autoshrinkMode="minimumFontSize" id="x5Y-p7-Pma">
+                                <rect key="frame" x="398" y="41" width="102" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
+                                <color key="backgroundColor" red="0.97254908084869385" green="0.91764712333679199" blue="0.30980393290519714" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="highlightedColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="shadowColor" white="0.97750342153284675" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             </label>
@@ -1071,8 +1110,8 @@ Message</string>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="lZe-Jf-1Xk" customClass="ORSimpleProgress">
-                                <rect key="frame" x="32" y="311" width="436" height="8"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="128" y="345" width="244" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -1248,9 +1287,11 @@ Message</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="activitySpinner" candidateClass="ORRotatingButton"/>
+                <relationship kind="outlet" name="noResultsFoundView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="statusViewController" candidateClass="StatusViewController"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="tryChangingSettingsView" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="StatusViewController" superclassName="UIViewController">

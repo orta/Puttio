@@ -24,6 +24,8 @@
 }
 
 - (void)setup {
+    self.adjustsImageWhenDisabled = NO;
+
     self.backgroundColor = [UIColor putioBlue];
     [self setBackgroundColor:[UIColor putioDarkBlue] forState:UIControlStateHighlighted];
     [self setBackgroundColor:[[UIColor putioBlue] colorWithAlphaComponent:0.3] forState:UIControlStateDisabled];
@@ -33,8 +35,9 @@
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state {
-    [self setBackgroundImage:[self imageFromColor:backgroundColor]
+    [self setImage:[self imageFromColor:backgroundColor]
                     forState:state];
+
 }
 
 // creates a 1x1 UIImage with a color

@@ -144,7 +144,6 @@
         secondaryButton.alpha = 1;
         fileSizeLabel.alpha = 1;
         additionalInfoLabel.alpha = 1;
-        progressView.alpha = 1;
     }];    
 }
 

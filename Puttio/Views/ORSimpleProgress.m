@@ -16,7 +16,7 @@
     self.alpha = .3;
     self.label = [[UILabel alloc] initWithFrame:self.frame];
     _progress = .3;
-    self.backgroundColor = [UIColor putioBlue];
+    self.backgroundColor = [[UIColor putioBlue] colorWithAlphaComponent:0.5];
     self.fillColour = [UIColor putioYellow];
 }
 

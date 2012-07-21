@@ -42,9 +42,11 @@
     if ([_file.contentType isEqualToString:@"video/mp4"]) {
         _isMP4 = YES;
         [self.infoController enableButtons];
-        
+        [self.infoController hideProgress];
+
     }else{
         if ([_file.hasMP4 boolValue]) {
+            [self.infoController hideProgress];
             [self.infoController enableButtons];
         }else{
             [self getMP4Info];
@@ -76,7 +78,6 @@
 
 - (NSString *)secondaryButtonText {
     return @"Download";
-    [self markFileAsViewed];
 }
 
 - (void)secondaryButtonAction:(id)sender {
@@ -85,7 +86,7 @@
         return;
     }
     
-    self.infoController.additionalInfoLabel.text = @"Downloading";
+    self.infoController.additionalInfoLabel.text = @"Downloading - You can close this popover and it will download in the background.";
     [self.infoController showProgress];
     [self downloadFile];
 }
@@ -172,6 +173,7 @@
             if ([status isEqualToString:@"COMPLETED"]) {
                 _MP4Ready = YES;
                 [self.infoController enableButtons];
+                [self.infoController hideProgress];
             }else{
                 
                 if (!requested) {
@@ -180,7 +182,7 @@
                 }
                 
                 if ([status isEqualToString:@"IN_QUEUE"]) {
-                    self.infoController.additionalInfoLabel.text = @"The conversion is queued up.";
+                    self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Request for an %@ version has been recieved and it is in the queue, this could take a while.", [UIDevice deviceString]];
                     [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];
                 }
                 
@@ -192,7 +194,7 @@
                 }
                 
                 if ([status isEqualToString:@"CONVERTING"]) {
-                    self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Converting to %@ version.", [UIDevice deviceString]];
+                    self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Converting to %@ version right now.", [UIDevice deviceString]];
 
                     if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
                         [self.infoController showProgress];

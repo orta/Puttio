@@ -34,6 +34,8 @@
     [self setSearchBar:nil];
     [self setTableView:nil];
     [self setActivitySpinner:nil];
+    [self setNoResultsFoundView:nil];
+    [self setTryChangingSettingsView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -93,9 +95,15 @@
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
+    if (aSearchBar.text.length == 0) return;
+    
     searchResults = @[];
     [SearchController searchForString:aSearchBar.text];
     [self.activitySpinner fadeIn];
+
+    self.noResultsFoundView.hidden = YES;
+    self.tryChangingSettingsView.hidden = YES;
+
     [self.tableView reloadData];
     [aSearchBar resignFirstResponder];
 }
@@ -103,7 +111,21 @@
 #pragma mark -
 #pragma mark search controller
 
-- (void)searchController:(SearchController *)controller foundResults:(NSArray *)moreSearchResults {    
+- (void)searchControllerFoundNoResults:(SearchController *)controller {
+    BOOL useAllSearchEngines = [[NSUserDefaults standardUserDefaults] boolForKey:ORUseAllSearchEngines];
+    [self.activitySpinner fadeOut];
+
+    [UIView animateWithDuration:0.3 animations:^{
+        self.noResultsFoundView.hidden = NO;
+        self.noResultsFoundView.alpha = 1;
+        if (!useAllSearchEngines) {
+            self.tryChangingSettingsView.hidden = NO;
+            self.tryChangingSettingsView.alpha = 1;
+        }
+    }];
+}
+
+- (void)searchController:(SearchController *)controller foundResults:(NSArray *)moreSearchResults {
     searchResults = [[searchResults arrayByAddingObjectsFromArray:moreSearchResults] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         if ([obj1 ranking] == [obj2 ranking]) {
             return 0;
@@ -200,9 +222,14 @@
     [_searchBar performSelector: @selector(resignFirstResponder) 
                     withObject: nil 
                     afterDelay: 0.1];
+
     [self.activitySpinner fadeOut];
+    self.noResultsFoundView.hidden = YES;
+    self.tryChangingSettingsView.hidden = YES;
+
     [self resizeToWidth:88 animated:animate];
 }
+
 
 - (void)resizeToWidth:(CGFloat)width animated:(BOOL)animate {
     CGFloat duration = animate? 0.2 : 0;

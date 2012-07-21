@@ -11,6 +11,7 @@
 @class SearchController;
 @protocol SearchResultsDelegate <NSObject>
 - (void)searchController:(SearchController *)controller foundResults:(NSArray *)searchResults;
+- (void)searchControllerFoundNoResults:(SearchController *)controller;
 @end
 
 @interface SearchController : NSObject

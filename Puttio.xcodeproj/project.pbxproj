@@ -246,7 +246,7 @@
 		606C79A3152F508E00608C56 /* ORDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDefaults.m; path = Utils/ORDefaults.m; sourceTree = "<group>"; };
 		606C79AE1530A4B100608C56 /* NSDictionary+ObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+ObjectForKey.h"; path = "Categories/NSDictionary+ObjectForKey.h"; sourceTree = "<group>"; };
 		606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+ObjectForKey.m"; path = "Categories/NSDictionary+ObjectForKey.m"; sourceTree = "<group>"; };
-		6085D223151B99490068929C /* puttio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = puttio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6085D223151B99490068929C /* Put.IO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Put.IO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6085D227151B99490068929C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6085D229151B99490068929C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6085D22B151B99490068929C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -626,7 +626,7 @@
 		6085D224151B99490068929C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6085D223151B99490068929C /* puttio.app */,
+				6085D223151B99490068929C /* Put.IO.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -934,7 +934,7 @@
 			);
 			name = Put.IO;
 			productName = Puttio;
-			productReference = 6085D223151B99490068929C /* puttio.app */;
+			productReference = 6085D223151B99490068929C /* Put.IO.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

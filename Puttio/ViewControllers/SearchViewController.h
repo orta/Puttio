@@ -18,5 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet StatusViewController *statusViewController;
 
+@property (weak, nonatomic) IBOutlet UIView *noResultsFoundView;
+@property (weak, nonatomic) IBOutlet UIView *tryChangingSettingsView;
+
 - (void)reposition;
 @end

@@ -79,9 +79,8 @@ static NSDate *movieStartedDate;
             break;
 
         case MPMovieFinishReasonPlaybackEnded:
-            TFLog(@"playbackFinished. Reason: Playback Ended");
         case MPMovieFinishReasonUserExited:
-            TFLog(@"playbackFinished. Reason: User Exited");
+            TFLog(@"playbackFinished. Reason: Playback Ended");
             [Analytics incrementUserProperty:@"User Finished Watching a Movie" byInt:1];
             [Analytics event:@"User Finished Watching a Movie"];
             break;
