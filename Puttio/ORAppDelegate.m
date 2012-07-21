@@ -126,7 +126,7 @@
         
         [moc mergeChangesFromContextDidSaveNotification:notification];
         
-        NSNotification* refreshNotification = [NSNotification notificationWithName:@"SomethingChanged"
+        NSNotification* refreshNotification = [NSNotification notificationWithName:ORReloadGridNotification
                                                                             object:self
                                                                           userInfo:[notification userInfo]];
         
@@ -236,11 +236,10 @@
                                     options:options
                                       error:nil];
             [psc unlock];
-            
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:self userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:ORReloadGridNotification object:self userInfo:nil];
         });
     });
     
