@@ -53,14 +53,20 @@ static ModalZoomView *sharedInstance;
             theView.alpha = 0;
             CGRect finalFrame = theView.bounds;
 
+            
+            if ([UIDevice isPhone]) {
+                finalFrame.size.width = MIN(finalFrame.size.width, 320);
+            }
+
             BOOL isLandscape = UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]);
-            if (isLandscape) {                
+            if (isLandscape) {
                 finalFrame.origin.x = rootView.frame.size.height / 2 - finalFrame.size.height / 2;
-                finalFrame.origin.y = rootView.frame.size.width / 2 - finalFrame.size.width / 2;                
+                finalFrame.origin.y = rootView.frame.size.width / 2 - finalFrame.size.width / 2;
             }else{
                 finalFrame.origin.x = rootView.frame.size.width / 2 - finalFrame.size.width / 2;
-                finalFrame.origin.y = rootView.frame.size.height / 2 - finalFrame.size.height / 2;                
+                finalFrame.origin.y = rootView.frame.size.height / 2 - finalFrame.size.height / 2;
             }
+
 
             // if its got an initial frame use it, else don't
             BOOL animatesFromFrame = !CGRectEqualToRect(initialFrame, CGRectNull);

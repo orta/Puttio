@@ -32,7 +32,7 @@
 - (void)setCopyrightText {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if([defaults boolForKey:ORUseAllSearchEngines]){
-        self.searchInfoLabel.text =  @"Warning: Search is unfiltered.";
+        self.searchInfoLabel.text =  @"Warning: Search ALL is unfiltered by license.";
     }else{
         self.searchInfoLabel.text = @"Only search for Creative Commons works.";
     }

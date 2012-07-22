@@ -16,11 +16,6 @@
 @end
 
 @implementation ItemDeletionViewController
-@synthesize titleLabel;
-@synthesize networkActivityView;
-@synthesize deleteButton;
-@synthesize cancelButton;
-@dynamic item;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return YES;
@@ -28,7 +23,21 @@
 
 - (void)setItem:(NSObject<ORDisplayItemProtocol> *)item {
     _item = item;
-    
+
+    if ([UIDevice isPhone]) {
+        self.titleLabel.numberOfLines = 2;
+        self.titleLabel.textAlignment = UITextAlignmentCenter;
+
+        CGRect newFrame = self.titleLabel.superview.frame;
+        newFrame.size.height *= 2;
+        self.titleLabel.superview.frame = newFrame;
+        newFrame.origin.y = 0;
+        self.titleLabel.frame = newFrame;
+
+        self.deleteButton.frame = CGRectOffset(self.deleteButton.frame, 0, 14);
+        self.cancelButton.frame = CGRectOffset(self.cancelButton.frame, 0, 14);
+    }
+
     if ([item respondsToSelector:@selector(displayName)]) {
         self.titleLabel.text = [NSString stringWithFormat:@"Delete %@?", item.displayName];
     }else {

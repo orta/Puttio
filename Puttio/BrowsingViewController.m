@@ -151,9 +151,13 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     NSObject <ORDisplayItemProtocol> *item = (topFolder.folderItems)[position];   
     
     UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
-    CGRect initialFrame = [topFolder.gridView convertRect:[[topFolder.gridView cellForItemAtIndex:position] frame] toView:rootView];
-    
-    [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"deleteView" andItem:item];
+
+    if ([UIDevice isPad]) {
+        CGRect initialFrame = [topFolder.gridView convertRect:[[topFolder.gridView cellForItemAtIndex:position] frame] toView:rootView];
+        [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"deleteView" andItem:item];
+    }else{
+        [ModalZoomView showFromRect:CGRectNull withViewControllerIdentifier:@"deleteView" andItem:item];
+    }
 }
 
 - (BOOL)itemIsFolder:(NSObject <ORDisplayItemProtocol> *)item {
