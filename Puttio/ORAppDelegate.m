@@ -13,6 +13,7 @@
 #import "SearchViewController.h"
 #import "BrowsingViewController.h"
 #import "OAuthViewController.h"
+#import "ModalZoomView.h"
 
 @implementation ORAppDelegate
 
@@ -53,6 +54,8 @@
     [canvas addChildViewController:searchVC];
     [canvas.view addSubview:searchVC.view];
     [searchVC viewWillAppear:NO];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinished:) name:ORVideoFinishedNotification object:nil];
 }
 
 - (void)showLogin {
@@ -74,6 +77,31 @@
     BrowsingViewController *canvas = (BrowsingViewController *)rootNav.topViewController;
     [canvas setupRootFolder];
 }
+
+- (void)movieFinished:(NSNotification *)notification {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    double currentMinutes = [defaults doubleForKey:ORTotalVideoDuration];
+    NSNumber *extraMinutesNumber = notification.userInfo[ORVideoDurationKey];
+    currentMinutes += [extraMinutesNumber doubleValue];
+    [defaults setDouble:currentMinutes forKey:ORTotalVideoDuration];
+    [defaults synchronize];
+
+    if (currentMinutes > (5 * 60) && ![defaults boolForKey:ORHasShownReviewNagOneDefault]) {
+        [ModalZoomView fadeOutViewAnimated:NO];
+        [self performSelector:@selector(showNag) withObject:nil afterDelay:0.2];
+    }
+
+}
+
+- (void)showNag {
+    [ModalZoomView showWithViewControllerIdentifier:@"nagView"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:ORHasShownReviewNagOneDefault];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+#pragma mark -
+#pragma mark Core Data / iCloud stuff
+
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Saves changes in the application's managed object context before the application terminates.

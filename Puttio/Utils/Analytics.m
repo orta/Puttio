@@ -31,6 +31,7 @@ static BOOL ignore = NO;
     [TestFlight addCustomEnvironmentInformation:username forKey:@"username"];
     [[MixpanelAPI sharedAPI] identifyUser:username];
     [[MixpanelAPI sharedAPI] setNameTag:username];
+    [[MixpanelAPI sharedAPI] setUserProperty:username forKey:@"name"];
 }
 
 + (void)event:(NSString*)string, ...{

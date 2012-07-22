@@ -61,9 +61,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 
 - (NSString *)getDeviceSpaceUsed {
     double bytes = [UIDevice numberOfBytesUsedInDocumentsDirectory];
-    NSLog(@" %f", bytes);
-
-    if (bytes > 100000) {
+    if (bytes > 1000000) {
         return [UIDevice humanStringFromBytes:bytes];
     }
     return @"no space";

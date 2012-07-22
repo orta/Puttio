@@ -29,6 +29,10 @@ extern NSString *const ORDiskQuotaTotalDefault;
 extern NSString *const ORUserAccountNameDefault;
 extern NSString *const ORLoggedOutDefault;
 extern NSString *const ORUseAllSearchEngines;
+extern NSString *const ORTotalVideoDuration;
+extern NSString *const ORHasShownReviewNagOneDefault;
 
 extern NSString *const ORReloadGridNotification;
 extern NSString *const ORReloadFolderNotification;
+extern NSString *const ORVideoFinishedNotification;
+extern NSString *const ORVideoDurationKey;

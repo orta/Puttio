@@ -88,6 +88,11 @@ static NSDate *movieStartedDate;
             break;
     }
 
+    // post a notification saying how long the movie lasted
+    NSTimeInterval minutes = [[NSDate date] timeIntervalSinceDate:movieStartedDate];
+    minutes = floorf(minutes / 60);
+    [[NSNotificationCenter defaultCenter] postNotificationName:ORVideoFinishedNotification object:nil userInfo:@{ ORVideoDurationKey : @(minutes) }];
+
     [Analytics event:@"Finished Watching Something" withTimeIntervalSinceDate:movieStartedDate];
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;

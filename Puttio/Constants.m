@@ -29,6 +29,10 @@ NSString *const ORDiskQuotaTotalDefault = @"ORDiskQuotaTotalDefault";
 NSString *const ORUserAccountNameDefault = @"ORUserAccountNameDefault";
 NSString *const ORLoggedOutDefault = @"ORLoggedOutDefault";
 NSString *const ORUseAllSearchEngines = @"ORUseAllSearchEngines";
+NSString *const ORTotalVideoDuration = @"ORTotalVideoDuration";
+NSString *const ORHasShownReviewNagOneDefault = @"ORHasShownReviewNagOneDefault";
 
 NSString *const ORReloadGridNotification = @"ORReloadGridNotification";
 NSString *const ORReloadFolderNotification = @"ORReloadFolderNotification";
+NSString *const ORVideoFinishedNotification = @"ORVideoFinishedNotification";
+NSString *const ORVideoDurationKey = @"ORVideoDurationKey";

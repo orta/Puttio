@@ -61,6 +61,7 @@
 		6080914915BAF5AA00BDB3D7 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6080914815BAF5AA00BDB3D7 /* FeedbackViewController.m */; };
 		6080915515BB015900BDB3D7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6080915415BB015800BDB3D7 /* MessageUI.framework */; };
 		6080915715BB038A00BDB3D7 /* mail.html in Resources */ = {isa = PBXBuildFile; fileRef = 6080915615BB038A00BDB3D7 /* mail.html */; };
+		6080915C15BC15D700BDB3D7 /* Cutest_Cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6080915B15BC15D700BDB3D7 /* Cutest_Cat.jpg */; };
 		6085D228151B99490068929C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D227151B99490068929C /* UIKit.framework */; };
 		6085D22A151B99490068929C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D229151B99490068929C /* Foundation.framework */; };
 		6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085D22B151B99490068929C /* CoreGraphics.framework */; };
@@ -253,6 +254,7 @@
 		6080915215BB012E00BDB3D7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		6080915415BB015800BDB3D7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6080915615BB038A00BDB3D7 /* mail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mail.html; sourceTree = "<group>"; };
+		6080915B15BC15D700BDB3D7 /* Cutest_Cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cutest_Cat.jpg; sourceTree = "<group>"; };
 		6085D223151B99490068929C /* Put.IO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Put.IO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6085D227151B99490068929C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6085D229151B99490068929C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -588,6 +590,7 @@
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6080915B15BC15D700BDB3D7 /* Cutest_Cat.jpg */,
 				6080915615BB038A00BDB3D7 /* mail.html */,
 				6080914215BAED0800BDB3D7 /* orta.png */,
 				6080914315BAED0800BDB3D7 /* orta@2x.png */,
@@ -1008,6 +1011,7 @@
 				6080914415BAED0800BDB3D7 /* orta.png in Resources */,
 				6080914515BAED0800BDB3D7 /* orta@2x.png in Resources */,
 				6080915715BB038A00BDB3D7 /* mail.html in Resources */,
+				6080915C15BC15D700BDB3D7 /* Cutest_Cat.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
