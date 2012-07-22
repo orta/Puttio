@@ -7,4 +7,4 @@ ATM The app makes it simple to search for files, to stream or to download mp4 mo
 
 ![Screenshot 1](https://github.com/orta/Puttio/raw/master/web/screenshot2.png)
 
-Licensed under BSD.
+Licensed under a slightly modified BSD.
