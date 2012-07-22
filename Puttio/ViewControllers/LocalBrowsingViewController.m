@@ -71,7 +71,6 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     return [UIDevice humanStringFromBytes:[UIDevice numberOfBytesFree]];
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
     CGRect frame = CGRectNull;
     frame.size.width = self.view.frame.size.width - GridViewInsets.left - GridViewInsets.right;
