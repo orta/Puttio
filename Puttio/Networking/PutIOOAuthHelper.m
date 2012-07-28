@@ -15,36 +15,54 @@
 
 // The order of this is
 
-// Login in via website in webkit
 // Redirect to the OAuth dialog
-// Make a request to the OAuth authenticate URL ( getAccessTokenFromOauthCode )
-// Load Accounts page and parse out the tokens
+// Put in the creds ourselves
 // Then call delegate method.
 
 @interface PutIOOAuthHelper (){
     NSString *_username;
     NSString *_password;
+    BOOL _attemptedLogin;
 }
 
 @end
 
 @implementation PutIOOAuthHelper
 
-@synthesize webView, delegate;
-
 - (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password {
-    webView.delegate = self;
-
-    [self loadRootPage];
+    _webView.delegate = self;
+    _attemptedLogin = NO;
+    
+    [self loadAuthPage];
     _username = username;
     _password = password;
 }
+
+- (void)loadAuthPage {    
+    NSString *address = [NSString stringWithFormat:PTFormatOauthLoginURL, AppOAuthID, AppOAuthCallback];
+    NSURL * url = [NSURL URLWithString:address];
+    [_webView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
+#pragma mark -
+#pragma mark Webview delegate methods
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {    
+    // after you log in, it redrects to root, we actually want it 
+    if ([[request.URL absoluteString] isEqualToString: PTRootURL] ||
+        [[request.URL absoluteString] hasPrefix: @"https://put.io/search"]) {
+        [self loadAuthPage];
+        return NO;
+    }
+    return YES;
+}
+
 
 - (void)getAccessTokenFromOauthCode:(NSString *)code {
     // https://api.put.io/v2/oauth2/access_token?client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&grant_type=authorization_code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&code=CODE
     //
     NSString *address = [NSString stringWithFormat:PTFormatOauthTokenURL, @"10", APP_SECRET, @"authorization_code", PTCallbackOriginal, code];
-    
+
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:address]];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 
@@ -59,30 +77,6 @@
         NSLog(@"error %@", error);
     }];
     [operation start];
-}
-
-- (void)loadRootPage {
-    NSURL * url = [NSURL URLWithString:PTLoginURL];
-    [webView loadRequest:[NSURLRequest requestWithURL:url]];
-}
-
-- (void)loadAuthPage {    
-    NSString *address = [NSString stringWithFormat:PTFormatOauthLoginURL, AppOAuthID, AppOAuthCallback];
-    NSURL * url = [NSURL URLWithString:address];
-    [webView loadRequest:[NSURLRequest requestWithURL:url]];
-}
-
-#pragma mark -
-#pragma mark Webview delegate methods
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {    
-    // after you log in, it redrects to root, we actually want it 
-    if ([[request.URL absoluteString] isEqualToString: PTRootURL] ||
-        [[request.URL absoluteString] hasPrefix: @"https://put.io/search"]) {
-        [self loadAuthPage];
-        return NO;
-    }
-    return YES;
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
@@ -108,28 +102,19 @@
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
     NSString *address = aWebView.request.URL.absoluteString;
 
-    if (![address hasSuffix:@"?err=1"]) {
-        if([address hasPrefix:PTLoginURL]){
-            
-            NSString *setUsername = [NSString stringWithFormat:@"document.getElementsByTagName('input')[0].value = '%@'", _username];
-            [webView stringByEvaluatingJavaScriptFromString:setUsername];
-            
-            NSString *setPassword = [NSString stringWithFormat:@"document.getElementsByTagName('input')[1].value = '%@'", _password];
-            [webView stringByEvaluatingJavaScriptFromString:setPassword];
-
-            [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
-            [self performSelector:@selector(testForLogin) withObject:nil afterDelay:8];
-        }
+    if([address hasPrefix:@"https://put.io/v2/oauth2/login"] && !_attemptedLogin){
+        _attemptedLogin = YES;
+        NSString *setUsername = [NSString stringWithFormat:@"document.getElementsByTagName('input')[0].value = '%@'", _username];
+        [_webView stringByEvaluatingJavaScriptFromString:setUsername];
         
+        NSString *setPassword = [NSString stringWithFormat:@"document.getElementsByTagName('input')[1].value = '%@'", _password];
+        [_webView stringByEvaluatingJavaScriptFromString:setPassword];
+
+        [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
+        [self performSelector:@selector(testForLogin) withObject:nil afterDelay:8];
+
     } else {
         [self.delegate authHelperLoginFailedWithDescription:@"Wrong Username / Password combo"];
-    }
-}
-
-- (void)testForLogin {
-    // if it's not hit a page other than login after 8 seconds
-    if ([webView.request.URL.absoluteString isEqualToString:PTLoginURL]) {
-        [self.delegate authHelperHasDeclaredItScrewed];
     }
 }
 

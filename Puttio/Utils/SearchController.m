@@ -13,10 +13,6 @@ static SearchController *sharedInstance;
 
 @interface SearchController ()
 @property (assign) int foundNoResultsCount;
-
-+ (void)searchISOHunt:(NSString *)query;
-+ (void)searchMininova:(NSString *)query;
-+ (void)searchFenopy:(NSString *)query;
 @end
 
 @implementation SearchController

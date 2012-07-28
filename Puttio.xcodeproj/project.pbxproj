@@ -84,6 +84,10 @@
 		6085D279151B9DBA0068929C /* V1PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */; };
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
+		608C72BF15C3063500EE85FC /* Exo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 608C72BD15C3063500EE85FC /* Exo-Bold.otf */; };
+		608C72C015C3063500EE85FC /* Exo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 608C72BE15C3063500EE85FC /* Exo-Light.otf */; };
+		608C72C415C3074100EE85FC /* UIFont+Puttio.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C315C3074100EE85FC /* UIFont+Puttio.m */; };
+		608C72C715C308AE00EE85FC /* ARTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C615C308AE00EE85FC /* ARTitleLabel.m */; };
 		6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */; };
 		609719991597531600F9398F /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609719981597531600F9398F /* AccountViewController.m */; };
 		6097199C15975A5900F9398F /* UIDevice+SpaceStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097199B15975A5900F9398F /* UIDevice+SpaceStats.m */; };
@@ -295,6 +299,12 @@
 		6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		6085D295151BAB230068929C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6085D296151BAB230068929C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		608C72BD15C3063500EE85FC /* Exo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Bold.otf"; sourceTree = "<group>"; };
+		608C72BE15C3063500EE85FC /* Exo-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Light.otf"; sourceTree = "<group>"; };
+		608C72C215C3074100EE85FC /* UIFont+Puttio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Puttio.h"; path = "Categories/UIFont+Puttio.h"; sourceTree = "<group>"; };
+		608C72C315C3074100EE85FC /* UIFont+Puttio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Puttio.m"; path = "Categories/UIFont+Puttio.m"; sourceTree = "<group>"; };
+		608C72C515C308AE00EE85FC /* ARTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARTitleLabel.h; path = Views/ARTitleLabel.h; sourceTree = "<group>"; };
+		608C72C615C308AE00EE85FC /* ARTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARTitleLabel.m; path = Views/ARTitleLabel.m; sourceTree = "<group>"; };
 		6096FC19155FF0B1009C524C /* PutIOOAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOOAuthHelper.h; path = Networking/PutIOOAuthHelper.h; sourceTree = "<group>"; };
 		6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOOAuthHelper.m; path = Networking/PutIOOAuthHelper.m; sourceTree = "<group>"; };
 		609719971597531500F9398F /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountViewController.h; path = ViewControllers/AccountViewController.h; sourceTree = "<group>"; };
@@ -473,6 +483,8 @@
 				604678EA15B1999000A2BFA8 /* ORRotatingButton.m */,
 				6046790515B1F0EC00A2BFA8 /* ORDestructiveButton.h */,
 				6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */,
+				608C72C515C308AE00EE85FC /* ARTitleLabel.h */,
+				608C72C615C308AE00EE85FC /* ARTitleLabel.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -590,6 +602,8 @@
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				608C72BD15C3063500EE85FC /* Exo-Bold.otf */,
+				608C72BE15C3063500EE85FC /* Exo-Light.otf */,
 				6080915B15BC15D700BDB3D7 /* Cutest_Cat.jpg */,
 				6080915615BB038A00BDB3D7 /* mail.html */,
 				6080914215BAED0800BDB3D7 /* orta.png */,
@@ -885,6 +899,8 @@
 				60FFFB6C15A9840A00DB7668 /* UIImageView+ImageRect.m */,
 				60E8DECD15A99D7000058314 /* UIDevice+deviceInfo.h */,
 				60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */,
+				608C72C215C3074100EE85FC /* UIFont+Puttio.h */,
+				608C72C315C3074100EE85FC /* UIFont+Puttio.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1012,6 +1028,8 @@
 				6080914515BAED0800BDB3D7 /* orta@2x.png in Resources */,
 				6080915715BB038A00BDB3D7 /* mail.html in Resources */,
 				6080915C15BC15D700BDB3D7 /* Cutest_Cat.jpg in Resources */,
+				608C72BF15C3063500EE85FC /* Exo-Bold.otf in Resources */,
+				608C72C015C3063500EE85FC /* Exo-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1135,6 +1153,8 @@
 				604678EB15B1999000A2BFA8 /* ORRotatingButton.m in Sources */,
 				6046790715B1F0EC00A2BFA8 /* ORDestructiveButton.m in Sources */,
 				6080914915BAF5AA00BDB3D7 /* FeedbackViewController.m in Sources */,
+				608C72C415C3074100EE85FC /* UIFont+Puttio.m in Sources */,
+				608C72C715C308AE00EE85FC /* ARTitleLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

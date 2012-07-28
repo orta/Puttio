@@ -20,5 +20,4 @@
 @property (weak) IBOutlet NSObject <PutIOOAuthHelperDelegate> *delegate;
 
 - (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password;
-
 @end

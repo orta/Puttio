@@ -19,6 +19,7 @@
     #import "NSManagedObject+ActiveRecord.h"
     #import "Analytics.h"
     #import "UIDevice+deviceInfo.h"
+    #import "UIFont+Puttio.h"
 
     // models
     #import "File.h"
