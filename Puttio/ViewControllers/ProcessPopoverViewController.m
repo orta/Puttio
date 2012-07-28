@@ -61,10 +61,6 @@
 	return YES;
 }
 
-- (CGSize)contentSizeForViewInPopover {
-    return CGSizeMake(400, 140);
-}
-
 - (void)viewDidUnload {
     [self setProgressLabel:nil];
     [self setTitleLabel:nil];

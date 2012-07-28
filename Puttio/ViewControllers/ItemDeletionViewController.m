@@ -59,7 +59,6 @@
         [self disableButtons];
         [[PutIOClient sharedClient] requestDeletionForDisplayItemID:_item.id :^(id userInfoObject) {
             [Analytics incrementUserProperty:@"User Deleted RemoteFile" byInt:1];
-            [self enableButtons];
             [ModalZoomView fadeOutViewAnimated:YES];
         }];
     }
@@ -72,7 +71,6 @@
 - (IBAction)cancelTapped:(id)sender {
     [ModalZoomView fadeOutViewAnimated:YES];    
 }
-
 
 - (void)enableButtons {
     self.deleteButton.enabled = YES;

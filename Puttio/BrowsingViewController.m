@@ -178,7 +178,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if ([viewController isMemberOfClass:[FolderViewController class]]) {
         FolderViewController *folderVC = (FolderViewController *)viewController;
-        self.titleLabel.text = folderVC.folder.name;
+        self.titleLabel.text = folderVC.folder.displayName;
     }
 }
 

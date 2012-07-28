@@ -61,15 +61,16 @@
             tileSize = 20;
             animates = YES;
             break;
+
         case DeviceIphone3GS:
-            tileCount = 25;
+            tileCount = 14;
             tileSize = 40;
             break;
         case DeviceIphone4Plus:
-            tileCount = 35;
+            tileCount = 18;
             tileSize = 30;
-            animates = YES;
             break;
+
         default:
             tileCount = 52;
             tileSize = 20;

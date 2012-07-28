@@ -210,13 +210,13 @@
             
             NSURL *iCloudLogsPath = [NSURL fileURLWithPath:[[iCloud path] stringByAppendingPathComponent:iCloudLogsDirectoryName]];
             
-            NSLog(@"iCloudEnabledAppID = %@",iCloudEnabledAppID);
-            NSLog(@"dataFileName = %@", dataFileName);
-            NSLog(@"iCloudDataDirectoryName = %@", iCloudDataDirectoryName);
-            NSLog(@"iCloudLogsDirectoryName = %@", iCloudLogsDirectoryName);
-            NSLog(@"iCloud = %@", iCloud);
-            NSLog(@"iCloudLogsPath = %@", iCloudLogsPath);
-            
+//            NSLog(@"iCloudEnabledAppID = %@",iCloudEnabledAppID);
+//            NSLog(@"dataFileName = %@", dataFileName);
+//            NSLog(@"iCloudDataDirectoryName = %@", iCloudDataDirectoryName);
+//            NSLog(@"iCloudLogsDirectoryName = %@", iCloudLogsDirectoryName);
+//            NSLog(@"iCloud = %@", iCloud);
+//            NSLog(@"iCloudLogsPath = %@", iCloudLogsPath);
+
             if([fileManager fileExistsAtPath:[[iCloud path] stringByAppendingPathComponent:iCloudDataDirectoryName]] == NO) {
                 NSError *fileSystemError;
                 [fileManager createDirectoryAtPath:[[iCloud path] stringByAppendingPathComponent:iCloudDataDirectoryName]
@@ -232,8 +232,8 @@
                                      stringByAppendingPathComponent:iCloudDataDirectoryName]
                                     stringByAppendingPathComponent:dataFileName];
             
-            NSLog(@"iCloudData = %@", iCloudData);
-            
+//            NSLog(@"iCloudData = %@", iCloudData);
+
             NSMutableDictionary *options = [NSMutableDictionary dictionary];
             [options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
             [options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];

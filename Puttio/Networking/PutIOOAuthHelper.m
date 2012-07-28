@@ -111,7 +111,6 @@
         [_webView stringByEvaluatingJavaScriptFromString:setPassword];
 
         [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
-        [self performSelector:@selector(testForLogin) withObject:nil afterDelay:8];
 
     } else {
         [self.delegate authHelperLoginFailedWithDescription:@"Wrong Username / Password combo"];

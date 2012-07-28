@@ -64,7 +64,8 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 }
 
 - (void)getUserInfo:(void(^)(id userInfoObject))onComplete {
-    [self getPath:@"/v2/account/info" parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary *params = @{@"oauth_token": self.apiToken};
+    [self getPath:@"/v2/account/info" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
         if (error) {

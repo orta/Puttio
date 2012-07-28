@@ -16,6 +16,7 @@
 
 @interface SearchViewController () {
     NSArray *searchResults;
+    NSString *lastSearchQuery;
 }
 @end
 
@@ -95,10 +96,11 @@
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
-    if (aSearchBar.text.length == 0) return;
+    NSString *query = aSearchBar.text;
+    if (query.length == 0 || [query isEqualToString:lastSearchQuery]) return;
     
     searchResults = @[];
-    [SearchController searchForString:aSearchBar.text];
+    [SearchController searchForString:query];
     [self.activitySpinner fadeIn];
 
     self.noResultsFoundView.hidden = YES;
@@ -106,6 +108,7 @@
 
     [self.tableView reloadData];
     [aSearchBar resignFirstResponder];
+    lastSearchQuery = query;
 }
 
 #pragma mark -
@@ -201,6 +204,12 @@
         }
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }];    
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)sender {
+    if ([self.searchBar isFirstResponder] && searchResults.count && !sender.isDecelerating) {
+        [self.searchBar resignFirstResponder];
+    }
 }
 
 - (void)reposition {

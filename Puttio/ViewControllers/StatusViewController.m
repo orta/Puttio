@@ -95,7 +95,7 @@ typedef enum {
     }
 }
 
-- (void)beat { 
+- (void)beat {
     [self getUserInfo];
     [self getTransfers];
 //    [self getMessages];
@@ -168,6 +168,9 @@ typedef enum {
             [[NSUserDefaults standardUserDefaults] setObject:diskQuotaAvailableString forKey:ORDiskQuotaAvailableDefault];
             [[NSUserDefaults standardUserDefaults] setObject:diskQuotaTotalString forKey:ORDiskQuotaTotalDefault];
             self.spaceProgressView.value = quotaPercentage;
+        }
+        else {
+            NSLog(@"Error %@", userInfoObject);
         }
     }];
 }
@@ -274,7 +277,8 @@ typedef enum {
     }
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
-    ProcessPopoverViewController *transferVC = [storyboard instantiateViewControllerWithIdentifier:@"transferPopoverView"];
+    NSString *transferID = [UIDevice isPad] ? @"transferPopoverView" : @"transferPopoverViewPhone";
+    ProcessPopoverViewController *transferVC = [storyboard instantiateViewControllerWithIdentifier:transferID];
     popoverController = [[WEPopoverController alloc] initWithContentViewController:transferVC];
     currentIndex = -1;
 }

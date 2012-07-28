@@ -38,8 +38,9 @@
     self.infoController.titleLabel.text = _file.displayName;
     self.infoController.fileSizeLabel.text = [UIDevice humanStringFromBytes:[[_file size] doubleValue]];
     [self.infoController hideProgress];
-
-    if ([_file.contentType isEqualToString:@"video/mp4"]) {
+    
+    NSLog(@"type %@", _file.contentType);
+    if ([ @[@"video/mp4", @"video/x-matroska"] containsObject:_file.contentType]) {
         _isMP4 = YES;
         [self.infoController enableButtons];
         [self.infoController hideProgress];

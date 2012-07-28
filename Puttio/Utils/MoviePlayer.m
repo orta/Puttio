@@ -74,8 +74,9 @@ static NSDate *movieStartedDate;
             TFLog(@"error log %@", self.mediaPlayer.errorLog);
             TFLog(@"network log %@", self.mediaPlayer.accessLog);
             TFLog(@"note %@", notification);
-            
-            [Analytics event:@"Movie Playback Error %@ - ( %@ )", self.mediaPlayer.contentURL, self.mediaPlayer.errorLog];
+
+//            NSString *strippedURL = [[[self.mediaPlayer.contentURL absoluteString] componentsSeparatedByString:@"oauth"] objectAtIndex:0];
+//            [Analytics event:@"Movie Playback Error %@ - ( %@ )", strippedURL , self.mediaPlayer.errorLog];
             break;
 
         case MPMovieFinishReasonPlaybackEnded:
