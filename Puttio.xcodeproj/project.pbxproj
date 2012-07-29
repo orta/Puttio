@@ -88,6 +88,7 @@
 		608C72C015C3063500EE85FC /* Exo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 608C72BE15C3063500EE85FC /* Exo-Light.otf */; };
 		608C72C415C3074100EE85FC /* UIFont+Puttio.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C315C3074100EE85FC /* UIFont+Puttio.m */; };
 		608C72C715C308AE00EE85FC /* ARTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C615C308AE00EE85FC /* ARTitleLabel.m */; };
+		608C72E315C53C4500EE85FC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F28C4015AB93EB0089AE8B /* Crashlytics.framework */; };
 		6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */; };
 		609719991597531600F9398F /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609719981597531600F9398F /* AccountViewController.m */; };
 		6097199C15975A5900F9398F /* UIDevice+SpaceStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097199B15975A5900F9398F /* UIDevice+SpaceStats.m */; };
@@ -443,6 +444,7 @@
 				6085D22A151B99490068929C /* Foundation.framework in Frameworks */,
 				6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */,
 				6085D22E151B99490068929C /* CoreData.framework in Frameworks */,
+				608C72E315C53C4500EE85FC /* Crashlytics.framework in Frameworks */,
 				60C04F1F1572418C00C23AB5 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1047,7 +1049,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "./vendor/Crashlytics.framework/run c40913dff6423ffeca4e4bafc8b63131a7f90415";
 		};
 /* End PBXShellScriptBuildPhase section */
 

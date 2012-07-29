@@ -9,3 +9,4 @@
 static NSString* APP_SECRET = @"";
 static NSString* TESTFLIGHT_SECRET = @"";
 static NSString* MIXPANEL_TOKEN = @"";
+static NSString* CRASHLYTICS_API_KEY = @"";

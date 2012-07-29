@@ -14,6 +14,8 @@
 #import "BrowsingViewController.h"
 #import "OAuthViewController.h"
 #import "ModalZoomView.h"
+#import <Crashlytics/Crashlytics.h>
+#import "APP_SECRET.h"
 
 @implementation ORAppDelegate
 
@@ -37,6 +39,8 @@
     }else{
         [self showLogin];
     }
+
+    [Crashlytics startWithAPIKey:CRASHLYTICS_API_KEY];
     return YES;
 }
 
