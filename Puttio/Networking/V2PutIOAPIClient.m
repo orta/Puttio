@@ -133,8 +133,8 @@ typedef void (^BlockWithCallback)(id userInfoObject);
                 file.screenShotURL =  [dictionary onlyStringForKey:@"icon"];
             }
 
-            if (dictionary[@"is_mp4_available"] != [NSNull null] || dictionary[@"is_mp4_available"] != @(NO) ) {
-                file.hasMP4 = @YES;
+            if (dictionary[@"is_mp4_available"] != [NSNull null]) {
+                file.hasMP4 = dictionary[@"is_mp4_available"];
             }
             
             file.contentType =  dictionary[@"content_type"];

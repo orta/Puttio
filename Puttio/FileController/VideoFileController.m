@@ -155,7 +155,6 @@
         self.infoController.secondaryButton.enabled = NO;
         self.infoController.primaryButton.enabled = YES;
     }];
-    
 }
 
 - (void)getMP4Info {
