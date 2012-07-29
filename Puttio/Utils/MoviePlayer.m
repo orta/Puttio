@@ -101,6 +101,8 @@ static NSDate *movieStartedDate;
 }
 
 + (void)streamMovieAtPath:(NSString *)path {
+
+    
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
@@ -108,6 +110,7 @@ static NSDate *movieStartedDate;
     MoviePlayer *sharedPlayer = [self sharedPlayer];
     path = [PutIOClient appendOauthToken:path];
 
+    NSLog(@"%@", path);
     ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:path]];
     [rootController presentMoviePlayerViewControllerAnimated:movieController];
 

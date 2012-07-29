@@ -19,7 +19,6 @@
 
 @implementation VideoFileController {
     BOOL _isMP4;
-    BOOL _MP4Ready;
     BOOL requested;
 }
 
@@ -38,9 +37,8 @@
     self.infoController.titleLabel.text = _file.displayName;
     self.infoController.fileSizeLabel.text = [UIDevice humanStringFromBytes:[[_file size] doubleValue]];
     [self.infoController hideProgress];
-    
-    NSLog(@"type %@", _file.contentType);
-    if ([ @[@"video/mp4", @"video/x-matroska"] containsObject:_file.contentType]) {
+
+    if ([_file.contentType isEqualToString:@"video/mp4"]) {
         _isMP4 = YES;
         [self.infoController enableButtons];
         [self.infoController hideProgress];
@@ -169,14 +167,13 @@
         if (![userInfoObject isMemberOfClass:[NSError class]]) {
             
             NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
-            _MP4Ready = NO;
             
             if ([status isEqualToString:@"COMPLETED"]) {
-                _MP4Ready = YES;
                 [self.infoController enableButtons];
                 [self.infoController hideProgress];
             }else{
-                
+                [self.infoController disableButtons];
+
                 if (!requested) {
                     [ConvertToMP4Process processWithFile:_file];
                     requested = YES;
