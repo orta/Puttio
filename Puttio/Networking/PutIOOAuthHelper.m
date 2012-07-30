@@ -17,6 +17,7 @@
 
 // Redirect to the OAuth dialog
 // Put in the creds ourselves
+// Get redirected to the "accept the application page" tap via js
 // Then call delegate method.
 
 @interface PutIOOAuthHelper (){
@@ -101,7 +102,8 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
     NSString *address = aWebView.request.URL.absoluteString;
-
+    NSLog(@"%@", address);
+    
     if([address hasPrefix:@"https://put.io/v2/oauth2/login"] && !_attemptedLogin){
         _attemptedLogin = YES;
         NSString *setUsername = [NSString stringWithFormat:@"document.getElementsByTagName('input')[0].value = '%@'", _username];
@@ -112,8 +114,14 @@
 
         [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('form')[0].submit()"];
 
+    } else if ([address rangeOfString:@"oauth2/authenticate"].location != NSNotFound) {
+        // The Allow / Deny form
+        
+        NSString *submitForm = @"document.getElementsByTagName('input')[1].click()";
+        [_webView stringByEvaluatingJavaScriptFromString:submitForm];
+
     } else {
-        [self.delegate authHelperLoginFailedWithDescription:@"Wrong Username / Password combo"];
+                [self.delegate authHelperLoginFailedWithDescription:@"Wrong Username / Password combo"];
     }
 }
 
