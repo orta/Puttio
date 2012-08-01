@@ -23,7 +23,7 @@
     $( function() {
         var canvas = document.getElementById('canvas')
         var context = canvas.getContext('2d');
-        var tileSize = 90;
+        var tileSize = 20;
         var horizontalTileCount = ( canvas.width / tileSize ) + 2;
         var verticalTileCount = (canvas.height / tileSize) + 2;
 
@@ -69,18 +69,18 @@
                 case 2 : colour = "rgba(93, 173, 248, 0.2)"; break;
                 default: colour = "rgba(255, 255, 255, 0.2"; break;
             }
-            animateRectAtXYWithColour(x, y, colour);
-          }, 500);
+            animateRectAtXYWithColour(x, y, colour, tileSize);
+          }, 150);
 
         }
 
-        function animateRectAtXYWithColour(x, y, colour){
+        function animateRectAtXYWithColour(x, y, colour, size){
           var tickCount = 0;
-          var xPosition = x * tileSize - 1 - (tileSize/2);
-          var yPosition = y * tileSize - 1 - (tileSize/2);
+          var xPosition = x * size - 1 - (size / 2);
+          var yPosition = y * size - 1 - (size / 2);
           var timer = setInterval(function() { 
             context.fillStyle = colour;
-            context.fillRect(xPosition, yPosition, tileSize - 2, tileSize - 2);
+            context.fillRect(xPosition, yPosition, size - 2, size - 2);
             if (tickCount++ == 15) {
                 clearInterval(timer);
             }
