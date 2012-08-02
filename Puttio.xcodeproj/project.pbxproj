@@ -111,6 +111,8 @@
 		609FABDC158C83A6000C9B30 /* BaseProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 609FABDB158C83A6000C9B30 /* BaseProcess.m */; };
 		60A1B19815287343002A6A7E /* ModalZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B19715287343002A6A7E /* ModalZoomView.m */; };
 		60A1B1B01528788E002A6A7E /* FileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */; };
+		60A34F7715CB384700983442 /* Paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A34F7515CB384700983442 /* Paper.png */; };
+		60A34F7815CB384700983442 /* Paper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A34F7615CB384700983442 /* Paper@2x.png */; };
 		60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */; };
 		60A7A6C6151FBA9900DB71E0 /* PutIONetworkConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6C5151FBA9900DB71E0 /* PutIONetworkConstants.m */; };
 		60A7A6D0151FD2A100DB71E0 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6CF151FD2A100DB71E0 /* File.m */; };
@@ -344,6 +346,8 @@
 		60A1B19715287343002A6A7E /* ModalZoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModalZoomView.m; path = ViewControllers/ModalZoomView.m; sourceTree = "<group>"; };
 		60A1B1AE1528788E002A6A7E /* FileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileInfoViewController.h; path = ViewControllers/FileInfoViewController.h; sourceTree = "<group>"; };
 		60A1B1AF1528788E002A6A7E /* FileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileInfoViewController.m; path = ViewControllers/FileInfoViewController.m; sourceTree = "<group>"; };
+		60A34F7515CB384700983442 /* Paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Paper.png; sourceTree = "<group>"; };
+		60A34F7615CB384700983442 /* Paper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Paper@2x.png"; sourceTree = "<group>"; };
 		60A7A6B3151F6E0D00DB71E0 /* ORSimpleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSimpleProgress.h; path = Views/ORSimpleProgress.h; sourceTree = "<group>"; };
 		60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSimpleProgress.m; path = Views/ORSimpleProgress.m; sourceTree = "<group>"; };
 		60A7A6C3151FBA1D00DB71E0 /* APP_SECRET.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET.h; path = ../APP_SECRET.h; sourceTree = "<group>"; };
@@ -604,6 +608,8 @@
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60A34F7515CB384700983442 /* Paper.png */,
+				60A34F7615CB384700983442 /* Paper@2x.png */,
 				608C72BD15C3063500EE85FC /* Exo-Bold.otf */,
 				608C72BE15C3063500EE85FC /* Exo-Light.otf */,
 				6080915B15BC15D700BDB3D7 /* Cutest_Cat.jpg */,
@@ -1032,6 +1038,8 @@
 				6080915C15BC15D700BDB3D7 /* Cutest_Cat.jpg in Resources */,
 				608C72BF15C3063500EE85FC /* Exo-Bold.otf in Resources */,
 				608C72C015C3063500EE85FC /* Exo-Light.otf in Resources */,
+				60A34F7715CB384700983442 /* Paper.png in Resources */,
+				60A34F7815CB384700983442 /* Paper@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

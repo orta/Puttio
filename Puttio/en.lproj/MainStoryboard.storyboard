@@ -1551,16 +1551,16 @@ Email the developer</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="10" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="273" id="ncr-ow-CBI">
-                                <rect key="frame" x="299" y="131" width="273" height="119"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" minimumFontSize="10" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="273" id="ncr-ow-CBI">
+                                <rect key="frame" x="299" y="135" width="273" height="130"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <nil key="highlightedColor"/>
-                                <string key="text">Hey there, I &lt;3 making cool apps. If you want more cool new things in this app, give it a good review and get more people using it.</string>
+                                <string key="text">Hey there, I &lt;3 making cool apps. If you want more cool new things in this app, give it a good review and get more people using it. That way I feel as guilty for not improving it as I'm trying to make you feel for not reviewing.</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="10" text="It'll take 5 minutes of your time, and will totally make my day." autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="281" id="Zw6-4I-iVb">
-                                <rect key="frame" x="299" y="245" width="281" height="70"/>
+                                <rect key="frame" x="299" y="260" width="281" height="70"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

@@ -9,7 +9,7 @@
 #import "ORRotatingButton.h"
 
 @interface ORRotatingButton () {
-    CAKeyframeAnimation *rotationAnimation;
+    CABasicAnimation *rotationAnimation;
 }
 @end
 
@@ -39,17 +39,13 @@ CGFloat RotationDuration = 0.9;
 
 - (void)startAnimating {
     if (rotationAnimation) return;
+    CATransform3D rotationTransform = CATransform3DMakeRotation(1.01f * M_PI, 0, 0, 1.0);
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
 
-	rotationAnimation = [CAKeyframeAnimation animation];
-	rotationAnimation.values = [NSArray arrayWithObjects:
-						   [NSValue valueWithCATransform3D:CATransform3DMakeRotation(0, 0, 0, 1)],
-						   [NSValue valueWithCATransform3D:CATransform3DMakeRotation(3.11, 0, 0, 1)],
-						   [NSValue valueWithCATransform3D:CATransform3DMakeRotation(6.24, 0, 0, 1)],
-						   nil];
-	rotationAnimation.cumulative = YES;
-	rotationAnimation.duration = RotationDuration;
-	rotationAnimation.repeatCount = HUGE_VALF;
-	rotationAnimation.removedOnCompletion = YES;
+    rotationAnimation.toValue = [NSValue valueWithCATransform3D:rotationTransform];
+    rotationAnimation.duration = RotationDuration;
+    rotationAnimation.cumulative = YES;
+    rotationAnimation.repeatCount = HUGE_VAL;
 	[self.layer addAnimation:rotationAnimation forKey:@"transform"];
 
 }

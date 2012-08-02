@@ -82,7 +82,12 @@
         if (file.watched.boolValue == YES) {
             cell.watched = YES;
         }
-        cell.imageURL = [NSURL URLWithString:item.screenShotURL];
+        
+        if([file hasPreviewThumbnail]){
+            cell.imageURL = [NSURL URLWithString:item.screenShotURL];
+        }else{
+            [cell useUnknownImageForFileType:[file extension]];
+        }
 
     }else{
         cell.image = [UIImage imageNamed:@"Folder"];

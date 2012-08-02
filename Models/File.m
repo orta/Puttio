@@ -21,6 +21,12 @@
 @dynamic watched;
 @dynamic folder;
 
+static NSArray *ThumbnailFileTypes;
+
++ (void)initialize {
+    ThumbnailFileTypes = @[@"mp4", @"mov", @"wmv", @"m4v", @"mkv", @"avi", @"jpg", @"png", @"gif"];
+}
+
 + (NSString *)createDisplayNameFromName:(NSString *)fullName {
     NSString *display = @"";
     display = fullName;
@@ -42,12 +48,11 @@
         display = [display lowercaseString];
         display = [display stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"[]{}()"]];
 
-        NSArray *removeStrings = @[@".", @"_", @" 5 1aac ", @" 5.1aac ", @" dvdrip ", @" brrip ", @" x264 ", @" hdtv ", @" 720 ", @" 1080 ", @" 480 ", @" wmv", @" mp4", @" m4v", @" mkv", @" hd ", @" 720p ", @" avi ", @" dvdscr ", @" 1080p "];
+        NSArray *removeStrings = @[@".", @"_", @" 5 1aac ", @" 5.1aac ", @" dvdrip ", @" brrip ", @" x264 ", @" hdtv ", @" 720 ", @" 1080 ", @" 480 ", @" wmv", @" mp4", @" m4v", @" mkv", @" hd ", @" 720p ", @" avi ", @" dvdscr ", @" 1080p ", @" avi"];
         for (NSString *remove in removeStrings) {
             display = [display stringByReplacingOccurrencesOfString:remove withString:@" "];
         }
         display = [display capitalizedString];
-
     }
     
     return display;
@@ -57,4 +62,7 @@
     return [[self.name pathExtension] lowercaseString];
 }
 
+- (BOOL)hasPreviewThumbnail {
+    return [ThumbnailFileTypes containsObject:[self extension]];
+}
 @end

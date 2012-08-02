@@ -23,4 +23,5 @@
 @property (nonatomic) id item;
 @property (nonatomic, assign) BOOL watched;
 
+- (void)useUnknownImageForFileType:(NSString *)string;
 @end

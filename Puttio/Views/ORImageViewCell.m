@@ -9,6 +9,7 @@
 #import "ORImageViewCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "UIImageView+ImageRect.h"
+#import "UIFont+Puttio.h"
 
 static UIEdgeInsets ImageContentInsets = {.top = 10, .left = 6, .right = 6, .bottom = 45};
 
@@ -18,6 +19,8 @@ static CGFloat ImageBottomMargin = 10;
 @interface ORImageViewCell (){
     UIImage *image;
     UIImageView *watchedSash;
+
+    UILabel *extensionLabel;
 }
 
 @end
@@ -64,6 +67,9 @@ static CGFloat ImageBottomMargin = 10;
     self.watched = NO;
     [watchedSash removeFromSuperview];
     watchedSash = nil;
+
+    [extensionLabel removeFromSuperview];
+    extensionLabel = nil;
 }
 
 - (void)layoutSubviews {
@@ -102,6 +108,32 @@ static CGFloat ImageBottomMargin = 10;
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         
     }];
+}
+
+- (void)useUnknownImageForFileType:(NSString *)string {
+    imageView.image = [UIImage imageNamed:@"Paper"];
+    if ([string length] > 5) {
+        string = [string substringToIndex:5];
+    }
+    if ([string isEqualToString:@""]) {
+        string = @"?";
+    }
+
+    extensionLabel = [[UILabel alloc] initWithFrame:imageView.frame];
+    extensionLabel.backgroundColor = [UIColor clearColor];
+    extensionLabel.opaque = NO;
+    extensionLabel.text = string;
+    extensionLabel.font = [UIFont titleFontWithSize:18];
+    extensionLabel.textColor = [UIColor blackColor];
+    extensionLabel.textAlignment = UITextAlignmentCenter;
+
+    CGFloat offset = [UIDevice isPad]? 20 : 6;
+    extensionLabel.center = CGPointMake(extensionLabel.center.x, extensionLabel.center.y + offset);
+    [self addSubview:extensionLabel];
+
+    if([self watched]){
+        [self addWatchedEffects];
+    }
 }
 
 - (void)setImage:(UIImage *)anImage {
