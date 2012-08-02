@@ -13,6 +13,13 @@
 + (CGFloat) cellHeight { return 60; }
 + (CGFloat) cellWidth { return 200; }
 
+- (id)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self layoutSubviews];
+    }
+    return self;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     [imageView setFrame: CGRectMake(-4, 4, 60, 40)];
