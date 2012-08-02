@@ -13,6 +13,7 @@
 // File Controllers
 #import "VideoFileController.h"
 #import "UnknownFileController.h"
+#import "UIImageView+ImageRect.h"
 
 @interface FileInfoViewController() {
     NSArray *fileControllers;
@@ -76,13 +77,34 @@
     
     titleLabel.text = object.displayName;
     _item = item;
-    [thumbnailImageView setImageWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:object.screenShotURL]]];
+
     additionalInfoLabel.text = [fileController descriptiveTextForFile];
     
     [primaryButton setTitle:[fileController primaryButtonText] forState:UIControlStateNormal];
 
     secondaryButton.hidden = ![fileController supportsSecondaryButton]; 
     [secondaryButton setTitle:[fileController secondaryButtonText] forState:UIControlStateNormal];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:object.screenShotURL]]];
+
+    [thumbnailImageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+
+        // Put the label in the bottom left of the image now we have one
+        [fileSizeLabel sizeToFit];
+        
+        CGRect imageRect = [thumbnailImageView frameForImage];
+        CGRect labelFrame = fileSizeLabel.bounds;
+        labelFrame.size.width += 20;
+        labelFrame.origin.x = imageRect.origin.x + thumbnailImageView.frame.origin.x + CGRectGetWidth(imageRect) - CGRectGetWidth(labelFrame);
+        labelFrame.origin.y = thumbnailImageView.frame.origin.y + CGRectGetHeight(imageRect) - CGRectGetHeight(labelFrame);
+        fileSizeLabel.frame = labelFrame;
+
+        [UIView animateWithDuration:0.3 animations:^{
+            fileSizeLabel.alpha = 1;
+        }];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+
+    }];
 }
 
 - (id)item {
@@ -146,7 +168,6 @@
     [UIView animateWithDuration:0.3 animations:^{
         primaryButton.alpha = 1;
         secondaryButton.alpha = 1;
-        fileSizeLabel.alpha = 1;
         additionalInfoLabel.alpha = 1;
     }];    
 }

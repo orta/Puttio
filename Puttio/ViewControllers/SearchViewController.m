@@ -197,7 +197,7 @@
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
     [client downloadTorrentOrMagnetURLAtPath:[result representedPath] :^(id userInfoObject) {              
-        if ([userInfoObject isMemberOfClass:[NSError class]]) {
+        if ([userInfoObject isKindOfClass:[NSError class]]) {
             result.selectedState = SearchResultFailed;
         }else {
             result.selectedState = SearchResultSent;

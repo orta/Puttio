@@ -40,7 +40,8 @@
         if ([[NSFileManager defaultManager] fileExistsAtPath:downloadedFilepath]) {
             BOOL canOpen = [self canOpenDocumentWithURL:downloadURL inView:self.infoController.view];
             if (canOpen) {
-                self.infoController.primaryButton.enabled = YES;                
+                self.infoController.primaryButton.enabled = YES;
+                [self primaryButtonAction:self.infoController.primaryButton];
             }else{
                 self.infoController.additionalInfoLabel.text = @"There isn't an app to open this file";
                 self.infoController.additionalInfoLabel.textAlignment = UITextAlignmentCenter;

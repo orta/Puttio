@@ -75,8 +75,7 @@ static NSDate *movieStartedDate;
             TFLog(@"network log %@", self.mediaPlayer.accessLog);
             TFLog(@"note %@", notification);
 
-//            NSString *strippedURL = [[[self.mediaPlayer.contentURL absoluteString] componentsSeparatedByString:@"oauth"] objectAtIndex:0];
-//            [Analytics event:@"Movie Playback Error %@ - ( %@ )", strippedURL , self.mediaPlayer.errorLog];
+            [Analytics event:@"Movie Playback Error"];
             break;
 
         case MPMovieFinishReasonPlaybackEnded:
@@ -101,8 +100,6 @@ static NSDate *movieStartedDate;
 }
 
 + (void)streamMovieAtPath:(NSString *)path {
-
-    
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;

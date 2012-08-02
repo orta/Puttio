@@ -299,16 +299,17 @@ typedef enum {
         }
         
         if (item) {
-            NSIndexPath *path = [NSIndexPath indexPathForRow:row inSection:section];
-            CGRect originalRect = [self.tableView rectForRowAtIndexPath:path];
-            UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
-            
-            ProcessPopoverViewController * transferVC = (ProcessPopoverViewController*) popoverController.contentViewController;
-            
-            [popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:self.tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
-            
-            transferVC.item = item;
-            currentIndex = row;
+            if ([popoverController.contentViewController isMemberOfClass:[ProcessPopoverViewController class]]) {
+                NSIndexPath *path = [NSIndexPath indexPathForRow:row inSection:section];
+                CGRect originalRect = [self.tableView rectForRowAtIndexPath:path];
+                UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+
+                ProcessPopoverViewController *transferVC = (ProcessPopoverViewController*) popoverController.contentViewController;
+                [popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:self.tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+
+                transferVC.item = item;
+                currentIndex = row;
+            }
         }
     }
 }
