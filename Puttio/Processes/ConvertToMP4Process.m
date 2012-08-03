@@ -27,8 +27,7 @@
 - (void)tick {
     if (_file) {
         [[PutIOClient sharedClient] getMP4InfoForFile:self.file :^(id userInfoObject) {
-            NSString *classString = NSStringFromClass([userInfoObject class]);
-            if (![@"NSURLError" isEqualToString:classString] && ![@"NSError" isEqualToString:classString]) {
+            if (![userInfoObject isKindOfClass:[NSError class]]) {
                 NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
                 if ([status isEqualToString:@"COMPLETED"]) {
                     [self end];
