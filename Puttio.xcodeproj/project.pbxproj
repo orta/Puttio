@@ -134,6 +134,7 @@
 		60C45D5C157C16750059D4B4 /* ORSlidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45D5B157C16750059D4B4 /* ORSlidingTableView.m */; };
 		60C45DCC157C45360059D4B4 /* UINavigationController+ForceRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45DCB157C45360059D4B4 /* UINavigationController+ForceRotate.m */; };
 		60C45DE0157C498B0059D4B4 /* ProcessPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45DDF157C498A0059D4B4 /* ProcessPopoverViewController.m */; };
+		60C85AED15CEBEA3008FC895 /* TextFileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C85AEC15CEBEA3008FC895 /* TextFileInfoViewController.m */; };
 		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
 		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
@@ -390,6 +391,8 @@
 		60C45DCB157C45360059D4B4 /* UINavigationController+ForceRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+ForceRotate.m"; path = "Categories/UINavigationController+ForceRotate.m"; sourceTree = "<group>"; };
 		60C45DDE157C498A0059D4B4 /* ProcessPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessPopoverViewController.h; path = ViewControllers/ProcessPopoverViewController.h; sourceTree = "<group>"; };
 		60C45DDF157C498A0059D4B4 /* ProcessPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProcessPopoverViewController.m; path = ViewControllers/ProcessPopoverViewController.m; sourceTree = "<group>"; };
+		60C85AEB15CEBEA3008FC895 /* TextFileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFileInfoViewController.h; path = ViewControllers/TextFileInfoViewController.h; sourceTree = "<group>"; };
+		60C85AEC15CEBEA3008FC895 /* TextFileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFileInfoViewController.m; path = ViewControllers/TextFileInfoViewController.m; sourceTree = "<group>"; };
 		60D9B7E91535C30F00A64E0F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Models/SearchResult.h; sourceTree = "<group>"; };
 		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
 		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
@@ -788,6 +791,8 @@
 				609719981597531600F9398F /* AccountViewController.m */,
 				6080914715BAF5A900BDB3D7 /* FeedbackViewController.h */,
 				6080914815BAF5AA00BDB3D7 /* FeedbackViewController.m */,
+				60C85AEB15CEBEA3008FC895 /* TextFileInfoViewController.h */,
+				60C85AEC15CEBEA3008FC895 /* TextFileInfoViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1165,6 +1170,7 @@
 				6080914915BAF5AA00BDB3D7 /* FeedbackViewController.m in Sources */,
 				608C72C415C3074100EE85FC /* UIFont+Puttio.m in Sources */,
 				608C72C715C308AE00EE85FC /* ARTitleLabel.m in Sources */,
+				60C85AED15CEBEA3008FC895 /* TextFileInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

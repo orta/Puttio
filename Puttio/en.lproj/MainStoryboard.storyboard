@@ -1633,6 +1633,69 @@ bloody hell</string>
             </objects>
             <point key="canvasLocation" x="-3420" y="-371"/>
         </scene>
+        <!--Text File Info View Controller-->
+        <scene sceneID="mac-OY-aTN">
+            <objects>
+                <viewController storyboardIdentifier="TextInfoView" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hyU-Df-rG8" customClass="TextFileInfoViewController" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="cNc-I5-C3h">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="awc-Uv-NWe" customClass="ORFlatButton">
+                                <rect key="frame" x="392" y="339" width="88" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.75686281919999998" green="0.79215693470000004" blue="0.85490202900000001" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="hyU-Df-rG8" eventType="touchUpInside" id="itl-ZF-KZ5"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="TAe-pC-HlJ">
+                                <rect key="frame" x="-11" y="0.0" width="564" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="The title of my cool cat film" autoshrinkMode="minimumFontSize" id="2ZN-Gm-SbJ" customClass="ARTitleLabel">
+                                        <rect key="frame" x="20" y="4" width="476" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="" id="Xjh-pX-HzJ">
+                                <rect key="frame" x="20" y="64" width="460" height="257"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="textfield" destination="Xjh-pX-HzJ" id="ere-sk-ZId"/>
+                        <outlet property="titleLabel" destination="2ZN-Gm-SbJ" id="MSu-vv-YZC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gC5-yJ-VKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3013" y="-70"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Cutest_Cat.jpg" width="360" height="290"/>
@@ -1643,6 +1706,193 @@ bloody hell</string>
         <image name="TwitterBird.png" width="88" height="88"/>
         <image name="orta.png" width="88" height="88"/>
     </resources>
+    <classes>
+        <class className="ARTitleLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARTitleLabel.h"/>
+        </class>
+        <class className="ARTransferCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARTransferCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+            </relationships>
+        </class>
+        <class className="AccountViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AccountViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addToTwitter:"/>
+                <relationship kind="action" name="dbgrandiTapped:"/>
+                <relationship kind="action" name="feedbackTapped:"/>
+                <relationship kind="action" name="githubTapped:"/>
+                <relationship kind="action" name="logOutTapped:"/>
+                <relationship kind="action" name="ortaTapped:"/>
+                <relationship kind="action" name="putIOTapped:"/>
+                <relationship kind="outlet" name="accountSpaceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="accountSpaceLeftProgress" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="creativeCommonsSwitch" candidateClass="DCRoundSwitch"/>
+                <relationship kind="outlet" name="loggedOutMessageView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="ortaInfoBackground" candidateClass="UIView"/>
+                <relationship kind="outlet" name="ortaInfoBodyLAbel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ortaInfoTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="welcomeAccountLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BrowsingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backPressed:"/>
+                <relationship kind="action" name="reloadPressed:"/>
+                <relationship kind="outlet" name="firstErrorMessageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offlineView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="ORRotatingButton"/>
+                <relationship kind="outlet" name="secondErrorMessageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DCControl" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCControl.h"/>
+        </class>
+        <class className="DCKnob" superclassName="DCControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCKnob.h"/>
+        </class>
+        <class className="DCRoundSwitch" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCRoundSwitch.h"/>
+        </class>
+        <class className="FeedbackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedbackViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="emailDeveloper:"/>
+                <relationship kind="action" name="review:"/>
+            </relationships>
+        </class>
+        <class className="FileInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FileInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="primaryButtonTapped:"/>
+                <relationship kind="action" name="secondaryButtonTapped:"/>
+                <relationship kind="outlet" name="additionalInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="primaryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="secondaryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="thumbnailImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ItemDeletionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemDeletionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelTapped:"/>
+                <relationship kind="action" name="deleteTapped:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="ORFlatButton"/>
+                <relationship kind="outlet" name="deleteButton" candidateClass="ORFlatButton"/>
+                <relationship kind="outlet" name="networkActivityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LocalBrowsingViewController" superclassName="BrowsingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocalBrowsingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="deviceSpaceLeftLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="deviceStoredLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="noItemsView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="OAuthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OAuthViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginPressed:"/>
+                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="authHelper" candidateClass="PutIOOAuthHelper"/>
+                <relationship kind="outlet" name="errorHeaderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loginViewWrapper" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernameTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="warningLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="ORDestructiveButton" superclassName="ORFlatButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORDestructiveButton.h"/>
+        </class>
+        <class className="ORFlatButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORFlatButton.h"/>
+        </class>
+        <class className="ORMessageCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORMessageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORRotatingButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORRotatingButton.h"/>
+        </class>
+        <class className="ORSearchCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSearchCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="seedersLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORSimpleProgress" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSimpleProgress.h"/>
+        </class>
+        <class className="ORSlidingTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSlidingTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="slidingDelegate" candidateClass="NSObject"/>
+            </relationships>
+        </class>
+        <class className="ProcessPopoverViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProcessPopoverViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="progressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PutIOOAuthHelper" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PutIOOAuthHelper.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate" candidateClass="NSObject"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activitySpinner" candidateClass="ORRotatingButton"/>
+                <relationship kind="outlet" name="noResultsFoundView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="statusViewController" candidateClass="StatusViewController"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="tryChangingSettingsView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="StatusViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="spaceProgressBG" candidateClass="DCKnob"/>
+                <relationship kind="outlet" name="spaceProgressView" candidateClass="DCKnob"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="TextFileInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextFileInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeButtonTapped:"/>
+                <relationship kind="outlet" name="textfield" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="ARTitleLabel"/>
+            </relationships>
+        </class>
+        <class className="TorrentLikeView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TorrentLikeView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

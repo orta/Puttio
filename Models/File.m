@@ -22,9 +22,13 @@
 @dynamic folder;
 
 static NSArray *ThumbnailFileTypes;
+static NSArray *TextFileTypes;
+static NSArray *TextFileNames;
 
 + (void)initialize {
     ThumbnailFileTypes = @[@"mp4", @"mov", @"wmv", @"m4v", @"mkv", @"avi", @"jpg", @"png", @"gif"];
+    TextFileTypes = @[ @"txt", @"nfo", @"log", @"diz"];
+    TextFileNames = @[ @"README", @"LICENSE", @"INSTALL", @"CHANGELOG", @"AUTHORS"];
 }
 
 + (NSString *)createDisplayNameFromName:(NSString *)fullName {
@@ -56,6 +60,12 @@ static NSArray *ThumbnailFileTypes;
     }
     
     return display;
+}
+
+- (BOOL)isTextualType {
+    if ([TextFileTypes containsObject:self.extension]) return YES;
+    if ([TextFileNames containsObject:self.name]) return YES;
+    return NO;
 }
 
 - (NSString *)extension {

@@ -25,4 +25,5 @@
 - (NSString *)extension;
 + (NSString *)createDisplayNameFromName:(NSString *)fullName;
 - (BOOL)hasPreviewThumbnail;
+- (BOOL)isTextualType;
 @end

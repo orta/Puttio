@@ -141,10 +141,17 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
         Folder *folder = (Folder *)item;
         [self loadFolder:folder];
     }else {
+        File *file = (File *)item;
         UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
         CGRect initialFrame = [topFolder.gridView convertRect:[[topFolder.gridView cellForItemAtIndex:position] frame] toView:rootView];
-        NSString *identifier = [UIDevice isPhone]? @"FileInfoPhoneView" : @"FileInfoView";
-        [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:identifier andItem:item];
+
+        NSString *identifier = nil;
+        if (file.isTextualType) {
+            identifier = @"TextInfoView";
+        }else{
+            identifier = [UIDevice isPhone]? @"FileInfoPhoneView" : @"FileInfoView";
+        }
+        [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:identifier andItem:file];
     }
 }
 
