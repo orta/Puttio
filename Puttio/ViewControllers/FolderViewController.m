@@ -51,6 +51,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadGrid) name:ORReloadGridNotification object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.view.userInteractionEnabled = YES;
+    for (GMGridViewCell *cell in [_gridView subviews] ){
+        cell.alpha = 1;
+    }
+}
+
 #pragma mark -
 #pragma mark GridView DataSource Methods
 
@@ -112,6 +120,21 @@
 
 - (BOOL)itemIsFolder:(NSObject <ORDisplayItemProtocol>*)item {
     return ([item.size intValue] == 0);
+}
+
+- (void)highlightItemAtIndex:(int)position {
+    self.view.userInteractionEnabled = NO;
+
+    [UIView animateWithDuration:0.3 animations:^{
+        GMGridViewCell *view = [_gridView cellForItemAtIndex:position];
+        for (GMGridViewCell *cell in [_gridView subviews] ){
+            if (cell != view) {
+                cell.alpha = 0.3;
+            }else{
+                cell.alpha = 1;
+            }
+        }
+    }];
 }
 
 - (void)checkForWatched {

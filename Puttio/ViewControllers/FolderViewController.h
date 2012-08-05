@@ -18,4 +18,5 @@
 @property (weak) BrowsingViewController *browsingViewController;
 
 - (void)reloadItemsFromServer;
+- (void)highlightItemAtIndex:(int)position;
 @end

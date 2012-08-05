@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet ORRotatingButton *refreshButton;
 @property (assign, nonatomic) BOOL networkActivity;
 
+@property (weak, nonatomic) IBOutlet UILabel *firstErrorMessageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondErrorMessageLabel;
 - (void)setupRootFolder;
 - (IBAction)backPressed:(id)sender;
 - (IBAction)reloadPressed:(id)sender;

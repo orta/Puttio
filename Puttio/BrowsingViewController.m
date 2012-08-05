@@ -26,6 +26,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 @end
 
 @implementation BrowsingViewController
+@synthesize firstErrorMessageLabel;
+@synthesize secondErrorMessageLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -133,7 +135,9 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 - (void)GMGridView:(GMGridView *)aGridView didTapOnItemAtIndex:(NSInteger)position {
     FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
     NSObject <ORDisplayItemProtocol> *item = (topFolder.folderItems)[position];   
+
     if ([self itemIsFolder:item]) {
+        [topFolder highlightItemAtIndex:position];
         Folder *folder = (Folder *)item;
         [self loadFolder:folder];
     }else {
@@ -168,6 +172,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     [self setTitleLabel:nil];
     [self setOfflineView:nil];
     [self setRefreshButton:nil];
+    [self setFirstErrorMessageLabel:nil];
+    [self setSecondErrorMessageLabel:nil];
     [super viewDidUnload];
 }
 
