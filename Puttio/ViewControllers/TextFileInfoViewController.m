@@ -35,11 +35,13 @@
 
 - (void)zoomViewDidFinishZooming:(ModalZoomView *)zoomView {
     [UIView animateWithDuration:0.3 animations:^{
+
     }];
 }
 
 - (void)zoomViewWillDissapear:(ModalZoomView *)zoomView {
     [UIView animateWithDuration:0.1 animations:^{
+        textfield.alpha = 0;
     }];
 }
 

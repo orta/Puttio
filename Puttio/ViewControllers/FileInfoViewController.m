@@ -96,7 +96,7 @@
         CGRect labelFrame = fileSizeLabel.bounds;
         labelFrame.size.width += 20;
         labelFrame.origin.x = imageRect.origin.x + thumbnailImageView.frame.origin.x + CGRectGetWidth(imageRect) - CGRectGetWidth(labelFrame);
-        labelFrame.origin.y = thumbnailImageView.frame.origin.y + CGRectGetHeight(imageRect) - CGRectGetHeight(labelFrame);
+        labelFrame.origin.y = imageRect.origin.y + thumbnailImageView.frame.origin.y + CGRectGetHeight(imageRect) - CGRectGetHeight(labelFrame);
         fileSizeLabel.frame = labelFrame;
 
         [UIView animateWithDuration:0.3 animations:^{
