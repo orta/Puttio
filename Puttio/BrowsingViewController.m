@@ -127,7 +127,10 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
                 [self setupNavWithFolderVC:folderGrid];
             }
         }else {
+            FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
+            topFolder.view.userInteractionEnabled = YES;
             [self isOffline];
+        
         }
     }];
 }
