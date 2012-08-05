@@ -13,85 +13,115 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
+  <style type="text/css">
+
+    @font-face {
+        font-family: 'Exo-Bold';
+        src: url('fonts/exo-bold.eot');
+        src: url('fonts/exo-bold.eot?#iefix') format('embedded-opentype'),
+             url('fonts/exo-bold.woff') format('woff'),
+             url('fonts/exo-bold.ttf') format('truetype'),
+             url('fonts/exo-bold.svg#exo-bold') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    #content_wrapper {
+      position: absolute;
+      top: 00px;
+      width: 100%;
+    }
+
+    #content {
+      width : 900px;
+      margin: 20px auto;
+    }
+
+    #header {
+      height:400px;
+      text-align: center;
+    }
+
+    #info {
+      border-left: 60px solid #f6e93f;
+      border-right: 60px solid #f6e93f;
+      background-color: white;
+      height: 600px;
+    }
+
+    h1 {
+      background-color: #f6e93f;
+      text-align: center;
+      font-family:'Exo-Bold';
+      font-size: 48px;
+    }
+
+    h2 {
+      font-family:'Exo-Bold';
+    }
+
+    .feature {
+      width: 360px;
+      float:left;
+      padding-left: 20px
+    }
+
+  .featurettes h3{
+    font-family:'Exo-Bold';
+
+    width:240px;
+    padding-left: 20px;
+    float:left; 
+    text-align: center;
+  }
+  </style>
+
 </head>
 <body>
   <canvas id="canvas" style="opacity:0">
   </canvas>
 
+  <div id="content_wrapper">
+    <div id="content">
+      <div id="header">
+        <img src="images/header-image.png">
+      </div>
+      <div id="info">
+        </br>
+        <h1>Put.IO for iOS</h1>
+
+        <div class="feature">
+          <h2>Browse you Put.IO content!</h2>
+          <p>Bit of text Bit of text Bit of textBit of text Bit of text v Bit of text</p>
+        </div>
+        
+        <div class="feature">
+          <h2>Search for new content!</h2>
+          <p>Bit of text Bit of text Bit of textBit of text Bit of text v Bit of text</p>
+        </div>
+
+        <div class="feature">
+          <h2>Universal app!</h2>
+          <p>Bit of text Bit of text Bit of textBit of text Bit of text v Bit of text</p>
+        </div>
+        
+        <div class="feature">
+          <h2>iCloud!</h2>
+          <p>Bit of text Bit of text Bit of textBit of text Bit of text v Bit of text</p>
+        </div>
+
+        <div class="featurettes">
+          <h3>Auto MP4 Conversion</h3>
+          <h3>Great AppleTV Support</h3>
+          <h3>Retina Ready</h3>
+          <h3>Open Files in Other apps</h3>
+          <h3>Download Video for later</h3>
+          <h3>Open source</h3>
+      </div>
+    </div>
+  </div>
+
   <script type="text/javascript">
-
-    $( function() {
-        var canvas = document.getElementById('canvas')
-        var context = canvas.getContext('2d');
-        var tileSize = 20;
-        var horizontalTileCount = ( canvas.width / tileSize ) + 2;
-        var verticalTileCount = (canvas.height / tileSize) + 2;
-
-        window.addEventListener('resize', resizeCanvas, false);
-        
-        function resizeCanvas() {
-          // only redraw if it's bigger!
-          if (window.innerWidth > canvas.width || window.innerHeight > canvas.height) {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                horizontalTileCount = ( canvas.width / tileSize ) + 2;
-                verticalTileCount = (canvas.height / tileSize) + 2;
-
-                drawBackground(); 
-          };
-        }
-        
-        function drawBackground() {
-          for (var i = -0.5; i < horizontalTileCount; i++) {
-              for (var j = -0.5; j < verticalTileCount; j++) {
-                var colour = Math.floor(Math.random() * 10);
-                switch(colour) {
-                    case 1 : context.fillStyle = "#f6e93f"; break;
-                    case 2 : context.fillStyle = "#5dadf8"; break;
-                    default: context.fillStyle = "#ffffff"; break;
-                }
-                context.fillRect(i * tileSize - 1,  j * tileSize - 1, tileSize - 2, tileSize - 2);
-              }
-          }
-          if (canvas.style.opacity == 0) {
-            $(canvas).fadeTo('slow', 1);
-          };
-        }
-
-        function createBackgroundAnimations() {
-          setInterval(function() { 
-            var x = Math.floor(Math.random() * horizontalTileCount);
-            var y = Math.floor(Math.random() * verticalTileCount);
-            var colourInt = Math.floor(Math.random() * 3);
-            var colour;
-            switch(colourInt) {
-                case 1 : colour = "rgba(246, 233, 63, 0.2)"; break;
-                case 2 : colour = "rgba(93, 173, 248, 0.2)"; break;
-                default: colour = "rgba(255, 255, 255, 0.2"; break;
-            }
-            animateRectAtXYWithColour(x, y, colour, tileSize);
-          }, 150);
-
-        }
-
-        function animateRectAtXYWithColour(x, y, colour, size){
-          var tickCount = 0;
-          var xPosition = x * size - 1 - (size / 2);
-          var yPosition = y * size - 1 - (size / 2);
-          var timer = setInterval(function() { 
-            context.fillStyle = colour;
-            context.fillRect(xPosition, yPosition, size - 2, size - 2);
-            if (tickCount++ == 15) {
-                clearInterval(timer);
-            }
-          }, 100);
-        }
-
-        resizeCanvas();
-        createBackgroundAnimations();
-      });
-
-
   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>

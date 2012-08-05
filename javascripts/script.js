@@ -1,52 +1,71 @@
-(function($) {
-$(document).ready(function(){
 
-  // putting lines by the pre blocks
-  $("pre").each(function(){
-    var pre = $(this).text().split("\n");
-    var lines = new Array(pre.length+1);
-    for(var i = 0; i < pre.length; i++) {
-      var wrap = Math.floor(pre[i].split("").length / 70)
-      if (pre[i]==""&&i==pre.length-1) {
-        lines.splice(i, 1);
-      } else {
-        lines[i] = i+1;
-        for(var j = 0; j < wrap; j++) {
-          lines[i] += "\n";
+$( function() {
+  var canvas = document.getElementById('canvas')
+  var context = canvas.getContext('2d');
+  var tileSize = 20;
+  var horizontalTileCount = ( canvas.width / tileSize ) + 2;
+  var verticalTileCount = (canvas.height / tileSize) + 2;
+
+  window.addEventListener('resize', resizeCanvas, false);
+  
+  function resizeCanvas() {
+    // only redraw if it's bigger!
+    if (window.innerWidth > canvas.width || window.innerHeight > canvas.height) {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+          horizontalTileCount = ( canvas.width / tileSize ) + 2;
+          verticalTileCount = (canvas.height / tileSize) + 2;
+
+          drawBackground(); 
+    };
+  }
+  
+  function drawBackground() {
+    for (var i = -0.5; i < horizontalTileCount; i++) {
+        for (var j = -0.5; j < verticalTileCount; j++) {
+          var colour = Math.floor(Math.random() * 10);
+          switch(colour) {
+              case 1 : context.fillStyle = "#f6e93f"; break;
+              case 2 : context.fillStyle = "#5dadf8"; break;
+              default: context.fillStyle = "#ffffff"; break;
+          }
+          context.fillRect(i * tileSize - 1,  j * tileSize - 1, tileSize - 2, tileSize - 2);
         }
-      }
     }
-    $(this).before("<pre class='lines'>" + lines.join("\n") + "</pre>");
-  });
-
-  var headings = [];
-
-  var collectHeaders = function(){
-    headings.push({"top":$(this).offset().top - 15,"text":$(this).text()});
+    if (canvas.style.opacity == 0) {
+      $(canvas).fadeTo('slow', 1);
+    };
   }
 
-  if($(".markdown-body h1").length > 1) $(".markdown-body h1").each(collectHeaders)
-  else if($(".markdown-body h2").length > 1) $(".markdown-body h2").each(collectHeaders)
-  else if($(".markdown-body h3").length > 1) $(".markdown-body h3").each(collectHeaders)
-
-  $(window).scroll(function(){
-    if(headings.length==0) return true;
-    var scrolltop = $(window).scrollTop() || 0;
-    if(headings[0] && scrolltop < headings[0].top) {
-      $(".current-section").css({"opacity":0,"visibility":"hidden"});
-      return false;
-    }
-    $(".current-section").css({"opacity":1,"visibility":"visible"});
-    for(var i in headings) {
-      if(scrolltop >= headings[i].top) {
-        $(".current-section .name").text(headings[i].text);
+  function createBackgroundAnimations() {
+    setInterval(function() { 
+      var x = Math.floor(Math.random() * horizontalTileCount);
+      var y = Math.floor(Math.random() * verticalTileCount);
+      var colourInt = Math.floor(Math.random() * 3);
+      var colour;
+      switch(colourInt) {
+          case 1 : colour = "rgba(246, 233, 63, 0.2)"; break;
+          case 2 : colour = "rgba(93, 173, 248, 0.2)"; break;
+          default: colour = "rgba(255, 255, 255, 0.2"; break;
       }
-    }
-  });
+      animateRectAtXYWithColour(x, y, colour, tileSize);
+    }, 150);
 
-  $(".current-section a").click(function(){
-    $(window).scrollTop(0);
-    return false;
-  })
+  }
+
+  function animateRectAtXYWithColour(x, y, colour, size){
+    var tickCount = 0;
+    var xPosition = x * size - 1 - (size / 2);
+    var yPosition = y * size - 1 - (size / 2);
+    var timer = setInterval(function() { 
+      context.fillStyle = colour;
+      context.fillRect(xPosition, yPosition, size - 2, size - 2);
+      if (tickCount++ == 15) {
+          clearInterval(timer);
+      }
+    }, 100);
+  }
+
+  resizeCanvas();
+  createBackgroundAnimations();
 });
-})(jQuery)
