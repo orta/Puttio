@@ -33,10 +33,13 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if([defaults boolForKey:ORUseAllSearchEngines]){
         self.searchInfoLabel.textColor = [UIColor putioDarkRed];
-        self.searchInfoLabel.text =  @"Warning: Search ALL is unfiltered by license.";
+        self.searchInfoLabel.text =  @"Warning: Search ALL is unfiltered by license.\nApple and orta are not responsible for results.";
+        self.searchInfoLabel.numberOfLines = [UIDevice isPad]? 2: 4;
+
     }else{
         self.searchInfoLabel.textColor = [UIColor blackColor];
-        self.searchInfoLabel.text = @"Only search for Creative Commons works.";
+        self.searchInfoLabel.text = @"Only search for Creative Commons works. \n";
+        self.searchInfoLabel.numberOfLines = [UIDevice isPad]? 1: 2;
     }
 }
 
