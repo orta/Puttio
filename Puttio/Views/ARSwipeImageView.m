@@ -13,7 +13,6 @@
 static CGFloat MovementDistance = 200;
 
 - (void)awakeFromNib {
-//    self.frame = CGRectOffset(self.frame, MovementDistance, 0);
     self.userInteractionEnabled = NO;
     self.layer.opacity = 0.1;
 }

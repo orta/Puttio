@@ -17,8 +17,9 @@
 
 @implementation BaseProcess
 
-- (id)init {
+- (id)initWithFile:(File *)file {
     if (self = [super init]) {
+        self.id = file.id;
         [StatusViewController.sharedController addProcess:self];
         self.delegate = StatusViewController.sharedController;
         [self start];

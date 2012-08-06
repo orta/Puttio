@@ -25,7 +25,7 @@ static StatusViewController *_sharedController;
     NSArray *transfers;
     NSArray *messages;
     NSMutableArray *processes;
-    
+    NSMutableDictionary *_processIDs;
     CGFloat currentIndex;
     NSTimer *dataLoopTimer;
     
@@ -53,6 +53,7 @@ typedef enum {
 - (void)setup {
     [self setupShadow];
     [self startTimer];
+    _processIDs = [NSMutableDictionary dictionary];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -175,12 +176,24 @@ typedef enum {
     }];
 }
 
-- (void)addProcess:(BaseProcess *)process {    
+- (void)addProcess:(BaseProcess *)process {
+    if (_processIDs[process.id]) {
+        return;
+    }else{
+        _processIDs[process.id] = process;
+    }
+    
     if (!processes) {
         processes = [@[process] mutableCopy];
     }else{
         [processes addObject:process];
     }
+    [self.tableView reloadData];
+}
+
+- (void)processDidFinish:(BaseProcess *)process {
+    [_processIDs removeObjectForKey:process.id];
+    [processes removeObject:process];
     [self.tableView reloadData];
 }
 
@@ -319,9 +332,5 @@ typedef enum {
     currentIndex = -1;
 }
 
-- (void)processDidFinish:(BaseProcess *)process {
-    [processes removeObject:process];
-    [self.tableView reloadData];
-}
 
 @end

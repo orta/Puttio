@@ -19,7 +19,9 @@
 @property (assign) BOOL finished;
 @property NSString *primaryDescription;
 @property (weak) id <BaseProcessDelegate> delegate;
+@property (strong) NSString *id;
 
+- (id)initWithFile:(File *)file;
 - (void)start;
 - (void)tick;
 - (void)end;

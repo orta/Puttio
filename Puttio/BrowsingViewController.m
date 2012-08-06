@@ -146,6 +146,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
     if ([self itemIsFolder:item]) {
         [topFolder highlightItemAtIndex:position];
+        self.networkActivity = YES;
+        
         Folder *folder = (Folder *)item;
         [self loadFolder:folder];
     }else {

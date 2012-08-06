@@ -11,5 +11,5 @@
 @class AFHTTPRequestOperation;
 @interface FileDownloadProcess : BaseProcess
 
-+ (FileDownloadProcess *)processWithHTTPRequest:(AFHTTPRequestOperation *)operation andName:(NSString*)name;
++ (FileDownloadProcess *)processWithHTTPRequest:(AFHTTPRequestOperation *)operation andFile:(File *)file;
 @end

@@ -57,7 +57,7 @@
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:path]]];
         downloadOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         if (showTransferInBG) {
-            _fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation andName:_file.displayName];
+            _fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation andFile:_file];
         }
 
         [downloadOperation setDownloadProgressBlock:^(NSInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead) {

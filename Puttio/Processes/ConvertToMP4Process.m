@@ -15,7 +15,7 @@
 @implementation ConvertToMP4Process
 
 + (ConvertToMP4Process *)processWithFile:(File *)aFile {
-    ConvertToMP4Process *this = [[self alloc] init];
+    ConvertToMP4Process *this = [[self alloc] initWithFile:aFile];
     this.file = aFile;
     return this;
 }
