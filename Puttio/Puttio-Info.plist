@@ -12,6 +12,8 @@
 	<array>
 		<string>icon72.png</string>
 		<string>icon144.png</string>
+		<string>icon57.png</string>
+		<string>icon114.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -21,6 +23,8 @@
 			<array>
 				<string>icon72.png</string>
 				<string>icon144.png</string>
+				<string>icon57.png</string>
+				<string>icon114.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -83,8 +87,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

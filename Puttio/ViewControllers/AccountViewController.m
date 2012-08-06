@@ -38,7 +38,7 @@
 
     }else{
         self.searchInfoLabel.textColor = [UIColor blackColor];
-        self.searchInfoLabel.text = @"Only search for Creative Commons works. \n";
+        self.searchInfoLabel.text = @"Only search for Creative Commons works.";
         self.searchInfoLabel.numberOfLines = [UIDevice isPad]? 1: 2;
     }
 }
