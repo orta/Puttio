@@ -14,6 +14,7 @@
 #import "NSManagedObject+ActiveRecord.h"
 #import "ORHorizontalImageViewCell.h"
 
+
 @implementation FolderViewController
 
 - (void)setFolder:(Folder *)folder {
@@ -45,7 +46,7 @@
     _gridView.showsHorizontalScrollIndicator = NO;
     _gridView.contentInset = UIEdgeInsetsZero;
     _gridView.accessibilityLabel = @"GridView";
-    
+
     self.view = _gridView;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadGrid) name:ORReloadGridNotification object:nil];
@@ -53,6 +54,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
     self.view.userInteractionEnabled = YES;
     for (GMGridViewCell *cell in [_gridView subviews] ){
         cell.alpha = 1;

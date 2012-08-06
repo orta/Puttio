@@ -32,8 +32,10 @@
 - (void)setCopyrightText {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if([defaults boolForKey:ORUseAllSearchEngines]){
+        self.searchInfoLabel.textColor = [UIColor putioDarkRed];
         self.searchInfoLabel.text =  @"Warning: Search ALL is unfiltered by license.";
     }else{
+        self.searchInfoLabel.textColor = [UIColor blackColor];
         self.searchInfoLabel.text = @"Only search for Creative Commons works.";
     }
 }
@@ -42,7 +44,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // Welcome message
-    self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Hey there, %@", [defaults objectForKey:ORUserAccountNameDefault]];    
+    self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Hi, %@", [defaults objectForKey:ORUserAccountNameDefault]];    
     
     // Space Left on Put.io
     NSString *deviceUsedString = [defaults objectForKey:ORDiskQuotaAvailableDefault];
@@ -64,7 +66,7 @@
     bool oldCCValue = [defaults boolForKey:ORUseAllSearchEngines];
 
     DCRoundSwitch *commonsSwitch = sender;
-    // its opposite what's expected, means the switch flows better visually
+    // its opposite of what's expected, means the switch flows better visually
     [defaults setBool:!commonsSwitch.on forKey:ORUseAllSearchEngines];
     [defaults synchronize];
     
@@ -74,6 +76,7 @@
     }
 
     [self setCopyrightText];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ORCCSearchedChangedNotification object:nil];
 }
 
 - (IBAction)logOutTapped:(UIButton *)sender {
@@ -115,7 +118,7 @@
 - (void)openTwitter:(NSString *)username {
     BOOL hasTweetBot = [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"tweetbot://"]];
     if (hasTweetBot) {
-        NSString * url = [NSString stringWithFormat:@"tweetbot://%@/user_profile/%@",username, username];
+        NSString * url = [NSString stringWithFormat:@"tweetbot://%@/user_profile/%@", username, username];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
         return;
     }

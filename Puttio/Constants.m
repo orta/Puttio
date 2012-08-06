@@ -36,4 +36,6 @@ NSString *const ORHasShownReviewNagOneDefault = @"ORHasShownReviewNagOneDefault"
 NSString *const ORReloadGridNotification = @"ORReloadGridNotification";
 NSString *const ORReloadFolderNotification = @"ORReloadFolderNotification";
 NSString *const ORVideoFinishedNotification = @"ORVideoFinishedNotification";
+NSString *const ORCCSearchedChangedNotification = @"ORCCSearchedChangedNotification";
+
 NSString *const ORVideoDurationKey = @"ORVideoDurationKey";

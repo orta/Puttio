@@ -29,6 +29,8 @@
     [self setupGestures];
     [SearchController sharedInstance].delegate = self;
     self.activitySpinner.alpha = 0;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchTypeChanged) name:ORCCSearchedChangedNotification object:nil];
 }
 
 - (void)viewDidUnload {
@@ -109,6 +111,16 @@
     [self.tableView reloadData];
     [aSearchBar resignFirstResponder];
     lastSearchQuery = query;
+}
+
+#pragma mark -
+#pragma mark CC Search Changed
+
+- (void)searchTypeChanged {
+    if (lastSearchQuery) {
+        lastSearchQuery = nil;
+        [self searchBarTextDidEndEditing:self.searchBar];
+    }
 }
 
 #pragma mark -

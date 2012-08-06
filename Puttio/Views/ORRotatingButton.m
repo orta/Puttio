@@ -40,19 +40,24 @@ CGFloat RotationDuration = 0.9;
 
 - (void)startAnimating {
     if (rotationAnimation) return;
+    [self animate:HUGE_VAL];
+}
+
+- (void)animate:(int)times{
     CATransform3D rotationTransform = CATransform3DMakeRotation(1.01f * M_PI, 0, 0, 1.0);
     rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
 
     rotationAnimation.toValue = [NSValue valueWithCATransform3D:rotationTransform];
     rotationAnimation.duration = RotationDuration;
     rotationAnimation.cumulative = YES;
-    rotationAnimation.repeatCount = HUGE_VAL;
+    rotationAnimation.repeatCount = times;
 	[self.layer addAnimation:rotationAnimation forKey:@"transform"];
 
 }
 
 - (void)stopAnimating {
     [self.layer removeAllAnimations];
+    [self animate:1];
 }
 
 @end
