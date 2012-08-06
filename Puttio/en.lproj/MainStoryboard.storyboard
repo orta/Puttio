@@ -110,6 +110,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Hand.png" id="fXG-Bm-fZN" customClass="ARSwipeImageView">
+                                <rect key="frame" x="32" y="656" width="55" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -121,6 +125,7 @@
                         <outlet property="offlineView" destination="bRt-Fo-5hT" id="hru-8o-BPf"/>
                         <outlet property="refreshButton" destination="mFu-TC-0eG" id="L0H-sH-qFk"/>
                         <outlet property="secondErrorMessageLabel" destination="Ze4-Yd-8Eh" id="U8W-mp-Vl8"/>
+                        <outlet property="swipeHelperImage" destination="fXG-Bm-fZN" id="JHq-Ds-2ta"/>
                         <outlet property="titleLabel" destination="qfh-cM-XrR" id="EJU-5x-ijc"/>
                         <outlet property="view" destination="E5n-sY-E9O" id="aOv-I8-1Za"/>
                     </connections>
@@ -1675,7 +1680,7 @@ bloody hell</string>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="" id="Xjh-pX-HzJ">
                                 <rect key="frame" x="20" y="64" width="460" height="257"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1700,6 +1705,7 @@ bloody hell</string>
     <resources>
         <image name="Cutest_Cat.jpg" width="360" height="290"/>
         <image name="Github.png" width="88" height="88"/>
+        <image name="Hand.png" width="55" height="80"/>
         <image name="LoadingSpinner.png" width="54" height="54"/>
         <image name="MediaLibrary.png" width="64" height="64"/>
         <image name="RefreshButton.png" width="54" height="54"/>
@@ -1707,6 +1713,9 @@ bloody hell</string>
         <image name="orta.png" width="88" height="88"/>
     </resources>
     <classes>
+        <class className="ARSwipeImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARSwipeImageView.h"/>
+        </class>
         <class className="ARTitleLabel" superclassName="UILabel">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ARTitleLabel.h"/>
         </class>
@@ -1748,6 +1757,7 @@ bloody hell</string>
                 <relationship kind="outlet" name="offlineView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="refreshButton" candidateClass="ORRotatingButton"/>
                 <relationship kind="outlet" name="secondErrorMessageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="swipeHelperImage" candidateClass="ARSwipeImageView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

@@ -135,6 +135,9 @@
 		60C45DCC157C45360059D4B4 /* UINavigationController+ForceRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45DCB157C45360059D4B4 /* UINavigationController+ForceRotate.m */; };
 		60C45DE0157C498B0059D4B4 /* ProcessPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C45DDF157C498A0059D4B4 /* ProcessPopoverViewController.m */; };
 		60C85AED15CEBEA3008FC895 /* TextFileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C85AEC15CEBEA3008FC895 /* TextFileInfoViewController.m */; };
+		60C85AF915CFAD40008FC895 /* Hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C85AF715CFAD40008FC895 /* Hand.png */; };
+		60C85AFA15CFAD40008FC895 /* Hand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C85AF815CFAD40008FC895 /* Hand@2x.png */; };
+		60C85AFE15CFAD7E008FC895 /* ARSwipeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C85AFD15CFAD7E008FC895 /* ARSwipeImageView.m */; };
 		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
 		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
 		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
@@ -393,6 +396,10 @@
 		60C45DDF157C498A0059D4B4 /* ProcessPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProcessPopoverViewController.m; path = ViewControllers/ProcessPopoverViewController.m; sourceTree = "<group>"; };
 		60C85AEB15CEBEA3008FC895 /* TextFileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFileInfoViewController.h; path = ViewControllers/TextFileInfoViewController.h; sourceTree = "<group>"; };
 		60C85AEC15CEBEA3008FC895 /* TextFileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFileInfoViewController.m; path = ViewControllers/TextFileInfoViewController.m; sourceTree = "<group>"; };
+		60C85AF715CFAD40008FC895 /* Hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hand.png; sourceTree = "<group>"; };
+		60C85AF815CFAD40008FC895 /* Hand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand@2x.png"; sourceTree = "<group>"; };
+		60C85AFC15CFAD7E008FC895 /* ARSwipeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARSwipeImageView.h; path = Views/ARSwipeImageView.h; sourceTree = "<group>"; };
+		60C85AFD15CFAD7E008FC895 /* ARSwipeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARSwipeImageView.m; path = Views/ARSwipeImageView.m; sourceTree = "<group>"; };
 		60D9B7E91535C30F00A64E0F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Models/SearchResult.h; sourceTree = "<group>"; };
 		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
 		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
@@ -494,6 +501,8 @@
 				6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */,
 				608C72C515C308AE00EE85FC /* ARTitleLabel.h */,
 				608C72C615C308AE00EE85FC /* ARTitleLabel.m */,
+				60C85AFC15CFAD7E008FC895 /* ARSwipeImageView.h */,
+				60C85AFD15CFAD7E008FC895 /* ARSwipeImageView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -611,6 +620,8 @@
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60C85AF715CFAD40008FC895 /* Hand.png */,
+				60C85AF815CFAD40008FC895 /* Hand@2x.png */,
 				60A34F7515CB384700983442 /* Paper.png */,
 				60A34F7615CB384700983442 /* Paper@2x.png */,
 				608C72BD15C3063500EE85FC /* Exo-Bold.otf */,
@@ -1045,6 +1056,8 @@
 				608C72C015C3063500EE85FC /* Exo-Light.otf in Resources */,
 				60A34F7715CB384700983442 /* Paper.png in Resources */,
 				60A34F7815CB384700983442 /* Paper@2x.png in Resources */,
+				60C85AF915CFAD40008FC895 /* Hand.png in Resources */,
+				60C85AFA15CFAD40008FC895 /* Hand@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1171,6 +1184,7 @@
 				608C72C415C3074100EE85FC /* UIFont+Puttio.m in Sources */,
 				608C72C715C308AE00EE85FC /* ARTitleLabel.m in Sources */,
 				60C85AED15CEBEA3008FC895 /* TextFileInfoViewController.m in Sources */,
+				60C85AFE15CFAD7E008FC895 /* ARSwipeImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

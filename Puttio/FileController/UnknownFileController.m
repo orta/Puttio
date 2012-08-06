@@ -59,7 +59,7 @@
 }
 
 - (NSString *)descriptiveTextForFile {
-    return [NSString stringWithFormat: @"Open in %@ External app", _file.displayName];
+    return [NSString stringWithFormat: @"Open %@ in External app", _file.displayName];
 }
 
 - (NSString *)primaryButtonText {
@@ -100,8 +100,8 @@
 
 -(void)documentInteractionController:(UIDocumentInteractionController *)controller 
        willBeginSendingToApplication:(NSString *)application {
+    self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Sending file to %@", application];
     [self markFileAsViewed];
-    self.infoController.additionalInfoLabel = [NSString stringWithFormat:@"Sending to %@", application];
 }
 
 @end

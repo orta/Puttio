@@ -26,6 +26,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 @end
 
 @implementation BrowsingViewController
+@synthesize swipeHelperImage;
 @synthesize firstErrorMessageLabel;
 @synthesize secondErrorMessageLabel;
 
@@ -56,6 +57,9 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:ORShownSwipeHelperDefault]) {
+        [swipeHelperImage removeFromSuperview];
+    }
     [self reloadFolder];
 }
 
@@ -122,7 +126,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
             folderGrid.browsingViewController = self;
             
             if (_gridNavController) {
-                [_gridNavController pushViewController:folderGrid animated:YES];   
+                [_gridNavController pushViewController:folderGrid animated:YES];
+                [self showHelperGesture];
             }else{
                 [self setupNavWithFolderVC:folderGrid];
             }
@@ -184,6 +189,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     [self setRefreshButton:nil];
     [self setFirstErrorMessageLabel:nil];
     [self setSecondErrorMessageLabel:nil];
+    [self setSwipeHelperImage:nil];
     [super viewDidUnload];
 }
 
@@ -195,6 +201,14 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     if ([viewController isMemberOfClass:[FolderViewController class]]) {
         FolderViewController *folderVC = (FolderViewController *)viewController;
         self.titleLabel.text = folderVC.folder.displayName;
+    }
+}
+
+- (void)showHelperGesture {
+    if (swipeHelperImage) {
+        [swipeHelperImage startAnimation];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:ORShownSwipeHelperDefault];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 

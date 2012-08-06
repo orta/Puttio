@@ -19,6 +19,7 @@ extern NSString *const APIKeyDefault;
 extern NSString *const APISecretDefault;
 extern NSString *const ORUserIdDefault;
 extern NSString *const ORStreamTokenDefault;
+extern NSString *const ORShownSwipeHelperDefault;
 
 extern NSString *const ORAppVersion;
 extern NSString *const ORShowLeftSidebarDefault;

@@ -163,7 +163,7 @@
     }
 
     [[PutIOClient sharedClient] getMP4InfoForFile:_file :^(id userInfoObject) {
-        if (![userInfoObject isMemberOfClass:[NSError class]]) {
+        if (![userInfoObject isKindOfClass:[NSError class]]) {
             
             NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
             
