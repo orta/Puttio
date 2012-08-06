@@ -7,6 +7,7 @@
 //
 
 #import "ARSwipeImageView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ARSwipeImageView
 

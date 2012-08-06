@@ -17,9 +17,7 @@ static CGFloat TitleLabelHeight = 44;
 static CGFloat ImageBottomMargin = 10;
 
 @interface ORImageViewCell (){
-    UIImage *image;
     UIImageView *watchedSash;
-
     UILabel *extensionLabel;
 }
 
@@ -144,12 +142,16 @@ static CGFloat ImageBottomMargin = 10;
 - (void) addWatchedEffects {
     bool isRetina = [[UIScreen mainScreen] scale] > 1;
     CGRect imageRect = [imageView frameForImage];
-    
+
     watchedSash = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WatchedSash"]];
     imageRect.size.width = CGRectGetWidth(watchedSash.frame);
     imageRect.size.height = CGRectGetHeight(watchedSash.frame);
-    imageRect.origin.x -= isRetina? 1 : 2;
-    imageRect.origin.y -= isRetina? 1 : 2;;
+    if ([(File *)_item hasPreviewThumbnail]) {
+        imageRect.origin.x -= isRetina? 1 : 2;
+        imageRect.origin.y -= isRetina? 1 : 2;;
+    }else{
+        imageRect.origin.x += isRetina? 1 : 2;
+    }
     watchedSash.frame = imageRect;
     [imageView addSubview:watchedSash];
 }

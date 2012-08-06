@@ -7,6 +7,7 @@
 //
 
 #import "ORRotatingButton.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ORRotatingButton () {
     CABasicAnimation *rotationAnimation;
