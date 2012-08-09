@@ -32,14 +32,47 @@ static SearchController *sharedInstance;
     sharedInstance.foundNoResultsCount = 0;
     
     query = [query stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-    [self searchMininova:query];
 
+    [self searchMininova:query];
+    [self searchArchiveOrg:query];
     if([[NSUserDefaults standardUserDefaults] boolForKey:ORUseAllSearchEngines]){
         [self searchISOHunt:query];
         [self searchFenopy:query];
     }
     [Analytics incrementUserProperty:@"Started Search" byInt:1];
     [Analytics event:@"User Started a Search"];
+}
+
++ (void)searchArchiveOrg:(NSString *)query {
+    NSString *address = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@", query];
+    NSString *end = @"+AND+format%3A%22Archive+BitTorrent%22&fl%5B%5D=collection&fl%5B%5D=downloads&fl%5B%5D=identifier&fl%5B%5D=title&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=50&page=1&indent=yes&output=json";
+    address = [address stringByAppendingString:end];
+    
+    NSURL *url = [NSURL URLWithString:address];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, id responseObject) {
+        NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
+        NSError *error = nil;
+        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
+        NSArray *results = [JSON valueForKeyPath:@"response.docs"];
+        if (results.count) {
+            NSMutableArray *searchResults = [NSMutableArray array];
+            for (NSDictionary *dictionary in results) {
+                SearchResult * searchResult = [SearchResult resultWithArchiveOrgDictionary:dictionary];
+                [searchResults addObject:searchResult];
+            }
+            [self passArrayToDelegate:searchResults];
+        }else{
+            [self foundNoResults];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [Analytics incrementUserProperty:@"Archive Org Search Failed" byInt:1];
+        NSLog(@"fail whale archive org %@", error);
+    }];
+
+    [operation start];
 }
 
 + (void)searchFenopy:(NSString *)query {
@@ -132,7 +165,7 @@ static SearchController *sharedInstance;
 + (void)foundNoResults {
     sharedInstance.foundNoResultsCount++;
     BOOL allSearchEngines = [[NSUserDefaults standardUserDefaults] boolForKey:ORUseAllSearchEngines];
-    int neededResults = allSearchEngines? 3 : 1;
+    int neededResults = allSearchEngines? 4 : 2;
     
     if (neededResults == sharedInstance.foundNoResultsCount) {
         if ([self sharedInstance] && [self sharedInstance].delegate) {

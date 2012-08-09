@@ -34,6 +34,7 @@ enum cellSelectedState {
 - (NSString *)representedPath;
 - (NSString *)representedSize;
 
++ (SearchResult *)resultWithArchiveOrgDictionary: (NSDictionary *)item;
 + (SearchResult *)resultWithMininovaDictionary: (NSDictionary *)item;
 + (SearchResult *)resultWithISOHuntDictionary: (NSDictionary *)item;
 + (SearchResult *)resultWithFenopyDictionary: (NSDictionary *)item;

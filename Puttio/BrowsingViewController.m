@@ -153,7 +153,13 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     }else {
         File *file = (File *)item;
         UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
-        CGRect initialFrame = [topFolder.gridView convertRect:[[topFolder.gridView cellForItemAtIndex:position] frame] toView:rootView];
+        GMGridViewCell *cell = [topFolder.gridView cellForItemAtIndex:position];
+        CGRect initialFrame = [topFolder.gridView convertRect:[cell frame] toView:rootView];
+
+        #warning hack IMO
+        if (!cell) {
+            initialFrame = CGRectNull;
+        }
 
         NSString *identifier = nil;
         if (file.isTextualType) {

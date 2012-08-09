@@ -11,6 +11,20 @@
 
 @implementation SearchResult
 
++ (SearchResult *)resultWithArchiveOrgDictionary: (NSDictionary *)item {
+    SearchResult *result = [[SearchResult alloc] init];
+    result.seedersCount = [[item valueForKeyPath:@"downloads"] intValue];
+    result.peersCount = 1;
+    // http://archive.org/download/catalegdelsmanus00atenuoft/catalegdelsmanus00atenuoft_archive.torrent
+    NSString *path = @"http://archive.org/download/%@/%@_archive.torrent";
+    result.torrentURL = [NSString stringWithFormat:path, [item valueForKeyPath:@"identifier"],[item valueForKeyPath:@"identifier"]];
+    result.name = [item valueForKeyPath:@"title"];
+    result.hostName = @"archive.org";
+    result.sizeString = @"Unknown - Archive.org";
+    return result;
+}
+
+
 + (SearchResult *)resultWithMininovaDictionary: (NSDictionary *)item {
     SearchResult *result = [[SearchResult alloc] init];
     result.seedersCount = [[item valueForKeyPath:@"seeds"] intValue];
