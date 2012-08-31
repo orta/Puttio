@@ -56,6 +56,7 @@
 		6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */; };
 		606C79A4152F508E00608C56 /* ORDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79A3152F508E00608C56 /* ORDefaults.m */; };
 		606C79B01530A4B100608C56 /* NSDictionary+ObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */; };
+		607C18C215F15D4500D2C5E6 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C18C115F15D4500D2C5E6 /* AudioViewController.m */; };
 		6080914415BAED0800BDB3D7 /* orta.png in Resources */ = {isa = PBXBuildFile; fileRef = 6080914215BAED0800BDB3D7 /* orta.png */; };
 		6080914515BAED0800BDB3D7 /* orta@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6080914315BAED0800BDB3D7 /* orta@2x.png */; };
 		6080914915BAF5AA00BDB3D7 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6080914815BAF5AA00BDB3D7 /* FeedbackViewController.m */; };
@@ -261,6 +262,8 @@
 		606C79A3152F508E00608C56 /* ORDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDefaults.m; path = Utils/ORDefaults.m; sourceTree = "<group>"; };
 		606C79AE1530A4B100608C56 /* NSDictionary+ObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+ObjectForKey.h"; path = "Categories/NSDictionary+ObjectForKey.h"; sourceTree = "<group>"; };
 		606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+ObjectForKey.m"; path = "Categories/NSDictionary+ObjectForKey.m"; sourceTree = "<group>"; };
+		607C18C015F15D4500D2C5E6 /* AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioViewController.h; path = ViewControllers/AudioViewController.h; sourceTree = "<group>"; };
+		607C18C115F15D4500D2C5E6 /* AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioViewController.m; path = ViewControllers/AudioViewController.m; sourceTree = "<group>"; };
 		6080914215BAED0800BDB3D7 /* orta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orta.png; sourceTree = "<group>"; };
 		6080914315BAED0800BDB3D7 /* orta@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orta@2x.png"; sourceTree = "<group>"; };
 		6080914715BAF5A900BDB3D7 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackViewController.h; path = ViewControllers/FeedbackViewController.h; sourceTree = "<group>"; };
@@ -811,6 +814,8 @@
 				6080914815BAF5AA00BDB3D7 /* FeedbackViewController.m */,
 				60C85AEB15CEBEA3008FC895 /* TextFileInfoViewController.h */,
 				60C85AEC15CEBEA3008FC895 /* TextFileInfoViewController.m */,
+				607C18C015F15D4500D2C5E6 /* AudioViewController.h */,
+				607C18C115F15D4500D2C5E6 /* AudioViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1195,6 +1200,7 @@
 				608C72C715C308AE00EE85FC /* ARTitleLabel.m in Sources */,
 				60C85AED15CEBEA3008FC895 /* TextFileInfoViewController.m in Sources */,
 				60C85AFE15CFAD7E008FC895 /* ARSwipeImageView.m in Sources */,
+				607C18C215F15D4500D2C5E6 /* AudioViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

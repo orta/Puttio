@@ -26,4 +26,5 @@
 + (NSString *)createDisplayNameFromName:(NSString *)fullName;
 - (BOOL)hasPreviewThumbnail;
 - (BOOL)isTextualType;
+- (BOOL)isAudioType;
 @end

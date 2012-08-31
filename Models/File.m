@@ -24,11 +24,15 @@
 static NSArray *ThumbnailFileTypes;
 static NSArray *TextFileTypes;
 static NSArray *TextFileNames;
+static NSArray *AudioFileTypes;
 
 + (void)initialize {
     ThumbnailFileTypes = @[@"mp4", @"mov", @"wmv", @"m4v", @"mkv", @"avi", @"jpg", @"png", @"gif"];
+
     TextFileTypes = @[ @"txt", @"nfo", @"log", @"diz", @"xml"];
     TextFileNames = @[ @"README", @"LICENSE", @"INSTALL", @"CHANGELOG", @"AUTHORS"];
+
+    AudioFileTypes = @[ @"mp3", @"aac", @"wav", @"auf"];
 }
 
 + (NSString *)createDisplayNameFromName:(NSString *)fullName {
@@ -65,6 +69,11 @@ static NSArray *TextFileNames;
 - (BOOL)isTextualType {
     if ([TextFileTypes containsObject:self.extension]) return YES;
     if ([TextFileNames containsObject:self.name]) return YES;
+    return NO;
+}
+
+- (BOOL)isAudioType {
+    if ([AudioFileTypes containsObject:self.extension]) return YES;
     return NO;
 }
 

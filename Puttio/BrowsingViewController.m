@@ -164,7 +164,9 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
         NSString *identifier = nil;
         if (file.isTextualType) {
             identifier = @"TextInfoView";
-        }else{
+        }else if (file.isAudioType){
+            identifier = @"AudioInfoView";
+        }else {
             identifier = [UIDevice isPhone]? @"FileInfoPhoneView" : @"FileInfoView";
         }
         [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:identifier andItem:file];
