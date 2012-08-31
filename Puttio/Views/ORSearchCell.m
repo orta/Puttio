@@ -22,7 +22,7 @@
 - (void)userHasSelectedFile {
     self.contentView.backgroundColor = [UIColor putioBlue];
     self.seedersLabel.textColor = [UIColor whiteColor];
-    self.seedersLabel.text = @"Requesting download";
+    self.seedersLabel.text = @"Requesting";
     self.fileSizeLabel.text = @"";
     self.userInteractionEnabled = NO;    
 }
@@ -30,7 +30,7 @@
 - (void)userHasFailedToAddFile {
     self.contentView.backgroundColor = [UIColor putioRed];
     self.seedersLabel.textColor = [UIColor whiteColor];
-    self.seedersLabel.text = @"Adding file failed";
+    self.seedersLabel.text = @"Request failed";
     self.fileSizeLabel.text = @"";
     self.userInteractionEnabled = YES;
 }
@@ -38,7 +38,8 @@
 - (void)userHasAddedFile {
     self.contentView.backgroundColor = [UIColor putioDarkBlue];
     self.seedersLabel.textColor = [UIColor putioBlue];
-    self.seedersLabel.text = @"Added file to transfers";  
+    self.fileNameLabel.textColor = [UIColor whiteColor];
+    self.seedersLabel.text = @"Request succeeded";  
     self.fileSizeLabel.text = @"";
 }
 

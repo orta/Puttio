@@ -33,7 +33,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if([defaults boolForKey:ORUseAllSearchEngines]){
         self.searchInfoLabel.textColor = [UIColor putioDarkRed];
-        self.searchInfoLabel.text =  @"Warning: Search ALL is unfiltered by license.\nApple and orta are not responsible for results.";
+        self.searchInfoLabel.text =  @"Warning: Search ALL is unfiltered by license.\nApple nor orta are responsible for results.";
         self.searchInfoLabel.numberOfLines = [UIDevice isPad]? 2: 4;
 
     }else{

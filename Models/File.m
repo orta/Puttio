@@ -27,7 +27,7 @@ static NSArray *TextFileNames;
 
 + (void)initialize {
     ThumbnailFileTypes = @[@"mp4", @"mov", @"wmv", @"m4v", @"mkv", @"avi", @"jpg", @"png", @"gif"];
-    TextFileTypes = @[ @"txt", @"nfo", @"log", @"diz"];
+    TextFileTypes = @[ @"txt", @"nfo", @"log", @"diz", @"xml"];
     TextFileNames = @[ @"README", @"LICENSE", @"INSTALL", @"CHANGELOG", @"AUTHORS"];
 }
 

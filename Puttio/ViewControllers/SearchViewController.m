@@ -195,23 +195,26 @@
 }
 
 - (UIColor *)backgroundColorForCellWithRank:(NSInteger)rank {
-    if (rank > 50) {
-        return [UIColor putioYellow];
-    }
-    else if (rank > 40) {
-        return [[UIColor putioYellow] colorWithAlphaComponent:0.8];
-    }
-    else if (rank > 30) {
+    if (rank > 500) {
         return [[UIColor putioYellow] colorWithAlphaComponent:0.6];
     }
-    else if (rank > 20) {
+    if (rank > 50) {
+        return [[UIColor putioYellow] colorWithAlphaComponent:0.5];
+    }
+    else if (rank > 40) {
         return [[UIColor putioYellow] colorWithAlphaComponent:0.4];
     }
-    else if (rank > 10) {
+    else if (rank > 30) {
+        return [[UIColor putioYellow] colorWithAlphaComponent:0.3];
+    }
+    else if (rank > 20) {
         return [[UIColor putioYellow] colorWithAlphaComponent:0.2];
     }
-    else {
+    else if (rank > 10) {
         return [[UIColor putioYellow] colorWithAlphaComponent:0.1];
+    }
+    else {
+        return [[UIColor putioYellow] colorWithAlphaComponent:0.05];
     }
 }
 
