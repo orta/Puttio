@@ -154,6 +154,7 @@ static NSString * AFStringFromIndexSet(NSIndexSet *indexSet) {
             dispatch_retain(failureCallbackQueue);
             _failureCallbackQueue = failureCallbackQueue;
         }
+        
     }    
 }
 
