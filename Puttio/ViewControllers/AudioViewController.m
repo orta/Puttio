@@ -25,7 +25,6 @@
 }
 
 - (IBAction)playButtonTapped:(id)sender {
-    NSError *error = nil;
     NSString *address = [NSString stringWithFormat:@"https://put.io/v2/files/%@/stream", _item.id];
     NSURL *fileURL = [NSURL URLWithString:[PutIOClient appendOauthToken:address]];
 
