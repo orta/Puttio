@@ -47,7 +47,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // Welcome message
-    self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Hi, %@", [defaults objectForKey:ORUserAccountNameDefault]];    
+    self.welcomeAccountLabel.text = [NSString stringWithFormat:@"Hi, %@!", [defaults objectForKey:ORUserAccountNameDefault]];    
     
     // Space Left on Put.io
     NSString *deviceUsedString = [defaults objectForKey:ORDiskQuotaAvailableDefault];
