@@ -15,7 +15,7 @@ static CGFloat MovementDistance = 200;
 
 - (void)awakeFromNib {
     self.userInteractionEnabled = NO;
-    self.layer.opacity = 0.1;
+    self.layer.opacity = 0.0;
 }
 
 - (void)startAnimation {

@@ -36,7 +36,7 @@
 }
 
 - (void)userHasAddedFile {
-    self.contentView.backgroundColor = [UIColor putioYellow];
+    self.contentView.backgroundColor = [UIColor putioDarkBlue];
     self.seedersLabel.textColor = [UIColor putioBlue];
     self.seedersLabel.text = @"Added file to transfers";  
     self.fileSizeLabel.text = @"";

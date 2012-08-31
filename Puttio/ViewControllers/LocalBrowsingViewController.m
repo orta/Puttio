@@ -128,7 +128,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     LocalFile *file = files[position];
     [MoviePlayer watchLocalMovieAtPath:[file localPathForFile]];
 
-    file.watched = @YES;
+    file.watched = @(YES);
     [[file managedObjectContext] save:nil];
     [self reloadFolder];
 }

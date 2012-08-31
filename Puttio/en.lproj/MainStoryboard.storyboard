@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2829" systemVersion="12A269" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="VQ5-Rz-QCj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2829" systemVersion="12B19" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="VQ5-Rz-QCj">
     <dependencies>
         <deployment version="1280" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1914"/>
@@ -383,25 +383,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="330" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="290" id="t7X-Y2-mEG">
-                                                    <rect key="frame" x="20" y="11" width="290" height="49"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="221" id="t7X-Y2-mEG">
+                                                    <rect key="frame" x="89" y="6" width="221" height="76"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <nil key="highlightedColor"/>
-                                                    <string key="text">The title of my cool cat film s
+                                                    <string key="text">The title of my cool cat film which is awesome
 2x as g</string>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="120 seeders" autoshrinkMode="minimumFontSize" id="nwd-IC-Drc">
-                                                    <rect key="frame" x="20" y="59" width="217" height="24"/>
+                                                    <rect key="frame" x="8" y="58" width="62" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <nil key="highlightedColor"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="720Mb" textAlignment="right" autoshrinkMode="minimumFontSize" id="pB5-We-4CD">
-                                                    <rect key="frame" x="233" y="57" width="77" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <rect key="frame" x="20" y="31" width="55" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="highlightedColor"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>

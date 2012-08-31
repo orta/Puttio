@@ -147,7 +147,7 @@
                 File *file = item;
                 for (WatchedItem *item in list.items) {
                     if ([item.fileID isEqualToString:file.id]) {
-                        file.watched = @YES;;
+                        file.watched = @(YES);
                     }
                 }
             }

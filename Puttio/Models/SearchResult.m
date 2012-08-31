@@ -7,7 +7,7 @@
 //
 
 #import "SearchResult.h"
-#import "FileSizeUtils.h"
+#import "UIDevice+SpaceStats.h"
 
 @implementation SearchResult
 
@@ -20,7 +20,7 @@
     result.torrentURL = [NSString stringWithFormat:path, [item valueForKeyPath:@"identifier"],[item valueForKeyPath:@"identifier"]];
     result.name = [item valueForKeyPath:@"title"];
     result.hostName = @"archive.org";
-    result.sizeString = @"Unknown - Archive.org";
+    result.sizeString = @"Archive.org";
     return result;
 }
 
@@ -34,6 +34,8 @@
     NSString *title = [item valueForKeyPath:@"title"];
     result.name = [title stripHTMLtrimWhiteSpace:YES];
     result.hostName = @"mininova.org";
+    [result generateRanking];
+
     return result;
 }
 
@@ -46,6 +48,8 @@
     result.name = [title stripHTMLtrimWhiteSpace:YES];
     result.hostName = [item valueForKeyPath:@"original_site"];
     result.sizeString = [item valueForKeyPath:@"size"];
+    [result generateRanking];
+
     return result;
 }
 
@@ -85,7 +89,7 @@
     if (self.sizeString) {
         return self.sizeString;
     }else {
-        return unitStringFromBytes(self.size);
+        return [UIDevice humanStringFromBytes:self.size];
     }
 }
 

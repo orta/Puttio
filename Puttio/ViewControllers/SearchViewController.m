@@ -174,10 +174,11 @@
         ORSearchCell *theCell = (ORSearchCell*)cell;
         theCell.fileNameLabel.text = item.name;
         theCell.fileSizeLabel.text = item.representedSize;
-        theCell.seedersLabel.text = [NSString stringWithFormat:@"%i seeders", item.seedersCount];
-        
+        theCell.seedersLabel.text = @""; //[NSString stringWithFormat:@"%i - %i --", item.ranking, item.seedersCount];
+
         switch (item.selectedState) {
             case SearchResultNormal:
+                theCell.contentView.backgroundColor = [self backgroundColorForCellWithRank:item.ranking];
                 break;
             case SearchResultFailed:
                 [theCell userHasFailedToAddFile];
@@ -191,6 +192,27 @@
         }
     }    
     return cell;
+}
+
+- (UIColor *)backgroundColorForCellWithRank:(NSInteger)rank {
+    if (rank > 50) {
+        return [UIColor putioYellow];
+    }
+    else if (rank > 40) {
+        return [[UIColor putioYellow] colorWithAlphaComponent:0.8];
+    }
+    else if (rank > 30) {
+        return [[UIColor putioYellow] colorWithAlphaComponent:0.6];
+    }
+    else if (rank > 20) {
+        return [[UIColor putioYellow] colorWithAlphaComponent:0.4];
+    }
+    else if (rank > 10) {
+        return [[UIColor putioYellow] colorWithAlphaComponent:0.2];
+    }
+    else {
+        return [[UIColor putioYellow] colorWithAlphaComponent:0.1];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {

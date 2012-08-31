@@ -29,19 +29,24 @@
         [[PutIOClient sharedClient] getMP4InfoForFile:self.file :^(id userInfoObject) {
             if (![userInfoObject isKindOfClass:[NSError class]]) {
                 NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
+
                 if ([status isEqualToString:@"COMPLETED"]) {
                     [self end];
                 }
                 
-                if ([status isEqualToString:@"CONVERTING"]) {
+                else if ([status isEqualToString:@"CONVERTING"]) {
                     if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
                         _message = nil;
                         self.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
                     }
                 }
                 
-                if ([status isEqualToString:@"IN_QUEUE"]) {
+                else if ([status isEqualToString:@"IN_QUEUE"]) {
                     _message = @"In Queue";
+                }
+
+                else {
+                    _message = @"Conversion Error";
                 }
             }
         }];

@@ -13,7 +13,7 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "MoviePlayer.h"
-#import "FileSizeUtils.h"
+#import "UIDevice+SpaceStats.h"
 #import "ConvertToMP4Process.h"
 #import "UIDevice+SpaceStats.h"
 
@@ -127,7 +127,7 @@
         assert([[NSFileManager defaultManager] fileExistsAtPath: [fileUrl path]]);
         
         NSError *error = nil;
-        BOOL success = [fileUrl setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:&error];
+        BOOL success = [fileUrl setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:&error];
         if(!success){
             NSLog(@"Error excluding %@ from backup %@", fileUrl, error);
         }

@@ -59,8 +59,10 @@ static SearchController *sharedInstance;
         if (results.count) {
             NSMutableArray *searchResults = [NSMutableArray array];
             for (NSDictionary *dictionary in results) {
-                SearchResult * searchResult = [SearchResult resultWithArchiveOrgDictionary:dictionary];
-                [searchResults addObject:searchResult];
+                SearchResult * result = [SearchResult resultWithArchiveOrgDictionary:dictionary];
+                if (result.seedersCount) {
+                    [searchResults addObject:result];
+                }
             }
             [self passArrayToDelegate:searchResults];
         }else{
@@ -88,7 +90,9 @@ static SearchController *sharedInstance;
             NSMutableArray *searchResults = [NSMutableArray array];
             for (NSDictionary *dictionary in results) {
                 SearchResult * searchResult = [SearchResult resultWithFenopyDictionary:dictionary];
-                [searchResults addObject:searchResult];
+                if (searchResult.seedersCount > 0) {
+                    [searchResults addObject:searchResult];
+                }
             }
             [self passArrayToDelegate:searchResults];
         }else{
@@ -117,8 +121,9 @@ static SearchController *sharedInstance;
             NSMutableArray *searchResults = [NSMutableArray array];
             for (NSDictionary *item in results) {
                 SearchResult *result = [SearchResult resultWithISOHuntDictionary:item];
-                [searchResults addObject:result];
-            }
+                if (result.seedersCount > 0) {
+                    [searchResults addObject:result];
+                }            }
             [self passArrayToDelegate:searchResults];
         }else{
             [self foundNoResults];
@@ -148,7 +153,9 @@ static SearchController *sharedInstance;
             NSMutableArray *searchResults = [NSMutableArray array];
             for (NSDictionary *item in results) {
                 SearchResult *result = [SearchResult resultWithMininovaDictionary:item];
-                [searchResults addObject:result];
+                if (result.seedersCount > 0) {
+                    [searchResults addObject:result];
+                }
             }
             [self passArrayToDelegate:searchResults];
         }else{

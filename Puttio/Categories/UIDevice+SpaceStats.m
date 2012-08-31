@@ -28,7 +28,7 @@
         exponent++;
     }
     NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
-    [formatter setMaximumFractionDigits:2];
+    [formatter setMaximumFractionDigits:1];
     // Beware of reusing this format string. -[NSString stringWithFormat] ignores \0, *printf does not.
     return [NSString stringWithFormat:@"%@ %cB", [formatter stringFromNumber: @(bytes)], units[exponent]];
 }

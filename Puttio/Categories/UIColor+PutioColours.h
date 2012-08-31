@@ -16,4 +16,5 @@
 + (UIColor *)putioLightGray;
 + (UIColor *)putioRed;
 + (UIColor *)putioDarkRed;
+- (UIColor *)lighterColorByPercentage:(float)amount;
 @end

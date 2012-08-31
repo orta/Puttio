@@ -11,7 +11,6 @@
 #include <sys/param.h>  
 #include <sys/mount.h>  
 #import "FileInfoViewController.h"
-#include "FileSizeUtils.h"
 
 #import "WatchedItem.h"
 #import "WatchedList.h"
