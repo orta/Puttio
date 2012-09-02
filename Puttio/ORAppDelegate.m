@@ -39,7 +39,8 @@
     }else{
         [self showLogin];
     }
-
+    
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
     [Crashlytics startWithAPIKey:CRASHLYTICS_API_KEY];
     return YES;
 }
@@ -65,10 +66,11 @@
 - (void)showLogin {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
 
-    LoginViewController *oauthVC = [storyboard instantiateViewControllerWithIdentifier:@"oauthView"];
-    oauthVC.delegate = self;
+    LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginView"];
+    loginVC.delegate = self;
+
     [self.window makeKeyAndVisible];
-    [self.window.rootViewController presentModalViewController:oauthVC animated:NO];
+    [self.window.rootViewController presentModalViewController:loginVC animated:NO];
 }
 
 - (void)authorizationDidFinishWithController:(LoginViewController *)controller {
@@ -98,7 +100,9 @@
 }
 
 - (void)showNag {
-    [ModalZoomView showWithViewControllerIdentifier:@"nagView"];
+    NSString *identifier = [UIDevice isPad]? @"nagView" : @"nagPhoneView";
+    [ModalZoomView showWithViewControllerIdentifier:identifier];
+    
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:ORHasShownReviewNagOneDefault];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

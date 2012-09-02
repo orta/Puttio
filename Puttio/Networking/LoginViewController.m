@@ -14,6 +14,7 @@
 @synthesize errorHeaderView;
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self setupShadow];
     self.warningLabel.text = @"";
@@ -23,11 +24,13 @@
         frame.origin.y = 0;
         self.loginViewWrapper.frame = frame;
     }
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    
     // Incase we've logged out and back in.
     NSArray* cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
     for (NSHTTPCookie *cookie in cookies) {

@@ -110,6 +110,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 }
 
 - (void)loadFolder:(Folder *)folder {
+    if (![PutIOClient sharedClient].ready) return;
+    
     currentFolder = folder;
     self.networkActivity = YES;
 
