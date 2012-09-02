@@ -84,6 +84,10 @@
 }
 
 - (void) markFileAsViewed {
+    [self performSelectorOnMainThread:@selector(_markFileAsViewed) withObject:nil waitUntilDone:YES];
+}
+
+- (void)_markFileAsViewed {
     WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_file.folder.id];
     if (!list) {
         list = [WatchedList object];
@@ -92,7 +96,7 @@
     WatchedItem *item = [WatchedItem object];
     item.fileID = _file.id;
     [list addItemsObject:item];
-    
+
     [[WatchedItem managedObjectContext] save:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:ORReloadGridNotification object:nil];
 }

@@ -30,15 +30,17 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 @synthesize firstErrorMessageLabel;
 @synthesize secondErrorMessageLabel;
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupGestures];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFolder) name:ORReloadFolderNotification object:nil];
     
-    if ([PutIOClient sharedClient].ready) {
-        [self setupRootFolder];
-    }
+    [self setupRootFolder];
 
     if ([UIDevice isPhone]) {
         self.titleLabel.numberOfLines = 2;
@@ -108,8 +110,6 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 }
 
 - (void)loadFolder:(Folder *)folder {
-    if (![PutIOClient.sharedClient ready]) return;
-    
     currentFolder = folder;
     self.networkActivity = YES;
 
@@ -131,11 +131,11 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
             }else{
                 [self setupNavWithFolderVC:folderGrid];
             }
+
         }else {
             FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
             topFolder.view.userInteractionEnabled = YES;
             [self isOffline];
-        
         }
     }];
 }

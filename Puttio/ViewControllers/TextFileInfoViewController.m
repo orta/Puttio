@@ -9,33 +9,32 @@
 #import "TextFileInfoViewController.h"
 #import "AFHTTPRequestOperation.h"
 #import "ARTitleLabel.h"
-@interface TextFileInfoViewController ()
-
-@end
+#import "ORRotatingButton.h"
 
 @implementation TextFileInfoViewController
-@synthesize textfield;
-@synthesize titleLabel;
-
 
 - (void)setItem:(File *)item {
-    titleLabel.text = item.displayName;
+    _titleLabel.text = item.displayName;
+    _loadingIndicator.alpha = 0;
+    [_loadingIndicator fadeIn];
 
     NSString *requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/download", item.id];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:requestURL]]];
 
     AFHTTPRequestOperation *downloadOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [downloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        textfield.text = operation.responseString;
+        _textfield.text = operation.responseString;
+        [_loadingIndicator fadeOut];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        textfield.text = [ NSString stringWithFormat:@"Could not download %@", item.displayName];
+        _textfield.text = [ NSString stringWithFormat:@"Could not download text for %@", item.displayName];
+        [_loadingIndicator fadeOut];
     }];
     [downloadOperation start];
 }
 
 - (void)zoomViewWillDissapear:(ModalZoomView *)zoomView {
     [UIView animateWithDuration:0.1 animations:^{
-        textfield.alpha = 0;
+        _textfield.alpha = 0;
     }];
 }
 
@@ -43,6 +42,7 @@
 - (void)viewDidUnload {
     [self setTextfield:nil];
     [self setTitleLabel:nil];
+    [self setLoadingIndicator:nil];
     [super viewDidUnload];
 }
 

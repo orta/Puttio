@@ -90,6 +90,7 @@
 		608C72C415C3074100EE85FC /* UIFont+Puttio.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C315C3074100EE85FC /* UIFont+Puttio.m */; };
 		608C72C715C308AE00EE85FC /* ARTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C615C308AE00EE85FC /* ARTitleLabel.m */; };
 		608C72E315C53C4500EE85FC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F28C4015AB93EB0089AE8B /* Crashlytics.framework */; };
+		608FF9C715F3680500461A6D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608FF9C615F3680500461A6D /* CoreMedia.framework */; };
 		6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */; };
 		609719991597531600F9398F /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609719981597531600F9398F /* AccountViewController.m */; };
 		6097199C15975A5900F9398F /* UIDevice+SpaceStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097199B15975A5900F9398F /* UIDevice+SpaceStats.m */; };
@@ -141,7 +142,7 @@
 		60C85AFE15CFAD7E008FC895 /* ARSwipeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C85AFD15CFAD7E008FC895 /* ARSwipeImageView.m */; };
 		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
 		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
-		60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* OAuthViewController.m */; };
+		60DB0AB4151C670800DA8A33 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* LoginViewController.m */; };
 		60DBF382158CA5250061F059 /* ConvertToMP4Process.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DBF381158CA5250061F059 /* ConvertToMP4Process.m */; };
 		60DBF385158CA7EE0061F059 /* FileDownloadProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */; };
 		60E8DECF15A99D7000058314 /* UIDevice+deviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */; };
@@ -318,6 +319,7 @@
 		608C72C315C3074100EE85FC /* UIFont+Puttio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Puttio.m"; path = "Categories/UIFont+Puttio.m"; sourceTree = "<group>"; };
 		608C72C515C308AE00EE85FC /* ARTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARTitleLabel.h; path = Views/ARTitleLabel.h; sourceTree = "<group>"; };
 		608C72C615C308AE00EE85FC /* ARTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARTitleLabel.m; path = Views/ARTitleLabel.m; sourceTree = "<group>"; };
+		608FF9C615F3680500461A6D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		6096FC19155FF0B1009C524C /* PutIOOAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOOAuthHelper.h; path = Networking/PutIOOAuthHelper.h; sourceTree = "<group>"; };
 		6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOOAuthHelper.m; path = Networking/PutIOOAuthHelper.m; sourceTree = "<group>"; };
 		609719971597531500F9398F /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountViewController.h; path = ViewControllers/AccountViewController.h; sourceTree = "<group>"; };
@@ -410,8 +412,8 @@
 		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
 		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
 		60D9B7ED1535C67300A64E0F /* ORSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSearchCell.m; path = Views/ORSearchCell.m; sourceTree = "<group>"; };
-		60DB0AB2151C670800DA8A33 /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthViewController.h; path = Networking/OAuthViewController.h; sourceTree = "<group>"; };
-		60DB0AB3151C670800DA8A33 /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthViewController.m; path = Networking/OAuthViewController.m; sourceTree = "<group>"; };
+		60DB0AB2151C670800DA8A33 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Networking/LoginViewController.h; sourceTree = "<group>"; };
+		60DB0AB3151C670800DA8A33 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Networking/LoginViewController.m; sourceTree = "<group>"; };
 		60DBF380158CA5250061F059 /* ConvertToMP4Process.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConvertToMP4Process.h; path = Processes/ConvertToMP4Process.h; sourceTree = "<group>"; };
 		60DBF381158CA5250061F059 /* ConvertToMP4Process.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConvertToMP4Process.m; path = Processes/ConvertToMP4Process.m; sourceTree = "<group>"; };
 		60DBF383158CA7EE0061F059 /* FileDownloadProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileDownloadProcess.h; path = Processes/FileDownloadProcess.h; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				608FF9C715F3680500461A6D /* CoreMedia.framework in Frameworks */,
 				6080915515BB015900BDB3D7 /* MessageUI.framework in Frameworks */,
 				60C04F0C15722E9E00C23AB5 /* QuartzCore.framework in Frameworks */,
 				6043D0EF1562F5F4002193B3 /* AVFoundation.framework in Frameworks */,
@@ -788,8 +791,8 @@
 		6085D27B151B9E550068929C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				60DB0AB2151C670800DA8A33 /* OAuthViewController.h */,
-				60DB0AB3151C670800DA8A33 /* OAuthViewController.m */,
+				60DB0AB2151C670800DA8A33 /* LoginViewController.h */,
+				60DB0AB3151C670800DA8A33 /* LoginViewController.m */,
 				600641F9151F24AF00EF85F9 /* StatusViewController.h */,
 				600641FA151F24AF00EF85F9 /* StatusViewController.m */,
 				600641FD151F24C100EF85F9 /* SearchViewController.h */,
@@ -823,6 +826,7 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				608FF9C615F3680500461A6D /* CoreMedia.framework */,
 				6080915415BB015800BDB3D7 /* MessageUI.framework */,
 				6080915215BB012E00BDB3D7 /* MobileCoreServices.framework */,
 				6020361015AA2C110021CE21 /* DCRoundSwitch */,
@@ -1116,7 +1120,7 @@
 				6085D279151B9DBA0068929C /* V1PutIOAPIClient.m in Sources */,
 				6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */,
 				6085D297151BAB230068929C /* Constants.m in Sources */,
-				60DB0AB4151C670800DA8A33 /* OAuthViewController.m in Sources */,
+				60DB0AB4151C670800DA8A33 /* LoginViewController.m in Sources */,
 				60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */,
 				60B1A935151E157F00FBCD27 /* V2PutIOAPIClient.m in Sources */,
 				600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */,
@@ -1247,6 +1251,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

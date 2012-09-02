@@ -25,6 +25,8 @@
 }
 
 - (void)tick {
+    [super tick];
+    
     if (_file) {
         [[PutIOClient sharedClient] getMP4InfoForFile:self.file :^(id userInfoObject) {
             if (![userInfoObject isKindOfClass:[NSError class]]) {
@@ -46,7 +48,8 @@
                 }
 
                 else {
-                    _message = @"Conversion Error";
+                    _message = [NSString stringWithFormat:@"%@ Conversion Error", [UIDevice deviceString]];
+                    [self end];
                 }
             }
         }];

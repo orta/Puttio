@@ -12,7 +12,7 @@
 #import "StatusViewController.h"
 #import "SearchViewController.h"
 #import "BrowsingViewController.h"
-#import "OAuthViewController.h"
+#import "LoginViewController.h"
 #import "ModalZoomView.h"
 #import <Crashlytics/Crashlytics.h>
 #import "APP_SECRET.h"
@@ -65,13 +65,13 @@
 - (void)showLogin {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
 
-    OAuthViewController *oauthVC = [storyboard instantiateViewControllerWithIdentifier:@"oauthView"];
+    LoginViewController *oauthVC = [storyboard instantiateViewControllerWithIdentifier:@"oauthView"];
     oauthVC.delegate = self;
     [self.window makeKeyAndVisible];
     [self.window.rootViewController presentModalViewController:oauthVC animated:NO];
 }
 
-- (void)authorizationDidFinishWithController:(OAuthViewController *)controller {
+- (void)authorizationDidFinishWithController:(LoginViewController *)controller {
     [[NSUserDefaults standardUserDefaults] setObject:controller.usernameTextfield.text forKey:ORUserAccountNameDefault];
     
     [self.window.rootViewController dismissModalViewControllerAnimated:YES];

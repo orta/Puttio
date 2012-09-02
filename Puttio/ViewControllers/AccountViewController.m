@@ -52,8 +52,11 @@
     // Space Left on Put.io
     NSString *deviceUsedString = [defaults objectForKey:ORDiskQuotaAvailableDefault];
     self.accountSpaceLabel.text = [NSString stringWithFormat:@"%@ left on Put.IO", [UIDevice humanStringFromBytes:[deviceUsedString doubleValue]]];
-    self.accountSpaceLeftProgress.progress = [defaults doubleForKey:ORCurrentSpaceUsedPercentageDefault];
+    CGFloat percentUsed = [defaults doubleForKey:ORCurrentSpaceUsedPercentageDefault];
+    self.accountSpaceLeftProgress.progress = percentUsed;
     self.accountSpaceLeftProgress.isLandscape = YES;
+
+    self.percentageLabel.text = [NSString stringWithFormat:@"%.0f%%", floor((1 - percentUsed) * 100) ];
 
     [self.creativeCommonsSwitch addTarget:self action:@selector(ccSwitched:) forControlEvents:UIControlEventValueChanged];
 
@@ -202,6 +205,7 @@
     [self setOrtaInfoBackground:nil];
     [self setOrtaInfoTitleLabel:nil];
     [self setOrtaInfoBodyLAbel:nil];
+    [self setPercentageLabel:nil];
     [super viewDidUnload];
 }
 

@@ -7,10 +7,10 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "OAuthViewController.h"
+#import "LoginViewController.h"
 #import "PutIOOAuthHelper.h"
 
-@implementation OAuthViewController
+@implementation LoginViewController
 @synthesize errorHeaderView;
 
 - (void)viewDidLoad {
@@ -57,6 +57,8 @@
     [self setActivityView:nil];
     [self setWebView:nil];
     [self setErrorHeaderView:nil];
+    [self setPasswordPaddingView:nil];
+    [self setUsernamePaddingView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -71,13 +73,21 @@
         return;
     }
 
-    [self.loginButton setEnabled:NO];
-    [self.usernameTextfield setEnabled:NO];
-    [self.passwordTextfield setEnabled:NO];
+    [self disableForm:YES];
     [self.activityView startAnimating];
     self.warningLabel.text = @"";
     
     [_authHelper loginWithUsername:_usernameTextfield.text andPassword:_passwordTextfield.text];
+}
+
+- (void)disableForm:(BOOL)disabled {
+    CGFloat opacity = disabled? 0.4 : 1;
+    for (UIControl *view in @[_loginButton, _usernameTextfield, _passwordTextfield, _passwordPaddingView, _usernamePaddingView]) {
+        if ([view respondsToSelector:@selector(setEnabled:)]) {
+            [view setEnabled:disabled];
+        }
+        [view setAlpha:opacity];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)aTextField {
@@ -90,7 +100,6 @@
     return YES;
 }
 
-
 - (void)authHelperDidLogin:(PutIOOAuthHelper *)helper {
     if([_delegate respondsToSelector:@selector(authorizationDidFinishWithController:)]){
         [_delegate authorizationDidFinishWithController:self];
@@ -100,10 +109,8 @@
 
 - (void)authHelperLoginFailedWithDescription:(NSString *)errorDescription {   
     self.warningLabel.text = errorDescription;
-    self.loginButton.enabled = YES;
-    self.usernameTextfield.enabled = YES;
-    self.passwordTextfield.enabled = YES;
-    [self.activityView stopAnimating];    
+    [self disableForm:NO];
+    [self.activityView stopAnimating];
 }
 
 - (void)authHelperHasDeclaredItScrewed {

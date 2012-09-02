@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OAuthViewController.h"
+#import "LoginViewController.h"
 
 @interface ORAppDelegate : UIResponder <UIApplicationDelegate, OAuthVCDelegate>
 

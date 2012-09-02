@@ -155,10 +155,10 @@ typedef void (^BlockWithCallback)(id userInfoObject);
     }];
 }
 
-
 - (void)getMP4InfoForFile:(File*)file :(void(^)(id userInfoObject))onComplete {
     NSString *path = [NSString stringWithFormat:@"/v2/files/%@/mp4", file.id];
     [self genericGetAtPath:path :^(id userInfoObject) {
+        NSLog(@" MP4 -- %@", userInfoObject);
         onComplete(userInfoObject);
     }];
 }

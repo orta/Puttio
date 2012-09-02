@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *welcomeAccountLabel;
 @property (strong, nonatomic) IBOutlet UIView *loggedOutMessageView;
 @property (weak, nonatomic) IBOutlet DCRoundSwitch *creativeCommonsSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *percentageLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *accountSpaceLabel;
 

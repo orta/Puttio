@@ -22,7 +22,7 @@
 }
 
 + (BOOL)fileSupportedByController:(File *)aFile {
-    NSSet *fileTypes = [NSSet setWithObjects: @"avi", @"mv4", @"m4v", @"mov", @"wmv", @"mkv", @"mp4", @"rmvb", nil];
+    NSSet *fileTypes = [NSSet setWithObjects: @"avi", @"mv4", @"m4v", @"mov", @"wmv", @"mkv", @"mp4", @"rmvb", @"mpeg", nil];
     if ([fileTypes containsObject:aFile.extension]) {
         return YES;
     }
@@ -179,24 +179,28 @@
                 
                 if ([status isEqualToString:@"IN_QUEUE"]) {
                     self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Request for an %@ version has been recieved and it is in the queue, this could take a while.", [UIDevice deviceString]];
-                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];
+                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
                 }
                 
-                if ([status isEqualToString:@"NOT_AVAILABLE"]) {
+                else if ([status isEqualToString:@"NOT_AVAILABLE"]) {
                     self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Requested an %@ version.", [UIDevice deviceString]];
 
                     [[PutIOClient sharedClient] requestMP4ForFile:_file];
-                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];
+                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
                 }
                 
-                if ([status isEqualToString:@"CONVERTING"]) {
+                else if ([status isEqualToString:@"CONVERTING"]) {
                     self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Converting to %@ version right now.", [UIDevice deviceString]];
 
                     if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
                         [self.infoController showProgress];
                         self.infoController.progressView.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
                     }
-                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];                    
+                    [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
+                }
+
+                else {
+                    self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Converting for %@ has failed.", [UIDevice deviceString]];
                 }
             }
         }

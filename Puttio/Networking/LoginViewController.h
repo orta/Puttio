@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "PutIOOAuthHelper.h"
 
-@class OAuthViewController;
+@class LoginViewController;
 
 @protocol OAuthVCDelegate <NSObject>
-- (void)authorizationDidFinishWithController:(OAuthViewController *)controller;
+- (void)authorizationDidFinishWithController:(LoginViewController *)controller;
 @end
 
-@interface OAuthViewController : UIViewController <UIWebViewDelegate, PutIOOAuthHelperDelegate>
+@interface LoginViewController : UIViewController <UIWebViewDelegate, PutIOOAuthHelperDelegate>
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) id <OAuthVCDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextfield;
@@ -26,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet PutIOOAuthHelper *authHelper;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIView *passwordPaddingView;
+@property (weak, nonatomic) IBOutlet UIView *usernamePaddingView;
 
 
 - (IBAction)loginPressed:(id)sender;
