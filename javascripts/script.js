@@ -10,9 +10,12 @@ $( function() {
   
   function resizeCanvas() {
     // only redraw if it's bigger!
-    if (window.innerWidth > canvas.width || window.innerHeight > canvas.height) {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
+		var maxHeight = Math.max($(document).height(), window.innerHeight);
+		var maxWidth  = Math.max($(document).width(), window.innerWidth);		
+		
+    if (maxWidth > canvas.width || maxHeight > canvas.height) {
+          canvas.width = maxWidth;
+          canvas.height = maxHeight;
           horizontalTileCount = ( canvas.width / tileSize ) + 2;
           verticalTileCount = (canvas.height / tileSize) + 2;
 
