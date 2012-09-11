@@ -7,14 +7,21 @@
   <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/script.js"></script>
-  <script type="text/javascript" charset="utf-8">
-  </script>
+	<script src="javascripts/jquery.cycle.lite.js" type="text/javascript" charset="utf-8"></script>
 
   <title>Put.IO</title>
   <meta name="description" content="">
 <meta content='black' name='apple-mobile-web-app-status-bar-style'>
 <meta content='user-scalable=no, width=800' name='viewport'>
+<script type="text/javascript" charset="utf-8">
 
+$(document).ready(function() {
+    $('#header-images').cycle({
+		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+});
+
+</script>
 
   <style type="text/css">
 
@@ -28,41 +35,61 @@
         font-weight: normal;
         font-style: normal;
     }
-
-    #content_wrapper {
-      position: absolute;
-      top: 00px;
-      width: 100%;
-    }
-
+	
     #content {
-      width : 900px;
-      margin: 20px auto;
-    }
-
-    #header {
-      height:400px;
-      text-align: center;
-    }
-		
-		#header #slideshow {
-      width : 900px;
-			margin: 0 auto;
+			position:absolute;
+			width:100%;
 		}
 		
-	
-    #info {
-      border-left: 60px solid #f6e93f;
-      border-right: 60px solid #f6e93f;
-      background-color: white;
-      height: 600px;
-    }
-
-    h1 {
+		#frame {
+      width : 960px;
+      margin: 0 auto;
+		}
+		
+		.misc{
+			-moz-box-shadow: inset 0 4px 6px rgba(0,0,0,.4);
+			-webkit-box-shadow: inset 0 4px 6px rgba(0,0,0,.4);
+			 box-shadow: inset 0 4px 6px rgba(0,0,0,.24);
       background-color: #f6e93f;
       text-align: center;
+      border-left: 60px solid #f6e93f;
+      border-right: 60px solid #f6e93f;
+			
+		 }
+		 
+		canvas {
+			margin-top:80px;
+			height: 320px;
+			float:left;		
+		}
+	
+    #info {
+      background-color: white;
+      height: 600px;
+			clear:both;
+    }
+
+		#header-quotes {
+			margin-top: 294px;
+			width: 360px;
+			float:left;
+			
+		}
+		
+		#header-images {
+			width: 490px;
+			float:left;
+			margin-top:55px;
+		}
+		
+		#header-images img {
+			width:620px;
+		}
+		
+    h1 {
       font-family:'Exo-Bold';
       font-size: 48px;
+			line-height:4px;
     }
 
     h2 {
@@ -70,35 +97,46 @@
     }
 
     .feature {
-      width: 360px;
+      width: 460px;
       float:left;
       padding-left: 20px
     }
 
-  .featurettes h3{
-    font-family:'Exo-Bold';
+		.featurettes {
+			clear:both;
+			padding-top:20px;
+		}
+		
+	  .featurettes h3{
+	    font-family:'Exo-Bold';
 
-    width:240px;
-    padding-left: 20px;
-    float:left; 
-    text-align: center;
-  }
+	    width:300px;
+	    padding-left: 20px;
+	    float:left; 
+	    text-align: center;
+	  }
   
   </style>
 
 </head>
 <body>
-  <canvas id="canvas" style="opacity:0">
-  </canvas>
 
+	<canvas id="canvas" style="opacity:0"></canvas>
   <div id="content_wrapper">
     <div id="content">
-      <div id="header">
-   			  <img src="images/splash1.png">
+    <div id="frame">			
+			<div id="header-quotes">
+				<h1>Put.IO for iOS</h1>
+				<h2>Search and Stream</h2>
+			</div>
+      <div id="header-images">
+ 			  <img src="images/splash1.png">
+ 			  <img src="images/splash2.png" style="display:none">
+ 			  <img src="images/splash3.png" style="display:none">
+ 			  <img src="images/splash4.png" style="display:none">
       </div>
+			
       <div id="info">
-        </br>
-        <h1>Put.IO for iOS</h1>
 
         <div class="feature">
           <h2>Browse you Put.IO content!</h2>
@@ -130,7 +168,7 @@
       </div>
     </div>
   </div>
-
+</div>
   <script type="text/javascript">
   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

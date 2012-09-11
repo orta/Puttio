@@ -10,7 +10,7 @@ $( function() {
   
   function resizeCanvas() {
     // only redraw if it's bigger!
-		var maxHeight = Math.max($(document).height(), window.innerHeight);
+		var maxHeight = $(canvas).height(); //Math.max($(document).height(), window.innerHeight);
 		var maxWidth  = Math.max($(document).width(), window.innerWidth);		
 		
     if (maxWidth > canvas.width || maxHeight > canvas.height) {
