@@ -8,10 +8,10 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/script.js"></script>
 	<script src="javascripts/jquery.cycle.lite.js" type="text/javascript" charset="utf-8"></script>
+  <meta name = "viewport" content = "user-scalable=no, width=device-width">
   <title>Put.IO for iOS - For An Awesome Experience</title>
   <meta name="description" content="">
   <meta content='black' name='apple-mobile-web-app-status-bar-style'>
-  <meta content='user-scalable=no, width=1024' name='viewport'>
   <script type="text/javascript" charset="utf-8">
 
   var hours
@@ -150,7 +150,7 @@
       width:360px;
     }
     
-    #download:active {
+    .button:active {
       background: #331122;
     }
     
@@ -160,6 +160,33 @@
       font-family:'Exo-Bold';
       font-size:28px;
     }
+    
+    @media screen and (max-device-width: 480px) {
+      body, html, #content {
+        width : 480px;
+      }
+      
+  		.frame {
+        width : 480px ;
+  		}
+      
+      .feature1 , .feature2 {
+        width: 440px;
+        float:left;
+      }
+  		
+      #header-images img {
+  			width:320px;
+  		}
+      
+  		#header-quotes {
+  			margin-top: 80px;
+  		}
+		
+  		#header-images {
+  		
+      }
+  }
     
   </style>
 
