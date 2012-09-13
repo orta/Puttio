@@ -8,7 +8,6 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/script.js"></script>
 	<script src="javascripts/jquery.cycle.lite.js" type="text/javascript" charset="utf-8"></script>
-
   <title>Put.IO for iOS - For An Awesome Experience</title>
   <meta name="description" content="">
 <meta content='black' name='apple-mobile-web-app-status-bar-style'>
@@ -19,19 +18,17 @@ $(document).ready(function() {
   $('#header-images').cycle({
 		fx: 'fade'
 	});
-  
-  $.ajax({
-      url      : 'http://ortastuff.s3.amazonaws.com/putio/hours.json',
-      dataType : 'jsonp',
-      success  : function (data, other) {
-        console.log("hi");
-        console.log(other)
-      }
-  });
-    
+    $("#number_of_hours").text("Over " + hours + " hours watched so far")
 });
 
+var hours
+function set_hour(data){
+  var seconds = data["seconds"];
+  hours = Math.floor( (seconds / 60) / 60 )  
+}
+
 </script>
+	<script src="http://ortastuff.s3.amazonaws.com/putio/hours.json" type="text/javascript" charset="utf-8"></script>
 
   <style type="text/css">
 
@@ -120,6 +117,7 @@ $(document).ready(function() {
     .feature1 p, .feature2 p {
       padding:8px;
       margin-top:0;
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
       
     }
     .feature2 {
