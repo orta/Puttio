@@ -10,24 +10,24 @@
 	<script src="javascripts/jquery.cycle.lite.js" type="text/javascript" charset="utf-8"></script>
   <title>Put.IO for iOS - For An Awesome Experience</title>
   <meta name="description" content="">
-<meta content='black' name='apple-mobile-web-app-status-bar-style'>
-<meta content='user-scalable=no, width=1024' name='viewport'>
-<script type="text/javascript" charset="utf-8">
+  <meta content='black' name='apple-mobile-web-app-status-bar-style'>
+  <meta content='user-scalable=no, width=1024' name='viewport'>
+  <script type="text/javascript" charset="utf-8">
 
-$(document).ready(function() {
-  $('#header-images').cycle({
-		fx: 'fade'
-	});
-    $("#number_of_hours").text("Over " + hours + " hours watched so far")
-});
+  var hours
+  function set_hour(data){
+    var seconds = data["seconds"];
+    hours = Math.floor( (seconds / 60) / 60 )  
+  }
 
-var hours
-function set_hour(data){
-  var seconds = data["seconds"];
-  hours = Math.floor( (seconds / 60) / 60 )  
-}
-
-</script>
+  $(document).ready(function() {
+    $('#header-images').cycle({
+  		fx: 'fade'
+  	});
+      $("#number_of_hours").text("Over " + hours + " hours watched so far")
+  });
+    
+  </script>
 	<script src="http://ortastuff.s3.amazonaws.com/putio/hours.json" type="text/javascript" charset="utf-8"></script>
 
   <style type="text/css">
@@ -52,17 +52,6 @@ function set_hour(data){
       width : 960px;
       margin: 0 auto;
 		}
-		
-		.misc{
-			-moz-box-shadow: inset 0 4px 6px rgba(0,0,0,.4);
-			-webkit-box-shadow: inset 0 4px 6px rgba(0,0,0,.4);
-			 box-shadow: inset 0 4px 6px rgba(0,0,0,.24);
-      background-color: #f6e93f;
-      text-align: center;
-      border-left: 60px solid #f6e93f;
-      border-right: 60px solid #f6e93f;
-			
-		 }
 		 
 		canvas {
 			margin-top:80px;
@@ -132,7 +121,6 @@ function set_hour(data){
 		
 	  .featurettes h3{
 	    font-family:'Exo-Bold';
-
 	    width:300px;
 	    padding-left: 20px;
 	    float:left; 
@@ -155,13 +143,22 @@ function set_hour(data){
       margin-right:0px;
     }
     
-    #call_to_action {
-      height: 48px;
-      clear:both;
+    #download {
+      height: 40px;
+      display:block;
+      margin: 8px auto;
+      width:360px;
+    }
+    
+    #download:active {
+      background: #331122;
     }
     
     #number_of_hours {
-      width: 200px;
+      clear:both;
+      text-align:center;
+      font-family:'Exo-Bold';
+      font-size:28px;
     }
     
   </style>
@@ -206,9 +203,9 @@ function set_hour(data){
           <p>Keep track of where you are in a series auto-magically between all your devices. Essential for remembering if you're on episode 20 or 23.</p>
         </div>
         
+          <div id="number_of_hours">&nbsp;</div>
+          <a id="download" class="button" href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">$3 - Download</a>
         <div class="call_to_action">
-          <div id="number_of_hours">100 Hours watched so far</div>
-          <a id="download" class="button" href="#">Download</a>
         </div>
 
         <div class="featurettes">
@@ -221,6 +218,7 @@ function set_hour(data){
       </div>
     </div>
 </div>
+
   <script type="text/javascript">
   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
