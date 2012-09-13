@@ -9,16 +9,26 @@
   <script type="text/javascript" src="javascripts/script.js"></script>
 	<script src="javascripts/jquery.cycle.lite.js" type="text/javascript" charset="utf-8"></script>
 
-  <title>Put.IO</title>
+  <title>Put.IO for iOS - For An Awesome Experience</title>
   <meta name="description" content="">
 <meta content='black' name='apple-mobile-web-app-status-bar-style'>
 <meta content='user-scalable=no, width=1024' name='viewport'>
 <script type="text/javascript" charset="utf-8">
 
 $(document).ready(function() {
-    $('#header-images').cycle({
-		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+  $('#header-images').cycle({
+		fx: 'fade'
 	});
+  
+  $.ajax({
+      url      : 'http://ortastuff.s3.amazonaws.com/putio/hours.json',
+      dataType : 'jsonp',
+      success  : function (data, other) {
+        console.log("hi");
+        console.log(other)
+      }
+  });
+    
 });
 
 </script>
@@ -41,7 +51,7 @@ $(document).ready(function() {
 			width:100%;
 		}
 		
-		#frame {
+		.frame {
       width : 960px;
       margin: 0 auto;
 		}
@@ -73,13 +83,13 @@ $(document).ready(function() {
 			margin-top: 294px;
 			width: 360px;
 			float:left;
-			
 		}
 		
 		#header-images {
 			width: 490px;
 			float:left;
-			margin-top:55px;
+			margin-top:16px;
+      margin-left:12px;
 		}
 		
 		#header-images img {
@@ -96,10 +106,25 @@ $(document).ready(function() {
       font-family:'Exo-Bold';
     }
 
-    .feature {
+    #info h2 {
+      background-color:#f6e93f;
+      padding: 4px 0 4px 8px;
+      margin-bottom:8px;
+    }
+
+    .feature1 {
       width: 460px;
       float:left;
-      padding-left: 20px
+    }
+    
+    .feature1 p, .feature2 p {
+      padding:8px;
+      margin-top:0;
+      
+    }
+    .feature2 {
+      width: 460px;
+      float:right;
     }
 
 		.featurettes {
@@ -115,16 +140,41 @@ $(document).ready(function() {
 	    float:left; 
 	    text-align: center;
 	  }
-  
+    
+    .button {
+      height: 40px;
+      background-color:#5dadf8;
+      text-align:center;
+      font-family:'Exo-Bold';
+      text-decoration:none;
+      color:white;
+      line-height:42px;
+    }
+    
+    #what_is_putio{
+      float:right;
+      width:160px;
+      margin-right:0px;
+    }
+    
+    #call_to_action {
+      height: 48px;
+      clear:both;
+    }
+    
+    #number_of_hours {
+      width: 200px;
+    }
+    
   </style>
 
 </head>
 <body>
-
 	<canvas id="canvas" style="opacity:0"></canvas>
-  <div id="content_wrapper">
     <div id="content">
-    <div id="frame">			
+    <div class="frame">			
+      <a id="what_is_putio" class="button" href="#">What is Put.IO?</a>
+      
 			<div id="header-quotes">
 				<h1>Put.IO for iOS</h1>
 				<h2>Search and Stream</h2>
@@ -138,24 +188,29 @@ $(document).ready(function() {
 			
       <div id="info">
 
-        <div class="feature">
+        <div class="feature1">
           <h2>Browse you Put.IO content!</h2>
           <p>Everything you have on the site is on your iOS Device, watch downloads come in and MP4 conversion happen with the simple slide-side bar.</p>
         </div>
         
-        <div class="feature">
+        <div class="feature2">
           <h2>Search for new content!</h2>
           <p>Instant access to anything held on Archive.org and Mininova. If that doesn't work you can try turning off the filters and extending your search.</p>
         </div>
 
-        <div class="feature">
+        <div class="feature1">
           <h2>Universal app!</h2>
-          <p>Seriously, you can just get something on the go on your Phone then watch later on your iPad. I do it all the time.</p>
+          <p>Seriously, you can just get something on the go on your iPhone then watch later on your iPad. I do it all the time.</p>
         </div>
         
-        <div class="feature">
+        <div class="feature2">
           <h2>iCloud!</h2>
           <p>Keep track of where you are in a series auto-magically between all your devices. Essential for remembering if you're on episode 20 or 23.</p>
+        </div>
+        
+        <div class="call_to_action">
+          <div id="number_of_hours">100 Hours watched so far</div>
+          <a id="download" class="button" href="#">Download</a>
         </div>
 
         <div class="featurettes">
@@ -167,7 +222,6 @@ $(document).ready(function() {
           <h3>Open source</h3>
       </div>
     </div>
-  </div>
 </div>
   <script type="text/javascript">
   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
