@@ -21,7 +21,7 @@
   <script type="text/javascript" src="javascripts/script.js"></script>
 	<script src="javascripts/jquery.cycle.lite.js" type="text/javascript" charset="utf-8"></script>
   <title>Put.IO for iOS - For An Awesome Experience</title>
-  <meta name="description" content="">
+  <meta name="description" content="Put.IO for iOS is an app for managing your Put.IO account in style.">
   <meta name = "viewport" content = "user-scalable=no, width=device-width">
   
   <meta content='black' name='apple-mobile-web-app-status-bar-style'>
@@ -71,12 +71,22 @@
   </script>
 	<script src="http://ortastuff.s3.amazonaws.com/putio/hours.json" type="text/javascript" charset="utf-8"></script>
 </head>
+
 <body>
-	<div class="meny">
+	<div class="meny" style="display:none;">
+    <div class="frame">
+      <a id="putio_logo" href ="http://put.io"><img src="images/putiologo.png" width="142" height="200" alt="Putiologo"></a>
+      <h2 id="putio_info">Put.IO is an online storage service. You can pass it files, torrents or magnet links and it will download and store it for you.</h2>
+      <div id="putio_subinfo">
+        <h3 >Storage space plans range from 1GB to 1TB.</h2>
+          <a class="button" href="http://put.io">Go to Put.IO</a>
+      </div>    
+      
+    </div>
 	</div>
 
-  <div class= "site" style="-webkit-transform-origin: 40% 0px ">
-
+  <div class= "site">
+    
   	<canvas id="canvas" style="opacity:0"></canvas>
       <div id="content">
       <div class="frame">			

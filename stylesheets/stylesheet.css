@@ -64,7 +64,7 @@ canvas {
 		line-height:4px;
   }
 
-  h2 {
+  h2, h3 {
     font-family:'Exo-Bold';
   }
 
@@ -136,6 +136,39 @@ canvas {
     font-family:'Exo-Bold';
     font-size:28px;
   }
+  
+  .meny {
+        background-color:#5dadf8;
+  }
+  
+  #putio_logo {
+    float: left;
+    width:160px;
+  }
+  
+  #putio_info {
+    padding-top:28px;
+    margin-left:20px;
+    width:480px;
+    color: white;
+    float:left;
+  }
+  
+  #putio_subinfo {
+    padding-top:32px;
+    padding-left:48px;
+    width:220px;
+    color: white;
+    float:left;
+    text-align:center;
+  }
+  
+  #putio_subinfo .button {
+    background-color:white;
+    color:#5DADF8;
+    height 40px;
+    display:block;
+  }
     
   @media screen and (max-device-width: 480px) {
     body, html, #content {
@@ -166,6 +199,20 @@ canvas {
 	  .featurettes h3{
       width:210px;
     }      
+    
+    #putio_logo {
+      margin-left:20px;
+    }
+    
+    #putio_info {
+      font-size:16px;
+      width: 240px;
+      padding-top:34px;
+    }
+    
+    #putio_subinfo {
+      display:none;
+    }
 }
 
 @media only screen and (device-width: 768px) {
@@ -178,7 +225,7 @@ canvas {
     padding-left:12px;
     margin-bottom:240px;
   }
-    
+  
   #header-images {
     position: absolute;
     top:64px;
@@ -203,8 +250,21 @@ canvas {
   .featurettes  h3{
     width:230px;
   }
-}
   
-.meny {
-      background-color:#5dadf8;
+  #putio_logo {
+    margin-left:20px;
+  }
+  
+  #putio_info {
+    font-size:18px;
+    width: 320px;
+    padding-top:34px;
+  }
+  
+  #putio_subinfo {
+    font-size:12px;
+    width:120px;
+    padding-left:64px;
+    padding-top:42px;
+  }
 }
