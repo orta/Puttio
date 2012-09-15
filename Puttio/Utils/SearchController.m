@@ -47,7 +47,6 @@ static SearchController *sharedInstance;
     NSString *address = [NSString stringWithFormat:@"http://archive.org/advancedsearch.php?q=%@", query];
     NSString *end = @"+AND+format%3A%22Archive+BitTorrent%22&fl%5B%5D=collection&fl%5B%5D=downloads&fl%5B%5D=identifier&fl%5B%5D=title&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=50&page=1&indent=yes&output=json&licensurl%3A%28creativecommons%29";
     address = [address stringByAppendingString:end];
-    NSLog(@"%@", address);
     
     NSURL *url = [NSURL URLWithString:address];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -61,8 +60,12 @@ static SearchController *sharedInstance;
             NSMutableArray *searchResults = [NSMutableArray array];
             for (NSDictionary *dictionary in results) {
                 SearchResult * result = [SearchResult resultWithArchiveOrgDictionary:dictionary];
-                if (result.seedersCount) {
-                    [searchResults addObject:result];
+
+                if (result.seedersCount && ![result.name isEqualToString:@""]) {
+
+                    if([result.name rangeOfString:@"Full Album"].location == NSNotFound ){
+                        [searchResults addObject:result];
+                    }
                 }
             }
             [self passArrayToDelegate:searchResults];

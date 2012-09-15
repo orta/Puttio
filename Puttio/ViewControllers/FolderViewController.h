@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "GMGridView.h"
+#import "TreemapView.h"
 
 @class BrowsingViewController;
-@interface FolderViewController : UIViewController <GMGridViewDataSource>
+@interface FolderViewController : UIViewController <GMGridViewDataSource, TreemapViewDataSource>
 
 @property (nonatomic, strong) Folder *folder;
 @property (nonatomic, strong) NSArray *folderItems;
@@ -19,4 +20,6 @@
 
 - (void)reloadItemsFromServer;
 - (void)highlightItemAtIndex:(int)position;
+
+- (void)showTreeMap;
 @end

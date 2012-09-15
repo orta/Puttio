@@ -13,7 +13,16 @@
 #import "WatchedItem.h"
 #import "NSManagedObject+ActiveRecord.h"
 #import "ORHorizontalImageViewCell.h"
+#import "UIDevice+SpaceStats.h"
+#import "ModalZoomView.h"
+#import "ORFlatButton.h"
 
+@interface FolderViewController (){
+    TreemapView *_treeView;
+    UIView *_treeViewWrapper;
+}
+
+@end
 
 @implementation FolderViewController
 
@@ -118,10 +127,15 @@
 
 - (void)reloadGrid {
     self.folderItems = self.folderItems;
+    if (_treeView) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [_treeView reloadData];
+        }];
+    }
 }
 
 - (BOOL)itemIsFolder:(NSObject <ORDisplayItemProtocol>*)item {
-    return ([item.size intValue] == 0);
+    return [item isKindOfClass: [Folder class]];
 }
 
 - (void)highlightItemAtIndex:(int)position {
@@ -170,6 +184,104 @@
             self.folderItems = (NSArray *)userInfoObject;
         }
     }];
+}
+
+static CGFloat TreeViewFooterHeight = 60;
+
+- (void)showTreeMap {
+
+    CGRect treeViewFrame = self.view.bounds;
+    treeViewFrame.size.height -= TreeViewFooterHeight;
+
+    CGRect footerFrame = self.view.bounds;
+    footerFrame.origin.y += CGRectGetHeight(footerFrame) - TreeViewFooterHeight;
+    footerFrame.size.height = TreeViewFooterHeight;
+
+    CGRect buttonFrame = footerFrame;
+    buttonFrame.origin.y += 8;
+    buttonFrame.origin.x += 8;
+    buttonFrame.size.height = 44;
+    buttonFrame.size.width = 80;
+
+    _treeViewWrapper = [[UIView alloc] initWithFrame:self.view.bounds];
+    _treeViewWrapper.alpha = 0;
+    [self.view.superview addSubview:_treeViewWrapper];
+
+    _treeView = [[TreemapView alloc] initWithFrame:treeViewFrame];
+    _treeView.dataSource = self;
+    _treeView.backgroundColor = [UIColor whiteColor];
+    [_treeViewWrapper addSubview:_treeView];
+
+    UIView *footerView = [[UIView alloc] initWithFrame:footerFrame];
+    footerView.backgroundColor = [UIColor putioYellow];
+    [_treeViewWrapper addSubview:footerView];
+
+    ORFlatButton *button = [[ORFlatButton alloc] initWithFrame:buttonFrame];
+    [button setTitle:@"Grid" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(removeTreeMap) forControlEvents:UIControlEventTouchUpInside];
+
+    [_treeViewWrapper addSubview:button];
+
+    [UIView animateWithDuration:0.3 animations:^{
+        _treeViewWrapper.alpha = 1;
+    }];
+}
+
+- (void)removeTreeMap {
+    [UIView animateWithDuration:0.3 animations:^{
+        _treeViewWrapper.alpha = 0;
+    } completion:^(BOOL finished) {
+        [_treeViewWrapper removeFromSuperview];
+    }];
+}
+
+- (NSArray *)valuesForTreemapView:(TreemapView *)treemapView {
+    NSMutableArray *sizes = [NSMutableArray array];
+    for (id fileOrFolder in _folderItems) {
+        NSNumber *size = [(File *)fileOrFolder size];
+        [sizes addObject:size];
+    }
+    return sizes;
+}
+
+- (TreemapViewCell *)treemapView:(TreemapView *)treemapView cellForIndex:(NSInteger)index forRect:(CGRect)rect {
+    TreemapViewCell *cell = [[TreemapViewCell alloc] initWithFrame:rect];
+    File *file = _folderItems[index];
+    cell.textLabel.text = file.displayName;
+    cell.valueLabel.text = [UIDevice humanStringFromBytes:file.size.doubleValue];
+    cell.backgroundColor = [UIColor colorWithRed:0.366 green:0.676 blue:0.969 alpha:1.000];
+    cell.tag = index;
+
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTreemap:)];
+    [cell addGestureRecognizer:tapGesture];
+    
+    UILongPressGestureRecognizer *deleteGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressTreemap:)];
+    [cell addGestureRecognizer:deleteGesture];
+
+	return cell;
+}
+
+- (void)tapTreemap:(UITapGestureRecognizer *)gesture {
+    [UIView animateWithDuration:0.3 animations:^{
+        _treeViewWrapper.alpha = 0;
+    } completion:^(BOOL finished) {
+        [_treeViewWrapper removeFromSuperview];
+        [[self.gridView actionDelegate] GMGridView:self.gridView didTapOnItemAtIndex:gesture.view.tag];
+    }];
+}
+
+- (void)longPressTreemap:(UILongPressGestureRecognizer *)gesture {
+    if ([ModalZoomView isShowing]) return;
+    
+    UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+    id item = _folderItems[gesture.view.tag];
+    CGRect initialFrame = [self.view convertRect:[gesture.view frame] toView:rootView];
+    
+    [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"deleteView" andItem:item];
+}
+
+- (CGFloat)treemapView:(TreemapView *)treemapView separatorWidthForDepth:(NSInteger)depth {
+    return 2.0f;
 }
 
 @end

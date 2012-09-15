@@ -120,9 +120,14 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             folder.displayName = [File createDisplayNameFromName:folder.name];
             folder.screenShotURL =  dictionary[@"icon"];
             folder.parentID = [dictionary[@"parent_id"] stringValue];
-            folder.size = @0;
+
+            if (dictionary[@"size"] != [NSNull null]) {
+                folder.size = dictionary[@"size"];
+            }
+            
             folder.parentFolder = parent;
             [objects addObject:folder];
+            
         }else{
             File *file = [File object];
             file.id = [dictionary[@"id"] stringValue];

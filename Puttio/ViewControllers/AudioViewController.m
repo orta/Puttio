@@ -11,6 +11,8 @@
 #import "ORFlatButton.h"
 #import <AVFoundation/AVFoundation.h>
 #import "ORSimpleProgress.h"
+#import "WatchedList.h"
+#import "WatchedItem.h"
 
 @interface SharedAVPlayer : NSObject
 + (SharedAVPlayer*) sharedPlayer;
@@ -104,6 +106,8 @@
     
     [SharedAVPlayer sharedPlayer].audioPlayer = _audioPlayer;
     [SharedAVPlayer sharedPlayer].itemID = _item.id;
+
+    
 }
 
 - (void)hookInToAudioPlayer {
@@ -137,4 +141,26 @@
     [self setPlayButton:nil];
     [super viewDidUnload];
 }
+
+
+- (void) markFileAsViewed {
+    [self performSelectorOnMainThread:@selector(_markFileAsViewed) withObject:nil waitUntilDone:YES];
+}
+
+- (void)_markFileAsViewed {
+    File *file = (File *)_item;
+    WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:file.folder.id];
+    if (!list) {
+        list = [WatchedList object];
+        list.folderID = file.folder.id;
+    }
+    
+    WatchedItem *item = [WatchedItem object];
+    item.fileID = file.id;
+    [list addItemsObject:item];
+
+    [[WatchedItem managedObjectContext] save:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ORReloadGridNotification object:nil];
+}
+
 @end

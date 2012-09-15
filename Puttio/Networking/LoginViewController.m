@@ -87,9 +87,10 @@
     CGFloat opacity = disabled? 0.4 : 1;
     for (UIControl *view in @[_loginButton, _usernameTextfield, _passwordTextfield, _passwordPaddingView, _usernamePaddingView]) {
         if ([view respondsToSelector:@selector(setEnabled:)]) {
-            [view setEnabled:disabled];
+            [view setEnabled:!disabled];
         }
         [view setAlpha:opacity];
+        view.userInteractionEnabled = !disabled;
     }
 }
 

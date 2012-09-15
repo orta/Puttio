@@ -75,6 +75,15 @@ typedef enum {
     
     UITapGestureRecognizer *accountSettingsTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapProgressView:)];
     [self.spaceProgressView.superview addGestureRecognizer:accountSettingsTapGesture];
+
+    UILongPressGestureRecognizer *showTreeTapGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPressProgressView:)];
+    [self.spaceProgressView.superview addGestureRecognizer:showTreeTapGesture];
+}
+
+- (void)didLongPressProgressView:(UITapGestureRecognizer*)gesture {
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:ORShowTreeViewNotification object:nil];
+    }
 }
 
 - (void)didTapProgressView:(UITapGestureRecognizer*)gesture {
@@ -99,7 +108,6 @@ typedef enum {
 - (void)beat {
     [self getUserInfo];
     [self getTransfers];
-//    [self getMessages];
 }
 
 - (void)getTransfers {    

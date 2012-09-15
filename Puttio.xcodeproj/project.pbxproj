@@ -94,6 +94,9 @@
 		6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */; };
 		609719991597531600F9398F /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609719981597531600F9398F /* AccountViewController.m */; };
 		6097199C15975A5900F9398F /* UIDevice+SpaceStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097199B15975A5900F9398F /* UIDevice+SpaceStats.m */; };
+		60973FEF16050AC900867A2D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60973FEE16050AC900867A2D /* Default-568h@2x.png */; };
+		60973FF616050ECB00867A2D /* TreemapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60973FF316050ECB00867A2D /* TreemapView.m */; };
+		60973FF716050ECB00867A2D /* TreemapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60973FF516050ECB00867A2D /* TreemapViewCell.m */; };
 		6098899A158CE29E0077CE35 /* MediaLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = 60988999158CE29E0077CE35 /* MediaLibrary.png */; };
 		609CAE2415853D51000BE57E /* UnknownFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609CAE2315853D51000BE57E /* UnknownFileController.m */; };
 		609CAE2F15856309000BE57E /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 609CAE2715856309000BE57E /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -326,6 +329,11 @@
 		609719981597531600F9398F /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountViewController.m; path = ViewControllers/AccountViewController.m; sourceTree = "<group>"; };
 		6097199A15975A5800F9398F /* UIDevice+SpaceStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+SpaceStats.h"; path = "Categories/UIDevice+SpaceStats.h"; sourceTree = "<group>"; };
 		6097199B15975A5900F9398F /* UIDevice+SpaceStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+SpaceStats.m"; path = "Categories/UIDevice+SpaceStats.m"; sourceTree = "<group>"; };
+		60973FEE16050AC900867A2D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		60973FF216050ECB00867A2D /* TreemapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreemapView.h; sourceTree = "<group>"; };
+		60973FF316050ECB00867A2D /* TreemapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreemapView.m; sourceTree = "<group>"; };
+		60973FF416050ECB00867A2D /* TreemapViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreemapViewCell.h; sourceTree = "<group>"; };
+		60973FF516050ECB00867A2D /* TreemapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreemapViewCell.m; sourceTree = "<group>"; };
 		60988999158CE29E0077CE35 /* MediaLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MediaLibrary.png; sourceTree = "<group>"; };
 		609CAE2115851B64000BE57E /* Putio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Putio.entitlements; path = puttio/Putio.entitlements; sourceTree = "<group>"; };
 		609CAE2215853D51000BE57E /* UnknownFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnknownFileController.h; path = FileController/UnknownFileController.h; sourceTree = "<group>"; };
@@ -418,6 +426,7 @@
 		60DBF381158CA5250061F059 /* ConvertToMP4Process.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConvertToMP4Process.m; path = Processes/ConvertToMP4Process.m; sourceTree = "<group>"; };
 		60DBF383158CA7EE0061F059 /* FileDownloadProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileDownloadProcess.h; path = Processes/FileDownloadProcess.h; sourceTree = "<group>"; };
 		60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileDownloadProcess.m; path = Processes/FileDownloadProcess.m; sourceTree = "<group>"; };
+		60E410E016051A6E004337FE /* Puttio v1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = "Puttio v1.1.xcdatamodel"; path = "Puttio/Puttio.xcdatamodeld/Puttio v1.1.xcdatamodel"; sourceTree = SOURCE_ROOT; };
 		60E8DECD15A99D7000058314 /* UIDevice+deviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+deviceInfo.h"; path = "Categories/UIDevice+deviceInfo.h"; sourceTree = "<group>"; };
 		60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+deviceInfo.m"; path = "Categories/UIDevice+deviceInfo.m"; sourceTree = "<group>"; };
 		60E8DED015A9A16B00058314 /* ORHorizontalImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORHorizontalImageViewCell.h; path = Views/ORHorizontalImageViewCell.h; sourceTree = "<group>"; };
@@ -631,6 +640,7 @@
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60E410E016051A6E004337FE /* Puttio v1.1.xcdatamodel */,
 				60C85AF715CFAD40008FC895 /* Hand.png */,
 				60C85AF815CFAD40008FC895 /* Hand@2x.png */,
 				60A34F7515CB384700983442 /* Paper.png */,
@@ -665,6 +675,7 @@
 		6085D218151B99480068929C = {
 			isa = PBXGroup;
 			children = (
+				60973FEE16050AC900867A2D /* Default-568h@2x.png */,
 				60F6F83115D072BC004333AF /* icon114.png */,
 				60F6F82F15D072A2004333AF /* icon57.png */,
 				60B86E7D15A061040063461D /* .plan */,
@@ -826,6 +837,7 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				60973FF116050ECB00867A2D /* TreemapKit */,
 				608FF9C615F3680500461A6D /* CoreMedia.framework */,
 				6080915415BB015800BDB3D7 /* MessageUI.framework */,
 				6080915215BB012E00BDB3D7 /* MobileCoreServices.framework */,
@@ -844,6 +856,17 @@
 				6085D257151B9CEF0068929C /* AFNetworking */,
 			);
 			path = Externals;
+			sourceTree = "<group>";
+		};
+		60973FF116050ECB00867A2D /* TreemapKit */ = {
+			isa = PBXGroup;
+			children = (
+				60973FF216050ECB00867A2D /* TreemapView.h */,
+				60973FF316050ECB00867A2D /* TreemapView.m */,
+				60973FF416050ECB00867A2D /* TreemapViewCell.h */,
+				60973FF516050ECB00867A2D /* TreemapViewCell.m */,
+			);
+			path = TreemapKit;
 			sourceTree = "<group>";
 		};
 		609CAE25158562FD000BE57E /* WEPopover */ = {
@@ -1078,6 +1101,7 @@
 				60F6F82E15D0729C004333AF /* icon114.png in Resources */,
 				60F6F83015D072A2004333AF /* icon57.png in Resources */,
 				60F6F83215D072BD004333AF /* icon114.png in Resources */,
+				60973FEF16050AC900867A2D /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1205,6 +1229,8 @@
 				60C85AED15CEBEA3008FC895 /* TextFileInfoViewController.m in Sources */,
 				60C85AFE15CFAD7E008FC895 /* ARSwipeImageView.m in Sources */,
 				607C18C215F15D4500D2C5E6 /* AudioViewController.m in Sources */,
+				60973FF616050ECB00867A2D /* TreemapView.m in Sources */,
+				60973FF716050ECB00867A2D /* TreemapViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1284,6 +1310,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ben Maslen";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1299,6 +1326,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
@@ -1310,7 +1338,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ben Maslen";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1326,7 +1354,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;

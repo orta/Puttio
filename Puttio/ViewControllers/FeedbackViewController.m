@@ -9,10 +9,16 @@
 #import "FeedbackViewController.h"
 
 @interface FeedbackViewController ()
-
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @end
 
 @implementation FeedbackViewController
+
+- (void)zoomViewDidFinishZooming:(ModalZoomView *)zoomView {
+    if (_scrollView) {
+        _scrollView.contentSize = CGSizeMake(CGRectGetWidth(_scrollView.bounds), 400);
+    }
+}
 
 - (IBAction)review:(id)sender {
     NSString *reviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=547030322";
@@ -44,5 +50,9 @@
     [rootViewController dismissViewControllerAnimated:YES completion:^{
         [ModalZoomView fadeOutViewAnimated:YES];
     }];
+}
+- (void)viewDidUnload {
+    [self setScrollView:nil];
+    [super viewDidUnload];
 }
 @end

@@ -37,5 +37,6 @@ NSString *const ORReloadGridNotification = @"ORReloadGridNotification";
 NSString *const ORReloadFolderNotification = @"ORReloadFolderNotification";
 NSString *const ORVideoFinishedNotification = @"ORVideoFinishedNotification";
 NSString *const ORCCSearchedChangedNotification = @"ORCCSearchedChangedNotification";
+NSString *const ORShowTreeViewNotification = @"ORShowTreeViewNotification";
 
 NSString *const ORVideoDurationKey = @"ORVideoDurationKey";

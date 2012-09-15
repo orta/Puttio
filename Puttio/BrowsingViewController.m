@@ -39,7 +39,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     [self setupGestures];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFolder) name:ORReloadFolderNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTopTreeView) name:ORShowTreeViewNotification object:nil];
+
     [self setupRootFolder];
 
     if ([UIDevice isPhone]) {
@@ -152,7 +153,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
         
         Folder *folder = (Folder *)item;
         [self loadFolder:folder];
-    }else {
+    } else {
         File *file = (File *)item;
         UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
         GMGridViewCell *cell = [topFolder.gridView cellForItemAtIndex:position];
@@ -192,7 +193,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 }
 
 - (BOOL)itemIsFolder:(NSObject <ORDisplayItemProtocol> *)item {
-    return ([item.size intValue] == 0) ? YES : NO;
+    return [item isKindOfClass: [Folder class]];
 }
 
 - (void)viewDidUnload {
@@ -231,6 +232,11 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:ORShownSwipeHelperDefault];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+}
+
+- (void)showTopTreeView {
+    FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
+    [topFolder showTreeMap];
 }
 
 - (void)isOffline {

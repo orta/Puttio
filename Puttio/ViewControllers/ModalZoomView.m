@@ -29,6 +29,11 @@ static ModalZoomView *sharedInstance;
     return sharedInstance;
 }
 
++ (BOOL)isShowing {
+    ModalZoomView *this = [self sharedInstance];
+    return (this.viewController != nil);
+}
+
 + (void)showWithViewControllerIdentifier:(NSString *)viewControllerID {
     [self showFromRect:CGRectNull withViewControllerIdentifier:viewControllerID andItem:nil];
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="12C50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1800" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="File" representedClassName="File" syncable="YES">
         <attribute name="contentType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,7 +8,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="parentID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="screenShotURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="size" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="watched" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="folder" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="files" inverseEntity="Folder" syncable="YES"/>
     </entity>
@@ -18,7 +18,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="parentID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="screenShotURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="size" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="files" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="File" inverseName="folder" inverseEntity="File" syncable="YES"/>
         <relationship name="parentFolder" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="subFolders" inverseEntity="Folder" syncable="YES"/>
         <relationship name="subFolders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Folder" inverseName="parentFolder" inverseEntity="Folder" syncable="YES"/>

@@ -22,7 +22,7 @@
 }
 
 + (BOOL)fileSupportedByController:(File *)aFile {
-    NSSet *fileTypes = [NSSet setWithObjects: @"avi", @"mv4", @"m4v", @"mov", @"wmv", @"mkv", @"mp4", @"rmvb", @"mpeg", nil];
+    NSSet *fileTypes = [NSSet setWithObjects: @"avi", @"mv4", @"m4v", @"mov", @"wmv", @"mkv", @"mp4", @"rmvb", @"mpeg", @"mpg", nil];
     if ([fileTypes containsObject:aFile.extension]) {
         return YES;
     }
@@ -123,27 +123,27 @@
 
         // Make sure its not backed up in iCloud
         NSURL *fileUrl = [NSURL fileURLWithPath:fullPath];
-        assert([[NSFileManager defaultManager] fileExistsAtPath: [fileUrl path]]);
-        
-        NSError *error = nil;
-        BOOL success = [fileUrl setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:&error];
-        if(!success){
-            NSLog(@"Error excluding %@ from backup %@", fileUrl, error);
-        }
-        
-        // Give it a localfile core data entity
-        LocalFile *localFile = [LocalFile localFileWithFile:_file];
-        [[localFile managedObjectContext] save:nil];
-        
-        // Set the UI state 
-        self.infoController.additionalInfoLabel.text = @"Downloaded - It's in your media library!";
-        [self.infoController enableButtons];
-        [self.infoController hideProgress];
+        if ([[NSFileManager defaultManager] fileExistsAtPath: [fileUrl path]]) {
+            NSError *error = nil;
+            BOOL success = [fileUrl setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:&error];
+            if(!success){
+                NSLog(@"Error excluding %@ from backup %@", fileUrl, error);
+            }
+            
+            // Give it a localfile core data entity
+            LocalFile *localFile = [LocalFile localFileWithFile:_file];
+            [[localFile managedObjectContext] save:nil];
 
-        self.infoController.progressInfoHidden = YES;
-        self.infoController.secondaryButton.enabled = YES;
-        self.infoController.primaryButton.enabled = NO;
-        
+            // Set the UI state
+            self.infoController.additionalInfoLabel.text = @"Downloaded - It's in your media library!";
+            [self.infoController enableButtons];
+            [self.infoController hideProgress];
+
+            self.infoController.progressInfoHidden = YES;
+            self.infoController.secondaryButton.enabled = YES;
+            self.infoController.primaryButton.enabled = NO;
+        }
+
     } andFailureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", NSStringFromSelector(_cmd));
         NSLog(@"mega fail");
