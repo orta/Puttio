@@ -8,10 +8,12 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/script.js"></script>
 	<script src="javascripts/jquery.cycle.lite.js" type="text/javascript" charset="utf-8"></script>
-  <meta name = "viewport" content = "user-scalable=no, width=device-width">
   <title>Put.IO for iOS - For An Awesome Experience</title>
   <meta name="description" content="">
+  <meta name = "viewport" content = "user-scalable=no, width=device-width">
+  
   <meta content='black' name='apple-mobile-web-app-status-bar-style'>
+	<script src="javascripts/meny.js"></script>
   <script type="text/javascript" charset="utf-8">
 
   var hours
@@ -24,228 +26,99 @@
     $('#header-images').cycle({
   		fx: 'fade'
   	});
-      $("#number_of_hours").text("Over " + hours + " hours watched so far")
+    $("#number_of_hours").text("Over " + hours + " hours watched so far");
+  
+  	var meny = Meny.create({
+  		// The element that will be animated in from off screen
+  		menuElement: document.querySelector( '.meny' ),
+
+  		// The contents that gets pushed aside while Meny is active
+  		contentsElement: document.querySelector( '.site' ),
+
+  		// [optional] The alignment of the menu (top/right/bottom/left)
+  		position:'top',
+
+  		// [optional] The height of the menu (when using top/bottom position)
+  		height: 200,
+  	});
+    
+    $("#what_is_putio").click(function(){
+      if(meny.isOpen()){
+        meny.close();
+        $("#meny_content").css("display", "hidden")
+        $(this).text("What is Put.IO?");
+      }else{
+        $("#meny_content").css("display", "block")
+        meny.open()
+        $(this).text("Close");
+      }
+    })
+    
   });
     
   </script>
 	<script src="http://ortastuff.s3.amazonaws.com/putio/hours.json" type="text/javascript" charset="utf-8"></script>
-
-  <style type="text/css">
-
-    @font-face {
-        font-family: 'Exo-Bold';
-        src: url('fonts/exo-bold.eot');
-        src: url('fonts/exo-bold.eot?#iefix') format('embedded-opentype'),
-             url('fonts/exo-bold.woff') format('woff'),
-             url('fonts/exo-bold.ttf') format('truetype'),
-             url('fonts/exo-bold.svg#exo-bold') format('svg');
-        font-weight: normal;
-        font-style: normal;
-    }
-	
-    #content {
-			position:absolute;
-			width:100%;
-		}
-		
-		.frame {
-      width : 960px;
-      margin: 0 auto;
-		}
-		 
-		canvas {
-			margin-top:80px;
-			height: 320px;
-			float:left;		
-		}
-	
-    #info {
-      background-color: white;
-      height: 600px;
-			clear:both;
-    }
-
-		#header-quotes {
-			margin-top: 294px;
-			width: 360px;
-			float:left;
-		}
-		
-		#header-images {
-			width: 490px;
-			float:left;
-			margin-top:16px;
-      margin-left:12px;
-		}
-		
-		#header-images img {
-			width:620px;
-		}
-		
-    h1 {
-      font-family:'Exo-Bold';
-      font-size: 48px;
-			line-height:4px;
-    }
-
-    h2 {
-      font-family:'Exo-Bold';
-    }
-
-    #info h2 {
-      background-color:#f6e93f;
-      padding: 4px 0 4px 8px;
-      margin-bottom:8px;
-    }
-
-    .feature1 {
-      width: 460px;
-      float:left;
-    }
-    
-    .feature1 p, .feature2 p {
-      padding:8px;
-      margin-top:0;
-      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-      
-    }
-    .feature2 {
-      width: 460px;
-      float:right;
-    }
-
-		.featurettes {
-			clear:both;
-			padding-bottom-top:20px;
-		}
-		
-	  .featurettes h3{
-	    font-family:'Exo-Bold';
-	    width:300px;
-	    padding-left: 20px;
-	    float:left; 
-	    text-align: center;
-	  }
-    
-    .button {
-      height: 40px;
-      background-color:#5dadf8;
-      text-align:center;
-      font-family:'Exo-Bold';
-      text-decoration:none;
-      color:white;
-      line-height:42px;
-    }
-    
-    #what_is_putio{
-      float:right;
-      width:160px;
-      margin-right:0px;
-    }
-    
-    #download {
-      height: 40px;
-      display:block;
-      margin: 8px auto;
-      width:360px;
-    }
-    
-    .button:active {
-      background: #331122;
-    }
-    
-    #number_of_hours {
-      clear:both;
-      text-align:center;
-      font-family:'Exo-Bold';
-      font-size:28px;
-    }
-    
-    @media screen and (max-device-width: 480px) {
-      body, html, #content {
-        width : 480px;
-      }
-      
-  		.frame {
-        width : 480px ;
-  		}
-      
-      .feature1 , .feature2 {
-        width: 440px;
-        float:left;
-      }
-  		
-      #header-images img {
-  			width:320px;
-  		}
-      
-  		#header-quotes {
-  			margin-top: 80px;
-  		}
-		
-  		#header-images {
-  		
-      }
-  }
-    
-  </style>
-
 </head>
 <body>
-	<canvas id="canvas" style="opacity:0"></canvas>
-    <div id="content">
-    <div class="frame">			
-      <a id="what_is_putio" class="button" href="#">What is Put.IO?</a>
+	<div class="meny">
+	</div>
+
+  <div class= "site" style="-webkit-transform-origin: 40% 0px ">
+
+  	<canvas id="canvas" style="opacity:0"></canvas>
+      <div id="content">
+      <div class="frame">			
+        <a id="what_is_putio" class="button" href="#">What is Put.IO?</a>
       
-			<div id="header-quotes">
-				<h1>Put.IO for iOS</h1>
-				<h2>Search and Stream</h2>
-			</div>
-      <div id="header-images">
- 			  <img src="images/splash1.png">
- 			  <img src="images/splash2.png" style="display:none">
- 			  <img src="images/splash3.png" style="display:none">
- 			  <img src="images/splash4.png" style="display:none">
-      </div>
+  			<div id="header-quotes">
+  				<h1>Put.IO for iOS</h1>
+  				<h2>Search and Stream</h2>
+  			</div>
+        <div id="header-images">
+   			  <img src="images/splash1.png">
+   			  <img src="images/splash2.png" style="display:none">
+   			  <img src="images/splash3.png" style="display:none">
+   			  <img src="images/splash4.png" style="display:none">
+        </div>
 			
-      <div id="info">
-
-        <div class="feature1">
-          <h2>Browse you Put.IO content!</h2>
-          <p>Everything you have on the website is available on your iOS Device, watch downloads come in and MP4 conversion happen quick and easy.</p>
-        </div>
+        <div id="info">
+          <div class="feature1">
+            <h2>Browse your Put.IO content!</h2>
+            <p>Everything you have on the website is available on your iOS Device, watch downloads come in and MP4 conversion happen quick and easy.</p>
+          </div>
         
-        <div class="feature2">
-          <h2>Search for new content!</h2>
-          <p>Instant access to anything held on Archive.org and Mininova. <br/>If that doesn't work you can try turning off the filters and extending your search to other sites.</p>
-        </div>
+          <div class="feature2">
+            <h2>Search for new content!</h2>
+            <p>Instant access to anything held on Archive.org and Mininova. <br/>If that doesn't work you can try turning off the filters and extending your search to other sites.</p>
+          </div>
 
-        <div class="feature1">
-          <h2>Universal app!</h2>
-          <p>Seriously, you can just add something on the go using your iPhone then watch later on your iPad. Or use Airplay to send it to the big screen. I do it all the time.</p>
-        </div>
+          <div class="feature1">
+            <h2>Universal app!</h2>
+            <p>Seriously, you can just add something on the go using your iPhone then watch later on your iPad. Or use Airplay to send it to the big screen. I do it all the time.</p>
+          </div>
         
-        <div class="feature2">
-          <h2>iCloud!</h2>
-          <p>Keep track of where you are in a series auto-magically between all your devices. Essential for remembering if you're on episode 20 or 23.</p>
-        </div>
+          <div class="feature2">
+            <h2>iCloud!</h2>
+            <p>Keep track of where you are in a series auto-magically between all your devices. Essential for remembering if you're on episode 20 or 23.</p>
+          </div>
         
-          <div id="number_of_hours">&nbsp;</div>
-          <a id="download" class="button" href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">$2.99 - Buy</a>
-        <div class="call_to_action">
-        </div>
+            <div id="number_of_hours">&nbsp;</div>
+            <a id="download" class="button" href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">$2.99 - Buy</a>
+          <div class="call_to_action">
+          </div>
 
-        <div class="featurettes">
-          <h3>Auto MP4 Conversion</h3>
-          <h3>Great AppleTV Support</h3>
-          <h3>Retina Ready</h3>
-          <h3>Open Files in Other apps</h3>
-          <h3>Download Video for later</h3>
-          <h3>Open source</h3>
+          <div class="featurettes">
+            <h3>Auto MP4 Conversion</h3>
+            <h3>Great AppleTV Support</h3>
+            <h3>Retina Ready</h3>
+            <h3>Open Files in Other apps</h3>
+            <h3>Download Video for later</h3>
+            <h3>Open source</h3>
+        </div>
       </div>
-    </div>
+  </div>
+  <div class="clear">
 </div>
-
   <script type="text/javascript">
   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

@@ -8,3 +8,203 @@ canvas {
   display:block; 
   background: #d7d7d7;
 }
+
+
+  @font-face {
+      font-family: 'Exo-Bold';
+      src: url('fonts/exo-bold.eot');
+      src: url('fonts/exo-bold.eot?#iefix') format('embedded-opentype'),
+           url('fonts/exo-bold.woff') format('woff'),
+           url('fonts/exo-bold.ttf') format('truetype'),
+           url('fonts/exo-bold.svg#exo-bold') format('svg');
+      font-weight: normal;
+      font-style: normal;
+  }
+    
+  body {
+    height: 1024px
+  }
+    
+  #content {
+		position:absolute;
+		width:100%;
+    overflow-x:hidden;
+	}
+        
+	.frame {
+    width : 960px;
+    margin: 0 auto;
+      
+	}
+       
+  .clear {
+    clear:both
+  }
+    
+	canvas {
+		margin-top:80px;
+		height: 320px;
+		float:left;		
+	}
+	
+  #info {
+    background-color: white;
+    height: 600px;
+		clear:both;
+  }
+
+	#header-quotes {
+		margin-top: 294px;
+		width: 360px;
+		float:left;
+	}
+		
+	#header-images {
+		width: 490px;
+		float:left;
+		margin-top:16px;
+    margin-left:12px;
+	}
+		
+	#header-images img {
+		width:620px;
+	}
+		
+  h1 {
+    font-family:'Exo-Bold';
+    font-size: 48px;
+		line-height:4px;
+  }
+
+  h2 {
+    font-family:'Exo-Bold';
+  }
+
+  #info h2 {
+    background-color:#f6e93f;
+    padding: 4px 0 4px 8px;
+    margin-bottom:8px;
+  }
+
+  .feature1 {
+    width: 460px;
+    float:left;
+  }
+    
+  .feature1 p, .feature2 p {
+    padding:8px;
+    margin-top:0;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+      
+  }
+  .feature2 {
+    width: 460px;
+    float:right;
+  }
+
+	.featurettes {
+		clear:both;
+		padding-bottom-top:20px;
+	}
+		
+  .featurettes h3{
+    font-family:'Exo-Bold';
+    width:300px;
+    padding-left: 20px;
+    float:left; 
+    text-align: center;
+  }
+    
+  .button {
+    height: 40px;
+    background-color:#5dadf8;
+    text-align:center;
+    font-family:'Exo-Bold';
+    text-decoration:none;
+    color:white;
+    line-height:42px;
+  }
+    
+  #what_is_putio{
+    float:right;
+    width:160px;
+    margin-right:0px;
+  }
+    
+  #download {
+    height: 40px;
+    display:block;
+    margin: 8px auto;
+    width:360px;
+  }
+    
+  .button:active {
+    background-color: #331122;
+  }
+    
+  #number_of_hours {
+    clear:both;
+    text-align:center;
+    font-family:'Exo-Bold';
+    font-size:28px;
+  }
+    
+  @media screen and (max-device-width: 480px) {
+    body, html, #content {
+      width : 480px;
+    }
+      
+		.frame {
+      width : 480px ;
+		}
+      
+    .feature1 , .feature2 {
+      width: 440px;
+      float:left;
+    }
+  		
+    #header-images img {
+			width:320px;
+		}
+      
+		#header-quotes {
+			margin-top: 80px;
+		}
+		
+		#header-images {
+		  display:none;
+    }
+      
+	  .featurettes h3{
+      width:210px;
+    }      
+}
+@media only screen and (device-width: 768px) {
+  #content, .frame {
+    width : 768px;
+  }
+    
+  #header-quotes {
+    position: absolute;
+    top:12px;
+  }
+    
+  #header-images {
+    position: absolute;
+    top:40px;
+    left:126px;
+    width:260px;
+  }
+    
+  #info {
+    padding-top:300px;
+  }
+    
+  .feature1, .feature2 {
+    width: 364px;
+  }
+}
+  
+.meny {
+      background-color:#5dadf8;
+}
