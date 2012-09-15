@@ -169,6 +169,10 @@ canvas {
     height 40px;
     display:block;
   }
+  
+  .meny-active {
+    overflow:hidden;
+  }
     
   @media screen and (max-device-width: 480px) {
     body, html, #content {
