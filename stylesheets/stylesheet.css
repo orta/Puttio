@@ -174,23 +174,34 @@ canvas {
   }
     
   #header-quotes {
-    position: absolute;
-    top:12px;
+    margin-top:8px;
+    padding-left:12px;
+    margin-bottom:240px;
   }
     
   #header-images {
     position: absolute;
-    top:40px;
-    left:126px;
-    width:260px;
+    top:64px;
+    right:20px;
   }
+    #header-images img {
+    width:520px;
+    }
     
   #info {
-    padding-top:300px;
+    padding-top:20px;
   }
     
   .feature1, .feature2 {
     width: 364px;
+  }
+  
+  .featurettes {
+    margin-left:10px;
+  }
+  
+  .featurettes  h3{
+    width:230px;
   }
 }
   
