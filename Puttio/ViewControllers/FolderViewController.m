@@ -194,6 +194,10 @@ static CGFloat TreeViewFooterHeight = 60;
 - (void)showTreeMap {
     if (_treeView) return;
 
+    CGRect wrapperFrame = self.view.bounds;
+    wrapperFrame.origin.x += 8;
+    wrapperFrame.origin.y += 96;
+
     CGRect treeViewFrame = self.view.bounds;
     treeViewFrame.size.height -= TreeViewFooterHeight;
 
@@ -211,9 +215,10 @@ static CGFloat TreeViewFooterHeight = 60;
     labelFrame.origin.x += 16 + CGRectGetWidth(buttonFrame);
     labelFrame.size.width = 80;
 
-    _treeViewWrapper = [[UIView alloc] initWithFrame:self.view.bounds];
+    UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+    _treeViewWrapper = [[UIView alloc] initWithFrame:wrapperFrame];
     _treeViewWrapper.alpha = 0;
-    [self.view.superview addSubview:_treeViewWrapper];
+    [rootView addSubview:_treeViewWrapper];
 
     _treeView = [[TreemapView alloc] initWithFrame:treeViewFrame];
     _treeView.dataSource = self;
