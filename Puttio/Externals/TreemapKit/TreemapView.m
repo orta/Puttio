@@ -151,6 +151,7 @@
 #pragma mark Public methods
 
 - (void)reloadData {
+    [self removeNodes];
     [self getData];
     [self resizeNodes];
 }

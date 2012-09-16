@@ -153,7 +153,9 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
         
         Folder *folder = (Folder *)item;
         [self loadFolder:folder];
+
     } else {
+
         File *file = (File *)item;
         UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
         GMGridViewCell *cell = [topFolder.gridView cellForItemAtIndex:position];

@@ -38,6 +38,7 @@
     [self checkForWatched];
     [self orderItems];
     [_gridView reloadData];
+    [_treeView reloadData];
 }
 
 #pragma mark -
@@ -61,6 +62,7 @@
     self.view = _gridView;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadGrid) name:ORReloadGridNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTreeView) name:ORReloadFolderNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -129,11 +131,10 @@
 
 - (void)reloadGrid {
     self.folderItems = self.folderItems;
-    if (_treeView) {
-        [UIView animateWithDuration:0.3 animations:^{
-            [_treeView reloadData];
-        }];
-    }
+}
+
+- (void)reloadTreeView {
+    [self reloadItemsFromServer];
 }
 
 - (BOOL)itemIsFolder:(NSObject <ORDisplayItemProtocol>*)item {
@@ -249,6 +250,8 @@ static CGFloat TreeViewFooterHeight = 60;
 
 - (NSArray *)valuesForTreemapView:(TreemapView *)treemapView {
     NSMutableArray *sizes = [NSMutableArray array];
+    _totalSize = 0;
+    
     for (id fileOrFolder in _folderItems) {
         NSNumber *size = [(File *)fileOrFolder size];
         [sizes addObject:size];

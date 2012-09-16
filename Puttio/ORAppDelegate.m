@@ -141,7 +141,7 @@
     
     if (coordinator != nil) {
         NSManagedObjectContext* moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-        
+
         [moc performBlockAndWait:^{
             [moc setPersistentStoreCoordinator: coordinator];
             [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(mergeChangesFrom_iCloud:) name:NSPersistentStoreDidImportUbiquitousContentChangesNotification object:coordinator];
