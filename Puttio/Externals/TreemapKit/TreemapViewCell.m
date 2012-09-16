@@ -2,6 +2,7 @@
 #import "TreemapViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIFont+Puttio.h"
+#import "UIDevice+deviceInfo.h"
 
 @implementation TreemapViewCell
 
@@ -18,7 +19,8 @@
         self.layer.borderColor = [[UIColor whiteColor] CGColor];
 
         self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width - 4, 40)];
-        textLabel.font = [UIFont titleFontWithSize:20];
+        CGFloat titleSize = [UIDevice isPad]? 20: 14;
+        textLabel.font = [UIFont titleFontWithSize:titleSize];
         textLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         textLabel.textAlignment = UITextAlignmentCenter;
         textLabel.textColor = [UIColor whiteColor];
@@ -28,7 +30,8 @@
         [self addSubview:textLabel];
 
         self.valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width - 4, 20)];
-        valueLabel.font = [UIFont bodyFontWithSize:16];
+        CGFloat valueSize = [UIDevice isPad]? 16: 12;
+        valueLabel.font = [UIFont bodyFontWithSize:valueSize];
         valueLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         valueLabel.textAlignment = UITextAlignmentCenter;
         valueLabel.textColor = [UIColor whiteColor];

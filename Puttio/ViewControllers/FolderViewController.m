@@ -225,6 +225,7 @@ static CGFloat TreeViewFooterHeight = 60;
 
     _sizeLabel = [[UILabel alloc] initWithFrame:labelFrame];
     _sizeLabel.text = [UIDevice humanStringFromBytes:_totalSize];
+    _sizeLabel.backgroundColor = [UIColor putioYellow];
     [_treeViewWrapper addSubview:_sizeLabel];
 
     ORFlatButton *button = [[ORFlatButton alloc] initWithFrame:buttonFrame];
@@ -281,6 +282,7 @@ static CGFloat TreeViewFooterHeight = 60;
         _treeViewWrapper.alpha = 0;
     } completion:^(BOOL finished) {
         [_treeViewWrapper removeFromSuperview];
+        _treeView = nil;
         [[self.gridView actionDelegate] GMGridView:self.gridView didTapOnItemAtIndex:gesture.view.tag];
     }];
 }
