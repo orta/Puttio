@@ -37,7 +37,7 @@
         return nil;
     }
     
-    self.v1Client = [V1PutIOAPIClient sharedClient];
+//    self.v1Client = [V1PutIOAPIClient sharedClient];
     self.v2Client = [V2PutIOAPIClient setup];
     
     return self;
@@ -48,7 +48,7 @@
 }
 
 - (void)startup {
-    [self.v1Client getStreamToken];
+   // [self.v1Client getStreamToken];
 }
 
 + (NSString *)appendOauthToken:(NSString *)inputURL {
@@ -76,13 +76,6 @@
 
 - (void)getMP4InfoForFile:(File *)file :(void(^)(id userInfoObject))onComplete {
     [self.v2Client getMP4InfoForFile:file :^(id userInfoObject)  {
-        onComplete(userInfoObject);  
-    }];
-}
-
-// this isnt used in this app.
-- (void)getMessages:(void(^)(id userInfoObject))onComplete {
-    [self.v1Client getMessages :^(id userInfoObject) {
         onComplete(userInfoObject);  
     }];
 }

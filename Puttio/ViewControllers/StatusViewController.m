@@ -144,15 +144,6 @@ typedef enum {
     return newTransfers;
 }
 
-- (void)getMessages {
-    [[PutIOClient sharedClient] getMessages:^(id userInfoObject) {
-        if (![userInfoObject isKindOfClass:[NSError class]]) {
-            messages = userInfoObject;
-            [self.tableView reloadData];
-        }
-    }];
-}
-
 - (void)getUserInfo {
     [[PutIOClient sharedClient] getUserInfo:^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {

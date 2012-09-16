@@ -143,6 +143,10 @@
 		60C85AF915CFAD40008FC895 /* Hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C85AF715CFAD40008FC895 /* Hand.png */; };
 		60C85AFA15CFAD40008FC895 /* Hand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C85AF815CFAD40008FC895 /* Hand@2x.png */; };
 		60C85AFE15CFAD7E008FC895 /* ARSwipeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C85AFD15CFAD7E008FC895 /* ARSwipeImageView.m */; };
+		60D0E0671606539B004F167E /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E0661606539B004F167E /* Default-Portrait@2x~ipad.png */; };
+		60D0E06A160653D9004F167E /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E069160653D9004F167E /* Default-Portrait~ipad.png */; };
+		60D0E06C160654FB004F167E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E06B160654FB004F167E /* Default@2x.png */; };
+		60D0E06E16065753004F167E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E06D16065753004F167E /* Default.png */; };
 		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
 		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
 		60DB0AB4151C670800DA8A33 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* LoginViewController.m */; };
@@ -416,6 +420,10 @@
 		60C85AF815CFAD40008FC895 /* Hand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand@2x.png"; sourceTree = "<group>"; };
 		60C85AFC15CFAD7E008FC895 /* ARSwipeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARSwipeImageView.h; path = Views/ARSwipeImageView.h; sourceTree = "<group>"; };
 		60C85AFD15CFAD7E008FC895 /* ARSwipeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARSwipeImageView.m; path = Views/ARSwipeImageView.m; sourceTree = "<group>"; };
+		60D0E0661606539B004F167E /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		60D0E069160653D9004F167E /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		60D0E06B160654FB004F167E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		60D0E06D16065753004F167E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		60D9B7E91535C30F00A64E0F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Models/SearchResult.h; sourceTree = "<group>"; };
 		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
 		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
@@ -675,6 +683,10 @@
 		6085D218151B99480068929C = {
 			isa = PBXGroup;
 			children = (
+				60D0E06D16065753004F167E /* Default.png */,
+				60D0E06B160654FB004F167E /* Default@2x.png */,
+				60D0E069160653D9004F167E /* Default-Portrait~ipad.png */,
+				60D0E0661606539B004F167E /* Default-Portrait@2x~ipad.png */,
 				60973FEE16050AC900867A2D /* Default-568h@2x.png */,
 				60F6F83115D072BC004333AF /* icon114.png */,
 				60F6F82F15D072A2004333AF /* icon57.png */,
@@ -1102,6 +1114,10 @@
 				60F6F83015D072A2004333AF /* icon57.png in Resources */,
 				60F6F83215D072BD004333AF /* icon114.png in Resources */,
 				60973FEF16050AC900867A2D /* Default-568h@2x.png in Resources */,
+				60D0E0671606539B004F167E /* Default-Portrait@2x~ipad.png in Resources */,
+				60D0E06A160653D9004F167E /* Default-Portrait~ipad.png in Resources */,
+				60D0E06C160654FB004F167E /* Default@2x.png in Resources */,
+				60D0E06E16065753004F167E /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

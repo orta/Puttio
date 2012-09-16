@@ -20,6 +20,8 @@
 @interface FolderViewController (){
     TreemapView *_treeView;
     UIView *_treeViewWrapper;
+    UILabel *_sizeLabel;
+    double _totalSize;
 }
 
 @end
@@ -189,6 +191,7 @@
 static CGFloat TreeViewFooterHeight = 60;
 
 - (void)showTreeMap {
+    if (_treeView) return;
 
     CGRect treeViewFrame = self.view.bounds;
     treeViewFrame.size.height -= TreeViewFooterHeight;
@@ -203,6 +206,10 @@ static CGFloat TreeViewFooterHeight = 60;
     buttonFrame.size.height = 44;
     buttonFrame.size.width = 80;
 
+    CGRect labelFrame = buttonFrame;
+    labelFrame.origin.x += 16 + CGRectGetWidth(buttonFrame);
+    labelFrame.size.width = 80;
+
     _treeViewWrapper = [[UIView alloc] initWithFrame:self.view.bounds];
     _treeViewWrapper.alpha = 0;
     [self.view.superview addSubview:_treeViewWrapper];
@@ -216,10 +223,13 @@ static CGFloat TreeViewFooterHeight = 60;
     footerView.backgroundColor = [UIColor putioYellow];
     [_treeViewWrapper addSubview:footerView];
 
+    _sizeLabel = [[UILabel alloc] initWithFrame:labelFrame];
+    _sizeLabel.text = [UIDevice humanStringFromBytes:_totalSize];
+    [_treeViewWrapper addSubview:_sizeLabel];
+
     ORFlatButton *button = [[ORFlatButton alloc] initWithFrame:buttonFrame];
     [button setTitle:@"Grid" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(removeTreeMap) forControlEvents:UIControlEventTouchUpInside];
-
     [_treeViewWrapper addSubview:button];
 
     [UIView animateWithDuration:0.3 animations:^{
@@ -232,6 +242,7 @@ static CGFloat TreeViewFooterHeight = 60;
         _treeViewWrapper.alpha = 0;
     } completion:^(BOOL finished) {
         [_treeViewWrapper removeFromSuperview];
+        _treeView = nil;
     }];
 }
 
@@ -240,7 +251,11 @@ static CGFloat TreeViewFooterHeight = 60;
     for (id fileOrFolder in _folderItems) {
         NSNumber *size = [(File *)fileOrFolder size];
         [sizes addObject:size];
+        
+        _totalSize += size.doubleValue;
     }
+
+    _sizeLabel.text = [UIDevice humanStringFromBytes:_totalSize];
     return sizes;
 }
 

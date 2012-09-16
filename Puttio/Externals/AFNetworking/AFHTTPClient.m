@@ -392,7 +392,9 @@ static void AFReachabilityCallback(SCNetworkReachabilityRef __unused target, SCN
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method 
                                       path:(NSString *)path 
                                 parameters:(NSDictionary *)parameters 
-{	
+{
+//    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    NSLog(@"URL %@", path);
     NSURL *url = [NSURL URLWithString:path relativeToURL:self.baseURL];
 	NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] initWithURL:url] autorelease];
     [request setHTTPMethod:method];
