@@ -84,7 +84,7 @@
         return;
     }
     
-    self.infoController.additionalInfoLabel.text = @"Downloading - You can close this popover and it will download in the background.";
+    self.infoController.additionalInfoLabel.text = @"Downloading - You can close this popover and it will download as long as you are in the app.";
     [self.infoController showProgress];
     [self downloadFile];
 }
