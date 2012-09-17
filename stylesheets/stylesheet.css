@@ -135,6 +135,8 @@ canvas {
     text-align:center;
     font-family:'Exo-Bold';
     font-size:28px;
+    padding-top: 20px;
+    margin-bottom: 35px;
   }
   
   .meny {
