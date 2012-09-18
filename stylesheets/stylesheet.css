@@ -92,7 +92,7 @@ canvas {
 
 	.featurettes {
 		clear:both;
-		padding-bottom-top:20px;
+		padding-top:20px;
 	}
 		
   .featurettes h3{
@@ -176,7 +176,61 @@ canvas {
     overflow:hidden;
   }
     
+  #download_section {
+    clear:both;
+    cursor: pointer;
+    height: 180px;
+    background: #5dadf8 url('images/appbackground.png') no-repeat center right;
+  }
+  .button:hover {
+    background-color: #4d6dff;
+  }
+  #download_section:hover {
+    background: #4d6dff url('images/appbackground.png') no-repeat center right;
+  }
+            
+  #icon {
+    float:left;
+    margin: 0 32px;
+  }
+            
+  #download_info {
+    width: 320px;
+    float:left;
+  }
+            
+  #download {
+    background-color:white;
+    color: #5dadf8;
+    float:left;
+    width:320px;
+  }
+            
+  #download:active {
+    background-color: #bbb;
+  }
+            
+  #download a {
+    text-decoration:none;
+    color: #5dadf8 !important;
+  }
+            
+  #download_info {
+    padding-top:43px;
+  }
+            
+  #download:before {
+     content: "Available on App Store";
+  }
+            
+  #download_section:hover #download:before {
+    content: "Click to Download";
+  }
+    
   @media screen and (max-device-width: 480px) {
+  body{ 
+  height: 1280px; 
+  }
     body, html, #content {
       width : 480px;
     }
@@ -189,7 +243,7 @@ canvas {
       width: 440px;
       float:left;
     }
-  		
+    	
     #header-images img {
 			width:320px;
 		}
@@ -201,6 +255,10 @@ canvas {
 		#header-images {
 		  display:none;
     }
+    
+  	.featurettes {
+  		padding-top:32px;
+  	}
       
 	  .featurettes h3{
       width:210px;
@@ -221,7 +279,25 @@ canvas {
     }
     
     #download:before {
-      content: "Tap to Download";
+      content: "Tap to Download" !important;
+    }
+  
+    #download_section {
+      background-image:none !important;
+      background: #5dadf8;
+      height: 360px !important;
+      clear:both;
+      margin-bottom: 32px;
+    }
+  
+    #icon {
+      padding-left: 140px;
+    }
+    
+    #download_info {
+      float:none;
+      padding-left: 80px;
+      padding-top: -20px;
     }
 }
 
@@ -279,6 +355,15 @@ canvas {
   }
   
   #download:before {
-    content: "Tap to Download";
+    content: "Tap to Download" !important;
+  }
+  
+  #download_section {
+    background-image:none !important;
+    background: #5dadf8;
+  }
+  
+  #icon {
+    padding-left: 120px;
   }
 }
