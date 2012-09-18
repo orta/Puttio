@@ -219,6 +219,10 @@ canvas {
     #putio_subinfo {
       display:none;
     }
+    
+    #download:before {
+      content: "Tap to Download";
+    }
 }
 
 @media only screen and (device-width: 768px) {
@@ -272,5 +276,9 @@ canvas {
     width:120px;
     padding-left:64px;
     padding-top:42px;
+  }
+  
+  #download:before {
+    content: "Tap to Download";
   }
 }

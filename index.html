@@ -133,8 +133,15 @@
           <style type="text/css" media="screen">
             #download_section {
               clear:both;
+              cursor: pointer;
               height: 180px;
               background: #5dadf8 url('images/appbackground.png') no-repeat center right;
+            }
+            .button:hover {
+              background-color: #4d6dff;
+            }
+            #download_section:hover {
+              background: #4d6dff url('images/appbackground.png') no-repeat center right;
             }
             
             #icon {
@@ -146,11 +153,16 @@
               width: 320px;
               float:left;
             }
+            
             #download {
               background-color:white;
               color: #5dadf8;
               float:left;
               width:320px;
+            }
+            
+            #download:active {
+              background-color: #bbb;
             }
             
             #download a {
@@ -161,6 +173,14 @@
             #download_info {
               padding-top:43px;
             }
+            
+            #download:before {
+               content: "Available on App Store";
+            }
+            
+            #download_section:hover #download:before {
+              content: "Click to Download";
+            }
           </style>
 
         <a href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">
@@ -168,7 +188,7 @@
             <img id = "icon" src="images/icon.png" width="117" height="180" alt="Icon">
             <div id="download_info">
 <img src="images/attributes.png" width="320" height="44" alt="Attributes">
-              <div id="download" class="button">Available on App Store</a>
+              <div id="download" class="button">&nbsp;</a>
             </div>
           </div>
         </a>
