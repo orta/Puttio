@@ -6,16 +6,23 @@ It's built in Objective-C, is good readable code, but there's a lot of late-nigh
 
 iPhone
 ---
+<center>
 
-![SCreenshot](https://github.com/orta/Puttio/raw/master/web/iphone1.png)-  
+![SCreenshot](https://github.com/orta/Puttio/raw/master/web/iphone1.png)-
 ![SCreenshot](https://github.com/orta/Puttio/raw/master/web/iphone2.png)-
 ![SCreenshot](https://github.com/orta/Puttio/raw/master/web/iphone3.png)
+
+</center>
 
 iPad
 ---
 
+<center>
+
 ![SCreenshot](https://github.com/orta/Puttio/raw/master/web/ipad1.png)-
 ![SCreenshot](https://github.com/orta/Puttio/raw/master/web/ipad2.png)-
 ![SCreenshot](https://github.com/orta/Puttio/raw/master/web/ipad5.png)
+
+</center>
 
 Licensed under a slightly modified BSD. I'd love Pull Requests, but app store submissions will be a rarity.
