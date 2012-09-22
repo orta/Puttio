@@ -11,7 +11,7 @@
 #import "ORDisplayItemProtocol.h"
 #import "ARSwipeImageView.h"
 
-@class ORRotatingButton;
+@class ORRotatingButton, ARTitleLabel;
 @interface BrowsingViewController : UIViewController <GMGridViewActionDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

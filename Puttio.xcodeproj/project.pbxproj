@@ -1325,7 +1325,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ben Maslen (P62E9AFBV2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ben Maslen";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1341,7 +1341,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "695262FA-14A3-4CB0-89E5-10224DF0B81F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
@@ -1353,7 +1353,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ben Maslen (P62E9AFBV2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ben Maslen";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1369,7 +1369,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "695262FA-14A3-4CB0-89E5-10224DF0B81F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
