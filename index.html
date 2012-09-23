@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="apple-itunes-app" content="app-id=547030322"/>
+  
   <style>
     @font-face {
         font-family: 'Exo-Bold';
@@ -36,7 +38,7 @@
 
   $(document).ready(function() {
     $('#header-images').cycle({
-  		fx: 'fade', timeout: 600
+  		fx: 'fade', timeout: 600  
   	});
     
     $("#number_of_hours").text("Over " + hours.commaSeparated() + " hours collectively watched so far");
@@ -76,20 +78,6 @@
 	<script src="http://ortastuff.s3.amazonaws.com/putio/hours.json" type="text/javascript" charset="utf-8"></script>
 </head>
 
-<style type="text/css" media="screen">
-  #top_download {
-    display:block;
-    width: 160px;
-    float:right;
-    margin-right:16px;
-    background-color: black;
-  }
-  
-  #top_download:hover {
-    background-color:#111 !important;
-  }
-</style>
-
 <body>
 	<div class="meny" style="display:none;">
     <div class="frame">
@@ -99,7 +87,7 @@
       <div id="putio_subinfo">
         <h3 >Storage space plans range from 1GB to 1TB.</h2>
           <a class="button" href="http://put.io">Go to Put.IO</a>
-      </div>    
+      </div>
       
     </div>
 	</div>

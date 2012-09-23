@@ -224,6 +224,18 @@ canvas {
     background-color:#eee;
   }
     
+  #top_download {
+    display:block;
+    width: 160px;
+    float:right;
+    margin-right:16px;
+    background-color: black;
+  }
+  
+  #top_download:hover {
+    background-color:#111 !important;
+  }
+    
   @media screen and (max-device-width: 480px) {
     #header-quotes {
       display:block;
