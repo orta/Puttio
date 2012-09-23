@@ -16,7 +16,7 @@ canvas {
   #content {
 		position:absolute;
 		width:100%;
-    overflow-x:hidden;
+   /* overflow-x:hidden; */
 	}
         
 	.frame {
@@ -40,18 +40,13 @@ canvas {
     height: 600px;
 		clear:both;
   }
-
-	#header-quotes {
-		margin-top: 294px;
-		width: 360px;
-		float:left;
-	}
 		
 	#header-images {
-		width: 490px;
+    height:400px;
+		width: 960px;
 		float:left;
-		margin-top:16px;
-    margin-left:12px;
+    margin-top: 16px;
+    padding-left:162px;
 	}
 		
 	#header-images img {
@@ -113,12 +108,17 @@ canvas {
     line-height:42px;
   }
     
-  #what_is_putio{
+  #what_is_putio {
     float:right;
     width:160px;
     margin-right:0px;
   }
     
+  #header-quotes {
+    width: 320px;
+    display:none;
+  }
+  
   #download {
     height: 40px;
     display:block;
@@ -135,7 +135,6 @@ canvas {
     text-align:center;
     font-family:'Exo-Bold';
     font-size:28px;
-    padding-top: 20px;
     margin-bottom: 35px;
   }
   
@@ -182,11 +181,9 @@ canvas {
     height: 180px;
     background: #5dadf8 url('images/appbackground.png') no-repeat center right;
   }
+
   .button:hover {
     background-color: #4d6dff;
-  }
-  #download_section:hover {
-    background: #4d6dff url('images/appbackground.png') no-repeat center right;
   }
             
   #icon {
@@ -223,14 +220,19 @@ canvas {
      content: "Available on App Store";
   }
             
-  #download_section:hover #download:before {
-    content: "Click to Download";
+  #download:hover {
+    background-color:#eee;
   }
     
   @media screen and (max-device-width: 480px) {
-  body{ 
-  height: 1280px; 
-  }
+    #header-quotes {
+      display:block;
+    }
+
+    body{ 
+      height: 1280px; 
+    }
+    
     body, html, #content {
       width : 480px;
     }
@@ -249,7 +251,7 @@ canvas {
 		}
       
 		#header-quotes {
-			margin-top: 80px;
+			padding-top: 112px;
 		}
 		
 		#header-images {
@@ -305,21 +307,18 @@ canvas {
   #content, .frame {
     width : 768px;
   }
-    
+  
   #header-quotes {
     margin-top:8px;
     padding-left:12px;
     margin-bottom:240px;
+    padding-left:0;
   }
   
   #header-images {
-    position: absolute;
-    top:64px;
-    right:20px;
+    width:684px;
+    padding-left: 83px;
   }
-    #header-images img {
-    width:520px;
-    }
     
   #info {
     padding-top:20px;

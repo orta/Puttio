@@ -38,7 +38,8 @@
     $('#header-images').cycle({
   		fx: 'fade'
   	});
-    $("#number_of_hours").text("Over " + hours + " hours watched so far");
+    
+    $("#number_of_hours").text("Over " + hours.commaSeparated() + " hours collectively watched so far");
   
   	var meny = Meny.create({
   		// The element that will be animated in from off screen
@@ -69,18 +70,32 @@
     $("#download_section").click(function(){
       window.location.href = 'http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8';
     });
-    
   });
     
   </script>
 	<script src="http://ortastuff.s3.amazonaws.com/putio/hours.json" type="text/javascript" charset="utf-8"></script>
 </head>
 
+<style type="text/css" media="screen">
+  #top_download {
+    display:block;
+    width: 160px;
+    float:right;
+    margin-right:16px;
+    background-color: black;
+  }
+  
+  #top_download:hover {
+    background-color:#111 !important;
+  }
+</style>
+
 <body>
 	<div class="meny" style="display:none;">
     <div class="frame">
       <a id="putio_logo" href ="http://put.io"><img src="images/putiologo.png" width="142" height="200" alt="Putiologo"></a>
       <h2 id="putio_info">Put.IO is an online storage service. You can pass it files, torrents or magnet links and it will download and store it for you.</h2>
+      
       <div id="putio_subinfo">
         <h3 >Storage space plans range from 1GB to 1TB.</h2>
           <a class="button" href="http://put.io">Go to Put.IO</a>
@@ -90,23 +105,34 @@
 	</div>
 
   <div class= "site">
-    
-  	<canvas id="canvas" style="opacity:0"></canvas>
-      <div id="content">
-      <div class="frame">			
+    <canvas id="canvas" style="opacity:0"></canvas>
+    <div id="content">
+      <div class="frame">
+        
         <a id="what_is_putio" class="button" href="#">What is Put.IO?</a>
-      
-  			<div id="header-quotes">
+        <a id="top_download" class="button" href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">Download</a>
+  		
+      	<div id="header-quotes">
   				<h1>Put.IO for iOS</h1>
   				<h2>Search and Stream</h2>
   			</div>
+      
         <div id="header-images">
-   			  <img src="images/splash1.png">
-   			  <img src="images/splash2.png" style="display:none">
-   			  <img src="images/splash3.png" style="display:none">
-   			  <img src="images/splash4.png" style="display:none">
+              <img src="images/splash1.png">
+              <img src="images/splash2.png" style="display:none">
+              <img src="images/splash3.png" style="display:none">
+              <img src="images/splash4.png" style="display:none">
         </div>
-			
+
+        <div class= "clear"></clear>
+        <center>
+        <a href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">
+          <img src="images/appstore.jpg" width="185" height="64" alt="Appstore">
+        </a>
+        </center>
+              
+        <div id="number_of_hours">&nbsp;</div>
+        
         <div id="info">
           <div class="feature1">
             <h2>Browse your Put.IO content!</h2>
@@ -128,71 +154,16 @@
             <p>Keep track of where you are in a series auto-magically between all your devices. Essential for remembering if you're on episode 20 or 23.</p>
           </div>
 
-          <div id="number_of_hours">&nbsp;</div>
-          
-          <style type="text/css" media="screen">
-            #download_section {
-              clear:both;
-              cursor: pointer;
-              height: 180px;
-              background: #5dadf8 url('images/appbackground.png') no-repeat center right;
-            }
-            .button:hover {
-              background-color: #4d6dff;
-            }
-            #download_section:hover {
-              background: #4d6dff url('images/appbackground.png') no-repeat center right;
-            }
-            
-            #icon {
-              float:left;
-              margin: 0 32px;
-            }
-            
-            #download_info {
-              width: 320px;
-              float:left;
-            }
-            
-            #download {
-              background-color:white;
-              color: #5dadf8;
-              float:left;
-              width:320px;
-            }
-            
-            #download:active {
-              background-color: #bbb;
-            }
-            
-            #download a {
-              text-decoration:none;
-              color: #5dadf8 !important;
-            }
-            
-            #download_info {
-              padding-top:43px;
-            }
-            
-            #download:before {
-               content: "Available on App Store";
-            }
-            
-            #download_section:hover #download:before {
-              content: "Click to Download";
-            }
-          </style>
-
-        <a href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">
-          <div id="download_section">
-            <img id = "icon" src="images/icon.png" width="117" height="180" alt="Icon">
-            <div id="download_info">
-<img src="images/attributes.png" width="320" height="44" alt="Attributes">
-              <div id="download" class="button">&nbsp;</a>
+          <a href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">
+            <div id="download_section">
+              <img id = "icon" src="images/icon.png" width="117" height="180" alt="Icon">
+              <div id="download_info">
+                <img src="images/attributes.png" width="320" height="44" alt="Attributes">
+                <div id="download" class="button">&nbsp;</a></div>
+              </div>
             </div>
-          </div>
-        </a>
-        
+          </a>
+
 
           <div class="featurettes">
             <h3>Auto MP4 Conversion</h3>
@@ -202,10 +173,14 @@
             <h3>Download Video for later</h3>
             <h3>Open source</h3>
         </div>
-      </div>
-  </div>
-  <div class="clear">
+      
+       </div>
+     </div>
+   </div>
 </div>
+
+<div class="clear"></div>
+
   <script type="text/javascript">
   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
   document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

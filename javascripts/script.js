@@ -36,7 +36,7 @@ $( function() {
         }
     }
     if (canvas.style.opacity == 0) {
-      $(canvas).fadeTo('slow', 1);
+      $(canvas).animate({opacity: 0.5}, 0.5);
     };
   }
 
@@ -72,3 +72,12 @@ $( function() {
   resizeCanvas();
   createBackgroundAnimations();
 });
+
+Number.prototype.commaSeparated = function() {
+    var n = this,
+        t = ",",
+        s = n < 0 ? "-" : "",
+        i = parseInt(n = Math.abs(+n || 0)) + "",
+        j = (j = i.length) > 3 ? j % 3 : 0;
+    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t);
+};
