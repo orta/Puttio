@@ -13,17 +13,20 @@ canvas {
     height: 1124px
   }
     
-  #content {
-		position:absolute;
+  #headline {
+		position: absolute;
 		width:100%;
-   /* overflow-x:hidden; */
 	}
         
 	.frame {
     width : 960px;
     margin: 0 auto;
-      
 	}
+  
+  #content {
+    clear:both;
+    
+  }
        
   .clear {
     clear:both
@@ -39,6 +42,7 @@ canvas {
     background-color: white;
     height: 600px;
 		clear:both;
+    margin-top:32px;
   }
 		
 	#header-images {
@@ -135,7 +139,7 @@ canvas {
     text-align:center;
     font-family:'Exo-Bold';
     font-size:28px;
-    margin-bottom: 35px;
+    padding-top:48px;
   }
   
   .meny {
@@ -176,10 +180,12 @@ canvas {
   }
     
   #download_section {
+    width: 536px;
+    margin: 0 auto;
     clear:both;
     cursor: pointer;
     height: 180px;
-    background: #5dadf8 url('images/appbackground.png') no-repeat center right;
+    background-color: #5dadf8 ;
   }
 
   .button:hover {
@@ -242,7 +248,7 @@ canvas {
     }
 
     body{ 
-      height: 1280px; 
+      height: auto; 
     }
     
     body, html, #content {
@@ -348,9 +354,6 @@ canvas {
     width:230px;
   }
   
-  #putio_logo {
-    margin-left:20px;
-  }
   
   #putio_info {
     font-size:18px;
@@ -363,6 +366,10 @@ canvas {
     width:120px;
     padding-left:64px;
     padding-top:42px;
+  }
+  
+  #download_section {
+    width: auto;
   }
   
   #download:before {

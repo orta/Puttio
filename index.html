@@ -41,7 +41,7 @@
   		fx: 'fade', timeout: 600  
   	});
     
-    $("#number_of_hours").text("Over " + hours.commaSeparated() + " hours collectively watched so far");
+    $("#number_of_hours").text("" + hours.commaSeparated() + " hours collectively watched so far");
   
   	var meny = Meny.create({
   		// The element that will be animated in from off screen
@@ -94,9 +94,8 @@
 
   <div class= "site">
     <canvas id="canvas" style="opacity:0"></canvas>
-    <div id="content">
+    <div id="headline">
       <div class="frame">
-        
         <a id="what_is_putio" class="button" href="#">What is Put.IO?</a>
         <a id="top_download" class="button" href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">Download</a>
   		
@@ -111,15 +110,18 @@
               <img src="images/splash3.png" style="display:none">
               <img src="images/splash4.png" style="display:none">
         </div>
-
-        <div class= "clear"></clear>
+      </div> <!-- frame -->
+    </div> <!-- header -->
+    
+    <div class="content">
+      <div class="frame">
+        <div id="number_of_hours">&nbsp;</div>
         <center>
         <a href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">
           <img src="images/appstore.jpg" width="185" height="64" alt="Appstore">
         </a>
         </center>
               
-        <div id="number_of_hours">&nbsp;</div>
         
         <div id="info">
           <div class="feature1">
