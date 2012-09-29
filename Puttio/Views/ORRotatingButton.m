@@ -39,7 +39,6 @@ CGFloat RotationDuration = 0.9;
 }
 
 - (void)startAnimating {
-    if (rotationAnimation) return;
     [self animate:HUGE_VAL];
 }
 

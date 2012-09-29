@@ -9,8 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 
+@class MoviePlayer;
+
+@protocol MoviePlayerDelegate <NSObject>
+- (void)moviePlayer:(MoviePlayer *)player didEndWithError:(NSString *)error;
+@end
+
 @interface MoviePlayer : NSObject 
 @property  MPMoviePlayerController *mediaPlayer;
+@property (weak) id <MoviePlayerDelegate> delegate;
 
 + (void)streamMovieAtPath:(NSString *)path;
 + (void)watchLocalMovieAtPath:(NSString *)path;

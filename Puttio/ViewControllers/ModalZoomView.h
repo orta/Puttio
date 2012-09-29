@@ -23,4 +23,5 @@
 + (void)showFromRect:(CGRect)initialFrame withViewControllerIdentifier:(NSString *)viewControllerID andItem:(id)item;
 + (void)fadeOutViewAnimated:(BOOL)animated;
 + (BOOL)isShowing;
+@property  UIViewController <ModalZoomViewControllerDelegate> *viewController;
 @end

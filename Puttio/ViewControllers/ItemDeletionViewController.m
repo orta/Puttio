@@ -9,6 +9,9 @@
 #import "ItemDeletionViewController.h"
 #import "LocalFile.h"
 #import "ORFlatButton.h"
+#import "WatchedList.h"
+#import "Folder.h"
+
 @interface ItemDeletionViewController (){
     NSObject <ORDisplayItemProtocol> *_item;
 }
@@ -60,6 +63,11 @@
         [[PutIOClient sharedClient] requestDeletionForDisplayItemID:_item.id :^(id userInfoObject) {
             [Analytics incrementUserProperty:@"User Deleted RemoteFile" byInt:1];
             [ModalZoomView fadeOutViewAnimated:YES];
+
+            if ([_item isKindOfClass:[Folder class]]) {
+                WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_item.id];
+                [list deleteEntity];
+            }
         }];
     }
 }

@@ -61,6 +61,8 @@
 }
 
 - (void)primaryButtonAction:(id)sender {
+    [MoviePlayer sharedPlayer].delegate = self;
+
     if (_isMP4) {
         [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"https://put.io/v2/files/%@/stream", _file.id]];
     }else{
@@ -68,6 +70,10 @@
     }
     
     [self markFileAsViewed];
+}
+
+- (void)moviePlayer:(MoviePlayer *)player didEndWithError:(NSString *)error {
+    self.infoController.additionalInfoLabel.text = error;
 }
 
 - (BOOL)supportsSecondaryButton {
@@ -83,10 +89,22 @@
         self.infoController.additionalInfoLabel.text = @"You have already downloaded this.";
         return;
     }
-    
-    self.infoController.additionalInfoLabel.text = @"Downloading - You can close this popover and it will download as long as you are in the app.";
-    [self.infoController showProgress];
-    [self downloadFile];
+
+    if([self deviceHasEnoughSpace]){
+        self.infoController.additionalInfoLabel.text = @"Downloading - You can close this popover and it will download as long as you are in the app.";
+        [self.infoController showProgress];
+        [self downloadFile];
+    } else {
+        self.infoController.additionalInfoLabel.text = @"You do not have enough free space to download this.";
+    }
+}
+
+- (BOOL)deviceHasEnoughSpace {
+    double freeSpace = [UIDevice numberOfBytesFree];
+    if (freeSpace > _file.size.doubleValue) {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)downloadFile {    

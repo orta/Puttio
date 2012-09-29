@@ -16,6 +16,7 @@
 #import "ModalZoomView.h"
 #import <Crashlytics/Crashlytics.h>
 #import "APP_SECRET.h"
+#import "ORNavigationController.h"
 
 @implementation ORAppDelegate
 
@@ -40,7 +41,6 @@
         [self showLogin];
     }
     
-    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
     [Crashlytics startWithAPIKey:CRASHLYTICS_API_KEY];
     return YES;
 }
@@ -53,7 +53,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     SearchViewController *searchVC = [storyboard instantiateViewControllerWithIdentifier:@"searchView"];
     
-    UINavigationController *rootNav = (UINavigationController*)self.window.rootViewController;
+    ORNavigationController *rootNav = (ORNavigationController*)self.window.rootViewController;
     BrowsingViewController *canvas = (BrowsingViewController *)rootNav.topViewController;
 
     [canvas addChildViewController:searchVC];
@@ -79,7 +79,7 @@
     [self.window.rootViewController dismissModalViewControllerAnimated:YES];
     [self showApp];
 
-    UINavigationController *rootNav = (UINavigationController*)self.window.rootViewController;
+    ORNavigationController *rootNav = (ORNavigationController*)self.window.rootViewController;
     BrowsingViewController *canvas = (BrowsingViewController *)rootNav.topViewController;
     [canvas setupRootFolder];
 }

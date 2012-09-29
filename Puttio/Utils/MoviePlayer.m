@@ -43,7 +43,7 @@ static NSDate *movieStartedDate;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enteredFullscreen:) name:MPMoviePlayerDidEnterFullscreenNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exitedFullscreen:) name:MPMoviePlayerDidExitFullscreenNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackFinished:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-    
+
     return self;
 }
 - (void)willEnterFullscreen:(NSNotification*)notification {
@@ -69,15 +69,20 @@ static NSDate *movieStartedDate;
 
     NSNumber* reason = [notification userInfo][MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     switch ([reason intValue]) {
-        case MPMovieFinishReasonPlaybackError:
-            TFLog(@"playbackFinished. Reason: Playback Error");
-            TFLog(@"error log %@", self.mediaPlayer.errorLog);
-            TFLog(@"network log %@", self.mediaPlayer.accessLog);
-            TFLog(@"note %@", notification);
+        case MPMovieFinishReasonPlaybackError: {
+            NSLog(@"playbackFinished. Reason: Playback Error");
+            NSLog(@"error log %@", self.mediaPlayer.errorLog);
+            NSLog(@"network log %@", self.mediaPlayer.accessLog);
+            NSLog(@"note %@", notification);
+            
+            NSDictionary *notificationDict = [notification userInfo];
+            NSError *error = [notificationDict objectForKey:@"error"];
 
+            [_delegate moviePlayer:self didEndWithError:error.localizedDescription];
             [Analytics event:@"Movie Playback Error"];
+            
             break;
-
+        }
         case MPMovieFinishReasonPlaybackEnded:
         case MPMovieFinishReasonUserExited:
             TFLog(@"playbackFinished. Reason: Playback Ended");
@@ -107,7 +112,6 @@ static NSDate *movieStartedDate;
     MoviePlayer *sharedPlayer = [self sharedPlayer];
     path = [PutIOClient appendOauthToken:path];
 
-    NSLog(@"%@", path);
     ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:path]];
     [rootController presentMoviePlayerViewControllerAnimated:movieController];
 

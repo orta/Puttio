@@ -11,7 +11,6 @@
 #import "PutIOOAuthHelper.h"
 
 @implementation LoginViewController
-@synthesize errorHeaderView;
 
 - (void)viewDidLoad {
     
@@ -24,12 +23,10 @@
         frame.origin.y = 0;
         self.loginViewWrapper.frame = frame;
     }
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
     
     // Incase we've logged out and back in.
     NSArray* cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
@@ -81,6 +78,17 @@
     self.warningLabel.text = @"";
     
     [_authHelper loginWithUsername:_usernameTextfield.text andPassword:_passwordTextfield.text];
+    [self performSelector:@selector(showWebview) withObject:nil afterDelay:15];
+}
+
+- (IBAction)backTapped:(id)sender {
+    [_authHelper loadAuthPage];
+}
+
+- (void)showWebview {
+    _loginViewWrapper.hidden = YES;
+    _webView.hidden = NO;
+    _errorHeaderView.hidden = NO;
 }
 
 - (void)disableForm:(BOOL)disabled {
@@ -105,6 +113,8 @@
 }
 
 - (void)authHelperDidLogin:(PutIOOAuthHelper *)helper {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showWebview) object:nil];
+
     if([_delegate respondsToSelector:@selector(authorizationDidFinishWithController:)]){
         [_delegate authorizationDidFinishWithController:self];
         [Analytics incrementUserProperty:@"User Logged In" byInt:1];
@@ -112,6 +122,8 @@
 }
 
 - (void)authHelperLoginFailedWithDescription:(NSString *)errorDescription {   
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showWebview) object:nil];
+
     self.warningLabel.text = errorDescription;
     [self disableForm:NO];
     [self.activityView stopAnimating];

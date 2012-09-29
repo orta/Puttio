@@ -33,6 +33,7 @@
     NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 
     body = [body stringByReplacingOccurrencesOfString:@"{{Device}}" withString:[UIDevice deviceString]];
+    body = [body stringByReplacingOccurrencesOfString:@"{{iOS Version}}" withString:[[UIDevice currentDevice] systemVersion]];
     body = [body stringByReplacingOccurrencesOfString:@"{{Version}}" withString:appVersion];
 
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
@@ -51,6 +52,7 @@
         [ModalZoomView fadeOutViewAnimated:YES];
     }];
 }
+
 - (void)viewDidUnload {
     [self setScrollView:nil];
     [super viewDidUnload];

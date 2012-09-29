@@ -116,7 +116,10 @@ typedef enum {
             transfers = userInfoObject;
             transfers = [self onlyRecentTransfers:transfers];
             [self.tableView reloadData];
+        } else {
+            NSLog(@"error %@", [(NSError *)userInfoObject localizedDescription]);
         }
+
     }];
 }
 

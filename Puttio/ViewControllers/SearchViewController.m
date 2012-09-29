@@ -175,6 +175,7 @@
         theCell.fileNameLabel.text = item.name;
         theCell.fileSizeLabel.text = item.representedSize;
         theCell.seedersLabel.text = @""; //[NSString stringWithFormat:@"%i - %i --", item.ranking, item.seedersCount];
+        theCell.fileNameLabel.textColor = [UIColor blackColor];
 
         switch (item.selectedState) {
             case SearchResultNormal:

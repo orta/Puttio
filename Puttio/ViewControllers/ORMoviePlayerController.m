@@ -24,6 +24,23 @@
     [self.moviePlayer prepareToPlay];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ([UIDevice isPhone]) {
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:NO];
+
+        // Rotate the view for landscape playback
+        CGRect newFrame = self.moviePlayer.view.bounds;
+        CGFloat width = newFrame.size.width;
+
+        newFrame.size.width = newFrame.size.height;
+        newFrame.size.height = width;
+        [self.moviePlayer.view setFrame:newFrame];
+        [self.moviePlayer.view setTransform:CGAffineTransformMakeRotation(M_PI / 2)];
+    }
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -40,6 +57,8 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    
     return YES;
 }
 

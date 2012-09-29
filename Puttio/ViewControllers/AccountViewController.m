@@ -106,7 +106,7 @@
 }
 
 - (IBAction)githubTapped:(id)sender {
-    [self openURL:@"https://github.com/orta"];
+    [self openURL:@"https://github.com/orta/"];
 }
 
 - (IBAction)feedbackTapped:(id)sender {

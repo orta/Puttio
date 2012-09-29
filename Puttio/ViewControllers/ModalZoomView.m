@@ -12,13 +12,11 @@ static ModalZoomView *sharedInstance;
 
 @interface ModalZoomView ()
 @property  UIView *backgroundView;
-@property  UIViewController <ModalZoomViewControllerDelegate> *viewController;
 @property (assign) CGRect originalFrame;
 - (BOOL)validated;
 @end
 
 @implementation ModalZoomView
-@synthesize backgroundView, viewController, originalFrame;
 
 + (id)sharedInstance; {
     static dispatch_once_t onceToken = 0;

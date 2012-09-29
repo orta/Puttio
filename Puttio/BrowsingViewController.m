@@ -140,6 +140,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
             FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
             topFolder.view.userInteractionEnabled = YES;
             [self isOffline];
+            
+            [self performSelector:@selector(loadFolder:) withObject:currentFolder afterDelay:3];
         }
     }];
 }
@@ -162,7 +164,6 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
         GMGridViewCell *cell = [topFolder.gridView cellForItemAtIndex:position];
         CGRect initialFrame = [topFolder.gridView convertRect:[cell frame] toView:rootView];
 
-        #warning hack IMO
         if (!cell) {
             initialFrame = CGRectNull;
         }
@@ -176,6 +177,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
             identifier = [UIDevice isPhone]? @"FileInfoPhoneView" : @"FileInfoView";
         }
         [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:identifier andItem:file];
+        
     }
 }
 
@@ -207,10 +209,6 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     [self setSecondErrorMessageLabel:nil];
     [self setSwipeHelperImage:nil];
     [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {

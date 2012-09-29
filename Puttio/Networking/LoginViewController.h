@@ -32,5 +32,6 @@
 
 
 - (IBAction)loginPressed:(id)sender;
+- (IBAction)backTapped:(id)sender;
 
 @end

@@ -39,7 +39,7 @@
     _password = password;
 }
 
-- (void)loadAuthPage {    
+- (void)loadAuthPage {
     NSString *address = [NSString stringWithFormat:PTFormatOauthLoginURL, AppOAuthID, AppOAuthCallback];
     NSURL * url = [NSURL URLWithString:address];
     [_webView loadRequest:[NSURLRequest requestWithURL:url]];
@@ -102,7 +102,6 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
     NSString *address = aWebView.request.URL.absoluteString;
-    NSLog(@"%@", address);
     
     if([address hasPrefix:@"https://put.io/v2/oauth2/login"] && !_attemptedLogin){
         _attemptedLogin = YES;
@@ -121,7 +120,8 @@
         [_webView stringByEvaluatingJavaScriptFromString:submitForm];
 
     } else {
-                [self.delegate authHelperLoginFailedWithDescription:@"Wrong Username / Password combo"];
+
+        [self.delegate authHelperLoginFailedWithDescription:@"Wrong Username / Password combo"];
     }
 }
 

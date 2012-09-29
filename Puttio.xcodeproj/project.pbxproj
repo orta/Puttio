@@ -15,6 +15,7 @@
 		6000193D157E655C00E5FE06 /* WatchedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6000193C157E655C00E5FE06 /* WatchedItem.m */; };
 		60001943157E6BCC00E5FE06 /* WatchedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 60001942157E6BCB00E5FE06 /* WatchedList.m */; };
 		600104D41524F9CB005F5B33 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 600104D31524F9CB005F5B33 /* Folder.m */; };
+		600563A31617122D00FE25D0 /* ORNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600563A21617122B00FE25D0 /* ORNavigationController.m */; };
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
@@ -196,6 +197,8 @@
 		600104D21524F9CB005F5B33 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Folder.h; path = Models/Folder.h; sourceTree = "<group>"; };
 		600104D31524F9CB005F5B33 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Folder.m; path = Models/Folder.m; sourceTree = "<group>"; };
 		6001050A1525025A005F5B33 /* ORDisplayItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ORDisplayItemProtocol.h; path = Protocols/ORDisplayItemProtocol.h; sourceTree = "<group>"; };
+		600563A11617122A00FE25D0 /* ORNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORNavigationController.h; path = ViewControllers/ORNavigationController.h; sourceTree = "<group>"; };
+		600563A21617122B00FE25D0 /* ORNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORNavigationController.m; path = ViewControllers/ORNavigationController.m; sourceTree = "<group>"; };
 		600641F9151F24AF00EF85F9 /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusViewController.h; path = ViewControllers/StatusViewController.h; sourceTree = "<group>"; };
 		600641FA151F24AF00EF85F9 /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusViewController.m; path = ViewControllers/StatusViewController.m; sourceTree = "<group>"; };
 		600641FD151F24C100EF85F9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ViewControllers/SearchViewController.h; sourceTree = "<group>"; };
@@ -424,7 +427,7 @@
 		60D0E06D16065753004F167E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		60D0E06F16065FA7004F167E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		60D0E07016065FA7004F167E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		60D0E07216068867004F167E /* Puttio 2 (v1.1).xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Puttio 2 (v1.1).xcdatamodel"; sourceTree = "<group>"; };
+		60D0E07216068867004F167E /* Puttio 2 (v1.1).xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Puttio 2 (v1.1).xcdatamodel"; sourceTree = "<group>"; };
 		60D9B7E91535C30F00A64E0F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Models/SearchResult.h; sourceTree = "<group>"; };
 		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
 		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
@@ -841,6 +844,8 @@
 				60C85AEC15CEBEA3008FC895 /* TextFileInfoViewController.m */,
 				607C18C015F15D4500D2C5E6 /* AudioViewController.h */,
 				607C18C115F15D4500D2C5E6 /* AudioViewController.m */,
+				600563A11617122A00FE25D0 /* ORNavigationController.h */,
+				600563A21617122B00FE25D0 /* ORNavigationController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1246,6 +1251,7 @@
 				607C18C215F15D4500D2C5E6 /* AudioViewController.m in Sources */,
 				60973FF616050ECB00867A2D /* TreemapView.m in Sources */,
 				60973FF716050ECB00867A2D /* TreemapViewCell.m in Sources */,
+				600563A31617122D00FE25D0 /* ORNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

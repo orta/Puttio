@@ -8,7 +8,8 @@
 
 #import "FileController.h"
 #import "BaseFileController.h"
+#import "MoviePlayer.h"
 
 @class FileInfoViewController;
-@interface VideoFileController : BaseFileController <FileController>
+@interface VideoFileController : BaseFileController <FileController, MoviePlayerDelegate>
 @end
