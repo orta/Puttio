@@ -20,5 +20,6 @@
 @property (nonatomic, retain) NSSet *files;
 @property (nonatomic, retain) Folder *parentFolder;
 @property (nonatomic, retain) NSSet *subFolders;
+@property (nonatomic, retain) NSString *contentType;
 
 @end
