@@ -94,7 +94,7 @@
         if ([UIDevice isPad]) {
             self.infoController.additionalInfoLabel.text = @"Downloading - You can close this popover and it will download as long as you are in the app.";
         } else {
-            self.infoController.additionalInfoLabel.text = @"Downloading - Popover can be closed, but not app.";
+            self.infoController.additionalInfoLabel.text = @"Downloading - Popover can be closed, but not the app.";
         }
         [self.infoController showProgress];
         [self downloadFile];
@@ -154,7 +154,9 @@
             
             // Give it a localfile core data entity
             LocalFile *localFile = [LocalFile localFileWithFile:_file];
-            [[localFile managedObjectContext] save:nil];
+            if ([[localFile managedObjectContext] persistentStoreCoordinator].persistentStores.count) {
+                [[localFile managedObjectContext] save:nil];
+            }
 
             // Set the UI state
             self.infoController.additionalInfoLabel.text = @"Downloaded - It's in your media library!";

@@ -398,6 +398,7 @@
 		60B326F41528A6D200462AA8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		60B6792D161862150051DC7A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		60B679501618A2AE0051DC7A /* Puttio 3 (v1.2).xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Puttio 3 (v1.2).xcdatamodel"; sourceTree = "<group>"; };
 		60B86E7D15A061040063461D /* .plan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .plan; sourceTree = "<group>"; };
 		60BD4F45151C701300DCD686 /* PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOClient.h; path = Networking/PutIOClient.h; sourceTree = "<group>"; };
 		60BD4F46151C701300DCD686 /* PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOClient.m; path = Networking/PutIOClient.m; sourceTree = "<group>"; };
@@ -1405,10 +1406,11 @@
 		6085D23E151B99490068929C /* Puttio.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				60B679501618A2AE0051DC7A /* Puttio 3 (v1.2).xcdatamodel */,
 				60D0E07216068867004F167E /* Puttio 2 (v1.1).xcdatamodel */,
 				6085D23F151B99490068929C /* Puttio.xcdatamodel */,
 			);
-			currentVersion = 60D0E07216068867004F167E /* Puttio 2 (v1.1).xcdatamodel */;
+			currentVersion = 60B679501618A2AE0051DC7A /* Puttio 3 (v1.2).xcdatamodel */;
 			name = Puttio.xcdatamodeld;
 			path = ../Puttio.xcdatamodeld;
 			sourceTree = "<group>";

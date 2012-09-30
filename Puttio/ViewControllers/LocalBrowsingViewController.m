@@ -35,6 +35,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupGestures];
+    
     if ([UIDevice isPad]) {
         self.phoneBottomBarView.hidden = YES;
     }
@@ -83,8 +84,14 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 
 - (void)viewWillAppear:(BOOL)animated {
     CGRect frame = CGRectNull;
+    
     frame.size.width = self.view.frame.size.width - GridViewInsets.left - GridViewInsets.right;
-    frame.size.height = self.view.frame.size.height - GridViewInsets.top - GridViewInsets.bottom;
+    if ([UIDevice isPad]) {
+        frame.size.height = self.view.frame.size.height - GridViewInsets.top - GridViewInsets.bottom;
+    }else {
+        frame.size.height = self.view.frame.size.height - GridViewInsets.top - GridViewInsets.bottom + CGRectGetHeight(_phoneBottomBarView.bounds);
+    }
+    
     frame.origin.x = GridViewInsets.left;
     frame.origin.y = GridViewInsets.top;
     

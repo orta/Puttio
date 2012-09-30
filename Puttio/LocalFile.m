@@ -10,6 +10,8 @@
 
 @implementation LocalFile
 
+@dynamic id, name, parentID, displayName, screenShotURL, watched;
+
 + (LocalFile *) localFileWithFile:(File *)file {
     LocalFile *localFile = [LocalFile object];
     localFile.displayName = file.displayName;

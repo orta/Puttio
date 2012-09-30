@@ -10,15 +10,4 @@
 
 @implementation Folder
 
-@dynamic displayName;
-@dynamic id;
-@dynamic name;
-@dynamic parentID;
-@dynamic screenShotURL;
-@dynamic size;
-@dynamic files;
-@dynamic parentFolder;
-@dynamic subFolders;
-@synthesize contentType;
-
 @end

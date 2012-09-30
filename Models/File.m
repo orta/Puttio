@@ -10,17 +10,6 @@
 
 @implementation File
 
-@dynamic contentType;
-@dynamic displayName;
-@dynamic id;
-@dynamic name;
-@dynamic parentID;
-@dynamic screenShotURL;
-@dynamic size;
-@dynamic hasMP4;
-@dynamic watched;
-@dynamic folder;
-
 static NSArray *ThumbnailFileTypes;
 static NSArray *TextFileTypes;
 static NSArray *TextFileNames;

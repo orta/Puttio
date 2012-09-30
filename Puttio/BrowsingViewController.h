@@ -11,7 +11,7 @@
 #import "ORDisplayItemProtocol.h"
 #import "ARSwipeImageView.h"
 
-@class ORRotatingButton, ARTitleLabel;
+@class ORRotatingButton, ARTitleLabel, SearchViewController;
 @interface BrowsingViewController : UIViewController <GMGridViewActionDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet ORRotatingButton *refreshButton;
 @property (assign, nonatomic) BOOL networkActivity;
 @property (weak, nonatomic) IBOutlet ARSwipeImageView *swipeHelperImage;
+@property (strong) SearchViewController *searchVC;
 
 @property (weak, nonatomic) IBOutlet UILabel *firstErrorMessageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondErrorMessageLabel;

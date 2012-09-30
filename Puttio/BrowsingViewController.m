@@ -17,6 +17,7 @@
 #import "ModalZoomView.h"
 #import "TestFlight.h"
 #import "ARTitleLabel.h"
+#import "SearchViewController.h"
 
 static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .bottom = 8};
 
@@ -51,7 +52,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 }
 
 - (void)setupRootFolder {
-    Folder *rootFolder = [Folder object];
+    Folder *rootFolder = [[Folder alloc] init];
     rootFolder.id = @"0";
     rootFolder.name = @"";
     rootFolder.parentID = @"0";
@@ -65,10 +66,6 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
         [swipeHelperImage removeFromSuperview];
     }
     [self reloadFolder];
-}
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
 }
 
 - (IBAction)backPressed:(id)sender {
@@ -246,7 +243,15 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
 - (void)isOffline {
     self.offlineView.hidden = NO;
+    if ([UIDevice isPhone]) {
+        CGRect offlineRect = self.offlineView.frame;
+        offlineRect.size.width = 240;
+        offlineRect.origin.x = 0;
+        self.offlineView.frame = offlineRect;
+    }
     [self.view bringSubviewToFront:self.offlineView];
+    [self.view bringSubviewToFront:_searchVC.view];
+    
 }
 
 - (IBAction)reloadPressed:(id)sender {

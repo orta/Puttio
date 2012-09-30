@@ -88,6 +88,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
 - (void)getFolder:(Folder*)folder :(void(^)(id userInfoObject))onComplete {
     NSDictionary *params = @{@"oauth_token": self.apiToken, @"parent_id": folder.id};
     [self getPath:@"/v2/files/list" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"got folder");
         NSError *error = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
         if (error) {
@@ -114,7 +115,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
         
         id contentType = dictionary[@"content_type"];
         if ( contentType == [NSNull null] || [contentType isEqualToString:@"application/x-directory"]) {
-            Folder *folder = [Folder object];
+            Folder *folder = [[Folder alloc] init];
             folder.id = [dictionary[@"id"] stringValue];
             folder.name = dictionary[@"name"];
             folder.displayName = [File createDisplayNameFromName:folder.name];
@@ -129,7 +130,7 @@ typedef void (^BlockWithCallback)(id userInfoObject);
             [objects addObject:folder];
             
         }else{
-            File *file = [File object];
+            File *file = [[File alloc] init];
             file.id = [dictionary[@"id"] stringValue];
             file.name = dictionary[@"name"];
             file.displayName = [File createDisplayNameFromName:file.name];

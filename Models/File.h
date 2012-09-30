@@ -9,7 +9,12 @@
 #import <CoreData/CoreData.h>
 #import "ORDisplayItemProtocol.h"
 
-@interface File : NSManagedObject <ORDisplayItemProtocol>
+// These used to be NSManagedObjects
+// but it was really starting to clog up iCloud sync
+// so you'll see references to File & Folder in the xcdatamodel
+// but the ones in there do nothing now. ./
+
+@interface File : NSObject <ORDisplayItemProtocol>
 
 @property (nonatomic, retain) NSString * contentType;
 @property (nonatomic, retain) NSString * displayName;
