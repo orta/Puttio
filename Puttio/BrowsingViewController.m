@@ -67,6 +67,10 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     [self reloadFolder];
 }
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+}
+
 - (IBAction)backPressed:(id)sender {
     [_gridNavController popViewControllerAnimated:YES];
 }

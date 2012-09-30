@@ -13,5 +13,8 @@
 @property (strong, nonatomic) IBOutlet UIView *noItemsView;
 @property (weak, nonatomic) IBOutlet UILabel *deviceStoredLabel;
 @property (weak, nonatomic) IBOutlet UILabel *deviceSpaceLeftLabel;
+@property (weak, nonatomic) IBOutlet UIView *phoneBottomBarView;
+@property (weak, nonatomic) IBOutlet UILabel *phoneDeviceStoredLabel;
+@property (weak, nonatomic) IBOutlet UILabel *phoneDeviceLeftLabel;
 
 @end

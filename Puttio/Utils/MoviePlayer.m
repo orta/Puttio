@@ -11,6 +11,8 @@
 #import "TestFlight.h"
 #import "ORMoviePlayerController.h"
 #import "ModalZoomView.h"
+#import "BrowsingViewController.h"
+#import "LocalBrowsingViewController.h"
 
 @interface MoviePlayer (){
     BOOL completed;
@@ -66,6 +68,7 @@ static NSDate *movieStartedDate;
 
 - (void)playbackFinished:(NSNotification*)notification {
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+    self.mediaPlayer = nil;
 
     NSNumber* reason = [notification userInfo][MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     switch ([reason intValue]) {
@@ -96,24 +99,31 @@ static NSDate *movieStartedDate;
     // post a notification saying how long the movie lasted
     NSTimeInterval minutes = [[NSDate date] timeIntervalSinceDate:movieStartedDate];
     minutes = floorf(minutes / 60);
-    [[NSNotificationCenter defaultCenter] postNotificationName:ORVideoFinishedNotification object:nil userInfo:@{ ORVideoDurationKey : @(minutes) }];
 
     [Analytics event:@"Finished Watching Something" withTimeIntervalSinceDate:movieStartedDate];
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
-    [rootController dismissMoviePlayerViewControllerAnimated];
+    
+    [rootController dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:ORVideoFinishedNotification object:nil userInfo:@{ ORVideoDurationKey : @(minutes) }];
+    }];
 }
 
 + (void)streamMovieAtPath:(NSString *)path {
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
-    UIViewController *rootController = appDelegate.window.rootViewController;
+    UINavigationController *rootNav = (UIViewController *)appDelegate.window.rootViewController;
+    BrowsingViewController *canvas = (BrowsingViewController *)rootNav.topViewController;
+
+    
     MoviePlayer *sharedPlayer = [self sharedPlayer];
     path = [PutIOClient appendOauthToken:path];
 
+    [[NSNotificationCenter defaultCenter] postNotificationName:ORVideoStartedNotification object:nil userInfo:nil];
+
     ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:path]];
-    [rootController presentMoviePlayerViewControllerAnimated:movieController];
+    [canvas presentMoviePlayerViewControllerAnimated:movieController];
 
     sharedPlayer.mediaPlayer = movieController.moviePlayer;
     [Analytics incrementUserProperty:@"User Started Watching a Movie" byInt:1];
@@ -126,8 +136,11 @@ static NSDate *movieStartedDate;
     
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
+    
     MoviePlayer *sharedPlayer = [self sharedPlayer];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:ORVideoStartedNotification object:nil userInfo:nil];
+
     ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
     [rootController presentMoviePlayerViewControllerAnimated:movieController];
     

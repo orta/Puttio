@@ -35,6 +35,9 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupGestures];
+    if ([UIDevice isPad]) {
+        self.phoneBottomBarView.hidden = YES;
+    }
 
     gridView = [[GMGridView alloc] initWithFrame:CGRectNull];
     gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -51,12 +54,19 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     [self.view insertSubview:gridView belowSubview:self.noItemsView];
 
     self.titleLabel.text = @"Saved Media Library";
+    [self updateTitles];
+}
 
+- (void)updateTitles {
     // Space Left on Device
     self.deviceSpaceLeftLabel.text = [NSString stringWithFormat:@"You have %@ left on this device", [self getSpaceLeft]];
+    self.phoneDeviceLeftLabel.text = [NSString stringWithFormat:@" %@ free space", [self getSpaceLeft]];
+
 
     // Space Used on Device
     self.deviceStoredLabel.text = [NSString stringWithFormat:@"This app is using %@", [self getDeviceSpaceUsed]];
+    self.phoneDeviceStoredLabel.text = [NSString stringWithFormat:@"Using %@", [self getDeviceSpaceUsed]];
+
 }
 
 - (NSString *)getDeviceSpaceUsed {
@@ -84,6 +94,9 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 - (void)viewDidUnload {
     [self setTitleLabel:nil];
     [self setNoItemsView:nil];
+    [self setPhoneBottomBarView:nil];
+    [self setPhoneDeviceStoredLabel:nil];
+    [self setPhoneDeviceLeftLabel:nil];
     [super viewDidUnload];
 }
 
@@ -95,6 +108,8 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 }
 
 - (void)reloadFolder {
+    [self updateTitles];
+    
     files = [[LocalFile allObjects] mutableCopy];
     [gridView reloadData];
     

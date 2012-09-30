@@ -15,7 +15,6 @@
 		6000193D157E655C00E5FE06 /* WatchedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6000193C157E655C00E5FE06 /* WatchedItem.m */; };
 		60001943157E6BCC00E5FE06 /* WatchedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 60001942157E6BCB00E5FE06 /* WatchedList.m */; };
 		600104D41524F9CB005F5B33 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 600104D31524F9CB005F5B33 /* Folder.m */; };
-		600563A31617122D00FE25D0 /* ORNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600563A21617122B00FE25D0 /* ORNavigationController.m */; };
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
@@ -37,7 +36,6 @@
 		6026A06D157BEA0F0031509D /* GMGridViewLayoutStrategies.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A066157BEA0F0031509D /* GMGridViewLayoutStrategies.m */; };
 		6026A06E157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A068157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m */; };
 		6026A06F157BEA0F0031509D /* UIView+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A06A157BEA0F0031509D /* UIView+GMGridViewAdditions.m */; };
-		6026A072157BEB700031509D /* TwoColumnViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A071157BEB700031509D /* TwoColumnViewManager.m */; };
 		6026A07E157BF1BA0031509D /* DCControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A079157BF1BA0031509D /* DCControl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6026A07F157BF1BA0031509D /* DCKnob.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A07B157BF1BA0031509D /* DCKnob.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6026A080157BF1BA0031509D /* DCSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A07D157BF1BA0031509D /* DCSlider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -131,6 +129,8 @@
 		60B1A935151E157F00FBCD27 /* V2PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */; };
 		60B326E81528A55C00462AA8 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B326E71528A55C00462AA8 /* Analytics.m */; };
 		60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326F41528A6D200462AA8 /* libz.dylib */; };
+		60B6792C161862110051DC7A /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */; };
+		60B6792E161862150051DC7A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B6792D161862150051DC7A /* Default-Landscape~ipad.png */; };
 		60B86E7E15A061040063461D /* .plan in Resources */ = {isa = PBXBuildFile; fileRef = 60B86E7D15A061040063461D /* .plan */; };
 		60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BD4F46151C701300DCD686 /* PutIOClient.m */; };
 		60C04EA51571489600C23AB5 /* VideoFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EA41571489600C23AB5 /* VideoFileController.m */; };
@@ -197,8 +197,6 @@
 		600104D21524F9CB005F5B33 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Folder.h; path = Models/Folder.h; sourceTree = "<group>"; };
 		600104D31524F9CB005F5B33 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Folder.m; path = Models/Folder.m; sourceTree = "<group>"; };
 		6001050A1525025A005F5B33 /* ORDisplayItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ORDisplayItemProtocol.h; path = Protocols/ORDisplayItemProtocol.h; sourceTree = "<group>"; };
-		600563A11617122A00FE25D0 /* ORNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORNavigationController.h; path = ViewControllers/ORNavigationController.h; sourceTree = "<group>"; };
-		600563A21617122B00FE25D0 /* ORNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORNavigationController.m; path = ViewControllers/ORNavigationController.m; sourceTree = "<group>"; };
 		600641F9151F24AF00EF85F9 /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusViewController.h; path = ViewControllers/StatusViewController.h; sourceTree = "<group>"; };
 		600641FA151F24AF00EF85F9 /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusViewController.m; path = ViewControllers/StatusViewController.m; sourceTree = "<group>"; };
 		600641FD151F24C100EF85F9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ViewControllers/SearchViewController.h; sourceTree = "<group>"; };
@@ -242,8 +240,6 @@
 		6026A068157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+GMGridViewAdditions.m"; path = "GMGridView/UIGestureRecognizer+GMGridViewAdditions.m"; sourceTree = "<group>"; };
 		6026A069157BEA0F0031509D /* UIView+GMGridViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+GMGridViewAdditions.h"; path = "GMGridView/UIView+GMGridViewAdditions.h"; sourceTree = "<group>"; };
 		6026A06A157BEA0F0031509D /* UIView+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+GMGridViewAdditions.m"; path = "GMGridView/UIView+GMGridViewAdditions.m"; sourceTree = "<group>"; };
-		6026A070157BEB700031509D /* TwoColumnViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoColumnViewManager.h; path = Utils/TwoColumnViewManager.h; sourceTree = "<group>"; };
-		6026A071157BEB700031509D /* TwoColumnViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoColumnViewManager.m; path = Utils/TwoColumnViewManager.m; sourceTree = "<group>"; };
 		6026A078157BF1BA0031509D /* DCControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCControl.h; sourceTree = "<group>"; };
 		6026A079157BF1BA0031509D /* DCControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCControl.m; sourceTree = "<group>"; };
 		6026A07A157BF1BA0031509D /* DCKnob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCKnob.h; sourceTree = "<group>"; };
@@ -400,6 +396,8 @@
 		60B326E61528A55C00462AA8 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Utils/Analytics.h; sourceTree = "<group>"; };
 		60B326E71528A55C00462AA8 /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Analytics.m; path = Utils/Analytics.m; sourceTree = "<group>"; };
 		60B326F41528A6D200462AA8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		60B6792D161862150051DC7A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		60B86E7D15A061040063461D /* .plan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .plan; sourceTree = "<group>"; };
 		60BD4F45151C701300DCD686 /* PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOClient.h; path = Networking/PutIOClient.h; sourceTree = "<group>"; };
 		60BD4F46151C701300DCD686 /* PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOClient.m; path = Networking/PutIOClient.m; sourceTree = "<group>"; };
@@ -686,6 +684,8 @@
 		6085D218151B99480068929C = {
 			isa = PBXGroup;
 			children = (
+				60B6792D161862150051DC7A /* Default-Landscape~ipad.png */,
+				60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */,
 				60D0E06D16065753004F167E /* Default.png */,
 				60D0E06B160654FB004F167E /* Default@2x.png */,
 				60D0E069160653D9004F167E /* Default-Portrait~ipad.png */,
@@ -807,8 +807,6 @@
 				6064D89A15398E4600E454E5 /* SearchController.m */,
 				60FE47B9152EA0D6008A5752 /* ThreeColumnViewManager.h */,
 				60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */,
-				6026A070157BEB700031509D /* TwoColumnViewManager.h */,
-				6026A071157BEB700031509D /* TwoColumnViewManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -844,8 +842,6 @@
 				60C85AEC15CEBEA3008FC895 /* TextFileInfoViewController.m */,
 				607C18C015F15D4500D2C5E6 /* AudioViewController.h */,
 				607C18C115F15D4500D2C5E6 /* AudioViewController.m */,
-				600563A11617122A00FE25D0 /* ORNavigationController.h */,
-				600563A21617122B00FE25D0 /* ORNavigationController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1122,6 +1118,8 @@
 				60D0E06A160653D9004F167E /* Default-Portrait~ipad.png in Resources */,
 				60D0E06C160654FB004F167E /* Default@2x.png in Resources */,
 				60D0E06E16065753004F167E /* Default.png in Resources */,
+				60B6792C161862110051DC7A /* Default-Landscape@2x~ipad.png in Resources */,
+				60B6792E161862150051DC7A /* Default-Landscape~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1204,7 +1202,6 @@
 				6026A06D157BEA0F0031509D /* GMGridViewLayoutStrategies.m in Sources */,
 				6026A06E157BEA0F0031509D /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
 				6026A06F157BEA0F0031509D /* UIView+GMGridViewAdditions.m in Sources */,
-				6026A072157BEB700031509D /* TwoColumnViewManager.m in Sources */,
 				6026A07E157BF1BA0031509D /* DCControl.m in Sources */,
 				6026A07F157BF1BA0031509D /* DCKnob.m in Sources */,
 				6026A080157BF1BA0031509D /* DCSlider.m in Sources */,
@@ -1251,7 +1248,6 @@
 				607C18C215F15D4500D2C5E6 /* AudioViewController.m in Sources */,
 				60973FF616050ECB00867A2D /* TreemapView.m in Sources */,
 				60973FF716050ECB00867A2D /* TreemapViewCell.m in Sources */,
-				600563A31617122D00FE25D0 /* ORNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1331,7 +1327,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ben Maslen";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ben Maslen (P62E9AFBV2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1347,7 +1343,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "695262FA-14A3-4CB0-89E5-10224DF0B81F";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
@@ -1359,7 +1355,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ben Maslen";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ben Maslen (P62E9AFBV2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1375,7 +1371,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "695262FA-14A3-4CB0-89E5-10224DF0B81F";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;

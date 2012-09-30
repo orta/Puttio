@@ -63,8 +63,8 @@ static ModalZoomView *sharedInstance;
 
             BOOL isLandscape = UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]);
             if (isLandscape) {
-                finalFrame.origin.x = rootView.frame.size.height / 2 - finalFrame.size.height / 2;
-                finalFrame.origin.y = rootView.frame.size.width / 2 - finalFrame.size.width / 2;
+                finalFrame.origin.x = rootView.frame.size.height / 2 - finalFrame.size.width / 2;
+                finalFrame.origin.y = rootView.frame.size.width / 2 - finalFrame.size.height / 2;
             }else{
                 finalFrame.origin.x = rootView.frame.size.width / 2 - finalFrame.size.width / 2;
                 finalFrame.origin.y = rootView.frame.size.height / 2 - finalFrame.size.height / 2;

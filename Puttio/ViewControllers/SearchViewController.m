@@ -31,6 +31,22 @@
     self.activitySpinner.alpha = 0;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchTypeChanged) name:ORCCSearchedChangedNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinished) name:ORVideoStartedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinished) name:ORVideoFinishedNotification object:nil];
+}
+
+-(void)movieStarted {
+    [UIView animateWithDuration:0.1 animations:^{
+        self.view.alpha = 0;
+    }];
+}
+- (void)movieFinished {
+    [self reposition];
+    
+    [UIView animateWithDuration:0.1 animations:^{
+        self.view.alpha = 1;
+    }];
 }
 
 - (void)viewDidUnload {
@@ -49,7 +65,8 @@
     [self.statusViewController viewWillAppear:animated];
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [self reposition];
 }
 
@@ -256,7 +273,7 @@
 
 - (void)makeBigAnimated:(BOOL)animate {
     CGFloat width;
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+    if([UIDevice isPhone]){
         width = 320;
     }else {
         width = 428;

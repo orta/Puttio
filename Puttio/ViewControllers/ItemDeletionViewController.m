@@ -68,6 +68,7 @@
                 WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_item.id];
                 [list deleteEntity];
             }
+            
         }];
     }
 }

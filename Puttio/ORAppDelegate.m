@@ -16,7 +16,6 @@
 #import "ModalZoomView.h"
 #import <Crashlytics/Crashlytics.h>
 #import "APP_SECRET.h"
-#import "ORNavigationController.h"
 
 @implementation ORAppDelegate
 
@@ -53,12 +52,12 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     SearchViewController *searchVC = [storyboard instantiateViewControllerWithIdentifier:@"searchView"];
     
-    ORNavigationController *rootNav = (ORNavigationController*)self.window.rootViewController;
+    UINavigationController *rootNav = (UINavigationController*)self.window.rootViewController;
     BrowsingViewController *canvas = (BrowsingViewController *)rootNav.topViewController;
 
     [canvas addChildViewController:searchVC];
     [canvas.view addSubview:searchVC.view];
-    [searchVC viewWillAppear:NO];
+    [searchVC didMoveToParentViewController:canvas];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinished:) name:ORVideoFinishedNotification object:nil];
 }
@@ -79,7 +78,7 @@
     [self.window.rootViewController dismissModalViewControllerAnimated:YES];
     [self showApp];
 
-    ORNavigationController *rootNav = (ORNavigationController*)self.window.rootViewController;
+    UINavigationController *rootNav = (UINavigationController *)self.window.rootViewController;
     BrowsingViewController *canvas = (BrowsingViewController *)rootNav.topViewController;
     [canvas setupRootFolder];
 }
@@ -92,11 +91,12 @@
     [defaults setDouble:currentMinutes forKey:ORTotalVideoDuration];
     [defaults synchronize];
 
+    [Analytics incrementUserProperty:@"TotalTimeWatched" byInt:(int)extraMinutesNumber];
+
     if (currentMinutes > (5 * 60) && ![defaults boolForKey:ORHasShownReviewNagOneDefault]) {
         [ModalZoomView fadeOutViewAnimated:NO];
         [self performSelector:@selector(showNag) withObject:nil afterDelay:0.2];
     }
-
 }
 
 - (void)showNag {

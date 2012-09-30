@@ -35,6 +35,7 @@ NSString *const ORHasShownReviewNagOneDefault = @"ORHasShownReviewNagOneDefault"
 
 NSString *const ORReloadGridNotification = @"ORReloadGridNotification";
 NSString *const ORReloadFolderNotification = @"ORReloadFolderNotification";
+NSString *const ORVideoStartedNotification = @"ORVideoStartedNotification";
 NSString *const ORVideoFinishedNotification = @"ORVideoFinishedNotification";
 NSString *const ORCCSearchedChangedNotification = @"ORCCSearchedChangedNotification";
 NSString *const ORShowTreeViewNotification = @"ORShowTreeViewNotification";

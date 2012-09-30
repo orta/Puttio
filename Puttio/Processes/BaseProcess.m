@@ -28,7 +28,7 @@
 }
 
 - (void)start {
-    timer_ = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    timer_ = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(tick) userInfo:nil repeats:YES];
     [timer_ fire];
 }
 

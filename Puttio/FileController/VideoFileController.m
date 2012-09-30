@@ -91,7 +91,11 @@
     }
 
     if([self deviceHasEnoughSpace]){
-        self.infoController.additionalInfoLabel.text = @"Downloading - You can close this popover and it will download as long as you are in the app.";
+        if ([UIDevice isPad]) {
+            self.infoController.additionalInfoLabel.text = @"Downloading - You can close this popover and it will download as long as you are in the app.";
+        } else {
+            self.infoController.additionalInfoLabel.text = @"Downloading - Popover can be closed, but not app.";
+        }
         [self.infoController showProgress];
         [self downloadFile];
     } else {

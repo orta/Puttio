@@ -19,6 +19,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(airplayActiveDidChange) name:MPMoviePlayerIsAirPlayVideoActiveDidChangeNotification object:nil];
 
     self.moviePlayer.allowsAirPlay = YES;
+    self.moviePlayer.fullscreen = YES;
+    self.moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
     [self.moviePlayer prepareToPlay];
@@ -28,7 +30,7 @@
     [super viewWillAppear:animated];
     
     if ([UIDevice isPhone]) {
-        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:NO];
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
 
         // Rotate the view for landscape playback
         CGRect newFrame = self.moviePlayer.view.bounds;
@@ -43,7 +45,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+    if ([UIDevice isPhone]) {
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
+    }
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
 }
@@ -57,8 +61,19 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    if ([UIDevice isPhone]) {
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
+    }
     
+    return YES;
+}
+
+- (BOOL)shouldAutorotate {
+    return [UIDevice isPad];
+}
+
+- (BOOL)shouldAutomaticallyForwardRotationMethods {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
     return YES;
 }
 
