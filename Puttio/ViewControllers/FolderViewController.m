@@ -21,6 +21,9 @@
     TreemapView *_treeView;
     UIView *_treeViewWrapper;
     UILabel *_sizeLabel;
+    ORFlatButton *_backToGridButton;
+    UIView *_footerView;
+    
     double _totalSize;
 }
 
@@ -194,12 +197,49 @@ static CGFloat TreeViewFooterHeight = 60;
 - (void)showTreeMap {
     if (_treeView) return;
 
+
+    UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+    _treeViewWrapper = [[UIView alloc] initWithFrame:CGRectNull];
+    _treeViewWrapper.alpha = 0;
+    _treeViewWrapper.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _treeViewWrapper.backgroundColor = [UIColor whiteColor];
+    [rootView addSubview:_treeViewWrapper];
+
+    _treeView = [[TreemapView alloc] initWithFrame:CGRectNull];
+    _treeView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _treeView.dataSource = self;
+    _treeView.backgroundColor = [UIColor whiteColor];
+    [_treeViewWrapper addSubview:_treeView];
+
+    _footerView = [[UIView alloc] initWithFrame:CGRectNull];
+    _footerView.backgroundColor = [UIColor putioYellow];
+    _footerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [_treeViewWrapper addSubview:_footerView];
+
+    _sizeLabel = [[UILabel alloc] initWithFrame:CGRectNull];
+    _sizeLabel.text = [UIDevice humanStringFromBytes:_totalSize];
+    _sizeLabel.backgroundColor = [UIColor putioYellow];
+    [_treeViewWrapper addSubview:_sizeLabel];
+
+     _backToGridButton = [[ORFlatButton alloc] initWithFrame:CGRectNull];
+    [_backToGridButton setTitle:@"Grid" forState:UIControlStateNormal];
+    [_backToGridButton addTarget:self action:@selector(removeTreeMap) forControlEvents:UIControlEventTouchUpInside];
+    [_treeViewWrapper addSubview:_backToGridButton];
+    
+    [self positionTreeMap];
+
+    [UIView animateWithDuration:0.3 animations:^{
+        _treeViewWrapper.alpha = 1;
+    }];
+}
+
+- (void)positionTreeMap {
     CGRect wrapperFrame = self.view.bounds;
     wrapperFrame.origin.x += 8;
     wrapperFrame.origin.y += 96;
 
     CGRect treeViewFrame = self.view.bounds;
-    treeViewFrame.size.height -= TreeViewFooterHeight;
+    treeViewFrame.size.height -= TreeViewFooterHeight + 8;
 
     CGRect footerFrame = self.view.bounds;
     footerFrame.origin.y += CGRectGetHeight(footerFrame) - TreeViewFooterHeight;
@@ -215,33 +255,11 @@ static CGFloat TreeViewFooterHeight = 60;
     labelFrame.origin.x += 16 + CGRectGetWidth(buttonFrame);
     labelFrame.size.width = 80;
 
-    UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
-    _treeViewWrapper = [[UIView alloc] initWithFrame:wrapperFrame];
-    _treeViewWrapper.alpha = 0;
-    [rootView addSubview:_treeViewWrapper];
-
-    _treeView = [[TreemapView alloc] initWithFrame:treeViewFrame];
-    _treeView.dataSource = self;
-    _treeView.backgroundColor = [UIColor whiteColor];
-    [_treeViewWrapper addSubview:_treeView];
-
-    UIView *footerView = [[UIView alloc] initWithFrame:footerFrame];
-    footerView.backgroundColor = [UIColor putioYellow];
-    [_treeViewWrapper addSubview:footerView];
-
-    _sizeLabel = [[UILabel alloc] initWithFrame:labelFrame];
-    _sizeLabel.text = [UIDevice humanStringFromBytes:_totalSize];
-    _sizeLabel.backgroundColor = [UIColor putioYellow];
-    [_treeViewWrapper addSubview:_sizeLabel];
-
-    ORFlatButton *button = [[ORFlatButton alloc] initWithFrame:buttonFrame];
-    [button setTitle:@"Grid" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(removeTreeMap) forControlEvents:UIControlEventTouchUpInside];
-    [_treeViewWrapper addSubview:button];
-
-    [UIView animateWithDuration:0.3 animations:^{
-        _treeViewWrapper.alpha = 1;
-    }];
+    _treeViewWrapper.frame = wrapperFrame;
+    _treeView.frame = treeViewFrame;
+    _sizeLabel.frame = labelFrame;
+    _backToGridButton.frame = buttonFrame;
+    _footerView.frame = footerFrame;
 }
 
 - (void)removeTreeMap {
@@ -259,8 +277,9 @@ static CGFloat TreeViewFooterHeight = 60;
     
     for (id fileOrFolder in _folderItems) {
         NSNumber *size = [(File *)fileOrFolder size];
-        [sizes addObject:size];
-        
+        if (size) {
+            [sizes addObject:size];
+        }
         _totalSize += size.doubleValue;
     }
 
@@ -307,6 +326,13 @@ static CGFloat TreeViewFooterHeight = 60;
 
 - (CGFloat)treemapView:(TreemapView *)treemapView separatorWidthForDepth:(NSInteger)depth {
     return 2.0f;
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if (_treeView) {
+        [self positionTreeMap];
+        [_treeView reloadData];
+    }
 }
 
 @end
