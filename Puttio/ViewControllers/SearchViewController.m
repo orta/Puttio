@@ -67,6 +67,12 @@
 }
 
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self makeSmallAnimated:NO];
+    [self.statusViewController viewWillAppear:animated];
+}
+
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [self reposition];
 }
@@ -191,6 +197,14 @@
         SearchResult *item = searchResults[indexPath.row];
         ORSearchCell *theCell = (ORSearchCell*)cell;
         theCell.fileNameLabel.text = item.name;
+
+        if ([UIDevice isPhone]) {
+            CGRect titleFrame = theCell.fileNameLabel.frame;
+            titleFrame.size.width = 140;
+            theCell.fileNameLabel.frame = titleFrame;
+            theCell.fileNameLabel.font = [UIFont bodyFontWithSize:16];
+        }
+
         theCell.fileSizeLabel.text = item.representedSize;
         theCell.seedersLabel.text = @""; //[NSString stringWithFormat:@"%i - %i --", item.ranking, item.seedersCount];
         theCell.fileNameLabel.textColor = [UIColor blackColor];

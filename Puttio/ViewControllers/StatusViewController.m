@@ -30,6 +30,7 @@ static StatusViewController *_sharedController;
     NSTimer *dataLoopTimer;
     
     WEPopoverController *popoverController;
+    BOOL _appeared;
 }
 @end
 
@@ -58,26 +59,30 @@ typedef enum {
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    self.spaceProgressBG.max = 1;
-    self.spaceProgressBG.value = 1;
-    self.spaceProgressBG.allowsGestures = NO;
-    self.spaceProgressBG.valueArcWidth = 6.0;
-    self.spaceProgressBG.color = [UIColor putioYellow];
-    self.spaceProgressBG.backgroundColor = [UIColor clearColor];
-    
-    self.spaceProgressView.min = 0.0;
-	self.spaceProgressView.max = 1.0;
-    self.spaceProgressView.allowsGestures = NO;
-    self.spaceProgressView.valueArcWidth = 6.0;
-    self.spaceProgressView.color = [UIColor putioBlue];
-    self.spaceProgressView.backgroundColor = [UIColor clearColor];
-    
-    UITapGestureRecognizer *accountSettingsTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapProgressView:)];
-    [self.spaceProgressView.superview addGestureRecognizer:accountSettingsTapGesture];
 
-    UILongPressGestureRecognizer *showTreeTapGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPressProgressView:)];
-    [self.spaceProgressView.superview addGestureRecognizer:showTreeTapGesture];
+    if (!_appeared) {
+        self.spaceProgressBG.max = 1;
+        self.spaceProgressBG.value = 1;
+        self.spaceProgressBG.allowsGestures = NO;
+        self.spaceProgressBG.valueArcWidth = 6.0;
+        self.spaceProgressBG.color = [UIColor putioYellow];
+        self.spaceProgressBG.backgroundColor = [UIColor clearColor];
+        
+        self.spaceProgressView.min = 0.0;
+        self.spaceProgressView.max = 1.0;
+        self.spaceProgressView.allowsGestures = NO;
+        self.spaceProgressView.valueArcWidth = 6.0;
+        self.spaceProgressView.color = [UIColor putioBlue];
+        self.spaceProgressView.backgroundColor = [UIColor clearColor];
+        
+        UITapGestureRecognizer *accountSettingsTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapProgressView:)];
+        [self.spaceProgressView.superview addGestureRecognizer:accountSettingsTapGesture];
+
+        UILongPressGestureRecognizer *showTreeTapGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPressProgressView:)];
+        [self.spaceProgressView.superview addGestureRecognizer:showTreeTapGesture];
+
+        _appeared = YES;
+    }
 }
 
 - (void)didLongPressProgressView:(UITapGestureRecognizer*)gesture {
