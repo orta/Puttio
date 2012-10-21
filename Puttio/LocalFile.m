@@ -29,7 +29,10 @@
     
     NSManagedObjectContext *context = [self managedObjectContext];
     [self deleteEntity];
-    [context save:nil];
+    
+    if ([context persistentStoreCoordinator].persistentStores.count) {
+        [context save:nil];
+    }
 }
 
 - (NSString *)localPathForFile {
@@ -42,6 +45,10 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = paths[0];
     return [documentsDirectory stringByAppendingPathComponent:[self.id stringByAppendingPathExtension:@"jpg"]];
+}
+
+- (BOOL)hasPreviewThumbnail {
+    return YES;
 }
 
 @end

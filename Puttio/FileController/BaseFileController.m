@@ -97,7 +97,10 @@
     item.fileID = _file.id;
     [list addItemsObject:item];
 
-    [[WatchedItem managedObjectContext] save:nil];
+    if ([[WatchedItem managedObjectContext] persistentStoreCoordinator].persistentStores.count) {
+        [[WatchedItem managedObjectContext] save:nil];
+    }
+
     [[NSNotificationCenter defaultCenter] postNotificationName:ORReloadGridNotification object:nil];
 }
 

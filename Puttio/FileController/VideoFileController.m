@@ -132,10 +132,12 @@
         NSLog(@"screenshot op died");
     }];
     [screenShotOperation start];
-    
+
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     [self downloadFileAtPath:requestURL backgroundable:YES withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.infoController.additionalInfoLabel.text = @"Saving file";
-        
+        [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+
         // Save it
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = paths[0];
@@ -157,15 +159,17 @@
             if ([[localFile managedObjectContext] persistentStoreCoordinator].persistentStores.count) {
                 [[localFile managedObjectContext] save:nil];
             }
+            
+            if (self.infoController) {
+                // Set the UI state
+                self.infoController.additionalInfoLabel.text = @"Downloaded - It's in your media library!";
+                [self.infoController enableButtons];
+                [self.infoController hideProgress];
 
-            // Set the UI state
-            self.infoController.additionalInfoLabel.text = @"Downloaded - It's in your media library!";
-            [self.infoController enableButtons];
-            [self.infoController hideProgress];
-
-            self.infoController.progressInfoHidden = YES;
-            self.infoController.secondaryButton.enabled = YES;
-            self.infoController.primaryButton.enabled = NO;
+                self.infoController.progressInfoHidden = YES;
+                self.infoController.secondaryButton.enabled = YES;
+                self.infoController.primaryButton.enabled = NO;
+            }
         }
 
     } andFailureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -202,7 +206,7 @@
                 }
                 
                 if ([status isEqualToString:@"IN_QUEUE"]) {
-                    self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Request for an %@ version has been recieved and it is in the queue, this could take a while.", [UIDevice deviceString]];
+                    self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Request for an %@ version has been recieved and is queued, this could take a while.", [UIDevice deviceString]];
                     [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
                 }
                 

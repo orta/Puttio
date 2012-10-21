@@ -272,8 +272,11 @@
         }else {
             result.selectedState = SearchResultSent;
         }
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    }];    
+        
+        if ([tableView numberOfRowsInSection:indexPath.section]) {
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)sender {

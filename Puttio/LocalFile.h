@@ -20,5 +20,5 @@
 - (void)deleteItem;
 - (NSString *)localPathForFile;
 - (NSString *)localPathForScreenshot;
-
+- (BOOL)hasPreviewThumbnail;
 @end

@@ -131,6 +131,7 @@
         } 
     }
 }
+
 - (NSManagedObjectContext *)managedObjectContext {
 	
     if (__managedObjectContext != nil) {
@@ -142,10 +143,7 @@
     if (coordinator != nil) {
         NSManagedObjectContext* moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
 
-        NSLog(@"PERFORM BLOCK AND WAITING!");
         [moc performBlockAndWait:^{
-            NSLog(@"PERFORM BLOCK AND WAITED!");
-
             [moc setPersistentStoreCoordinator: coordinator];
             [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(mergeChangesFrom_iCloud:) name:NSPersistentStoreDidImportUbiquitousContentChangesNotification object:coordinator];
         }];
@@ -160,9 +158,8 @@
 	NSLog(@"Merging in changes from iCloud...");
     
     NSManagedObjectContext* moc = [self managedObjectContext];
-    NSLog(@"-------------- WATING FOR MERGE");
+
     [moc performBlock:^{
-    NSLog(@"-------------- MERGED ");        
         [moc mergeChangesFromContextDidSaveNotification:notification];
         
         NSNotification* refreshNotification = [NSNotification notificationWithName:ORReloadGridNotification
