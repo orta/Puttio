@@ -82,6 +82,7 @@
 		60973FF716050ECB00867A2D /* TreemapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60973FF516050ECB00867A2D /* TreemapViewCell.m */; };
 		6098899A158CE29E0077CE35 /* MediaLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = 60988999158CE29E0077CE35 /* MediaLibrary.png */; };
 		6098B4F81635612500B41531 /* ORFileDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6098B4F71635612500B41531 /* ORFileDownloadOperation.m */; };
+		6098B4FC163561EC00B41531 /* NSFileManager+SkipBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6098B4FB163561EC00B41531 /* NSFileManager+SkipBackup.m */; };
 		609CAE2415853D51000BE57E /* UnknownFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609CAE2315853D51000BE57E /* UnknownFileController.m */; };
 		609CAE2F15856309000BE57E /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 609CAE2715856309000BE57E /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		609CAE3015856309000BE57E /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609CAE2915856309000BE57E /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -293,6 +294,8 @@
 		60988999158CE29E0077CE35 /* MediaLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MediaLibrary.png; sourceTree = "<group>"; };
 		6098B4F61635612500B41531 /* ORFileDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORFileDownloadOperation.h; sourceTree = "<group>"; };
 		6098B4F71635612500B41531 /* ORFileDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORFileDownloadOperation.m; sourceTree = "<group>"; };
+		6098B4FA163561EC00B41531 /* NSFileManager+SkipBackup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+SkipBackup.h"; sourceTree = "<group>"; };
+		6098B4FB163561EC00B41531 /* NSFileManager+SkipBackup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SkipBackup.m"; sourceTree = "<group>"; };
 		609CAE2115851B64000BE57E /* Putio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Putio.entitlements; path = puttio/Putio.entitlements; sourceTree = "<group>"; };
 		609CAE2215853D51000BE57E /* UnknownFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnknownFileController.h; path = FileController/UnknownFileController.h; sourceTree = "<group>"; };
 		609CAE2315853D51000BE57E /* UnknownFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnknownFileController.m; path = FileController/UnknownFileController.m; sourceTree = "<group>"; };
@@ -826,6 +829,8 @@
 		60AB50CF151F64DE00473448 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				6098B4FA163561EC00B41531 /* NSFileManager+SkipBackup.h */,
+				6098B4FB163561EC00B41531 /* NSFileManager+SkipBackup.m */,
 				6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */,
 				6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */,
 				6085D27D151BA3AF0068929C /* NSDictionary+JSON.h */,
@@ -1120,6 +1125,7 @@
 				60973FF716050ECB00867A2D /* TreemapViewCell.m in Sources */,
 				60F555FB1634BF74000F62AE /* ORMigration.m in Sources */,
 				6098B4F81635612500B41531 /* ORFileDownloadOperation.m in Sources */,
+				6098B4FC163561EC00B41531 /* NSFileManager+SkipBackup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

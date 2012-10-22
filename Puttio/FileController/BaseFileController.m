@@ -16,10 +16,11 @@
 #import "WatchedList.h"
 #import "NSManagedObject+ActiveRecord.h"
 #import "FileDownloadProcess.h"
+#import "ORFileDownloadOperation.h"
 
 @interface BaseFileController (){
     FileDownloadProcess *_fileDownloadProcess;
-    AFHTTPRequestOperation *downloadOperation;
+    ORFileDownloadOperation *downloadOperation;
     BOOL shouldCancelOnHide;
 }
 @end
@@ -41,7 +42,7 @@
 
 -(NSString *)descriptiveTextForFile { return @"NO TEXT SET"; }
 
-- (void)downloadFileAtPath:(NSString*)path backgroundable:(BOOL)showTransferInBG withCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+- (void)downloadFileAtAddress:(NSString *)address to:(NSString *)path backgroundable:(BOOL)showTransferInBG withCompletionBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success andFailureBlock:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
     shouldCancelOnHide = !showTransferInBG;
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -53,13 +54,14 @@
         [self.infoController disableButtons];
         [self.infoController showProgress];
         
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:path]]];
-        downloadOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        NSURL *addressURL = [NSURL URLWithString:[PutIOClient appendOauthToken:address]];
+        downloadOperation = [ORFileDownloadOperation fileDownloadFromURL:addressURL toLocalPath:path];
+                             
         if (showTransferInBG) {
             _fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation andFile:_file];
         }
 
-        [downloadOperation setDownloadProgressBlock:^(NSInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead) {
+        [downloadOperation setDownloadProgressBlock: ^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
             CGFloat progress = (float)totalBytesRead/totalBytesExpectedToRead;
             if (blockInfoController) {
                 blockInfoController.progressView.progress = progress;

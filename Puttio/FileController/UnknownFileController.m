@@ -31,9 +31,9 @@
     [self.infoController disableButtons];
     NSString *requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/download", _file.id];
 
+    downloadedFilepath = [NSTemporaryDirectory() stringByAppendingPathComponent:_file.name];
 
-    [self downloadFileAtPath:requestURL backgroundable:NO withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-        downloadedFilepath = [NSTemporaryDirectory() stringByAppendingPathComponent:_file.name];
+    [self downloadFileAtAddress:requestURL to:downloadedFilepath backgroundable:NO withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         [operation.responseData writeToFile:downloadedFilepath atomically:YES];
 
         NSURL *downloadURL = [NSURL fileURLWithPath:downloadedFilepath isDirectory:NO];

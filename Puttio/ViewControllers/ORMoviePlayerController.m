@@ -30,7 +30,7 @@
     [super viewWillAppear:animated];
     
     if ([UIDevice isPhone]) {
-        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft animated:YES];
 
         // Rotate the view for landscape playback
         CGRect newFrame = self.moviePlayer.view.bounds;
@@ -39,14 +39,14 @@
         newFrame.size.width = newFrame.size.height;
         newFrame.size.height = width;
         [self.moviePlayer.view setFrame:newFrame];
-        [self.moviePlayer.view setTransform:CGAffineTransformMakeRotation(M_PI / 2)];
+        [self.moviePlayer.view setTransform:CGAffineTransformMakeRotation(M_PI / -2)];
     }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if ([UIDevice isPhone]) {
-        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft animated:YES];
     }
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
@@ -62,7 +62,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     if ([UIDevice isPhone]) {
-        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft animated:YES];
     }
     
     return YES;
@@ -73,7 +73,6 @@
 }
 
 - (BOOL)shouldAutomaticallyForwardRotationMethods {
-    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
     return YES;
 }
 

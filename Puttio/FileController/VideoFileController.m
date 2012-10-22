@@ -23,9 +23,11 @@
 
 + (BOOL)fileSupportedByController:(File *)aFile {
     NSSet *fileTypes = [NSSet setWithObjects: @"avi", @"mv4", @"m4v", @"mov", @"wmv", @"mkv", @"mp4", @"rmvb", @"mpeg", @"mpg", nil];
+
     if ([fileTypes containsObject:aFile.extension]) {
         return YES;
     }
+
     return NO;
 }
 
@@ -137,42 +139,30 @@
     [screenShotOperation start];
 
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-    [self downloadFileAtPath:requestURL backgroundable:YES withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.infoController.additionalInfoLabel.text = @"Saving file";
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = paths[0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:_file.id];
+    NSString *fullPath = [NSString stringWithFormat:@"%@.mp4", filePath];
+    
+    [self downloadFileAtAddress:requestURL to:fullPath backgroundable:YES withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 
-        // Save it
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = paths[0];
-        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:_file.id];
-        NSString *fullPath = [NSString stringWithFormat:@"%@.mp4", filePath];
-        [operation.responseData writeToFile:fullPath atomically:YES];
+        // Give it a localfile core data entity
+        LocalFile *localFile = [LocalFile localFileWithFile:_file];
+        if ([[localFile managedObjectContext] persistentStoreCoordinator].persistentStores.count) {
+            [[localFile managedObjectContext] save:nil];
+        }
+        
+        if (self.infoController) {
+            // Set the UI state
+            self.infoController.additionalInfoLabel.text = @"Downloaded - It's in your media library!";
+            [self.infoController enableButtons];
+            [self.infoController hideProgress];
 
-        // Make sure its not backed up in iCloud
-        NSURL *fileUrl = [NSURL fileURLWithPath:fullPath];
-        if ([[NSFileManager defaultManager] fileExistsAtPath: [fileUrl path]]) {
-            NSError *error = nil;
-            BOOL success = [fileUrl setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:&error];
-            if(!success){
-                NSLog(@"Error excluding %@ from backup %@", fileUrl, error);
-            }
-            
-            // Give it a localfile core data entity
-            LocalFile *localFile = [LocalFile localFileWithFile:_file];
-            if ([[localFile managedObjectContext] persistentStoreCoordinator].persistentStores.count) {
-                [[localFile managedObjectContext] save:nil];
-            }
-            
-            if (self.infoController) {
-                // Set the UI state
-                self.infoController.additionalInfoLabel.text = @"Downloaded - It's in your media library!";
-                [self.infoController enableButtons];
-                [self.infoController hideProgress];
-
-                self.infoController.progressInfoHidden = YES;
-                self.infoController.secondaryButton.enabled = YES;
-                self.infoController.primaryButton.enabled = NO;
-            }
+            self.infoController.progressInfoHidden = YES;
+            self.infoController.secondaryButton.enabled = YES;
+            self.infoController.primaryButton.enabled = NO;
         }
 
     } andFailureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {

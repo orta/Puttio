@@ -15,40 +15,9 @@
     NSInteger lastVersion = [defaults integerForKey:ORMigrationVersionDefault];
 
     if (lastVersion < 1.22) {
-        
-        NSString *dataFileName = @"Puttio.sqlite";
-        NSString *localStore = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:dataFileName] path];
-        NSString *iCloudDataDirectoryName = @"Data.nosync";
-        NSString *iCloudLogsDirectoryName = @"Logs";
-
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-//        NSURL *localStore = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:dataFileName];
-        NSURL *iCloud = [fileManager URLForUbiquityContainerIdentifier:nil];
-
-        if (iCloud) {
-            NSString *iCloudData = [[[iCloud path]
-                                     stringByAppendingPathComponent:iCloudDataDirectoryName]
-                                    stringByAppendingPathComponent:dataFileName];
-
-            if ([[NSFileManager defaultManager] fileExistsAtPath:iCloudData]) {
-
-                NSError *error = nil;
-                [[NSFileManager defaultManager] removeItemAtPath:iCloudData error:&error];
-                if (error) {
-                    NSLog(@"error deleting CD model %@", error.localizedDescription);
-                }
-
-                [defaults setFloat:1.22 forKey:ORMigrationVersionDefault];
-            } else {
-                NSLog(@"could not find data model");
-            }
-        }
-        
-        NSError *error = nil;
-        [[NSFileManager defaultManager] removeItemAtURL:iCloud error:&error];
+        // dont do anything for now
     }
 }
-
 
 + (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
