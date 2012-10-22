@@ -32,6 +32,8 @@ NSString *const ORLoggedOutDefault = @"ORLoggedOutDefault";
 NSString *const ORUseAllSearchEngines = @"ORUseAllSearchEngines";
 NSString *const ORTotalVideoDuration = @"ORTotalVideoDuration";
 NSString *const ORHasShownReviewNagOneDefault = @"ORHasShownReviewNagOneDefault";
+NSString *const ORMigrationVersionDefault = @"ORMigrationVersion";
+
 
 NSString *const ORReloadGridNotification = @"ORReloadGridNotification";
 NSString *const ORReloadFolderNotification = @"ORReloadFolderNotification";

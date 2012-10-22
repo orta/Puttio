@@ -158,6 +158,7 @@
 		60F00EBA152BAC1800DA9230 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */; };
 		60F023861528AB55003491E4 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023851528AB55003491E4 /* icon72.png */; };
 		60F023881528AB5F003491E4 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023871528AB5F003491E4 /* icon144.png */; };
+		60F555FB1634BF74000F62AE /* ORMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F555FA1634BF74000F62AE /* ORMigration.m */; };
 		60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */; };
 		60F5AD781522739D00DD7A6F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F5AD771522739D00DD7A6F /* MediaPlayer.framework */; };
 		60F5AD7B1522777600DD7A6F /* MoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD7A1522777600DD7A6F /* MoviePlayer.m */; };
@@ -445,6 +446,8 @@
 		60F023851528AB55003491E4 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
 		60F023871528AB5F003491E4 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
 		60F28C4015AB93EB0089AE8B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = ../../vendor/Crashlytics.framework; sourceTree = "<group>"; };
+		60F555F91634BF74000F62AE /* ORMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORMigration.h; sourceTree = "<group>"; };
+		60F555FA1634BF74000F62AE /* ORMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORMigration.m; sourceTree = "<group>"; };
 		60F5AD5F15224DF400DD7A6F /* ORImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORImageViewCell.h; path = Views/ORImageViewCell.h; sourceTree = "<group>"; };
 		60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORImageViewCell.m; path = Views/ORImageViewCell.m; sourceTree = "<group>"; };
 		60F5AD771522739D00DD7A6F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -808,6 +811,8 @@
 				6064D89A15398E4600E454E5 /* SearchController.m */,
 				60FE47B9152EA0D6008A5752 /* ThreeColumnViewManager.h */,
 				60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */,
+				60F555F91634BF74000F62AE /* ORMigration.h */,
+				60F555FA1634BF74000F62AE /* ORMigration.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1249,6 +1254,7 @@
 				607C18C215F15D4500D2C5E6 /* AudioViewController.m in Sources */,
 				60973FF616050ECB00867A2D /* TreemapView.m in Sources */,
 				60973FF716050ECB00867A2D /* TreemapViewCell.m in Sources */,
+				60F555FB1634BF74000F62AE /* ORMigration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

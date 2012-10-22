@@ -16,6 +16,7 @@
 #import "ModalZoomView.h"
 #import <Crashlytics/Crashlytics.h>
 #import "APP_SECRET.h"
+#import "ORMigration.h"
 
 @implementation ORAppDelegate
 
@@ -25,7 +26,8 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	
+
+    [ORMigration migrate];
     [Analytics setup];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

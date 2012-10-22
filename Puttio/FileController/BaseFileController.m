@@ -48,7 +48,7 @@
     struct statfs tStats;  
     statfs([[paths lastObject] cString], &tStats);  
     uint64_t totalSpace = tStats.f_bavail * tStats.f_bsize;  
-
+    __block FileInfoViewController *blockInfoController = infoController;
     if (fileSize < totalSpace) {
         [self.infoController disableButtons];
         [self.infoController showProgress];
@@ -61,12 +61,16 @@
 
         [downloadOperation setDownloadProgressBlock:^(NSInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead) {
             CGFloat progress = (float)totalBytesRead/totalBytesExpectedToRead;
-            infoController.progressView.progress = progress;
+            if (blockInfoController) {
+                blockInfoController.progressView.progress = progress;
+            }
             _fileDownloadProcess.progress = progress;
         }];
         
         [downloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [self.infoController enableButtons];
+            if (blockInfoController) {
+                [blockInfoController enableButtons];
+            }
             success(operation, responseObject);
             _fileDownloadProcess.finished = YES;
             

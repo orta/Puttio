@@ -34,6 +34,9 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFolder) name:ORReloadGridNotification object:nil];
+
     [self setupGestures];
     
     if ([UIDevice isPad]) {
@@ -88,13 +91,14 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     frame.size.width = self.view.frame.size.width - GridViewInsets.left - GridViewInsets.right;
     if ([UIDevice isPad]) {
         frame.size.height = self.view.frame.size.height - GridViewInsets.top - GridViewInsets.bottom;
+        frame.origin.y = GridViewInsets.top;
     }else {
-        frame.size.height = self.view.frame.size.height - GridViewInsets.top - GridViewInsets.bottom + CGRectGetHeight(_phoneBottomBarView.bounds);
+        frame.origin.y = 100;
+        frame.size.height = self.view.frame.size.height - frame.origin.y - GridViewInsets.bottom - CGRectGetHeight(_phoneBottomBarView.bounds);
     }
-    
+
     frame.origin.x = GridViewInsets.left;
-    frame.origin.y = GridViewInsets.top;
-    
+
     [gridView setFrame:frame];
 }
 

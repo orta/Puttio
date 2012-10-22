@@ -37,7 +37,10 @@
     self.infoController.fileSizeLabel.text = [UIDevice humanStringFromBytes:[[_file size] doubleValue]];
     [self.infoController hideProgress];
 
-    if ([_file.contentType isEqualToString:@"video/mp4"]) {
+    if ([_file.contentType isEqualToString:@"video/mp4"] ||
+        [_file.contentType isEqualToString:@"video/quicktime"] ||
+        [_file.extension.lowercaseString isEqualToString:@"mp4"]) {
+
         _isMP4 = YES;
         [self.infoController enableButtons];
         [self.infoController hideProgress];
@@ -176,11 +179,13 @@
         NSLog(@"%@", NSStringFromSelector(_cmd));
         NSLog(@"mega fail");
         NSLog(@"request %@", operation.request.URL);
-        
-        self.infoController.additionalInfoLabel.text = @"Download failed!";
-        [self.infoController hideProgress];
-        self.infoController.secondaryButton.enabled = NO;
-        self.infoController.primaryButton.enabled = YES;
+
+        if (self.infoController) {
+            self.infoController.additionalInfoLabel.text = @"Download failed!";
+            [self.infoController hideProgress];
+            self.infoController.secondaryButton.enabled = NO;
+            self.infoController.primaryButton.enabled = YES;
+        }
     }];
 }
 
