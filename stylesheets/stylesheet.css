@@ -101,6 +101,14 @@ canvas {
     float:left; 
     text-align: center;
   }
+  
+  .featurettes h3 a {
+    color:#5dadf8;
+  }
+  
+  .featurettes h3 a:active {
+    background-color: #331122;
+  }
     
   .button {
     height: 40px;
