@@ -21,7 +21,6 @@
     self.backgroundColor = [UIColor putioRed];
     [self setBackgroundColor:[UIColor putioDarkRed] forState:UIControlStateHighlighted];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-
 }
 
 @end

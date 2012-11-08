@@ -117,7 +117,6 @@
 		60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326F41528A6D200462AA8 /* libz.dylib */; };
 		60B6792C161862110051DC7A /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */; };
 		60B6792E161862150051DC7A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B6792D161862150051DC7A /* Default-Landscape~ipad.png */; };
-		60B86E7E15A061040063461D /* .plan in Resources */ = {isa = PBXBuildFile; fileRef = 60B86E7D15A061040063461D /* .plan */; };
 		60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BD4F46151C701300DCD686 /* PutIOClient.m */; };
 		60C04EA51571489600C23AB5 /* VideoFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EA41571489600C23AB5 /* VideoFileController.m */; };
 		60C04EAC15715C5B00C23AB5 /* BaseFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EAB15715C5B00C23AB5 /* BaseFileController.m */; };
@@ -161,7 +160,7 @@
 		60FFFB4A15A85F2700DB7668 /* RefreshButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */; };
 		60FFFB4E15A86B3C00DB7668 /* Folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4C15A86B3C00DB7668 /* Folder.png */; };
 		60FFFB4F15A86B3C00DB7668 /* Folder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4D15A86B3C00DB7668 /* Folder@2x.png */; };
-		60FFFB5215A8CBF400DB7668 /* TorrentLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FFFB5115A8CBF400DB7668 /* TorrentLikeView.m */; };
+		60FFFB5215A8CBF400DB7668 /* ORTorrentLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FFFB5115A8CBF400DB7668 /* ORTorrentLikeView.m */; };
 		60FFFB5D15A97CCE00DB7668 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB5B15A97CCE00DB7668 /* Placeholder.png */; };
 		60FFFB5E15A97CCE00DB7668 /* Placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB5C15A97CCE00DB7668 /* Placeholder@2x.png */; };
 		60FFFB6115A9836400DB7668 /* WatchedSash.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB5F15A9836400DB7668 /* WatchedSash.png */; };
@@ -361,7 +360,6 @@
 		60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		60B6792D161862150051DC7A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		60B679501618A2AE0051DC7A /* Puttio 3 (v1.2).xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Puttio 3 (v1.2).xcdatamodel"; sourceTree = "<group>"; };
-		60B86E7D15A061040063461D /* .plan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .plan; sourceTree = "<group>"; };
 		60BD4F45151C701300DCD686 /* PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOClient.h; path = Networking/PutIOClient.h; sourceTree = "<group>"; };
 		60BD4F46151C701300DCD686 /* PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOClient.m; path = Networking/PutIOClient.m; sourceTree = "<group>"; };
 		60C04EA31571489600C23AB5 /* VideoFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoFileController.h; path = FileController/VideoFileController.h; sourceTree = "<group>"; };
@@ -432,8 +430,8 @@
 		60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RefreshButton@2x.png"; sourceTree = "<group>"; };
 		60FFFB4C15A86B3C00DB7668 /* Folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Folder.png; sourceTree = "<group>"; };
 		60FFFB4D15A86B3C00DB7668 /* Folder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder@2x.png"; sourceTree = "<group>"; };
-		60FFFB5015A8CBF400DB7668 /* TorrentLikeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TorrentLikeView.h; path = Views/TorrentLikeView.h; sourceTree = "<group>"; };
-		60FFFB5115A8CBF400DB7668 /* TorrentLikeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TorrentLikeView.m; path = Views/TorrentLikeView.m; sourceTree = "<group>"; };
+		60FFFB5015A8CBF400DB7668 /* ORTorrentLikeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORTorrentLikeView.h; path = Views/ORTorrentLikeView.h; sourceTree = "<group>"; };
+		60FFFB5115A8CBF400DB7668 /* ORTorrentLikeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORTorrentLikeView.m; path = Views/ORTorrentLikeView.m; sourceTree = "<group>"; };
 		60FFFB5B15A97CCE00DB7668 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		60FFFB5C15A97CCE00DB7668 /* Placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Placeholder@2x.png"; sourceTree = "<group>"; };
 		60FFFB5F15A9836400DB7668 /* WatchedSash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WatchedSash.png; sourceTree = "<group>"; };
@@ -489,8 +487,8 @@
 				60FE125D156C29DC000A0EB4 /* ORFlatButton.m */,
 				60C45D5A157C16750059D4B4 /* ORSlidingTableView.h */,
 				60C45D5B157C16750059D4B4 /* ORSlidingTableView.m */,
-				60FFFB5015A8CBF400DB7668 /* TorrentLikeView.h */,
-				60FFFB5115A8CBF400DB7668 /* TorrentLikeView.m */,
+				60FFFB5015A8CBF400DB7668 /* ORTorrentLikeView.h */,
+				60FFFB5115A8CBF400DB7668 /* ORTorrentLikeView.m */,
 				60E8DED015A9A16B00058314 /* ORHorizontalImageViewCell.h */,
 				60E8DED115A9A16B00058314 /* ORHorizontalImageViewCell.m */,
 				604678E915B1999000A2BFA8 /* ORRotatingButton.h */,
@@ -616,7 +614,6 @@
 				60973FEE16050AC900867A2D /* Default-568h@2x.png */,
 				60F6F83115D072BC004333AF /* icon114.png */,
 				60F6F82F15D072A2004333AF /* icon57.png */,
-				60B86E7D15A061040063461D /* .plan */,
 				609CAE2115851B64000BE57E /* Putio.entitlements */,
 				6085D22F151B99490068929C /* Puttio */,
 				6085D226151B99490068929C /* Frameworks */,
@@ -986,7 +983,6 @@
 				609CAE4D15856336000BE57E /* popoverBg.png in Resources */,
 				609CAE4E15856336000BE57E /* popoverBg@2x.png in Resources */,
 				6098899A158CE29E0077CE35 /* MediaLibrary.png in Resources */,
-				60B86E7E15A061040063461D /* .plan in Resources */,
 				60FFFB4915A85F2700DB7668 /* RefreshButton.png in Resources */,
 				60FFFB4A15A85F2700DB7668 /* RefreshButton@2x.png in Resources */,
 				60FFFB4E15A86B3C00DB7668 /* Folder.png in Resources */,
@@ -1134,7 +1130,7 @@
 				60DBF385158CA7EE0061F059 /* FileDownloadProcess.m in Sources */,
 				609719991597531600F9398F /* AccountViewController.m in Sources */,
 				6097199C15975A5900F9398F /* UIDevice+SpaceStats.m in Sources */,
-				60FFFB5215A8CBF400DB7668 /* TorrentLikeView.m in Sources */,
+				60FFFB5215A8CBF400DB7668 /* ORTorrentLikeView.m in Sources */,
 				60FFFB6D15A9840A00DB7668 /* UIImageView+ImageRect.m in Sources */,
 				60E8DECF15A99D7000058314 /* UIDevice+deviceInfo.m in Sources */,
 				60E8DED215A9A16B00058314 /* ORHorizontalImageViewCell.m in Sources */,

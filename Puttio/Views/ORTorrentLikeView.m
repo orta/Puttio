@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "TorrentLikeView.h"
+#import "ORTorrentLikeView.h"
 #import "UIColor+PutioColours.h"
 
-@interface TorrentLikeView (){
+@interface ORTorrentLikeView (){
     NSDictionary *_tiles;
     NSTimer *_colorChangeTimer;
     
@@ -23,7 +23,7 @@
 }
 @end
 
-@implementation TorrentLikeView
+@implementation ORTorrentLikeView
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
