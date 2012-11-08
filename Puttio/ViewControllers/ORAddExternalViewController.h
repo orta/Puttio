@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ORAddExternalViewController : UIViewController
+@interface ORAddExternalViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property NSSet *torrentAddressses;
+@property (strong, nonatomic) NSSet *torrentAddressses;
 
 @end
