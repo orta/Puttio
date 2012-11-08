@@ -36,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="88"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Foo / Bar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qfh-cM-XrR" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Foo / Bar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qfh-cM-XrR" customClass="ORTitleLabel">
                                         <rect key="frame" x="20" y="4" width="806" height="80"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="48"/>
@@ -112,7 +112,7 @@ to Put.IO</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Hand.png" id="fXG-Bm-fZN" customClass="ARSwipeImageView">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Hand.png" id="fXG-Bm-fZN" customClass="ORSwipeImageView">
                                 <rect key="frame" x="32" y="656" width="55" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
@@ -162,7 +162,7 @@ to Put.IO</string>
                                 <rect key="frame" x="0.0" y="20" width="400" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Foo / Bar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="JrK-XH-B8K" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Foo / Bar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="JrK-XH-B8K" customClass="ORTitleLabel">
                                         <rect key="frame" x="20" y="3" width="360" height="38"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
@@ -199,7 +199,7 @@ to Put.IO</string>
                                 <rect key="frame" x="0.0" y="20" width="400" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="I have something to say" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="43n-5r-ebW" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="I have something to say" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="43n-5r-ebW" customClass="ORTitleLabel">
                                         <rect key="frame" x="20" y="3" width="360" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
@@ -447,7 +447,7 @@ to Put.IO</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.69519844890000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="TransferCell" rowHeight="23" id="KQY-04-lHC" customClass="ARTransferCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="TransferCell" rowHeight="23" id="KQY-04-lHC" customClass="ORTransferCell">
                                         <rect key="frame" x="0.0" y="22" width="88" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -620,7 +620,7 @@ to Put.IO</string>
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hey, [orta]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="exz-4M-jJU" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hey, [orta]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="exz-4M-jJU" customClass="ORTitleLabel">
                                         <rect key="frame" x="10" y="4" width="299" height="38"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
@@ -1212,7 +1212,7 @@ Message</string>
                                 <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The title of my cool cat film" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Dad-Vc-t9x" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The title of my cool cat film" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Dad-Vc-t9x" customClass="ORTitleLabel">
                                         <rect key="frame" x="20" y="4" width="460" height="36"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
@@ -1260,7 +1260,7 @@ Message</string>
                                 <rect key="frame" x="0.0" y="20" width="400" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Give some feedback!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="a2s-bU-ZuB" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Give some feedback!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="a2s-bU-ZuB" customClass="ORTitleLabel">
                                         <rect key="frame" x="20" y="3" width="360" height="38"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
@@ -1342,7 +1342,7 @@ Email the developer</string>
                                 <rect key="frame" x="0.0" y="20" width="212" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hey, [orta]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="OzR-a4-moP" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hey, [orta]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="OzR-a4-moP" customClass="ORTitleLabel">
                                         <rect key="frame" x="10" y="4" width="196" height="38"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
@@ -1565,7 +1565,7 @@ Email the developer</string>
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="A wild &amp; annoying nag screen has appeared" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="FWO-5J-z8t" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="A wild &amp; annoying nag screen has appeared" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="FWO-5J-z8t" customClass="ORTitleLabel">
                                         <rect key="frame" x="20" y="3" width="560" height="38"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
@@ -1651,7 +1651,7 @@ Email the developer</string>
                                 <rect key="frame" x="0.0" y="20" width="282" height="76"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Mg3-SL-jcb" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Mg3-SL-jcb" customClass="ORTitleLabel">
                                         <rect key="frame" x="20" y="0.0" width="242" height="76"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <string key="text">Foo / Bar on two lines, 
@@ -1690,7 +1690,7 @@ bloody hell</string>
                                 <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The title of my cool ASCII cat art" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2ZN-Gm-SbJ" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The title of my cool ASCII cat art" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2ZN-Gm-SbJ" customClass="ORTitleLabel">
                                         <rect key="frame" x="20" y="4" width="460" height="39"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
@@ -1766,7 +1766,7 @@ bloody hell</string>
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The title of my cool MP3 Stuff" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ouS-wA-7oV" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The title of my cool MP3 Stuff" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ouS-wA-7oV" customClass="ORTitleLabel">
                                         <rect key="frame" x="20" y="4" width="360" height="39"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
@@ -1818,7 +1818,7 @@ bloody hell</string>
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="A wild &amp; annoying nag screen has appeared" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="fi4-bK-bjz" customClass="ARTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="A wild &amp; annoying nag screen has appeared" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="fi4-bK-bjz" customClass="ORTitleLabel">
                                         <rect key="frame" x="20" y="1" width="280" height="38"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
@@ -1891,6 +1891,128 @@ bloody hell</string>
             </objects>
             <point key="canvasLocation" x="-3570" y="-32"/>
         </scene>
+        <!--Add External View Controller-->
+        <scene sceneID="gre-Tc-gAE">
+            <objects>
+                <viewController storyboardIdentifier="addExternalTorrentView" id="OFk-xO-Lx9" customClass="ORAddExternalViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dhi-kG-ble">
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="425"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="nrV-AL-tMg">
+                                <rect key="frame" x="0.0" y="20" width="282" height="38"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add Torrents from External Site?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="vHA-iq-66e" customClass="ORTitleLabel">
+                                        <rect key="frame" x="20" y="0.0" width="242" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="acw-4n-2r5" customClass="ORDestructiveButton">
+                                <rect key="frame" x="20" y="361" width="80" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Log out">
+                                            <attributes>
+                                                <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <font key="NSFont" size="15" name="Helvetica-Bold"/>
+                                                <font key="NSOriginalFont" size="15" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="clipping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.59369297450000003" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="OFk-xO-Lx9" eventType="touchUpInside" id="hPh-nS-i70"/>
+                                    <action selector="logOutTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="A82-ib-HRt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ekB-3r-UhJ" customClass="ORFlatButton">
+                                <rect key="frame" x="180" y="361" width="80" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Request">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="feedbackTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="cCy-yj-LCI"/>
+                                    <action selector="submit:" destination="OFk-xO-Lx9" eventType="touchUpInside" id="mKc-mN-AhZ"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="20" sectionFooterHeight="22" id="DyD-Fu-Db9">
+                                <rect key="frame" x="0.0" y="78" width="280" height="263"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="IfT-VH-hDI" customClass="ORAddTorrentCell">
+                                        <rect key="frame" x="0.0" y="20" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="thepiratebay.org/2323/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bkL-gb-eWp">
+                                                    <rect key="frame" x="20" y="-1" width="195" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" id="J5S-WY-Wg0" customClass="ORAnimatedTickView">
+                                                    <rect key="frame" x="228" y="6" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="selectionTick" destination="J5S-WY-Wg0" id="Kt9-0D-qJK"/>
+                                            <outlet property="title" destination="bkL-gb-eWp" id="XpL-MR-vfm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OFk-xO-Lx9" id="Po8-MQ-Ppe"/>
+                                    <outlet property="delegate" destination="OFk-xO-Lx9" id="qGv-1s-eeU"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="DyD-Fu-Db9" id="ERd-x0-6Es"/>
+                        <outlet property="titleLabel" destination="vHA-iq-66e" id="H1g-1h-6hc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dz-CB-S9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5317" y="-463"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Cutest_Cat.jpg" width="360" height="290"/>
@@ -1902,214 +2024,6 @@ bloody hell</string>
         <image name="TwitterBird.png" width="88" height="88"/>
         <image name="orta.png" width="88" height="88"/>
     </resources>
-    <classes>
-        <class className="ARSwipeImageView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARSwipeImageView.h"/>
-        </class>
-        <class className="ARTitleLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARTitleLabel.h"/>
-        </class>
-        <class className="ARTransferCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ARTransferCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
-            </relationships>
-        </class>
-        <class className="AccountViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AccountViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addToTwitter:"/>
-                <relationship kind="action" name="dbgrandiTapped:"/>
-                <relationship kind="action" name="feedbackTapped:"/>
-                <relationship kind="action" name="githubTapped:"/>
-                <relationship kind="action" name="logOutTapped:"/>
-                <relationship kind="action" name="ortaTapped:"/>
-                <relationship kind="action" name="putIOTapped:"/>
-                <relationship kind="outlet" name="accountSpaceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="accountSpaceLeftProgress" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="creativeCommonsSwitch" candidateClass="DCRoundSwitch"/>
-                <relationship kind="outlet" name="loggedOutMessageView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="ortaInfoBackground" candidateClass="UIView"/>
-                <relationship kind="outlet" name="ortaInfoBodyLAbel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ortaInfoTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="percentageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="searchInfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="welcomeAccountLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="AudioViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AudioViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="playButton" candidateClass="ORFlatButton"/>
-                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="subtitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="ARTitleLabel"/>
-            </relationships>
-        </class>
-        <class className="BrowsingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backPressed:"/>
-                <relationship kind="action" name="reloadPressed:"/>
-                <relationship kind="outlet" name="firstErrorMessageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offlineView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="refreshButton" candidateClass="ORRotatingButton"/>
-                <relationship kind="outlet" name="secondErrorMessageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="swipeHelperImage" candidateClass="ARSwipeImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DCControl" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCControl.h"/>
-        </class>
-        <class className="DCKnob" superclassName="DCControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCKnob.h"/>
-        </class>
-        <class className="DCRoundSwitch" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCRoundSwitch.h"/>
-        </class>
-        <class className="FeedbackViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedbackViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="emailDeveloper:"/>
-                <relationship kind="action" name="review:"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="FileInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FileInfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="primaryButtonTapped:"/>
-                <relationship kind="action" name="secondaryButtonTapped:"/>
-                <relationship kind="outlet" name="additionalInfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="primaryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="secondaryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="thumbnailImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ItemDeletionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemDeletionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelTapped:"/>
-                <relationship kind="action" name="deleteTapped:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="ORFlatButton"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="ORFlatButton"/>
-                <relationship kind="outlet" name="networkActivityView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LocalBrowsingViewController" superclassName="BrowsingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocalBrowsingViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="deviceSpaceLeftLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="deviceStoredLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="noItemsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="phoneBottomBarView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="phoneDeviceLeftLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="phoneDeviceStoredLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backTapped:"/>
-                <relationship kind="action" name="loginPressed:"/>
-                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="authHelper" candidateClass="PutIOOAuthHelper"/>
-                <relationship kind="outlet" name="errorHeaderView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loginViewWrapper" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordPaddingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernamePaddingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="usernameTextfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="warningLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="ORDestructiveButton" superclassName="ORFlatButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORDestructiveButton.h"/>
-        </class>
-        <class className="ORFlatButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORFlatButton.h"/>
-        </class>
-        <class className="ORMessageCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORMessageCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ORRotatingButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORRotatingButton.h"/>
-        </class>
-        <class className="ORSearchCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSearchCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="fileNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="seedersLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ORSimpleProgress" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSimpleProgress.h"/>
-        </class>
-        <class className="ORSlidingTableView" superclassName="UITableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSlidingTableView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="slidingDelegate" candidateClass="NSObject"/>
-            </relationships>
-        </class>
-        <class className="ProcessPopoverViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProcessPopoverViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="progressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PutIOOAuthHelper" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PutIOOAuthHelper.h"/>
-            <relationships>
-                <relationship kind="outlet" name="delegate" candidateClass="NSObject"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activitySpinner" candidateClass="ORRotatingButton"/>
-                <relationship kind="outlet" name="noResultsFoundView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="statusViewController" candidateClass="StatusViewController"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="tryChangingSettingsView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="StatusViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="spaceProgressBG" candidateClass="DCKnob"/>
-                <relationship kind="outlet" name="spaceProgressView" candidateClass="DCKnob"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="TextFileInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextFileInfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="loadingIndicator" candidateClass="ORRotatingButton"/>
-                <relationship kind="outlet" name="textfield" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="ARTitleLabel"/>
-            </relationships>
-        </class>
-        <class className="TorrentLikeView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TorrentLikeView.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

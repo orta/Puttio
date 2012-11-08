@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ARTitleLabel : UILabel
+@interface ORTitleLabel : UILabel
 
 @end

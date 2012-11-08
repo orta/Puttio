@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "ARSwipeImageView.h"
+#import "ORSwipeImageView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation ARSwipeImageView
+@implementation ORSwipeImageView
 
 static CGFloat MovementDistance = 200;
 

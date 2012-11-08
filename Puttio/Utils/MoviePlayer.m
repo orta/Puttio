@@ -113,10 +113,9 @@ static NSDate *movieStartedDate;
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
-    UINavigationController *rootNav = (UIViewController *)appDelegate.window.rootViewController;
+    UINavigationController *rootNav = (UINavigationController *)appDelegate.window.rootViewController;
     BrowsingViewController *canvas = (BrowsingViewController *)rootNav.topViewController;
 
-    
     MoviePlayer *sharedPlayer = [self sharedPlayer];
     path = [PutIOClient appendOauthToken:path];
 

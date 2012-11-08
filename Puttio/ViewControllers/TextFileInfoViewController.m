@@ -8,7 +8,7 @@
 
 #import "TextFileInfoViewController.h"
 #import "AFHTTPRequestOperation.h"
-#import "ARTitleLabel.h"
+#import "ORTitleLabel.h"
 #import "ORRotatingButton.h"
 
 @implementation TextFileInfoViewController

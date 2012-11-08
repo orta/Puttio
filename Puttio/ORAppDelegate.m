@@ -17,6 +17,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import "APP_SECRET.h"
 #import "ORMigration.h"
+#import "ORPasteboardParser.h"
 
 @implementation ORAppDelegate
 
@@ -295,6 +296,13 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:ORLoggedOutDefault]) {
         exit(YES);
+    }
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    NSSet *urls = [ORPasteboardParser submitableURLsInPasteboard];
+    if (urls) {
+        [ModalZoomView showWithViewControllerIdentifier:@"addExternalTorrentView"];
     }
 }
 @end

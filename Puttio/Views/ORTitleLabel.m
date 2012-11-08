@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "ARTitleLabel.h"
+#import "ORTitleLabel.h"
 
-@implementation ARTitleLabel
+@implementation ORTitleLabel
 
 - (id)initWithFrame:(CGRect)frame
 {

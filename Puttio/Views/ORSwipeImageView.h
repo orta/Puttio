@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ARSwipeImageView : UIImageView
+@interface ORSwipeImageView : UIImageView
 - (void)startAnimation;
 @end

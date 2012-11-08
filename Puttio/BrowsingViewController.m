@@ -16,7 +16,7 @@
 #import "MoviePlayer.h"
 #import "ModalZoomView.h"
 #import "TestFlight.h"
-#import "ARTitleLabel.h"
+#import "ORTitleLabel.h"
 #import "SearchViewController.h"
 
 static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .bottom = 8};

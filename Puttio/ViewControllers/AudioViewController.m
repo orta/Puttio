@@ -7,7 +7,7 @@
 //
 
 #import "AudioViewController.h"
-#import "ARTitleLabel.h"
+#import "ORTitleLabel.h"
 #import "ORFlatButton.h"
 #import <AVFoundation/AVFoundation.h>
 #import "ORSimpleProgress.h"
@@ -37,7 +37,7 @@
     AVPlayer *_audioPlayer;
 }
 @property (weak, nonatomic) IBOutlet ORSimpleProgress *progressView;
-@property (weak, nonatomic) IBOutlet ARTitleLabel *titleLabel;
+@property (weak, nonatomic) IBOutlet ORTitleLabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
 @property (weak, nonatomic) IBOutlet ORFlatButton *playButton;
 

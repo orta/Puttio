@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ORSimpleProgress.h"
 #import "ProcessPopoverViewController.h"
-#import "ARTransferCell.h"
+#import "ORTransferCell.h"
 #import "ORMessageCell.h"
 #import "NSDate+StringParsing.h"
 #import "UIColor+PutioColours.h"
@@ -217,7 +217,7 @@ typedef enum {
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
         if (cell) {
             Transfer *item = transfers[indexPath.row];
-            ARTransferCell *theCell = (ARTransferCell*)cell;
+            ORTransferCell *theCell = (ORTransferCell*)cell;
             theCell.nameLabel.text = item.name;
             theCell.progressView.progress = [item.percentDone floatValue]/100;
             theCell.progressView.isLandscape = YES;
@@ -228,7 +228,7 @@ typedef enum {
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
         if (cell) {
             BaseProcess *item = processes[indexPath.row];
-            ARTransferCell *theCell = (ARTransferCell*)cell;
+            ORTransferCell *theCell = (ORTransferCell*)cell;
             theCell.progressView.progress = item.progress;
             theCell.progressView.isLandscape = YES;
         }

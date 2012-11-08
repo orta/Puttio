@@ -6,10 +6,7 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "ARTransferCell.h"
+#import "ORTransferCell.h"
 
-@implementation ARTransferCell
-@synthesize nameLabel, detailsLabel, progressView;
-
-
+@implementation ORTransferCell
 @end

@@ -71,7 +71,7 @@
 		608C72BF15C3063500EE85FC /* Exo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 608C72BD15C3063500EE85FC /* Exo-Bold.otf */; };
 		608C72C015C3063500EE85FC /* Exo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 608C72BE15C3063500EE85FC /* Exo-Light.otf */; };
 		608C72C415C3074100EE85FC /* UIFont+Puttio.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C315C3074100EE85FC /* UIFont+Puttio.m */; };
-		608C72C715C308AE00EE85FC /* ARTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C615C308AE00EE85FC /* ARTitleLabel.m */; };
+		608C72C715C308AE00EE85FC /* ORTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C615C308AE00EE85FC /* ORTitleLabel.m */; };
 		608C72E315C53C4500EE85FC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F28C4015AB93EB0089AE8B /* Crashlytics.framework */; };
 		608FF9C715F3680500461A6D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608FF9C615F3680500461A6D /* CoreMedia.framework */; };
 		6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */; };
@@ -108,7 +108,7 @@
 		60A7A6D0151FD2A100DB71E0 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6CF151FD2A100DB71E0 /* File.m */; };
 		60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60A7AB1515290771009DD716 /* Transfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB1415290771009DD716 /* Transfer.m */; };
-		60A7AB1815290D90009DD716 /* ARTransferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB1715290D90009DD716 /* ARTransferCell.m */; };
+		60A7AB1815290D90009DD716 /* ORTransferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB1715290D90009DD716 /* ORTransferCell.m */; };
 		60A7AB3015291404009DD716 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB2F15291404009DD716 /* Message.m */; };
 		60A7AB33152916BA009DD716 /* ORMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB32152916BA009DD716 /* ORMessageCell.m */; };
 		60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AB50D2151F650A00473448 /* UIColor+PutioColours.m */; };
@@ -128,11 +128,15 @@
 		60C85AED15CEBEA3008FC895 /* TextFileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C85AEC15CEBEA3008FC895 /* TextFileInfoViewController.m */; };
 		60C85AF915CFAD40008FC895 /* Hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C85AF715CFAD40008FC895 /* Hand.png */; };
 		60C85AFA15CFAD40008FC895 /* Hand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C85AF815CFAD40008FC895 /* Hand@2x.png */; };
-		60C85AFE15CFAD7E008FC895 /* ARSwipeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C85AFD15CFAD7E008FC895 /* ARSwipeImageView.m */; };
+		60C85AFE15CFAD7E008FC895 /* ORSwipeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C85AFD15CFAD7E008FC895 /* ORSwipeImageView.m */; };
 		60D0E0671606539B004F167E /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E0661606539B004F167E /* Default-Portrait@2x~ipad.png */; };
 		60D0E06A160653D9004F167E /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E069160653D9004F167E /* Default-Portrait~ipad.png */; };
 		60D0E06C160654FB004F167E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E06B160654FB004F167E /* Default@2x.png */; };
 		60D0E06E16065753004F167E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E06D16065753004F167E /* Default.png */; };
+		60D53EEF164B4ACC00DDD93D /* ORPasteboardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D53EEE164B4ACC00DDD93D /* ORPasteboardParser.m */; };
+		60D53EF3164B4F7100DDD93D /* ORAddExternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D53EF2164B4F7100DDD93D /* ORAddExternalViewController.m */; };
+		60D53EF6164B513400DDD93D /* ORAnimatedTickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D53EF5164B513400DDD93D /* ORAnimatedTickView.m */; };
+		60D53EF9164B52F200DDD93D /* ORAddTorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D53EF8164B52F200DDD93D /* ORAddTorrentCell.m */; };
 		60D9B7EB1535C30F00A64E0F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7EA1535C30F00A64E0F /* SearchResult.m */; };
 		60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B7ED1535C67300A64E0F /* ORSearchCell.m */; };
 		60DB0AB4151C670800DA8A33 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* LoginViewController.m */; };
@@ -277,8 +281,8 @@
 		608C72BE15C3063500EE85FC /* Exo-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Light.otf"; sourceTree = "<group>"; };
 		608C72C215C3074100EE85FC /* UIFont+Puttio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Puttio.h"; path = "Categories/UIFont+Puttio.h"; sourceTree = "<group>"; };
 		608C72C315C3074100EE85FC /* UIFont+Puttio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Puttio.m"; path = "Categories/UIFont+Puttio.m"; sourceTree = "<group>"; };
-		608C72C515C308AE00EE85FC /* ARTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARTitleLabel.h; path = Views/ARTitleLabel.h; sourceTree = "<group>"; };
-		608C72C615C308AE00EE85FC /* ARTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARTitleLabel.m; path = Views/ARTitleLabel.m; sourceTree = "<group>"; };
+		608C72C515C308AE00EE85FC /* ORTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORTitleLabel.h; path = Views/ORTitleLabel.h; sourceTree = "<group>"; };
+		608C72C615C308AE00EE85FC /* ORTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORTitleLabel.m; path = Views/ORTitleLabel.m; sourceTree = "<group>"; };
 		608FF9C615F3680500461A6D /* CoreMedia.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		6096FC19155FF0B1009C524C /* PutIOOAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOOAuthHelper.h; path = Networking/PutIOOAuthHelper.h; sourceTree = "<group>"; };
 		6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOOAuthHelper.m; path = Networking/PutIOOAuthHelper.m; sourceTree = "<group>"; };
@@ -341,8 +345,8 @@
 		60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+ActiveRecord.m"; sourceTree = "<group>"; };
 		60A7AB1315290771009DD716 /* Transfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transfer.h; path = Models/Transfer.h; sourceTree = "<group>"; };
 		60A7AB1415290771009DD716 /* Transfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transfer.m; path = Models/Transfer.m; sourceTree = "<group>"; };
-		60A7AB1615290D90009DD716 /* ARTransferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARTransferCell.h; path = Views/ARTransferCell.h; sourceTree = "<group>"; };
-		60A7AB1715290D90009DD716 /* ARTransferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARTransferCell.m; path = Views/ARTransferCell.m; sourceTree = "<group>"; };
+		60A7AB1615290D90009DD716 /* ORTransferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORTransferCell.h; path = Views/ORTransferCell.h; sourceTree = "<group>"; };
+		60A7AB1715290D90009DD716 /* ORTransferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORTransferCell.m; path = Views/ORTransferCell.m; sourceTree = "<group>"; };
 		60A7AB2E15291403009DD716 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = Models/Message.h; sourceTree = "<group>"; };
 		60A7AB2F15291404009DD716 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Message.m; path = Models/Message.m; sourceTree = "<group>"; };
 		60A7AB31152916BA009DD716 /* ORMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMessageCell.h; path = Views/ORMessageCell.h; sourceTree = "<group>"; };
@@ -376,13 +380,21 @@
 		60C85AEC15CEBEA3008FC895 /* TextFileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFileInfoViewController.m; path = ViewControllers/TextFileInfoViewController.m; sourceTree = "<group>"; };
 		60C85AF715CFAD40008FC895 /* Hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hand.png; sourceTree = "<group>"; };
 		60C85AF815CFAD40008FC895 /* Hand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand@2x.png"; sourceTree = "<group>"; };
-		60C85AFC15CFAD7E008FC895 /* ARSwipeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARSwipeImageView.h; path = Views/ARSwipeImageView.h; sourceTree = "<group>"; };
-		60C85AFD15CFAD7E008FC895 /* ARSwipeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARSwipeImageView.m; path = Views/ARSwipeImageView.m; sourceTree = "<group>"; };
+		60C85AFC15CFAD7E008FC895 /* ORSwipeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSwipeImageView.h; path = Views/ORSwipeImageView.h; sourceTree = "<group>"; };
+		60C85AFD15CFAD7E008FC895 /* ORSwipeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSwipeImageView.m; path = Views/ORSwipeImageView.m; sourceTree = "<group>"; };
 		60D0E0661606539B004F167E /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		60D0E069160653D9004F167E /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		60D0E06B160654FB004F167E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		60D0E06D16065753004F167E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		60D0E07216068867004F167E /* Puttio 2 (v1.1).xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Puttio 2 (v1.1).xcdatamodel"; sourceTree = "<group>"; };
+		60D53EED164B4ACC00DDD93D /* ORPasteboardParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORPasteboardParser.h; path = Utils/ORPasteboardParser.h; sourceTree = "<group>"; };
+		60D53EEE164B4ACC00DDD93D /* ORPasteboardParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORPasteboardParser.m; path = Utils/ORPasteboardParser.m; sourceTree = "<group>"; };
+		60D53EF1164B4F7100DDD93D /* ORAddExternalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORAddExternalViewController.h; path = ViewControllers/ORAddExternalViewController.h; sourceTree = "<group>"; };
+		60D53EF2164B4F7100DDD93D /* ORAddExternalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAddExternalViewController.m; path = ViewControllers/ORAddExternalViewController.m; sourceTree = "<group>"; };
+		60D53EF4164B513400DDD93D /* ORAnimatedTickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORAnimatedTickView.h; sourceTree = "<group>"; };
+		60D53EF5164B513400DDD93D /* ORAnimatedTickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORAnimatedTickView.m; sourceTree = "<group>"; };
+		60D53EF7164B52F200DDD93D /* ORAddTorrentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORAddTorrentCell.h; path = Views/Cells/ORAddTorrentCell.h; sourceTree = "<group>"; };
+		60D53EF8164B52F200DDD93D /* ORAddTorrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAddTorrentCell.m; path = Views/Cells/ORAddTorrentCell.m; sourceTree = "<group>"; };
 		60D9B7E91535C30F00A64E0F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResult.h; path = Models/SearchResult.h; sourceTree = "<group>"; };
 		60D9B7EA1535C30F00A64E0F /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResult.m; path = Models/SearchResult.m; sourceTree = "<group>"; };
 		60D9B7EC1535C67300A64E0F /* ORSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSearchCell.h; path = Views/ORSearchCell.h; sourceTree = "<group>"; };
@@ -466,16 +478,13 @@
 		6006420F151F639000EF85F9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				60338F7A164B5E430059AB6D /* Cell */,
+				60D53EF4164B513400DDD93D /* ORAnimatedTickView.h */,
+				60D53EF5164B513400DDD93D /* ORAnimatedTickView.m */,
 				60A7A6B3151F6E0D00DB71E0 /* ORSimpleProgress.h */,
 				60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */,
 				60F5AD5F15224DF400DD7A6F /* ORImageViewCell.h */,
 				60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */,
-				60A7AB1615290D90009DD716 /* ARTransferCell.h */,
-				60A7AB1715290D90009DD716 /* ARTransferCell.m */,
-				60A7AB31152916BA009DD716 /* ORMessageCell.h */,
-				60A7AB32152916BA009DD716 /* ORMessageCell.m */,
-				60D9B7EC1535C67300A64E0F /* ORSearchCell.h */,
-				60D9B7ED1535C67300A64E0F /* ORSearchCell.m */,
 				60FE125C156C29DC000A0EB4 /* ORFlatButton.h */,
 				60FE125D156C29DC000A0EB4 /* ORFlatButton.m */,
 				60C45D5A157C16750059D4B4 /* ORSlidingTableView.h */,
@@ -488,10 +497,10 @@
 				604678EA15B1999000A2BFA8 /* ORRotatingButton.m */,
 				6046790515B1F0EC00A2BFA8 /* ORDestructiveButton.h */,
 				6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */,
-				608C72C515C308AE00EE85FC /* ARTitleLabel.h */,
-				608C72C615C308AE00EE85FC /* ARTitleLabel.m */,
-				60C85AFC15CFAD7E008FC895 /* ARSwipeImageView.h */,
-				60C85AFD15CFAD7E008FC895 /* ARSwipeImageView.m */,
+				608C72C515C308AE00EE85FC /* ORTitleLabel.h */,
+				608C72C615C308AE00EE85FC /* ORTitleLabel.m */,
+				60C85AFC15CFAD7E008FC895 /* ORSwipeImageView.h */,
+				60C85AFD15CFAD7E008FC895 /* ORSwipeImageView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -543,6 +552,21 @@
 				6026A06A157BEA0F0031509D /* UIView+GMGridViewAdditions.m */,
 			);
 			name = GMGridView;
+			sourceTree = "<group>";
+		};
+		60338F7A164B5E430059AB6D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				60A7AB1615290D90009DD716 /* ORTransferCell.h */,
+				60A7AB1715290D90009DD716 /* ORTransferCell.m */,
+				60A7AB31152916BA009DD716 /* ORMessageCell.h */,
+				60A7AB32152916BA009DD716 /* ORMessageCell.m */,
+				60D9B7EC1535C67300A64E0F /* ORSearchCell.h */,
+				60D9B7ED1535C67300A64E0F /* ORSearchCell.m */,
+				60D53EF7164B52F200DDD93D /* ORAddTorrentCell.h */,
+				60D53EF8164B52F200DDD93D /* ORAddTorrentCell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		606C79A5152F5AA600608C56 /* Resources */ = {
@@ -684,6 +708,8 @@
 				60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */,
 				60F555F91634BF74000F62AE /* ORMigration.h */,
 				60F555FA1634BF74000F62AE /* ORMigration.m */,
+				60D53EED164B4ACC00DDD93D /* ORPasteboardParser.h */,
+				60D53EEE164B4ACC00DDD93D /* ORPasteboardParser.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -719,6 +745,8 @@
 				60C85AEC15CEBEA3008FC895 /* TextFileInfoViewController.m */,
 				607C18C015F15D4500D2C5E6 /* AudioViewController.h */,
 				607C18C115F15D4500D2C5E6 /* AudioViewController.m */,
+				60D53EF1164B4F7100DDD93D /* ORAddExternalViewController.h */,
+				60D53EF2164B4F7100DDD93D /* ORAddExternalViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -917,6 +945,7 @@
 		6085D21A151B99480068929C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = OR;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = ortatherox.com;
 			};
@@ -1061,7 +1090,7 @@
 				60A1B1B01528788E002A6A7E /* FileInfoViewController.m in Sources */,
 				60B326E81528A55C00462AA8 /* Analytics.m in Sources */,
 				60A7AB1515290771009DD716 /* Transfer.m in Sources */,
-				60A7AB1815290D90009DD716 /* ARTransferCell.m in Sources */,
+				60A7AB1815290D90009DD716 /* ORTransferCell.m in Sources */,
 				60A7AB3015291404009DD716 /* Message.m in Sources */,
 				60A7AB33152916BA009DD716 /* ORMessageCell.m in Sources */,
 				60FE47BB152EA0D6008A5752 /* ThreeColumnViewManager.m in Sources */,
@@ -1117,15 +1146,19 @@
 				6046790715B1F0EC00A2BFA8 /* ORDestructiveButton.m in Sources */,
 				6080914915BAF5AA00BDB3D7 /* FeedbackViewController.m in Sources */,
 				608C72C415C3074100EE85FC /* UIFont+Puttio.m in Sources */,
-				608C72C715C308AE00EE85FC /* ARTitleLabel.m in Sources */,
+				608C72C715C308AE00EE85FC /* ORTitleLabel.m in Sources */,
 				60C85AED15CEBEA3008FC895 /* TextFileInfoViewController.m in Sources */,
-				60C85AFE15CFAD7E008FC895 /* ARSwipeImageView.m in Sources */,
+				60C85AFE15CFAD7E008FC895 /* ORSwipeImageView.m in Sources */,
 				607C18C215F15D4500D2C5E6 /* AudioViewController.m in Sources */,
 				60973FF616050ECB00867A2D /* TreemapView.m in Sources */,
 				60973FF716050ECB00867A2D /* TreemapViewCell.m in Sources */,
 				60F555FB1634BF74000F62AE /* ORMigration.m in Sources */,
 				6098B4F81635612500B41531 /* ORFileDownloadOperation.m in Sources */,
 				6098B4FC163561EC00B41531 /* NSFileManager+SkipBackup.m in Sources */,
+				60D53EEF164B4ACC00DDD93D /* ORPasteboardParser.m in Sources */,
+				60D53EF3164B4F7100DDD93D /* ORAddExternalViewController.m in Sources */,
+				60D53EF6164B513400DDD93D /* ORAnimatedTickView.m in Sources */,
+				60D53EF9164B52F200DDD93D /* ORAddTorrentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,16 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "GMGridView.h"
 #import "ORDisplayItemProtocol.h"
-#import "ARSwipeImageView.h"
+#import "ORSwipeImageView.h"
 
-@class ORRotatingButton, ARTitleLabel, SearchViewController;
+@class ORRotatingButton, ORTitleLabel, SearchViewController;
 @interface BrowsingViewController : UIViewController <GMGridViewActionDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIView *offlineView;
 @property (weak, nonatomic) IBOutlet ORRotatingButton *refreshButton;
 @property (assign, nonatomic) BOOL networkActivity;
-@property (weak, nonatomic) IBOutlet ARSwipeImageView *swipeHelperImage;
+@property (weak, nonatomic) IBOutlet ORSwipeImageView *swipeHelperImage;
 @property (strong) SearchViewController *searchVC;
 
 @property (weak, nonatomic) IBOutlet UILabel *firstErrorMessageLabel;
