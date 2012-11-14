@@ -10,8 +10,8 @@
 
 @implementation UINavigationController (ForceRotate)
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+//    return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
+//}
 
 @end

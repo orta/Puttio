@@ -10,7 +10,6 @@
 #import "UIColor+PutioColours.h"
 
 @implementation ORSearchCell
-@synthesize fileNameLabel, fileSizeLabel, seedersLabel;
 
 - (void)prepareForReuse {
     [super prepareForReuse];

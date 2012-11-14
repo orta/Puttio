@@ -81,6 +81,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     
     _gridNavController = [[UINavigationController alloc] initWithRootViewController:folderVC];
     [self addChildViewController:_gridNavController];
+    
     _gridNavController.view.frame = frame;
     _gridNavController.delegate = self;
     _gridNavController.navigationBarHidden = YES;
@@ -265,6 +266,10 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     }else{
         [_refreshButton stopAnimating];
     }
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return [UIDevice isPad];
 }
 
 @end

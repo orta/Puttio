@@ -22,14 +22,14 @@
 static StatusViewController *_sharedController;
 
 @interface StatusViewController () {
-    NSArray *transfers;
-    NSArray *messages;
-    NSMutableArray *processes;
+    NSArray *_transfers;
+    NSArray *_messages;
+    NSMutableArray *_processes;
     NSMutableDictionary *_processIDs;
-    CGFloat currentIndex;
-    NSTimer *dataLoopTimer;
+    CGFloat _currentIndex;
+    NSTimer *_dataLoopTimer;
     
-    WEPopoverController *popoverController;
+    WEPopoverController *_popoverController;
     BOOL _appeared;
 }
 @end
@@ -97,16 +97,16 @@ typedef enum {
     NSString *identifier = [UIDevice isPad] ? @"accountView" : @"accountViewPhone";
     UIViewController *accountVC =  [storyboard instantiateViewControllerWithIdentifier:identifier];
     
-    popoverController = [[WEPopoverController alloc] initWithContentViewController:accountVC];
+    _popoverController = [[WEPopoverController alloc] initWithContentViewController:accountVC];
     UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
     
-    [popoverController presentPopoverFromRect:[rootController.view convertRect:gesture.view.frame fromView:gesture.view.superview] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+    [_popoverController presentPopoverFromRect:[rootController.view convertRect:gesture.view.frame fromView:gesture.view.superview] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
 }
 
 - (void)startTimer {
-    if (!dataLoopTimer) {
-        dataLoopTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(beat) userInfo:nil repeats:YES];
-        [dataLoopTimer fire];        
+    if (!_dataLoopTimer) {
+        _dataLoopTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(beat) userInfo:nil repeats:YES];
+        [_dataLoopTimer fire];        
     }
 }
 
@@ -115,17 +115,37 @@ typedef enum {
     [self getTransfers];
 }
 
-- (void)getTransfers {    
+- (void)getTransfers {
+    if (_transfers) return;
+    _transfers = [self stubbedTransfers];
+    [self.tableView reloadData];
+
     [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
         if (![userInfoObject isKindOfClass:[NSError class]]) {
-            transfers = userInfoObject;
-            transfers = [self onlyRecentTransfers:transfers];
+            _transfers = userInfoObject;
+            _transfers = [self onlyRecentTransfers:_transfers];
             [self.tableView reloadData];
         } else {
             NSLog(@"error %@", [(NSError *)userInfoObject localizedDescription]);
         }
-
     }];
+}
+
+- (NSArray *)stubbedTransfers {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    
+    NSMutableArray *stubbies = [NSMutableArray array];
+    for (int i = 0; i < 15; i++) {
+        Transfer *transfer = [[Transfer alloc] init];
+        transfer.name = [NSString stringWithFormat:@"Stub %i", i];
+        transfer.percentDone = @( arc4random() % 100 );
+        transfer.downloadSpeed = @( arc4random() % 100 );
+        transfer.estimatedTime = @( arc4random() % 100 );
+        transfer.displayName = transfer.name;
+        
+        [stubbies addObject:transfer];
+    }
+    return stubbies;
 }
 
 - (NSArray *)onlyRecentTransfers: (NSArray*)inTransfers {
@@ -190,17 +210,17 @@ typedef enum {
         _processIDs[process.id] = process;
     }
     
-    if (!processes) {
-        processes = [@[process] mutableCopy];
+    if (!_processes) {
+        _processes = [@[process] mutableCopy];
     }else{
-        [processes addObject:process];
+        [_processes addObject:process];
     }
     [self.tableView reloadData];
 }
 
 - (void)processDidFinish:(BaseProcess *)process {
     [_processIDs removeObjectForKey:process.id];
-    [processes removeObject:process];
+    [_processes removeObject:process];
     [self.tableView reloadData];
 }
 
@@ -211,12 +231,13 @@ typedef enum {
 }
 
 -(UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), indexPath);
     
     UITableViewCell *cell = nil;
     if (indexPath.section == DisplayTransfers) {
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
         if (cell) {
-            Transfer *item = transfers[indexPath.row];
+            Transfer *item = _transfers[indexPath.row];
             ORTransferCell *theCell = (ORTransferCell*)cell;
             theCell.nameLabel.text = item.name;
             theCell.progressView.progress = [item.percentDone floatValue]/100;
@@ -227,7 +248,7 @@ typedef enum {
     if (indexPath.section == DisplayProcesses) {
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TransferCell"];
         if (cell) {
-            BaseProcess *item = processes[indexPath.row];
+            BaseProcess *item = _processes[indexPath.row];
             ORTransferCell *theCell = (ORTransferCell*)cell;
             theCell.progressView.progress = item.progress;
             theCell.progressView.isLandscape = YES;
@@ -237,7 +258,7 @@ typedef enum {
     if (indexPath.section == DisplayMessages) {
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"MessageCell"];
         if (cell) {
-            Message *item = messages[indexPath.row];
+            Message *item = _messages[indexPath.row];
             ORMessageCell *theCell = (ORMessageCell*)cell;
             theCell.messageLabel.text = item.message;
         }
@@ -249,11 +270,11 @@ typedef enum {
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case DisplayTransfers:
-            return transfers.count;
+            return _transfers.count;
         case DisplayMessages:
-            return messages.count;
+            return _messages.count;
         case DisplayProcesses:
-            return processes.count;
+            return _processes.count;
     }
     return 0;
 }
@@ -292,51 +313,51 @@ typedef enum {
 #pragma mark Sliding TableView
 
 - (void)slidingTableDidBeginTouch:(ORSlidingTableView *)table {
-    if (!transfers.count) {
+    if (!_transfers.count) {
         return;
     }
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     NSString *transferID = [UIDevice isPad] ? @"transferPopoverView" : @"transferPopoverViewPhone";
     ProcessPopoverViewController *transferVC = [storyboard instantiateViewControllerWithIdentifier:transferID];
-    popoverController = [[WEPopoverController alloc] initWithContentViewController:transferVC];
-    currentIndex = -1;
+    _popoverController = [[WEPopoverController alloc] initWithContentViewController:transferVC];
+    _currentIndex = -1;
 }
 
 - (void)slidingTable:(ORSlidingTableView *)table didMoveToCellAtRow:(NSInteger)row inSection:(NSInteger)section {
-    if (row != currentIndex) {
+    if (row != _currentIndex) {
         id item = nil;
         if (section == DisplayTransfers) {
-            if (row < transfers.count) {
-                item = transfers[row];
+            if (row < _transfers.count) {
+                item = _transfers[row];
             }
         }
         
         if (section == DisplayProcesses) {
-            if (row < processes.count) {
-                 item = processes[row];   
+            if (row < _processes.count) {
+                 item = _processes[row];   
             }
         }
         
         if (item) {
-            if ([popoverController.contentViewController isMemberOfClass:[ProcessPopoverViewController class]]) {
+            if ([_popoverController.contentViewController isMemberOfClass:[ProcessPopoverViewController class]]) {
                 NSIndexPath *path = [NSIndexPath indexPathForRow:row inSection:section];
                 CGRect originalRect = [self.tableView rectForRowAtIndexPath:path];
                 UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
 
-                ProcessPopoverViewController *transferVC = (ProcessPopoverViewController*) popoverController.contentViewController;
-                [popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:self.tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+                ProcessPopoverViewController *transferVC = (ProcessPopoverViewController*) _popoverController.contentViewController;
+                [_popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:self.tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
 
                 transferVC.item = item;
-                currentIndex = row;
+                _currentIndex = row;
             }
         }
     }
 }
 
 - (void)slidingTableDidEndTouch:(ORSlidingTableView *)table {
-    [popoverController dismissPopoverAnimated:YES];
-    currentIndex = -1;
+    [_popoverController dismissPopoverAnimated:YES];
+    _currentIndex = -1;
 }
 
 

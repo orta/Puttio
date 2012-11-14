@@ -54,7 +54,12 @@ static ModalZoomView *sharedInstance;
             // get frames for the modal
             UIView *theView = this.viewController.view;
             theView.alpha = 0;
+
             CGRect finalFrame = theView.bounds;
+            if ([this.viewController respondsToSelector:@selector(sizeForZoomView:)]) {
+                CGSize finalSize = [this.viewController sizeForZoomView:this];
+                finalFrame.size = finalSize;
+            }
 
             
             if ([UIDevice isPhone]) {

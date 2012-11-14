@@ -9,6 +9,7 @@
 #import "ORAddExternalViewController.h"
 #import "ORAddTorrentCell.h"
 #import "ModalZoomView.h"
+#import "ORPasteboardParser.h"
 
 @interface ORAddExternalViewController () {
     NSArray *_sortedTorrentAddresses;
@@ -16,16 +17,22 @@
     BOOL _startedUploads;
     BOOL _showUpdates;
 }
-
+@property (strong, nonatomic) NSSet *torrentAddresses;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation ORAddExternalViewController
 
-- (void)setTorrentAddressses:(NSSet *)torrentAddressses {
+- (void)viewDidLoad {
+    NSSet *urls = [ORPasteboardParser submitableURLsInPasteboard];
+    [self setTorrentAddresses:urls];
+}
 
+- (void)setTorrentAddresses:(NSSet *)torrentAddresses {
+    _torrentAddresses = torrentAddresses;
+    
     // We need a sorted version of the addresses that doesn't get confused by prefixes
-    _sortedTorrentAddresses = [torrentAddressses.allObjects sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    _sortedTorrentAddresses = [torrentAddresses.allObjects sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         NSMutableString *mutableOne = [obj1 mutableCopy];
         NSMutableString *mutableTwo = [obj2 mutableCopy];
 
@@ -41,7 +48,7 @@
     }];
 
     _selectionStates = [NSMutableArray array];
-    for (int i = 0; i < torrentAddressses.count; i++) {
+    for (int i = 0; i < torrentAddresses.count; i++) {
         [_selectionStates addObject: @YES];
     }
 }
@@ -50,7 +57,6 @@
     if (_startedUploads) {
         _showUpdates = NO;
         [ModalZoomView fadeOutViewAnimated:YES];
-
     } else {
         [sender setTitle:@"Continue" forState:UIControlStateNormal];
         _showUpdates = YES;
@@ -68,10 +74,21 @@
                     } else {
                         cell.textLabel.text = @"Recieved Error";
                     }
+                    [self removeItemFromPasteboard:address];
                 }];
             }
         }
     }
+}
+
+- (void)removeItemFromPasteboard:(NSString *)item {
+//    NSMutableArray *newPasteboardItems = [[UIPasteboard generalPasteboard].items mutableCopy];
+//    for (id key in newPasteboardItems.allKeys) {
+//        if ([newPasteboardItems[key] isEqual:item]) {
+//            [newPasteboardItems removeObjectForKey:key];
+//        }
+//    }
+//    [UIPasteboard generalPasteboard].item = newPasteboardItems;
 }
 
 - (IBAction)cancel:(id)sender {
@@ -88,9 +105,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ORAddTorrentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
+    ORAddTorrentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TorrentCell"];
     if (cell) {
-        cell.selected = YES;
         [cell.selectionTick setSelected:YES animated:NO];
 
         NSMutableString *displayString = [_sortedTorrentAddresses[indexPath.row] mutableCopy];
@@ -100,15 +116,19 @@
 
         cell.title.text = displayString;
     }
-    return  cell;
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BOOL selected = [_selectionStates[indexPath.row] boolValue];
     ORAddTorrentCell *cell = (ORAddTorrentCell *)[tableView cellForRowAtIndexPath:indexPath];
-
     [cell.selectionTick setSelected:!selected animated:YES];
     _selectionStates[indexPath.row] = @(!selected);
+    cell.selected = NO;
+}
+
+- (CGSize)sizeForZoomView:(ModalZoomView *)zoomView {
+    return CGSizeMake(480, (CGRectGetHeight(self.view.bounds) - CGRectGetHeight(self.tableView.bounds)) + (_torrentAddresses.count * 44) - 1);
 }
 
 @end

@@ -25,17 +25,25 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [[UIColor putioDarkBlue] colorWithAlphaComponent:0.2];
-
-        _backLayer = [ORTickViewBackLayer layer];
-        _backLayer.completion = 1;
-        _backLayer.bounds = CGRectMake(0, 0, 32, 32);
-        _backLayer.position = CGPointMake(16, 16);
-
-        [self.layer addSublayer:_backLayer];
-        [self.layer addSublayer:[ORTickViewFrontLayer layer]];
+        [self setup];
     }
     return self;
+}
+
+- (void)awakeFromNib {
+    [self setup];
+}
+
+- (void)setup {
+    self.backgroundColor = [[UIColor putioDarkBlue] colorWithAlphaComponent:0.2];
+
+    _backLayer = [ORTickViewBackLayer layer];
+    _backLayer.completion = 1;
+    _backLayer.bounds = CGRectMake(0, 0, 32, 32);
+    _backLayer.position = CGPointMake(16, 16);
+
+    [self.layer addSublayer:_backLayer];
+    [self.layer addSublayer:[ORTickViewFrontLayer layer]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -147,7 +155,7 @@
     CGContextClosePath(ctx);
 
     // Color it
-    CGContextSetFillColorWithColor(ctx, [UIColor putioDarkRed].CGColor);
+    CGContextSetFillColorWithColor(ctx, [UIColor putioBlue].CGColor);
     CGContextSetLineWidth(ctx, 0);
 
     CGContextDrawPath(ctx, kCGPathFill);

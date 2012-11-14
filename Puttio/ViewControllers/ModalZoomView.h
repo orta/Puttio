@@ -13,6 +13,7 @@
 
 @optional
 - (void)setItem:(id)item;
+- (CGSize)sizeForZoomView:(ModalZoomView *)zoomView;
 - (void)zoomViewDidFinishZooming:(ModalZoomView *)zoomView;
 - (void)zoomViewWillDissapear:(ModalZoomView *)zoomView;
 @end
@@ -24,5 +25,7 @@
 
 + (void)fadeOutViewAnimated:(BOOL)animated;
 + (BOOL)isShowing;
+
 @property  UIViewController <ModalZoomViewControllerDelegate> *viewController;
+
 @end

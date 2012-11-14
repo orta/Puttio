@@ -6,10 +6,7 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ModalZoomView.h"
 
-@interface ORAddExternalViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
-@property (strong, nonatomic) NSSet *torrentAddressses;
-
+@interface ORAddExternalViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ModalZoomViewControllerDelegate>
 @end

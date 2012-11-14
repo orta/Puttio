@@ -68,6 +68,12 @@
 		6085D279151B9DBA0068929C /* V1PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */; };
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
+		608977431653987800A7814E /* MediaPlayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6089773F1653987800A7814E /* MediaPlayer.png */; };
+		608977441653987800A7814E /* MediaPlayer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 608977401653987800A7814E /* MediaPlayer@2x.png */; };
+		608977451653987800A7814E /* Transfers.png in Resources */ = {isa = PBXBuildFile; fileRef = 608977411653987800A7814E /* Transfers.png */; };
+		608977461653987800A7814E /* Transfers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 608977421653987800A7814E /* Transfers@2x.png */; };
+		6089774A1653ADF600A7814E /* ORTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608977491653ADF600A7814E /* ORTransferViewController.m */; };
+		6089774D1653B01E00A7814E /* ORExtendedTransferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6089774C1653B01E00A7814E /* ORExtendedTransferCell.m */; };
 		608C72BF15C3063500EE85FC /* Exo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 608C72BD15C3063500EE85FC /* Exo-Bold.otf */; };
 		608C72C015C3063500EE85FC /* Exo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 608C72BE15C3063500EE85FC /* Exo-Light.otf */; };
 		608C72C415C3074100EE85FC /* UIFont+Puttio.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C315C3074100EE85FC /* UIFont+Puttio.m */; };
@@ -276,6 +282,14 @@
 		6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		6085D295151BAB230068929C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6085D296151BAB230068929C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		6089773F1653987800A7814E /* MediaPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MediaPlayer.png; sourceTree = "<group>"; };
+		608977401653987800A7814E /* MediaPlayer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MediaPlayer@2x.png"; sourceTree = "<group>"; };
+		608977411653987800A7814E /* Transfers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transfers.png; sourceTree = "<group>"; };
+		608977421653987800A7814E /* Transfers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Transfers@2x.png"; sourceTree = "<group>"; };
+		608977481653ADF600A7814E /* ORTransferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORTransferViewController.h; path = ViewControllers/ORTransferViewController.h; sourceTree = "<group>"; };
+		608977491653ADF600A7814E /* ORTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORTransferViewController.m; path = ViewControllers/ORTransferViewController.m; sourceTree = "<group>"; };
+		6089774B1653B01E00A7814E /* ORExtendedTransferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORExtendedTransferCell.h; path = Views/Cells/ORExtendedTransferCell.h; sourceTree = "<group>"; };
+		6089774C1653B01E00A7814E /* ORExtendedTransferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORExtendedTransferCell.m; path = Views/Cells/ORExtendedTransferCell.m; sourceTree = "<group>"; };
 		608C72BD15C3063500EE85FC /* Exo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Bold.otf"; sourceTree = "<group>"; };
 		608C72BE15C3063500EE85FC /* Exo-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Light.otf"; sourceTree = "<group>"; };
 		608C72C215C3074100EE85FC /* UIFont+Puttio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Puttio.h"; path = "Categories/UIFont+Puttio.h"; sourceTree = "<group>"; };
@@ -563,6 +577,8 @@
 				60D9B7ED1535C67300A64E0F /* ORSearchCell.m */,
 				60D53EF7164B52F200DDD93D /* ORAddTorrentCell.h */,
 				60D53EF8164B52F200DDD93D /* ORAddTorrentCell.m */,
+				6089774B1653B01E00A7814E /* ORExtendedTransferCell.h */,
+				6089774C1653B01E00A7814E /* ORExtendedTransferCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -598,6 +614,10 @@
 				60FFFB4615A85F2600DB7668 /* RefreshButton.png */,
 				60FFFB4715A85F2600DB7668 /* RefreshButton@2x.png */,
 				60988999158CE29E0077CE35 /* MediaLibrary.png */,
+				6089773F1653987800A7814E /* MediaPlayer.png */,
+				608977401653987800A7814E /* MediaPlayer@2x.png */,
+				608977411653987800A7814E /* Transfers.png */,
+				608977421653987800A7814E /* Transfers@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -744,6 +764,8 @@
 				607C18C115F15D4500D2C5E6 /* AudioViewController.m */,
 				60D53EF1164B4F7100DDD93D /* ORAddExternalViewController.h */,
 				60D53EF2164B4F7100DDD93D /* ORAddExternalViewController.m */,
+				608977481653ADF600A7814E /* ORTransferViewController.h */,
+				608977491653ADF600A7814E /* ORTransferViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1022,6 +1044,10 @@
 				60D0E06E16065753004F167E /* Default.png in Resources */,
 				60B6792C161862110051DC7A /* Default-Landscape@2x~ipad.png in Resources */,
 				60B6792E161862150051DC7A /* Default-Landscape~ipad.png in Resources */,
+				608977431653987800A7814E /* MediaPlayer.png in Resources */,
+				608977441653987800A7814E /* MediaPlayer@2x.png in Resources */,
+				608977451653987800A7814E /* Transfers.png in Resources */,
+				608977461653987800A7814E /* Transfers@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1155,6 +1181,8 @@
 				60D53EF3164B4F7100DDD93D /* ORAddExternalViewController.m in Sources */,
 				60D53EF6164B513400DDD93D /* ORAnimatedTickView.m in Sources */,
 				60D53EF9164B52F200DDD93D /* ORAddTorrentCell.m in Sources */,
+				6089774A1653ADF600A7814E /* ORTransferViewController.m in Sources */,
+				6089774D1653B01E00A7814E /* ORExtendedTransferCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
