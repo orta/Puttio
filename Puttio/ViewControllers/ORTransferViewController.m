@@ -58,17 +58,17 @@
 }
 
 - (void)getTransfers {
-    if (_transfers) return;
-    _transfers = [self stubbedTransfers];
+//    if (_transfers) return;
+//    _transfers = [self stubbedTransfers];
     [self.tableView reloadData];
 
-    [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
-        if (![userInfoObject isKindOfClass:[NSError class]]) {
-            _transfers = userInfoObject;
-            [self.tableView reloadData];
-        } else {
-            NSLog(@"error %@", [(NSError *)userInfoObject localizedDescription]);
-        }
+    // TODO: this
+    [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
+        _transfers = transfers;
+        [self.tableView reloadData];
+
+    } failure:^(NSError *error) {
+        NSLog(@"error %@", [error localizedDescription]);
     }];
 }
 
@@ -78,7 +78,7 @@
         Transfer *transfer = [[Transfer alloc] init];
         transfer.name = [NSString stringWithFormat:@"Stub %i", i];
         transfer.percentDone = @( arc4random() % 100 );
-        transfer.downloadSpeed = @( arc4random() % 100 );
+        transfer.downSpeed = @( arc4random() % 100 );
         transfer.estimatedTime = @( arc4random() % 100 );
         transfer.displayName = transfer.name;
         

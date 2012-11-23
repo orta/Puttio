@@ -18,6 +18,7 @@
 #import "DCKnob.h"
 #import "WEPopoverController.h"
 #import "BaseProcess.h"
+#import "Transfer.h"
 
 static StatusViewController *_sharedController;
 
@@ -120,14 +121,12 @@ typedef enum {
     _transfers = [self stubbedTransfers];
     [self.tableView reloadData];
 
-    [[PutIOClient sharedClient] getTransfers:^(id userInfoObject) {
-        if (![userInfoObject isKindOfClass:[NSError class]]) {
-            _transfers = userInfoObject;
-            _transfers = [self onlyRecentTransfers:_transfers];
-            [self.tableView reloadData];
-        } else {
-            NSLog(@"error %@", [(NSError *)userInfoObject localizedDescription]);
-        }
+    [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
+        _transfers = [self onlyRecentTransfers:transfers];
+        [self.tableView reloadData];
+
+    } failure:^(NSError *error) {
+        NSLog(@"error %@", [error localizedDescription]);
     }];
 }
 
@@ -139,7 +138,7 @@ typedef enum {
         Transfer *transfer = [[Transfer alloc] init];
         transfer.name = [NSString stringWithFormat:@"Stub %i", i];
         transfer.percentDone = @( arc4random() % 100 );
-        transfer.downloadSpeed = @( arc4random() % 100 );
+        transfer.downSpeed = @( arc4random() % 100 );
         transfer.estimatedTime = @( arc4random() % 100 );
         transfer.displayName = transfer.name;
         
@@ -158,7 +157,7 @@ typedef enum {
     NSDate *threeDaysAgo = [calendar dateByAddingComponents:minusDaysComponents toDate:today options:0];
     
     for (Transfer *transfer in inTransfers) {
-        if (transfer.status == TransferStatusERROR) continue;
+        if (transfer.transferStatus == PKTransferStatusERROR) continue;
         
         if (transfer.percentDone.intValue != 100) {
             [newTransfers addObject:transfer];
@@ -173,33 +172,27 @@ typedef enum {
 }
 
 - (void)getUserInfo {
-    [[PutIOClient sharedClient] getUserInfo:^(id userInfoObject) {
-        if (![userInfoObject isKindOfClass:[NSError class]]) {
+    [[PutIOClient sharedClient] getAccount:^(PKAccount *account) {
+        [[NSUserDefaults standardUserDefaults] setObject:account.username forKey:ORUserIdDefault];
 
-            [[NSUserDefaults standardUserDefaults] setObject:[userInfoObject valueForKeyPath:@"id"] forKey:ORUserIdDefault];
+        // compare the diskQuota, if it has changed from last time, record it in our Analytics
+        NSString *oldDiskQuotaTotalString = [[NSUserDefaults standardUserDefaults] objectForKey:ORDiskQuotaTotalDefault];
+        NSString *diskQuotaTotalString = [UIDevice humanStringFromBytes:account.diskSize.doubleValue];
 
-            // compare the diskQuota, if it has changed from last time, record it in our Analytics
-            NSString *oldDiskQuotaTotalString = [[NSUserDefaults standardUserDefaults] objectForKey:ORDiskQuotaTotalDefault];
+//        if( ![oldDiskQuotaTotalString isEqualToString:diskQuotaTotalString] ) {
+//            [Analytics event:@"User has changed thier Put.io account size"];
+//        }
 
-            NSString *newDiskQuotaTotalString = [userInfoObject valueForKeyPath:@"info.disk.size"];
-            double newDiskQuotaDouble = [newDiskQuotaTotalString doubleValue];
-            NSString *diskQuotaTotalString = [UIDevice humanStringFromBytes:newDiskQuotaDouble];
-            
-            if( ![oldDiskQuotaTotalString isEqualToString:diskQuotaTotalString] ) {
-                [Analytics event:@"User has changed thier Put.io account size"];
-            }
-            
-            NSString *diskQuotaAvailableString = [userInfoObject valueForKeyPath:@"info.disk.avail"];
-            float quotaPercentage = (float)[diskQuotaAvailableString longLongValue] / [newDiskQuotaTotalString longLongValue];
-            
-            [[NSUserDefaults standardUserDefaults] setFloat:quotaPercentage forKey:ORCurrentSpaceUsedPercentageDefault];
-            [[NSUserDefaults standardUserDefaults] setObject:diskQuotaAvailableString forKey:ORDiskQuotaAvailableDefault];
-            [[NSUserDefaults standardUserDefaults] setObject:diskQuotaTotalString forKey:ORDiskQuotaTotalDefault];
-            self.spaceProgressView.value = quotaPercentage;
-        }
-        else {
-            NSLog(@"Error %@", userInfoObject);
-        }
+        NSString *diskQuotaAvailableString = [account.diskAvailable stringValue];
+        float quotaPercentage = account.diskAvailable.doubleValue / account.diskSize.doubleValue;
+
+        [[NSUserDefaults standardUserDefaults] setFloat:quotaPercentage forKey:ORCurrentSpaceUsedPercentageDefault];
+        [[NSUserDefaults standardUserDefaults] setObject:diskQuotaAvailableString forKey:ORDiskQuotaAvailableDefault];
+        [[NSUserDefaults standardUserDefaults] setObject:diskQuotaTotalString forKey:ORDiskQuotaTotalDefault];
+        self.spaceProgressView.value = quotaPercentage;
+
+    } failure:^(NSError *error) {
+        NSLog(@"Error %@", error.localizedDescription);
     }];
 }
 

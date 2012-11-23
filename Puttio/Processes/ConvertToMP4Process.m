@@ -9,7 +9,7 @@
 #import "ConvertToMP4Process.h"
 
 @interface ConvertToMP4Process ()
-@property  File *file;
+@property  PKFile *file;
 @end
 
 @implementation ConvertToMP4Process
@@ -29,30 +29,29 @@
     
     if (_file) {
         [[PutIOClient sharedClient] getMP4InfoForFile:self.file :^(id userInfoObject) {
-            if (![userInfoObject isKindOfClass:[NSError class]]) {
-                NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
+            NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
 
-                if ([status isEqualToString:@"COMPLETED"]) {
-                    [self end];
-                }
-                
-                else if ([status isEqualToString:@"CONVERTING"]) {
-                    if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
-                        _message = nil;
-                        self.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
-                    }
-                }
-                
-                else if ([status isEqualToString:@"IN_QUEUE"]) {
-                    _message = @"In Queue";
-                }
+            if ([status isEqualToString:@"COMPLETED"]) {
+                [self end];
+            }
 
-                else {
-                    _message = [NSString stringWithFormat:@"%@ Conversion Error", [UIDevice deviceString]];
-                    [self end];
+            else if ([status isEqualToString:@"CONVERTING"]) {
+                if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
+                    _message = nil;
+                    self.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
                 }
             }
-        }];
+
+            else if ([status isEqualToString:@"IN_QUEUE"]) {
+                _message = @"In Queue";
+            }
+
+            else {
+                _message = [NSString stringWithFormat:@"%@ Conversion Error", [UIDevice deviceString]];
+                [self end];
+            }
+
+        } failure:^(NSError *error) {}];
     }
 }
 @end

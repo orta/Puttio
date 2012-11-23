@@ -44,8 +44,8 @@
     }
     
     if ([item respondsToSelector:@selector(progress)]) {
-        self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", [item progress] * 100 ];
-        self.progressView.progress = [item progress];
+//        self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", [item progress] * 100 ];
+//        self.progressView.progress = [item progress];
     }
 
     if ([item respondsToSelector:@selector(message)]) {

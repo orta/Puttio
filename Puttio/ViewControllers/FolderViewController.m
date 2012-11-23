@@ -184,11 +184,12 @@
 - (void)reloadItemsFromServer {
     self.browsingViewController.networkActivity = YES;
 
-    [[PutIOClient sharedClient] getFolder:self.folder :^(id userInfoObject) {
+    [[PutIOClient sharedClient] getFolderItems:self.folder :^(NSArray *filesAndFolders) {
         self.browsingViewController.networkActivity = NO;
-        if (![userInfoObject isKindOfClass:[NSError class]]) {
-            self.folderItems = (NSArray *)userInfoObject;
-        }
+        self.folderItems = filesAndFolders;
+
+    } failure:^(NSError *error) {
+        self.browsingViewController.networkActivity = NO;
     }];
 }
 

@@ -60,7 +60,8 @@
         [ModalZoomView fadeOutViewAnimated:YES];
     }else{
         [self disableButtons];
-        [[PutIOClient sharedClient] requestDeletionForDisplayItemID:_item.id :^(id userInfoObject) {
+
+        [[PutIOClient sharedClient] requestDeletionForDisplayItem:_item :^(id userInfoObject) {
             [Analytics incrementUserProperty:@"User Deleted RemoteFile" byInt:1];
             [ModalZoomView fadeOutViewAnimated:YES];
 
@@ -68,8 +69,8 @@
                 WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_item.id];
                 [list deleteEntity];
             }
-            
-        }];
+
+        } failure:^(NSError *error) {}];
     }
 }
 

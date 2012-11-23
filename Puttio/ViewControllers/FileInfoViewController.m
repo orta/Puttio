@@ -85,7 +85,7 @@
     secondaryButton.hidden = ![fileController supportsSecondaryButton]; 
     [secondaryButton setTitle:[fileController secondaryButtonText] forState:UIControlStateNormal];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:object.screenShotURL]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:object.screenShotURL]];
 
     [thumbnailImageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
 

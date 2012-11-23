@@ -1,17 +1,28 @@
 
 PODS:
-- AFNetworking (1.0)
-- Mixpanel (1.3.1)
+- AFNetworking (1.0.1)
+- Mixpanel (1.0.0)
+- PutioKit (0.1):
+  - AFNetworking (~> 1.0)
 - TestFlightSDK (1.2.beta2)
+- ZKRevealingTableViewCell (0.0.3)
 
 DEPENDENCIES:
 - AFNetworking (~> 1.0)
-- Mixpanel (~> 1.0)
-- TestFlightSDK (~> 1.1)
+- Mixpanel
+- PutioKit (from `../PutioKit/PutioKit.podspec')
+- TestFlightSDK
+- ZKRevealingTableViewCell
+
+EXTERNAL SOURCES:
+  PutioKit:
+    :podspec: ../PutioKit/PutioKit.podspec
 
 SPEC CHECKSUMS:
-  AFNetworking: 758a1cb1ab5a0d22795ba1c44abb9cad395bc126
-  Mixpanel: 4dbc198bf441400be45f5b77ad30e2ddc7cee3af
-  TestFlightSDK: 5e99e21c11d7f4447171bf787b256062d4405f23
+  AFNetworking: 4c11f857c9a18d65f4257c90a1e74ac49f0ac422
+  Mixpanel: 312db1b5199dbb61808315da3e27f056a38da6e5
+  PutioKit: 958a0e51a02a71c9554e331354762d03aa39f788
+  TestFlightSDK: 964167fdbf681a26e4452d087b779cafcba756ae
+  ZKRevealingTableViewCell: 45a8a49e3b9395a450a6526acc8786fa9445a237
 
 COCOAPODS: 0.15.1

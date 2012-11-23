@@ -266,17 +266,21 @@
     result.selectedState = SearchResultSending;
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
-    [client downloadTorrentOrMagnetURLAtPath:[result representedPath] :^(id userInfoObject) {              
-        if ([userInfoObject isKindOfClass:[NSError class]]) {
-            result.selectedState = SearchResultFailed;
-        }else {
-            result.selectedState = SearchResultSent;
+    [client requestTorrentOrMagnetURLAtPath:result.representedPath :^(id userInfoObject) {
+        result.selectedState = SearchResultSent;
+
+        if ([tableView numberOfRowsInSection:indexPath.section]) {
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }
-        
+
+    } failure:^(NSError *error) {
+        result.selectedState = SearchResultFailed;
+
         if ([tableView numberOfRowsInSection:indexPath.section]) {
             [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }
     }];
+
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)sender {

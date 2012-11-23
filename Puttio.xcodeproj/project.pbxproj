@@ -65,7 +65,6 @@
 		6085D23A151B99490068929C /* ORAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D239151B99490068929C /* ORAppDelegate.m */; };
 		6085D23D151B99490068929C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6085D23B151B99490068929C /* MainStoryboard.storyboard */; };
 		6085D240151B99490068929C /* Puttio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6085D23E151B99490068929C /* Puttio.xcdatamodeld */; };
-		6085D279151B9DBA0068929C /* V1PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */; };
 		6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */; };
 		6085D297151BAB230068929C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085D296151BAB230068929C /* Constants.m */; };
 		608977431653987800A7814E /* MediaPlayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6089773F1653987800A7814E /* MediaPlayer.png */; };
@@ -80,7 +79,6 @@
 		608C72C715C308AE00EE85FC /* ORTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C615C308AE00EE85FC /* ORTitleLabel.m */; };
 		608C72E315C53C4500EE85FC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F28C4015AB93EB0089AE8B /* Crashlytics.framework */; };
 		608FF9C715F3680500461A6D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608FF9C615F3680500461A6D /* CoreMedia.framework */; };
-		6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */; };
 		609719991597531600F9398F /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609719981597531600F9398F /* AccountViewController.m */; };
 		6097199C15975A5900F9398F /* UIDevice+SpaceStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097199B15975A5900F9398F /* UIDevice+SpaceStats.m */; };
 		60973FEF16050AC900867A2D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60973FEE16050AC900867A2D /* Default-568h@2x.png */; };
@@ -110,7 +108,6 @@
 		60A34F7715CB384700983442 /* Paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A34F7515CB384700983442 /* Paper.png */; };
 		60A34F7815CB384700983442 /* Paper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A34F7615CB384700983442 /* Paper@2x.png */; };
 		60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */; };
-		60A7A6C6151FBA9900DB71E0 /* PutIONetworkConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6C5151FBA9900DB71E0 /* PutIONetworkConstants.m */; };
 		60A7A6D0151FD2A100DB71E0 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6CF151FD2A100DB71E0 /* File.m */; };
 		60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7A6D3151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		60A7AB1515290771009DD716 /* Transfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB1415290771009DD716 /* Transfer.m */; };
@@ -118,12 +115,10 @@
 		60A7AB3015291404009DD716 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB2F15291404009DD716 /* Message.m */; };
 		60A7AB33152916BA009DD716 /* ORMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB32152916BA009DD716 /* ORMessageCell.m */; };
 		60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AB50D2151F650A00473448 /* UIColor+PutioColours.m */; };
-		60B1A935151E157F00FBCD27 /* V2PutIOAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */; };
 		60B326E81528A55C00462AA8 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B326E71528A55C00462AA8 /* Analytics.m */; };
 		60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326F41528A6D200462AA8 /* libz.dylib */; };
 		60B6792C161862110051DC7A /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */; };
 		60B6792E161862150051DC7A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B6792D161862150051DC7A /* Default-Landscape~ipad.png */; };
-		60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BD4F46151C701300DCD686 /* PutIOClient.m */; };
 		60C04EA51571489600C23AB5 /* VideoFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EA41571489600C23AB5 /* VideoFileController.m */; };
 		60C04EAC15715C5B00C23AB5 /* BaseFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EAB15715C5B00C23AB5 /* BaseFileController.m */; };
 		60C04F0C15722E9E00C23AB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C04F0B15722E9E00C23AB5 /* QuartzCore.framework */; };
@@ -276,8 +271,6 @@
 		6085D239151B99490068929C /* ORAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORAppDelegate.m; sourceTree = "<group>"; };
 		6085D23C151B99490068929C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6085D23F151B99490068929C /* Puttio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Puttio.xcdatamodel; sourceTree = "<group>"; };
-		6085D277151B9DBA0068929C /* V1PutIOAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V1PutIOAPIClient.h; path = Utils/V1PutIOAPIClient.h; sourceTree = "<group>"; };
-		6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V1PutIOAPIClient.m; path = Utils/V1PutIOAPIClient.m; sourceTree = "<group>"; };
 		6085D27D151BA3AF0068929C /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSON.h"; sourceTree = "<group>"; };
 		6085D27E151BA3AF0068929C /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		6085D295151BAB230068929C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -297,8 +290,6 @@
 		608C72C515C308AE00EE85FC /* ORTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORTitleLabel.h; path = Views/ORTitleLabel.h; sourceTree = "<group>"; };
 		608C72C615C308AE00EE85FC /* ORTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORTitleLabel.m; path = Views/ORTitleLabel.m; sourceTree = "<group>"; };
 		608FF9C615F3680500461A6D /* CoreMedia.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		6096FC19155FF0B1009C524C /* PutIOOAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOOAuthHelper.h; path = Networking/PutIOOAuthHelper.h; sourceTree = "<group>"; };
-		6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOOAuthHelper.m; path = Networking/PutIOOAuthHelper.m; sourceTree = "<group>"; };
 		609719971597531500F9398F /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountViewController.h; path = ViewControllers/AccountViewController.h; sourceTree = "<group>"; };
 		609719981597531600F9398F /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountViewController.m; path = ViewControllers/AccountViewController.m; sourceTree = "<group>"; };
 		6097199A15975A5800F9398F /* UIDevice+SpaceStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+SpaceStats.h"; path = "Categories/UIDevice+SpaceStats.h"; sourceTree = "<group>"; };
@@ -349,8 +340,6 @@
 		60A7A6B3151F6E0D00DB71E0 /* ORSimpleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSimpleProgress.h; path = Views/ORSimpleProgress.h; sourceTree = "<group>"; };
 		60A7A6B4151F6E0D00DB71E0 /* ORSimpleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSimpleProgress.m; path = Views/ORSimpleProgress.m; sourceTree = "<group>"; };
 		60A7A6C3151FBA1D00DB71E0 /* APP_SECRET.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET.h; path = ../APP_SECRET.h; sourceTree = "<group>"; };
-		60A7A6C4151FBA9900DB71E0 /* PutIONetworkConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIONetworkConstants.h; path = Networking/PutIONetworkConstants.h; sourceTree = "<group>"; };
-		60A7A6C5151FBA9900DB71E0 /* PutIONetworkConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIONetworkConstants.m; path = Networking/PutIONetworkConstants.m; sourceTree = "<group>"; };
 		60A7A6CB151FC1CF00DB71E0 /* APP_SECRET_EX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APP_SECRET_EX.h; path = ../APP_SECRET_EX.h; sourceTree = "<group>"; };
 		60A7A6CE151FD2A100DB71E0 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = File.h; path = Models/File.h; sourceTree = SOURCE_ROOT; };
 		60A7A6CF151FD2A100DB71E0 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = File.m; path = Models/File.m; sourceTree = SOURCE_ROOT; };
@@ -366,16 +355,12 @@
 		60A7AB32152916BA009DD716 /* ORMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMessageCell.m; path = Views/ORMessageCell.m; sourceTree = "<group>"; };
 		60AB50D1151F650A00473448 /* UIColor+PutioColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PutioColours.h"; path = "Categories/UIColor+PutioColours.h"; sourceTree = "<group>"; };
 		60AB50D2151F650A00473448 /* UIColor+PutioColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PutioColours.m"; path = "Categories/UIColor+PutioColours.m"; sourceTree = "<group>"; };
-		60B1A933151E157E00FBCD27 /* V2PutIOAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = V2PutIOAPIClient.h; path = Networking/V2PutIOAPIClient.h; sourceTree = "<group>"; };
-		60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = V2PutIOAPIClient.m; path = Networking/V2PutIOAPIClient.m; sourceTree = "<group>"; };
 		60B326E61528A55C00462AA8 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Utils/Analytics.h; sourceTree = "<group>"; };
 		60B326E71528A55C00462AA8 /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Analytics.m; path = Utils/Analytics.m; sourceTree = "<group>"; };
 		60B326F41528A6D200462AA8 /* libz.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		60B6792D161862150051DC7A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		60B679501618A2AE0051DC7A /* Puttio 3 (v1.2).xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Puttio 3 (v1.2).xcdatamodel"; sourceTree = "<group>"; };
-		60BD4F45151C701300DCD686 /* PutIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PutIOClient.h; path = Networking/PutIOClient.h; sourceTree = "<group>"; };
-		60BD4F46151C701300DCD686 /* PutIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PutIOClient.m; path = Networking/PutIOClient.m; sourceTree = "<group>"; };
 		60C04EA31571489600C23AB5 /* VideoFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoFileController.h; path = FileController/VideoFileController.h; sourceTree = "<group>"; };
 		60C04EA41571489600C23AB5 /* VideoFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoFileController.m; path = FileController/VideoFileController.m; sourceTree = "<group>"; };
 		60C04EA6157148B000C23AB5 /* FileController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileController.h; path = Protocols/FileController.h; sourceTree = "<group>"; };
@@ -922,16 +907,6 @@
 		60DB0AB1151C665E00DA8A33 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				60A7A6C4151FBA9900DB71E0 /* PutIONetworkConstants.h */,
-				60A7A6C5151FBA9900DB71E0 /* PutIONetworkConstants.m */,
-				6085D277151B9DBA0068929C /* V1PutIOAPIClient.h */,
-				6085D278151B9DBA0068929C /* V1PutIOAPIClient.m */,
-				60B1A933151E157E00FBCD27 /* V2PutIOAPIClient.h */,
-				60B1A934151E157F00FBCD27 /* V2PutIOAPIClient.m */,
-				60BD4F45151C701300DCD686 /* PutIOClient.h */,
-				60BD4F46151C701300DCD686 /* PutIOClient.m */,
-				6096FC19155FF0B1009C524C /* PutIOOAuthHelper.h */,
-				6096FC1A155FF0B1009C524C /* PutIOOAuthHelper.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -1091,18 +1066,14 @@
 				6085D236151B99490068929C /* main.m in Sources */,
 				6085D23A151B99490068929C /* ORAppDelegate.m in Sources */,
 				6085D240151B99490068929C /* Puttio.xcdatamodeld in Sources */,
-				6085D279151B9DBA0068929C /* V1PutIOAPIClient.m in Sources */,
 				6085D27F151BA3AF0068929C /* NSDictionary+JSON.m in Sources */,
 				6085D297151BAB230068929C /* Constants.m in Sources */,
 				60DB0AB4151C670800DA8A33 /* LoginViewController.m in Sources */,
-				60BD4F47151C701300DCD686 /* PutIOClient.m in Sources */,
-				60B1A935151E157F00FBCD27 /* V2PutIOAPIClient.m in Sources */,
 				600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */,
 				600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */,
 				60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */,
 				60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */,
 				60A7A6B5151F6E0D00DB71E0 /* ORSimpleProgress.m in Sources */,
-				60A7A6C6151FBA9900DB71E0 /* PutIONetworkConstants.m in Sources */,
 				60A7A6D0151FD2A100DB71E0 /* File.m in Sources */,
 				60A7A6D4151FD34700DB71E0 /* NSManagedObject+ActiveRecord.m in Sources */,
 				60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */,
@@ -1122,7 +1093,6 @@
 				60D9B7EE1535C67300A64E0F /* ORSearchCell.m in Sources */,
 				6064D89B15398E4600E454E5 /* SearchController.m in Sources */,
 				6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */,
-				6096FC1B155FF0B1009C524C /* PutIOOAuthHelper.m in Sources */,
 				6043D0ED1562F529002193B3 /* ORMoviePlayerController.m in Sources */,
 				60FE125E156C29DC000A0EB4 /* ORFlatButton.m in Sources */,
 				60C04EA51571489600C23AB5 /* VideoFileController.m in Sources */,

@@ -9,5 +9,4 @@
 #import "Transfer.h"
 
 @implementation Transfer
-@synthesize estimatedTime, name, percentDone, downloadSpeed, createdAt, displayName;
 @end

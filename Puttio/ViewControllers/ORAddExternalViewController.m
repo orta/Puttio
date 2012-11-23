@@ -66,14 +66,14 @@
             ORAddTorrentCell *cell = (ORAddTorrentCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
 
             if ([_selectionStates[index] boolValue]) {
-                [[PutIOClient sharedClient] downloadTorrentOrMagnetURLAtPath:address :^(id userInfoObject) {
+// TODO: this
+                [[PutIOClient sharedClient] requestTorrentOrMagnetURLAtPath:address :^(id userInfoObject) {
                     if (!_showUpdates) return;
-                    
-                    if ([userInfoObject isKindOfClass:[NSError class]]) {
-                        cell.textLabel.text = @"Started Downloading";
-                    } else {
-                        cell.textLabel.text = @"Recieved Error";
-                    }
+                    cell.textLabel.text = @"Started Downloading";
+                    [self removeItemFromPasteboard:address];
+
+                } failure:^(NSError *error) {
+                    cell.textLabel.text = @"Recieved Error";
                     [self removeItemFromPasteboard:address];
                 }];
             }

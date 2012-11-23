@@ -21,12 +21,15 @@
     #import "UIDevice+deviceInfo.h"
     #import "UIFont+Puttio.h"
 
+    #import "PutioKit.h"
+
     // models
     #import "File.h"
     #import "Folder.h"
     #import "Transfer.h"
     #import "Message.h"
     #import "SearchResult.h"
+
 
 // Add support for subscripting to the iOS 5 SDK.
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < 60000

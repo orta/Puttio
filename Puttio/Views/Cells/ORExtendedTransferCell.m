@@ -21,7 +21,9 @@
 
 - (void)setTransfer:(Transfer *)transfer {
     _titleLabel.text = [transfer displayName];
-    _timeStartedLabel.text = [[transfer estimatedTime] stringValue];
+    if (transfer.estimatedTime != [NSNull null]) {
+        _timeStartedLabel.text = [[transfer estimatedTime] stringValue];
+    }
     _timeToGoLabel.text = [transfer createdAt];
     _downloadProgress.progress = [transfer percentDone].floatValue / 100;
     _downloadProgress.isLandscape = YES;
