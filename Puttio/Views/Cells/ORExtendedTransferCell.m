@@ -21,7 +21,7 @@
 
 - (void)setTransfer:(Transfer *)transfer {
     _titleLabel.text = [transfer displayName];
-    if (transfer.estimatedTime != [NSNull null]) {
+    if (transfer.estimatedTime) {
         _timeStartedLabel.text = [[transfer estimatedTime] stringValue];
     }
     _timeToGoLabel.text = [transfer createdAt];

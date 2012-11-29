@@ -119,33 +119,30 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     currentFolder = folder;
     self.networkActivity = YES;
 
-//
-//
-//    [[PutIOClient sharedClient] getFolderItems:folder :^(NSArray *filesAndFolders) {
-//        self.networkActivity = NO;
-//        self.offlineView.hidden = YES;
-//
-//        FolderViewController *folderGrid = [[FolderViewController alloc] init];
-//        folderGrid.browsingViewController = self;
-//        folderGrid.folder = folder;
-//        folderGrid.folderItems = filesAndFolders;
-//        folderGrid.browsingViewController = self;
-//
-//        if (_gridNavController) {
-//            [_gridNavController pushViewController:folderGrid animated:YES];
-//            [self showHelperGesture];
-//        }else{
-//            [self setupNavWithFolderVC:folderGrid];
-//        }
-//
-//    } onFailure:^(NSError *error) {
-//        FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
-//        topFolder.view.userInteractionEnabled = YES;
-//        [self isOffline];
-//
-//        [self performSelector:@selector(loadFolder:) withObject:currentFolder afterDelay:3];
-//
-//    }];
+    [[PutIOClient sharedClient] getFolderItems:folder :^(NSArray *filesAndFolders) {
+        self.networkActivity = NO;
+        self.offlineView.hidden = YES;
+
+        FolderViewController *folderGrid = [[FolderViewController alloc] init];
+        folderGrid.browsingViewController = self;
+        folderGrid.folder = folder;
+        folderGrid.folderItems = filesAndFolders;
+        folderGrid.browsingViewController = self;
+
+        if (_gridNavController) {
+            [_gridNavController pushViewController:folderGrid animated:YES];
+            [self showHelperGesture];
+        }else{
+            [self setupNavWithFolderVC:folderGrid];
+        }
+
+    } failure:^(NSError *error) {
+        FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
+        topFolder.view.userInteractionEnabled = YES;
+        [self isOffline];
+
+        [self performSelector:@selector(loadFolder:) withObject:currentFolder afterDelay:3];
+    }];
 }
 
 - (void)GMGridView:(GMGridView *)aGridView didTapOnItemAtIndex:(NSInteger)position {

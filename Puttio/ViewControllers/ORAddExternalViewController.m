@@ -66,7 +66,8 @@
             ORAddTorrentCell *cell = (ORAddTorrentCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
 
             if ([_selectionStates[index] boolValue]) {
-// TODO: this
+
+                // TODO: this
                 [[PutIOClient sharedClient] requestTorrentOrMagnetURLAtPath:address :^(id userInfoObject) {
                     if (!_showUpdates) return;
                     cell.textLabel.text = @"Started Downloading";
