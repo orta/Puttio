@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-//#import "M"
+#import "Mixpanel.h"
 #import "TestFlight.h"
 #import "APP_SECRET.h"
 
@@ -20,7 +20,7 @@ static BOOL ignore = NO;
 #endif
 
     [TestFlight takeOff: TESTFLIGHT_SECRET];
-//    [MixpanelAPI sharedAPIWithToken:MIXPANEL_TOKEN];
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
 
     #ifndef RELEASE 
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
@@ -29,9 +29,8 @@ static BOOL ignore = NO;
 
 + (void)setUserAccount:(NSString *)username {
     [TestFlight addCustomEnvironmentInformation:username forKey:@"username"];
-//    [[MixpanelAPI sharedAPI] identifyUser:username];
-//    [[MixpanelAPI sharedAPI] setNameTag:username];
-//    [[MixpanelAPI sharedAPI] setUserProperty:username forKey:@"name"];
+    [[Mixpanel sharedInstance] setNameTag:username];
+    [[Mixpanel sharedInstance] set:username to:@"name"];
 }
 
 + (void)event:(NSString*)string, ...{
@@ -45,7 +44,7 @@ static BOOL ignore = NO;
     va_start(listOfArguments, string);
     NSString* event = [[NSString alloc] initWithFormat:string arguments:listOfArguments];
 
-//    [[MixpanelAPI sharedAPI] track:event];
+    [[Mixpanel sharedInstance] track:event];
     [TestFlight passCheckpoint:event];
 }
 
@@ -53,14 +52,14 @@ static BOOL ignore = NO;
     if (ignore) return;
     
     [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@ - %@", event, message]];
-//    [[MixpanelAPI sharedAPI] track:event properties:@{ @"options" : message }];
+    [[Mixpanel sharedInstance] track:event properties:@{ @"options" : message }];
 }
 
 + (void)event:(NSString *)string withProperties:(NSDictionary *)properties {
     if (ignore) return;
     
     [TestFlight passCheckpoint:string];
-//    [[MixpanelAPI sharedAPI] track:string properties:properties];
+    [[Mixpanel sharedInstance] track:string properties:properties];
 }
 
 + (void)event:(NSString *)event withTimeIntervalSinceDate:(NSDate *)date {
@@ -79,7 +78,7 @@ static BOOL ignore = NO;
     va_start(listOfArguments, string);
     NSString* error = [[NSString alloc] initWithFormat:string arguments:listOfArguments];
     
-//    [[MixpanelAPI sharedAPI] track:@"error" properties:@{ @"message" : string }];
+    [[Mixpanel sharedInstance] track:@"error" properties:@{ @"message" : string }];
     [TestFlight passCheckpoint:error];
 }
 
@@ -87,13 +86,13 @@ static BOOL ignore = NO;
     if (ignore) return;
     
     [TestFlight addCustomEnvironmentInformation:value forKey:key];
-//    [[MixpanelAPI sharedAPI] registerSuperProperties:@{ key : value }];
+    [[Mixpanel sharedInstance] registerSuperProperties:@{ key : value }];
 }
 
 + (void)incrementUserProperty:(NSString*)counterName byInt:(int)amount {
     if (ignore) return;
-    
-//    [[MixpanelAPI sharedAPI] incrementUserPropertyWithKey:counterName byInt:amount];
+
+    [[Mixpanel sharedInstance] increment:counterName by:@(amount)];
 }
 
 + (NSString *) stringFromInterval:(NSTimeInterval)interval {

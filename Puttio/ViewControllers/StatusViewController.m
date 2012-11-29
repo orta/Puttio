@@ -179,9 +179,9 @@ typedef enum {
         NSString *oldDiskQuotaTotalString = [[NSUserDefaults standardUserDefaults] objectForKey:ORDiskQuotaTotalDefault];
         NSString *diskQuotaTotalString = [UIDevice humanStringFromBytes:account.diskSize.doubleValue];
 
-//        if( ![oldDiskQuotaTotalString isEqualToString:diskQuotaTotalString] ) {
-//            [Analytics event:@"User has changed thier Put.io account size"];
-//        }
+        if( ![oldDiskQuotaTotalString isEqualToString:diskQuotaTotalString] ) {
+            [Analytics event:@"User has changed thier Put.io account size"];
+        }
 
         NSString *diskQuotaAvailableString = [account.diskAvailable stringValue];
         float quotaPercentage = account.diskAvailable.doubleValue / account.diskSize.doubleValue;
