@@ -67,7 +67,6 @@
 
             if ([_selectionStates[index] boolValue]) {
 
-                // TODO: this
                 [[PutIOClient sharedClient] requestTorrentOrMagnetURLAtPath:address :^(id userInfoObject) {
                     if (!_showUpdates) return;
                     cell.textLabel.text = @"Started Downloading";
@@ -83,13 +82,13 @@
 }
 
 - (void)removeItemFromPasteboard:(NSString *)item {
-//    NSMutableArray *newPasteboardItems = [[UIPasteboard generalPasteboard].items mutableCopy];
-//    for (id key in newPasteboardItems.allKeys) {
-//        if ([newPasteboardItems[key] isEqual:item]) {
-//            [newPasteboardItems removeObjectForKey:key];
-//        }
-//    }
-//    [UIPasteboard generalPasteboard].item = newPasteboardItems;
+    NSMutableArray *newPasteboardItems = [[UIPasteboard generalPasteboard].items mutableCopy];
+    for (id key in newPasteboardItems.allKeys) {
+        if ([newPasteboardItems[key] isEqual:item]) {
+            [newPasteboardItems removeObjectForKey:key];
+        }
+    }
+    [UIPasteboard generalPasteboard].item = newPasteboardItems;
 }
 
 - (IBAction)cancel:(id)sender {

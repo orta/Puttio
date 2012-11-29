@@ -30,7 +30,8 @@ static BOOL ignore = NO;
 + (void)setUserAccount:(NSString *)username {
     [TestFlight addCustomEnvironmentInformation:username forKey:@"username"];
     [[Mixpanel sharedInstance] setNameTag:username];
-    [[Mixpanel sharedInstance] set:username to:@"name"];
+#warning huh?
+    //    [[Mixpanel sharedInstance] set:username to:@"name"];
 }
 
 + (void)event:(NSString*)string, ...{

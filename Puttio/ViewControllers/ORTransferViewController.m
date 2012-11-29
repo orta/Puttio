@@ -58,11 +58,12 @@
 }
 
 - (void)getTransfers {
-//    if (_transfers) return;
-//    _transfers = [self stubbedTransfers];
+    if (_transfers) return;
+    _transfers = [self stubbedTransfers];
+    return;
+    
     [self.tableView reloadData];
 
-    // TODO: this
     [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
         _transfers = transfers;
         [self.tableView reloadData];
