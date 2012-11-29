@@ -151,8 +151,6 @@
 		60F5AD6115224DF400DD7A6F /* ORImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD6015224DF400DD7A6F /* ORImageViewCell.m */; };
 		60F5AD781522739D00DD7A6F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F5AD771522739D00DD7A6F /* MediaPlayer.framework */; };
 		60F5AD7B1522777600DD7A6F /* MoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD7A1522777600DD7A6F /* MoviePlayer.m */; };
-		60F6F82D15D0729C004333AF /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F6F82B15D0729B004333AF /* icon57.png */; };
-		60F6F82E15D0729C004333AF /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F6F82C15D0729C004333AF /* icon114.png */; };
 		60F6F83015D072A2004333AF /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F6F82F15D072A2004333AF /* icon57.png */; };
 		60F6F83215D072BD004333AF /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F6F83115D072BC004333AF /* icon114.png */; };
 		60FE125E156C29DC000A0EB4 /* ORFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FE125D156C29DC000A0EB4 /* ORFlatButton.m */; };
@@ -417,8 +415,6 @@
 		60F5AD771522739D00DD7A6F /* MediaPlayer.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		60F5AD791522777600DD7A6F /* MoviePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoviePlayer.h; path = Utils/MoviePlayer.h; sourceTree = "<group>"; };
 		60F5AD7A1522777600DD7A6F /* MoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoviePlayer.m; path = Utils/MoviePlayer.m; sourceTree = "<group>"; };
-		60F6F82B15D0729B004333AF /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
-		60F6F82C15D0729C004333AF /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
 		60F6F82F15D072A2004333AF /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		60F6F83115D072BC004333AF /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
 		60FE125C156C29DC000A0EB4 /* ORFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORFlatButton.h; path = Views/ORFlatButton.h; sourceTree = "<group>"; };
@@ -654,8 +650,6 @@
 		6085D22F151B99490068929C /* Puttio */ = {
 			isa = PBXGroup;
 			children = (
-				60F6F82B15D0729B004333AF /* icon57.png */,
-				60F6F82C15D0729C004333AF /* icon114.png */,
 				60F023871528AB5F003491E4 /* icon144.png */,
 				60F023851528AB55003491E4 /* icon72.png */,
 				60A7A6CB151FC1CF00DB71E0 /* APP_SECRET_EX.h */,
@@ -1008,8 +1002,6 @@
 				60A34F7815CB384700983442 /* Paper@2x.png in Resources */,
 				60C85AF915CFAD40008FC895 /* Hand.png in Resources */,
 				60C85AFA15CFAD40008FC895 /* Hand@2x.png in Resources */,
-				60F6F82D15D0729C004333AF /* icon57.png in Resources */,
-				60F6F82E15D0729C004333AF /* icon114.png in Resources */,
 				60F6F83015D072A2004333AF /* icon57.png in Resources */,
 				60F6F83215D072BD004333AF /* icon114.png in Resources */,
 				60973FEF16050AC900867A2D /* Default-568h@2x.png in Resources */,
