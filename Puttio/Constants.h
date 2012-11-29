@@ -38,6 +38,7 @@ extern NSString *const ORReloadGridNotification;
 extern NSString *const ORReloadFolderNotification;
 extern NSString *const ORVideoStartedNotification;
 extern NSString *const ORVideoFinishedNotification;
+extern NSString *const ORFolderChangedNotification;
 extern NSString *const ORCCSearchedChangedNotification;
 extern NSString *const ORShowTreeViewNotification;
 

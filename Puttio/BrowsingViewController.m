@@ -148,6 +148,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 - (void)GMGridView:(GMGridView *)aGridView didTapOnItemAtIndex:(NSInteger)position {
     FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
     NSObject <ORDisplayItemProtocol> *item = (topFolder.folderItems)[position];   
+    [self sendFolderChangedNotification];
 
     if ([self itemIsFolder:item]) {
         [topFolder highlightItemAtIndex:position];
@@ -176,8 +177,11 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
             identifier = [UIDevice isPhone]? @"FileInfoPhoneView" : @"FileInfoView";
         }
         [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:identifier andItem:file];
-        
     }
+}
+
+- (void)sendFolderChangedNotification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:ORFolderChangedNotification object:nil];
 }
 
 - (void)GMGridView:(GMGridView *)gridView didLongTapOnItemAtIndex:(NSInteger)position {

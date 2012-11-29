@@ -27,11 +27,13 @@
     [self stylizeSearchTextField];
     [self setupShadow];
     [self setupGestures];
+
     [SearchController sharedInstance].delegate = self;
     self.activitySpinner.alpha = 0;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchTypeChanged) name:ORCCSearchedChangedNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(makeSmallAnimated:) name:ORFolderChangedNotification object:@(YES)];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinished) name:ORVideoStartedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinished) name:ORVideoFinishedNotification object:nil];
 }

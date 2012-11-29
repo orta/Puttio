@@ -34,11 +34,11 @@ NSString *const ORTotalVideoDuration = @"ORTotalVideoDuration";
 NSString *const ORHasShownReviewNagOneDefault = @"ORHasShownReviewNagOneDefault";
 NSString *const ORMigrationVersionDefault = @"ORMigrationVersion";
 
-
 NSString *const ORReloadGridNotification = @"ORReloadGridNotification";
 NSString *const ORReloadFolderNotification = @"ORReloadFolderNotification";
 NSString *const ORVideoStartedNotification = @"ORVideoStartedNotification";
 NSString *const ORVideoFinishedNotification = @"ORVideoFinishedNotification";
+NSString *const ORFolderChangedNotification = @"ORFolderChangedNotification";
 NSString *const ORCCSearchedChangedNotification = @"ORCCSearchedChangedNotification";
 NSString *const ORShowTreeViewNotification = @"ORShowTreeViewNotification";
 
