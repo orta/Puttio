@@ -32,6 +32,7 @@
 
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [[self titleLabel] setFont:[UIFont boldSystemFontOfSize:15]];
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state {

@@ -8,11 +8,13 @@
 
 #import "ORTransferViewController.h"
 #import "ORExtendedTransferCell.h"
+#import "ORDestructiveButton.h"
 
 @interface ORTransferViewController (){
     NSArray *_transfers;
     NSTimer *_dataLoopTimer;
 }
+@property (weak, nonatomic) IBOutlet UIView *tableCellBack;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -99,14 +101,48 @@
     if (cell) {
         Transfer *item = _transfers[indexPath.row];
         ORExtendedTransferCell *theCell = (ORExtendedTransferCell *)cell;
+        theCell.direction = ZKRevealingTableViewCellDirectionBoth;
         theCell.transfer = item;
+        theCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ORExtendedTransferCell *cell = (ORExtendedTransferCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    CGRect slideViewStart = cell.bounds;
+    slideViewStart.origin.x = cell.bounds.size.width;
+
+    UIView *backgroundView = [[UIView alloc] initWithFrame:slideViewStart];
+    backgroundView.backgroundColor = [UIColor putioBlue];
+    [cell.contentView addSubview:backgroundView];
+
+    ORDestructiveButton *cancelButton = [ORDestructiveButton buttonWithType:UIButtonTypeCustom];
+//    [cancelButton addTarget:self action:@selector(cancelTapped:) forControlEvents:UIControlEventTouchUpInside];
+
+    cancelButton.tag = indexPath.row;
+    [cancelButton setTitle:@"Cancel Transfer" forState:UIControlStateNormal];
+    cancelButton.frame = CGRectInset(backgroundView.bounds, 32, 21);
+    [cancelButton addTarget:self action:@selector(cancelTapped:) forControlEvents:UIControlEventTouchUpInside];
+    cancelButton.enabled = YES;
+    [backgroundView addSubview:cancelButton];
+
+    CGRect newContentViewFrame = cell.frame;
+    newContentViewFrame.origin.x = -1 * cell.bounds.size.width;
+
+    [UIView animateWithDuration:0.3 animations:^{
+        cell.frame = newContentViewFrame;
+    }];
+}
+
+- (void)cancelTapped:(UIButton *)sender {
+    NSLog(@"Cancel");
+}
 
 - (void)viewDidUnload {
     [self setTableView:nil];
+    [self setTableCellBack:nil];
     [super viewDidUnload];
 }
 

@@ -82,13 +82,14 @@
 }
 
 - (void)removeItemFromPasteboard:(NSString *)item {
-    NSMutableArray *newPasteboardItems = [[UIPasteboard generalPasteboard].items mutableCopy];
-    for (id key in newPasteboardItems.allKeys) {
-        if ([newPasteboardItems[key] isEqual:item]) {
-            [newPasteboardItems removeObjectForKey:key];
-        }
-    }
-    [UIPasteboard generalPasteboard].item = newPasteboardItems;
+#warning TODO:
+    //    NSMutableArray *newPasteboardItems = [[UIPasteboard generalPasteboard].items mutableCopy];
+//    for (id key in newPasteboardItems.allKeys) {
+//        if ([newPasteboardItems[key] isEqual:item]) {
+//            [newPasteboardItems removeObjectForKey:key];
+//        }
+//    }
+//    [UIPasteboard generalPasteboard].item = newPasteboardItems;
 }
 
 - (IBAction)cancel:(id)sender {

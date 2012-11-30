@@ -12,11 +12,11 @@
 @implementation UIColor (PutioColours)
 
 + (UIColor *)putioYellow {
-    return [UIColor colorWithRed:0.978 green:0.922 blue:0.000 alpha:1.000];
+    return [UIColor colorWithRed:0.965 green:0.911 blue:0.247 alpha:1.000];
 }
 
 + (UIColor *)putioBlue {
-    return [UIColor colorWithRed:0.426 green:0.732 blue:1.000 alpha:1.000];
+    return [UIColor colorWithRed:0.366 green:0.676 blue:0.969 alpha:1.000];
 }
 
 + (UIColor *)putioRed {

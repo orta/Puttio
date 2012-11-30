@@ -2282,7 +2282,7 @@ bloody hell</string>
         <class className="ORDestructiveButton" superclassName="ORFlatButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORDestructiveButton.h"/>
         </class>
-        <class className="ORExtendedTransferCell" superclassName="UITableViewCell">
+        <class className="ORExtendedTransferCell" superclassName="ZKRevealingTableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORExtendedTransferCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="downloadProgress" candidateClass="ORSimpleProgress"/>
@@ -2340,6 +2340,7 @@ bloody hell</string>
         <class className="ORTransferViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTransferViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="tableCellBack" candidateClass="UIView"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
@@ -2383,6 +2384,12 @@ bloody hell</string>
                 <relationship kind="outlet" name="loadingIndicator" candidateClass="ORRotatingButton"/>
                 <relationship kind="outlet" name="textfield" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
+            </relationships>
+        </class>
+        <class className="ZKRevealingTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZKRevealingTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="backView" candidateClass="UIView"/>
             </relationships>
         </class>
     </classes>
