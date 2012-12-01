@@ -6,9 +6,7 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "ZKRevealingTableViewCell.h"
-
-@interface ORExtendedTransferCell : ZKRevealingTableViewCell
+@interface ORExtendedTransferCell : UITableViewCell
 
 @property (nonatomic, strong) Transfer *transfer;
 

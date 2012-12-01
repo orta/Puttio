@@ -7,6 +7,7 @@
 //
 
 static NSString* APP_SECRET = @"";
+static NSString* APP_ID = @"";
 static NSString* TESTFLIGHT_SECRET = @"";
 static NSString* MIXPANEL_TOKEN = @"";
 static NSString* CRASHLYTICS_API_KEY = @"";

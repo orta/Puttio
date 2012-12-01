@@ -110,7 +110,7 @@
         }
         
         if([file hasPreviewThumbnail]){
-            cell.imageURL = [NSURL URLWithString:item.screenShotURL];
+            cell.imageURL = [NSURL URLWithString:item.screenshot];
         }else{
             [cell useUnknownImageForFileType:[file extension]];
         }
@@ -141,7 +141,7 @@
 }
 
 - (BOOL)itemIsFolder:(NSObject <ORDisplayItemProtocol>*)item {
-    return [item isKindOfClass: [Folder class]];
+    return [item isKindOfClass:[PKFolder class]];
 }
 
 - (void)highlightItemAtIndex:(int)position {

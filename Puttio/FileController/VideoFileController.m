@@ -124,7 +124,7 @@
         requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/mp4/download", _file.id];   
     }
 
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_file.screenShotURL]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_file.screenshot]];
     AFHTTPRequestOperation *screenShotOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [screenShotOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -208,7 +208,7 @@
                 [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
 
 
-            case PKMp4StatusNotAvailable:
+            case PKMP4StatusNotAvailable:
                 self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Requested an %@ version.", [UIDevice deviceString]];
                 [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];
                 [self getMP4Info];

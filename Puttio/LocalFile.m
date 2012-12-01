@@ -19,7 +19,7 @@
     localFile.name = file.name;
     localFile.parentID = file.parentID;
     
-    localFile.screenShotURL = file.screenShotURL;
+    localFile.screenShotURL = file.screenshot;
     return localFile;
 }
 

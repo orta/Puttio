@@ -61,9 +61,9 @@
 
 - (void)getTransfers {
     if (_transfers) return;
-    _transfers = [self stubbedTransfers];
-    return;
-    
+//    _transfers = [self stubbedTransfers];
+//    return;
+
     [self.tableView reloadData];
 
     [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
@@ -101,7 +101,6 @@
     if (cell) {
         Transfer *item = _transfers[indexPath.row];
         ORExtendedTransferCell *theCell = (ORExtendedTransferCell *)cell;
-        theCell.direction = ZKRevealingTableViewCellDirectionBoth;
         theCell.transfer = item;
         theCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }

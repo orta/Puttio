@@ -15,7 +15,7 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *displayName;
 @property (nonatomic, retain) NSNumber *size;
-@property (nonatomic, retain) NSString *screenShotURL;
+@property (nonatomic, retain) NSString *screenshot;
 @property (nonatomic, retain) NSString *parentID;
 
 @end

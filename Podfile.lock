@@ -4,15 +4,15 @@ PODS:
 - Mixpanel (1.0.0)
 - PutioKit (0.1):
   - AFNetworking (~> 1.0)
+- SVWebViewController (0.1)
 - TestFlightSDK (1.2.beta2)
-- ZKRevealingTableViewCell (0.0.3)
 
 DEPENDENCIES:
 - AFNetworking (~> 1.0)
 - Mixpanel
 - PutioKit (from `../PutioKit/PutioKit.podspec')
+- SVWebViewController
 - TestFlightSDK
-- ZKRevealingTableViewCell
 
 EXTERNAL SOURCES:
   PutioKit:
@@ -22,7 +22,7 @@ SPEC CHECKSUMS:
   AFNetworking: 4c11f857c9a18d65f4257c90a1e74ac49f0ac422
   Mixpanel: 312db1b5199dbb61808315da3e27f056a38da6e5
   PutioKit: 958a0e51a02a71c9554e331354762d03aa39f788
+  SVWebViewController: 4004126ffdd39ede42bc645273e8eaae3de700f9
   TestFlightSDK: 964167fdbf681a26e4452d087b779cafcba756ae
-  ZKRevealingTableViewCell: 45a8a49e3b9395a450a6526acc8786fa9445a237
 
-COCOAPODS: 0.15.1
+COCOAPODS: 0.16.0

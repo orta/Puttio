@@ -14,8 +14,9 @@
 // so you'll see references to File & Folder in the xcdatamodel
 // but the ones in there do nothing now. ./
 
-@interface File : PKFile <ORDisplayItemProtocol>
+@interface File : PKFile <ORDisplayItemProtocol> @end
 
-@property (nonatomic, retain) NSNumber * watched;
-
+@interface PKFile (ORWatched)
+- (void)setWatched:(NSNumber *)watched;
+- (NSNumber *)watched;
 @end

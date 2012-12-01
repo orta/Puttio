@@ -130,9 +130,7 @@ typedef enum {
     }];
 }
 
-- (NSArray *)stubbedTransfers {
-    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
-    
+- (NSArray *)stubbedTransfers {    
     NSMutableArray *stubbies = [NSMutableArray array];
     for (int i = 0; i < 15; i++) {
         Transfer *transfer = [[Transfer alloc] init];

@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "LoginViewController.h"
 #import "PutIOOAuthHelper.h"
+#import "APP_SECRET.h"
 
 @implementation LoginViewController
 
@@ -76,7 +77,9 @@
     [self disableForm:YES];
     [self.activityView startAnimating];
     self.warningLabel.text = @"";
-    
+
+    _authHelper.clientID = APP_ID;
+    _authHelper.clientSecret = APP_SECRET;
     [_authHelper loginWithUsername:_usernameTextfield.text andPassword:_passwordTextfield.text];
     [self performSelector:@selector(showWebview) withObject:nil afterDelay:15];
 }

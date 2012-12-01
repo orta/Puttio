@@ -58,9 +58,9 @@
 }
 
 - (void)setItem:(File *)item {
-    if (![item conformsToProtocol:@protocol(ORDisplayItemProtocol)]) {
-        [NSException raise:@"File Info item should conform to ORDisplayItemProtocol" format:@"File Info item should conform to ORDisplayItemProtocol"];
-    }
+//    if (![item conformsToProtocol:@protocol(ORDisplayItemProtocol)]) {
+//        [NSException raise:@"File Info item should conform to ORDisplayItemProtocol" format:@"File Info item should conform to ORDisplayItemProtocol"];
+//    }
 
     fileControllers = @[[VideoFileController class], [UnknownFileController class]];
     for (Class <FileController> klass in fileControllers) {
@@ -85,19 +85,21 @@
     secondaryButton.hidden = ![fileController supportsSecondaryButton]; 
     [secondaryButton setTitle:[fileController secondaryButtonText] forState:UIControlStateNormal];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:object.screenShotURL]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:object.screenshot]];
 
     [thumbnailImageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
 
-        // Put the label in the bottom left of the image now we have one
-        [fileSizeLabel sizeToFit];
-        
-        CGRect imageRect = [thumbnailImageView frameForImage];
-        CGRect labelFrame = fileSizeLabel.bounds;
-        labelFrame.size.width += 20;
-        labelFrame.origin.x = imageRect.origin.x + thumbnailImageView.frame.origin.x + CGRectGetWidth(imageRect) - CGRectGetWidth(labelFrame);
-        labelFrame.origin.y = imageRect.origin.y + thumbnailImageView.frame.origin.y + CGRectGetHeight(imageRect) - CGRectGetHeight(labelFrame);
-        fileSizeLabel.frame = labelFrame;
+        //TODO: broked
+//        // Put the label in the bottom left of the image now we have one
+//        [fileSizeLabel sizeToFit];
+//        
+//        CGRect imageRect = [thumbnailImageView frameForImage];
+//        CGRect labelFrame = fileSizeLabel.bounds;
+//        labelFrame.size.width += 20;
+//        labelFrame.origin.x = imageRect.origin.x + thumbnailImageView.frame.origin.x + CGRectGetWidth(imageRect) - CGRectGetWidth(labelFrame);
+//        labelFrame.origin.y = imageRect.origin.y + thumbnailImageView.frame.origin.y + CGRectGetHeight(imageRect) - CGRectGetHeight(labelFrame);
+//        NSLog(@"%@", NSStringFromCGRect(labelFrame));
+//        fileSizeLabel.frame = labelFrame;
 
         [UIView animateWithDuration:0.3 animations:^{
             fileSizeLabel.alpha = 1;
