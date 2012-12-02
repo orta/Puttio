@@ -54,31 +54,31 @@
 }
 
 - (IBAction)submit:(UIButton *)sender {
-    if (_startedUploads) {
-        _showUpdates = NO;
-        [ModalZoomView fadeOutViewAnimated:YES];
-    } else {
-        [sender setTitle:@"Continue" forState:UIControlStateNormal];
-        _showUpdates = YES;
-        
-        for (NSString *address in _sortedTorrentAddresses) {
-            NSInteger index = [_sortedTorrentAddresses indexOfObject:address];
-            ORAddTorrentCell *cell = (ORAddTorrentCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-
-            if ([_selectionStates[index] boolValue]) {
-
-                [[PutIOClient sharedClient] requestTorrentOrMagnetURLAtPath:address :^(id userInfoObject) {
-                    if (!_showUpdates) return;
-                    cell.textLabel.text = @"Started Downloading";
-                    [self removeItemFromPasteboard:address];
-
-                } failure:^(NSError *error) {
-                    cell.textLabel.text = @"Recieved Error";
-                    [self removeItemFromPasteboard:address];
-                }];
-            }
-        }
-    }
+//    if (_startedUploads) {
+//        _showUpdates = NO;
+//        [ModalZoomView fadeOutViewAnimated:YES];
+//    } else {
+//        [sender setTitle:@"Continue" forState:UIControlStateNormal];
+//        _showUpdates = YES;
+//        
+//        for (NSString *address in _sortedTorrentAddresses) {
+//            NSInteger index = [_sortedTorrentAddresses indexOfObject:address];
+//            ORAddTorrentCell *cell = (ORAddTorrentCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+//
+//            if ([_selectionStates[index] boolValue]) {
+//
+//                [[PutIOClient sharedClient] requestTorrentOrMagnetURLAtPath:address :^(id userInfoObject) {
+//                    if (!_showUpdates) return;
+//                    cell.textLabel.text = @"Started Downloading";
+//                    [self removeItemFromPasteboard:address];
+//
+//                } failure:^(NSError *error) {
+//                    cell.textLabel.text = @"Recieved Error";
+//                    [self removeItemFromPasteboard:address];
+//                }];
+//            }
+//        }
+//    }
 }
 
 - (void)removeItemFromPasteboard:(NSString *)item {

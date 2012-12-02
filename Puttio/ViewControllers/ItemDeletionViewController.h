@@ -12,7 +12,7 @@
 @class ORFlatButton;
 @interface ItemDeletionViewController : UIViewController <ModalZoomViewControllerDelegate>
 
-@property  NSObject <ORDisplayItemProtocol> *item;
+@property  NSObject <PKFolderItem> *item;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *networkActivityView;
 @property (weak, nonatomic) IBOutlet ORFlatButton *deleteButton;

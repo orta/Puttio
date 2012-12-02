@@ -119,6 +119,7 @@
 		60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326F41528A6D200462AA8 /* libz.dylib */; };
 		60B6792C161862110051DC7A /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */; };
 		60B6792E161862150051DC7A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B6792D161862150051DC7A /* Default-Landscape~ipad.png */; };
+		60BBA0AC166BAD10001FA20A /* ORAddTorrentFromLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BBA0AB166BAD10001FA20A /* ORAddTorrentFromLinkViewController.m */; };
 		60C04EA51571489600C23AB5 /* VideoFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EA41571489600C23AB5 /* VideoFileController.m */; };
 		60C04EAC15715C5B00C23AB5 /* BaseFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C04EAB15715C5B00C23AB5 /* BaseFileController.m */; };
 		60C04F0C15722E9E00C23AB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C04F0B15722E9E00C23AB5 /* QuartzCore.framework */; };
@@ -359,6 +360,8 @@
 		60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		60B6792D161862150051DC7A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		60B679501618A2AE0051DC7A /* Puttio 3 (v1.2).xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Puttio 3 (v1.2).xcdatamodel"; sourceTree = "<group>"; };
+		60BBA0AA166BAD10001FA20A /* ORAddTorrentFromLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORAddTorrentFromLinkViewController.h; path = ViewControllers/ORAddTorrentFromLinkViewController.h; sourceTree = "<group>"; };
+		60BBA0AB166BAD10001FA20A /* ORAddTorrentFromLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAddTorrentFromLinkViewController.m; path = ViewControllers/ORAddTorrentFromLinkViewController.m; sourceTree = "<group>"; };
 		60C04EA31571489600C23AB5 /* VideoFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoFileController.h; path = FileController/VideoFileController.h; sourceTree = "<group>"; };
 		60C04EA41571489600C23AB5 /* VideoFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoFileController.m; path = FileController/VideoFileController.m; sourceTree = "<group>"; };
 		60C04EA6157148B000C23AB5 /* FileController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileController.h; path = Protocols/FileController.h; sourceTree = "<group>"; };
@@ -745,6 +748,8 @@
 				60D53EF2164B4F7100DDD93D /* ORAddExternalViewController.m */,
 				608977481653ADF600A7814E /* ORTransferViewController.h */,
 				608977491653ADF600A7814E /* ORTransferViewController.m */,
+				60BBA0AA166BAD10001FA20A /* ORAddTorrentFromLinkViewController.h */,
+				60BBA0AB166BAD10001FA20A /* ORAddTorrentFromLinkViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1145,6 +1150,7 @@
 				60D53EF9164B52F200DDD93D /* ORAddTorrentCell.m in Sources */,
 				6089774A1653ADF600A7814E /* ORTransferViewController.m in Sources */,
 				6089774D1653B01E00A7814E /* ORExtendedTransferCell.m in Sources */,
+				60BBA0AC166BAD10001FA20A /* ORAddTorrentFromLinkViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

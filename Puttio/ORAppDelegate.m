@@ -298,10 +298,4 @@
     }
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    NSSet *urls = [ORPasteboardParser submitableURLsInPasteboard];
-    if (urls) {
-        [ModalZoomView showWithViewControllerIdentifier:@"addExternalTorrentView"];
-    }
-}
 @end

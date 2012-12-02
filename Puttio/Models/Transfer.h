@@ -9,7 +9,4 @@
 #import <Foundation/Foundation.h>
 
 @interface Transfer : PKTransfer
-
-@property (strong) NSString* displayName;
-
 @end

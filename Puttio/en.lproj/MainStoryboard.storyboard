@@ -1166,7 +1166,7 @@ Message</string>
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="88"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Transfers and Messages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Z87-s4-hau">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Transfers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Z87-s4-hau">
                                         <rect key="frame" x="20" y="4" width="722" height="80"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="48"/>
@@ -1177,7 +1177,7 @@ Message</string>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="tgb-rx-NTu">
-                                <rect key="frame" x="235" y="88" width="320" height="886"/>
+                                <rect key="frame" x="224" y="88" width="320" height="882"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1244,8 +1244,20 @@ Message</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="feedbackTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="mGP-nB-xax"/>
-                                            <action selector="submit:" destination="OFk-xO-Lx9" eventType="touchUpInside" id="c2l-0U-gHL"/>
+                                            <action selector="browseTapped:" destination="A4x-tI-j5u" eventType="touchUpInside" id="gSk-rZ-PZ8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z1j-Gm-bvY" customClass="ORFlatButton">
+                                        <rect key="frame" x="20" y="9" width="99" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Add Link">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addLinkTapped:" destination="A4x-tI-j5u" eventType="touchUpInside" id="2eY-ox-U5b"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1451,7 +1463,7 @@ Email the developer</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwE-yp-hVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3912" y="-793"/>
+            <point key="canvasLocation" x="-3917" y="-824"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="IwM-rY-QzJ">
@@ -2014,6 +2026,134 @@ bloody hell</string>
             </objects>
             <point key="canvasLocation" x="-3570" y="-32"/>
         </scene>
+        <!--Add Torrent From Link View Controller-->
+        <scene sceneID="NwH-8t-Yhb">
+            <objects>
+                <viewController storyboardIdentifier="AddTorrentFromLinkView" id="oQ9-kW-Xnr" customClass="ORAddTorrentFromLinkViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eKH-vh-urw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="g0B-fX-BkL">
+                                <rect key="frame" x="0.0" y="20" width="320" height="38"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add torrent" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="iJJ-vb-5tK" customClass="ORTitleLabel">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="sY4-9Q-qQJ">
+                                <rect key="frame" x="0.0" y="75" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="0kw-pk-pb7">
+                                        <rect key="frame" x="20" y="15" width="209" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bPy-NR-TON" customClass="ORFlatButton">
+                                        <rect key="frame" x="205" y="15" width="95" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Paste">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="feedbackTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="BTE-6Z-XWw"/>
+                                            <action selector="pasteButtonPressed:" destination="oQ9-kW-Xnr" eventType="touchUpInside" id="aEq-C1-TJw"/>
+                                            <action selector="submit:" destination="OFk-xO-Lx9" eventType="touchUpInside" id="r7K-Nz-K5s"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tZy-Nb-aAG" customClass="ORFlatButton">
+                                <rect key="frame" x="20" y="184" width="101" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="oQ9-kW-Xnr" eventType="touchUpInside" id="DY1-TT-VOi"/>
+                                    <action selector="cancel:" destination="OFk-xO-Lx9" eventType="touchUpInside" id="XHM-rL-6E7"/>
+                                    <action selector="logOutTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="ZHJ-X0-rvS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xuu-NI-Ano" customClass="ORDestructiveButton">
+                                <rect key="frame" x="199" y="184" width="101" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Log out">
+                                            <attributes>
+                                                <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <font key="NSFont" size="15" name="Helvetica-Bold"/>
+                                                <font key="NSOriginalFont" size="15" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="clipping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.59369297450000003" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="OFk-xO-Lx9" eventType="touchUpInside" id="7Lm-UV-AXL"/>
+                                    <action selector="cancelButtonPressed:" destination="oQ9-kW-Xnr" eventType="touchUpInside" id="9Yr-aj-e9B"/>
+                                    <action selector="logOutTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="tZz-eY-seR"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="Ybh-q2-Ozw">
+                                <rect key="frame" x="153" y="152" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Added" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nJD-im-tdw">
+                                <rect key="frame" x="123" y="150" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="_addedLabel" destination="nJD-im-tdw" id="bUy-UA-Vch"/>
+                        <outlet property="_networkActivitySpinner" destination="Ybh-q2-Ozw" id="cld-2Y-10z"/>
+                        <outlet property="_torrentTextField" destination="0kw-pk-pb7" id="mQO-2U-ukX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yUn-Be-fUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1886" y="-1013"/>
+        </scene>
         <!--Add External View Controller-->
         <scene sceneID="gre-Tc-gAE">
             <objects>
@@ -2026,7 +2166,7 @@ bloody hell</string>
                                 <rect key="frame" x="0.0" y="20" width="282" height="38"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add Torrents from Clipboard?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="vHA-iq-66e" customClass="ORTitleLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Unused ATM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="vHA-iq-66e" customClass="ORTitleLabel">
                                         <rect key="frame" x="20" y="0.0" width="242" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
@@ -2133,7 +2273,7 @@ bloody hell</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dz-CB-S9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5317" y="-463"/>
+            <point key="canvasLocation" x="-827" y="-913"/>
         </scene>
     </scenes>
     <resources>
@@ -2276,13 +2416,21 @@ bloody hell</string>
                 <relationship kind="outlet" name="title" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="ORAddTorrentFromLinkViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAddTorrentFromLinkViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_addedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_networkActivitySpinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="_torrentTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
         <class className="ORAnimatedTickView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAnimatedTickView.h"/>
         </class>
         <class className="ORDestructiveButton" superclassName="ORFlatButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORDestructiveButton.h"/>
         </class>
-        <class className="ORExtendedTransferCell" superclassName="ZKRevealingTableViewCell">
+        <class className="ORExtendedTransferCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORExtendedTransferCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="downloadProgress" candidateClass="ORSimpleProgress"/>
@@ -2384,12 +2532,6 @@ bloody hell</string>
                 <relationship kind="outlet" name="loadingIndicator" candidateClass="ORRotatingButton"/>
                 <relationship kind="outlet" name="textfield" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
-            </relationships>
-        </class>
-        <class className="ZKRevealingTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZKRevealingTableViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="backView" candidateClass="UIView"/>
             </relationships>
         </class>
     </classes>

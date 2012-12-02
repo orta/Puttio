@@ -121,26 +121,25 @@ typedef enum {
     _transfers = [self stubbedTransfers];
     [self.tableView reloadData];
 
-    [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
-        _transfers = [self onlyRecentTransfers:transfers];
-        [self.tableView reloadData];
-
-    } failure:^(NSError *error) {
-        NSLog(@"error %@", [error localizedDescription]);
-    }];
+//    [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
+//        _transfers = [self onlyRecentTransfers:transfers];
+//        [self.tableView reloadData];
+//
+//    } failure:^(NSError *error) {
+//        NSLog(@"error %@", [error localizedDescription]);
+//    }];
 }
 
 - (NSArray *)stubbedTransfers {    
     NSMutableArray *stubbies = [NSMutableArray array];
     for (int i = 0; i < 15; i++) {
-        Transfer *transfer = [[Transfer alloc] init];
-        transfer.name = [NSString stringWithFormat:@"Stub %i", i];
-        transfer.percentDone = @( arc4random() % 100 );
-        transfer.downSpeed = @( arc4random() % 100 );
-        transfer.estimatedTime = @( arc4random() % 100 );
-        transfer.displayName = transfer.name;
-        
-        [stubbies addObject:transfer];
+//        Transfer *transfer = [[Transfer alloc] init];
+//        transfer.name = [NSString stringWithFormat:@"Stub %i", i];
+//        transfer.percentDone = @( arc4random() % 100 );
+//        transfer.downSpeed = @( arc4random() % 100 );
+//        transfer.estimatedTime = @( arc4random() % 100 );
+//
+//        [stubbies addObject:transfer];
     }
     return stubbies;
 }

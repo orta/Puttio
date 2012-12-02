@@ -9,6 +9,7 @@
 #import "ORTransferViewController.h"
 #import "ORExtendedTransferCell.h"
 #import "ORDestructiveButton.h"
+#import "ModalZoomView.h"
 
 @interface ORTransferViewController (){
     NSArray *_transfers;
@@ -83,7 +84,6 @@
         transfer.percentDone = @( arc4random() % 100 );
         transfer.downSpeed = @( arc4random() % 100 );
         transfer.estimatedTime = @( arc4random() % 100 );
-        transfer.displayName = transfer.name;
         
         [stubbies addObject:transfer];
     }
@@ -143,6 +143,14 @@
     [self setTableView:nil];
     [self setTableCellBack:nil];
     [super viewDidUnload];
+}
+
+- (IBAction)browseTapped:(id)sender {
+    
+}
+
+- (IBAction)addLinkTapped:(id)sender {
+    [ModalZoomView showWithViewControllerIdentifier:@"AddTorrentFromLinkView"];
 }
 
 @end

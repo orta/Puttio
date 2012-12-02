@@ -276,7 +276,14 @@
             [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }
 
-    } failure:^(NSError *error) {
+    } addFailure:^() {
+        result.selectedState = SearchResultFailed;
+
+        if ([tableView numberOfRowsInSection:indexPath.section]) {
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }
+    networkFailure:^(NSError *error) {
         result.selectedState = SearchResultFailed;
 
         if ([tableView numberOfRowsInSection:indexPath.section]) {
