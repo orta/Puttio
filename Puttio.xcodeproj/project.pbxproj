@@ -15,6 +15,7 @@
 		6000193D157E655C00E5FE06 /* WatchedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6000193C157E655C00E5FE06 /* WatchedItem.m */; };
 		60001943157E6BCC00E5FE06 /* WatchedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 60001942157E6BCB00E5FE06 /* WatchedList.m */; };
 		600104D41524F9CB005F5B33 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 600104D31524F9CB005F5B33 /* Folder.m */; };
+		600249A9166C1220007E6E9A /* ORAddTorrentFromBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600249A8166C1220007E6E9A /* ORAddTorrentFromBrowseViewController.m */; };
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
@@ -47,6 +48,7 @@
 		6046790715B1F0EC00A2BFA8 /* ORDestructiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */; };
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
 		6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */; };
+		606818C3166BEC5800B0B81B /* ORTorrentBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606818C2166BEC5800B0B81B /* ORTorrentBrowserViewController.m */; };
 		606C79A4152F508E00608C56 /* ORDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79A3152F508E00608C56 /* ORDefaults.m */; };
 		606C79B01530A4B100608C56 /* NSDictionary+ObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C79AF1530A4B100608C56 /* NSDictionary+ObjectForKey.m */; };
 		607C18C215F15D4500D2C5E6 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C18C115F15D4500D2C5E6 /* AudioViewController.m */; };
@@ -188,6 +190,8 @@
 		600104D21524F9CB005F5B33 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Folder.h; path = Models/Folder.h; sourceTree = "<group>"; };
 		600104D31524F9CB005F5B33 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Folder.m; path = Models/Folder.m; sourceTree = "<group>"; };
 		6001050A1525025A005F5B33 /* ORDisplayItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ORDisplayItemProtocol.h; path = Protocols/ORDisplayItemProtocol.h; sourceTree = "<group>"; };
+		600249A7166C1220007E6E9A /* ORAddTorrentFromBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORAddTorrentFromBrowseViewController.h; path = ViewControllers/ORAddTorrentFromBrowseViewController.h; sourceTree = "<group>"; };
+		600249A8166C1220007E6E9A /* ORAddTorrentFromBrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAddTorrentFromBrowseViewController.m; path = ViewControllers/ORAddTorrentFromBrowseViewController.m; sourceTree = "<group>"; };
 		600641F9151F24AF00EF85F9 /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusViewController.h; path = ViewControllers/StatusViewController.h; sourceTree = "<group>"; };
 		600641FA151F24AF00EF85F9 /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusViewController.m; path = ViewControllers/StatusViewController.m; sourceTree = "<group>"; };
 		600641FD151F24C100EF85F9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ViewControllers/SearchViewController.h; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 		6064D89A15398E4600E454E5 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchController.m; path = Utils/SearchController.m; sourceTree = "<group>"; };
 		6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+StripHTML.h"; path = "Categories/NSString+StripHTML.h"; sourceTree = "<group>"; };
 		6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+StripHTML.m"; path = "Categories/NSString+StripHTML.m"; sourceTree = "<group>"; };
+		606818C1166BEC5800B0B81B /* ORTorrentBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORTorrentBrowserViewController.h; path = ViewControllers/ORTorrentBrowserViewController.h; sourceTree = "<group>"; };
+		606818C2166BEC5800B0B81B /* ORTorrentBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORTorrentBrowserViewController.m; path = ViewControllers/ORTorrentBrowserViewController.m; sourceTree = "<group>"; };
 		606C79A2152F508E00608C56 /* ORDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORDefaults.h; path = Utils/ORDefaults.h; sourceTree = "<group>"; };
 		606C79A3152F508E00608C56 /* ORDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDefaults.m; path = Utils/ORDefaults.m; sourceTree = "<group>"; };
 		606C79AE1530A4B100608C56 /* NSDictionary+ObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+ObjectForKey.h"; path = "Categories/NSDictionary+ObjectForKey.h"; sourceTree = "<group>"; };
@@ -750,6 +756,10 @@
 				608977491653ADF600A7814E /* ORTransferViewController.m */,
 				60BBA0AA166BAD10001FA20A /* ORAddTorrentFromLinkViewController.h */,
 				60BBA0AB166BAD10001FA20A /* ORAddTorrentFromLinkViewController.m */,
+				606818C1166BEC5800B0B81B /* ORTorrentBrowserViewController.h */,
+				606818C2166BEC5800B0B81B /* ORTorrentBrowserViewController.m */,
+				600249A7166C1220007E6E9A /* ORAddTorrentFromBrowseViewController.h */,
+				600249A8166C1220007E6E9A /* ORAddTorrentFromBrowseViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1151,6 +1161,8 @@
 				6089774A1653ADF600A7814E /* ORTransferViewController.m in Sources */,
 				6089774D1653B01E00A7814E /* ORExtendedTransferCell.m in Sources */,
 				60BBA0AC166BAD10001FA20A /* ORAddTorrentFromLinkViewController.m in Sources */,
+				606818C3166BEC5800B0B81B /* ORTorrentBrowserViewController.m in Sources */,
+				600249A9166C1220007E6E9A /* ORAddTorrentFromBrowseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

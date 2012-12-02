@@ -10,6 +10,7 @@
 #import "ORExtendedTransferCell.h"
 #import "ORDestructiveButton.h"
 #import "ModalZoomView.h"
+#import "ORTorrentBrowserViewController.h"
 
 @interface ORTransferViewController (){
     NSArray *_transfers;
@@ -118,7 +119,7 @@
     [cell.contentView addSubview:backgroundView];
 
     ORDestructiveButton *cancelButton = [ORDestructiveButton buttonWithType:UIButtonTypeCustom];
-//    [cancelButton addTarget:self action:@selector(cancelTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButton addTarget:self action:@selector(cancelTapped:) forControlEvents:UIControlEventTouchUpInside];
 
     cancelButton.tag = indexPath.row;
     [cancelButton setTitle:@"Cancel Transfer" forState:UIControlStateNormal];
@@ -145,12 +146,14 @@
     [super viewDidUnload];
 }
 
-- (IBAction)browseTapped:(id)sender {
-    
-}
-
 - (IBAction)addLinkTapped:(id)sender {
     [ModalZoomView showWithViewControllerIdentifier:@"AddTorrentFromLinkView"];
+}
+
+- (IBAction)browseTapped:(id)sender {
+    NSString *identifier = [UIDevice isPhone] ? @"TorrentBrowserPhoneView": @"TorrentBrowserView";
+    UIViewController *controller = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:identifier];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

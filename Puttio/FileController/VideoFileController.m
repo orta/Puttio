@@ -18,7 +18,8 @@
 
 @implementation VideoFileController {
     BOOL _isMP4;
-    BOOL requested;
+    BOOL _requested;
+    UIDocumentInteractionController *_docController;
 }
 
 + (BOOL)fileSupportedByController:(File *)aFile {
@@ -55,6 +56,11 @@
             [self getMP4Info];
         }
     }
+
+    LocalFile *file = [LocalFile findFirstByAttribute:@"id" withValue:_file.id];
+    if (file && ![self canOpenDocumentWithFilePath:file.localPathForFile inView:self.infoController.secondaryButton]) {
+        self.infoController.secondaryButton.enabled = NO;
+    }
 }
 
 - (NSString *)descriptiveTextForFile {
@@ -90,8 +96,10 @@
 }
 
 - (void)secondaryButtonAction:(id)sender {
-    if ([LocalFile findByAttribute:@"id" withValue:_file.id].count) {
-        self.infoController.additionalInfoLabel.text = @"You have already downloaded this.";
+    LocalFile *file = [LocalFile findFirstByAttribute:@"id" withValue:_file.id];
+    if (file) {
+        NSLog(@"found existing local file");
+        [self sendVideoToOtherAppWithFilePath:file.localPathForFile];
         return;
     }
 
@@ -157,8 +165,13 @@
         if (self.infoController) {
             // Set the UI state
             self.infoController.additionalInfoLabel.text = @"Downloaded - It's in your media library!";
+            [self.infoController.secondaryButton setTitle:@"Other App" forState:UIControlStateNormal];
             [self.infoController enableButtons];
             [self.infoController hideProgress];
+
+            if (![self canOpenDocumentWithFilePath:localFile.localPathForFile inView:self.infoController.secondaryButton]) {
+                self.infoController.secondaryButton.enabled = NO;
+            }
 
             self.infoController.progressInfoHidden = YES;
             self.infoController.secondaryButton.enabled = YES;
@@ -223,6 +236,37 @@
     } failure:^(NSError *error) {
 
     }];
+}
+
+#pragma mark -
+#pragma mark Document related stuff
+
+- (void)sendVideoToOtherAppWithFilePath:(NSString *)downloadedFilepath {
+    NSURL *downloadURL = [NSURL fileURLWithPath:downloadedFilepath isDirectory:NO];
+    _docController = [UIDocumentInteractionController interactionControllerWithURL:downloadURL];
+    _docController.delegate = self;
+
+    UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+    CGRect rect = [rootView convertRect:self.infoController.secondaryButton.frame fromView:self.infoController.view];
+    [_docController presentOpenInMenuFromRect:rect inView:rootView animated:YES];
+}
+
+- (BOOL)canOpenDocumentWithFilePath:(NSString *)path inView:(UIView*)view {
+    BOOL canOpen = NO;
+    UIDocumentInteractionController* docController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:path]];
+    if (docController) {
+        docController.delegate = self;
+        canOpen = [docController presentOpenInMenuFromRect:CGRectMake(0, 0, 1, 1) inView:view animated:NO];
+        [docController dismissMenuAnimated:NO];
+    }
+    return canOpen;
+}
+
+
+-(void)documentInteractionController:(UIDocumentInteractionController *)controller
+       willBeginSendingToApplication:(NSString *)application {
+    self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Sending file to %@", application];
+    [self markFileAsViewed];
 }
 
 @end

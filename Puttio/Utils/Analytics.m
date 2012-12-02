@@ -93,7 +93,7 @@ static BOOL ignore = NO;
 + (void)incrementUserProperty:(NSString*)counterName byInt:(int)amount {
     if (ignore) return;
 
-    [[Mixpanel sharedInstance] increment:counterName by:@(amount)];
+//    [[Mixpanel sharedInstance] increment:counterName by:@(amount)];
 }
 
 + (NSString *) stringFromInterval:(NSTimeInterval)interval {

@@ -11,5 +11,5 @@
 #import "MoviePlayer.h"
 
 @class FileInfoViewController;
-@interface VideoFileController : BaseFileController <FileController, MoviePlayerDelegate>
+@interface VideoFileController : BaseFileController <FileController, MoviePlayerDelegate, UIDocumentInteractionControllerDelegate>
 @end

@@ -20,6 +20,7 @@ NSString *const APISecretDefault = @"APISecretDefault";
 NSString *const ORUserIdDefault = @"ORUserIdDefault";
 NSString *const ORStreamTokenDefault = @"ORStreamTokenDefault";
 NSString *const ORShownSwipeHelperDefault = @"ORShownSwipeHelper";
+NSString *const ORLastSiteVisitedDefault = @"ORLastSiteVisitedDefault";
 
 NSString *const ORAppVersion = @"ORAppVersion";
 NSString *const ORShowLeftSidebarDefault = @"ORShowLeftSidebarDefault";
