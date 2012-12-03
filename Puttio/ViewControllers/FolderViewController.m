@@ -23,7 +23,7 @@
     UILabel *_sizeLabel;
     ORFlatButton *_backToGridButton;
     UIView *_footerView;
-    
+    NSMutableArray *_treeMapObjects;
     double _totalSize;
 }
 
@@ -74,6 +74,12 @@
     self.view.userInteractionEnabled = YES;
     for (GMGridViewCell *cell in [_gridView subviews] ){
         cell.alpha = 1;
+    }
+}
+
+- (void)viewWillLayoutSubviews {
+    if (_treeView) {
+        [self positionTreeMap];
     }
 }
 
@@ -198,7 +204,6 @@ static CGFloat TreeViewFooterHeight = 60;
 - (void)showTreeMap {
     if (_treeView) return;
 
-
     UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
     _treeViewWrapper = [[UIView alloc] initWithFrame:CGRectNull];
     _treeViewWrapper.alpha = 0;
@@ -236,8 +241,8 @@ static CGFloat TreeViewFooterHeight = 60;
 
 - (void)positionTreeMap {
     CGRect wrapperFrame = self.view.bounds;
-    wrapperFrame.origin.x += 8;
-    wrapperFrame.origin.y += 96;
+    wrapperFrame.origin.x = 8;
+    wrapperFrame.origin.y = 96;
 
     CGRect treeViewFrame = self.view.bounds;
     treeViewFrame.size.height -= TreeViewFooterHeight + 8;
@@ -274,13 +279,16 @@ static CGFloat TreeViewFooterHeight = 60;
 
 - (NSArray *)valuesForTreemapView:(TreemapView *)treemapView {
     NSMutableArray *sizes = [NSMutableArray array];
+    _treeMapObjects = [NSMutableArray array];
     _totalSize = 0;
     
-    for (id fileOrFolder in _folderItems) {
-        NSNumber *size = [(File *)fileOrFolder size];
+    for (NSObject <PKFolderItem> *fileOrFolder in _folderItems) {
+        NSNumber *size = [fileOrFolder size];
         if (size) {
             [sizes addObject:size];
+            [_treeMapObjects addObject:fileOrFolder];
         }
+        
         _totalSize += size.doubleValue;
     }
 
@@ -290,9 +298,9 @@ static CGFloat TreeViewFooterHeight = 60;
 
 - (TreemapViewCell *)treemapView:(TreemapView *)treemapView cellForIndex:(NSInteger)index forRect:(CGRect)rect {
     TreemapViewCell *cell = [[TreemapViewCell alloc] initWithFrame:rect];
-    File *file = _folderItems[index];
+    File *file = _treeMapObjects[index];
     cell.textLabel.text = file.displayName;
-    cell.valueLabel.text = [UIDevice humanStringFromBytes:file.size.doubleValue];
+    cell.valueLabel.text =  file.size.stringValue; //[UIDevice humanStringFromBytes:file.size.doubleValue];
     cell.backgroundColor = [UIColor colorWithRed:0.366 green:0.676 blue:0.969 alpha:1.000];
     cell.tag = index;
 
@@ -311,7 +319,10 @@ static CGFloat TreeViewFooterHeight = 60;
     } completion:^(BOOL finished) {
         [_treeViewWrapper removeFromSuperview];
         _treeView = nil;
-        [[self.gridView actionDelegate] GMGridView:self.gridView didTapOnItemAtIndex:gesture.view.tag];
+
+        id selectedObject = _treeMapObjects[gesture.view.tag];
+        NSInteger index = [_folderItems indexOfObject:selectedObject];
+        [[self.gridView actionDelegate] GMGridView:self.gridView didTapOnItemAtIndex:index];
     }];
 }
 
@@ -319,7 +330,7 @@ static CGFloat TreeViewFooterHeight = 60;
     if ([ModalZoomView isShowing]) return;
     
     UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
-    id item = _folderItems[gesture.view.tag];
+    id item = _treeMapObjects[gesture.view.tag];
     CGRect initialFrame = [self.view convertRect:[gesture.view frame] toView:rootView];
     
     [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:@"deleteView" andItem:item];

@@ -22,4 +22,5 @@
 - (void)highlightItemAtIndex:(int)position;
 
 - (void)showTreeMap;
+- (void)removeTreeMap;
 @end

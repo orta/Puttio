@@ -68,6 +68,12 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     [self reloadFolder];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
+    [topFolder removeTreeMap];
+}
+
 - (IBAction)backPressed:(id)sender {
     [_gridNavController popViewControllerAnimated:YES];
 }
