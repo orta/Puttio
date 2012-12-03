@@ -2,19 +2,17 @@
 PODS:
 - AFNetworking (1.0.1)
 - Mixpanel (1.0.0)
-- NSData+Base64 (1.0.0)
 - PutioKit (0.1):
   - AFNetworking (~> 1.0)
+- SEHumanizedTimeDiff (0.0.1)
 - TestFlightSDK (1.2.beta2)
-- xmlrpc (2.3.1):
-  - NSData+Base64 (~> 1.0.0)
 
 DEPENDENCIES:
 - AFNetworking (~> 1.0)
 - Mixpanel
 - PutioKit (from `../PutioKit/PutioKit.podspec')
+- SEHumanizedTimeDiff
 - TestFlightSDK
-- xmlrpc
 
 EXTERNAL SOURCES:
   PutioKit:
@@ -23,9 +21,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 4c11f857c9a18d65f4257c90a1e74ac49f0ac422
   Mixpanel: 312db1b5199dbb61808315da3e27f056a38da6e5
-  NSData+Base64: 8b910cb8a64f45daec6fb15936c36a9a911c57ca
   PutioKit: 958a0e51a02a71c9554e331354762d03aa39f788
+  SEHumanizedTimeDiff: edc1e3b0a86743240699b4bcf135cd476d7b7947
   TestFlightSDK: 964167fdbf681a26e4452d087b779cafcba756ae
-  xmlrpc: df8464def5b94139c5bcec28d67b963958d6fa7c
 
 COCOAPODS: 0.16.0

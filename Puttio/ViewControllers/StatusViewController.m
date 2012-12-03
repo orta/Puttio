@@ -154,7 +154,7 @@ typedef enum {
     NSDate *threeDaysAgo = [calendar dateByAddingComponents:minusDaysComponents toDate:today options:0];
     
     for (Transfer *transfer in inTransfers) {
-        if (transfer.transferStatus == PKTransferStatusERROR) continue;
+        if (transfer.transferStatus == PKTransferStatusError) continue;
         
         if (transfer.percentDone.intValue != 100) {
             [newTransfers addObject:transfer];

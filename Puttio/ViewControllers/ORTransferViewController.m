@@ -69,7 +69,7 @@
     [self.tableView reloadData];
 
     [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
-        _transfers = transfers;
+        _transfers = [[transfers reverseObjectEnumerator] allObjects];
         [self.tableView reloadData];
 
     } failure:^(NSError *error) {
@@ -96,48 +96,38 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
     UITableViewCell *cell = nil;
     cell = [aTableView dequeueReusableCellWithIdentifier:@"ExtendedTransferCell"];
     if (cell) {
         Transfer *item = _transfers[indexPath.row];
         ORExtendedTransferCell *theCell = (ORExtendedTransferCell *)cell;
         theCell.transfer = item;
+        theCell.tag = indexPath.row;
         theCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        theCell.alpha = 1;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedCell:)];
+        [theCell addGestureRecognizer:tapGesture];
     }
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ORExtendedTransferCell *cell = (ORExtendedTransferCell *)[tableView cellForRowAtIndexPath:indexPath];
-    
-    CGRect slideViewStart = cell.bounds;
-    slideViewStart.origin.x = cell.bounds.size.width;
-
-    UIView *backgroundView = [[UIView alloc] initWithFrame:slideViewStart];
-    backgroundView.backgroundColor = [UIColor putioBlue];
-    [cell.contentView addSubview:backgroundView];
-
-    ORDestructiveButton *cancelButton = [ORDestructiveButton buttonWithType:UIButtonTypeCustom];
-    [cancelButton addTarget:self action:@selector(cancelTapped:) forControlEvents:UIControlEventTouchUpInside];
-
-    cancelButton.tag = indexPath.row;
-    [cancelButton setTitle:@"Cancel Transfer" forState:UIControlStateNormal];
-    cancelButton.frame = CGRectInset(backgroundView.bounds, 32, 21);
-    [cancelButton addTarget:self action:@selector(cancelTapped:) forControlEvents:UIControlEventTouchUpInside];
-    cancelButton.enabled = YES;
-    [backgroundView addSubview:cancelButton];
-
-    CGRect newContentViewFrame = cell.frame;
-    newContentViewFrame.origin.x = -1 * cell.bounds.size.width;
-
-    [UIView animateWithDuration:0.3 animations:^{
-        cell.frame = newContentViewFrame;
-    }];
+- (void)tappedCell:(UITapGestureRecognizer *)gesture {
+    ORExtendedTransferCell *cell = (ORExtendedTransferCell *)[gesture view];
+    [cell showCancelButtonWithTarget:self];
 }
 
 - (void)cancelTapped:(UIButton *)sender {
-    NSLog(@"Cancel");
+    sender.enabled = NO;
+    sender.alpha = 0.5;
+    [[PutIOClient sharedClient] cancelTransfer:_transfers[sender.tag] :^{
+        [self getTransfers];
+
+        ORExtendedTransferCell *cell = [_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
+        [cell deletedTransfer];
+
+    } failure:^(NSError *error) {
+
+    }];
 }
 
 - (void)viewDidUnload {

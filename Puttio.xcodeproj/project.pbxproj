@@ -17,6 +17,10 @@
 		600104D41524F9CB005F5B33 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 600104D31524F9CB005F5B33 /* Folder.m */; };
 		600249A9166C1220007E6E9A /* ORAddTorrentFromBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600249A8166C1220007E6E9A /* ORAddTorrentFromBrowseViewController.m */; };
 		600249AD166C2AD6007E6E9A /* ORImageFileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600249AC166C2AD6007E6E9A /* ORImageFileInfoViewController.m */; };
+		600249D4166C5156007E6E9A /* TransferDownloading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600249D0166C5156007E6E9A /* TransferDownloading@2x.png */; };
+		600249D5166C5156007E6E9A /* TransferUploading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600249D1166C5156007E6E9A /* TransferUploading@2x.png */; };
+		600249D6166C5156007E6E9A /* TransferComplete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600249D2166C5156007E6E9A /* TransferComplete@2x.png */; };
+		600249D7166C5156007E6E9A /* TransferError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600249D3166C5156007E6E9A /* TransferError@2x.png */; };
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
@@ -195,6 +199,10 @@
 		600249A8166C1220007E6E9A /* ORAddTorrentFromBrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAddTorrentFromBrowseViewController.m; path = ViewControllers/ORAddTorrentFromBrowseViewController.m; sourceTree = "<group>"; };
 		600249AB166C2AD5007E6E9A /* ORImageFileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORImageFileInfoViewController.h; path = ViewControllers/ORImageFileInfoViewController.h; sourceTree = "<group>"; };
 		600249AC166C2AD6007E6E9A /* ORImageFileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORImageFileInfoViewController.m; path = ViewControllers/ORImageFileInfoViewController.m; sourceTree = "<group>"; };
+		600249D0166C5156007E6E9A /* TransferDownloading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TransferDownloading@2x.png"; sourceTree = "<group>"; };
+		600249D1166C5156007E6E9A /* TransferUploading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TransferUploading@2x.png"; sourceTree = "<group>"; };
+		600249D2166C5156007E6E9A /* TransferComplete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TransferComplete@2x.png"; sourceTree = "<group>"; };
+		600249D3166C5156007E6E9A /* TransferError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TransferError@2x.png"; sourceTree = "<group>"; };
 		600641F9151F24AF00EF85F9 /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusViewController.h; path = ViewControllers/StatusViewController.h; sourceTree = "<group>"; };
 		600641FA151F24AF00EF85F9 /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusViewController.m; path = ViewControllers/StatusViewController.m; sourceTree = "<group>"; };
 		600641FD151F24C100EF85F9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ViewControllers/SearchViewController.h; sourceTree = "<group>"; };
@@ -579,6 +587,10 @@
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				600249D0166C5156007E6E9A /* TransferDownloading@2x.png */,
+				600249D1166C5156007E6E9A /* TransferUploading@2x.png */,
+				600249D2166C5156007E6E9A /* TransferComplete@2x.png */,
+				600249D3166C5156007E6E9A /* TransferError@2x.png */,
 				6085D23E151B99490068929C /* Puttio.xcdatamodeld */,
 				60C85AF715CFAD40008FC895 /* Hand.png */,
 				60C85AF815CFAD40008FC895 /* Hand@2x.png */,
@@ -1035,6 +1047,10 @@
 				608977441653987800A7814E /* MediaPlayer@2x.png in Resources */,
 				608977451653987800A7814E /* Transfers.png in Resources */,
 				608977461653987800A7814E /* Transfers@2x.png in Resources */,
+				600249D4166C5156007E6E9A /* TransferDownloading@2x.png in Resources */,
+				600249D5166C5156007E6E9A /* TransferUploading@2x.png in Resources */,
+				600249D6166C5156007E6E9A /* TransferComplete@2x.png in Resources */,
+				600249D7166C5156007E6E9A /* TransferError@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,5 +9,8 @@
 @interface ORExtendedTransferCell : UITableViewCell
 
 @property (nonatomic, strong) Transfer *transfer;
+@property (assign) BOOL isExpanded;
 
+- (void)showCancelButtonWithTarget:(id)target;
+- (void)deletedTransfer;
 @end
