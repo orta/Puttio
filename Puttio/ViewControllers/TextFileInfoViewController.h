@@ -8,12 +8,13 @@
 
 #import "ModalZoomView.h"
 
-@class ORTitleLabel, ORRotatingButton;
+@class ORTitleLabel, ORRotatingButton, ORSimpleProgress;
 
 @interface TextFileInfoViewController : UIViewController <ModalZoomViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet ORRotatingButton *loadingIndicator;
 @property (weak, nonatomic) IBOutlet UITextView *textfield;
 @property (weak, nonatomic) IBOutlet ORTitleLabel *titleLabel;
+@property (weak, nonatomic) IBOutlet ORSimpleProgress *progressBar;
 
 @end

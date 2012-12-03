@@ -309,7 +309,7 @@ to Put.IO</string>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="qnJ-2f-TwK">
                                                 <rect key="frame" x="12" y="4" width="465" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                                 <connections>
@@ -321,7 +321,7 @@ to Put.IO</string>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The title of my cool cat film which is awesome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="U92-As-vt4">
                                         <rect key="frame" x="139" y="11" width="490" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -1324,7 +1324,7 @@ Message</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BVP-vA-Osq" customClass="ORFlatButton">
-                                        <rect key="frame" x="661" y="9" width="99" height="37"/>
+                                        <rect key="frame" x="649" y="9" width="99" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1943,6 +1943,11 @@ bloody hell</string>
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <view contentMode="scaleToFill" id="6Jx-DA-h11" customClass="ORSimpleProgress">
+                                <rect key="frame" x="142" y="236" width="216" height="8"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1952,6 +1957,7 @@ bloody hell</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="JKy-S5-a7f" id="bTk-Kx-MKs"/>
+                        <outlet property="progressBar" destination="6Jx-DA-h11" id="zMC-dB-Odf"/>
                         <outlet property="textfield" destination="Xjh-pX-HzJ" id="ere-sk-ZId"/>
                         <outlet property="titleLabel" destination="2ZN-Gm-SbJ" id="MSu-vv-YZC"/>
                     </connections>
@@ -2511,6 +2517,68 @@ bloody hell</string>
             </objects>
             <point key="canvasLocation" x="-2285" y="-1013"/>
         </scene>
+        <!--Image File Info View Controller-->
+        <scene sceneID="vzC-WA-8XX">
+            <objects>
+                <viewController storyboardIdentifier="ImageInfoView" autoresizesArchivedViewToFullSize="NO" id="65n-Um-Vp9" customClass="ORImageFileInfoViewController" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="qPD-on-4oA">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="400"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="G1P-0h-Gjx">
+                                <rect key="frame" x="32" y="64" width="436" height="316"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="7Sb-tu-jNs">
+                                <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The title of my cool cat picture" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="gIn-tv-Zxa" customClass="ORTitleLabel">
+                                        <rect key="frame" x="20" y="4" width="460" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1x9-6s-ZZK" customClass="ORRotatingButton">
+                                <rect key="frame" x="205" y="178" width="90" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="LoadingSpinner.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" id="XsJ-5A-wby" customClass="ORSimpleProgress">
+                                <rect key="frame" x="142" y="265" width="216" height="8"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="G1P-0h-Gjx" id="bJ2-gn-b26"/>
+                        <outlet property="loadingIndicator" destination="1x9-6s-ZZK" id="fNi-0y-BbC"/>
+                        <outlet property="progressBar" destination="XsJ-5A-wby" id="upu-kA-LV1"/>
+                        <outlet property="titleLabel" destination="gIn-tv-Zxa" id="Dhj-vR-fga"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egd-ty-2xO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2362" y="217"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Cutest_Cat.jpg" width="360" height="290"/>
@@ -2655,10 +2723,8 @@ bloody hell</string>
         <class className="ORAddTorrentFromBrowseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAddTorrentFromBrowseViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addButtonTapped:"/>
-                <relationship kind="action" name="cancelButtonTapped:"/>
                 <relationship kind="outlet" name="addressLabel" candidateClass="ORTitleLabel"/>
-                <relationship kind="outlet" name="netowkrProgress" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="networkProgress" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
             </relationships>
         </class>
@@ -2687,6 +2753,15 @@ bloody hell</string>
         </class>
         <class className="ORFlatButton" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORFlatButton.h"/>
+        </class>
+        <class className="ORImageFileInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORImageFileInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loadingIndicator" candidateClass="ORRotatingButton"/>
+                <relationship kind="outlet" name="progressBar" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
+            </relationships>
         </class>
         <class className="ORMessageCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORMessageCell.h"/>
@@ -2784,6 +2859,7 @@ bloody hell</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TextFileInfoViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="loadingIndicator" candidateClass="ORRotatingButton"/>
+                <relationship kind="outlet" name="progressBar" candidateClass="ORSimpleProgress"/>
                 <relationship kind="outlet" name="textfield" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
             </relationships>

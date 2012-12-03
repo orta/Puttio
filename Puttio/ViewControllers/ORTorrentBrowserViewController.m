@@ -10,10 +10,6 @@
 #import "ModalZoomView.h"
 #import "ORAddTorrentFromBrowseViewController.h"
 
-@interface SVWebViewController()
-- (void)updateToolbarItems;
-@end
-
 @interface ORTorrentBrowserViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -61,7 +57,6 @@
 
     [[NSUserDefaults standardUserDefaults] setObject:address forKey:ORLastSiteVisitedDefault];
     [[NSUserDefaults standardUserDefaults] synchronize];
-
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {

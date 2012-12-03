@@ -121,7 +121,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
 - (void)loadFolder:(Folder *)folder {
     if (![PutIOClient sharedClient].ready) return;
-    
+    [self sendFolderChangedNotification];
+
     currentFolder = folder;
     self.networkActivity = YES;
 
@@ -179,6 +180,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
             identifier = @"TextInfoView";
         }else if (file.isAudioType){
             identifier = @"AudioInfoView";
+        }else if (file.isImageType){
+            identifier = @"ImageInfoView";
         }else {
             identifier = [UIDevice isPhone]? @"FileInfoPhoneView" : @"FileInfoView";
         }

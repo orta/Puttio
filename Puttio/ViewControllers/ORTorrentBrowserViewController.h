@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "SVWebViewController.h"
-
 @interface ORTorrentBrowserViewController : UIViewController <UIWebViewDelegate, UITextFieldDelegate>
 
 @end

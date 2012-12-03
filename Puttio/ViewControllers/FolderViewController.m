@@ -169,7 +169,7 @@
     WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_folder.id];
     if (list) {
         for (id item in _folderItems) {
-            if ([item isKindOfClass:[File class]]) {
+            if ([item isKindOfClass:[PKFile class]]) {
                 File *file = item;
                 for (WatchedItem *item in list.items) {
                     if ([item.fileID isEqualToString:file.id]) {
@@ -300,7 +300,7 @@ static CGFloat TreeViewFooterHeight = 60;
     TreemapViewCell *cell = [[TreemapViewCell alloc] initWithFrame:rect];
     File *file = _treeMapObjects[index];
     cell.textLabel.text = file.displayName;
-    cell.valueLabel.text =  file.size.stringValue; //[UIDevice humanStringFromBytes:file.size.doubleValue];
+    cell.valueLabel.text = [UIDevice humanStringFromBytes:file.size.doubleValue];
     cell.backgroundColor = [UIColor colorWithRed:0.366 green:0.676 blue:0.969 alpha:1.000];
     cell.tag = index;
 

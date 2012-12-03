@@ -9,16 +9,5 @@
 #import "ORDisplayItemProtocol.h"
 
 @interface Folder : PKFolder <ORDisplayItemProtocol>
-//
-//@property (nonatomic, retain) NSString * displayName;
-//@property (nonatomic, retain) NSString * id;
-//@property (nonatomic, retain) NSString * name;
-//@property (nonatomic, retain) NSString * parentID;
-//@property (nonatomic, retain) NSString * screenShotURL;
-//@property (nonatomic, retain) NSNumber * size;
-//@property (nonatomic, retain) NSSet *files;
-//@property (nonatomic, retain) Folder *parentFolder;
-//@property (nonatomic, retain) NSSet *subFolders;
-//@property (nonatomic, retain) NSString *contentType;
 
 @end

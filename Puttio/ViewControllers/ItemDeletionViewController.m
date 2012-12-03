@@ -65,7 +65,7 @@
             [Analytics incrementUserProperty:@"User Deleted RemoteFile" byInt:1];
             [ModalZoomView fadeOutViewAnimated:YES];
 
-            if ([_item isKindOfClass:[Folder class]]) {
+            if ([_item isKindOfClass:[PKFolder class]]) {
                 WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_item.id];
                 [list deleteEntity];
             }
