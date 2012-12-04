@@ -117,17 +117,17 @@ typedef enum {
 }
 
 - (void)getTransfers {
-    if (_transfers) return;
-    _transfers = [self stubbedTransfers];
-    [self.tableView reloadData];
+//    if (_transfers) return;
+//    _transfers = [self stubbedTransfers];
+//    [self.tableView reloadData];
 
-//    [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
-//        _transfers = [self onlyRecentTransfers:transfers];
-//        [self.tableView reloadData];
-//
-//    } failure:^(NSError *error) {
-//        NSLog(@"error %@", [error localizedDescription]);
-//    }];
+    [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
+        _transfers = [self onlyRecentTransfers:transfers];
+        [self.tableView reloadData];
+
+    } failure:^(NSError *error) {
+        NSLog(@"error %@", [error localizedDescription]);
+    }];
 }
 
 - (NSArray *)stubbedTransfers {    
