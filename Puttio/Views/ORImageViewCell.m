@@ -98,6 +98,8 @@ static CGFloat ImageBottomMargin = 10;
     __weak ORImageViewCell *this = self;
     [imageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"Placeholder"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
 
+        imageView.image = image;
+        
         __strong ORImageViewCell *strongSelf = this;
         if([strongSelf watched]){
             [strongSelf addWatchedEffects];

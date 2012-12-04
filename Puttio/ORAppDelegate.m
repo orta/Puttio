@@ -18,6 +18,7 @@
 #import "APP_SECRET.h"
 #import "ORMigration.h"
 #import "ORPasteboardParser.h"
+#import "ORDownloadCleanup.h"
 
 @implementation ORAppDelegate
 
@@ -30,7 +31,8 @@
 
     [ORMigration migrate];
     [Analytics setup];
-    
+
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:ORLoggedOutDefault];
     if (![defaults boolForKey:ORDefaultsAreLoaded]) {
@@ -163,7 +165,9 @@
 
     [moc performBlock:^{
         [moc mergeChangesFromContextDidSaveNotification:notification];
-        
+
+        [ORDownloadCleanup cleanup];
+
         NSNotification* refreshNotification = [NSNotification notificationWithName:ORReloadGridNotification
                                                                             object:self
                                                                           userInfo:[notification userInfo]];

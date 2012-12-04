@@ -15,6 +15,7 @@
 #import "ORImageViewCell.h"
 #import "MoviePlayer.h"
 #import "ModalZoomView.h"
+#import "NSManagedObject+ActiveRecord.h"
 
 static UIEdgeInsets GridViewInsets = {.top = 126 + 8, .left = 8, .right = 8, .bottom = 8};
 
@@ -126,6 +127,8 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     for (LocalFile *file in possibleFiles) {
         if ([[NSFileManager defaultManager] fileExistsAtPath:file.localPathForFile]) {
             [files addObject:file];
+        } else {
+            [file deleteEntity];
         }
     }
     [gridView reloadData];
