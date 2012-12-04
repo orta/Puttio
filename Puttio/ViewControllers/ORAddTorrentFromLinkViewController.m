@@ -22,8 +22,6 @@
     [_networkActivitySpinner startAnimating];
     _addedLabel.hidden = YES;
 
-
-
     [[PutIOClient sharedClient] requestTorrentOrMagnetURLAtPath:_torrentTextField.text :^(id userInfoObject) {
         [Analytics incrementUserProperty:@"Added a torrent" byInt:1];
         [_networkActivitySpinner stopAnimating];
@@ -56,7 +54,15 @@
 
 - (void)zoomViewDidFinishZooming:(ModalZoomView *)zoomView {
     [UIView animateWithDuration:0.3 animations:^{
-        self.view.frame = CGRectOffset(self.view.frame, 0, -28);
+        if ([UIDevice isPhone]) {
+            if ([UIDevice deviceType] == DeviceIphone5Plus) {
+                self.view.frame = CGRectOffset(self.view.frame, 0, -28);
+            }
+            else {
+                self.view.frame = CGRectOffset(self.view.frame, 0, -72);
+            }
+
+        }
     }];
     [_torrentTextField becomeFirstResponder];
 }

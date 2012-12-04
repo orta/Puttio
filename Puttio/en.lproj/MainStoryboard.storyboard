@@ -2469,20 +2469,14 @@ bloody hell</string>
                                     <action selector="addButtonTapped:" destination="aOQ-nl-kuB" eventType="touchUpInside" id="2B5-fY-hbG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="TwD-gf-U4S" customClass="ORDestructiveButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TwD-gf-U4S" customClass="ORDestructiveButton">
                                 <rect key="frame" x="199" y="137" width="101" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Cancel">
-                                            <attributes>
-                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <font key="NSFont" size="15" name="Helvetica-Bold"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelButtonTapped:" destination="aOQ-nl-kuB" eventType="touchUpInside" id="47m-tP-Rku"/>
@@ -2764,6 +2758,7 @@ bloody hell</string>
         <class className="ORImageFileInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORImageFileInfoViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="backButton" candidateClass="ORFlatButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="loadingIndicator" candidateClass="ORRotatingButton"/>
                 <relationship kind="outlet" name="progressBar" candidateClass="ORSimpleProgress"/>
@@ -2824,8 +2819,6 @@ bloody hell</string>
         <class className="ORTransferViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTransferViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addLinkTapped:"/>
-                <relationship kind="action" name="browseTapped:"/>
                 <relationship kind="outlet" name="tableCellBack" candidateClass="UIView"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>

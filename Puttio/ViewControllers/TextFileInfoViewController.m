@@ -24,6 +24,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[PutIOClient appendOauthToken:requestURL]]];
 
     AFHTTPRequestOperation *downloadOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    _progressBar.progress = 0;
     
     [downloadOperation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
         CGFloat progress = (float)totalBytesRead/totalBytesExpectedToRead;

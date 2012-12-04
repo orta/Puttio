@@ -41,7 +41,13 @@
         }
     } else {
         if (isRetina) {
-            return DeviceIphone4Plus;
+            bool isFourInches = CGSizeEqualToSize([[UIScreen mainScreen] preferredMode].size,CGSizeMake(640, 1136));
+            if (isFourInches) {
+                return DeviceIphone5Plus;
+            } else {
+                return DeviceIphone4;
+            }
+
         }else {
             return DeviceIphone3GS;
         }

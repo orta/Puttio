@@ -15,7 +15,8 @@ enum DeviceType {
     DeviceIpad2,
     DeviceIpad3Plus,
     DeviceIphone3GS,
-    DeviceIphone4Plus,
+    DeviceIphone4,
+    DeviceIphone5Plus,
     DeviceOther
 };
 

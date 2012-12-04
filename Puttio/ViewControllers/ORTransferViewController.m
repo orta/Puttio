@@ -62,10 +62,6 @@
 }
 
 - (void)getTransfers {
-    if (_transfers) return;
-//    _transfers = [self stubbedTransfers];
-//    return;
-
     [self.tableView reloadData];
 
     [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
@@ -122,7 +118,7 @@
     [[PutIOClient sharedClient] cancelTransfer:_transfers[sender.tag] :^{
         [self getTransfers];
 
-        ORExtendedTransferCell *cell = [_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
+        ORExtendedTransferCell *cell = (ORExtendedTransferCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
         [cell deletedTransfer];
 
     } failure:^(NSError *error) {

@@ -96,4 +96,9 @@
 
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return [UIDevice isPad];
+}
+
+
 @end

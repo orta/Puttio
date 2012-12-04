@@ -121,7 +121,13 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 - (void)reloadFolder {
     [self updateTitles];
     
-    files = [[LocalFile allObjects] mutableCopy];
+    NSArray *possibleFiles = [LocalFile allObjects];
+    files = [NSMutableArray array];
+    for (LocalFile *file in possibleFiles) {
+        if ([[NSFileManager defaultManager] fileExistsAtPath:file.localPathForFile]) {
+            [files addObject:file];
+        }
+    }
     [gridView reloadData];
     
     self.noItemsView.hidden = files.count > 0;

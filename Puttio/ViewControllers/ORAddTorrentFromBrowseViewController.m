@@ -61,4 +61,8 @@
     return CGSizeMake(320, 200);
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return [UIDevice isPad];
+}
+
 @end

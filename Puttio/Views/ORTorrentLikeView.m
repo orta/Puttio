@@ -66,7 +66,7 @@
             tileCount = 14;
             tileSize = 40;
             break;
-        case DeviceIphone4Plus:
+        case DeviceIphone4:
             tileCount = 18;
             tileSize = 30;
             break;

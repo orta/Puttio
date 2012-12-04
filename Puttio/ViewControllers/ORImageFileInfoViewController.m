@@ -11,7 +11,7 @@
 #import "ORTitleLabel.h"
 #import "ORRotatingButton.h"
 #import "ORSimpleProgress.h"
-
+#import "ORFlatButton.h"
 
 @interface ORImageFileInfoViewController ()
 @property (weak, nonatomic) IBOutlet ORRotatingButton *loadingIndicator;
@@ -35,7 +35,7 @@
     NSLog(@"%@", request.URL.absoluteString);
 
     AFHTTPRequestOperation *downloadOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-
+    _progressBar.progress = 0;
     [downloadOperation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
         CGFloat progress = (float)totalBytesRead/totalBytesExpectedToRead;
             _progressBar.progress = progress;
@@ -73,7 +73,7 @@
     if ([UIDevice isPad]) {
         return CGSizeMake(640, 480);
     } else {
-        return CGSizeMake(320, 480);
+        return CGSizeMake(320, 440);
     }
 }
 
