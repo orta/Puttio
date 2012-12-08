@@ -117,10 +117,6 @@ typedef enum {
 }
 
 - (void)getTransfers {
-//    if (_transfers) return;
-//    _transfers = [self stubbedTransfers];
-//    [self.tableView reloadData];
-
     [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
         _transfers = [self onlyRecentTransfers:transfers];
         [self.tableView reloadData];
@@ -129,21 +125,6 @@ typedef enum {
         NSLog(@"error %@", [error localizedDescription]);
     }];
 }
-
-- (NSArray *)stubbedTransfers {    
-    NSMutableArray *stubbies = [NSMutableArray array];
-    for (int i = 0; i < 15; i++) {
-//        Transfer *transfer = [[Transfer alloc] init];
-//        transfer.name = [NSString stringWithFormat:@"Stub %i", i];
-//        transfer.percentDone = @( arc4random() % 100 );
-//        transfer.downSpeed = @( arc4random() % 100 );
-//        transfer.estimatedTime = @( arc4random() % 100 );
-//
-//        [stubbies addObject:transfer];
-    }
-    return stubbies;
-}
-
 - (NSArray *)onlyRecentTransfers: (NSArray*)inTransfers {
     NSMutableArray *newTransfers = [NSMutableArray array];
     
@@ -221,7 +202,6 @@ typedef enum {
 }
 
 -(UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), indexPath);
     
     UITableViewCell *cell = nil;
     if (indexPath.section == DisplayTransfers) {

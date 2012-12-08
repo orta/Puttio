@@ -52,7 +52,7 @@
             image = [UIImage imageNamed:@"TransferDownloading"];
             _downloadProgress.hidden = NO;
             _downloadSpeedLabel.hidden = YES;
-
+            
             _timeToGoLabel.hidden = YES;
             break;
         case PKTransferStatusCompleted:
@@ -71,6 +71,7 @@
 - (void)prepareForReuse {
     self.alpha = 1;
     [_backgroundView removeFromSuperview];
+    _backgroundView = nil;
 }
 
 - (void)deletedTransfer {
@@ -83,6 +84,8 @@
 }
 
 - (void)showCancelButtonWithTarget:(id)target {
+    if (_backgroundView) return;
+    
     CGRect slideViewStart = self.bounds;
     slideViewStart.origin.x = self.bounds.size.width;
 

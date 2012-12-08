@@ -15,8 +15,15 @@
 @interface ORTransferViewController (){
     NSArray *_transfers;
     NSTimer *_dataLoopTimer;
+    BOOL _showingDelete;
+
+    int _deletedCount;
+    int _selectedIndex;
 }
-@property (weak, nonatomic) IBOutlet UIView *tableCellBack;
+
+@property (weak, nonatomic) IBOutlet UIView *deleteView;
+@property (weak, nonatomic) IBOutlet ORDestructiveButton *removeButton;
+@property (weak, nonatomic) IBOutlet UILabel *deleteViewLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -62,8 +69,6 @@
 }
 
 - (void)getTransfers {
-    [self.tableView reloadData];
-
     [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
         _transfers = [[transfers reverseObjectEnumerator] allObjects];
         [self.tableView reloadData];
@@ -73,22 +78,8 @@
     }];
 }
 
-- (NSArray *)stubbedTransfers {
-    NSMutableArray *stubbies = [NSMutableArray array];
-    for (int i = 0; i < 15; i++) {
-        Transfer *transfer = [[Transfer alloc] init];
-        transfer.name = [NSString stringWithFormat:@"Stub %i", i];
-        transfer.percentDone = @( arc4random() % 100 );
-        transfer.downSpeed = @( arc4random() % 100 );
-        transfer.estimatedTime = @( arc4random() % 100 );
-        
-        [stubbies addObject:transfer];
-    }
-    return stubbies;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _transfers.count;
+    return _transfers.count -_deletedCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -100,35 +91,65 @@
         theCell.transfer = item;
         theCell.tag = indexPath.row;
         theCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        theCell.alpha = 1;
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedCell:)];
-        [theCell addGestureRecognizer:tapGesture];
+        theCell.alpha = 1;        
     }
     return cell;
 }
 
-- (void)tappedCell:(UITapGestureRecognizer *)gesture {
-    ORExtendedTransferCell *cell = (ORExtendedTransferCell *)[gesture view];
-    [cell showCancelButtonWithTarget:self];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!_showingDelete && [UIDevice isPhone]) {
+        _deleteView.hidden = NO;
+        _showingDelete = YES;
+
+        _removeButton.enabled = YES;
+        _removeButton.alpha = 1;
+
+        [UIView animateWithDuration:0.15 animations:^{
+            CGRect newTableViewSize = _tableView.frame;
+            newTableViewSize.size.height -= CGRectGetHeight(_deleteView.bounds);
+            _tableView.frame = newTableViewSize;
+
+            _deleteView.frame = CGRectOffset(_deleteView.frame, 0, -1 * CGRectGetHeight(_deleteView.bounds));
+        }];
+    }
+    
+    _selectedIndex = indexPath.row;
+    _deleteViewLabel.text = [[_transfers objectAtIndex:indexPath.row] displayName];
 }
 
-- (void)cancelTapped:(UIButton *)sender {
+- (IBAction)deleteTapped:(UIButton *)sender {
+    if (_selectedIndex == NSNotFound) return;
+
     sender.enabled = NO;
     sender.alpha = 0.5;
-    [[PutIOClient sharedClient] cancelTransfer:_transfers[sender.tag] :^{
+    _deletedCount++;
+
+    NSIndexPath *cellPath = [NSIndexPath indexPathForRow:_selectedIndex inSection:0];
+    [_tableView deleteRowsAtIndexPaths:@[cellPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    [[PutIOClient sharedClient] cancelTransfer:_transfers[sender.tag] :^{        
+        _deletedCount--;
         [self getTransfers];
 
-        ORExtendedTransferCell *cell = (ORExtendedTransferCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
-        [cell deletedTransfer];
+        _selectedIndex = NSNotFound;
+        _deleteViewLabel.text = @"";
 
     } failure:^(NSError *error) {
+        _deletedCount--;
+        sender.enabled = YES;
+        sender.alpha = 1;
+        _selectedIndex = NSNotFound;
 
+        _deleteViewLabel.text = @"Failed to remove! Put.IO might be down :(";
     }];
+
 }
 
 - (void)viewDidUnload {
     [self setTableView:nil];
-    [self setTableCellBack:nil];
+    [self setDeleteView:nil];
+    [self setDeleteViewLabel:nil];
+    [self setRemoveButton:nil];
     [super viewDidUnload];
 }
 

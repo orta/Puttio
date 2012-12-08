@@ -6,6 +6,6 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-@interface ORTransferViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ORTransferViewController : UIViewController <UITableViewDataSource, UITableViewDelegate >
 
 @end
