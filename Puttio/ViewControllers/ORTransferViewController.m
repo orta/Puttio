@@ -11,11 +11,16 @@
 #import "ORDestructiveButton.h"
 #import "ModalZoomView.h"
 #import "ORTorrentBrowserViewController.h"
+#import "WEPopoverController.h"
+#import "ORRemoveTransferPopoverViewController.h"
 
 @interface ORTransferViewController (){
     NSArray *_transfers;
     NSTimer *_dataLoopTimer;
     BOOL _showingDelete;
+
+    WEPopoverController *_deletePopover;
+    ORRemoveTransferPopoverViewController *_removeVC;
 
     int _deletedCount;
     int _selectedIndex;
@@ -96,13 +101,16 @@
     return cell;
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [_deletePopover dismissPopoverAnimated:YES];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!_showingDelete && [UIDevice isPhone]) {
+        // Initially show the cancel panel at the bottom 
+
         _deleteView.hidden = NO;
         _showingDelete = YES;
-
-        _removeButton.enabled = YES;
-        _removeButton.alpha = 1;
 
         [UIView animateWithDuration:0.15 animations:^{
             CGRect newTableViewSize = _tableView.frame;
@@ -113,6 +121,30 @@
         }];
     }
     
+    if (!_showingDelete && [UIDevice isPad]) {
+        // show a popover with the cancel button
+        
+        _showingDelete = YES;
+
+         _removeVC =  [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"RemovePopoverTransferView"];
+        [_removeVC setTransferViewController:self];
+
+        _deletePopover = [[WEPopoverController alloc] initWithContentViewController:_removeVC];
+        _deletePopover.passthroughViews = @[self.view];
+    }
+
+    
+    // Deal with the iPad popovers
+    CGRect targetCellFrame = [_tableView cellForRowAtIndexPath:indexPath].frame;
+    targetCellFrame = [self.view convertRect:targetCellFrame fromView:_tableView];
+    [_deletePopover presentPopoverFromRect:targetCellFrame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+
+    [_removeVC setTransfer:_transfers[indexPath.row]];
+
+    // Deal with the iPhone bottom nav
+    _removeButton.enabled = YES;
+    _removeButton.alpha = 1;
+
     _selectedIndex = indexPath.row;
     _deleteViewLabel.text = [[_transfers objectAtIndex:indexPath.row] displayName];
 }
@@ -120,24 +152,25 @@
 - (IBAction)deleteTapped:(UIButton *)sender {
     if (_selectedIndex == NSNotFound) return;
 
-    sender.enabled = NO;
-    sender.alpha = 0.5;
+    _removeButton.enabled = NO;
+    _removeButton.alpha = 0.5;
     _deletedCount++;
 
     NSIndexPath *cellPath = [NSIndexPath indexPathForRow:_selectedIndex inSection:0];
     [_tableView deleteRowsAtIndexPaths:@[cellPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 
-    [[PutIOClient sharedClient] cancelTransfer:_transfers[sender.tag] :^{        
+    [[PutIOClient sharedClient] cancelTransfer:_transfers[_selectedIndex] :^{
         _deletedCount--;
         [self getTransfers];
 
+        [_deletePopover dismissPopoverAnimated:YES];
         _selectedIndex = NSNotFound;
         _deleteViewLabel.text = @"";
 
     } failure:^(NSError *error) {
         _deletedCount--;
-        sender.enabled = YES;
-        sender.alpha = 1;
+        _removeButton.enabled = YES;
+        _removeButton.alpha = 1;
         _selectedIndex = NSNotFound;
 
         _deleteViewLabel.text = @"Failed to remove! Put.IO might be down :(";

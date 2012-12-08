@@ -7,5 +7,5 @@
 //
 
 @interface ORTransferViewController : UIViewController <UITableViewDataSource, UITableViewDelegate >
-
+- (IBAction)deleteTapped:(UIButton *)sender;
 @end
