@@ -20,6 +20,7 @@
 #import "ORPasteboardParser.h"
 #import "ORDownloadCleanup.h"
 
+
 @implementation ORAppDelegate
 
 @synthesize window = _window;
@@ -45,7 +46,7 @@
         [self showLogin];
     }
     
-    [Crashlytics startWithAPIKey:CRASHLYTICS_API_KEY];
+    [Crashlytics startWithAPIKey:CRASHLYTICS_API_KEY];    
     return YES;
 }
 

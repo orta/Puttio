@@ -175,7 +175,6 @@
 
         _deleteViewLabel.text = @"Failed to remove! Put.IO might be down :(";
     }];
-
 }
 
 - (void)viewDidUnload {

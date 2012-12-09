@@ -9,7 +9,8 @@
 #import "FileController.h"
 #import "BaseFileController.h"
 #import "MoviePlayer.h"
+#import "OROpenSubtitleDownloader.h"
 
 @class FileInfoViewController;
-@interface VideoFileController : BaseFileController <FileController, MoviePlayerDelegate, UIDocumentInteractionControllerDelegate>
+@interface VideoFileController : BaseFileController <FileController, MoviePlayerDelegate, UIDocumentInteractionControllerDelegate, OROpenSubtitleDownloaderDelegate>
 @end

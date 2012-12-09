@@ -20,6 +20,8 @@
     BOOL _isMP4;
     BOOL _requested;
     UIDocumentInteractionController *_docController;
+    OROpenSubtitleDownloader *_subtitleDownloader;
+    NSArray *_subtitleResults;
 }
 
 + (BOOL)fileSupportedByController:(File *)aFile {
@@ -39,6 +41,8 @@
     self.infoController.titleLabel.text = _file.displayName;
     self.infoController.fileSizeLabel.text = [UIDevice humanStringFromBytes:[[_file size] doubleValue]];
     [self.infoController hideProgress];
+
+    [self getSubtitleInfo];
 
     if ([_file.contentType isEqualToString:@"video/mp4"] ||
         [_file.contentType isEqualToString:@"video/quicktime"] ||
@@ -124,36 +128,29 @@
     return NO;
 }
 
-- (void)downloadFile {    
-    NSString *requestURL;
+- (NSString *)localPathForFileWithExtension:(NSString *)extension {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = paths[0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:_file.id];
+    return [NSString stringWithFormat:@"%@.%@", filePath, extension];
+}
+
+- (void)downloadFile {
+    NSString *requestURL = nil;
     if (_isMP4) {
         requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/download", _file.id];   
     }else{
         requestURL = [NSString stringWithFormat:@"https://put.io/v2/files/%@/mp4/download", _file.id];   
     }
 
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_file.screenshot]];
-    AFHTTPRequestOperation *screenShotOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [screenShotOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = paths[0];
-        NSString *screenShotPath = [documentsDirectory stringByAppendingPathComponent:[_file.id stringByAppendingPathExtension:@"jpg"]];
-        
-        [operation.responseData writeToFile:screenShotPath atomically:YES];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"screenshot op died");
-    }];
-    [screenShotOperation start];
-
+    [self downloadScreenshot];
+    [self downloadSubtitles];
+    
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = paths[0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:_file.id];
-    NSString *fullPath = [NSString stringWithFormat:@"%@.mp4", filePath];
+    NSString *localMP4Path = [self localPathForFileWithExtension:@"mp4"];
     
-    [self downloadFileAtAddress:requestURL to:fullPath backgroundable:YES withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self downloadFileAtAddress:requestURL to:localMP4Path backgroundable:YES withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 
         // Give it a localfile core data entity
@@ -190,6 +187,43 @@
             self.infoController.primaryButton.enabled = YES;
         }
     }];
+}
+
+- (void)downloadScreenshot {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_file.screenshot]];
+    AFHTTPRequestOperation *screenShotOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [screenShotOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSString *screenShotPath = [self localPathForFileWithExtension:@"jpg"];
+        [operation.responseData writeToFile:screenShotPath atomically:YES];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"screenshot op died");
+    }];
+    [screenShotOperation start];
+}
+
+#pragma mark -
+#pragma mark Subtitles
+
+- (void)getSubtitleInfo {
+    _subtitleDownloader = [[OROpenSubtitleDownloader alloc] init];
+    _subtitleDownloader.delegate = self;
+}
+
+- (void)openSubtitlerDidLogIn:(OROpenSubtitleDownloader *)downloader {
+    [_subtitleDownloader searchForSubtitlesWithHash:_file.opensubtitlesHash andFilesize:_file.size :^(NSArray *subtitles) {
+        _subtitleResults = subtitles;
+    }];
+}
+
+- (void)downloadSubtitles {
+    if (_subtitleResults.count) {
+        NSString *srtPath = [self localPathForFileWithExtension:@"srt"];
+        [_subtitleDownloader downloadSubtitlesForResult:_subtitleResults[0] toPath:srtPath :^(NSString *pathForDownloadedFile) {
+            NSLog(@"downloaded");
+        }];
+    }
 }
 
 - (void)getMP4Info {
@@ -234,7 +268,7 @@
         }
 
     } failure:^(NSError *error) {
-
+        [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
     }];
 }
 
