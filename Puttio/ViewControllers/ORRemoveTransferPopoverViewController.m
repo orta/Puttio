@@ -23,6 +23,7 @@
 
     _removeButton.enabled = YES;
     _removeButton.alpha = 1;
+   [_removeButton setTitle:@"Remove" forState:UIControlStateNormal];
 }
 
 - (void)setTransferViewController:(ORTransferViewController *)transferVC {

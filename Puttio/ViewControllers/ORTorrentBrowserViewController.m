@@ -26,7 +26,7 @@
 
     NSString *lastAddress = [[NSUserDefaults standardUserDefaults] objectForKey:ORLastSiteVisitedDefault];
     if (!lastAddress) {
-        lastAddress = @"http://google.com";
+        lastAddress = @"http://www.google.com";
     }
 
     _addressTextfield.text = lastAddress;
@@ -86,9 +86,15 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     NSString *address = textField.text;
+
+    if ([address rangeOfString:@"."].location != NSNotFound) {
+        address = [NSString stringWithFormat:@"https://duckduckgo.com/?q=%@", address];
+    }
+
     if (![address hasPrefix:@"http://"] || ![address hasPrefix:@"https://"] ) {
         address = [NSString stringWithFormat:@"http://%@", address];
     }
+
 
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:address]]];
     [textField resignFirstResponder];

@@ -17,11 +17,8 @@
     UIView *_backgroundView;
 }
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeToGoLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeStartedLabel;
-@property (weak, nonatomic) IBOutlet ORSimpleProgress *downloadProgress;
 @property (weak, nonatomic) IBOutlet UIImageView *statusImageView;
-@property (weak, nonatomic) IBOutlet UILabel *downloadSpeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *additionalInfoLabel;
 
 @end
 
@@ -29,41 +26,37 @@
 
 - (void)setTransfer:(Transfer *)transfer {
     _titleLabel.text = [transfer displayName];
-    if (transfer.estimatedTime) {
-        _timeStartedLabel.text = [[transfer estimatedTime] stringValue];
-    }
 
     NSString *status = [[transfer statusMessage] stringByReplacingOccurrencesOfString:@"This download turned out to be larger than your available space." withString:@"Not enough space."];
-    _timeToGoLabel.text = status;
-    _downloadProgress.progress = [transfer percentDone].floatValue / 100;
-    _downloadProgress.isLandscape = YES;
 
     NSString *downloadSpeed = [UIDevice humanStringFromBytes:transfer.downSpeed.doubleValue];
-    _downloadSpeedLabel.text = [NSString stringWithFormat:@"%@ps", downloadSpeed];
-
-    _downloadProgress.hidden = YES;
-    _downloadSpeedLabel.hidden = YES;
-    _timeToGoLabel.hidden = NO;
-
 
     UIImage *image = nil;
     switch (transfer.transferStatus) {
         case PKTransferStatusDownloading:
             image = [UIImage imageNamed:@"TransferDownloading"];
-            _downloadProgress.hidden = NO;
-            _downloadSpeedLabel.hidden = YES;
-            
-            _timeToGoLabel.hidden = YES;
+            _additionalInfoLabel.text = [NSString stringWithFormat:@"%@%% - %@", transfer.percentDone.stringValue, downloadSpeed];
             break;
+
         case PKTransferStatusCompleted:
             image = [UIImage imageNamed:@"TransferComplete"];
+            _additionalInfoLabel.text = status;
             break;
+
         case PKTransferStatusSeeding:
             image = [UIImage imageNamed:@"TransferUploading"];
+            _additionalInfoLabel.text = @"Completed";
+
             break;
-        default:
+
+        case PKTransferStatusError:
             image = [UIImage imageNamed:@"TransferError"];
+            _additionalInfoLabel.text = status;
             break;
+
+        default:
+            image = nil;
+            _additionalInfoLabel.text = status;
     }
     _statusImageView.image = image;
 }

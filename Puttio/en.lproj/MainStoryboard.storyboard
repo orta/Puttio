@@ -1288,20 +1288,8 @@ Message</string>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" id="xBp-aQ-I1e" customClass="ORSimpleProgress">
-                                                    <rect key="frame" x="110" y="64" width="200" height="6"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </view>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Completed" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="S6Q-Di-UfR">
                                                     <rect key="frame" x="10" y="53" width="295" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
-                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="52kps" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="MTu-D5-39b">
-                                                    <rect key="frame" x="10" y="53" width="54" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1311,10 +1299,8 @@ Message</string>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="downloadProgress" destination="xBp-aQ-I1e" id="AEB-l1-5K1"/>
-                                            <outlet property="downloadSpeedLabel" destination="MTu-D5-39b" id="tig-x5-M6W"/>
+                                            <outlet property="additionalInfoLabel" destination="S6Q-Di-UfR" id="3rm-kP-KZb"/>
                                             <outlet property="statusImageView" destination="JYF-HU-hwm" id="oNk-ZY-yGX"/>
-                                            <outlet property="timeToGoLabel" destination="S6Q-Di-UfR" id="6ax-0s-ypB"/>
                                             <outlet property="titleLabel" destination="lgP-To-pi5" id="sog-DO-dlb"/>
                                         </connections>
                                     </tableViewCell>
@@ -2183,7 +2169,7 @@ bloody hell</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="0kw-pk-pb7">
-                                        <rect key="frame" x="20" y="15" width="209" height="30"/>
+                                        <rect key="frame" x="20" y="15" width="187" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2809,11 +2795,8 @@ bloody hell</string>
         <class className="ORExtendedTransferCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORExtendedTransferCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="downloadProgress" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="downloadSpeedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="additionalInfoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="statusImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="timeStartedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeToGoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -2839,7 +2822,6 @@ bloody hell</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORRemoveTransferPopoverViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="removeButton" candidateClass="ORDestructiveButton"/>
-                <relationship kind="outlet" name="removeLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ORRotatingButton" superclassName="UIButton">
@@ -2871,6 +2853,8 @@ bloody hell</string>
         <class className="ORTorrentBrowserViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTorrentBrowserViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="openAddressTapped:"/>
                 <relationship kind="outlet" name="addressTextfield" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>

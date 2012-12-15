@@ -54,14 +54,11 @@
 
 - (void)zoomViewDidFinishZooming:(ModalZoomView *)zoomView {
     [UIView animateWithDuration:0.3 animations:^{
-        if ([UIDevice isPhone]) {
-            if ([UIDevice deviceType] == DeviceIphone5Plus) {
-                self.view.frame = CGRectOffset(self.view.frame, 0, -28);
-            }
-            else {
-                self.view.frame = CGRectOffset(self.view.frame, 0, -72);
-            }
-
+        if ([UIDevice deviceType] == DeviceIphone5Plus) {
+            self.view.frame = CGRectOffset(self.view.frame, 0, -28);
+        }
+        else {
+            self.view.frame = CGRectOffset(self.view.frame, 0, -72);
         }
     }];
     [_torrentTextField becomeFirstResponder];

@@ -138,12 +138,6 @@ static NSString *OROpenSubtitlePath = @"xml-rpc";
 #pragma mark XMLRPC delegate methods
 
 - (void)request: (XMLRPCRequest *)request didReceiveResponse:(XMLRPCResponse *)response {
-    NSLog(@"--------------");
-    NSLog(@"Request : %@", request.body);
-    NSLog(@"------");
-    NSLog(@"Response: %@", response.object);
-    NSLog(@"--------------");
-
     // Nothing will work without a valid user agent.
     NSString *status = response.object[@"status"];
     if ([status isEqualToString:@"414 Unknown User Agent"]) {
@@ -186,11 +180,6 @@ static NSString *OROpenSubtitlePath = @"xml-rpc";
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
             resultsBlock(searchResults);
         });
-    }
-
-    // We get sent the gzipped base64 data
-    if ([request.method isEqualToString:@"DownloadSubtitles"]) {
-        NSLog(@"DOWNLODDDDD");
     }
 }
 
