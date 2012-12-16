@@ -140,7 +140,20 @@ static NSDate *movieStartedDate;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:ORVideoStartedNotification object:nil userInfo:nil];
 
+
     ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
+
+    // SRT Support
+    NSString *srtFilePath = [path stringByReplacingOccurrencesOfString:@".mp4" withString:@".srt"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:srtFilePath]) {
+        NSError *error = nil;
+        NSString *stringSRT = [NSString stringWithContentsOfFile:srtFilePath encoding:NSASCIIStringEncoding error:&error];
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        movieController.currentSubtitles = [[SubRip alloc] initWithString:stringSRT];
+    }
+
     [rootController presentMoviePlayerViewControllerAnimated:movieController];
     
     sharedPlayer.mediaPlayer = movieController.moviePlayer;

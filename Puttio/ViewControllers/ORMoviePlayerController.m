@@ -9,7 +9,10 @@
 #import "ORMoviePlayerController.h"
 #import <AVFoundation/AVFoundation.h>
 
-@implementation ORMoviePlayerController
+@implementation ORMoviePlayerController {
+    UILabel *_subtitlesLabel;
+    NSTimer *_subtitlesTimer;
+}
 
 #pragma mark - View lifecycle
 
@@ -24,6 +27,39 @@
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
     [self.moviePlayer prepareToPlay];
+}
+
+- (void)setCurrentSubtitles:(SubRip *)currentSubtitles {
+    _currentSubtitles = currentSubtitles;
+
+    CGRect subsFrame = self.view.bounds;
+    subsFrame.size.height = 44;
+    subsFrame.origin.y = CGRectGetHeight(self.view.bounds) - subsFrame.size.height;
+    
+    _subtitlesLabel = [[UILabel alloc] initWithFrame: subsFrame];
+    _subtitlesLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    _subtitlesLabel.textColor = [UIColor whiteColor];
+    _subtitlesLabel.textAlignment = UITextAlignmentCenter;
+    _subtitlesLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    _subtitlesLabel.numberOfLines = 2;
+    
+    [self.view addSubview:_subtitlesLabel];
+
+    _subtitlesTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    [_subtitlesTimer fire];
+}
+
+- (void)viewWillLayoutSubviews {
+    CGRect subsFrame = self.view.bounds;
+    subsFrame.size.height = 44;
+    subsFrame.origin.y = CGRectGetHeight(self.view.bounds) - subsFrame.size.height;
+
+    _subtitlesLabel.frame = subsFrame;
+}
+
+- (void)tick {
+    NSInteger index = [_currentSubtitles indexOfSubRipItemWithStartTimeInterval:self.moviePlayer.currentPlaybackTime];
+    _subtitlesLabel.text = [_currentSubtitles.subtitleItems[index] text];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

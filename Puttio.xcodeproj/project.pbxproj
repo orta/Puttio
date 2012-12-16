@@ -54,6 +54,7 @@
 		604678FC15B1E76C00A2BFA8 /* TwitterBird@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F515B1E76A00A2BFA8 /* TwitterBird@2x.png */; };
 		604678FD15B1E76C00A2BFA8 /* DotSlash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F615B1E76B00A2BFA8 /* DotSlash@2x.png */; };
 		6046790715B1F0EC00A2BFA8 /* ORDestructiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */; };
+		60567B0E167D3710009D205A /* SubRip.m in Sources */ = {isa = PBXBuildFile; fileRef = 60567B0D167D3710009D205A /* SubRip.m */; };
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
 		6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */; };
 		606818C3166BEC5800B0B81B /* ORTorrentBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606818C2166BEC5800B0B81B /* ORTorrentBrowserViewController.m */; };
@@ -264,6 +265,8 @@
 		604678F615B1E76B00A2BFA8 /* DotSlash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DotSlash@2x.png"; sourceTree = "<group>"; };
 		6046790515B1F0EC00A2BFA8 /* ORDestructiveButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORDestructiveButton.h; path = Views/ORDestructiveButton.h; sourceTree = "<group>"; };
 		6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDestructiveButton.m; path = Views/ORDestructiveButton.m; sourceTree = "<group>"; };
+		60567B0C167D3710009D205A /* SubRip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubRip.h; sourceTree = "<group>"; };
+		60567B0D167D3710009D205A /* SubRip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubRip.m; sourceTree = "<group>"; };
 		6064D89915398E4600E454E5 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = Utils/SearchController.h; sourceTree = "<group>"; };
 		6064D89A15398E4600E454E5 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchController.m; path = Utils/SearchController.m; sourceTree = "<group>"; };
 		6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+StripHTML.h"; path = "Categories/NSString+StripHTML.h"; sourceTree = "<group>"; };
@@ -812,6 +815,8 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				60567B0C167D3710009D205A /* SubRip.h */,
+				60567B0D167D3710009D205A /* SubRip.m */,
 				60973FF116050ECB00867A2D /* TreemapKit */,
 				608FF9C615F3680500461A6D /* CoreMedia.framework */,
 				6080915415BB015800BDB3D7 /* MessageUI.framework */,
@@ -1217,6 +1222,7 @@
 				60199B271673FD490026762E /* ORRemoveTransferPopoverViewController.m in Sources */,
 				60199B3516740EC30026762E /* OROpenSubtitleDownloader.m in Sources */,
 				60199B421675119F0026762E /* OpenSubtitleSearchResult.m in Sources */,
+				60567B0E167D3710009D205A /* SubRip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

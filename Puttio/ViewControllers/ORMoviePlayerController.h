@@ -9,6 +9,11 @@
 //  https://discussions.apple.com/thread/3425817?start=15&tstart=0
 
 #import <MediaPlayer/MediaPlayer.h>
+#import "SubRip.h"
 
 @interface ORMoviePlayerController : MPMoviePlayerViewController
+
+@property (assign) BOOL isStreaming;
+@property (strong, nonatomic) SubRip *currentSubtitles;
+
 @end
