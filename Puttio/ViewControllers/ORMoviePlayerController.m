@@ -9,9 +9,16 @@
 #import "ORMoviePlayerController.h"
 #import <AVFoundation/AVFoundation.h>
 
+// Its worth noting that MPMobviewPlayerController is a view on the sim, and a window on the device
+
 @implementation ORMoviePlayerController {
-    UILabel *_subtitlesLabel;
+    OROpenSubtitleDownloader *_subtitleDownloader;
+    NSArray *_subtitleResults;
     NSTimer *_subtitlesTimer;
+
+    NSInteger _subtitlesIndex;
+    UILabel *_subtitlesLabel;
+    UIButton *_ccButton;
 }
 
 #pragma mark - View lifecycle
@@ -29,24 +36,94 @@
     [self.moviePlayer prepareToPlay];
 }
 
-- (void)setCurrentSubtitles:(SubRip *)currentSubtitles {
-    _currentSubtitles = currentSubtitles;
+- (void)setFile:(File *)file {
+    _file = file;
 
+    _subtitleDownloader = [[OROpenSubtitleDownloader alloc] init];
+    _subtitleDownloader.delegate = self;
+}
+
+- (void)openSubtitlerDidLogIn:(OROpenSubtitleDownloader *)downloader {
+    [_subtitleDownloader searchForSubtitlesWithHash:_file.opensubtitlesHash andFilesize:_file.size :^(NSArray *subtitles) {
+        
+        _subtitleResults = subtitles;
+        if (subtitles.count) {
+            NSLog(@"subtitles found!");
+            [self displayCCLogo];
+        } else {
+            NSLog(@"No subtitles found!");
+        }
+    }];
+}
+
+- (void)displayCCLogo {
+    if (_ccButton) return;
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    
+    _ccButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_ccButton setImage:[UIImage imageNamed:@"CCLogo"] forState:UIControlStateNormal];
+
+    [_ccButton addTarget:self action:@selector(toggleCCView) forControlEvents:UIControlEventTouchUpInside];
+    _ccButton.alpha = 0;
+
+    UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+
+    NSArray *windows = [[UIApplication sharedApplication] windows];
+    UIWindow *mpw = [windows objectAtIndex:0];
+    [self viewWillLayoutSubviews];
+    [rootView addSubview:_ccButton];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        _ccButton.alpha = 1;
+    }];
+}
+
+- (void)toggleCCView {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    if (!_subtitlesLabel) {
+        [self addSubtitleView];
+        [self getSubtitles];
+    }
+    
+    [UIView animateWithDuration:0.15 animations:^{
+        _subtitlesLabel.alpha = !_subtitlesLabel.alpha;
+    }];
+}
+
+- (void)getSubtitles {
+    NSString *srtPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"subtitles.srt"];
+
+    [_subtitleDownloader downloadSubtitlesForResult:_subtitleResults[_subtitlesIndex] toPath:srtPath :^(NSString *pathForDownloadedFile) {
+        NSString *stringSRT = [NSString stringWithContentsOfFile:pathForDownloadedFile encoding:NSASCIIStringEncoding error:nil];
+        self.currentSubtitles = [[SubRip alloc] initWithString:stringSRT];
+    }];
+}
+
+- (void)addSubtitleView {
     CGRect subsFrame = self.view.bounds;
     subsFrame.size.height = 44;
     subsFrame.origin.y = CGRectGetHeight(self.view.bounds) - subsFrame.size.height;
-    
+
     _subtitlesLabel = [[UILabel alloc] initWithFrame: subsFrame];
     _subtitlesLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
     _subtitlesLabel.textColor = [UIColor whiteColor];
     _subtitlesLabel.textAlignment = UITextAlignmentCenter;
     _subtitlesLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _subtitlesLabel.numberOfLines = 2;
-    
-    [self.view addSubview:_subtitlesLabel];
+    _subtitlesLabel.alpha = 0;
 
-    _subtitlesTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(tick) userInfo:nil repeats:YES];
-    [_subtitlesTimer fire];
+    NSArray *windows = [[UIApplication sharedApplication] windows];
+    UIWindow *mpw = [windows objectAtIndex:1];
+    [mpw addSubview:_subtitlesLabel];
+}
+
+- (void)setCurrentSubtitles:(SubRip *)currentSubtitles {
+    _currentSubtitles = currentSubtitles;
+
+    if (!_subtitlesTimer) {
+        _subtitlesTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+        [_subtitlesTimer fire];
+    }
 }
 
 - (void)viewWillLayoutSubviews {
@@ -55,6 +132,16 @@
     subsFrame.origin.y = CGRectGetHeight(self.view.bounds) - subsFrame.size.height;
 
     _subtitlesLabel.frame = subsFrame;
+
+    if ([UIDevice isPad]) {
+        _ccButton.frame = CGRectMake(self.view.bounds.size.width - 66, self.view.bounds.size.height - 66, 44, 44);
+    } else {
+//
+//        _ccButton.transform = CGAffineTransformMakeRotation(M_PI / -2);
+  //      _ccButton.frame = CGRectMake(self.view.bounds.size.height - 66, self.view.bounds.size.width - 66, 44, 44);
+        _ccButton.frame = CGRectMake(40, 40, 44, 44);
+        NSLog(@"%@ - %@", NSStringFromSelector(_cmd), NSStringFromCGRect(_ccButton.frame));
+    }
 }
 
 - (void)tick {
@@ -90,7 +177,10 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
+    [_subtitlesTimer invalidate];
+    [_subtitlesLabel removeFromSuperview];
+    [_ccButton removeFromSuperview];
+
     //End recieving events
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     [self resignFirstResponder];

@@ -19,7 +19,7 @@
 @property  MPMoviePlayerController *mediaPlayer;
 @property (weak) id <MoviePlayerDelegate> delegate;
 
-+ (void)streamMovieAtPath:(NSString *)path;
++ (void)streamMovieAtPath:(NSString *)path withFile:(File *)file;
 + (void)watchLocalMovieAtPath:(NSString *)path;
 + (MoviePlayer *)sharedPlayer;
 @end

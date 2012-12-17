@@ -55,6 +55,9 @@
 		604678FD15B1E76C00A2BFA8 /* DotSlash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F615B1E76B00A2BFA8 /* DotSlash@2x.png */; };
 		6046790715B1F0EC00A2BFA8 /* ORDestructiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */; };
 		60567B0E167D3710009D205A /* SubRip.m in Sources */ = {isa = PBXBuildFile; fileRef = 60567B0D167D3710009D205A /* SubRip.m */; };
+		60567B11167D5C12009D205A /* ORSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60567B10167D5C11009D205A /* ORSettingsViewController.m */; };
+		60567B14167E6AC5009D205A /* CCLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 60567B12167E6AC5009D205A /* CCLogo.png */; };
+		60567B15167E6AC5009D205A /* CCLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60567B13167E6AC5009D205A /* CCLogo@2x.png */; };
 		6064D89B15398E4600E454E5 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D89A15398E4600E454E5 /* SearchController.m */; };
 		6064D8B315399D8B00E454E5 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6064D8B215399D8B00E454E5 /* NSString+StripHTML.m */; };
 		606818C3166BEC5800B0B81B /* ORTorrentBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606818C2166BEC5800B0B81B /* ORTorrentBrowserViewController.m */; };
@@ -267,6 +270,10 @@
 		6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDestructiveButton.m; path = Views/ORDestructiveButton.m; sourceTree = "<group>"; };
 		60567B0C167D3710009D205A /* SubRip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubRip.h; sourceTree = "<group>"; };
 		60567B0D167D3710009D205A /* SubRip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubRip.m; sourceTree = "<group>"; };
+		60567B0F167D5C11009D205A /* ORSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSettingsViewController.h; sourceTree = "<group>"; };
+		60567B10167D5C11009D205A /* ORSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSettingsViewController.m; sourceTree = "<group>"; };
+		60567B12167E6AC5009D205A /* CCLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCLogo.png; sourceTree = "<group>"; };
+		60567B13167E6AC5009D205A /* CCLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CCLogo@2x.png"; sourceTree = "<group>"; };
 		6064D89915398E4600E454E5 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = Utils/SearchController.h; sourceTree = "<group>"; };
 		6064D89A15398E4600E454E5 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchController.m; path = Utils/SearchController.m; sourceTree = "<group>"; };
 		6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+StripHTML.h"; path = "Categories/NSString+StripHTML.h"; sourceTree = "<group>"; };
@@ -613,6 +620,8 @@
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60567B12167E6AC5009D205A /* CCLogo.png */,
+				60567B13167E6AC5009D205A /* CCLogo@2x.png */,
 				600249D0166C5156007E6E9A /* TransferDownloading@2x.png */,
 				600249D1166C5156007E6E9A /* TransferUploading@2x.png */,
 				600249D2166C5156007E6E9A /* TransferComplete@2x.png */,
@@ -808,6 +817,8 @@
 				600249AC166C2AD6007E6E9A /* ORImageFileInfoViewController.m */,
 				60199B251673FD490026762E /* ORRemoveTransferPopoverViewController.h */,
 				60199B261673FD490026762E /* ORRemoveTransferPopoverViewController.m */,
+				60567B0F167D5C11009D205A /* ORSettingsViewController.h */,
+				60567B10167D5C11009D205A /* ORSettingsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1084,6 +1095,8 @@
 				600249D5166C5156007E6E9A /* TransferUploading@2x.png in Resources */,
 				600249D6166C5156007E6E9A /* TransferComplete@2x.png in Resources */,
 				600249D7166C5156007E6E9A /* TransferError@2x.png in Resources */,
+				60567B14167E6AC5009D205A /* CCLogo.png in Resources */,
+				60567B15167E6AC5009D205A /* CCLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1223,6 +1236,7 @@
 				60199B3516740EC30026762E /* OROpenSubtitleDownloader.m in Sources */,
 				60199B421675119F0026762E /* OpenSubtitleSearchResult.m in Sources */,
 				60567B0E167D3710009D205A /* SubRip.m in Sources */,
+				60567B11167D5C12009D205A /* ORSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

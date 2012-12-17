@@ -709,55 +709,20 @@ to Put.IO</string>
             </objects>
             <point key="canvasLocation" x="-3373" y="-2012"/>
         </scene>
-        <!--Account View Controller-->
-        <scene sceneID="Qbo-eh-XTA">
+        <!--Settings View Controller-->
+        <scene sceneID="2LH-H9-Lse">
             <objects>
-                <viewController storyboardIdentifier="accountView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VGZ-tq-wND" customClass="AccountViewController" sceneMemberID="viewController">
-                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="E9A-ge-4LP">
-                        <rect key="frame" x="0.0" y="20" width="320" height="480"/>
+                <viewController storyboardIdentifier="SettingsView" id="Dvg-z8-SBB" customClass="ORSettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8pU-st-Sfi">
+                        <rect key="frame" x="0.0" y="20" width="210" height="425"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="0lY-ur-aIZ">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hey, [orta]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="exz-4M-jJU" customClass="ORTitleLabel">
-                                        <rect key="frame" x="10" y="4" width="299" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="ZnF-cK-k5g" customClass="ORSimpleProgress">
-                                <rect key="frame" x="212" y="158" width="88" height="36"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="23%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3VC-dG-sku">
-                                        <rect key="frame" x="0.0" y="0.0" width="88" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You have XXGb left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="8tX-CA-8fg">
-                                <rect key="frame" x="20" y="160" width="166" height="38"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KV8-5Y-SOc" customClass="ORDestructiveButton">
-                                <rect key="frame" x="181" y="257" width="120" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CfN-c6-T3b" customClass="ORDestructiveButton">
+                                <rect key="frame" x="64" y="361" width="82" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Log out">
+                                <state key="normal" title="Settings">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Log out">
                                             <attributes>
@@ -782,23 +747,168 @@ to Put.IO</string>
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logOutTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="kDH-0Y-uDm"/>
+                                    <action selector="logoutTapped:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="tAI-YK-Qsp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J23-TL-y2k" customClass="ORFlatButton">
+                                <rect key="frame" x="108" y="249" width="82" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Change">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeSubtitlesTapped:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="AdA-1x-msw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subtitles Language" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bOO-LX-eHM">
+                                <rect key="frame" x="20" y="295" width="170" height="28"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subtitles:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rzm-4g-rLA">
+                                <rect key="frame" x="20" y="252" width="87" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="0fn-7f-k3X">
+                                <rect key="frame" x="0.0" y="20" width="212" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bgm-Ca-JXy" customClass="ORTitleLabel">
+                                        <rect key="frame" x="10" y="4" width="196" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="ejt-6B-Glb" userLabel="Logout Help">
+                                <rect key="frame" x="1" y="323" width="210" height="102"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="no4-6T-Fso">
+                                        <rect key="frame" x="0.0" y="58" width="210" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="and load the app again" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="UzH-Zm-UvI">
+                                                <rect key="frame" x="29" y="3" width="168" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="erO-pU-wvN">
+                                        <rect key="frame" x="0.0" y="4" width="210" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please press the home button" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="cwu-aY-3Dx">
+                                                <rect key="frame" x="29" y="3" width="168" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="logoutInfoView" destination="ejt-6B-Glb" id="XJl-ga-U9I"/>
+                        <outlet property="subtitlesLanguages" destination="bOO-LX-eHM" id="Rsp-dP-OeC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzB-gH-W6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4475" y="204"/>
+        </scene>
+        <!--Account View Controller-->
+        <scene sceneID="Qbo-eh-XTA">
+            <objects>
+                <viewController storyboardIdentifier="accountView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VGZ-tq-wND" customClass="AccountViewController" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="E9A-ge-4LP">
+                        <rect key="frame" x="0.0" y="20" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="0lY-ur-aIZ">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hey, [orta]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="exz-4M-jJU" customClass="ORTitleLabel">
+                                        <rect key="frame" x="10" y="4" width="299" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="ZnF-cK-k5g" customClass="ORSimpleProgress">
+                                <rect key="frame" x="212" y="173" width="88" height="36"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="23%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3VC-dG-sku">
+                                        <rect key="frame" x="0.0" y="0.0" width="88" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You have XXGb left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="8tX-CA-8fg">
+                                <rect key="frame" x="20" y="175" width="166" height="38"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KV8-5Y-SOc" customClass="ORFlatButton">
+                                <rect key="frame" x="181" y="267" width="120" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingsTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="R4y-V6-a2e"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="qGE-AF-h0b" customClass="DCRoundSwitch">
-                                <rect key="frame" x="212" y="75" width="88" height="33"/>
+                                <rect key="frame" x="212" y="90" width="88" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Search Results:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7NE-eW-WZM">
-                                <rect key="frame" x="20" y="74" width="130" height="38"/>
+                                <rect key="frame" x="20" y="89" width="130" height="38"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="03U-7T-pZo" customClass="ORFlatButton">
-                                <rect key="frame" x="21" y="257" width="120" height="44"/>
+                                <rect key="frame" x="21" y="267" width="120" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -840,43 +950,8 @@ to Put.IO</string>
                                     <action selector="githubTapped:" destination="VGZ-tq-wND" eventType="touchUpInside" id="yTA-tM-ZTI"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" id="gQ1-lA-giN" userLabel="Logout Help">
-                                <rect key="frame" x="1" y="224" width="320" height="102"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" id="9qz-e1-ecx">
-                                        <rect key="frame" x="20" y="57" width="280" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="and load the app again" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="eJ8-Jm-n20">
-                                                <rect key="frame" x="9" y="3" width="278" height="38"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="O8E-9i-sjY">
-                                        <rect key="frame" x="20" y="4" width="280" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please press the home button" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="c49-Sp-dyl">
-                                                <rect key="frame" x="9" y="3" width="278" height="38"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You should always have it on all search results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="mw0-jG-ILz">
-                                <rect key="frame" x="20" y="110" width="280" height="41"/>
+                                <rect key="frame" x="20" y="125" width="280" height="41"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -956,7 +1031,6 @@ to Put.IO</string>
                         <outlet property="accountSpaceLabel" destination="8tX-CA-8fg" id="b1f-ny-qyd"/>
                         <outlet property="accountSpaceLeftProgress" destination="ZnF-cK-k5g" id="5s3-VG-OAC"/>
                         <outlet property="creativeCommonsSwitch" destination="qGE-AF-h0b" id="Ggi-64-jPa"/>
-                        <outlet property="loggedOutMessageView" destination="gQ1-lA-giN" id="Q99-Hb-ORS"/>
                         <outlet property="ortaInfoBackground" destination="wqc-12-lM6" id="6RQ-D9-ciT"/>
                         <outlet property="ortaInfoBodyLAbel" destination="yGD-D9-zGg" id="Xwk-tQ-V9x"/>
                         <outlet property="ortaInfoTitleLabel" destination="MuQ-Tx-aTb" id="6Ny-Vw-vfB"/>
@@ -1609,37 +1683,17 @@ Email the developer</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="19J-Kb-v6a" customClass="ORDestructiveButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="19J-Kb-v6a" customClass="ORFlatButton">
                                 <rect key="frame" x="108" y="243" width="82" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Log out">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Log out">
-                                            <attributes>
-                                                <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="NSFont" size="15" name="Helvetica-Bold"/>
-                                                <font key="NSOriginalFont" size="15" name="Helvetica-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="clipping" baseWritingDirection="natural"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Settings">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.59369297450000003" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
-                                    <action selector="logOutTapped:" destination="fFJ-dq-y8J" eventType="touchUpInside" id="7qF-Mt-DXd"/>
+                                    <action selector="settingsTapped:" destination="fFJ-dq-y8J" eventType="touchUpInside" id="zjy-bZ-Q8X"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="9bQ-Bi-FXW" customClass="DCRoundSwitch">
@@ -1697,43 +1751,8 @@ Email the developer</string>
                                     <action selector="githubTapped:" destination="fFJ-dq-y8J" eventType="touchUpInside" id="6DG-ij-1tp"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" id="oJf-8S-KcG" userLabel="Logout Help">
-                                <rect key="frame" x="0.0" y="212" width="210" height="102"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" id="XYO-CM-3Tw">
-                                        <rect key="frame" x="0.0" y="57" width="210" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="and load the app again" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="v1T-Jy-8bs">
-                                                <rect key="frame" x="29" y="3" width="168" height="38"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="Keg-pe-ABW">
-                                        <rect key="frame" x="0.0" y="4" width="210" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please press the home button" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Pgp-bN-L1i">
-                                                <rect key="frame" x="29" y="3" width="168" height="38"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You should always have it on all search results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="AD1-ts-AhU">
-                                <rect key="frame" x="20" y="157" width="177" height="73"/>
+                                <rect key="frame" x="20" y="157" width="170" height="73"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1783,7 +1802,6 @@ Email the developer</string>
                         <outlet property="accountSpaceLabel" destination="DSf-Lh-Fyb" id="61L-tm-0qw"/>
                         <outlet property="accountSpaceLeftProgress" destination="SnS-aP-9wP" id="XcS-9P-NkO"/>
                         <outlet property="creativeCommonsSwitch" destination="9bQ-Bi-FXW" id="iEs-XU-vcK"/>
-                        <outlet property="loggedOutMessageView" destination="oJf-8S-KcG" id="MPd-vM-vjb"/>
                         <outlet property="ortaInfoBackground" destination="HFt-0m-FAE" id="GoA-e2-2yF"/>
                         <outlet property="ortaInfoTitleLabel" destination="QwT-FS-O4i" id="L57-bY-2fJ"/>
                         <outlet property="searchInfoLabel" destination="AD1-ts-AhU" id="LHB-Ik-i7v"/>
@@ -2641,290 +2659,6 @@ bloody hell</string>
         <image name="TwitterBird.png" width="88" height="88"/>
         <image name="orta.png" width="88" height="88"/>
     </resources>
-    <classes>
-        <class className="AccountViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AccountViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addToTwitter:"/>
-                <relationship kind="action" name="dbgrandiTapped:"/>
-                <relationship kind="action" name="feedbackTapped:"/>
-                <relationship kind="action" name="githubTapped:"/>
-                <relationship kind="action" name="logOutTapped:"/>
-                <relationship kind="action" name="ortaTapped:"/>
-                <relationship kind="action" name="putIOTapped:"/>
-                <relationship kind="outlet" name="accountSpaceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="accountSpaceLeftProgress" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="creativeCommonsSwitch" candidateClass="DCRoundSwitch"/>
-                <relationship kind="outlet" name="loggedOutMessageView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="ortaInfoBackground" candidateClass="UIView"/>
-                <relationship kind="outlet" name="ortaInfoBodyLAbel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ortaInfoTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="percentageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="searchInfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="welcomeAccountLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="AudioViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AudioViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="playButton" candidateClass="ORFlatButton"/>
-                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="subtitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
-            </relationships>
-        </class>
-        <class className="BrowsingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backPressed:"/>
-                <relationship kind="action" name="reloadPressed:"/>
-                <relationship kind="outlet" name="firstErrorMessageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="offlineView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="refreshButton" candidateClass="ORRotatingButton"/>
-                <relationship kind="outlet" name="secondErrorMessageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="swipeHelperImage" candidateClass="ORSwipeImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DCControl" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCControl.h"/>
-        </class>
-        <class className="DCKnob" superclassName="DCControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCKnob.h"/>
-        </class>
-        <class className="DCRoundSwitch" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCRoundSwitch.h"/>
-        </class>
-        <class className="FeedbackViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedbackViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="emailDeveloper:"/>
-                <relationship kind="action" name="review:"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="FileInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FileInfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="primaryButtonTapped:"/>
-                <relationship kind="action" name="secondaryButtonTapped:"/>
-                <relationship kind="outlet" name="additionalInfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="primaryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="secondaryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="thumbnailImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ItemDeletionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemDeletionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelTapped:"/>
-                <relationship kind="action" name="deleteTapped:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="ORFlatButton"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="ORFlatButton"/>
-                <relationship kind="outlet" name="networkActivityView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LocalBrowsingViewController" superclassName="BrowsingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocalBrowsingViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="deviceSpaceLeftLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="deviceStoredLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="noItemsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="phoneBottomBarView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="phoneDeviceLeftLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="phoneDeviceStoredLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backTapped:"/>
-                <relationship kind="action" name="loginPressed:"/>
-                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="authHelper" candidateClass="PutIOOAuthHelper"/>
-                <relationship kind="outlet" name="errorHeaderView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loginViewWrapper" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordPaddingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernamePaddingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="usernameTextfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="warningLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="ORAddExternalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAddExternalViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ORAddTorrentCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAddTorrentCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="selectionTick" candidateClass="ORAnimatedTickView"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ORAddTorrentFromBrowseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAddTorrentFromBrowseViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addressLabel" candidateClass="ORTitleLabel"/>
-                <relationship kind="outlet" name="networkProgress" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
-            </relationships>
-        </class>
-        <class className="ORAddTorrentFromLinkViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAddTorrentFromLinkViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="_addedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_networkActivitySpinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="_torrentTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ORAnimatedTickView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAnimatedTickView.h"/>
-        </class>
-        <class className="ORDestructiveButton" superclassName="ORFlatButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORDestructiveButton.h"/>
-        </class>
-        <class className="ORExtendedTransferCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORExtendedTransferCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="additionalInfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="statusImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ORFlatButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORFlatButton.h"/>
-        </class>
-        <class className="ORImageFileInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORImageFileInfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loadingIndicator" candidateClass="ORRotatingButton"/>
-                <relationship kind="outlet" name="progressBar" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
-            </relationships>
-        </class>
-        <class className="ORMessageCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORMessageCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ORRemoveTransferPopoverViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORRemoveTransferPopoverViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="removeButton" candidateClass="ORDestructiveButton"/>
-            </relationships>
-        </class>
-        <class className="ORRotatingButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORRotatingButton.h"/>
-        </class>
-        <class className="ORSearchCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSearchCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="fileNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="seedersLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ORSimpleProgress" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSimpleProgress.h"/>
-        </class>
-        <class className="ORSlidingTableView" superclassName="UITableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSlidingTableView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="slidingDelegate" candidateClass="NSObject"/>
-            </relationships>
-        </class>
-        <class className="ORSwipeImageView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSwipeImageView.h"/>
-        </class>
-        <class className="ORTitleLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTitleLabel.h"/>
-        </class>
-        <class className="ORTorrentBrowserViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTorrentBrowserViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="openAddressTapped:"/>
-                <relationship kind="outlet" name="addressTextfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="ORTorrentLikeView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTorrentLikeView.h"/>
-        </class>
-        <class className="ORTransferCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTransferCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
-            </relationships>
-        </class>
-        <class className="ORTransferViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTransferViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="deleteTapped:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="deleteView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="deleteViewLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="removeButton" candidateClass="ORDestructiveButton"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ProcessPopoverViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProcessPopoverViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="progressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PutIOOAuthHelper" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PutIOOAuthHelper.h"/>
-            <relationships>
-                <relationship kind="outlet" name="delegate" candidateClass="NSObject"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activitySpinner" candidateClass="ORRotatingButton"/>
-                <relationship kind="outlet" name="noResultsFoundView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="statusViewController" candidateClass="StatusViewController"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="tryChangingSettingsView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="StatusViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="spaceProgressBG" candidateClass="DCKnob"/>
-                <relationship kind="outlet" name="spaceProgressView" candidateClass="DCKnob"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="TextFileInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextFileInfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="loadingIndicator" candidateClass="ORRotatingButton"/>
-                <relationship kind="outlet" name="progressBar" candidateClass="ORSimpleProgress"/>
-                <relationship kind="outlet" name="textfield" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

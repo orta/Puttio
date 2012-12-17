@@ -10,10 +10,11 @@
 
 #import <MediaPlayer/MediaPlayer.h>
 #import "SubRip.h"
+#import "OROpenSubtitleDownloader.h"
 
-@interface ORMoviePlayerController : MPMoviePlayerViewController
+@interface ORMoviePlayerController : MPMoviePlayerViewController <OROpenSubtitleDownloaderDelegate>
 
-@property (assign) BOOL isStreaming;
+@property (strong, nonatomic) File *file;
 @property (strong, nonatomic) SubRip *currentSubtitles;
 
 @end

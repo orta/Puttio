@@ -109,7 +109,7 @@ static NSDate *movieStartedDate;
     }];
 }
 
-+ (void)streamMovieAtPath:(NSString *)path {
++ (void)streamMovieAtPath:(NSString *)path withFile:(File *)file {
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
@@ -122,6 +122,8 @@ static NSDate *movieStartedDate;
     [[NSNotificationCenter defaultCenter] postNotificationName:ORVideoStartedNotification object:nil userInfo:nil];
 
     ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:path]];
+    movieController.file = file;
+    
     [canvas presentMoviePlayerViewControllerAnimated:movieController];
 
     sharedPlayer.mediaPlayer = movieController.moviePlayer;

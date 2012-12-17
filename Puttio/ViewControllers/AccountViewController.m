@@ -85,20 +85,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:ORCCSearchedChangedNotification object:nil];
 }
 
-- (IBAction)logOutTapped:(UIButton *)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults removeObjectForKey:AppAuthTokenDefault];
-    [defaults removeObjectForKey:APIKeyDefault];
-    [defaults removeObjectForKey:APISecretDefault];
-    [defaults setBool:YES forKey:ORLoggedOutDefault];
-    [defaults synchronize];
-
-    [Analytics incrementUserProperty:@"User Logged Out" byInt:1];
-    [Analytics event:@"User Logged Out"];
-
-    self.loggedOutMessageView.hidden = NO;
-    sender.enabled = NO;
-    sender.alpha = 0.5;
+- (IBAction)settingsTapped:(id)sender {
+    UIViewController *settings = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"SettingsView"];
+    [self.navigationController pushViewController:settings animated:YES];
 }
 
 - (IBAction)addToTwitter:(id)sender {
@@ -199,7 +188,6 @@
     [self setAccountSpaceLeftProgress:nil];
     [self setAccountSpaceLabel:nil];
     [self setWelcomeAccountLabel:nil];
-    [self setLoggedOutMessageView:nil];
     [self setCreativeCommonsSwitch:nil];
     [self setSearchInfoLabel:nil];
     [self setOrtaInfoBackground:nil];

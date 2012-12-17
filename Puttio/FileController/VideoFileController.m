@@ -79,9 +79,9 @@
     [MoviePlayer sharedPlayer].delegate = self;
 
     if (_isMP4) {
-        [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"https://put.io/v2/files/%@/stream", _file.id]];
+        [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"https://put.io/v2/files/%@/stream", _file.id] withFile:_file];
     }else{
-        [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"https://put.io/v2/files/%@/mp4/stream", _file.id]];
+        [MoviePlayer streamMovieAtPath:[NSString stringWithFormat:@"https://put.io/v2/files/%@/mp4/stream", _file.id] withFile:_file];
     }
     
     [self markFileAsViewed];

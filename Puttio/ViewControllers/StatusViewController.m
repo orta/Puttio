@@ -97,8 +97,10 @@ typedef enum {
 
     NSString *identifier = [UIDevice isPad] ? @"accountView" : @"accountViewPhone";
     UIViewController *accountVC =  [storyboard instantiateViewControllerWithIdentifier:identifier];
-    
-    _popoverController = [[WEPopoverController alloc] initWithContentViewController:accountVC];
+
+    UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:accountVC];
+    controller.navigationBarHidden = YES;
+    _popoverController = [[WEPopoverController alloc] initWithContentViewController:controller];
     UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
     
     [_popoverController presentPopoverFromRect:[rootController.view convertRect:gesture.view.frame fromView:gesture.view.superview] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];

@@ -60,7 +60,7 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "-com.apple.coredata.ubiquity.logLevel 3&#10;"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
