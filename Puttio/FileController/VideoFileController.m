@@ -42,8 +42,6 @@
     self.infoController.fileSizeLabel.text = [UIDevice humanStringFromBytes:[[_file size] doubleValue]];
     [self.infoController hideProgress];
 
-    [self getSubtitleInfo];
-
     if ([_file.contentType isEqualToString:@"video/mp4"] ||
         [_file.contentType isEqualToString:@"video/quicktime"] ||
         [_file.extension.lowercaseString isEqualToString:@"mp4"]) {
@@ -113,6 +111,7 @@
         } else {
             self.infoController.additionalInfoLabel.text = @"Downloading - Popover can be closed, but not the app.";
         }
+        [self getSubtitleInfo];
         [self.infoController showProgress];
         [self downloadFile];
     } else {
@@ -220,7 +219,7 @@
 - (void)downloadSubtitles {
     if (_subtitleResults.count) {
         NSString *srtPath = [self localPathForFileWithExtension:@"srt"];
-        [_subtitleDownloader downloadSubtitlesForResult:_subtitleResults[0] toPath:srtPath :^(NSString *pathForDownloadedFile) {
+        [_subtitleDownloader downloadSubtitlesForResult:_subtitleResults[0] toPath:srtPath :^ {
             NSLog(@"downloaded");
         }];
     }

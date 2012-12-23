@@ -82,15 +82,15 @@ static NSDate *movieStartedDate;
             NSError *error = [notificationDict objectForKey:@"error"];
 
             [_delegate moviePlayer:self didEndWithError:error.localizedDescription];
-            [Analytics event:@"Movie Playback Error"];
+            [ARAnalytics event:@"Movie Playback Error"];
             
             break;
         }
         case MPMovieFinishReasonPlaybackEnded:
         case MPMovieFinishReasonUserExited:
             TFLog(@"playbackFinished. Reason: Playback Ended");
-            [Analytics incrementUserProperty:@"User Finished Watching a Movie" byInt:1];
-            [Analytics event:@"User Finished Watching a Movie"];
+            [ARAnalytics incrementUserProperty:@"User Finished Watching a Movie" byInt:1];
+            [ARAnalytics event:@"User Finished Watching a Movie"];
             break;
         default:
             break;
@@ -100,7 +100,7 @@ static NSDate *movieStartedDate;
     NSTimeInterval minutes = [[NSDate date] timeIntervalSinceDate:movieStartedDate];
     minutes = floorf(minutes / 60);
 
-    [Analytics event:@"Finished Watching Something" withTimeIntervalSinceDate:movieStartedDate];
+    [ARAnalytics finishTimingEvent:@"Finished Watching Something"];
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
     
@@ -127,9 +127,10 @@ static NSDate *movieStartedDate;
     [canvas presentMoviePlayerViewControllerAnimated:movieController];
 
     sharedPlayer.mediaPlayer = movieController.moviePlayer;
-    [Analytics incrementUserProperty:@"User Started Watching a Movie" byInt:1];
-    [Analytics event:@"User Started Watching a Movie"];
+    [ARAnalytics incrementUserProperty:@"User Started Watching a Movie" byInt:1];
+    [ARAnalytics event:@"User Started Watching a Movie"];
     movieStartedDate = [NSDate date];
+    [ARAnalytics startTimingEvent:@"Finished Watching"];
 }
 
 + (void)watchLocalMovieAtPath:(NSString *)path {
@@ -159,9 +160,10 @@ static NSDate *movieStartedDate;
     [rootController presentMoviePlayerViewControllerAnimated:movieController];
     
     sharedPlayer.mediaPlayer = movieController.moviePlayer;
-    [Analytics incrementUserProperty:@"User Started Watching a Movie" byInt:1];
-    [Analytics event:@"User Started Watching a Movie"];
+    [ARAnalytics incrementUserProperty:@"User Started Watching a Movie" byInt:1];
+    [ARAnalytics event:@"User Started Watching a Movie"];
     movieStartedDate = [NSDate date];
+    [ARAnalytics startTimingEvent:@"Finished Watching"];
 }
 
 

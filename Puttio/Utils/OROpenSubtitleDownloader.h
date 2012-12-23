@@ -35,6 +35,7 @@ typedef enum {
 
 @property (weak) NSObject <OROpenSubtitleDownloaderDelegate> *delegate;
 @property (readonly) OROpenSubtitleState state;
+@property (strong) NSString *languageString;
 
 - (void)searchForSubtitlesWithHash:(NSString *)hash andFilesize:(NSNumber *)filesize :(void(^) (NSArray *subtitles))searchResult;
 - (void)downloadSubtitlesForResult:(OpenSubtitleSearchResult *)result toPath:(NSString *)path :(void(^)())onResultsFound;

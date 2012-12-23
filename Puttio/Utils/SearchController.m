@@ -39,8 +39,8 @@ static SearchController *sharedInstance;
         [self searchISOHunt:query];
         [self searchFenopy:query];
     }
-    [Analytics incrementUserProperty:@"Started Search" byInt:1];
-    [Analytics event:@"User Started a Search"];
+    [ARAnalytics incrementUserProperty:@"Started Search" byInt:1];
+    [ARAnalytics event:@"User Started a Search"];
 }
 
 + (void)searchArchiveOrg:(NSString *)query {
@@ -74,7 +74,7 @@ static SearchController *sharedInstance;
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Analytics incrementUserProperty:@"Archive Org Search Failed" byInt:1];
+        [ARAnalytics incrementUserProperty:@"Archive Org Search Failed" byInt:1];
         NSLog(@"fail whale archive org %@", error);
     }];
 
@@ -104,7 +104,7 @@ static SearchController *sharedInstance;
         }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Analytics incrementUserProperty:@"Fenopy Search Failed" byInt:1];
+        [ARAnalytics incrementUserProperty:@"Fenopy Search Failed" byInt:1];
         NSLog(@"fail whale fenopy %@", error);
 
     }];
@@ -134,7 +134,7 @@ static SearchController *sharedInstance;
         }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Analytics incrementUserProperty:@"Isohunt Search Failed" byInt:1];
+        [ARAnalytics incrementUserProperty:@"Isohunt Search Failed" byInt:1];
         NSLog(@"fail whale %@", error);
     }];
     [operation start];
@@ -167,7 +167,7 @@ static SearchController *sharedInstance;
         }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [Analytics incrementUserProperty:@"Mininova Search Failed" byInt:1];
+        [ARAnalytics incrementUserProperty:@"Mininova Search Failed" byInt:1];
         NSLog(@"fail whale %@", error);
     }];
     [operation start];

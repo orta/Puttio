@@ -1,34 +1,51 @@
 
 PODS:
 - AFNetworking (1.0.1)
-- Mixpanel (1.0.0)
+- ARAnalytics/Crashlytics (0.0.3)
+- ARAnalytics/Mixpanel (0.0.3):
+  - Mixpanel
+- ARAnalytics/TestFlight (0.0.3):
+  - TestFlightSDK
+- Mixpanel (1.0.3)
 - NSData+Base64 (1.0.0)
 - PutioKit (0.1):
   - AFNetworking (~> 1.0)
 - SEHumanizedTimeDiff (0.0.1)
-- TestFlightSDK (1.2.beta2)
+- TestFlightSDK (1.2)
 - xmlrpc (2.3.2):
   - NSData+Base64 (~> 1.0.0)
 
 DEPENDENCIES:
-- AFNetworking (~> 1.0)
-- Mixpanel
+- ARAnalytics/Crashlytics (from `vendor/ARAnalytics.podspec')
+- ARAnalytics/Mixpanel (from `vendor/ARAnalytics.podspec')
+- ARAnalytics/TestFlight (from `vendor/ARAnalytics.podspec')
 - PutioKit (from `../PutioKit/PutioKit.podspec')
 - SEHumanizedTimeDiff
-- TestFlightSDK
 - xmlrpc
 
 EXTERNAL SOURCES:
+  ARAnalytics/Crashlytics:
+    :podspec: vendor/ARAnalytics.podspec
+    :commit: :head
+  ARAnalytics/Mixpanel:
+    :podspec: vendor/ARAnalytics.podspec
+    :commit: :head
+  ARAnalytics/TestFlight:
+    :podspec: vendor/ARAnalytics.podspec
+    :commit: :head
   PutioKit:
     :podspec: ../PutioKit/PutioKit.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: 4c11f857c9a18d65f4257c90a1e74ac49f0ac422
-  Mixpanel: 312db1b5199dbb61808315da3e27f056a38da6e5
+  ARAnalytics/Crashlytics: 10e15c8a3008de3b330b6b95b32e72d8c6616094
+  ARAnalytics/Mixpanel: 10e15c8a3008de3b330b6b95b32e72d8c6616094
+  ARAnalytics/TestFlight: 10e15c8a3008de3b330b6b95b32e72d8c6616094
+  Mixpanel: 3a66f564fe03946ce4c8729656fbfd9169c6921c
   NSData+Base64: 8b910cb8a64f45daec6fb15936c36a9a911c57ca
   PutioKit: 958a0e51a02a71c9554e331354762d03aa39f788
   SEHumanizedTimeDiff: edc1e3b0a86743240699b4bcf135cd476d7b7947
-  TestFlightSDK: 964167fdbf681a26e4452d087b779cafcba756ae
+  TestFlightSDK: 29e194fb148e4861f92e4c1195b9697e1f3ad19a
   xmlrpc: c2b1eb82e547bcc715631bebdfcb152a6faf6762
 
 COCOAPODS: 0.16.0

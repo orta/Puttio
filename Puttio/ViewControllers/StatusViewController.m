@@ -160,7 +160,7 @@ typedef enum {
         NSString *diskQuotaTotalString = [UIDevice humanStringFromBytes:account.diskSize.doubleValue];
 
         if( ![oldDiskQuotaTotalString isEqualToString:diskQuotaTotalString] ) {
-            [Analytics event:@"User has changed thier Put.io account size"];
+            [ARAnalytics event:@"User has changed thier Put.io account size"];
         }
 
         NSString *diskQuotaAvailableString = [account.diskAvailable stringValue];

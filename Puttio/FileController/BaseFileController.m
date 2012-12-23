@@ -48,7 +48,8 @@
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     struct statfs tStats;  
     statfs([[paths lastObject] cString], &tStats);  
-    uint64_t totalSpace = tStats.f_bavail * tStats.f_bsize;  
+    uint64_t totalSpace = tStats.f_bavail * tStats.f_bsize;
+    
     __block FileInfoViewController *blockInfoController = infoController;
     if (fileSize < totalSpace) {
         [self.infoController disableButtons];
@@ -58,7 +59,7 @@
         downloadOperation = [ORFileDownloadOperation fileDownloadFromURL:addressURL toLocalPath:path];
                              
         if (showTransferInBG) {
-            _fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation andFile:_file];
+            __block _fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation andFile:_file];
         }
 
         [downloadOperation setDownloadProgressBlock: ^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {

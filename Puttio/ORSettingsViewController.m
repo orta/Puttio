@@ -42,8 +42,8 @@
         [defaults setBool:YES forKey:ORLoggedOutDefault];
         [defaults synchronize];
 
-        [Analytics incrementUserProperty:@"User Logged Out" byInt:1];
-        [Analytics event:@"User Logged Out"];
+        [ARAnalytics incrementUserProperty:@"User Logged Out" byInt:1];
+        [ARAnalytics event:@"User Logged Out"];
 
         _logoutInfoView.hidden = NO;
 }

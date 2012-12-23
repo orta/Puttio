@@ -9,7 +9,6 @@
 #import "ORMoviePlayerController.h"
 #import <AVFoundation/AVFoundation.h>
 
-// Its worth noting that MPMobviewPlayerController is a view on the sim, and a window on the device
 
 @implementation ORMoviePlayerController {
     OROpenSubtitleDownloader *_subtitleDownloader;
@@ -27,7 +26,7 @@
     [super viewDidLoad];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(airplayActiveDidChange) name:MPMoviePlayerIsAirPlayVideoActiveDidChangeNotification object:nil];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewWillLayoutSubviews) name:MPMoviePlayerPlaybackStateDidChangeNotification object:nil];
     self.moviePlayer.allowsAirPlay = YES;
     self.moviePlayer.fullscreen = YES;
     self.moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
@@ -100,7 +99,7 @@
     _subtitlesLabel = [[UILabel alloc] initWithFrame: subsFrame];
     _subtitlesLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
     _subtitlesLabel.textColor = [UIColor whiteColor];
-    _subtitlesLabel.textAlignment = UITextAlignmentCenter;
+    _subtitlesLabel.textAlignment = NSTextAlignmentCenter;
     _subtitlesLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _subtitlesLabel.numberOfLines = 2;
     _subtitlesLabel.alpha = 0;
@@ -209,8 +208,8 @@
 
 - (void)airplayActiveDidChange {
     if ( [self.moviePlayer isAirPlayVideoActive] ) {
-        [Analytics event:@"Using Airplay"];
-        [Analytics incrementUserProperty:@"Using Airplay" byInt:1];
+        [ARAnalytics event:@"Using Airplay"];
+        [ARAnalytics incrementUserProperty:@"Using Airplay" byInt:1];
     }
 }
 

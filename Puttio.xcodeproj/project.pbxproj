@@ -130,7 +130,6 @@
 		60A7AB33152916BA009DD716 /* ORMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7AB32152916BA009DD716 /* ORMessageCell.m */; };
 		60AB50D3151F650A00473448 /* UIColor+PutioColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AB50D2151F650A00473448 /* UIColor+PutioColours.m */; };
 		60ABDE40166D8F510046C570 /* ORDownloadCleanup.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ABDE3F166D8F510046C570 /* ORDownloadCleanup.m */; };
-		60B326E81528A55C00462AA8 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B326E71528A55C00462AA8 /* Analytics.m */; };
 		60B326F51528A6D200462AA8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B326F41528A6D200462AA8 /* libz.dylib */; };
 		60B6792C161862110051DC7A /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */; };
 		60B6792E161862150051DC7A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B6792D161862150051DC7A /* Default-Landscape~ipad.png */; };
@@ -393,8 +392,6 @@
 		60AB50D2151F650A00473448 /* UIColor+PutioColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PutioColours.m"; path = "Categories/UIColor+PutioColours.m"; sourceTree = "<group>"; };
 		60ABDE3E166D8F510046C570 /* ORDownloadCleanup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORDownloadCleanup.h; path = Utils/ORDownloadCleanup.h; sourceTree = "<group>"; };
 		60ABDE3F166D8F510046C570 /* ORDownloadCleanup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDownloadCleanup.m; path = Utils/ORDownloadCleanup.m; sourceTree = "<group>"; };
-		60B326E61528A55C00462AA8 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Utils/Analytics.h; sourceTree = "<group>"; };
-		60B326E71528A55C00462AA8 /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Analytics.m; path = Utils/Analytics.m; sourceTree = "<group>"; };
 		60B326F41528A6D200462AA8 /* libz.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		60B6792D161862150051DC7A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -754,8 +751,6 @@
 				6085D296151BAB230068929C /* Constants.m */,
 				60F5AD791522777600DD7A6F /* MoviePlayer.h */,
 				60F5AD7A1522777600DD7A6F /* MoviePlayer.m */,
-				60B326E61528A55C00462AA8 /* Analytics.h */,
-				60B326E71528A55C00462AA8 /* Analytics.m */,
 				606C79A2152F508E00608C56 /* ORDefaults.h */,
 				606C79A3152F508E00608C56 /* ORDefaults.m */,
 				6064D89915398E4600E454E5 /* SearchController.h */,
@@ -1155,7 +1150,6 @@
 				600104D41524F9CB005F5B33 /* Folder.m in Sources */,
 				60A1B19815287343002A6A7E /* ModalZoomView.m in Sources */,
 				60A1B1B01528788E002A6A7E /* FileInfoViewController.m in Sources */,
-				60B326E81528A55C00462AA8 /* Analytics.m in Sources */,
 				60A7AB1515290771009DD716 /* Transfer.m in Sources */,
 				60A7AB1815290D90009DD716 /* ORTransferCell.m in Sources */,
 				60A7AB3015291404009DD716 /* Message.m in Sources */,

@@ -14,7 +14,6 @@
 #import "BrowsingViewController.h"
 #import "LoginViewController.h"
 #import "ModalZoomView.h"
-#import <Crashlytics/Crashlytics.h>
 #import "APP_SECRET.h"
 #import "ORMigration.h"
 #import "ORPasteboardParser.h"
@@ -31,8 +30,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     [ORMigration migrate];
-    [Analytics setup];
-
+    [ARAnalytics  setupWithAnalytics:@{
+          ARTestFlightTeamToken : TESTFLIGHT_SECRET,
+          ARMixpanelToken: MIXPANEL_TOKEN
+     }];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:ORLoggedOutDefault];
@@ -45,14 +46,14 @@
     }else{
         [self showLogin];
     }
-    
+
     [Crashlytics startWithAPIKey:CRASHLYTICS_API_KEY];    
     return YES;
 }
 
 - (void)showApp {
-    [Analytics setUserAccount:[[NSUserDefaults standardUserDefaults] objectForKey:ORUserAccountNameDefault]];
-    [Analytics incrementUserProperty:@"User App Launched" byInt:1];
+    [ARAnalytics identifyUserwithID:[[NSUserDefaults standardUserDefaults] objectForKey:ORUserAccountNameDefault] andEmailAddress:nil];
+    [ARAnalytics incrementUserProperty:@"User App Launched" byInt:1];
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     SearchViewController *searchVC = [storyboard instantiateViewControllerWithIdentifier:@"searchView"];
@@ -97,7 +98,7 @@
     [defaults setDouble:currentMinutes forKey:ORTotalVideoDuration];
     [defaults synchronize];
 
-    [Analytics incrementUserProperty:@"TotalTimeWatched" byInt:(int)extraMinutesNumber];
+    [ARAnalytics incrementUserProperty:@"TotalTimeWatched" byInt:(int) extraMinutesNumber];
 
     if (currentMinutes > (5 * 60) && ![defaults boolForKey:ORHasShownReviewNagOneDefault]) {
         [ModalZoomView fadeOutViewAnimated:NO];

@@ -269,7 +269,7 @@
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
     [client requestTorrentOrMagnetURLAtPath:result.representedPath :^(id userInfoObject) {
-        [Analytics incrementUserProperty:@"Added a torrent" byInt:1];
+        [ARAnalytics incrementUserProperty:@"Added a torrent" byInt:1];
         result.selectedState = SearchResultSent;
 
         if ([tableView numberOfRowsInSection:indexPath.section]) {

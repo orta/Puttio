@@ -120,7 +120,7 @@
 
     if([_delegate respondsToSelector:@selector(authorizationDidFinishWithController:)]){
         [_delegate authorizationDidFinishWithController:self];
-        [Analytics incrementUserProperty:@"User Logged In" byInt:1];
+        [ARAnalytics incrementUserProperty:@"User Logged In" byInt:1];
     }
 }
 

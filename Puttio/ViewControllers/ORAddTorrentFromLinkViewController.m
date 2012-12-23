@@ -23,7 +23,7 @@
     _addedLabel.hidden = YES;
 
     [[PutIOClient sharedClient] requestTorrentOrMagnetURLAtPath:_torrentTextField.text :^(id userInfoObject) {
-        [Analytics incrementUserProperty:@"Added a torrent" byInt:1];
+        [ARAnalytics incrementUserProperty:@"Added a torrent" byInt:1];
         [_networkActivitySpinner stopAnimating];
         _addedLabel.hidden = NO;
         _addedLabel.text = @"Added! :)";

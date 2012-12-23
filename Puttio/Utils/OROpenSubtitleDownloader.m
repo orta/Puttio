@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import <zlib.h>
 
+static NSString *ORSubtitleLanguageKey = @"ORSubtitleLanguageKey";
 static NSString *OROpenSubtitleURL  = @"http://api.opensubtitles.org/";
 static NSString *OROpenSubtitlePath = @"xml-rpc";
 
@@ -40,6 +41,14 @@ static NSString *OROpenSubtitlePath = @"xml-rpc";
     _blockResponses = [NSMutableDictionary dictionary];
     _state = OROpenSubtitleStateLoggingIn;
 
+    _languageString = [[NSUserDefaults standardUserDefaults] objectForKey:ORSubtitleLanguageKey];
+    if(!_languageString) {
+        NSString *identifier = [[NSLocale currentLocale] localeIdentifier];
+        NSString *displayName = [[NSLocale currentLocale] displayNameForKey:NSLocaleIdentifier value:identifier];
+
+        _languageString = [identifier componentsSeparatedByString:@"_"][0];
+    }
+
     [self login];
 
     return self;
@@ -64,7 +73,7 @@ static NSString *OROpenSubtitlePath = @"xml-rpc";
     NSDictionary *params = @{
         @"moviebytesize" : decimalFilesize,
         @"moviehash" : hash,
-        @"sublanguageid" : @"cze,eng,ger,slo"
+        @"sublanguageid" : _languageString
     };
     
     [request setMethod:@"SearchSubtitles" withParameters:@[_authToken, @[params] ]];
