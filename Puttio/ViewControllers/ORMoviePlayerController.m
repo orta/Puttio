@@ -18,7 +18,7 @@
 
     NSInteger _subtitlesIndex;
     UILabel *_subtitlesLabel;
-    UIButton *_ccButton;
+    UIButton *_subtitlesButton;
 }
 
 #pragma mark - View lifecycle
@@ -48,7 +48,7 @@
         
         _subtitleResults = subtitles;
         if (subtitles.count) {
-            NSLog(@"subtitles found!");
+            NSLog(@"%i subtitles found!", subtitles.count);
             [self displayCCLogo];
         } else {
             NSLog(@"No subtitles found!");
@@ -57,29 +57,22 @@
 }
 
 - (void)displayCCLogo {
-    if (_ccButton) return;
-    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
+    if (_subtitlesButton) return;
     
-    _ccButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_ccButton setImage:[UIImage imageNamed:@"CCLogo"] forState:UIControlStateNormal];
+    _subtitlesButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_subtitlesButton setImage:[UIImage imageNamed:@"CCLogo"] forState:UIControlStateNormal];
 
-    [_ccButton addTarget:self action:@selector(toggleCCView) forControlEvents:UIControlEventTouchUpInside];
-    _ccButton.alpha = 0;
-
-    UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
-
-    NSArray *windows = [[UIApplication sharedApplication] windows];
-    UIWindow *mpw = [windows objectAtIndex:0];
-    [self viewWillLayoutSubviews];
-    [rootView addSubview:_ccButton];
+    [_subtitlesButton addTarget:self action:@selector(toggleCCView) forControlEvents:UIControlEventTouchUpInside];
+    _subtitlesButton.alpha = 0;
+    
+    [self.view addSubview:_subtitlesButton];
     
     [UIView animateWithDuration:0.3 animations:^{
-        _ccButton.alpha = 1;
+        _subtitlesButton.alpha = 1;
     }];
 }
 
 - (void)toggleCCView {
-    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), self);
     if (!_subtitlesLabel) {
         [self addSubtitleView];
         [self getSubtitles];
@@ -112,9 +105,7 @@
     _subtitlesLabel.numberOfLines = 2;
     _subtitlesLabel.alpha = 0;
 
-    NSArray *windows = [[UIApplication sharedApplication] windows];
-    UIWindow *mpw = [windows objectAtIndex:1];
-    [mpw addSubview:_subtitlesLabel];
+    [self.view insertSubview:_subtitlesLabel belowSubview:_subtitlesButton];
 }
 
 - (void)setCurrentSubtitles:(SubRip *)currentSubtitles {
@@ -132,16 +123,7 @@
     subsFrame.origin.y = CGRectGetHeight(self.view.bounds) - subsFrame.size.height;
 
     _subtitlesLabel.frame = subsFrame;
-
-    if ([UIDevice isPad]) {
-        _ccButton.frame = CGRectMake(self.view.bounds.size.width - 66, self.view.bounds.size.height - 66, 44, 44);
-    } else {
-//
-//        _ccButton.transform = CGAffineTransformMakeRotation(M_PI / -2);
-  //      _ccButton.frame = CGRectMake(self.view.bounds.size.height - 66, self.view.bounds.size.width - 66, 44, 44);
-        _ccButton.frame = CGRectMake(40, 40, 44, 44);
-        NSLog(@"%@ - %@", NSStringFromSelector(_cmd), NSStringFromCGRect(_ccButton.frame));
-    }
+    _subtitlesButton.frame = CGRectMake(self.view.bounds.size.width - 66, self.view.bounds.size.height - 66, 44, 44);
 }
 
 - (void)tick {
@@ -173,13 +155,15 @@
     }
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
+
+    [self viewWillLayoutSubviews];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [_subtitlesTimer invalidate];
     [_subtitlesLabel removeFromSuperview];
-    [_ccButton removeFromSuperview];
+    [_subtitlesButton removeFromSuperview];
 
     //End recieving events
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];

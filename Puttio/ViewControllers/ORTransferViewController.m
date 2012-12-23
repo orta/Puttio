@@ -136,6 +136,7 @@
     
     // Deal with the iPad popovers
     CGRect targetCellFrame = [_tableView cellForRowAtIndexPath:indexPath].frame;
+    targetCellFrame.origin.x += 220;
     targetCellFrame = [self.view convertRect:targetCellFrame fromView:_tableView];
     [_deletePopover presentPopoverFromRect:targetCellFrame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
 
