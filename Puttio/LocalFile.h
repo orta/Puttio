@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSString * screenShotURL;
 @property (nonatomic, retain) NSNumber * watched;
 
-+ (LocalFile *) localFileWithFile:(File *)file;
++ (LocalFile *)localFileWithFile:(File *)file;
 - (void)deleteItem;
 - (NSString *)localPathForFile;
 - (NSString *)localPathForScreenshot;

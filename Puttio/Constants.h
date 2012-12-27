@@ -21,6 +21,8 @@ extern NSString *const ORUserIdDefault;
 extern NSString *const ORStreamTokenDefault;
 extern NSString *const ORShownSwipeHelperDefault;
 extern NSString *const ORLastSiteVisitedDefault;
+extern NSString *const ORBookmarkURLsDefault;
+extern NSString *const ORBookmarkNamesDefault;
 
 extern NSString *const ORAppVersion;
 extern NSString *const ORShowLeftSidebarDefault;

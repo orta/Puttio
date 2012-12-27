@@ -43,11 +43,12 @@ static NSString *OROpenSubtitlePath = @"xml-rpc";
 
     _languageString = [[NSUserDefaults standardUserDefaults] objectForKey:ORSubtitleLanguageKey];
     if(!_languageString) {
-        NSString *identifier = [[NSLocale currentLocale] localeIdentifier];
-        NSString *displayName = [[NSLocale currentLocale] displayNameForKey:NSLocaleIdentifier value:identifier];
+//        NSString *identifier = [[NSLocale currentLocale] ISOLanguageCodes][0];
+//        NSString *displayName = [[NSLocale currentLocale] displayNameForKey:NSLocaleIdentifier value:identifier];
 
-        _languageString = [identifier componentsSeparatedByString:@"_"][0];
+        _languageString = @"eng";
     }
+
 
     [self login];
 

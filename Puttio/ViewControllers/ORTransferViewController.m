@@ -89,7 +89,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
-    cell = [aTableView dequeueReusableCellWithIdentifier:@"ExtendedTransferCell"];
+    NSString *identifier = [UIDevice isPad] ? @"ExtendedTransferCell" : @"ExtendedTransferCellPhone";
+    cell = [aTableView dequeueReusableCellWithIdentifier:identifier];
     if (cell) {
         Transfer *item = _transfers[indexPath.row];
         ORExtendedTransferCell *theCell = (ORExtendedTransferCell *)cell;

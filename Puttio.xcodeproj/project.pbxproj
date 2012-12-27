@@ -33,6 +33,7 @@
 		6020361E15AA2C120021CE21 /* DCRoundSwitchToggleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361815AA2C120021CE21 /* DCRoundSwitchToggleLayer.m */; };
 		6020361F15AA2C120021CE21 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6020361915AA2C120021CE21 /* license.txt */; };
 		6020362015AA2C120021CE21 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 6020361A15AA2C120021CE21 /* readme.md */; };
+		602493B6168CB49F00E7A974 /* ORInlineEditableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602493B5168CB49F00E7A974 /* ORInlineEditableTableViewController.m */; };
 		6026A043157B5B9F0031509D /* NSDate+StringParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A042157B5B9F0031509D /* NSDate+StringParsing.m */; };
 		6026A06B157BEA0F0031509D /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A061157BEA0F0031509D /* GMGridView.m */; };
 		6026A06C157BEA0F0031509D /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6026A063157BEA0F0031509D /* GMGridViewCell.m */; };
@@ -159,6 +160,8 @@
 		60DBF385158CA7EE0061F059 /* FileDownloadProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */; };
 		60E8DECF15A99D7000058314 /* UIDevice+deviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */; };
 		60E8DED215A9A16B00058314 /* ORHorizontalImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8DED115A9A16B00058314 /* ORHorizontalImageViewCell.m */; };
+		60EC4E34168CC97500EFCF3B /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4E33168CC97500EFCF3B /* Bookmark.m */; };
+		60EC4E46168CD0E700EFCF3B /* ORBookmarksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4E45168CD0E700EFCF3B /* ORBookmarksViewController.m */; };
 		60F00EBA152BAC1800DA9230 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */; };
 		60F023861528AB55003491E4 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023851528AB55003491E4 /* icon72.png */; };
 		60F023881528AB5F003491E4 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023871528AB5F003491E4 /* icon144.png */; };
@@ -232,6 +235,8 @@
 		6020361815AA2C120021CE21 /* DCRoundSwitchToggleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchToggleLayer.m; sourceTree = "<group>"; };
 		6020361915AA2C120021CE21 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		6020361A15AA2C120021CE21 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
+		602493B4168CB49F00E7A974 /* ORInlineEditableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORInlineEditableTableViewController.h; path = ViewControllers/ORInlineEditableTableViewController.h; sourceTree = "<group>"; };
+		602493B5168CB49F00E7A974 /* ORInlineEditableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORInlineEditableTableViewController.m; path = ViewControllers/ORInlineEditableTableViewController.m; sourceTree = "<group>"; };
 		6026A041157B5B9F0031509D /* NSDate+StringParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+StringParsing.h"; path = "Categories/NSDate+StringParsing.h"; sourceTree = "<group>"; };
 		6026A042157B5B9F0031509D /* NSDate+StringParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+StringParsing.m"; path = "Categories/NSDate+StringParsing.m"; sourceTree = "<group>"; };
 		6026A05F157BEA0F0031509D /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GMGridView-Constants.h"; path = "GMGridView/GMGridView-Constants.h"; sourceTree = "<group>"; };
@@ -443,6 +448,11 @@
 		60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+deviceInfo.m"; path = "Categories/UIDevice+deviceInfo.m"; sourceTree = "<group>"; };
 		60E8DED015A9A16B00058314 /* ORHorizontalImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORHorizontalImageViewCell.h; path = Views/ORHorizontalImageViewCell.h; sourceTree = "<group>"; };
 		60E8DED115A9A16B00058314 /* ORHorizontalImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORHorizontalImageViewCell.m; path = Views/ORHorizontalImageViewCell.m; sourceTree = "<group>"; };
+		60EC4E30168CC89E00EFCF3B /* Puttio 5 (v1.5).xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Puttio 5 (v1.5).xcdatamodel"; sourceTree = "<group>"; };
+		60EC4E32168CC97500EFCF3B /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bookmark.h; path = Models/Bookmark.h; sourceTree = "<group>"; };
+		60EC4E33168CC97500EFCF3B /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bookmark.m; path = Models/Bookmark.m; sourceTree = "<group>"; };
+		60EC4E44168CD0E700EFCF3B /* ORBookmarksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORBookmarksViewController.h; path = ViewControllers/ORBookmarksViewController.h; sourceTree = "<group>"; };
+		60EC4E45168CD0E700EFCF3B /* ORBookmarksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORBookmarksViewController.m; path = ViewControllers/ORBookmarksViewController.m; sourceTree = "<group>"; };
 		60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		60F023851528AB55003491E4 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
 		60F023871528AB5F003491E4 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
@@ -814,6 +824,10 @@
 				60199B261673FD490026762E /* ORRemoveTransferPopoverViewController.m */,
 				60567B0F167D5C11009D205A /* ORSettingsViewController.h */,
 				60567B10167D5C11009D205A /* ORSettingsViewController.m */,
+				602493B4168CB49F00E7A974 /* ORInlineEditableTableViewController.h */,
+				602493B5168CB49F00E7A974 /* ORInlineEditableTableViewController.m */,
+				60EC4E44168CD0E700EFCF3B /* ORBookmarksViewController.h */,
+				60EC4E45168CD0E700EFCF3B /* ORBookmarksViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -894,6 +908,8 @@
 		60A7A6CD151FD26A00DB71E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				60EC4E32168CC97500EFCF3B /* Bookmark.h */,
+				60EC4E33168CC97500EFCF3B /* Bookmark.m */,
 				60A7A6CE151FD2A100DB71E0 /* File.h */,
 				60A7A6CF151FD2A100DB71E0 /* File.m */,
 				600104D21524F9CB005F5B33 /* Folder.h */,
@@ -1231,6 +1247,9 @@
 				60199B421675119F0026762E /* OpenSubtitleSearchResult.m in Sources */,
 				60567B0E167D3710009D205A /* SubRip.m in Sources */,
 				60567B11167D5C12009D205A /* ORSettingsViewController.m in Sources */,
+				602493B6168CB49F00E7A974 /* ORInlineEditableTableViewController.m in Sources */,
+				60EC4E34168CC97500EFCF3B /* Bookmark.m in Sources */,
+				60EC4E46168CD0E700EFCF3B /* ORBookmarksViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1327,7 +1346,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7F9AE7D-0132-458F-AB66-1B4A468BF8B7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "18902116-6BD8-47E5-AB72-030EC24BAC50";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
@@ -1356,7 +1375,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7F9AE7D-0132-458F-AB66-1B4A468BF8B7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "18902116-6BD8-47E5-AB72-030EC24BAC50";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
@@ -1391,10 +1410,11 @@
 			isa = XCVersionGroup;
 			children = (
 				60B679501618A2AE0051DC7A /* Puttio 3 (v1.2).xcdatamodel */,
+				60EC4E30168CC89E00EFCF3B /* Puttio 5 (v1.5).xcdatamodel */,
 				60D0E07216068867004F167E /* Puttio 2 (v1.1).xcdatamodel */,
 				6085D23F151B99490068929C /* Puttio.xcdatamodel */,
 			);
-			currentVersion = 60B679501618A2AE0051DC7A /* Puttio 3 (v1.2).xcdatamodel */;
+			currentVersion = 60EC4E30168CC89E00EFCF3B /* Puttio 5 (v1.5).xcdatamodel */;
 			name = Puttio.xcdatamodeld;
 			path = ../Puttio.xcdatamodeld;
 			sourceTree = "<group>";
