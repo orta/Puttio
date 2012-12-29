@@ -10,4 +10,8 @@
 
 @interface ORSettingsViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *subtitlesLabel;
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *flagButtons;
+
 @end

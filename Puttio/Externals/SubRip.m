@@ -160,6 +160,7 @@
 
 -(NSUInteger)indexOfSubRipItemWithStartTime:(CMTime)theTime {
 //    return [self indexOfSubRipItemWithStartTime:(theTime.value / theTime.timescale)];
+    return nil;
 }
 
 -(NSUInteger)indexOfSubRipItemWithStartTimeInterval:(NSInteger)desiredTime {

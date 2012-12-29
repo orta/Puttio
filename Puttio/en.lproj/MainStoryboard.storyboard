@@ -730,7 +730,7 @@ to Put.IO</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="4di-ea-84I">
-                                <rect key="frame" x="0.0" y="317" width="210" height="108"/>
+                                <rect key="frame" x="0.0" y="337" width="210" height="68"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -768,7 +768,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subtitle languages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rzm-4g-rLA">
-                                <rect key="frame" x="35" y="70" width="141" height="38"/>
+                                <rect key="frame" x="35" y="80" width="141" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -789,11 +789,11 @@ to Put.IO</string>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" id="ejt-6B-Glb" userLabel="Logout Help">
-                                <rect key="frame" x="0.0" y="317" width="210" height="108"/>
+                                <rect key="frame" x="0.0" y="333" width="210" height="92"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="no4-6T-Fso">
-                                        <rect key="frame" x="0.0" y="59" width="210" height="44"/>
+                                        <rect key="frame" x="0.0" y="40" width="210" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="and load the app again" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="UzH-Zm-UvI">
@@ -807,7 +807,7 @@ to Put.IO</string>
                                         <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="erO-pU-wvN">
-                                        <rect key="frame" x="0.0" y="5" width="210" height="44"/>
+                                        <rect key="frame" x="0.0" y="-4" width="210" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please press the home button" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="cwu-aY-3Dx">
@@ -838,7 +838,7 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="BBW-df-mUu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tbt-LA-h50">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tbt-LA-h50">
                                 <rect key="frame" x="58" y="111" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -853,7 +853,7 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="un7-4Z-aOa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3ov-Co-JSI">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3ov-Co-JSI">
                                 <rect key="frame" x="108" y="111" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -868,7 +868,7 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="MVK-Eq-kcU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GfK-R9-kRE">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GfK-R9-kRE">
                                 <rect key="frame" x="157" y="111" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -883,8 +883,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="yAf-4V-dL9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dPK-gO-VDz">
-                                <rect key="frame" x="9" y="163" width="44" height="44"/>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dPK-gO-VDz">
+                                <rect key="frame" x="9" y="157" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Finnish@2x.png">
@@ -898,8 +898,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="h2l-kO-mP4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ef1-mS-FCs">
-                                <rect key="frame" x="58" y="163" width="44" height="44"/>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ef1-mS-FCs">
+                                <rect key="frame" x="58" y="157" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="France@2x.png">
@@ -913,8 +913,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="den-TP-5hI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Exi-cT-Hg8">
-                                <rect key="frame" x="108" y="163" width="44" height="44"/>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Exi-cT-Hg8">
+                                <rect key="frame" x="108" y="157" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Greek@2x.png">
@@ -928,8 +928,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="Ool-jC-is7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H0L-m7-XXj">
-                                <rect key="frame" x="157" y="163" width="44" height="44"/>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H0L-m7-XXj">
+                                <rect key="frame" x="157" y="157" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Hungry@2x.png">
@@ -943,8 +943,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="8kL-Dm-iMO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bHO-wL-FYs">
-                                <rect key="frame" x="9" y="215" width="44" height="44"/>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bHO-wL-FYs">
+                                <rect key="frame" x="9" y="203" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Indonesia@2x.png">
@@ -958,8 +958,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="Ad3-BY-Qqd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ajJ-6m-9eJ">
-                                <rect key="frame" x="58" y="215" width="44" height="44"/>
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ajJ-6m-9eJ">
+                                <rect key="frame" x="58" y="203" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Poland@2x.png">
@@ -973,8 +973,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="IZf-mX-NNa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Dqr-eI-4mM">
-                                <rect key="frame" x="108" y="215" width="44" height="44"/>
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Dqr-eI-4mM">
+                                <rect key="frame" x="108" y="203" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Portuguese@2x.png">
@@ -988,8 +988,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="OeN-jV-Byp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ycf-6x-JLi">
-                                <rect key="frame" x="157" y="215" width="44" height="44"/>
+                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ycf-6x-JLi">
+                                <rect key="frame" x="157" y="203" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Romania@2x.png">
@@ -1003,8 +1003,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="gWc-7N-im1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bCG-vt-e1q">
-                                <rect key="frame" x="9" y="267" width="44" height="44"/>
+                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bCG-vt-e1q">
+                                <rect key="frame" x="9" y="249" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Russian@2x.png">
@@ -1018,8 +1018,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="C2x-Sn-UJ4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XXJ-pL-mIh">
-                                <rect key="frame" x="58" y="267" width="44" height="44"/>
+                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XXJ-pL-mIh">
+                                <rect key="frame" x="58" y="249" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Spain@2x.png">
@@ -1033,8 +1033,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="mWL-TU-TUZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZZU-8A-F3X">
-                                <rect key="frame" x="108" y="267" width="44" height="44"/>
+                            <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZZU-8A-F3X">
+                                <rect key="frame" x="108" y="249" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Ukeranian@2x.png">
@@ -1048,8 +1048,8 @@ to Put.IO</string>
                                     <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="2v1-o0-Pgx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QsY-Gl-8LF">
-                                <rect key="frame" x="157" y="267" width="44" height="44"/>
+                            <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QsY-Gl-8LF">
+                                <rect key="frame" x="157" y="249" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Bulgaria@2x.png">
@@ -1064,7 +1064,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Added English" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="X7g-8r-zo5">
-                                <rect key="frame" x="10" y="315" width="190" height="35"/>
+                                <rect key="frame" x="9" y="298" width="192" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1077,7 +1077,24 @@ to Put.IO</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="logoutInfoView" destination="ejt-6B-Glb" id="XJl-ga-U9I"/>
+                        <outlet property="logoutInfoView" destination="ejt-6B-Glb" id="2a4-gP-GX8"/>
+                        <outlet property="subtitlesLabel" destination="X7g-8r-zo5" id="PzS-WX-Rd2"/>
+                        <outletCollection property="flagButtons" destination="QsY-Gl-8LF" id="20Z-MD-Efd"/>
+                        <outletCollection property="flagButtons" destination="ZZU-8A-F3X" id="EHl-zq-eb2"/>
+                        <outletCollection property="flagButtons" destination="XXJ-pL-mIh" id="N7o-ff-mE0"/>
+                        <outletCollection property="flagButtons" destination="Ycf-6x-JLi" id="l2X-IM-IMR"/>
+                        <outletCollection property="flagButtons" destination="Dqr-eI-4mM" id="2OX-Ku-Eic"/>
+                        <outletCollection property="flagButtons" destination="bCG-vt-e1q" id="w57-G7-zaQ"/>
+                        <outletCollection property="flagButtons" destination="bHO-wL-FYs" id="MVZ-DC-Avq"/>
+                        <outletCollection property="flagButtons" destination="ajJ-6m-9eJ" id="YHe-ET-00B"/>
+                        <outletCollection property="flagButtons" destination="dPK-gO-VDz" id="CgY-Bl-Iqw"/>
+                        <outletCollection property="flagButtons" destination="ef1-mS-FCs" id="UCI-Tv-pSc"/>
+                        <outletCollection property="flagButtons" destination="Exi-cT-Hg8" id="qFm-Yp-Gsi"/>
+                        <outletCollection property="flagButtons" destination="8Le-lT-dVN" id="DDZ-Tx-T8S"/>
+                        <outletCollection property="flagButtons" destination="Tbt-LA-h50" id="bSh-hS-Jfm"/>
+                        <outletCollection property="flagButtons" destination="3ov-Co-JSI" id="1Ij-PY-sim"/>
+                        <outletCollection property="flagButtons" destination="GfK-R9-kRE" id="jUx-f1-IqM"/>
+                        <outletCollection property="flagButtons" destination="H0L-m7-XXj" id="nkb-KU-V5k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzB-gH-W6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1980,7 +1997,7 @@ Email the developer</string>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You have XXGb left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DSf-Lh-Fyb">
-                                <rect key="frame" x="20" y="74" width="177" height="44"/>
+                                <rect key="frame" x="20" y="79" width="177" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -2114,7 +2131,7 @@ Email the developer</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rR6-rZ-kwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4475" y="-327"/>
+            <point key="canvasLocation" x="-4719" y="204"/>
         </scene>
         <!--Feedback View Controller-->
         <scene sceneID="5nO-Sc-u6I">
@@ -3189,7 +3206,9 @@ bloody hell</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSettingsViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="logoutInfoView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="subtitlesLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="subtitlesLanguages" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="flagButtons" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="ORSimpleProgress" superclassName="UIView">

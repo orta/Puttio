@@ -94,11 +94,12 @@ static CGFloat ImageBottomMargin = 10;
 - (void)setImageURL:(NSURL *)anImageURL {
     _imageURL = anImageURL;
     NSURLRequest *request = [NSURLRequest requestWithURL:anImageURL];
-
+    __weak UIImageView *weakImage = imageView;
     __weak ORImageViewCell *this = self;
+    
     [imageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"Placeholder"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
 
-        imageView.image = image;
+        weakImage.image = image;
         
         __strong ORImageViewCell *strongSelf = this;
         if([strongSelf watched]){
@@ -106,7 +107,7 @@ static CGFloat ImageBottomMargin = 10;
         }
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        
+        [this useUnknownImageForFileType:@"???"];
     }];
 }
 
@@ -138,6 +139,7 @@ static CGFloat ImageBottomMargin = 10;
 
 - (void)setImage:(UIImage *)anImage {
     _image = anImage;
+    [imageView cancelImageRequestOperation];
     [imageView setImage:anImage];
 }
 
