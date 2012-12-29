@@ -59,6 +59,8 @@
 		602BC0A8168F64D500069FDB /* Spain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 602BC098168F64D500069FDB /* Spain@2x.png */; };
 		602BC0A9168F64D500069FDB /* Turkey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 602BC099168F64D500069FDB /* Turkey@2x.png */; };
 		602BC0AA168F64D500069FDB /* Ukeranian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 602BC09A168F64D500069FDB /* Ukeranian@2x.png */; };
+		602BC0AD168FAE0300069FDB /* CCNext.png in Resources */ = {isa = PBXBuildFile; fileRef = 602BC0AB168FAE0300069FDB /* CCNext.png */; };
+		602BC0AE168FAE0300069FDB /* CCNext@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 602BC0AC168FAE0300069FDB /* CCNext@2x.png */; };
 		6043D0ED1562F529002193B3 /* ORMoviePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */; };
 		6043D0EF1562F5F4002193B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6043D0EE1562F5F4002193B3 /* AVFoundation.framework */; };
 		604678EB15B1999000A2BFA8 /* ORRotatingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 604678EA15B1999000A2BFA8 /* ORRotatingButton.m */; };
@@ -289,6 +291,8 @@
 		602BC098168F64D500069FDB /* Spain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spain@2x.png"; sourceTree = "<group>"; };
 		602BC099168F64D500069FDB /* Turkey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Turkey@2x.png"; sourceTree = "<group>"; };
 		602BC09A168F64D500069FDB /* Ukeranian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ukeranian@2x.png"; sourceTree = "<group>"; };
+		602BC0AB168FAE0300069FDB /* CCNext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCNext.png; sourceTree = "<group>"; };
+		602BC0AC168FAE0300069FDB /* CCNext@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CCNext@2x.png"; sourceTree = "<group>"; };
 		6043D0EB1562F529002193B3 /* ORMoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORMoviePlayerController.h; path = ViewControllers/ORMoviePlayerController.h; sourceTree = "<group>"; };
 		6043D0EC1562F529002193B3 /* ORMoviePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORMoviePlayerController.m; path = ViewControllers/ORMoviePlayerController.m; sourceTree = "<group>"; };
 		6043D0EE1562F5F4002193B3 /* AVFoundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -685,6 +689,8 @@
 				602BC08A168F64C700069FDB /* Flags */,
 				60567B12167E6AC5009D205A /* CCLogo.png */,
 				60567B13167E6AC5009D205A /* CCLogo@2x.png */,
+				602BC0AB168FAE0300069FDB /* CCNext.png */,
+				602BC0AC168FAE0300069FDB /* CCNext@2x.png */,
 				600249D0166C5156007E6E9A /* TransferDownloading@2x.png */,
 				600249D1166C5156007E6E9A /* TransferUploading@2x.png */,
 				600249D2166C5156007E6E9A /* TransferComplete@2x.png */,
@@ -1180,6 +1186,8 @@
 				602BC0A8168F64D500069FDB /* Spain@2x.png in Resources */,
 				602BC0A9168F64D500069FDB /* Turkey@2x.png in Resources */,
 				602BC0AA168F64D500069FDB /* Ukeranian@2x.png in Resources */,
+				602BC0AD168FAE0300069FDB /* CCNext.png in Resources */,
+				602BC0AE168FAE0300069FDB /* CCNext@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

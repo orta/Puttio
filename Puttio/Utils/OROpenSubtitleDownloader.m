@@ -41,14 +41,14 @@ static NSString *OROpenSubtitlePath = @"xml-rpc";
     _blockResponses = [NSMutableDictionary dictionary];
     _state = OROpenSubtitleStateLoggingIn;
 
-    _languageString = [[NSUserDefaults standardUserDefaults] objectForKey:ORSubtitleLanguageKey];
     if(!_languageString) {
+        // one day, for now no.
+        
 //        NSString *identifier = [[NSLocale currentLocale] ISOLanguageCodes][0];
 //        NSString *displayName = [[NSLocale currentLocale] displayNameForKey:NSLocaleIdentifier value:identifier];
 
         _languageString = @"eng";
     }
-
 
     [self login];
 
@@ -57,6 +57,13 @@ static NSString *OROpenSubtitlePath = @"xml-rpc";
 
 #pragma mark -
 #pragma mark API
+
+- (void)setLanguageString:(NSString *)languageString {
+    if (!languageString) {
+        languageString = @"eng";
+    }
+    _languageString = languageString;
+}
 
 - (void)login {
     // Log in in the background.

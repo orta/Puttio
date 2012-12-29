@@ -14,10 +14,13 @@
     OROpenSubtitleDownloader *_subtitleDownloader;
     NSArray *_subtitleResults;
     NSTimer *_subtitlesTimer;
+    NSTimer *_relayoutTimer;
 
     NSInteger _subtitlesIndex;
     UILabel *_subtitlesLabel;
     UIButton *_subtitlesButton;
+    UIButton *_nextSubtitlesButton;
+
 }
 
 #pragma mark - View lifecycle
@@ -33,12 +36,48 @@
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
     [self.moviePlayer prepareToPlay];
+
+    _relayoutTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(handleSubtitlesControls) userInfo:nil repeats:YES];
+    [_relayoutTimer fire];
+
 }
+
+- (void)handleSubtitlesControls {
+    [self viewDidLayoutSubviews];
+
+    BOOL controlsVisible = NO;
+    for(id views in [[self view] subviews]){
+        for(id subViews in [views subviews]){
+            for (id controlView in [subViews subviews]){
+                controlsVisible = ([controlView alpha] <= 0.0) ? (NO) : (YES);
+            }
+        }
+    }
+
+    if (!controlsVisible && _subtitlesButton.alpha == 1) {
+        [UIView animateWithDuration:0.3 animations:^{
+            _subtitlesButton.alpha = 0;
+            _nextSubtitlesButton.alpha = 0;
+        }];
+    }
+
+    if (controlsVisible && _subtitlesButton.alpha == 0) {
+        [UIView animateWithDuration:0.3 animations:^{
+            _subtitlesButton.alpha = 1;
+            _nextSubtitlesButton.alpha = 1;
+        }];
+    }
+}
+
 
 - (void)setFile:(File *)file {
     _file = file;
 
     _subtitleDownloader = [[OROpenSubtitleDownloader alloc] init];
+    NSString *currentDefault = [[NSUserDefaults standardUserDefaults] objectForKey:ORSubtitleLanguageDefault];
+
+    // its always prefixed with a ,
+    _subtitleDownloader.languageString = [currentDefault substringFromIndex:1];
     _subtitleDownloader.delegate = self;
 }
 
@@ -63,11 +102,22 @@
 
     [_subtitlesButton addTarget:self action:@selector(toggleCCView) forControlEvents:UIControlEventTouchUpInside];
     _subtitlesButton.alpha = 0;
-    
+
     [self.view addSubview:_subtitlesButton];
-    
+
+    if (_subtitleResults.count > 1) {
+        _nextSubtitlesButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_nextSubtitlesButton setImage:[UIImage imageNamed:@"CCNext"] forState:UIControlStateNormal];
+
+        [_nextSubtitlesButton addTarget:self action:@selector(getNextSubtitles) forControlEvents:UIControlEventTouchUpInside];
+        _nextSubtitlesButton.alpha = 0;
+
+        [self.view addSubview:_nextSubtitlesButton];
+    }
+
     [UIView animateWithDuration:0.3 animations:^{
         _subtitlesButton.alpha = 1;
+        _nextSubtitlesButton.alpha = 1;
     }];
 }
 
@@ -82,10 +132,24 @@
     }];
 }
 
+- (void)getNextSubtitles {
+    _subtitlesIndex++;
+    if (_subtitlesIndex == _subtitleResults.count) {
+        _subtitlesIndex = 0;
+    }
+    _nextSubtitlesButton.enabled = NO;
+    _nextSubtitlesButton.alpha = 0.3;
+    
+    [self getSubtitles];
+}
+
 - (void)getSubtitles {
     NSString *srtPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"subtitles.srt"];
 
     [_subtitleDownloader downloadSubtitlesForResult:_subtitleResults[_subtitlesIndex] toPath:srtPath :^(NSString *pathForDownloadedFile) {
+        _nextSubtitlesButton.alpha = 1;
+        _nextSubtitlesButton.enabled = YES;
+        
         NSString *stringSRT = [NSString stringWithContentsOfFile:pathForDownloadedFile encoding:NSASCIIStringEncoding error:nil];
         self.currentSubtitles = [[SubRip alloc] initWithString:stringSRT];
     }];
@@ -123,6 +187,8 @@
 
     _subtitlesLabel.frame = subsFrame;
     _subtitlesButton.frame = CGRectMake(self.view.bounds.size.width - 66, self.view.bounds.size.height - 66, 44, 44);
+
+    _nextSubtitlesButton.frame = CGRectMake(22, self.view.bounds.size.height - 66, 44, 44);
 }
 
 - (void)tick {
@@ -161,6 +227,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [_subtitlesTimer invalidate];
+    [_relayoutTimer invalidate];
     [_subtitlesLabel removeFromSuperview];
     [_subtitlesButton removeFromSuperview];
 

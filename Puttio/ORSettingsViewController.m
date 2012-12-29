@@ -124,7 +124,7 @@
             if ([country.isoCode isEqualToString:isoCode]) {
                 country.active = YES;
             }
-            button.alpha = country.active? 1: 0.5;
+            button.alpha = country.active? 1: 0.3;
         }
     }
 }
