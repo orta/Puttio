@@ -110,9 +110,7 @@
 
 - (void)updateButtons {
     NSString *currentDefault = [[NSUserDefaults standardUserDefaults] objectForKey:ORSubtitleLanguageDefault];
-    
-    NSLog(@"default = %@", currentDefault);
-    
+
     NSArray *codes = [currentDefault componentsSeparatedByString:@","];
     if (!codes.count) {
         if (currentDefault.length) {
@@ -134,7 +132,6 @@
 - (IBAction)toggleSubtitles:(UIButton *)sender {
     NSString *currentDefault = [[NSUserDefaults standardUserDefaults] objectForKey:ORSubtitleLanguageDefault];
     Country *country = _allCountries[sender.tag];
-    NSLog(@"clicked on %@", country);
     
     if ([currentDefault rangeOfString:country.isoCode].location == NSNotFound) {
         // adding it
@@ -146,7 +143,6 @@
         _subtitlesLabel.text = [NSString stringWithFormat:@"%@ Removed", country.fullName];
         country.active = NO;
     }
-    NSLog(@"%@", currentDefault);
 
     [[NSUserDefaults standardUserDefaults] setObject:currentDefault forKey:ORSubtitleLanguageDefault];
     [[NSUserDefaults standardUserDefaults] synchronize];

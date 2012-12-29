@@ -207,6 +207,10 @@
 
 - (void)getSubtitleInfo {
     _subtitleDownloader = [[OROpenSubtitleDownloader alloc] init];
+
+    NSString *currentDefault = [[NSUserDefaults standardUserDefaults] objectForKey:ORSubtitleLanguageDefault];
+    // we always have a prefix comma in the default
+    _subtitleDownloader.languageString = [currentDefault substringFromIndex:1];
     _subtitleDownloader.delegate = self;
 }
 
