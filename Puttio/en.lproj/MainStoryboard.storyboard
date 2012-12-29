@@ -739,7 +739,7 @@ to Put.IO</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Settings">
+                                <state key="normal" title="Log out">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Log out">
                                             <attributes>
@@ -767,29 +767,9 @@ to Put.IO</string>
                                     <action selector="logoutTapped:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="tAI-YK-Qsp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J23-TL-y2k" customClass="ORFlatButton">
-                                <rect key="frame" x="108" y="224" width="82" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                <state key="normal" title="Change">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeSubtitlesTapped:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="AdA-1x-msw"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subtitles Language" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bOO-LX-eHM">
-                                <rect key="frame" x="20" y="270" width="170" height="28"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subtitles:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rzm-4g-rLA">
-                                <rect key="frame" x="20" y="227" width="87" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subtitle languages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rzm-4g-rLA">
+                                <rect key="frame" x="35" y="70" width="141" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -799,7 +779,7 @@ to Put.IO</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bgm-Ca-JXy" customClass="ORTitleLabel">
-                                        <rect key="frame" x="10" y="4" width="196" height="38"/>
+                                        <rect key="frame" x="10" y="4" width="192" height="38"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="28"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -843,6 +823,253 @@ to Put.IO</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8Le-lT-dVN">
+                                <rect key="frame" x="9" y="111" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="English@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="BBW-df-mUu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tbt-LA-h50">
+                                <rect key="frame" x="58" y="111" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Brazil@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="un7-4Z-aOa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3ov-Co-JSI">
+                                <rect key="frame" x="108" y="111" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Turkey@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="MVK-Eq-kcU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GfK-R9-kRE">
+                                <rect key="frame" x="157" y="111" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Czech@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="yAf-4V-dL9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dPK-gO-VDz">
+                                <rect key="frame" x="9" y="163" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Finnish@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="h2l-kO-mP4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ef1-mS-FCs">
+                                <rect key="frame" x="58" y="163" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="France@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="den-TP-5hI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Exi-cT-Hg8">
+                                <rect key="frame" x="108" y="163" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Greek@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="Ool-jC-is7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H0L-m7-XXj">
+                                <rect key="frame" x="157" y="163" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Hungry@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="8kL-Dm-iMO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bHO-wL-FYs">
+                                <rect key="frame" x="9" y="215" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Indonesia@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="Ad3-BY-Qqd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ajJ-6m-9eJ">
+                                <rect key="frame" x="58" y="215" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Poland@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="IZf-mX-NNa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Dqr-eI-4mM">
+                                <rect key="frame" x="108" y="215" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Portuguese@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="OeN-jV-Byp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ycf-6x-JLi">
+                                <rect key="frame" x="157" y="215" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Romania@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="gWc-7N-im1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bCG-vt-e1q">
+                                <rect key="frame" x="9" y="267" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Russian@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="C2x-Sn-UJ4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XXJ-pL-mIh">
+                                <rect key="frame" x="58" y="267" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Spain@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="mWL-TU-TUZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZZU-8A-F3X">
+                                <rect key="frame" x="108" y="267" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Ukeranian@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="2v1-o0-Pgx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QsY-Gl-8LF">
+                                <rect key="frame" x="157" y="267" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="Bulgaria@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSubtitles:" destination="Dvg-z8-SBB" eventType="touchUpInside" id="xYE-Tp-wim"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Added English" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="X7g-8r-zo5">
+                                <rect key="frame" x="10" y="315" width="190" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -851,7 +1078,6 @@ to Put.IO</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="logoutInfoView" destination="ejt-6B-Glb" id="XJl-ga-U9I"/>
-                        <outlet property="subtitlesLanguages" destination="bOO-LX-eHM" id="Rsp-dP-OeC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzB-gH-W6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1429,7 +1655,7 @@ Message</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" id="LvD-fO-2Cb">
-                                                    <rect key="frame" x="3" y="83" width="320" height="1"/>
+                                                    <rect key="frame" x="3" y="86" width="320" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
@@ -1481,6 +1707,18 @@ Message</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="F3S-eS-gpW" customClass="ORRotatingButton">
+                                <rect key="frame" x="338" y="468" width="92" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="LoadingSpinner.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <view hidden="YES" contentMode="scaleToFill" id="1kM-dw-P0m">
                                 <rect key="frame" x="224" y="968" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1517,6 +1755,7 @@ Message</string>
                     <connections>
                         <outlet property="deleteView" destination="1kM-dw-P0m" id="OaQ-3y-82k"/>
                         <outlet property="deleteViewLabel" destination="CG5-ir-yBP" id="wy6-xF-PWI"/>
+                        <outlet property="loadingRotator" destination="F3S-eS-gpW" id="wBy-c1-Q7z"/>
                         <outlet property="removeButton" destination="wfl-5l-tTN" id="dhm-bW-zOn"/>
                         <outlet property="tableView" destination="tgb-rx-NTu" id="rbz-lv-9v2"/>
                     </connections>
@@ -2727,16 +2966,321 @@ bloody hell</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Brazil@2x.png" width="80" height="80"/>
+        <image name="Bulgaria@2x.png" width="80" height="80"/>
         <image name="Cutest_Cat.jpg" width="360" height="290"/>
+        <image name="Czech@2x.png" width="80" height="80"/>
+        <image name="English@2x.png" width="80" height="80"/>
+        <image name="Finnish@2x.png" width="80" height="80"/>
+        <image name="France@2x.png" width="80" height="80"/>
         <image name="Github.png" width="88" height="88"/>
+        <image name="Greek@2x.png" width="80" height="80"/>
         <image name="Hand.png" width="55" height="80"/>
+        <image name="Hungry@2x.png" width="80" height="80"/>
+        <image name="Indonesia@2x.png" width="80" height="80"/>
         <image name="LoadingSpinner.png" width="54" height="54"/>
         <image name="MediaPlayer.png" width="44" height="44"/>
+        <image name="Poland@2x.png" width="80" height="80"/>
+        <image name="Portuguese@2x.png" width="80" height="80"/>
         <image name="RefreshButton.png" width="54" height="54"/>
+        <image name="Romania@2x.png" width="80" height="80"/>
+        <image name="Russian@2x.png" width="80" height="80"/>
+        <image name="Spain@2x.png" width="80" height="80"/>
         <image name="Transfers.png" width="44" height="44"/>
+        <image name="Turkey@2x.png" width="80" height="80"/>
         <image name="TwitterBird.png" width="88" height="88"/>
+        <image name="Ukeranian@2x.png" width="80" height="80"/>
         <image name="orta.png" width="88" height="88"/>
     </resources>
+    <classes>
+        <class className="AccountViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AccountViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addToTwitter:"/>
+                <relationship kind="action" name="dbgrandiTapped:"/>
+                <relationship kind="action" name="feedbackTapped:"/>
+                <relationship kind="action" name="githubTapped:"/>
+                <relationship kind="action" name="ortaTapped:"/>
+                <relationship kind="action" name="putIOTapped:"/>
+                <relationship kind="action" name="settingsTapped:"/>
+                <relationship kind="outlet" name="accountSpaceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="accountSpaceLeftProgress" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="creativeCommonsSwitch" candidateClass="DCRoundSwitch"/>
+                <relationship kind="outlet" name="ortaInfoBackground" candidateClass="UIView"/>
+                <relationship kind="outlet" name="ortaInfoBodyLAbel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ortaInfoTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="percentageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="welcomeAccountLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AudioViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AudioViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="playButton" candidateClass="ORFlatButton"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="subtitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
+            </relationships>
+        </class>
+        <class className="BrowsingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowsingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backPressed:"/>
+                <relationship kind="action" name="reloadPressed:"/>
+                <relationship kind="outlet" name="firstErrorMessageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="offlineView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="ORRotatingButton"/>
+                <relationship kind="outlet" name="secondErrorMessageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="swipeHelperImage" candidateClass="ORSwipeImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DCControl" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCControl.h"/>
+        </class>
+        <class className="DCKnob" superclassName="DCControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCKnob.h"/>
+        </class>
+        <class className="DCRoundSwitch" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DCRoundSwitch.h"/>
+        </class>
+        <class className="FeedbackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedbackViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="emailDeveloper:"/>
+                <relationship kind="action" name="review:"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="FileInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FileInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="primaryButtonTapped:"/>
+                <relationship kind="action" name="secondaryButtonTapped:"/>
+                <relationship kind="outlet" name="additionalInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="primaryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="secondaryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="thumbnailImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ItemDeletionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemDeletionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelTapped:"/>
+                <relationship kind="action" name="deleteTapped:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="ORFlatButton"/>
+                <relationship kind="outlet" name="deleteButton" candidateClass="ORFlatButton"/>
+                <relationship kind="outlet" name="networkActivityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LocalBrowsingViewController" superclassName="BrowsingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocalBrowsingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="deviceSpaceLeftLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="deviceStoredLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="noItemsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="phoneBottomBarView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="phoneDeviceLeftLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneDeviceStoredLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backTapped:"/>
+                <relationship kind="action" name="loginPressed:"/>
+                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="authHelper" candidateClass="PutIOOAuthHelper"/>
+                <relationship kind="outlet" name="errorHeaderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loginViewWrapper" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwordPaddingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwordTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernamePaddingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="usernameTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="warningLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="ORAddExternalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAddExternalViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ORAddTorrentCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAddTorrentCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="selectionTick" candidateClass="ORAnimatedTickView"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORAddTorrentFromBrowseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAddTorrentFromBrowseViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="ORTitleLabel"/>
+                <relationship kind="outlet" name="networkProgress" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
+            </relationships>
+        </class>
+        <class className="ORAddTorrentFromLinkViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAddTorrentFromLinkViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_addedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_networkActivitySpinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="_torrentTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ORAnimatedTickView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAnimatedTickView.h"/>
+        </class>
+        <class className="ORDestructiveButton" superclassName="ORFlatButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORDestructiveButton.h"/>
+        </class>
+        <class className="ORExtendedTransferCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORExtendedTransferCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="additionalInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="statusImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORFlatButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORFlatButton.h"/>
+        </class>
+        <class className="ORImageFileInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORImageFileInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loadingIndicator" candidateClass="ORRotatingButton"/>
+                <relationship kind="outlet" name="progressBar" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
+            </relationships>
+        </class>
+        <class className="ORMessageCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORMessageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORRemoveTransferPopoverViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORRemoveTransferPopoverViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="removeButton" candidateClass="ORDestructiveButton"/>
+            </relationships>
+        </class>
+        <class className="ORRotatingButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORRotatingButton.h"/>
+        </class>
+        <class className="ORSearchCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSearchCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fileSizeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="seedersLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="logoutInfoView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="subtitlesLanguages" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ORSimpleProgress" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSimpleProgress.h"/>
+        </class>
+        <class className="ORSlidingTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSlidingTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="slidingDelegate" candidateClass="NSObject"/>
+            </relationships>
+        </class>
+        <class className="ORSwipeImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSwipeImageView.h"/>
+        </class>
+        <class className="ORTitleLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTitleLabel.h"/>
+        </class>
+        <class className="ORTorrentBrowserViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTorrentBrowserViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="ORTorrentLikeView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTorrentLikeView.h"/>
+        </class>
+        <class className="ORTransferCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTransferCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+            </relationships>
+        </class>
+        <class className="ORTransferViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORTransferViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="deleteTapped:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="deleteView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="deleteViewLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loadingRotator" candidateClass="ORRotatingButton"/>
+                <relationship kind="outlet" name="removeButton" candidateClass="ORDestructiveButton"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ProcessPopoverViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProcessPopoverViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="progressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="progressView" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PutIOOAuthHelper" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PutIOOAuthHelper.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate" candidateClass="NSObject"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activitySpinner" candidateClass="ORRotatingButton"/>
+                <relationship kind="outlet" name="noResultsFoundView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="statusViewController" candidateClass="StatusViewController"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="tryChangingSettingsView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="StatusViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatusViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="spaceProgressBG" candidateClass="DCKnob"/>
+                <relationship kind="outlet" name="spaceProgressView" candidateClass="DCKnob"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="TextFileInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextFileInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="loadingIndicator" candidateClass="ORRotatingButton"/>
+                <relationship kind="outlet" name="progressBar" candidateClass="ORSimpleProgress"/>
+                <relationship kind="outlet" name="textfield" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="ORTitleLabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

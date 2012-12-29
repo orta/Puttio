@@ -13,6 +13,7 @@
 #import "ORTorrentBrowserViewController.h"
 #import "WEPopoverController.h"
 #import "ORRemoveTransferPopoverViewController.h"
+#import "ORRotatingButton.h"
 
 @interface ORTransferViewController (){
     NSArray *_transfers;
@@ -29,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIView *deleteView;
 @property (weak, nonatomic) IBOutlet ORDestructiveButton *removeButton;
 @property (weak, nonatomic) IBOutlet UILabel *deleteViewLabel;
+@property (weak, nonatomic) IBOutlet ORRotatingButton *loadingRotator;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -36,6 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_loadingRotator startAnimating];
     [self startTimer];
     [self setupGestures];
 }
@@ -75,11 +78,14 @@
 
 - (void)getTransfers {
     [[PutIOClient sharedClient] getTransfers:^(NSArray *transfers) {
+        [_loadingRotator fadeOut];
         _transfers = [[transfers reverseObjectEnumerator] allObjects];
         [self.tableView reloadData];
 
     } failure:^(NSError *error) {
         NSLog(@"error %@", [error localizedDescription]);
+        [_loadingRotator fadeIn];
+
     }];
 }
 
@@ -184,6 +190,7 @@
     [self setDeleteView:nil];
     [self setDeleteViewLabel:nil];
     [self setRemoveButton:nil];
+    [self setLoadingRotator:nil];
     [super viewDidUnload];
 }
 

@@ -54,5 +54,7 @@
     [super viewDidUnload];
 }
 
+- (IBAction)toggleSubtitles:(id)sender {
+}
 
 @end
