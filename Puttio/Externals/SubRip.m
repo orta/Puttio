@@ -51,6 +51,10 @@
 }
 
 -(SubRip *)initWithString:(NSString *)str {
+    if (str.length == 0) {
+        return nil;
+    }
+    
     self = [super init];
     
     if (self) {

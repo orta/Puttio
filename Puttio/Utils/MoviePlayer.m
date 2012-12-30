@@ -8,7 +8,6 @@
 
 #import "MoviePlayer.h"
 #import "ORAppDelegate.h"
-#import "TestFlight.h"
 #import "ORMoviePlayerController.h"
 #import "ModalZoomView.h"
 #import "BrowsingViewController.h"
@@ -20,6 +19,7 @@
 @end
 
 static NSDate *movieStartedDate;
+static NSURL *staticMovieURL;
 
 @implementation MoviePlayer
 @synthesize mediaPlayer;
@@ -121,7 +121,8 @@ static NSDate *movieStartedDate;
 
     [[NSNotificationCenter defaultCenter] postNotificationName:ORVideoStartedNotification object:nil userInfo:nil];
 
-    ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:path]];
+    staticMovieURL = [NSURL URLWithString:path];
+    ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:staticMovieURL];
     movieController.file = file;
     
     [canvas presentMoviePlayerViewControllerAnimated:movieController];
@@ -143,8 +144,8 @@ static NSDate *movieStartedDate;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:ORVideoStartedNotification object:nil userInfo:nil];
 
-
-    ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
+    staticMovieURL = [NSURL URLWithString:path];
+    ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:staticMovieURL];
 
     // SRT Support
     NSString *srtFilePath = [path stringByReplacingOccurrencesOfString:@".mp4" withString:@".srt"];
