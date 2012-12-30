@@ -52,6 +52,11 @@ static SearchController *sharedInstance;
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, id responseObject) {
+        if (!responseObject) {
+            [self foundNoResults];
+            return;
+        }
+
         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
         NSError *error = nil;
         NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
@@ -75,6 +80,7 @@ static SearchController *sharedInstance;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [ARAnalytics incrementUserProperty:@"Archive Org Search Failed" byInt:1];
+        [self foundNoResults];
         NSLog(@"fail whale archive org %@", error);
     }];
 
@@ -87,6 +93,11 @@ static SearchController *sharedInstance;
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, id responseObject) {
+        if (!responseObject) {
+            [self foundNoResults];
+            return;
+        }
+
         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
         NSError *error = nil;
         NSArray *results = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSASCIIStringEncoding] options:0 error:&error];
@@ -105,8 +116,8 @@ static SearchController *sharedInstance;
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [ARAnalytics incrementUserProperty:@"Fenopy Search Failed" byInt:1];
+        [self foundNoResults];
         NSLog(@"fail whale fenopy %@", error);
-
     }];
     [operation start];
 }
@@ -119,7 +130,11 @@ static SearchController *sharedInstance;
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, id responseObject) {
-        
+        if (!responseObject) {
+            [self foundNoResults];
+            return;
+        }
+
         NSArray *results = [self dictionariesForJSONData:responseObject atKeyPath:@"items.list"];
         if (results.count) {
             NSMutableArray *searchResults = [NSMutableArray array];
@@ -135,6 +150,7 @@ static SearchController *sharedInstance;
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [ARAnalytics incrementUserProperty:@"Isohunt Search Failed" byInt:1];
+        [self foundNoResults];
         NSLog(@"fail whale %@", error);
     }];
     [operation start];
@@ -147,7 +163,11 @@ static SearchController *sharedInstance;
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, id responseObject) {
-        
+        if (!responseObject) {
+            [self foundNoResults];
+            return;
+        }
+
         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
         result = [result stringByReplacingOccurrencesOfString:@"\"hash\"" withString:@",\"hash\""];
         NSError *error = nil;
@@ -168,6 +188,7 @@ static SearchController *sharedInstance;
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [ARAnalytics incrementUserProperty:@"Mininova Search Failed" byInt:1];
+        [self foundNoResults];
         NSLog(@"fail whale %@", error);
     }];
     [operation start];
