@@ -16,7 +16,7 @@
 
 @end
 
-@interface ORBookmarksViewController : ORInlineEditableTableViewController
+@interface ORBookmarksViewController : UITableViewController
 
 @property (weak) NSObject <ORBookmarkControllerDelegate> *delegate;
 

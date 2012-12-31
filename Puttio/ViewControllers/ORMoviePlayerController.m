@@ -74,10 +74,13 @@
     _file = file;
 
     _subtitleDownloader = [[OROpenSubtitleDownloader alloc] init];
-    NSString *currentDefault = [[NSUserDefaults standardUserDefaults] objectForKey:ORSubtitleLanguageDefault];
+    NSString *languageString = [[NSUserDefaults standardUserDefaults] objectForKey:ORSubtitleLanguageDefault];
 
+    if (!languageString) {
+        languageString = @",eng";
+    }
     // its always prefixed with a ,
-    _subtitleDownloader.languageString = [currentDefault substringFromIndex:1];
+    _subtitleDownloader.languageString = [languageString substringFromIndex:1];
     _subtitleDownloader.delegate = self;
 }
 

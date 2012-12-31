@@ -14,29 +14,32 @@
 
 // It is expected that you override this function and add the offset in your version
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger offset = [super tableView:tableView numberOfRowsInSection:section];
+    NSInteger offset = 1;
     return [Bookmark count:nil] + offset;
 }
 
-- (UITableViewCell *)setupNormalCell:(UITableViewCell *)cell ForIndexPath:(NSIndexPath *)indexPath {
-    Bookmark *bookmark = [Bookmark findAllSortedBy:@"lastAccessed" ascending:NO][indexPath.row];
-    cell.textLabel.text = bookmark.name;
-    cell.detailTextLabel.text = bookmark.url;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *identifier = @"BookmarkCell";
+    BOOL isLastCell = (indexPath.row == [Bookmark count:nil]);
+    if (isLastCell) {
+        identifier = @"AddButtonCell";
+    }
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        if (isLastCell) {
+            [cell.contentView addSubview:[self buttonForNewItemWithFrame:cell.frame]];
+        }
+    }
+    if (!isLastCell) {
+        Bookmark *bookmark = [Bookmark findAllSortedBy:@"lastAccessed" ascending:NO][indexPath.row];
+        cell.textLabel.text = bookmark.name;
+        cell.detailTextLabel.text = bookmark.url;
+    }
     return cell;
 }
 
-- (UITextField *)textFieldForEditingWithFrame:(CGRect)frame {
-    frame.size.height = 66;
-    frame.size.width = [UIDevice isPad] ? 320: 300;
-
-    CGRect textFieldFrame = CGRectInset(frame, 10, 10);
-    UITextField *editingTextField = [[UITextField alloc] initWithFrame:textFieldFrame];
-    editingTextField.text = _delegate.name;
-    editingTextField.delegate = self;
-    editingTextField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
-    editingTextField.textAlignment = UITextAlignmentLeft;
-    return editingTextField;
-}
 
 - (void)saveNewItemWithString:(NSString *)string {
     Bookmark *bookmark = [Bookmark object];
@@ -55,11 +58,8 @@
     frame.size.width = [UIDevice isPad] ? 320: 300;
     
     UIButton *newButton = [ORFlatButton buttonWithType:UIButtonTypeCustom];
-    if (self.showingTextField){
-        [newButton setTitle:@"Save" forState:UIControlStateNormal];
-    }else{
-        [newButton setTitle:@"Bookmark Page" forState:UIControlStateNormal];
-    }
+    [newButton setTitle:@"Bookmark Page" forState:UIControlStateNormal];
+
     [newButton addTarget:self action:@selector(createNewItem) forControlEvents:UIControlEventTouchUpInside];
     newButton.frame = CGRectInset(frame, 10, 10);
     return newButton;

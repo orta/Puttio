@@ -25,7 +25,6 @@
     ORBookmarksViewController *controller = [[ORBookmarksViewController alloc] initWithStyle:UITableViewStylePlain];
     
     _bookmarksPopover = [[WEPopoverController alloc] initWithContentViewController:controller];
-    controller.container = _bookmarksPopover;
     controller.delegate = self;
     
     UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
