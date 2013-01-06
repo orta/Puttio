@@ -32,11 +32,11 @@ static ModalZoomView *sharedInstance;
     return (this.viewController != nil);
 }
 
-+ (UIViewController *)showWithViewControllerIdentifier:(NSString *)viewControllerID {
++ (id)showWithViewControllerIdentifier:(NSString *)viewControllerID {
    return [self showFromRect:CGRectNull withViewControllerIdentifier:viewControllerID andItem:nil];
 }
 
-+ (UIViewController *)showFromRect:(CGRect)initialFrame withViewControllerIdentifier:(NSString *)viewControllerID andItem:(id)item {
++ (id)showFromRect:(CGRect)initialFrame withViewControllerIdentifier:(NSString *)viewControllerID andItem:(id)item {
     ModalZoomView *this = [self sharedInstance];
     if (this) {
         UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;

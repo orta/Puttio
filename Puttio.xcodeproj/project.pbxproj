@@ -189,6 +189,7 @@
 		60F5AD7B1522777600DD7A6F /* MoviePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5AD7A1522777600DD7A6F /* MoviePlayer.m */; };
 		60F6F83015D072A2004333AF /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F6F82F15D072A2004333AF /* icon57.png */; };
 		60F6F83215D072BD004333AF /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F6F83115D072BC004333AF /* icon114.png */; };
+		60FB51E31699FD2F00040CC8 /* ORAddBookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FB51E21699FD2F00040CC8 /* ORAddBookmarkViewController.m */; };
 		60FE125E156C29DC000A0EB4 /* ORFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FE125D156C29DC000A0EB4 /* ORFlatButton.m */; };
 		60FE47BB152EA0D6008A5752 /* ThreeColumnViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FE47BA152EA0D6008A5752 /* ThreeColumnViewManager.m */; };
 		60FFFB4915A85F2700DB7668 /* RefreshButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 60FFFB4615A85F2600DB7668 /* RefreshButton.png */; };
@@ -502,6 +503,8 @@
 		60F5AD7A1522777600DD7A6F /* MoviePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoviePlayer.m; path = Utils/MoviePlayer.m; sourceTree = "<group>"; };
 		60F6F82F15D072A2004333AF /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		60F6F83115D072BC004333AF /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
+		60FB51E11699FD2E00040CC8 /* ORAddBookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORAddBookmarkViewController.h; path = ViewControllers/ORAddBookmarkViewController.h; sourceTree = "<group>"; };
+		60FB51E21699FD2F00040CC8 /* ORAddBookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAddBookmarkViewController.m; path = ViewControllers/ORAddBookmarkViewController.m; sourceTree = "<group>"; };
 		60FE125C156C29DC000A0EB4 /* ORFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORFlatButton.h; path = Views/ORFlatButton.h; sourceTree = "<group>"; };
 		60FE125D156C29DC000A0EB4 /* ORFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORFlatButton.m; path = Views/ORFlatButton.m; sourceTree = "<group>"; };
 		60FE47B9152EA0D6008A5752 /* ThreeColumnViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeColumnViewManager.h; path = Utils/ThreeColumnViewManager.h; sourceTree = "<group>"; };
@@ -890,6 +893,8 @@
 				602493B5168CB49F00E7A974 /* ORInlineEditableTableViewController.m */,
 				60EC4E44168CD0E700EFCF3B /* ORBookmarksViewController.h */,
 				60EC4E45168CD0E700EFCF3B /* ORBookmarksViewController.m */,
+				60FB51E11699FD2E00040CC8 /* ORAddBookmarkViewController.h */,
+				60FB51E21699FD2F00040CC8 /* ORAddBookmarkViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1330,6 +1335,7 @@
 				602493B6168CB49F00E7A974 /* ORInlineEditableTableViewController.m in Sources */,
 				60EC4E34168CC97500EFCF3B /* Bookmark.m in Sources */,
 				60EC4E46168CD0E700EFCF3B /* ORBookmarksViewController.m in Sources */,
+				60FB51E31699FD2F00040CC8 /* ORAddBookmarkViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,5 +19,7 @@
 @interface ORBookmarksViewController : UITableViewController
 
 @property (weak) NSObject <ORBookmarkControllerDelegate> *delegate;
+@property (weak) WEPopoverController *wePopoverController;
+- (void)reloadAndHideBookmarks;
 
 @end

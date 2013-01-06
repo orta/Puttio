@@ -26,6 +26,7 @@
     
     _bookmarksPopover = [[WEPopoverController alloc] initWithContentViewController:controller];
     controller.delegate = self;
+    controller.wePopoverController = _bookmarksPopover;
     
     UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
     CGRect position = [rootController.view convertRect:sender.frame fromView:self.view];

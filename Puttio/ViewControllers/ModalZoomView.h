@@ -20,8 +20,8 @@
 
 
 @interface ModalZoomView : NSObject
-+ (UIViewController *)showWithViewControllerIdentifier:(NSString *)viewControllerID;
-+ (UIViewController *)showFromRect:(CGRect)initialFrame withViewControllerIdentifier:(NSString *)viewControllerID andItem:(id)item;
++ (id)showWithViewControllerIdentifier:(NSString *)viewControllerID;
++ (id)showFromRect:(CGRect)initialFrame withViewControllerIdentifier:(NSString *)viewControllerID andItem:(id)item;
 
 + (void)fadeOutViewAnimated:(BOOL)animated;
 + (BOOL)isShowing;
