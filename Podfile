@@ -5,6 +5,6 @@ pod 'xmlrpc'
 
 pod 'PutioKit', :podspec => '../PutioKit/PutioKit.podspec'
 
-pod 'ARAnalytics/Crashlytics', :podspec => 'vendor/ARAnalytics.podspec', :commit => :head
-pod 'ARAnalytics/Mixpanel', :podspec => 'vendor/ARAnalytics.podspec', :commit => :head
-pod 'ARAnalytics/TestFlight', :podspec => 'vendor/ARAnalytics.podspec', :commit => :head
+pod 'ARAnalytics/Crashlytics', :git => "git@github.com:orta/ARAnalytics.git", :commit => :head
+pod 'ARAnalytics/Mixpanel', :git => "git@github.com:orta/ARAnalytics.git", :commit => :head
+pod 'ARAnalytics/TestFlight', :git => "git@github.com:orta/ARAnalytics.git", :commit => :head

@@ -1448,12 +1448,12 @@ to Put.IO</string>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" id="jqq-pd-Rm5">
-                                                        <rect key="frame" x="44" y="44" width="20" height="44"/>
+                                                        <rect key="frame" x="44" y="29" width="20" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" id="DHk-hm-DeQ">
-                                                        <rect key="frame" x="44" y="108" width="20" height="44"/>
+                                                        <rect key="frame" x="44" y="93" width="20" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </view>
@@ -1461,7 +1461,7 @@ to Put.IO</string>
                                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" id="eU6-zT-B2t">
-                                                <rect key="frame" x="148" y="44" width="280" height="44"/>
+                                                <rect key="frame" x="148" y="29" width="280" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="26"/>
@@ -1471,7 +1471,7 @@ to Put.IO</string>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" id="7qr-I8-ulE">
-                                                <rect key="frame" x="148" y="108" width="280" height="44"/>
+                                                <rect key="frame" x="148" y="93" width="280" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="26"/>
@@ -1481,7 +1481,7 @@ to Put.IO</string>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Huw-f5-DTe" customClass="ORFlatButton">
-                                                <rect key="frame" x="220" y="172" width="120" height="33"/>
+                                                <rect key="frame" x="190" y="157.5" width="180" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -3227,8 +3227,6 @@ bloody hell</string>
         <class className="ORAddBookmarkViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ORAddBookmarkViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addButtonPressed:"/>
-                <relationship kind="action" name="cancelButtonPressed:"/>
                 <relationship kind="outlet" name="addressTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
             </relationships>

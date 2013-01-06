@@ -1,10 +1,10 @@
 
 PODS:
 - AFNetworking (1.1.0)
-- ARAnalytics/Crashlytics (0.0.3)
-- ARAnalytics/Mixpanel (0.0.3):
+- ARAnalytics/Crashlytics (1.1)
+- ARAnalytics/Mixpanel (1.1):
   - Mixpanel
-- ARAnalytics/TestFlight (0.0.3):
+- ARAnalytics/TestFlight (1.1):
   - TestFlightSDK
 - Mixpanel (1.0.5)
 - NSData+Base64 (1.0.0)
@@ -16,31 +16,31 @@ PODS:
   - NSData+Base64 (~> 1.0.0)
 
 DEPENDENCIES:
-- ARAnalytics/Crashlytics (from `vendor/ARAnalytics.podspec')
-- ARAnalytics/Mixpanel (from `vendor/ARAnalytics.podspec')
-- ARAnalytics/TestFlight (from `vendor/ARAnalytics.podspec')
+- ARAnalytics/Crashlytics (from `git@github.com:orta/ARAnalytics.git', commit `head')
+- ARAnalytics/Mixpanel (from `git@github.com:orta/ARAnalytics.git', commit `head')
+- ARAnalytics/TestFlight (from `git@github.com:orta/ARAnalytics.git', commit `head')
 - PutioKit (from `../PutioKit/PutioKit.podspec')
 - SEHumanizedTimeDiff
 - xmlrpc
 
 EXTERNAL SOURCES:
   ARAnalytics/Crashlytics:
-    :podspec: vendor/ARAnalytics.podspec
+    :git: git@github.com:orta/ARAnalytics.git
     :commit: :head
   ARAnalytics/Mixpanel:
-    :podspec: vendor/ARAnalytics.podspec
+    :git: git@github.com:orta/ARAnalytics.git
     :commit: :head
   ARAnalytics/TestFlight:
-    :podspec: vendor/ARAnalytics.podspec
+    :git: git@github.com:orta/ARAnalytics.git
     :commit: :head
   PutioKit:
     :podspec: ../PutioKit/PutioKit.podspec
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
-  ARAnalytics/Crashlytics: 10e15c8a3008de3b330b6b95b32e72d8c6616094
-  ARAnalytics/Mixpanel: 10e15c8a3008de3b330b6b95b32e72d8c6616094
-  ARAnalytics/TestFlight: 10e15c8a3008de3b330b6b95b32e72d8c6616094
+  ARAnalytics/Crashlytics: d344227692b9993b0c2e67e7e9dcee34c9cf2ca1
+  ARAnalytics/Mixpanel: d344227692b9993b0c2e67e7e9dcee34c9cf2ca1
+  ARAnalytics/TestFlight: d344227692b9993b0c2e67e7e9dcee34c9cf2ca1
   Mixpanel: 5b7c3274ceec4cb6dfdd351e12dacfece8c12919
   NSData+Base64: 8b910cb8a64f45daec6fb15936c36a9a911c57ca
   PutioKit: 958a0e51a02a71c9554e331354762d03aa39f788

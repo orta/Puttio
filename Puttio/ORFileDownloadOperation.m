@@ -35,7 +35,7 @@
             return;
         }
 
-        if (self.error) {
+        if (this.error) {
             if (failure) {
                 dispatch_async(this.failureCallbackQueue ? this.failureCallbackQueue : dispatch_get_main_queue(), ^{
                     failure(this, this.error);

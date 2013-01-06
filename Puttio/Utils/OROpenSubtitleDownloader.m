@@ -10,7 +10,6 @@
 #import "AFNetworking.h"
 #import <zlib.h>
 
-static NSString *ORSubtitleLanguageKey = @"ORSubtitleLanguageKey";
 static NSString *OROpenSubtitleURL  = @"http://api.opensubtitles.org/";
 static NSString *OROpenSubtitlePath = @"xml-rpc";
 

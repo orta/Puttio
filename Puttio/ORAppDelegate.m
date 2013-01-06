@@ -31,8 +31,9 @@
 
     [ORMigration migrate];
     [ARAnalytics  setupWithAnalytics:@{
-          ARTestFlightTeamToken : TESTFLIGHT_SECRET,
-          ARMixpanelToken: MIXPANEL_TOKEN
+        ARTestFlightAppToken : TESTFLIGHT_SECRET,
+        ARMixpanelToken: MIXPANEL_TOKEN,
+        ARCrashlyticsAPIKey: CRASHLYTICS_API_KEY
      }];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -47,7 +48,6 @@
         [self showLogin];
     }
 
-    [Crashlytics startWithAPIKey:CRASHLYTICS_API_KEY];    
     return YES;
 }
 
