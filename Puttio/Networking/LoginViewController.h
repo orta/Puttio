@@ -10,6 +10,7 @@
 #import "PutIOOAuthHelper.h"
 
 @class LoginViewController;
+@class ORFlatButton;
 
 @protocol OAuthVCDelegate <NSObject>
 - (void)authorizationDidFinishWithController:(LoginViewController *)controller;
@@ -29,9 +30,13 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIView *passwordPaddingView;
 @property (weak, nonatomic) IBOutlet UIView *usernamePaddingView;
+@property (weak, nonatomic) IBOutlet ORFlatButton *somethingsWrongButton;
+@property (weak, nonatomic) IBOutlet ORFlatButton *statusUpdateButton;
 
 
 - (IBAction)loginPressed:(id)sender;
 - (IBAction)backTapped:(id)sender;
+- (IBAction)statusUpdateTapped:(id)sender;
+- (IBAction)somethingsWrongTapped:(id)sender;
 
 @end

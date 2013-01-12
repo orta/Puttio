@@ -111,6 +111,10 @@
 }
 
 - (void)openTwitter:(NSString *)username {
+    [[self class] openTwitter:username];
+}
+
++ (void)openTwitter:(NSString *)username {
     BOOL hasTweetBot = [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"tweetbot://"]];
     if (hasTweetBot) {
         NSString * url = [NSString stringWithFormat:@"tweetbot://%@/user_profile/%@", username, username];
@@ -124,12 +128,17 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
         return;
     }
-    
+
     NSString * url = [NSString stringWithFormat:@"https://twitter.com/%@", username];
     [self openURL:url];
+
 }
 
 - (void)openURL:(NSString *)target {
+    [self.class openURL:target];
+}
+
++ (void)openURL:(NSString *)target {
     BOOL hasChrome = [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"googlechrome://"]];
     NSURL *inputURL = [NSURL URLWithString:target];
 
@@ -161,7 +170,6 @@
         [[UIApplication sharedApplication] openURL:inputURL];
     }
 }
-
 
 - (IBAction)ortaTapped:(id)sender {
     if (_showingOrtaInfo) {

@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OpenSubtitleSearchResult.h"
 #import "XMLRPC.h"
 
-@class OROpenSubtitleDownloader;
+@class OROpenSubtitleDownloader, OpenSubtitleSearchResult;
+
 typedef enum {
     OROpenSubtitleStateLoggingIn,
     OROpenSubtitleStateLoggedIn,
@@ -37,7 +37,21 @@ typedef enum {
 @property (readonly) OROpenSubtitleState state;
 @property (strong, nonatomic) NSString *languageString;
 
+// Search and get a return block with an array of OpenSubtitleSearchResult
 - (void)searchForSubtitlesWithHash:(NSString *)hash andFilesize:(NSNumber *)filesize :(void(^) (NSArray *subtitles))searchResult;
+
+// Download a subtitle result to a file after being unzipped
 - (void)downloadSubtitlesForResult:(OpenSubtitleSearchResult *)result toPath:(NSString *)path :(void(^)())onResultsFound;
+@end
+
+
+@interface OpenSubtitleSearchResult : NSObject
+
++ (OpenSubtitleSearchResult *)resultFromDictionary:(NSDictionary *)dictionary;
+
+@property (copy) NSString *subtitleID;
+@property (copy) NSString *subtitleLanguage;
+@property (copy) NSString *iso639Language;
+@property (copy) NSString *subtitleDownloadAddress;
 
 @end

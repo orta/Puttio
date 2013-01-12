@@ -32,4 +32,6 @@
 - (IBAction)dbgrandiTapped:(id)sender;
 - (IBAction)putIOTapped:(id)sender;
 
++ (void)openTwitter:(NSString *)username;
+
 @end

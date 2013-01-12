@@ -6,9 +6,10 @@
 //  Copyright (c) 2012 ortatherox.com. All rights reserved.
 //
 
-#import "OROpenSubtitleDownloader.h"
 #import "AFNetworking.h"
 #import <zlib.h>
+
+#import "OROpenSubtitleDownloader.h"
 
 static NSString *OROpenSubtitleURL  = @"http://api.opensubtitles.org/";
 static NSString *OROpenSubtitlePath = @"xml-rpc";
@@ -42,15 +43,10 @@ static NSString *OROpenSubtitlePath = @"xml-rpc";
 
     if(!_languageString) {
         // one day, for now no.
-        
-//        NSString *identifier = [[NSLocale currentLocale] ISOLanguageCodes][0];
-//        NSString *displayName = [[NSLocale currentLocale] displayNameForKey:NSLocaleIdentifier value:identifier];
-
         _languageString = @"eng";
     }
 
     [self login];
-
     return self;
 }
 
@@ -112,6 +108,7 @@ static NSString *OROpenSubtitlePath = @"xml-rpc";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"not ok");
     }];
+    
     [subtitleDownloadRequest start];
 }
 
@@ -216,5 +213,21 @@ static NSString *OROpenSubtitlePath = @"xml-rpc";
 }
 
 
+@end
+
+
+@implementation OpenSubtitleSearchResult
+
++ (OpenSubtitleSearchResult *)resultFromDictionary:(NSDictionary *)dictionary {
+    OpenSubtitleSearchResult *object = [[OpenSubtitleSearchResult alloc] init];
+
+    object.subtitleID = dictionary[@"IDSubtitleFile"];
+    object.subtitleLanguage = dictionary[@"SubLanguageID"];
+    object.iso639Language = dictionary[@"ISO639"];
+    object.subtitleDownloadAddress = dictionary[@"SubDownloadLink"];
+
+    return object;
+}
 
 @end
+

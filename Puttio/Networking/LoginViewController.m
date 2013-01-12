@@ -10,6 +10,8 @@
 #import "LoginViewController.h"
 #import "PutIOOAuthHelper.h"
 #import "APP_SECRET.h"
+#import "ORFlatButton.h"
+#import "AccountViewController.h"
 
 @implementation LoginViewController
 
@@ -24,6 +26,9 @@
         frame.origin.y = 0;
         self.loginViewWrapper.frame = frame;
     }
+    
+    _authHelper.clientID = APP_ID;
+    _authHelper.clientSecret = APP_SECRET;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -60,6 +65,8 @@
     [self setErrorHeaderView:nil];
     [self setPasswordPaddingView:nil];
     [self setUsernamePaddingView:nil];
+    [self setSomethingsWrongButton:nil];
+    [self setStatusUpdateButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -78,14 +85,21 @@
     [self.activityView startAnimating];
     self.warningLabel.text = @"";
 
-    _authHelper.clientID = APP_ID;
-    _authHelper.clientSecret = APP_SECRET;
     [_authHelper loginWithUsername:_usernameTextfield.text andPassword:_passwordTextfield.text];
     [self performSelector:@selector(showWebview) withObject:nil afterDelay:15];
 }
 
 - (IBAction)backTapped:(id)sender {
     [_authHelper loadAuthPage];
+}
+
+- (IBAction)statusUpdateTapped:(id)sender {
+    [AccountViewController openTwitter:@"orta"];
+}
+
+- (IBAction)somethingsWrongTapped:(id)sender {
+    [_authHelper loginWithUsername:_usernameTextfield.text andPassword:_passwordTextfield.text];
+    [self showWebview];
 }
 
 - (void)showWebview {
@@ -125,8 +139,6 @@
 }
 
 - (void)authHelperLoginFailedWithDescription:(NSString *)errorDescription {   
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showWebview) object:nil];
-
     self.warningLabel.text = errorDescription;
     [self disableForm:NO];
     [self.activityView stopAnimating];
@@ -135,6 +147,7 @@
 - (void)authHelperHasDeclaredItScrewed {
     self.webView.hidden = NO;
     self.errorHeaderView.hidden = NO;
+    self.loginViewWrapper.hidden = YES;
 }
 
 @end

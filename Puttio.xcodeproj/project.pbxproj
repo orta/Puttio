@@ -26,7 +26,6 @@
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
 		60199B271673FD490026762E /* ORRemoveTransferPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60199B261673FD490026762E /* ORRemoveTransferPopoverViewController.m */; };
 		60199B3516740EC30026762E /* OROpenSubtitleDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60199B3416740EC30026762E /* OROpenSubtitleDownloader.m */; };
-		60199B421675119F0026762E /* OpenSubtitleSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 60199B411675119F0026762E /* OpenSubtitleSearchResult.m */; };
 		6020361B15AA2C120021CE21 /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361215AA2C120021CE21 /* DCRoundSwitch.m */; };
 		6020361C15AA2C120021CE21 /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361415AA2C120021CE21 /* DCRoundSwitchKnobLayer.m */; };
 		6020361D15AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361615AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m */; };
@@ -242,8 +241,6 @@
 		60199B261673FD490026762E /* ORRemoveTransferPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORRemoveTransferPopoverViewController.m; path = ViewControllers/ORRemoveTransferPopoverViewController.m; sourceTree = "<group>"; };
 		60199B3316740EC30026762E /* OROpenSubtitleDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OROpenSubtitleDownloader.h; path = Utils/OROpenSubtitleDownloader.h; sourceTree = "<group>"; };
 		60199B3416740EC30026762E /* OROpenSubtitleDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OROpenSubtitleDownloader.m; path = Utils/OROpenSubtitleDownloader.m; sourceTree = "<group>"; };
-		60199B401675119F0026762E /* OpenSubtitleSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenSubtitleSearchResult.h; path = Utils/OpenSubtitleSearchResult.h; sourceTree = "<group>"; };
-		60199B411675119F0026762E /* OpenSubtitleSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenSubtitleSearchResult.m; path = Utils/OpenSubtitleSearchResult.m; sourceTree = "<group>"; };
 		6020361115AA2C120021CE21 /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
 		6020361215AA2C120021CE21 /* DCRoundSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitch.m; sourceTree = "<group>"; };
 		6020361315AA2C120021CE21 /* DCRoundSwitchKnobLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchKnobLayer.h; sourceTree = "<group>"; };
@@ -591,8 +588,6 @@
 			children = (
 				60199B3316740EC30026762E /* OROpenSubtitleDownloader.h */,
 				60199B3416740EC30026762E /* OROpenSubtitleDownloader.m */,
-				60199B401675119F0026762E /* OpenSubtitleSearchResult.h */,
-				60199B411675119F0026762E /* OpenSubtitleSearchResult.m */,
 			);
 			name = OpenSubtitleDownloader;
 			sourceTree = "<group>";
@@ -1329,7 +1324,6 @@
 				60ABDE40166D8F510046C570 /* ORDownloadCleanup.m in Sources */,
 				60199B271673FD490026762E /* ORRemoveTransferPopoverViewController.m in Sources */,
 				60199B3516740EC30026762E /* OROpenSubtitleDownloader.m in Sources */,
-				60199B421675119F0026762E /* OpenSubtitleSearchResult.m in Sources */,
 				60567B0E167D3710009D205A /* SubRip.m in Sources */,
 				60567B11167D5C12009D205A /* ORSettingsViewController.m in Sources */,
 				602493B6168CB49F00E7A974 /* ORInlineEditableTableViewController.m in Sources */,
@@ -1416,7 +1410,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ben Maslen (P62E9AFBV2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ben Maslen";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1432,7 +1426,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "18902116-6BD8-47E5-AB72-030EC24BAC50";
+				PROVISIONING_PROFILE = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
@@ -1445,7 +1439,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ben Maslen (P62E9AFBV2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ben Maslen";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1461,7 +1455,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "18902116-6BD8-47E5-AB72-030EC24BAC50";
+				PROVISIONING_PROFILE = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
