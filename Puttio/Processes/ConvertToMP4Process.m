@@ -38,7 +38,7 @@
             else if ([status isEqualToString:@"CONVERTING"]) {
                 if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
                     _message = nil;
-                    self.progress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
+                    self.processProgress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
                 }
             }
 
@@ -51,7 +51,10 @@
                 [self end];
             }
 
-        } failure:^(NSError *error) {}];
+        } failure:^(NSError *error) {
+
+
+        }];
     }
 }
 @end

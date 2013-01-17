@@ -90,6 +90,12 @@
     [self.navigationController pushViewController:settings animated:YES];
 }
 
+- (IBAction)openPutIO:(id)sender {
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *putIOVC = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"putIOView"];
+    [rootViewController presentViewController:putIOVC animated:YES completion:nil];
+}
+
 - (IBAction)addToTwitter:(id)sender {
     [self openTwitter:@"orta"];
 }

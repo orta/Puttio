@@ -60,6 +60,7 @@
     }
 
     LocalFile *file = [LocalFile findFirstByAttribute:@"id" withValue:_file.id];
+
     if (file && ![self canOpenDocumentWithFilePath:file.localPathForFile inView:self.infoController.secondaryButton]) {
         self.infoController.secondaryButton.enabled = NO;
     }
@@ -210,6 +211,11 @@
 
     NSString *subtitleLanguage = [[NSUserDefaults standardUserDefaults] objectForKey:ORSubtitleLanguageDefault];
     // we always have a prefix comma in the default
+
+    if (subtitleLanguage.length == 0) {
+        return;
+    }
+
     if (!subtitleLanguage) {
         subtitleLanguage = @",eng";
     }
@@ -292,6 +298,8 @@
 }
 
 - (BOOL)canOpenDocumentWithFilePath:(NSString *)path inView:(UIView*)view {
+    if (!view.window) return NO;
+    
     BOOL canOpen = NO;
     UIDocumentInteractionController* docController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:path]];
     if (docController) {

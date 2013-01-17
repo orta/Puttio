@@ -14,8 +14,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSInteger lastVersion = [defaults integerForKey:ORMigrationVersionDefault];
 
-    if (lastVersion < 1.22) {
-        // dont do anything for now
+    if (![defaults objectForKey:ORSubtitleLanguageDefault]) {
+        [defaults setObject:@",eng" forKey:ORSubtitleLanguageDefault];
     }
 }
 

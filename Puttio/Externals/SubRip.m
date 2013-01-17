@@ -124,11 +124,13 @@
             
             if ((scanPosition == SubRipScanPositionTimes) && (!actionAlreadyTaken)) {
                 NSArray *times = [line componentsSeparatedByString:@" --> "];
-                NSString *beginning = [times objectAtIndex:0];
-                NSString *ending = [times objectAtIndex:1];
-                
-                cur.startTime = [self parseIntoCMTime:beginning];
-                cur.endTime = [self parseIntoCMTime:ending];
+                if (times.count > 1) {
+                    NSString *beginning = [times objectAtIndex:0];
+                    NSString *ending = [times objectAtIndex:1];
+
+                    cur.startTime = [self parseIntoCMTime:beginning];
+                    cur.endTime = [self parseIntoCMTime:ending];
+                }
                 
                 scanPosition = SubRipScanPositionText;
                 actionAlreadyTaken = YES;
@@ -145,14 +147,18 @@
             }
         }
         else {
-            [subtitleItems addObject:cur];
+            if (CMTIME_IS_VALID(cur.startTime) && CMTIME_IS_VALID(cur.endTime) && cur.text) {
+                [subtitleItems addObject:cur];
+            }
             cur = [SubRipItem new];
             scanPosition = SubRipScanPositionArrayIndex;
         }
     }];
     
     if (scanPosition == SubRipScanPositionText) {
-        [subtitleItems addObject:cur];
+        if (CMTIME_IS_VALID(cur.startTime) && CMTIME_IS_VALID(cur.endTime) && cur.text) {
+            [subtitleItems addObject:cur];
+        }
     }
     
     return YES;

@@ -23,7 +23,8 @@
     WEPopoverController *_deletePopover;
     ORRemoveTransferPopoverViewController *_removeVC;
 
-    int _deletedCount;
+    NSMutableArray *_deletedIndexes;
+
     int _selectedIndex;
 }
 
@@ -38,6 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _deletedIndexes = [NSMutableArray array];
+
     [_loadingRotator startAnimating];
     [self startTimer];
     [self setupGestures];
@@ -90,7 +93,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _transfers.count -_deletedCount;
+    return _transfers.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,8 +106,16 @@
         theCell.transfer = item;
         theCell.tag = indexPath.row;
         theCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        theCell.alpha = 1;        
+        theCell.alpha = 1;
+        cell.contentView.backgroundColor = [UIColor whiteColor];
     }
+
+    for (NSNumber *number in _deletedIndexes) {
+        if (number.integerValue == indexPath.row) {
+            cell.contentView.backgroundColor = [UIColor putioDarkRed];
+        }
+    }
+
     return cell;
 }
 
@@ -162,21 +173,22 @@
 
     _removeButton.enabled = NO;
     _removeButton.alpha = 0.5;
-    _deletedCount++;
+
+    NSNumber *selectedIndexNumber = @(_selectedIndex);
+    [_deletedIndexes addObject:selectedIndexNumber];
 
     NSIndexPath *cellPath = [NSIndexPath indexPathForRow:_selectedIndex inSection:0];
-    [_tableView deleteRowsAtIndexPaths:@[cellPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [_tableView reloadRowsAtIndexPaths:@[cellPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 
     [[PutIOClient sharedClient] cancelTransfer:_transfers[_selectedIndex] :^{
-        _deletedCount--;
         [self getTransfers];
-
+        [_deletedIndexes removeObject:selectedIndexNumber];
+        
         [_deletePopover dismissPopoverAnimated:YES];
         _selectedIndex = NSNotFound;
         _deleteViewLabel.text = @"";
 
     } failure:^(NSError *error) {
-        _deletedCount--;
         _removeButton.enabled = YES;
         _removeButton.alpha = 1;
         _selectedIndex = NSNotFound;

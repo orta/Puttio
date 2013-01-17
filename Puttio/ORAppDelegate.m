@@ -148,6 +148,7 @@
     
     if (coordinator != nil) {
         NSManagedObjectContext* moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        moc.mergePolicy = [[NSMergePolicy alloc] initWithMergeType: NSMergeByPropertyObjectTrumpMergePolicyType];
 
         [moc performBlockAndWait:^{
             [moc setPersistentStoreCoordinator: coordinator];
@@ -256,13 +257,15 @@
             [options setObject:iCloudLogsPath                forKey:NSPersistentStoreUbiquitousContentURLKey];
             
             [psc lock];
-            
+            NSError *error = nil;
             [psc addPersistentStoreWithType:NSSQLiteStoreType
                               configuration:nil
                                         URL:[NSURL fileURLWithPath:iCloudData]
                                     options:options
                                       error:nil];
-            
+            if (error) {
+                NSLog(@"Core Data error %@", error.localizedDescription);
+            }
             [psc unlock];
         }
         else {

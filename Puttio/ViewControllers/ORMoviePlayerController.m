@@ -76,6 +76,10 @@
     _subtitleDownloader = [[OROpenSubtitleDownloader alloc] init];
     NSString *languageString = [[NSUserDefaults standardUserDefaults] objectForKey:ORSubtitleLanguageDefault];
 
+    if (languageString.length == 0) {
+        return;
+    }
+    
     if (!languageString) {
         languageString = @",eng";
     }

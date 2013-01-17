@@ -222,7 +222,7 @@ typedef enum {
         if (cell) {
             BaseProcess *item = _processes[indexPath.row];
             ORTransferCell *theCell = (ORTransferCell*)cell;
-            theCell.progressView.progress = item.progress;
+            theCell.progressView.progress = item.processProgress;
             theCell.progressView.isLandscape = YES;
         }
     }
@@ -313,11 +313,13 @@ typedef enum {
         
         if (item) {
             if ([_popoverController.contentViewController isMemberOfClass:[ProcessPopoverViewController class]]) {
+                
                 NSIndexPath *path = [NSIndexPath indexPathForRow:row inSection:section];
                 CGRect originalRect = [self.tableView rectForRowAtIndexPath:path];
                 UINavigationController *rootController = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
 
                 ProcessPopoverViewController *transferVC = (ProcessPopoverViewController*) _popoverController.contentViewController;
+
                 [_popoverController presentPopoverFromRect:[rootController.view convertRect:originalRect fromView:self.tableView] inView:rootController.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
 
                 transferVC.item = item;
@@ -331,6 +333,5 @@ typedef enum {
     [_popoverController dismissPopoverAnimated:YES];
     _currentIndex = -1;
 }
-
 
 @end

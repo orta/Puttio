@@ -25,7 +25,6 @@
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
 		60199B271673FD490026762E /* ORRemoveTransferPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60199B261673FD490026762E /* ORRemoveTransferPopoverViewController.m */; };
-		60199B3516740EC30026762E /* OROpenSubtitleDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60199B3416740EC30026762E /* OROpenSubtitleDownloader.m */; };
 		6020361B15AA2C120021CE21 /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361215AA2C120021CE21 /* DCRoundSwitch.m */; };
 		6020361C15AA2C120021CE21 /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361415AA2C120021CE21 /* DCRoundSwitchKnobLayer.m */; };
 		6020361D15AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361615AA2C120021CE21 /* DCRoundSwitchOutlineLayer.m */; };
@@ -72,6 +71,7 @@
 		604678FC15B1E76C00A2BFA8 /* TwitterBird@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F515B1E76A00A2BFA8 /* TwitterBird@2x.png */; };
 		604678FD15B1E76C00A2BFA8 /* DotSlash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604678F615B1E76B00A2BFA8 /* DotSlash@2x.png */; };
 		6046790715B1F0EC00A2BFA8 /* ORDestructiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */; };
+		6051C0DC16A7906600054D4C /* ORPutIOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6051C0DB16A7906600054D4C /* ORPutIOViewController.m */; };
 		60567B0E167D3710009D205A /* SubRip.m in Sources */ = {isa = PBXBuildFile; fileRef = 60567B0D167D3710009D205A /* SubRip.m */; };
 		60567B11167D5C12009D205A /* ORSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60567B10167D5C11009D205A /* ORSettingsViewController.m */; };
 		60567B14167E6AC5009D205A /* CCLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 60567B12167E6AC5009D205A /* CCLogo.png */; };
@@ -239,8 +239,6 @@
 		60064201151F24CD00EF85F9 /* BrowsingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingViewController.m; sourceTree = "<group>"; };
 		60199B251673FD490026762E /* ORRemoveTransferPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORRemoveTransferPopoverViewController.h; path = ViewControllers/ORRemoveTransferPopoverViewController.h; sourceTree = "<group>"; };
 		60199B261673FD490026762E /* ORRemoveTransferPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORRemoveTransferPopoverViewController.m; path = ViewControllers/ORRemoveTransferPopoverViewController.m; sourceTree = "<group>"; };
-		60199B3316740EC30026762E /* OROpenSubtitleDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OROpenSubtitleDownloader.h; path = Utils/OROpenSubtitleDownloader.h; sourceTree = "<group>"; };
-		60199B3416740EC30026762E /* OROpenSubtitleDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OROpenSubtitleDownloader.m; path = Utils/OROpenSubtitleDownloader.m; sourceTree = "<group>"; };
 		6020361115AA2C120021CE21 /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
 		6020361215AA2C120021CE21 /* DCRoundSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitch.m; sourceTree = "<group>"; };
 		6020361315AA2C120021CE21 /* DCRoundSwitchKnobLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchKnobLayer.h; sourceTree = "<group>"; };
@@ -306,6 +304,8 @@
 		604678F615B1E76B00A2BFA8 /* DotSlash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DotSlash@2x.png"; sourceTree = "<group>"; };
 		6046790515B1F0EC00A2BFA8 /* ORDestructiveButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORDestructiveButton.h; path = Views/ORDestructiveButton.h; sourceTree = "<group>"; };
 		6046790615B1F0EC00A2BFA8 /* ORDestructiveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORDestructiveButton.m; path = Views/ORDestructiveButton.m; sourceTree = "<group>"; };
+		6051C0DA16A7906600054D4C /* ORPutIOViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORPutIOViewController.h; path = ViewControllers/ORPutIOViewController.h; sourceTree = "<group>"; };
+		6051C0DB16A7906600054D4C /* ORPutIOViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORPutIOViewController.m; path = ViewControllers/ORPutIOViewController.m; sourceTree = "<group>"; };
 		60567B0C167D3710009D205A /* SubRip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubRip.h; sourceTree = "<group>"; };
 		60567B0D167D3710009D205A /* SubRip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubRip.m; sourceTree = "<group>"; };
 		60567B0F167D5C11009D205A /* ORSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSettingsViewController.h; sourceTree = "<group>"; };
@@ -586,8 +586,6 @@
 		60199B3E167511780026762E /* OpenSubtitleDownloader */ = {
 			isa = PBXGroup;
 			children = (
-				60199B3316740EC30026762E /* OROpenSubtitleDownloader.h */,
-				60199B3416740EC30026762E /* OROpenSubtitleDownloader.m */,
 			);
 			name = OpenSubtitleDownloader;
 			sourceTree = "<group>";
@@ -890,6 +888,8 @@
 				60EC4E45168CD0E700EFCF3B /* ORBookmarksViewController.m */,
 				60FB51E11699FD2E00040CC8 /* ORAddBookmarkViewController.h */,
 				60FB51E21699FD2F00040CC8 /* ORAddBookmarkViewController.m */,
+				6051C0DA16A7906600054D4C /* ORPutIOViewController.h */,
+				6051C0DB16A7906600054D4C /* ORPutIOViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1323,13 +1323,13 @@
 				600249AD166C2AD6007E6E9A /* ORImageFileInfoViewController.m in Sources */,
 				60ABDE40166D8F510046C570 /* ORDownloadCleanup.m in Sources */,
 				60199B271673FD490026762E /* ORRemoveTransferPopoverViewController.m in Sources */,
-				60199B3516740EC30026762E /* OROpenSubtitleDownloader.m in Sources */,
 				60567B0E167D3710009D205A /* SubRip.m in Sources */,
 				60567B11167D5C12009D205A /* ORSettingsViewController.m in Sources */,
 				602493B6168CB49F00E7A974 /* ORInlineEditableTableViewController.m in Sources */,
 				60EC4E34168CC97500EFCF3B /* Bookmark.m in Sources */,
 				60EC4E46168CD0E700EFCF3B /* ORBookmarksViewController.m in Sources */,
 				60FB51E31699FD2F00040CC8 /* ORAddBookmarkViewController.m in Sources */,
+				6051C0DC16A7906600054D4C /* ORPutIOViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1410,7 +1410,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ben Maslen";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ben Maslen (P62E9AFBV2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1426,7 +1426,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
+				PROVISIONING_PROFILE = "DE39671A-602B-4330-847F-D775F47DEFA0";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;

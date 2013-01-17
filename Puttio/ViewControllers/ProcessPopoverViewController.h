@@ -11,7 +11,7 @@
 @class ORSimpleProgress;
 @interface ProcessPopoverViewController : UIViewController
 
-@property  id item;
+@property id item;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet ORSimpleProgress *progressView;

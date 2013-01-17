@@ -17,6 +17,7 @@
 #import "NSManagedObject+ActiveRecord.h"
 #import "FileDownloadProcess.h"
 #import "ORFileDownloadOperation.h"
+#import "NSFileManager+SkipBackup.h"
 
 @interface BaseFileController (){
     FileDownloadProcess *_fileDownloadProcess;
@@ -59,7 +60,7 @@
         downloadOperation = [ORFileDownloadOperation fileDownloadFromURL:addressURL toLocalPath:path];
                              
         if (showTransferInBG) {
-            __block _fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation andFile:_file];
+           _fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation andFile:_file];
         }
 
         [downloadOperation setDownloadProgressBlock: ^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
@@ -67,10 +68,11 @@
             if (blockInfoController) {
                 blockInfoController.progressView.progress = progress;
             }
-            _fileDownloadProcess.progress = progress;
+            _fileDownloadProcess.processProgress = progress;
         }];
         
         [downloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [[NSFileManager defaultManager] addSkipBackupAttributeToFileAtPath:path];
             if (blockInfoController) {
                 [blockInfoController enableButtons];
             }

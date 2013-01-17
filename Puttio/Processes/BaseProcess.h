@@ -15,7 +15,7 @@
 
 @interface BaseProcess : NSObject
 
-@property (nonatomic, assign) CGFloat progress;
+@property (nonatomic, assign) CGFloat processProgress;
 @property (assign) BOOL finished;
 @property NSString *primaryDescription;
 @property (weak) id <BaseProcessDelegate> delegate;

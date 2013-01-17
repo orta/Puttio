@@ -5,11 +5,13 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/orta/OROpenSubtitleDownloader"
   s.license      = { :type => 'BSD', :file => 'LICENSE' }
   s.author       = { "orta" => "orta.therox@gmail.com" }
-  s.source       = { :git => "https://github.com/orta/OROpenSubtitleDownloader.git", :commit => "294cdf6e91cb7ef7e38689a3ae0a178bbdcca410" }
+  s.source       = { :git => "https://github.com/orta/OROpenSubtitleDownloader.git", :commit => :head }
   s.source_files = 'OROpenSubtitleDownloader.{h,m}'
   s.library   = 'z'
   s.requires_arc = true
-  s.platform = :ios
+  
+  s.platform     = :ios
+  s.ios.deployment_target = '5.0'
 
   s.dependency 'AFNetworking'
   s.dependency 'xmlrpc'

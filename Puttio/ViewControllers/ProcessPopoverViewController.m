@@ -12,6 +12,7 @@
 
 @interface ProcessPopoverViewController (){
     id _item;
+    NSTimer *_timer;
 }
 
 @end
@@ -38,23 +39,33 @@
         self.titleLabel.text = [item primaryDescription];
     }
 
-    if ([item respondsToSelector:@selector(percentDone)]) {
-        self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", [[item percentDone] floatValue]];
-        self.progressView.progress = [[item percentDone] floatValue]/100;
-    }
-    
-    if ([item respondsToSelector:@selector(progress)]) {
-//        self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", [item progress] * 100 ];
-//        self.progressView.progress = [item progress];
+    [self updateProgress];
+    self.progressView.isLandscape = YES;
+
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    [_timer fire];
+}
+
+- (void)tick {
+    [self updateProgress];
+}
+
+- (void)updateProgress {
+    if ([_item respondsToSelector:@selector(percentDone)]) {
+        self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", [[_item percentDone] floatValue]];
+        self.progressView.progress = [[_item percentDone] floatValue]/100;
     }
 
-    if ([item respondsToSelector:@selector(message)]) {
-        if ([item message] != nil) {
-            self.progressLabel.text = [item message];
+    if ([_item respondsToSelector:@selector(processProgress)]) {
+        self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", [_item processProgress] * 100 ];
+        self.progressView.progress = [_item processProgress];
+    }
+
+    if ([_item respondsToSelector:@selector(message)]) {
+        if ([_item message] != nil) {
+            self.progressLabel.text = [_item message];
         }
     }
-    
-    self.progressView.isLandscape = YES;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -62,6 +73,9 @@
 }
 
 - (void)viewDidUnload {
+    [_timer invalidate];
+    _timer = nil;
+
     [self setProgressLabel:nil];
     [self setTitleLabel:nil];
     [self setProgressView:nil];

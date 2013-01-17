@@ -28,17 +28,8 @@
     _item = item;
 
     if ([UIDevice isPhone]) {
-        self.titleLabel.numberOfLines = 2;
         self.titleLabel.textAlignment = UITextAlignmentCenter;
-
-        CGRect newFrame = self.titleLabel.superview.frame;
-        newFrame.size.height *= 2;
-        self.titleLabel.superview.frame = newFrame;
-        newFrame.origin.y = 0;
-        self.titleLabel.frame = newFrame;
-
-        self.deleteButton.frame = CGRectOffset(self.deleteButton.frame, 0, 14);
-        self.cancelButton.frame = CGRectOffset(self.cancelButton.frame, 0, 14);
+        self.titleLabel.font = [self.titleLabel.font fontWithSize:18];
     }
 
     if ([item respondsToSelector:@selector(displayName)]) {
