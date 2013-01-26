@@ -298,6 +298,10 @@
     }
 }
 
+- (IBAction)hideSearchInterface:(id)sender {
+    [self makeSmallAnimated:YES];
+}
+
 - (void)reposition {
     [self resizeToWidth:self.view.frame.size.width animated:NO];
 }
@@ -334,6 +338,16 @@
         frame.origin.x = frame.size.width - newWidth;
         frame.size.width = newWidth;
         self.view.frame = frame;
+
+        CGRect searchFrame = _searchBar.frame;
+        if (width > 200) {
+            searchFrame.size.width = CGRectGetWidth(self.view.bounds) - 44;
+            searchFrame.origin.x = 44;
+        } else {
+            searchFrame.size.width = CGRectGetWidth(self.view.bounds);
+            searchFrame.origin.x = 0;
+        }
+        _searchBar.frame = searchFrame;
     }];
 
 }

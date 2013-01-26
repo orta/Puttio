@@ -78,14 +78,18 @@
   
 - (void)parseTimecodeString:(NSString *)timecodeString intoSeconds:(NSInteger *)totalNumSeconds milliseconds:(NSInteger *)milliseconds {
     NSArray *timeComponents = [timecodeString componentsSeparatedByString:@":"];
-    
+
     NSInteger hours = [(NSString *)[timeComponents objectAtIndex:0] integerValue];
     NSInteger minutes = [(NSString *)[timeComponents objectAtIndex:1] integerValue];
     
     NSArray *secondsComponents = [(NSString *)[timeComponents objectAtIndex:2] componentsSeparatedByString:@","];
     NSInteger seconds = [(NSString *)[secondsComponents objectAtIndex:0] integerValue];
-    
-    *milliseconds = [(NSString *)[secondsComponents objectAtIndex:1] integerValue];
+    if (![secondsComponents objectAtIndex:1]) {
+        *milliseconds = 0;
+    } else {
+        *milliseconds = [(NSString *)[secondsComponents objectAtIndex:1] integerValue];
+
+    }
     *totalNumSeconds = (hours * 3600) + (minutes * 60) + seconds;
 }
 

@@ -76,10 +76,10 @@
     [_timer invalidate];
     _timer = nil;
 
-    [self setProgressLabel:nil];
-    [self setTitleLabel:nil];
-    [self setProgressView:nil];
-    [self setItem:nil];
+//    [self setProgressLabel:nil];
+//    [self setTitleLabel:nil];
+//    [self setProgressView:nil];
+//    [self setItem:nil];
     [super viewDidUnload];
 }
 @end

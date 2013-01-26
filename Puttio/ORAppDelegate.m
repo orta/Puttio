@@ -18,7 +18,7 @@
 #import "ORMigration.h"
 #import "ORPasteboardParser.h"
 #import "ORDownloadCleanup.h"
-
+#import "MSVCLeakHunter.h"
 
 @implementation ORAppDelegate
 
@@ -47,7 +47,9 @@
     }else{
         [self showLogin];
     }
-
+#ifndef RELEASE
+    [MSVCLeakHunter install];
+#endif
     return YES;
 }
 

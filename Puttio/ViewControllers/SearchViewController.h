@@ -21,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIView *noResultsFoundView;
 @property (weak, nonatomic) IBOutlet UIView *tryChangingSettingsView;
 
+- (IBAction)hideSearchInterface:(id)sender;
 - (void)reposition;
 @end

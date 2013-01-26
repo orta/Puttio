@@ -534,6 +534,21 @@ to Put.IO</string>
                                     <outlet property="delegate" destination="o5q-oo-v5b" id="8hv-id-kdb"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="PJb-iD-C6a">
+                                <rect key="frame" x="0.0" y="0.0" width="47" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="CloseSearch@2x.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="hideSearchInterface:" destination="o5q-oo-v5b" eventType="touchUpInside" id="Q8o-a2-SP9"/>
+                                </connections>
+                            </button>
                             <searchBar contentMode="redraw" text="" id="dkf-Gz-Lrs">
                                 <rect key="frame" x="0.0" y="0.0" width="440" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -3210,6 +3225,7 @@ bloody hell</string>
     <resources>
         <image name="Brazil@2x.png" width="80" height="80"/>
         <image name="Bulgaria@2x.png" width="80" height="80"/>
+        <image name="CloseSearch@2x.png" width="90" height="88"/>
         <image name="Cutest_Cat.jpg" width="360" height="290"/>
         <image name="Czech@2x.png" width="80" height="80"/>
         <image name="English@2x.png" width="80" height="80"/>
@@ -3519,6 +3535,7 @@ bloody hell</string>
         <class className="SearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
             <relationships>
+                <relationship kind="action" name="hideSearchInterface:"/>
                 <relationship kind="outlet" name="activitySpinner" candidateClass="ORRotatingButton"/>
                 <relationship kind="outlet" name="noResultsFoundView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
