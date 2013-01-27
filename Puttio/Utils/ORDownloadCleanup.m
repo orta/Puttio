@@ -21,16 +21,20 @@
         NSLog(@"error %@", error.localizedDescription);
         return;
     }
+
+    NSMutableArray *knownIDs = [NSMutableArray array];
     for (NSString *path in filesInUserDocs) {
         if ([path isEqualToString:@"Puttio.sqlite"]) continue;
+        if ([path rangeOfString:@".txt"].location != NSNotFound){
+            NSString *fileID = [path componentsSeparatedByString:@"."][0];
+            [knownIDs addObject:fileID];
+        }
+    }
 
+    for (NSString *path in filesInUserDocs) {
         NSString *fileID = [path componentsSeparatedByString:@"."][0];
-        if (![LocalFile findFirstByAttribute:@"id" withValue:fileID]) {
-            NSLog(@"removing %@", fileID);
-            [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:path] error:&error];
-            if (error) {
-                NSLog(@"delete error %@", error.localizedDescription);
-            }
+        if (![knownIDs containsObject:fileID]) {
+            [[NSFileManager defaultManager] removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:path] error:nil];
         }
     }
 }

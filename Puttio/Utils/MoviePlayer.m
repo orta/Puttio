@@ -144,7 +144,7 @@ static NSURL *staticMovieURL;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:ORVideoStartedNotification object:nil userInfo:nil];
 
-    staticMovieURL = [NSURL URLWithString:path];
+    staticMovieURL = [NSURL fileURLWithPath:path];
     ORMoviePlayerController *movieController = [[ORMoviePlayerController alloc] initWithContentURL:staticMovieURL];
 
     // SRT Support

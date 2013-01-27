@@ -12,7 +12,9 @@
 @property  PKFile *file;
 @end
 
-@implementation ConvertToMP4Process
+@implementation ConvertToMP4Process {
+    BOOL _waiting;
+}
 
 + (ConvertToMP4Process *)processWithFile:(File *)aFile {
     ConvertToMP4Process *this = [[self alloc] initWithFile:aFile];
@@ -27,34 +29,35 @@
 - (void)tick {
     [super tick];
     
-    if (_file) {
-        [[PutIOClient sharedClient] getMP4InfoForFile:self.file :^(id userInfoObject) {
-            NSString *status = [userInfoObject valueForKeyPath:@"mp4.status"];
+    if (_file && !_waiting) {
+        _waiting = YES;
 
-            if ([status isEqualToString:@"COMPLETED"]) {
-                [self end];
-            }
+        [[PutIOClient sharedClient] getMP4InfoForFile:_file :^(PKMP4Status *status) {
 
-            else if ([status isEqualToString:@"CONVERTING"]) {
-                if ([userInfoObject valueForKeyPath:@"mp4.percent_done"] != [NSNull null]) {
+            switch (status.mp4Status) {
+                case PKMP4StatusCompleted:
+                    [self end];
+                    break;
+                case PKMP4StatusConverting:
                     _message = nil;
-                    self.processProgress = [[userInfoObject valueForKeyPath:@"mp4.percent_done"] floatValue] / 100;
-                }
+                    self.processProgress = status.progress.floatValue;
+                    break;
+                case PKMP4StatusQueued:
+                    _message = @"In Queue";
+                    break;
+                case PKMP4StatusNotAvailable:
+                    _message = @"Not Available";
+                default:
+                    _message = [NSString stringWithFormat:@"%@ Conversion Error", [UIDevice deviceString]];
+                    [self end];
+                    break;
             }
-
-            else if ([status isEqualToString:@"IN_QUEUE"]) {
-                _message = @"In Queue";
-            }
-
-            else {
-                _message = [NSString stringWithFormat:@"%@ Conversion Error", [UIDevice deviceString]];
-                [self end];
-            }
+            _waiting = NO;
 
         } failure:^(NSError *error) {
-
-
+            _waiting = NO;
         }];
     }
 }
+
 @end

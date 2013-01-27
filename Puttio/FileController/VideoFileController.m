@@ -36,6 +36,8 @@
 
 - (void)setFile:(File *)aFile {
     _file = aFile;
+    _requested = NO;
+    
     [self.infoController disableButtons];
 
     self.infoController.titleLabel.text = _file.displayName;
@@ -59,9 +61,9 @@
         }
     }
 
-    LocalFile *file = [LocalFile findFirstByAttribute:@"id" withValue:_file.id];
-
-    if (file && ![self canOpenDocumentWithFilePath:file.localPathForFile inView:self.infoController.secondaryButton]) {
+    BOOL fileExists = [LocalFile localFileExists:_file];
+    NSString *filePath = [LocalFile localPathForMovieWithFile:_file];
+    if (fileExists && ![self canOpenDocumentWithFilePath:filePath inView:self.infoController.secondaryButton]) {
         self.infoController.secondaryButton.enabled = NO;
     }
 }
@@ -99,10 +101,9 @@
 }
 
 - (void)secondaryButtonAction:(id)sender {
-    LocalFile *file = [LocalFile findFirstByAttribute:@"id" withValue:_file.id];
-    if (file) {
+    if ([LocalFile localFileExists:_file]) {
         NSLog(@"found existing local file");
-        [self sendVideoToOtherAppWithFilePath:file.localPathForFile];
+        [self sendVideoToOtherAppWithFilePath:[LocalFile localPathForMovieWithFile:_file]];
         return;
     }
 
@@ -153,12 +154,9 @@
     [self downloadFileAtAddress:requestURL to:localMP4Path backgroundable:YES withCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 
-        // Give it a localfile core data entity
-        LocalFile *localFile = [LocalFile localFileWithFile:_file];
-        if ([[localFile managedObjectContext] persistentStoreCoordinator].persistentStores.count) {
-            [[localFile managedObjectContext] save:nil];
-        }
-        
+        // This'll store the text file
+        [LocalFile finalizeFile:_file];
+
         if (self.infoController) {
             // Set the UI state
             self.infoController.additionalInfoLabel.text = @"Downloaded - It's in your media library!";
@@ -166,7 +164,9 @@
             [self.infoController enableButtons];
             [self.infoController hideProgress];
 
-            if (![self canOpenDocumentWithFilePath:localFile.localPathForFile inView:self.infoController.secondaryButton]) {
+            BOOL fileExists = [LocalFile localFileExists:_file];
+            NSString *filePath = [LocalFile localPathForMovieWithFile:_file];
+            if (fileExists && ![self canOpenDocumentWithFilePath:filePath inView:self.infoController.secondaryButton]) {
                 self.infoController.secondaryButton.enabled = NO;
             }
 
@@ -241,9 +241,12 @@
 - (void)getMP4Info {
     if (_file == nil) {
         NSLog(@"getting info for nil");
+        return;
     }
 
     [[PutIOClient sharedClient] getMP4InfoForFile:_file :^(PKMP4Status *status) {
+        NSLog(@"Status %@", status);
+            
         switch (status.mp4Status) {
                 
             case PKMP4StatusCompleted:
@@ -267,12 +270,21 @@
                 [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
 
 
-            case PKMP4StatusNotAvailable:
-                self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Requested an %@ version.", [UIDevice deviceString]];
-                [self performSelector:@selector(getMP4Info) withObject:self afterDelay:1];
-                [self getMP4Info];
+            case PKMP4StatusNotAvailable:{
+                if (!_requested) {
+                    _requested = YES;
+                    [[PutIOClient sharedClient] requestMP4ForFile:_file :^(PKMP4Status *status) {
+                        [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
+                        [ConvertToMP4Process processWithFile:_file];
+                        
+                    } failure:^(NSError *error) {
+                        ARLog(@"Error requesting MP4Status");
+                    }];
+                }
+                self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Requesting an %@ version.", [UIDevice deviceString]];
+                [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
                 break;
-
+            }
             default:
                 self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Converting for %@ has failed.", [UIDevice deviceString]];
                 [self.infoController disableButtons];

@@ -11,6 +11,7 @@
 #import "FolderViewController.h"
 #import "LocalFile.h"
 #import "UIDevice+SpaceStats.h"
+#import "ORDownloadCleanup.h"
 
 #import "ORImageViewCell.h"
 #import "MoviePlayer.h"
@@ -22,7 +23,7 @@ static UIEdgeInsets GridViewInsets = {.top = 126 + 8, .left = 8, .right = 8, .bo
 const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 
 @interface LocalBrowsingViewController (){
-    NSMutableArray *files;
+    NSMutableArray *files_;
     GMGridView *gridView;
 }
 
@@ -62,7 +63,11 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     [self updateTitles];
 }
 
+
+
 - (void)updateTitles {
+    [ORDownloadCleanup cleanup];
+
     // Space Left on Device
     self.deviceSpaceLeftLabel.text = [NSString stringWithFormat:@"You have %@ left on this device", [self getSpaceLeft]];
     self.phoneDeviceLeftLabel.text = [NSString stringWithFormat:@" %@ free space", [self getSpaceLeft]];
@@ -71,7 +76,6 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     // Space Used on Device
     self.deviceStoredLabel.text = [NSString stringWithFormat:@"This app is using %@", [self getDeviceSpaceUsed]];
     self.phoneDeviceStoredLabel.text = [NSString stringWithFormat:@"Using %@", [self getDeviceSpaceUsed]];
-
 }
 
 - (NSString *)getDeviceSpaceUsed {
@@ -101,6 +105,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     frame.origin.x = GridViewInsets.left;
 
     [gridView setFrame:frame];
+    [self updateTitles];
 }
 
 - (void)viewDidUnload {
@@ -121,19 +126,30 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 
 - (void)reloadFolder {
     [self updateTitles];
-    
-    NSArray *possibleFiles = [LocalFile allObjects];
-    files = [NSMutableArray array];
-    for (LocalFile *file in possibleFiles) {
-        if ([[NSFileManager defaultManager] fileExistsAtPath:file.localPathForFile]) {
-            [files addObject:file];
-        } else {
-            [file deleteEntity];
+
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = paths[0];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error = nil;
+    NSArray *filesInUserDocs = [fileManager contentsOfDirectoryAtPath:documentsDirectory error:&error];
+    if (error) {
+        NSLog(@"error %@", error.localizedDescription);
+        return;
+    }
+
+    files_ = [NSMutableArray array];
+    for (NSString *path in filesInUserDocs) {
+        if ([path isEqualToString:@"Puttio.sqlite"]) continue;
+        if ([path rangeOfString:@".txt"].location != NSNotFound) {
+            LocalFile *file = [LocalFile fileWithTXTPath:path];
+            [files_ addObject:file];
         }
     }
+
     [gridView reloadData];
     
-    self.noItemsView.hidden = files.count > 0;
+    self.noItemsView.hidden = files_.count > 0;
 }
 
 #pragma mark -
@@ -160,19 +176,14 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 #pragma mark GridView Action Methods
 
 - (void)GMGridView:(GMGridView *)aGridView didTapOnItemAtIndex:(NSInteger)position {
-    LocalFile *file = files[position];
+    LocalFile *file = files_[position];
     [MoviePlayer watchLocalMovieAtPath:[file localPathForFile]];
-
-    file.watched = @(YES);
-    if ([[file managedObjectContext] persistentStoreCoordinator].persistentStores.count) {
-        [[file managedObjectContext] save:nil];
-    }
     [self reloadFolder];
 }
 
 - (void)GMGridView:(GMGridView *)aGridView didLongTapOnItemAtIndex:(NSInteger)position {
     if (position == -1) return;
-    LocalFile *file = files[position];
+    LocalFile *file = files_[position];
 
     UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
     CGRect initialFrame = [aGridView convertRect:[[aGridView cellForItemAtIndex:position] frame] toView:rootView];
@@ -184,7 +195,7 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 #pragma mark GridView DataSource Methods
 
 - (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView {
-    return files.count;
+    return files_.count;
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)aGridView cellForItemAtIndex:(NSInteger)index {
@@ -196,15 +207,12 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
         cell.reuseIdentifier = CellIdentifier;
     }
     
-    LocalFile *file = files[index];
+    LocalFile *file = files_[index];
     
     cell.item = file;
     cell.title = file.name;
     cell.imageURL = [NSURL fileURLWithPath:[file localPathForScreenshot]];
 
-    if (file.watched.boolValue == YES) {
-        cell.watched = YES;
-    }
     return cell;
 }   
 

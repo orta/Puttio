@@ -105,6 +105,9 @@
     }
 
     [self updateButtons];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     _subtitlesLanguages.text = @"";
 }
 

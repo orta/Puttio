@@ -8,16 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LocalFile : NSManagedObject
-@property (nonatomic, retain) NSString * displayName;
+@interface LocalFile : NSObject
+
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * parentID;
-@property (nonatomic, retain) NSString * screenShotURL;
-@property (nonatomic, retain) NSNumber * watched;
 
-+ (LocalFile *)localFileWithFile:(File *)file;
++ (id)fileWithTXTPath:(NSString *)path;
++ (void)finalizeFile:(File *)file;
++ (BOOL)localFileExists:(File *)file;
++ (NSString *)localPathForMovieWithFile:(File *)file;
+
 - (void)deleteItem;
+
 - (NSString *)localPathForFile;
 - (NSString *)localPathForScreenshot;
 - (BOOL)hasPreviewThumbnail;
