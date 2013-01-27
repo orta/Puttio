@@ -12,6 +12,7 @@
 #import "NSDate+HumanizedTime.h"
 #import "ORDestructiveButton.h"
 #import "ORTitleLabel.h"
+#import "NSDate+StringParsing.h"
 
 @interface ORExtendedTransferCell (){
     UIView *_backgroundView;
@@ -30,23 +31,31 @@
     NSString *status = [[transfer statusMessage] stringByReplacingOccurrencesOfString:@"This download turned out to be larger than your available space." withString:@"Not enough space."];
 
     NSString *downloadSpeed = [UIDevice humanStringFromBytes:transfer.downSpeed.doubleValue];
+    NSDate *transferDate = [NSDate dateWithISO8601String:transfer.createdAt];
+    _additionalInfoLabel.textAlignment = UITextAlignmentLeft;
 
     UIImage *image = nil;
     switch (transfer.transferStatus) {
         case PKTransferStatusDownloading:
             image = [UIImage imageNamed:@"TransferDownloading"];
+            _additionalInfoLabel.textAlignment = UITextAlignmentRight;
             _additionalInfoLabel.text = [NSString stringWithFormat:@"%@%% - %@", transfer.percentDone.stringValue, downloadSpeed];
             break;
 
         case PKTransferStatusCompleted:
             image = [UIImage imageNamed:@"TransferComplete"];
-            _additionalInfoLabel.text = status;
+            if (transferDate) {
+                _additionalInfoLabel.text = [self daysAgoSinceDate:transferDate];
+
+            }
             break;
 
         case PKTransferStatusSeeding:
             image = [UIImage imageNamed:@"TransferUploading"];
             _additionalInfoLabel.text = @"Completed";
-
+            if (transferDate) {
+                _additionalInfoLabel.text = [self daysAgoSinceDate:transferDate];
+            }
             break;
 
         case PKTransferStatusError:
@@ -59,6 +68,18 @@
             _additionalInfoLabel.text = status;
     }
     _statusImageView.image = image;
+}
+
+- (NSString *)daysAgoSinceDate:(NSDate *)date {
+    NSTimeInterval timeInterval = [date timeIntervalSinceNow];
+
+    int secondsInADay = 3600*24;
+    int daysDiff = abs(timeInterval/secondsInADay);
+
+    if (daysDiff == 0) {
+        return @"Today.";
+    }
+    return [NSString stringWithFormat:@"%i days ago.", daysDiff];
 }
 
 - (void)prepareForReuse {
