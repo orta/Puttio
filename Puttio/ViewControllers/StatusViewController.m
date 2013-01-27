@@ -197,6 +197,10 @@ typedef enum {
     [self.tableView reloadData];
 }
 
+- (NSArray *)processIDs {
+    return _processIDs.allKeys;
+}
+
 #pragma mark tableview gubbins
 
 - (int)numberOfSectionsInTableView:(UITableView *)tableView {

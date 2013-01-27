@@ -8,6 +8,7 @@
 
 #import "ORDownloadCleanup.h"
 #import "LocalFile.h"
+#import "StatusViewController.h"
 
 @implementation ORDownloadCleanup
 
@@ -22,6 +23,7 @@
         return;
     }
 
+    // Get all the txt files
     NSMutableArray *knownIDs = [NSMutableArray array];
     for (NSString *path in filesInUserDocs) {
         if ([path isEqualToString:@"Puttio.sqlite"]) continue;
@@ -30,6 +32,9 @@
             [knownIDs addObject:fileID];
         }
     }
+
+    // Get all the current download process IDs
+    [knownIDs addObjectsFromArray:[StatusViewController.sharedController processIDs]];
 
     for (NSString *path in filesInUserDocs) {
         NSString *fileID = [path componentsSeparatedByString:@"."][0];

@@ -21,5 +21,5 @@
 
 - (void)setup;
 - (void)addProcess:(BaseProcess *)process;
-
+- (NSArray *)processIDs;
 @end

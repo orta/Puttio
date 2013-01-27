@@ -19,6 +19,9 @@
 @implementation VideoFileController {
     BOOL _isMP4;
     BOOL _requested;
+    BOOL _hidden;
+    BOOL _addedProcess;
+    
     UIDocumentInteractionController *_docController;
     OROpenSubtitleDownloader *_subtitleDownloader;
     NSArray *_subtitleResults;
@@ -246,7 +249,8 @@
         NSLog(@"getting info for nil");
         return;
     }
-
+    if(_hidden) return;
+    
     [[PutIOClient sharedClient] getMP4InfoForFile:_file :^(PKMP4Status *status) {
         NSLog(@"Status %@", status);
             
@@ -259,6 +263,10 @@
 
             case PKMP4StatusQueued:
                 self.infoController.additionalInfoLabel.text = [NSString stringWithFormat:@"Request for an %@ version has been recieved and is queued, this could take a while.", [UIDevice deviceString]];
+                if(!_addedProcess){
+                    [ConvertToMP4Process processWithFile:_file];
+                    _addedProcess = YES;
+                }
                 [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
 
                 break;
@@ -279,6 +287,7 @@
                     [[PutIOClient sharedClient] requestMP4ForFile:_file :^(PKMP4Status *status) {
                         [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
                         [ConvertToMP4Process processWithFile:_file];
+                        _addedProcess = YES;
                         
                     } failure:^(NSError *error) {
                         ARLog(@"Error requesting MP4Status");
@@ -300,6 +309,11 @@
     }];
     
 }
+
+- (void)viewWillDissapear {
+    _hidden = YES;
+}
+
 
 #pragma mark -
 #pragma mark Document related stuff
