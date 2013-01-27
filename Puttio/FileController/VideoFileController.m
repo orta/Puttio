@@ -60,11 +60,19 @@
             [self getMP4Info];
         }
     }
+    [self setupSecondaryButton];
+}
 
+- (void)setupSecondaryButton {
     BOOL fileExists = [LocalFile localFileExists:_file];
     NSString *filePath = [LocalFile localPathForMovieWithFile:_file];
-    if (fileExists && ![self canOpenDocumentWithFilePath:filePath inView:self.infoController.secondaryButton]) {
-        self.infoController.secondaryButton.enabled = NO;
+    if (fileExists) {
+        if ([self canOpenDocumentWithFilePath:filePath inView:self.infoController.secondaryButton]) {
+            self.infoController.secondaryButton.enabled = YES;
+            [self.infoController.secondaryButton setTitle:@"Other App" forState:UIControlStateNormal];
+        } else {
+            self.infoController.secondaryButton.enabled = NO;
+        }
     }
 }
 
@@ -97,7 +105,7 @@
 }
 
 - (NSString *)secondaryButtonText {
-    return @"Download";
+    return ([LocalFile localFileExists:_file])? @"Other App" : @"Download";
 }
 
 - (void)secondaryButtonAction:(id)sender {
@@ -160,15 +168,10 @@
         if (self.infoController) {
             // Set the UI state
             self.infoController.additionalInfoLabel.text = @"Downloaded - It's in your media library!";
-            [self.infoController.secondaryButton setTitle:@"Other App" forState:UIControlStateNormal];
             [self.infoController enableButtons];
             [self.infoController hideProgress];
 
-            BOOL fileExists = [LocalFile localFileExists:_file];
-            NSString *filePath = [LocalFile localPathForMovieWithFile:_file];
-            if (fileExists && ![self canOpenDocumentWithFilePath:filePath inView:self.infoController.secondaryButton]) {
-                self.infoController.secondaryButton.enabled = NO;
-            }
+            [self setupSecondaryButton];
 
             self.infoController.progressInfoHidden = YES;
             self.infoController.secondaryButton.enabled = YES;
@@ -291,9 +294,11 @@
                 break;
         }
 
+        [self setupSecondaryButton];
     } failure:^(NSError *error) {
         [self performSelector:@selector(getMP4Info) withObject:self afterDelay:2];
     }];
+    
 }
 
 #pragma mark -
