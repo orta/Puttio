@@ -1,0 +1,165 @@
+<html>
+<head>
+  <title>puttio_web_movie</title>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="phosphorframework.js"></script>
+</head>
+
+
+<body>
+	
+	<p>puttio_web_movie.</p>
+
+	<img id="anim_target_puttiowebmovie" src="puttiowebmovie.jpg" width="318" height="482"/>
+
+	<br/>
+
+  <form>
+      
+
+    <button onclick="playPhosphor();return false;">Play</button>
+    <button onclick="pausePhosphor();return false;">Pause</button>
+
+    <button onclick="jumpBackwardPhosphor();return false;">jump back</button>
+    <button onclick="jumpForwardPhosphor();return false;">jump forward</button>
+  </form>
+
+  <script>
+
+  var player_puttiowebmovie = null;
+  var puttiowebmovie_framecount = 0;
+
+
+  /**
+   * After the page has loaded, we register a callback which will be triggered by the jsonp file.
+   * Once the callback is registered, we inject the jsonp script file into the page's HEAD block.
+   * An alternative method is to use AJAX (getJSON, etc) to load the corresponding json file.  After loading the
+   * data, instantiate the player in the same way.
+   */
+
+   $(document).ready(function(){
+    player_puttiowebmovie = new PhosphorPlayer('anim_target_puttiowebmovie');
+    phosphorCallback_puttiowebmovie = function(data) {
+
+      /**
+       * Instantiate the player.  The player supports a variate of callbacks for deeper integration into your site.
+       */
+
+       puttiowebmovie_framecount = data.frames.length;
+       player_puttiowebmovie.load_animation({
+         imageArray:["puttio_web_movie/puttiowebmovie_atlas000.jpg","puttio_web_movie/puttiowebmovie_atlas001.jpg","puttio_web_movie/puttiowebmovie_atlas002.jpg","puttio_web_movie/puttiowebmovie_atlas003.jpg","puttio_web_movie/puttiowebmovie_atlas004.jpg","puttio_web_movie/puttiowebmovie_atlas005.jpg","puttio_web_movie/puttiowebmovie_atlas006.jpg","puttio_web_movie/puttiowebmovie_atlas007.jpg","puttio_web_movie/puttiowebmovie_atlas008.jpg","puttio_web_movie/puttiowebmovie_atlas009.jpg","puttio_web_movie/puttiowebmovie_atlas010.jpg","puttio_web_movie/puttiowebmovie_atlas011.jpg","puttio_web_movie/puttiowebmovie_atlas012.jpg","puttio_web_movie/puttiowebmovie_atlas013.jpg","puttio_web_movie/puttiowebmovie_atlas014.jpg","puttio_web_movie/puttiowebmovie_atlas015.jpg","puttio_web_movie/puttiowebmovie_atlas016.jpg","puttio_web_movie/puttiowebmovie_atlas017.jpg","puttio_web_movie/puttiowebmovie_atlas018.jpg","puttio_web_movie/puttiowebmovie_atlas019.jpg","puttio_web_movie/puttiowebmovie_atlas020.jpg"],
+         
+        animationData: data,
+        loop: true,
+        onLoad: function() {
+          player_puttiowebmovie.play();
+
+          /**
+           * If your Phosphor composition was created with the "interactive" mode set, the code below enables that
+           * interation.  Handlers are registered for both mouse drag and touch events.
+           */
+
+           var trappedMouse = false;
+           var trappedXPos;
+
+           var enableInteractivity = false;
+
+           if(enableInteractivity) {
+            $("#anim_target_puttiowebmovie").mousedown(function(e){
+              e.preventDefault();
+              player_puttiowebmovie.stop();
+              trappedMouse = true;
+              trappedXPos = e.pageX;
+              $(document).bind('mousemove',function(event) {
+                if(trappedMouse){
+                  var pos =  (event.pageX - trappedXPos) / 5;
+                  var seekTime = (puttiowebmovie_framecount + player_puttiowebmovie.currentFrameNumber() + parseInt(pos)) % puttiowebmovie_framecount;
+                  player_puttiowebmovie.setCurrentFrameNumber(seekTime);
+                  trappedXPos = event.pageX;
+                }
+
+              });
+
+            });
+
+            $(document).mouseup(function(e){
+              trappedMouse = false;
+              $(document).unbind('mousemove');
+            });
+
+          
+
+            $("#anim_target_puttiowebmovie").bind("touchstart",function(event){
+             var e = event.originalEvent;
+             e.preventDefault();
+             player_puttiowebmovie.stop();
+             trappedMouse = true;
+             trappedXPos = e.pageX;
+             $(document).bind('touchmove', function(e) {
+              if(trappedMouse){
+                var e = e.originalEvent;
+                e.preventDefault();
+                var pos =  (e.pageX - trappedXPos) / 5;
+                var seekTime = (puttiowebmovie_framecount + player_puttiowebmovie.currentFrameNumber() + parseInt(pos)) % puttiowebmovie_framecount;
+                player_puttiowebmovie.setCurrentFrameNumber(seekTime);
+                trappedXPos = e.pageX;
+              }
+             });
+           });
+
+            $("#anim_target_puttiowebmovie").bind("touchend",function(event){
+             var e = event.originalEvent;
+             e.preventDefault();
+             trappedMouse = false;
+             player_puttiowebmovie.play(true);
+             $(document).unbind('touchmove');
+           });
+
+          }
+
+        }
+      });
+     }
+     var jsonpScript = document.createElement("script");
+     jsonpScript.type = "text/javascript";
+     jsonpScript.id = "jsonPinclude_puttiowebmovie";
+     jsonpScript.src = "puttiowebmovie_animationData.json" + "p";
+     document.getElementsByTagName("head")[0].appendChild(jsonpScript);
+
+});
+
+  /**
+   * These functions demonstrate some of the ways you can control the Phosphor player.
+   * If you simply wish to play a Phosphor composition on your page, none of these need to be
+   * defined.
+   */
+
+   function toggleDebug(){
+    player_puttiowebmovie.debug(document.getElementById("debugCheckbox").checked);
+  };
+
+  function playPhosphor(){
+    player_puttiowebmovie.play(true);
+  };
+
+  function pausePhosphor(){
+    player_puttiowebmovie.stop();
+  };
+
+  function jumpForwardPhosphor(){
+    player_puttiowebmovie.stop();
+
+    var seekTime = (player_puttiowebmovie.currentFrameNumber() + 1) % puttiowebmovie_framecount;
+    player_puttiowebmovie.setCurrentFrameNumber(seekTime);
+  };
+
+  function jumpBackwardPhosphor(){
+    player_puttiowebmovie.stop();
+
+    var seekTime = (puttiowebmovie_framecount + player_puttiowebmovie.currentFrameNumber() - 1) % puttiowebmovie_framecount;
+    player_puttiowebmovie.setCurrentFrameNumber(seekTime);
+  };
+
+  </script>
+</body>
+</html>

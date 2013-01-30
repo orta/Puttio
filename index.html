@@ -18,6 +18,7 @@
     }
   </style>
   <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <script type="text/javascript" src="puttio_web_movie/phosphorframework.js"></script>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/script.js"></script>
@@ -29,7 +30,7 @@
   <meta content='black' name='apple-mobile-web-app-status-bar-style'>
 	<script src="javascripts/meny.js"></script>
   <script type="text/javascript" charset="utf-8">
-
+ 
   var hours
   function set_hour(data){
     var seconds = data["seconds"];
@@ -37,9 +38,9 @@
   }
 
   $(document).ready(function() {
-    $('#header-images').cycle({
-  		fx: 'fade', timeout: 600  
-  	});
+//    $('#header-images').cycle({
+  //		fx: 'fade', timeout: 600  
+//  	});
     
     $("#number_of_hours").text("" + hours.commaSeparated() + " hours collectively watched so far");
   
@@ -72,6 +73,31 @@
     $("#download_section").click(function(){
       window.location.href = 'http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8';
     });
+    
+    player_puttiowebmovie = new PhosphorPlayer('anim_target_puttiowebmovie');
+    phosphorCallback_puttiowebmovie = function(data) {
+
+      /**
+       * Instantiate the player.  The player supports a variate of callbacks for deeper integration into your site.
+       */
+
+       puttiowebmovie_framecount = data.frames.length;
+       player_puttiowebmovie.load_animation({
+         imageArray:["puttio_web_movie/puttiowebmovie_atlas000.jpg","puttio_web_movie/puttiowebmovie_atlas001.jpg","puttio_web_movie/puttiowebmovie_atlas002.jpg","puttio_web_movie/puttiowebmovie_atlas003.jpg","puttio_web_movie/puttiowebmovie_atlas004.jpg","puttio_web_movie/puttiowebmovie_atlas005.jpg","puttio_web_movie/puttiowebmovie_atlas006.jpg","puttio_web_movie/puttiowebmovie_atlas007.jpg","puttio_web_movie/puttiowebmovie_atlas008.jpg","puttio_web_movie/puttiowebmovie_atlas009.jpg","puttio_web_movie/puttiowebmovie_atlas010.jpg","puttio_web_movie/puttiowebmovie_atlas011.jpg","puttio_web_movie/puttiowebmovie_atlas012.jpg","puttio_web_movie/puttiowebmovie_atlas013.jpg","puttio_web_movie/puttiowebmovie_atlas014.jpg","puttio_web_movie/puttiowebmovie_atlas015.jpg","puttio_web_movie/puttiowebmovie_atlas016.jpg","puttio_web_movie/puttiowebmovie_atlas017.jpg","puttio_web_movie/puttiowebmovie_atlas018.jpg","puttio_web_movie/puttiowebmovie_atlas019.jpg","puttio_web_movie/puttiowebmovie_atlas020.jpg"],
+        animationData: data,
+        loop: true,
+        onLoad: function() {
+          player_puttiowebmovie.play()
+        }
+      });
+     }
+     
+     var jsonpScript = document.createElement("script");
+     jsonpScript.type = "text/javascript";
+     jsonpScript.id = "jsonPinclude_puttiowebmovie";
+     jsonpScript.src = "puttio_web_movie/puttiowebmovie_animationData.json" + "p";
+     document.getElementsByTagName("head")[0].appendChild(jsonpScript);
+    
   });
     
   </script>
@@ -93,28 +119,26 @@
 	</div>
 
   <div class= "site">
-    <canvas id="canvas" style="opacity:0"></canvas>
     <div id="headline">
       <div class="frame">
         <a id="what_is_putio" class="button" href="#">What is Put.IO?</a>
         <a id="top_download" class="button" href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">Download</a>
-  		
+  		         
       	<div id="header-quotes">
   				<h1>Put.IO for iOS</h1>
   				<h2>Search and Stream</h2>
-  			</div>
-      
-        <div id="header-images">
-              <img src="images/splash1.png">
-              <img src="images/splash2.png" style="display:none">
-              <img src="images/splash3.png" style="display:none">
-              <img src="images/splash4.png" style="display:none">
-        </div>
+  			</div>  
+
       </div> <!-- frame -->
     </div> <!-- header -->
     
     <div class="content">
       <div class="frame">
+        
+        <div id="iphone">
+          <img id="anim_target_puttiowebmovie" src="puttio_web_movie/puttiowebmovie.jpg" width="318" height="482"/>
+        </div>
+        
         <div id="number_of_hours">&nbsp;</div>
         <center>
         <a href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">
@@ -141,7 +165,17 @@
         
           <div class="feature2">
             <h2>iCloud Watch Lists!</h2>
-            <p>Keep track of where you are in a series auto-magically between all your devices. Essential for remembering if you're on episode 20 or 23.</p>
+            <p>Keep track of where you are in a series auto-magically between all devices. Essential for knowing if you're on episode 20 or 23.</p>
+          </div>
+
+          <div class="feature1">
+            <h2>International Subtitles!</h2>
+            <p>Put.IO will search OpenSubtitles for up to 16 different languages for you and show it on your device. It'll even download one for offline.</p>
+          </div>
+          
+          <div class="feature2">
+            <h2>In-App Web Browser!</h2>
+            <p>Maybe you have a private place to store things, this app can deal with it.</p>
           </div>
 
           <a href="http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8">
@@ -161,6 +195,9 @@
             <h3>Retina Ready</h3>
             <h3>Open Files in Other apps</h3>
             <h3>Download Video for later</h3>
+            <h3>Ignore my app mode</h3>
+            <h3>An cool talkative developer</h3>
+            <h3>An awesome talkative developer</h3>
             <h3><a href = "http://github.com/orta/Puttio/">Open source</a></h3>
         </div>
       

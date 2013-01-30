@@ -1,0 +1,7 @@
+This folder contains all of the resources for your Phosphor composition.
+
+To quickly preview your composition, just doubleclick the "index.html" to open it in your default browser.
+
+The index.html contains the code necessary to embed your composition in an existing webpage.  See the Phosphor manual, or visit http://www.divergentmedia.com/support/documentation/Phosphor/view for details about how to go about embedding a composition in a webpage.
+
+This folder contains both JSON and JSONP files which control the playback of the Phosphor composition.  By default, Phosphor relies on the JSONP file, but the JSON file is available for situations in which server configuration, existing software, or content management systems dictate plain JSON.  If you wish to use the JSON file, you'll need to use a function like jQuery's getJSON() method to load the JSON asynchronously.

@@ -1,30 +1,30 @@
 html, body { 
   margin:0; 
   padding:0;
-  overflow-x: hidden;
 }
 
-canvas { 
-  display:block; 
-  background: #d7d7d7;
+body {
 }
-    
-  body {
-    height: 1124px
-  }
-    
-  #headline {
-		position: absolute;
-		width:100%;
-	}
+
+ #iphone {
+   margin:34px auto ;
+   background: url('../images/iphone-bg.jpg') no-repeat scroll top left;
+   max-width: 341px;
+   height: 695px;
+   padding-left: 25px;
+   padding-top:108px;
+   margin-bottom:-120px;
+   clear:both;
+ }
         
 	.frame {
     width : 960px;
     margin: 0 auto;
 	}
   
-  #content {
-    clear:both;
+  .content {
+    padding-top:42px;
+    background: white url('../images/backgroundgrid.png') repeat-x 0px 200px;
     
   }
        
@@ -32,11 +32,6 @@ canvas {
     clear:both
   }
     
-	canvas {
-		margin-top:80px;
-		height: 320px;
-		float:left;		
-	}
 	
   #info {
     background-color: white;
@@ -44,19 +39,7 @@ canvas {
 		clear:both;
     margin-top:32px;
   }
-		
-	#header-images {
-    height:400px;
-		width: 960px;
-		float:left;
-    margin-top: 16px;
-    padding-left:162px;
-	}
-		
-	#header-images img {
-		width:620px;
-	}
-		
+				
   h1 {
     font-family:'Exo-Bold';
     font-size: 48px;
@@ -147,7 +130,8 @@ canvas {
     text-align:center;
     font-family:'Exo-Bold';
     font-size:28px;
-    padding-top:48px;
+    padding-top:32px;
+    padding-bottom:24px;
   }
   
   .meny {
