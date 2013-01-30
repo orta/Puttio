@@ -46,16 +46,9 @@
     $("#number_of_hours").text("" + hours.commaSeparated() + " hours collectively watched so far");
   
   	var meny = Meny.create({
-  		// The element that will be animated in from off screen
   		menuElement: document.querySelector( '.meny' ),
-
-  		// The contents that gets pushed aside while Meny is active
   		contentsElement: document.querySelector( '.site' ),
-
-  		// [optional] The alignment of the menu (top/right/bottom/left)
   		position:'top',
-
-  		// [optional] The height of the menu (when using top/bottom position)
   		height: 200,
   	});
     

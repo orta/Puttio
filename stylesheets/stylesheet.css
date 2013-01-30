@@ -16,7 +16,9 @@ body {
    margin-bottom:-120px;
    clear:both;
  }
-        
+ #iphone img {
+   background-color:black;
+ }
 	.frame {
     width : 960px;
     margin: 0 auto;
@@ -241,6 +243,10 @@ body {
 
     body{ 
       height: auto; 
+    }
+    
+    #iphone{
+      display:none;
     }
     
     body, html, #content {
