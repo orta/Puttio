@@ -38,15 +38,12 @@
   }
 
   $(document).ready(function() {
-//    $('#header-images').cycle({
-  //		fx: 'fade', timeout: 600  
-//  	});
-
-    
     $("#number_of_hours").text("" + hours.commaSeparated() + " hours collectively watched so far");
   
   	var meny = Meny.create({
+  		// The element that will be animated in from off screen
   		menuElement: document.querySelector( '.meny' ),
+
   		contentsElement: document.querySelector( '.site' ),
   		position:'top',
   		height: 200,
@@ -68,25 +65,24 @@
       window.location.href = 'http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8';
     });
     
-    var smalliOS = ( navigator.userAgent.match(/(iPhone|iPod)/i) ? true : false );
-    if (navigator.userAgent.match(/(iPad)/i)) {
-      smalliOS = false;
-    }
+    var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/i) ? true : false );
+    if( navigator.userAgent.match(/(iPad)/i) ) iOS = false;
     
-    if(!smalliOS){
+    
+    if(!iOS){
       player_puttiowebmovie = new PhosphorPlayer('anim_target_puttiowebmovie');
       phosphorCallback_puttiowebmovie = function(data) {
 
-         puttiowebmovie_framecount = data.frames.length;
-         player_puttiowebmovie.load_animation({
-         imageArray:["puttio_web_movie/puttiowebmovie_atlas000.jpg", "puttio_web_movie/puttiowebmovie_atlas001.jpg","puttio_web_movie/puttiowebmovie_atlas002.jpg","puttio_web_movie/puttiowebmovie_atlas003.jpg","puttio_web_movie/puttiowebmovie_atlas004.jpg","puttio_web_movie/puttiowebmovie_atlas005.jpg","puttio_web_movie/puttiowebmovie_atlas006.jpg","puttio_web_movie/puttiowebmovie_atlas007.jpg","puttio_web_movie/puttiowebmovie_atlas008.jpg","puttio_web_movie/puttiowebmovie_atlas009.jpg","puttio_web_movie/puttiowebmovie_atlas010.jpg","puttio_web_movie/puttiowebmovie_atlas011.jpg","puttio_web_movie/puttiowebmovie_atlas012.jpg","puttio_web_movie/puttiowebmovie_atlas013.jpg","puttio_web_movie/puttiowebmovie_atlas014.jpg","puttio_web_movie/puttiowebmovie_atlas015.jpg","puttio_web_movie/puttiowebmovie_atlas016.jpg","puttio_web_movie/puttiowebmovie_atlas017.jpg","puttio_web_movie/puttiowebmovie_atlas018.jpg","puttio_web_movie/puttiowebmovie_atlas019.jpg","puttio_web_movie/puttiowebmovie_atlas020.jpg"],
-          animationData: data,
-          loop: true,
+       puttiowebmovie_framecount = data.frames.length;
+       player_puttiowebmovie.load_animation({
+         imageArray:["puttio_web_movie/puttiowebmovie_atlas000.jpg","puttio_web_movie/puttiowebmovie_atlas001.jpg","puttio_web_movie/puttiowebmovie_atlas002.jpg","puttio_web_movie/puttiowebmovie_atlas003.jpg","puttio_web_movie/puttiowebmovie_atlas004.jpg","puttio_web_movie/puttiowebmovie_atlas005.jpg","puttio_web_movie/puttiowebmovie_atlas006.jpg","puttio_web_movie/puttiowebmovie_atlas007.jpg","puttio_web_movie/puttiowebmovie_atlas008.jpg","puttio_web_movie/puttiowebmovie_atlas009.jpg","puttio_web_movie/puttiowebmovie_atlas010.jpg","puttio_web_movie/puttiowebmovie_atlas011.jpg","puttio_web_movie/puttiowebmovie_atlas012.jpg","puttio_web_movie/puttiowebmovie_atlas013.jpg","puttio_web_movie/puttiowebmovie_atlas014.jpg","puttio_web_movie/puttiowebmovie_atlas015.jpg","puttio_web_movie/puttiowebmovie_atlas016.jpg","puttio_web_movie/puttiowebmovie_atlas017.jpg","puttio_web_movie/puttiowebmovie_atlas018.jpg","puttio_web_movie/puttiowebmovie_atlas019.jpg","puttio_web_movie/puttiowebmovie_atlas020.jpg"],
+        animationData: data,
+        loop: true,
         onLoad: function() {
           player_puttiowebmovie.play()
         }
       });
-     
+     }
      
      var jsonpScript = document.createElement("script");
      jsonpScript.type = "text/javascript";
@@ -94,8 +90,6 @@
      jsonpScript.src = "puttio_web_movie/puttiowebmovie_animationData.json" + "p";
      document.getElementsByTagName("head")[0].appendChild(jsonpScript);
      }
-   }
-   
   });
     
   </script>
@@ -192,8 +186,8 @@
             <h3>Retina Ready</h3>
             <h3>Open Files in Other apps</h3>
             <h3>Download Video for later</h3>
-            <h3>An cool talkative developer</h3>
             <h3>Ignore my app mode</h3>
+            <h3>An cool talkative developer</h3>
             <h3>Crazy Weird Interface</h3>
             <h3><a href = "http://github.com/orta/Puttio/">Open source</a></h3>
         </div>
