@@ -237,20 +237,34 @@ body {
   }
     
   @media screen and (max-device-width: 480px) {
+  
     #header-quotes {
       display:block;
+      text-align:center;
+      width:auto;
+      padding-top:55px;
+    }
+    
+    .content {
+      padding-top:42px;
+      background: white url('../images/backgroundgrid.png') repeat-x 0px -60px;
+    }    
+
+    #number_of_hours {
+      font-size:25px;
     }
 
-    body{ 
-      height: auto; 
+    #info {
+      background-color: none;
     }
+
     
     #iphone{
       display:none;
     }
     
     body, html, #content {
-      width : 480px;
+      width : 596px;
     }
       
 		.frame {
@@ -258,18 +272,14 @@ body {
 		}
       
     .feature1 , .feature2 {
-      width: 440px;
+      width: auto;
       float:left;
     }
     	
     #header-images img {
 			width:320px;
 		}
-      
-		#header-quotes {
-			padding-top: 112px;
-		}
-		
+      		
 		#header-images {
 		  display:none;
     }
@@ -306,17 +316,19 @@ body {
       height: 360px !important;
       clear:both;
       margin-bottom: 32px;
+      width: 608px;
+      margin-left: -70px;
     }
   
     #icon {
-      padding-left: 140px;
+      padding-left: 220px;
     }
     
     #download_info {
-      float:none;
-      padding-left: 80px;
-      padding-top: -20px;
-    }
+      margin: auto 0;
+      padding-top:0;
+      padding-left: 150px
+    }    
 }
 
 @media only screen and (device-width: 768px) {

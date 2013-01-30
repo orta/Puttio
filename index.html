@@ -69,6 +69,10 @@
     });
     
     var smalliOS = ( navigator.userAgent.match(/(iPhone|iPod)/i) ? true : false );
+    if (navigator.userAgent.match(/(iPad)/i)) {
+      smalliOS = false;
+    }
+    
     if(!smalliOS){
       player_puttiowebmovie = new PhosphorPlayer('anim_target_puttiowebmovie');
       phosphorCallback_puttiowebmovie = function(data) {
@@ -188,8 +192,8 @@
             <h3>Retina Ready</h3>
             <h3>Open Files in Other apps</h3>
             <h3>Download Video for later</h3>
-            <h3>Ignore my app mode</h3>
             <h3>An cool talkative developer</h3>
+            <h3>Ignore my app mode</h3>
             <h3>Crazy Weird Interface</h3>
             <h3><a href = "http://github.com/orta/Puttio/">Open source</a></h3>
         </div>
