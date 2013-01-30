@@ -41,6 +41,7 @@
 //    $('#header-images').cycle({
   //		fx: 'fade', timeout: 600  
 //  	});
+
     
     $("#number_of_hours").text("" + hours.commaSeparated() + " hours collectively watched so far");
   
@@ -74,30 +75,30 @@
       window.location.href = 'http://itunes.apple.com/us/app/put.io-for-ios/id547030322?ls=1&mt=8';
     });
     
-    player_puttiowebmovie = new PhosphorPlayer('anim_target_puttiowebmovie');
-    phosphorCallback_puttiowebmovie = function(data) {
+    var smalliOS = ( navigator.userAgent.match(/(iPhone|iPod)/i) ? true : false );
+    if(!smalliOS){
+      player_puttiowebmovie = new PhosphorPlayer('anim_target_puttiowebmovie');
+      phosphorCallback_puttiowebmovie = function(data) {
 
-      /**
-       * Instantiate the player.  The player supports a variate of callbacks for deeper integration into your site.
-       */
-
-       puttiowebmovie_framecount = data.frames.length;
-       player_puttiowebmovie.load_animation({
-         imageArray:["puttio_web_movie/puttiowebmovie_atlas000.jpg","puttio_web_movie/puttiowebmovie_atlas001.jpg","puttio_web_movie/puttiowebmovie_atlas002.jpg","puttio_web_movie/puttiowebmovie_atlas003.jpg","puttio_web_movie/puttiowebmovie_atlas004.jpg","puttio_web_movie/puttiowebmovie_atlas005.jpg","puttio_web_movie/puttiowebmovie_atlas006.jpg","puttio_web_movie/puttiowebmovie_atlas007.jpg","puttio_web_movie/puttiowebmovie_atlas008.jpg","puttio_web_movie/puttiowebmovie_atlas009.jpg","puttio_web_movie/puttiowebmovie_atlas010.jpg","puttio_web_movie/puttiowebmovie_atlas011.jpg","puttio_web_movie/puttiowebmovie_atlas012.jpg","puttio_web_movie/puttiowebmovie_atlas013.jpg","puttio_web_movie/puttiowebmovie_atlas014.jpg","puttio_web_movie/puttiowebmovie_atlas015.jpg","puttio_web_movie/puttiowebmovie_atlas016.jpg","puttio_web_movie/puttiowebmovie_atlas017.jpg","puttio_web_movie/puttiowebmovie_atlas018.jpg","puttio_web_movie/puttiowebmovie_atlas019.jpg","puttio_web_movie/puttiowebmovie_atlas020.jpg"],
-        animationData: data,
-        loop: true,
+         puttiowebmovie_framecount = data.frames.length;
+         player_puttiowebmovie.load_animation({
+         imageArray:["puttio_web_movie/puttiowebmovie_atlas000.jpg", "puttio_web_movie/puttiowebmovie_atlas001.jpg","puttio_web_movie/puttiowebmovie_atlas002.jpg","puttio_web_movie/puttiowebmovie_atlas003.jpg","puttio_web_movie/puttiowebmovie_atlas004.jpg","puttio_web_movie/puttiowebmovie_atlas005.jpg","puttio_web_movie/puttiowebmovie_atlas006.jpg","puttio_web_movie/puttiowebmovie_atlas007.jpg","puttio_web_movie/puttiowebmovie_atlas008.jpg","puttio_web_movie/puttiowebmovie_atlas009.jpg","puttio_web_movie/puttiowebmovie_atlas010.jpg","puttio_web_movie/puttiowebmovie_atlas011.jpg","puttio_web_movie/puttiowebmovie_atlas012.jpg","puttio_web_movie/puttiowebmovie_atlas013.jpg","puttio_web_movie/puttiowebmovie_atlas014.jpg","puttio_web_movie/puttiowebmovie_atlas015.jpg","puttio_web_movie/puttiowebmovie_atlas016.jpg","puttio_web_movie/puttiowebmovie_atlas017.jpg","puttio_web_movie/puttiowebmovie_atlas018.jpg","puttio_web_movie/puttiowebmovie_atlas019.jpg","puttio_web_movie/puttiowebmovie_atlas020.jpg"],
+          animationData: data,
+          loop: true,
         onLoad: function() {
           player_puttiowebmovie.play()
         }
       });
-     }
+     
      
      var jsonpScript = document.createElement("script");
      jsonpScript.type = "text/javascript";
      jsonpScript.id = "jsonPinclude_puttiowebmovie";
      jsonpScript.src = "puttio_web_movie/puttiowebmovie_animationData.json" + "p";
      document.getElementsByTagName("head")[0].appendChild(jsonpScript);
-    
+     }
+   }
+   
   });
     
   </script>
