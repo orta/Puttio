@@ -40,6 +40,7 @@
 @property (weak, nonatomic) IBOutlet ORTitleLabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
 @property (weak, nonatomic) IBOutlet ORFlatButton *playButton;
+@property (weak, nonatomic) IBOutlet ORFlatButton *stopButton;
 
 @end
 
@@ -90,9 +91,11 @@
 - (void)updateButtonLabel {
     if ([_audioPlayer rate]) {
         [_playButton setTitle:@"Pause" forState:UIControlStateNormal];
+        [_stopButton setEnabled:YES];
     }
     else {
         [_playButton setTitle:@"Play" forState:UIControlStateNormal];
+            [_stopButton setEnabled:NO];
     }
 }
 
@@ -106,8 +109,11 @@
     
     [SharedAVPlayer sharedPlayer].audioPlayer = _audioPlayer;
     [SharedAVPlayer sharedPlayer].itemID = _item.id;
+}
 
-    
+- (IBAction)stopButtonTapped:(id)sender {
+    [_audioPlayer play];
+    [_audioPlayer pause];
 }
 
 - (void)hookInToAudioPlayer {
@@ -139,6 +145,7 @@
     [self setProgressView:nil];
     [self setSubtitleLabel:nil];
     [self setPlayButton:nil];
+    [self setStopButton:nil];
     [super viewDidUnload];
 }
 

@@ -47,9 +47,6 @@
     }else{
         [self showLogin];
     }
-#ifndef RELEASE
-    [MSVCLeakHunter install];
-#endif
     return YES;
 }
 

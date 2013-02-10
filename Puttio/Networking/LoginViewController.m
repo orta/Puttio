@@ -20,7 +20,7 @@
     [super viewDidLoad];
     [self setupShadow];
     self.warningLabel.text = @"";
-
+    
     if ([UIDevice isPhone]) {
         CGRect frame = self.loginViewWrapper.frame;
         frame.origin.y = 0;
@@ -40,6 +40,10 @@
         [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
     }
 
+    [self performSelector:@selector(selectTextfield) withObject:nil afterDelay:0.6];
+}
+
+- (void)selectTextfield {
     [self.usernameTextfield becomeFirstResponder];
 }
 

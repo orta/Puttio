@@ -93,6 +93,7 @@
     ORTitleLabel *label = [[ORTitleLabel alloc] initWithFrame:buttonFrame];
     label.text = @"Removed";
     label.textAlignment = UITextAlignmentCenter;
+    _statusImageView.image = nil;
     [[_backgroundView subviews][0] removeFromSuperview];
     [_backgroundView addSubview:label];
 }

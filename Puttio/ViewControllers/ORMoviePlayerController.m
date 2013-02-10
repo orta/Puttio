@@ -9,7 +9,6 @@
 #import "ORMoviePlayerController.h"
 #import <AVFoundation/AVFoundation.h>
 
-
 @implementation ORMoviePlayerController {
     OROpenSubtitleDownloader *_subtitleDownloader;
     NSArray *_subtitleResults;
@@ -43,7 +42,7 @@
 }
 
 - (void)handleSubtitlesControls {
-    [self viewDidLayoutSubviews];
+    [self viewWillLayoutSubviews];
 
     BOOL controlsVisible = NO;
     for(id views in [[self view] subviews]){
@@ -188,6 +187,7 @@
 }
 
 - (void)viewWillLayoutSubviews {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), NSStringFromCGRect(self.view.bounds));
     CGRect subsFrame = self.view.bounds;
     subsFrame.size.height = 44;
     subsFrame.origin.y = CGRectGetHeight(self.view.bounds) - subsFrame.size.height;
@@ -218,6 +218,7 @@
         [self.moviePlayer.view setFrame:newFrame];
         [self.moviePlayer.view setTransform:CGAffineTransformMakeRotation(M_PI / -2)];
     }
+    [self viewWillLayoutSubviews];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

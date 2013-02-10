@@ -63,7 +63,6 @@
             [self getMP4Info];
         }
     }
-    [self setupSecondaryButton];
 }
 
 - (void)setupSecondaryButton {

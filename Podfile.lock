@@ -1,0 +1,61 @@
+
+PODS:
+- AFNetworking (1.1.0)
+- ARAnalytics/Crashlytics (1.1)
+- ARAnalytics/Mixpanel (1.1):
+  - Mixpanel
+- ARAnalytics/TestFlight (1.1):
+  - TestFlightSDK
+- MSVCLeakHunter (1.0.0)
+- Mixpanel (1.0.5)
+- NSData+Base64 (1.0.0)
+- OROpenSubtitleDownloader (0.0.1):
+  - AFNetworking
+  - xmlrpc
+- PutioKit (0.1):
+  - AFNetworking (~> 1.0)
+- SEHumanizedTimeDiff (0.0.1)
+- TestFlightSDK (1.2)
+- xmlrpc (2.3.2):
+  - NSData+Base64 (~> 1.0.0)
+
+DEPENDENCIES:
+- ARAnalytics/Crashlytics (from `git@github.com:orta/ARAnalytics.git', commit `head')
+- ARAnalytics/Mixpanel (from `git@github.com:orta/ARAnalytics.git', commit `head')
+- ARAnalytics/TestFlight (from `git@github.com:orta/ARAnalytics.git', commit `head')
+- MSVCLeakHunter
+- OROpenSubtitleDownloader (from `vendor/OROpenSubtitleDownloader.podspec')
+- PutioKit (from `git@github.com:PutioKit/PutioKit.git', commit `head')
+- SEHumanizedTimeDiff
+
+EXTERNAL SOURCES:
+  ARAnalytics/Crashlytics:
+    :git: git@github.com:orta/ARAnalytics.git
+    :commit: :head
+  ARAnalytics/Mixpanel:
+    :git: git@github.com:orta/ARAnalytics.git
+    :commit: :head
+  ARAnalytics/TestFlight:
+    :git: git@github.com:orta/ARAnalytics.git
+    :commit: :head
+  OROpenSubtitleDownloader:
+    :podspec: vendor/OROpenSubtitleDownloader.podspec
+  PutioKit:
+    :git: git@github.com:PutioKit/PutioKit.git
+    :commit: :head
+
+SPEC CHECKSUMS:
+  AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
+  ARAnalytics/Crashlytics: d344227692b9993b0c2e67e7e9dcee34c9cf2ca1
+  ARAnalytics/Mixpanel: d344227692b9993b0c2e67e7e9dcee34c9cf2ca1
+  ARAnalytics/TestFlight: d344227692b9993b0c2e67e7e9dcee34c9cf2ca1
+  MSVCLeakHunter: 536bf530cabe2ed908f1a0ad0410f8525040c3b6
+  Mixpanel: 5b7c3274ceec4cb6dfdd351e12dacfece8c12919
+  NSData+Base64: 8b910cb8a64f45daec6fb15936c36a9a911c57ca
+  OROpenSubtitleDownloader: 874b34f1556bdc5435fc1ca03252bb61ea33b3a2
+  PutioKit: 958a0e51a02a71c9554e331354762d03aa39f788
+  SEHumanizedTimeDiff: edc1e3b0a86743240699b4bcf135cd476d7b7947
+  TestFlightSDK: 29e194fb148e4861f92e4c1195b9697e1f3ad19a
+  xmlrpc: c2b1eb82e547bcc715631bebdfcb152a6faf6762
+
+COCOAPODS: 0.16.1

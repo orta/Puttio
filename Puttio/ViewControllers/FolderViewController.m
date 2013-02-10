@@ -266,6 +266,7 @@ static CGFloat TreeViewFooterHeight = 60;
     _sizeLabel.frame = labelFrame;
     _backToGridButton.frame = buttonFrame;
     _footerView.frame = footerFrame;
+    
 }
 
 - (void)removeTreeMap {

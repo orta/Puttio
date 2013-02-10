@@ -147,6 +147,7 @@
 }
 
 - (void)disableButtons {
+    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), secondaryButton);
     primaryButton.enabled = NO;
     secondaryButton.enabled = NO;
     primaryButton.alpha = 0.5;
