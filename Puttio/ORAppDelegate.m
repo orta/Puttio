@@ -92,12 +92,13 @@
 - (void)movieFinished:(NSNotification *)notification {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     double currentMinutes = [defaults doubleForKey:ORTotalVideoDuration];
+
     NSNumber *extraMinutesNumber = notification.userInfo[ORVideoDurationKey];
     currentMinutes += [extraMinutesNumber doubleValue];
     [defaults setDouble:currentMinutes forKey:ORTotalVideoDuration];
     [defaults synchronize];
 
-    [ARAnalytics incrementUserProperty:@"TotalTimeWatched" byInt:(int) extraMinutesNumber];
+    [ARAnalytics incrementUserProperty:@"RevisedTotalTimeWatched" byInt:extraMinutesNumber.integerValue];
 
     if (currentMinutes > (5 * 60) && ![defaults boolForKey:ORHasShownReviewNagOneDefault]) {
         [ModalZoomView fadeOutViewAnimated:NO];

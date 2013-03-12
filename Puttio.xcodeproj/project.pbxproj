@@ -441,7 +441,6 @@
 		60B679501618A2AE0051DC7A /* Puttio 3 (v1.2).xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Puttio 3 (v1.2).xcdatamodel"; sourceTree = "<group>"; };
 		60BBA0AA166BAD10001FA20A /* ORAddTorrentFromLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORAddTorrentFromLinkViewController.h; path = ViewControllers/ORAddTorrentFromLinkViewController.h; sourceTree = "<group>"; };
 		60BBA0AB166BAD10001FA20A /* ORAddTorrentFromLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORAddTorrentFromLinkViewController.m; path = ViewControllers/ORAddTorrentFromLinkViewController.m; sourceTree = "<group>"; };
-		60BEE18416C82EC700122FC2 /* Put.IO.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Put.IO.entitlements; sourceTree = "<group>"; };
 		60C04EA31571489600C23AB5 /* VideoFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoFileController.h; path = FileController/VideoFileController.h; sourceTree = "<group>"; };
 		60C04EA41571489600C23AB5 /* VideoFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoFileController.m; path = FileController/VideoFileController.m; sourceTree = "<group>"; };
 		60C04EA6157148B000C23AB5 /* FileController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileController.h; path = Protocols/FileController.h; sourceTree = "<group>"; };
@@ -737,7 +736,6 @@
 		6085D218151B99480068929C = {
 			isa = PBXGroup;
 			children = (
-				60BEE18416C82EC700122FC2 /* Put.IO.entitlements */,
 				60B6792D161862150051DC7A /* Default-Landscape~ipad.png */,
 				60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */,
 				60D0E06D16065753004F167E /* Default.png */,

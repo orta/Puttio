@@ -1,61 +1,54 @@
-
 PODS:
-- AFNetworking (1.1.0)
-- ARAnalytics/Crashlytics (1.1)
-- ARAnalytics/Mixpanel (1.1):
-  - Mixpanel
-- ARAnalytics/TestFlight (1.1):
-  - TestFlightSDK
-- MSVCLeakHunter (1.0.0)
-- Mixpanel (1.0.5)
-- NSData+Base64 (1.0.0)
-- OROpenSubtitleDownloader (0.0.1):
-  - AFNetworking
-  - xmlrpc
-- PutioKit (0.1):
-  - AFNetworking (~> 1.0)
-- SEHumanizedTimeDiff (0.0.1)
-- TestFlightSDK (1.2)
-- xmlrpc (2.3.2):
-  - NSData+Base64 (~> 1.0.0)
+  - AFNetworking (1.1.0)
+  - ARAnalytics/Core (1.2)
+  - ARAnalytics/Crashlytics (1.2):
+    - ARAnalytics/Core
+  - ARAnalytics/Mixpanel (1.2):
+    - ARAnalytics/Core
+    - Mixpanel
+  - ARAnalytics/TestFlight (1.2):
+    - ARAnalytics/Core
+    - TestFlightSDK
+  - Mixpanel (1.1.1)
+  - MSVCLeakHunter (1.0.0)
+  - NSData+Base64 (1.0.0)
+  - OROpenSubtitleDownloader (0.0.1):
+    - AFNetworking
+    - xmlrpc
+  - PutioKit (0.1):
+    - AFNetworking (~> 1.0)
+  - SEHumanizedTimeDiff (0.0.1)
+  - TestFlightSDK (1.2.4.beta)
+  - xmlrpc (2.3.3):
+    - NSData+Base64 (~> 1.0.0)
 
 DEPENDENCIES:
-- ARAnalytics/Crashlytics (from `git@github.com:orta/ARAnalytics.git', commit `head')
-- ARAnalytics/Mixpanel (from `git@github.com:orta/ARAnalytics.git', commit `head')
-- ARAnalytics/TestFlight (from `git@github.com:orta/ARAnalytics.git', commit `head')
-- MSVCLeakHunter
-- OROpenSubtitleDownloader (from `vendor/OROpenSubtitleDownloader.podspec')
-- PutioKit (from `git@github.com:PutioKit/PutioKit.git', commit `head')
-- SEHumanizedTimeDiff
+  - ARAnalytics/Crashlytics (from `git@github.com:orta/ARAnalytics.git`)
+  - ARAnalytics/Mixpanel (from `git@github.com:orta/ARAnalytics.git`)
+  - ARAnalytics/TestFlight (from `git@github.com:orta/ARAnalytics.git`)
+  - MSVCLeakHunter
+  - OROpenSubtitleDownloader (from `vendor/OROpenSubtitleDownloader.podspec`)
+  - PutioKit (from `git@github.com:PutioKit/PutioKit.git`)
+  - SEHumanizedTimeDiff
 
 EXTERNAL SOURCES:
-  ARAnalytics/Crashlytics:
+  ARAnalytics:
     :git: git@github.com:orta/ARAnalytics.git
-    :commit: :head
-  ARAnalytics/Mixpanel:
-    :git: git@github.com:orta/ARAnalytics.git
-    :commit: :head
-  ARAnalytics/TestFlight:
-    :git: git@github.com:orta/ARAnalytics.git
-    :commit: :head
   OROpenSubtitleDownloader:
     :podspec: vendor/OROpenSubtitleDownloader.podspec
   PutioKit:
     :git: git@github.com:PutioKit/PutioKit.git
-    :commit: :head
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
-  ARAnalytics/Crashlytics: d344227692b9993b0c2e67e7e9dcee34c9cf2ca1
-  ARAnalytics/Mixpanel: d344227692b9993b0c2e67e7e9dcee34c9cf2ca1
-  ARAnalytics/TestFlight: d344227692b9993b0c2e67e7e9dcee34c9cf2ca1
+  ARAnalytics: 1c2f0fc60c8010418b210c58c1dc3454f442446d
+  Mixpanel: 388e78ffe1c4878b65a86127b5dab70be36479ad
   MSVCLeakHunter: 536bf530cabe2ed908f1a0ad0410f8525040c3b6
-  Mixpanel: 5b7c3274ceec4cb6dfdd351e12dacfece8c12919
   NSData+Base64: 8b910cb8a64f45daec6fb15936c36a9a911c57ca
   OROpenSubtitleDownloader: 874b34f1556bdc5435fc1ca03252bb61ea33b3a2
   PutioKit: 958a0e51a02a71c9554e331354762d03aa39f788
   SEHumanizedTimeDiff: edc1e3b0a86743240699b4bcf135cd476d7b7947
-  TestFlightSDK: 29e194fb148e4861f92e4c1195b9697e1f3ad19a
-  xmlrpc: c2b1eb82e547bcc715631bebdfcb152a6faf6762
+  TestFlightSDK: aeec97fd81096753d53b942f030a443520a087f4
+  xmlrpc: 9ebaa6298ce90ff0c3c30404681f2030bdde54db
 
-COCOAPODS: 0.16.1
+COCOAPODS: 0.17.0.rc3

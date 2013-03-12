@@ -59,7 +59,12 @@ static SearchController *sharedInstance;
 
         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
         NSError *error = nil;
-        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
+        NSData *data = [result dataUsingEncoding:NSASCIIStringEncoding];
+        if (!data) {
+            [self foundNoResults];
+            return;
+        }
+        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         NSArray *results = [JSON valueForKeyPath:@"response.docs"];
         if (results.count) {
             NSMutableArray *searchResults = [NSMutableArray array];
@@ -100,7 +105,13 @@ static SearchController *sharedInstance;
 
         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
         NSError *error = nil;
-        NSArray *results = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSASCIIStringEncoding] options:0 error:&error];
+        NSData *data = [result dataUsingEncoding:NSASCIIStringEncoding];
+        if (!data) {
+            [self foundNoResults];
+            return;
+        }
+
+        NSArray *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         if (results.count) {
             NSMutableArray *searchResults = [NSMutableArray array];
             for (NSDictionary *dictionary in results) {

@@ -33,7 +33,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 @synthesize secondErrorMessageLabel;
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:ORReloadFolderNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:ORShowTreeViewNotification];
 }
 
 - (void)viewDidLoad {

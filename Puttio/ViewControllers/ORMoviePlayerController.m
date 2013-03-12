@@ -153,11 +153,13 @@
     NSString *srtPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"subtitles.srt"];
 
     [_subtitleDownloader downloadSubtitlesForResult:_subtitleResults[_subtitlesIndex] toPath:srtPath :^(NSString *pathForDownloadedFile) {
-        _nextSubtitlesButton.alpha = 1;
-        _nextSubtitlesButton.enabled = YES;
-        
         NSString *stringSRT = [NSString stringWithContentsOfFile:pathForDownloadedFile encoding:NSASCIIStringEncoding error:nil];
-        self.currentSubtitles = [[SubRip alloc] initWithString:stringSRT];
+        if (stringSRT) {
+
+            _nextSubtitlesButton.alpha = 1;
+            _nextSubtitlesButton.enabled = YES;
+            self.currentSubtitles = [[SubRip alloc] initWithString:stringSRT];
+        }
     }];
 }
 
@@ -187,7 +189,6 @@
 }
 
 - (void)viewWillLayoutSubviews {
-    NSLog(@"%@ - %@", NSStringFromSelector(_cmd), NSStringFromCGRect(self.view.bounds));
     CGRect subsFrame = self.view.bounds;
     subsFrame.size.height = 44;
     subsFrame.origin.y = CGRectGetHeight(self.view.bounds) - subsFrame.size.height;
