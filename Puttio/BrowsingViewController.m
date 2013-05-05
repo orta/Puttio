@@ -24,6 +24,7 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 @interface BrowsingViewController (){
     UINavigationController *_gridNavController;
     Folder *currentFolder;
+    BOOL _hasNotifications;
 }
 @end
 
@@ -32,23 +33,33 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 @synthesize firstErrorMessageLabel;
 @synthesize secondErrorMessageLabel;
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:ORReloadFolderNotification];
-    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:ORShowTreeViewNotification];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupGestures];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFolder) name:ORReloadFolderNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTopTreeView) name:ORShowTreeViewNotification object:nil];
 
     [self setupRootFolder];
 
     if ([UIDevice isPhone]) {
         self.titleLabel.numberOfLines = 2;
         self.titleLabel.font = [self.titleLabel.font fontWithSize:20];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (!_hasNotifications) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFolder) name:ORReloadFolderNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTopTreeView) name:ORShowTreeViewNotification object:nil];
+        _hasNotifications = YES;
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    if (_hasNotifications) {
+        
+//        [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:ORReloadFolderNotification];
+//        [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:ORShowTreeViewNotification];
+        _hasNotifications = NO;
     }
 }
 

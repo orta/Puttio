@@ -132,10 +132,23 @@
         [self addSubtitleView];
         [self getSubtitles];
     }
+
+    if (!_subtitlesLabel.alpha) {
+        _subtitlesLabel.text = @"Subtitles Turned on.";
+    } else {
+        _subtitlesLabel.text = @"Subtitles Turned off.";
+    }
     
+    [self performSelector:@selector(emptySubtitles) withObject:nil afterDelay:0.45];
     [UIView animateWithDuration:0.15 animations:^{
         _subtitlesLabel.alpha = !_subtitlesLabel.alpha;
     }];
+}
+
+- (void)emptySubtitles {
+    if ([_subtitlesLabel.text rangeOfString:@"Subtitles"].location != NSNotFound) {
+        _subtitlesLabel.text = @"";
+    }
 }
 
 - (void)getNextSubtitles {
@@ -175,6 +188,7 @@
     _subtitlesLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _subtitlesLabel.numberOfLines = 2;
     _subtitlesLabel.alpha = 0;
+    _subtitlesLabel.font = [_subtitlesLabel.font fontWithSize:18];
 
     [self.view insertSubview:_subtitlesLabel belowSubview:_subtitlesButton];
 }

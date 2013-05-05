@@ -114,6 +114,7 @@
         if (file.watched.boolValue == YES) {
             cell.watched = YES;
         }
+        cell.hasMP4 = file.isMP4Available;
         
         if([file hasPreviewThumbnail]){
             cell.imageURL = [NSURL URLWithString:item.screenshot];
@@ -285,11 +286,16 @@ static CGFloat TreeViewFooterHeight = 60;
     
     for (NSObject <PKFolderItem> *fileOrFolder in _folderItems) {
         NSNumber *size = [fileOrFolder size];
-        if (size) {
-            [sizes addObject:size];
+        NSLog(@" %@ ", fileOrFolder.displayName);
+        if ([[fileOrFolder displayName] isEqualToString:@"Items Shared With You"]) {
+            [sizes addObject:@744400];
             [_treeMapObjects addObject:fileOrFolder];
+        } else {
+            if (size) {
+                [sizes addObject:size];
+                [_treeMapObjects addObject:fileOrFolder];
+            }
         }
-        
         _totalSize += size.doubleValue;
     }
 

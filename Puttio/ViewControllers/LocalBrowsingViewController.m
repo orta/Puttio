@@ -37,8 +37,6 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFolder) name:ORReloadGridNotification object:nil];
-
     [self setupGestures];
     
     if ([UIDevice isPad]) {
@@ -63,7 +61,9 @@ const CGSize LocalFileGridCellSize = { .width = 140.0, .height = 160.0 };
     [self updateTitles];
 }
 
-
+- (void)dealloc {
+    
+}
 
 - (void)updateTitles {
     [ORDownloadCleanup cleanup];

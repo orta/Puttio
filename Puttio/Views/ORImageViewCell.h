@@ -22,6 +22,7 @@
 @property (nonatomic) NSURL *imageURL;
 @property (nonatomic) id item;
 @property (nonatomic, assign) BOOL watched;
+@property (nonatomic, assign) BOOL hasMP4;
 
 - (void)useUnknownImageForFileType:(NSString *)string;
 @end

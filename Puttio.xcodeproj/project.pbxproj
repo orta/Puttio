@@ -181,6 +181,8 @@
 		60E8DED215A9A16B00058314 /* ORHorizontalImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8DED115A9A16B00058314 /* ORHorizontalImageViewCell.m */; };
 		60EC4E34168CC97500EFCF3B /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4E33168CC97500EFCF3B /* Bookmark.m */; };
 		60EC4E46168CD0E700EFCF3B /* ORBookmarksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4E45168CD0E700EFCF3B /* ORBookmarksViewController.m */; };
+		60ECAF0417229C6100435BED /* MP4Indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 60ECAF0217229C6100435BED /* MP4Indicator.png */; };
+		60ECAF0517229C6100435BED /* MP4Indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60ECAF0317229C6100435BED /* MP4Indicator@2x.png */; };
 		60F00EBA152BAC1800DA9230 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */; };
 		60F023861528AB55003491E4 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023851528AB55003491E4 /* icon72.png */; };
 		60F023881528AB5F003491E4 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F023871528AB5F003491E4 /* icon144.png */; };
@@ -491,6 +493,8 @@
 		60EC4E33168CC97500EFCF3B /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bookmark.m; path = Models/Bookmark.m; sourceTree = "<group>"; };
 		60EC4E44168CD0E700EFCF3B /* ORBookmarksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORBookmarksViewController.h; path = ViewControllers/ORBookmarksViewController.h; sourceTree = "<group>"; };
 		60EC4E45168CD0E700EFCF3B /* ORBookmarksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORBookmarksViewController.m; path = ViewControllers/ORBookmarksViewController.m; sourceTree = "<group>"; };
+		60ECAF0217229C6100435BED /* MP4Indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MP4Indicator.png; sourceTree = "<group>"; };
+		60ECAF0317229C6100435BED /* MP4Indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MP4Indicator@2x.png"; sourceTree = "<group>"; };
 		60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		60F023851528AB55003491E4 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
 		60F023871528AB5F003491E4 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
@@ -710,6 +714,8 @@
 				6080914315BAED0800BDB3D7 /* orta@2x.png */,
 				604678F015B1E76800A2BFA8 /* DotSlash.png */,
 				604678F115B1E76800A2BFA8 /* TwitterBird.png */,
+				60ECAF0217229C6100435BED /* MP4Indicator.png */,
+				60ECAF0317229C6100435BED /* MP4Indicator@2x.png */,
 				604678F215B1E76900A2BFA8 /* Github.png */,
 				604678F415B1E76900A2BFA8 /* Github@2x.png */,
 				604678F515B1E76A00A2BFA8 /* TwitterBird@2x.png */,
@@ -1196,6 +1202,8 @@
 				602BC0AE168FAE0300069FDB /* CCNext@2x.png in Resources */,
 				6003E35016B46A48008A675B /* CloseSearch.png in Resources */,
 				6003E35116B46A48008A675B /* CloseSearch@2x.png in Resources */,
+				60ECAF0417229C6100435BED /* MP4Indicator.png in Resources */,
+				60ECAF0517229C6100435BED /* MP4Indicator@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1418,7 +1426,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Caroline Lau (46PDDDDMJP)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ben Maslen";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1434,7 +1443,8 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "373C72B2-3FCF-4163-8142-BE1CAA0C203C";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
@@ -1447,7 +1457,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Caroline Lau (46PDDDDMJP)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ben Maslen";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1463,7 +1474,8 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "373C72B2-3FCF-4163-8142-BE1CAA0C203C";
+				PROVISIONING_PROFILE = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;

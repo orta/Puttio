@@ -18,6 +18,7 @@ static CGFloat ImageBottomMargin = 10;
 
 @interface ORImageViewCell (){
     UIImageView *watchedSash;
+    UIImageView *mp4Tab;
     UILabel *extensionLabel;
 }
 
@@ -66,6 +67,10 @@ static CGFloat ImageBottomMargin = 10;
     [watchedSash removeFromSuperview];
     watchedSash = nil;
 
+    self.hasMP4 = NO;
+    [mp4Tab removeFromSuperview];
+    mp4Tab = nil;
+
     [extensionLabel removeFromSuperview];
     extensionLabel = nil;
 }
@@ -105,6 +110,10 @@ static CGFloat ImageBottomMargin = 10;
         if([strongSelf watched]){
             [strongSelf addWatchedEffects];
         }
+
+        if([strongSelf hasMP4]){
+            [strongSelf addMP4Effects];
+        }
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         [this useUnknownImageForFileType:@"???"];
@@ -143,7 +152,7 @@ static CGFloat ImageBottomMargin = 10;
     [imageView setImage:anImage];
 }
 
-- (void) addWatchedEffects {
+- (void)addWatchedEffects {
     bool isRetina = [[UIScreen mainScreen] scale] > 1;
     CGRect imageRect = [imageView frameForImage];
 
@@ -159,4 +168,20 @@ static CGFloat ImageBottomMargin = 10;
     watchedSash.frame = imageRect;
     [imageView addSubview:watchedSash];
 }
+
+- (void)addMP4Effects {
+    CGRect imageRect = [imageView frameForImage];
+
+    mp4Tab = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MP4Indicator"]];
+
+    imageRect.origin.x = CGRectGetWidth(imageRect) - CGRectGetWidth(mp4Tab.frame) + 2 ;
+    imageRect.origin.y = CGRectGetHeight(imageRect) - CGRectGetHeight(mp4Tab.frame) + 2;
+
+    imageRect.size.width = CGRectGetWidth(mp4Tab.frame);
+    imageRect.size.height = CGRectGetHeight(mp4Tab.frame);
+
+    mp4Tab.frame = imageRect;
+    [imageView addSubview:mp4Tab];
+}
+
 @end
