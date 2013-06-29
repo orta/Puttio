@@ -112,7 +112,7 @@ static CGFloat ImageBottomMargin = 10;
         }
 
         if([strongSelf hasMP4]){
-            [strongSelf addMP4Effects];
+//            [strongSelf addMP4Effects];
         }
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
@@ -169,19 +169,19 @@ static CGFloat ImageBottomMargin = 10;
     [imageView addSubview:watchedSash];
 }
 
-- (void)addMP4Effects {
-    CGRect imageRect = [imageView frameForImage];
-
-    mp4Tab = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MP4Indicator"]];
-
-    imageRect.origin.x = CGRectGetWidth(imageRect) - CGRectGetWidth(mp4Tab.frame) + 2 ;
-    imageRect.origin.y = CGRectGetHeight(imageRect) - CGRectGetHeight(mp4Tab.frame) + 2;
-
-    imageRect.size.width = CGRectGetWidth(mp4Tab.frame);
-    imageRect.size.height = CGRectGetHeight(mp4Tab.frame);
-
-    mp4Tab.frame = imageRect;
-    [imageView addSubview:mp4Tab];
-}
+//- (void)addMP4Effects {
+//    CGRect imageRect = [imageView frameForImage];
+//
+//    mp4Tab = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MP4Indicator"]];
+//
+//    imageRect.origin.x = CGRectGetWidth(imageRect) - CGRectGetWidth(mp4Tab.frame) + 2 ;
+//    imageRect.origin.y = CGRectGetHeight(imageRect) - CGRectGetHeight(mp4Tab.frame) + 2;
+//
+//    imageRect.size.width = CGRectGetWidth(mp4Tab.frame);
+//    imageRect.size.height = CGRectGetHeight(mp4Tab.frame);
+//    
+//    mp4Tab.frame = imageRect;
+//    [imageView addSubview:mp4Tab];
+//}
 
 @end

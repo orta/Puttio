@@ -51,7 +51,7 @@
 //    Russia
 //    Spanish
 //    Ukerainian
-//    Bulgaria
+//    Arabic
 
     // http://www.opensubtitles.org/addons/export_languages.php
     
@@ -74,7 +74,7 @@
            @"русский", @"rus",
            @"Español", @"spa",
            @"Український", @"ukr",
-           @"български", @"bul"
+           @"العربية", @"ar"
         ];
 
     _allCountries = [NSMutableArray array];

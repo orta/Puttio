@@ -26,6 +26,7 @@
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
+		6017DCEB177F0BC900F5FF6C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6017DCEA177F0BC900F5FF6C /* Crashlytics.framework */; };
 		60199B271673FD490026762E /* ORRemoveTransferPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60199B261673FD490026762E /* ORRemoveTransferPopoverViewController.m */; };
 		6020361B15AA2C120021CE21 /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361215AA2C120021CE21 /* DCRoundSwitch.m */; };
 		6020361C15AA2C120021CE21 /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361415AA2C120021CE21 /* DCRoundSwitchKnobLayer.m */; };
@@ -111,7 +112,6 @@
 		608C72C015C3063500EE85FC /* Exo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 608C72BE15C3063500EE85FC /* Exo-Light.otf */; };
 		608C72C415C3074100EE85FC /* UIFont+Puttio.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C315C3074100EE85FC /* UIFont+Puttio.m */; };
 		608C72C715C308AE00EE85FC /* ORTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C72C615C308AE00EE85FC /* ORTitleLabel.m */; };
-		608C72E315C53C4500EE85FC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F28C4015AB93EB0089AE8B /* Crashlytics.framework */; };
 		608FF9C715F3680500461A6D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608FF9C615F3680500461A6D /* CoreMedia.framework */; };
 		609719991597531600F9398F /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609719981597531600F9398F /* AccountViewController.m */; };
 		6097199C15975A5900F9398F /* UIDevice+SpaceStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097199B15975A5900F9398F /* UIDevice+SpaceStats.m */; };
@@ -177,6 +177,8 @@
 		60DB0AB4151C670800DA8A33 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB0AB3151C670800DA8A33 /* LoginViewController.m */; };
 		60DBF382158CA5250061F059 /* ConvertToMP4Process.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DBF381158CA5250061F059 /* ConvertToMP4Process.m */; };
 		60DBF385158CA7EE0061F059 /* FileDownloadProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */; };
+		60E26D75173E26D300DF7CED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E26D74173E26D300DF7CED /* Security.framework */; };
+		60E26D77173E26D800DF7CED /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E26D76173E26D800DF7CED /* AdSupport.framework */; };
 		60E8DECF15A99D7000058314 /* UIDevice+deviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */; };
 		60E8DED215A9A16B00058314 /* ORHorizontalImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8DED115A9A16B00058314 /* ORHorizontalImageViewCell.m */; };
 		60EC4E34168CC97500EFCF3B /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4E33168CC97500EFCF3B /* Bookmark.m */; };
@@ -243,6 +245,7 @@
 		600641FE151F24C100EF85F9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ViewControllers/SearchViewController.m; sourceTree = "<group>"; };
 		60064200151F24CD00EF85F9 /* BrowsingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowsingViewController.h; sourceTree = "<group>"; };
 		60064201151F24CD00EF85F9 /* BrowsingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingViewController.m; sourceTree = "<group>"; };
+		6017DCEA177F0BC900F5FF6C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = vendor/Crashlytics.framework; sourceTree = "<group>"; };
 		60199B251673FD490026762E /* ORRemoveTransferPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORRemoveTransferPopoverViewController.h; path = ViewControllers/ORRemoveTransferPopoverViewController.h; sourceTree = "<group>"; };
 		60199B261673FD490026762E /* ORRemoveTransferPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORRemoveTransferPopoverViewController.m; path = ViewControllers/ORRemoveTransferPopoverViewController.m; sourceTree = "<group>"; };
 		6020361115AA2C120021CE21 /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
@@ -484,6 +487,8 @@
 		60DBF381158CA5250061F059 /* ConvertToMP4Process.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConvertToMP4Process.m; path = Processes/ConvertToMP4Process.m; sourceTree = "<group>"; };
 		60DBF383158CA7EE0061F059 /* FileDownloadProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileDownloadProcess.h; path = Processes/FileDownloadProcess.h; sourceTree = "<group>"; };
 		60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileDownloadProcess.m; path = Processes/FileDownloadProcess.m; sourceTree = "<group>"; };
+		60E26D74173E26D300DF7CED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		60E26D76173E26D800DF7CED /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		60E8DECD15A99D7000058314 /* UIDevice+deviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+deviceInfo.h"; path = "Categories/UIDevice+deviceInfo.h"; sourceTree = "<group>"; };
 		60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+deviceInfo.m"; path = "Categories/UIDevice+deviceInfo.m"; sourceTree = "<group>"; };
 		60E8DED015A9A16B00058314 /* ORHorizontalImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORHorizontalImageViewCell.h; path = Views/ORHorizontalImageViewCell.h; sourceTree = "<group>"; };
@@ -498,7 +503,6 @@
 		60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		60F023851528AB55003491E4 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
 		60F023871528AB5F003491E4 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
-		60F28C4015AB93EB0089AE8B /* Crashlytics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = ../../vendor/Crashlytics.framework; sourceTree = "<group>"; };
 		60F555F91634BF74000F62AE /* ORMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORMigration.h; sourceTree = "<group>"; };
 		60F555FA1634BF74000F62AE /* ORMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORMigration.m; sourceTree = "<group>"; };
 		60F5AD5F15224DF400DD7A6F /* ORImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORImageViewCell.h; path = Views/ORImageViewCell.h; sourceTree = "<group>"; };
@@ -534,6 +538,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60E26D77173E26D800DF7CED /* AdSupport.framework in Frameworks */,
+				60E26D75173E26D300DF7CED /* Security.framework in Frameworks */,
 				608FF9C715F3680500461A6D /* CoreMedia.framework in Frameworks */,
 				6080915515BB015900BDB3D7 /* MessageUI.framework in Frameworks */,
 				60C04F0C15722E9E00C23AB5 /* QuartzCore.framework in Frameworks */,
@@ -545,7 +551,7 @@
 				6085D22A151B99490068929C /* Foundation.framework in Frameworks */,
 				6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */,
 				6085D22E151B99490068929C /* CoreData.framework in Frameworks */,
-				608C72E315C53C4500EE85FC /* Crashlytics.framework in Frameworks */,
+				6017DCEB177F0BC900F5FF6C /* Crashlytics.framework in Frameworks */,
 				E62B9428CFD24446BDF07E11 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,6 +748,8 @@
 		6085D218151B99480068929C = {
 			isa = PBXGroup;
 			children = (
+				60E26D76173E26D800DF7CED /* AdSupport.framework */,
+				60E26D74173E26D300DF7CED /* Security.framework */,
 				60B6792D161862150051DC7A /* Default-Landscape~ipad.png */,
 				60B6792B161862100051DC7A /* Default-Landscape@2x~ipad.png */,
 				60D0E06D16065753004F167E /* Default.png */,
@@ -770,6 +778,7 @@
 		6085D226151B99490068929C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6017DCEA177F0BC900F5FF6C /* Crashlytics.framework */,
 				609F289215AF9AF1008AAAAC /* Accounts.framework */,
 				609F289015AF9AA5008AAAAC /* Social.framework */,
 				609F288E15AF9A53008AAAAC /* Twitter.framework */,
@@ -919,7 +928,6 @@
 				609CAE25158562FD000BE57E /* WEPopover */,
 				6026A05E157BEA030031509D /* GMGridView */,
 				6026A045157BE91D0031509D /* DCControls */,
-				60F28C4015AB93EB0089AE8B /* Crashlytics.framework */,
 				60C04F0B15722E9E00C23AB5 /* QuartzCore.framework */,
 				6043D0EE1562F5F4002193B3 /* AVFoundation.framework */,
 				60F00EB9152BAC1800DA9230 /* AssetsLibrary.framework */,

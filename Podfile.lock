@@ -1,15 +1,17 @@
 PODS:
-  - AFNetworking (1.1.0)
-  - ARAnalytics/Core (1.2)
-  - ARAnalytics/Crashlytics (1.2):
+  - AFNetworking (1.3.1)
+  - ARAnalytics/Core (1.3.1)
+  - ARAnalytics/Crashlytics (1.3.1):
     - ARAnalytics/Core
-  - ARAnalytics/Mixpanel (1.2):
+  - ARAnalytics/Mixpanel (1.3.1):
     - ARAnalytics/Core
     - Mixpanel
-  - ARAnalytics/TestFlight (1.2):
+  - ARAnalytics/TestFlight (1.3.1):
     - ARAnalytics/Core
+    - BPXLUUIDHandler
     - TestFlightSDK
-  - Mixpanel (1.1.1)
+  - BPXLUUIDHandler (0.0.1)
+  - Mixpanel (2.0.0)
   - MSVCLeakHunter (1.0.0)
   - NSData+Base64 (1.0.0)
   - OROpenSubtitleDownloader (0.0.1):
@@ -18,7 +20,7 @@ PODS:
   - PutioKit (0.1):
     - AFNetworking (~> 1.0)
   - SEHumanizedTimeDiff (0.0.1)
-  - TestFlightSDK (1.2.4.beta)
+  - TestFlightSDK (1.3.0-beta.6)
   - xmlrpc (2.3.3):
     - NSData+Base64 (~> 1.0.0)
 
@@ -40,15 +42,16 @@ EXTERNAL SOURCES:
     :git: git@github.com:PutioKit/PutioKit.git
 
 SPEC CHECKSUMS:
-  AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
-  ARAnalytics: 1c2f0fc60c8010418b210c58c1dc3454f442446d
-  Mixpanel: 388e78ffe1c4878b65a86127b5dab70be36479ad
+  AFNetworking: 9ec8aafb9269236a7630bd8d9838ce2ba30fa2a0
+  ARAnalytics: 07b2f11d766b4e68576db8ea8e04ae0cb88c6cb0
+  BPXLUUIDHandler: 227f5e8f11ed1bc443f73b43fedf1bf24b47be8d
+  Mixpanel: d456c27f7520e22784a15d0bcd9d5c287080b0cd
   MSVCLeakHunter: 536bf530cabe2ed908f1a0ad0410f8525040c3b6
-  NSData+Base64: 8b910cb8a64f45daec6fb15936c36a9a911c57ca
+  NSData+Base64: 36c4e5b6479259c1a68866ccd2a8dd385c9744f7
   OROpenSubtitleDownloader: 874b34f1556bdc5435fc1ca03252bb61ea33b3a2
   PutioKit: 958a0e51a02a71c9554e331354762d03aa39f788
-  SEHumanizedTimeDiff: edc1e3b0a86743240699b4bcf135cd476d7b7947
-  TestFlightSDK: aeec97fd81096753d53b942f030a443520a087f4
+  SEHumanizedTimeDiff: 7d8cee4dd4f295e6c4a1d6fb8b4658f028417539
+  TestFlightSDK: f3e516c64f61abedeb26a7b184101df54df3db09
   xmlrpc: 9ebaa6298ce90ff0c3c30404681f2030bdde54db
 
-COCOAPODS: 0.17.0.rc3
+COCOAPODS: 0.20.2
