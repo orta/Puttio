@@ -19,6 +19,7 @@ PODS:
     - xmlrpc
   - PutioKit (0.1):
     - AFNetworking (~> 1.0)
+  - Reveal-iOS-SDK (0.8.1)
   - SEHumanizedTimeDiff (0.0.1)
   - TestFlightSDK (1.3.0-beta.6)
   - xmlrpc (2.3.3):
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - MSVCLeakHunter
   - OROpenSubtitleDownloader (from `vendor/OROpenSubtitleDownloader.podspec`)
   - PutioKit (from `git@github.com:PutioKit/PutioKit.git`)
+  - Reveal-iOS-SDK
   - SEHumanizedTimeDiff
 
 EXTERNAL SOURCES:
@@ -50,6 +52,7 @@ SPEC CHECKSUMS:
   NSData+Base64: 36c4e5b6479259c1a68866ccd2a8dd385c9744f7
   OROpenSubtitleDownloader: 874b34f1556bdc5435fc1ca03252bb61ea33b3a2
   PutioKit: 958a0e51a02a71c9554e331354762d03aa39f788
+  Reveal-iOS-SDK: 9211abec2542455058411814d58d0c2e1a8030e4
   SEHumanizedTimeDiff: 7d8cee4dd4f295e6c4a1d6fb8b4658f028417539
   TestFlightSDK: f3e516c64f61abedeb26a7b184101df54df3db09
   xmlrpc: 9ebaa6298ce90ff0c3c30404681f2030bdde54db

@@ -70,7 +70,7 @@ static NSURL *staticMovieURL;
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
     self.mediaPlayer = nil;
 
-    NSNumber* reason = [notification userInfo][MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+    NSNumber *reason = [notification userInfo][MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     switch ([reason intValue]) {
         case MPMovieFinishReasonPlaybackError: {
             NSLog(@"playbackFinished. Reason: Playback Error");
@@ -100,7 +100,7 @@ static NSURL *staticMovieURL;
     NSTimeInterval minutes = [[NSDate date] timeIntervalSinceDate:movieStartedDate];
     minutes = floorf(minutes / 60);
 
-    [ARAnalytics finishTimingEvent:@"Finished Watching Something"];
+    [ARAnalytics finishTimingEvent:@"Finished Watching"];
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
     

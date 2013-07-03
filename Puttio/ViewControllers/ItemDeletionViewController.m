@@ -34,8 +34,12 @@
 
     if ([item respondsToSelector:@selector(displayName)]) {
         self.titleLabel.text = [NSString stringWithFormat:@"Delete %@?", item.displayName];
-    }else {
+    } else {
         self.titleLabel.text = [NSString stringWithFormat:@"Delete %@?", item.name];
+    }
+
+    if (![self.item isMemberOfClass:[LocalFile class]]) {
+        [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
     }
 }
 
@@ -69,8 +73,20 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:ORReloadFolderNotification object:nil];
 }
 
+// This is not cancel anymore it's "open in another app"
 - (IBAction)cancelTapped:(id)sender {
-    [ModalZoomView fadeOutViewAnimated:YES];    
+
+    if ([self.item isMemberOfClass:[LocalFile class]]) {
+        LocalFile *file = (LocalFile *)self.item;
+        UIDocumentInteractionController *docController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:file.localPathForFile]];
+
+        UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+        CGRect rect = [rootView convertRect:[sender frame] fromView:self.view];
+        [docController presentOpenInMenuFromRect:rect inView:rootView animated:YES];
+
+    } else {
+        [ModalZoomView fadeOutViewAnimated:YES];
+    }
 }
 
 - (void)enableButtons {

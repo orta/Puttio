@@ -12,7 +12,7 @@
 
 + (void)migrate {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSInteger lastVersion = [defaults integerForKey:ORMigrationVersionDefault];
+//    NSInteger lastVersion = [defaults integerForKey:ORMigrationVersionDefault];
 
     if (![defaults objectForKey:ORSubtitleLanguageDefault]) {
         [defaults setObject:@",eng" forKey:ORSubtitleLanguageDefault];

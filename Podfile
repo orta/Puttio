@@ -4,6 +4,7 @@ pod 'SEHumanizedTimeDiff'
 pod 'MSVCLeakHunter'
 
 #pod "BeamMusicPlayerViewController"
+#pod "Reveal-iOS-SDK"
 
 pod 'OROpenSubtitleDownloader', :podspec => 'vendor/OROpenSubtitleDownloader.podspec'
 pod 'PutioKit', :git => "git@github.com:PutioKit/PutioKit.git"

@@ -36,7 +36,6 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupGestures];
-    
 
     [self setupRootFolder];
 
