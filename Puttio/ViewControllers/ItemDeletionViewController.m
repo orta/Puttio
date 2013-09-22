@@ -56,7 +56,7 @@
     }else{
         [self disableButtons];
 
-        [[PutIOClient sharedClient] requestDeletionForDisplayItem:_item :^(id userInfoObject) {
+        [[PutIOClient sharedClient] requestDeletionForDisplayItem:self.item :^(id userInfoObject) {
             [ARAnalytics incrementUserProperty:@"User Deleted RemoteFile" byInt:1];
             [ModalZoomView fadeOutViewAnimated:YES];
 

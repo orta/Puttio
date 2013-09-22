@@ -111,10 +111,11 @@
     
     if (![self itemIsFolder:item]) {
         File * file = (File *)item;
+
         if (file.watched.boolValue == YES) {
             cell.watched = YES;
         }
-        cell.hasMP4 = file.isMP4Available;
+        cell.hasMP4 = file.isMP4Available.boolValue;
         
         if([file hasPreviewThumbnail]){
             cell.imageURL = [NSURL URLWithString:item.screenshot];
@@ -167,19 +168,26 @@
 }
 
 - (void)checkForWatched {
-    WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_folder.id];
-    if (list) {
-        for (id item in _folderItems) {
-            if ([item isKindOfClass:[PKFile class]]) {
-                File *file = item;
-                for (WatchedItem *item in list.items) {
-                    if ([item.fileID isEqualToString:file.id]) {
-                        file.watched = @(YES);
+    __weak __typeof(self)weakSelf = self;
+    dispatch_queue_t taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+    dispatch_async(taskQueue, ^{
+
+
+        WatchedList *list = [WatchedList findFirstByAttribute:@"folderID" withValue:_folder.id];
+        if (list) {
+            for (id item in weakSelf.folderItems) {
+                if ([item isKindOfClass:[PKFile class]]) {
+                    File *file = item;
+                    for (WatchedItem *item in list.items) {
+                        if ([item.fileID isEqualToString:file.id]) {
+                            file.watched = @(YES);
+                        }
                     }
                 }
             }
         }
-    }
+    });
 }
 
 - (void)orderItems {

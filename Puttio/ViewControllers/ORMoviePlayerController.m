@@ -48,7 +48,15 @@
     for(id views in [[self view] subviews]){
         for(id subViews in [views subviews]){
             for (id controlView in [subViews subviews]){
-                controlsVisible = ([controlView alpha] <= 0.0) ? (NO) : (YES);
+                // ios7
+                if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+                    if ([NSStringFromClass([controlView class]) isEqualToString:@"MPVideoPlaybackOverlayView"]) {
+                        controlsVisible = ([controlView alpha] <= 0.0) ? (NO) : (YES);
+                    }
+                } else {
+                    // ios6
+                    controlsVisible = ([controlView alpha] <= 0.0) ? (NO) : (YES);
+                }
             }
         }
     }
@@ -260,10 +268,10 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    if ([UIDevice isPhone]) {
-        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft animated:YES];
-    }
-    
+//    if ([UIDevice isPhone]) {
+//        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft animated:YES];
+//    }
+//    
     return YES;
 }
 

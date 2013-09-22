@@ -23,7 +23,6 @@
 		600249D7166C5156007E6E9A /* TransferError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600249D3166C5156007E6E9A /* TransferError@2x.png */; };
 		6003E35016B46A48008A675B /* CloseSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = 6003E34E16B46A48008A675B /* CloseSearch.png */; };
 		6003E35116B46A48008A675B /* CloseSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6003E34F16B46A48008A675B /* CloseSearch@2x.png */; };
-		6004B9EF1784B19A00B53F0B /* pug_dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6004B9EE1784B19A00B53F0B /* pug_dog.jpg */; };
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
@@ -241,7 +240,6 @@
 		600249D3166C5156007E6E9A /* TransferError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TransferError@2x.png"; sourceTree = "<group>"; };
 		6003E34E16B46A48008A675B /* CloseSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSearch.png; sourceTree = "<group>"; };
 		6003E34F16B46A48008A675B /* CloseSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CloseSearch@2x.png"; sourceTree = "<group>"; };
-		6004B9EE1784B19A00B53F0B /* pug_dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pug_dog.jpg; sourceTree = "<group>"; };
 		600641F9151F24AF00EF85F9 /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusViewController.h; path = ViewControllers/StatusViewController.h; sourceTree = "<group>"; };
 		600641FA151F24AF00EF85F9 /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusViewController.m; path = ViewControllers/StatusViewController.m; sourceTree = "<group>"; };
 		600641FD151F24C100EF85F9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ViewControllers/SearchViewController.h; sourceTree = "<group>"; };
@@ -701,7 +699,6 @@
 		606C79A5152F5AA600608C56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6004B9EE1784B19A00B53F0B /* pug_dog.jpg */,
 				6003E34E16B46A48008A675B /* CloseSearch.png */,
 				6003E34F16B46A48008A675B /* CloseSearch@2x.png */,
 				602BC08A168F64C700069FDB /* Flags */,
@@ -801,6 +798,7 @@
 		6085D22F151B99490068929C /* Puttio */ = {
 			isa = PBXGroup;
 			children = (
+				60C181FE17E3642500363147 /* St */,
 				60F023871528AB5F003491E4 /* icon144.png */,
 				60F023851528AB55003491E4 /* icon72.png */,
 				60A7A6CB151FC1CF00DB71E0 /* APP_SECRET_EX.h */,
@@ -1073,6 +1071,13 @@
 			name = "File Controllers";
 			sourceTree = "<group>";
 		};
+		60C181FE17E3642500363147 /* St */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = St;
+			sourceTree = "<group>";
+		};
 		60DB0AB1151C665E00DA8A33 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -1211,7 +1216,6 @@
 				602BC0A6168F64D500069FDB /* Romania@2x.png in Resources */,
 				602BC0A7168F64D500069FDB /* Russian@2x.png in Resources */,
 				602BC0A8168F64D500069FDB /* Spain@2x.png in Resources */,
-				6004B9EF1784B19A00B53F0B /* pug_dog.jpg in Resources */,
 				602BC0A9168F64D500069FDB /* Turkey@2x.png in Resources */,
 				602BC0AA168F64D500069FDB /* Ukeranian@2x.png in Resources */,
 				602BC0AD168FAE0300069FDB /* CCNext.png in Resources */,
@@ -1398,7 +1402,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1417,7 +1421,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "33FD32A0-8875-41C1-8873-48FE6EF5376C";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1434,7 +1438,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1446,7 +1450,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "33FD32A0-8875-41C1-8873-48FE6EF5376C";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1459,8 +1463,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ben Maslen";
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1476,8 +1479,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
+				PROVISIONING_PROFILE = "33FD32A0-8875-41C1-8873-48FE6EF5376C";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
@@ -1490,8 +1492,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ben Maslen";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1507,8 +1508,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DA6FDC71-9089-4C00-8A6A-2F79AC8E76CF";
+				PROVISIONING_PROFILE = "33FD32A0-8875-41C1-8873-48FE6EF5376C";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;

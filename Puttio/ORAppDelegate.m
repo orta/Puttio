@@ -51,7 +51,7 @@
 }
 
 - (void)showApp {
-    [ARAnalytics identifyUserwithID:[[NSUserDefaults standardUserDefaults] objectForKey:ORUserAccountNameDefault] andEmailAddress:nil];
+    [ARAnalytics identifyUserWithID:[[NSUserDefaults standardUserDefaults] objectForKey:ORUserAccountNameDefault] andEmailAddress:nil];
     [ARAnalytics incrementUserProperty:@"User App Launched" byInt:1];
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
@@ -163,15 +163,20 @@
     NSManagedObjectContext* moc = [self managedObjectContext];
 
     [moc performBlock:^{
-        [moc mergeChangesFromContextDidSaveNotification:notification];
+        @try {
+            [moc mergeChangesFromContextDidSaveNotification:notification];
+            NSNotification* refreshNotification = [NSNotification notificationWithName:ORReloadGridNotification
+                                                                                object:self
+                                                                              userInfo:[notification userInfo]];
 
+            [[NSNotificationCenter defaultCenter] postNotification:refreshNotification];
+
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Exception in merging changes in iCloud %@", exception);
+        }
+        @finally { }
         [ORDownloadCleanup cleanup];
-
-        NSNotification* refreshNotification = [NSNotification notificationWithName:ORReloadGridNotification
-                                                                            object:self
-                                                                          userInfo:[notification userInfo]];
-        
-        [[NSNotificationCenter defaultCenter] postNotification:refreshNotification];
     }];
 }
 

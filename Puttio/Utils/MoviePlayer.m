@@ -88,7 +88,7 @@ static NSURL *staticMovieURL;
         }
         case MPMovieFinishReasonPlaybackEnded:
         case MPMovieFinishReasonUserExited:
-            TFLog(@"playbackFinished. Reason: Playback Ended");
+            ARLog(@"playbackFinished. Reason: Playback Ended");
             [ARAnalytics incrementUserProperty:@"User Finished Watching a Movie" byInt:1];
             [ARAnalytics event:@"User Finished Watching a Movie"];
             break;

@@ -20,10 +20,12 @@
 #import "NSFileManager+SkipBackup.h"
 
 @interface BaseFileController (){
-    FileDownloadProcess *_fileDownloadProcess;
-    ORFileDownloadOperation *downloadOperation;
+
     BOOL shouldCancelOnHide;
 }
+@property (nonatomic, strong) ORFileDownloadOperation *downloadOperation;
+@property (nonatomic, strong) FileDownloadProcess *fileDownloadProcess;
+
 @end
 
 @implementation BaseFileController
@@ -50,40 +52,42 @@
     struct statfs tStats;  
     statfs([[paths lastObject] cString], &tStats);  
     uint64_t totalSpace = tStats.f_bavail * tStats.f_bsize;
-    
+    __weak __typeof(self)weakSelf = self;
+
+
     __block FileInfoViewController *blockInfoController = infoController;
     if (fileSize < totalSpace) {
         [self.infoController disableButtons];
         [self.infoController showProgress];
         
         NSURL *addressURL = [NSURL URLWithString:[PutIOClient appendOauthToken:address]];
-        downloadOperation = [ORFileDownloadOperation fileDownloadFromURL:addressURL toLocalPath:path];
+        self.downloadOperation = [ORFileDownloadOperation fileDownloadFromURL:addressURL toLocalPath:path];
                              
         if (showTransferInBG) {
-           _fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:downloadOperation andFile:_file];
+           self.fileDownloadProcess = [FileDownloadProcess processWithHTTPRequest:self.downloadOperation andFile:_file];
         }
 
-        [downloadOperation setDownloadProgressBlock: ^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        [self.downloadOperation setDownloadProgressBlock: ^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
             CGFloat progress = (float)totalBytesRead/totalBytesExpectedToRead;
             if (blockInfoController) {
                 blockInfoController.progressView.progress = progress;
             }
-            _fileDownloadProcess.processProgress = progress;
+            weakSelf.fileDownloadProcess.processProgress = progress;
         }];
         
-        [downloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.downloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             [[NSFileManager defaultManager] addSkipBackupAttributeToFileAtPath:path];
             if (blockInfoController) {
                 [blockInfoController enableButtons];
             }
             success(operation, responseObject);
-            _fileDownloadProcess.finished = YES;
+            weakSelf.fileDownloadProcess.finished = YES;
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(operation, error); 
         }];
         
-        [downloadOperation start];
+        [self.downloadOperation start];
         
     }else {
         NSString *message = [NSString stringWithFormat:@"Your %@ doesn't have enough free disk space to download.", [UIDevice deviceString]];
@@ -114,8 +118,8 @@
 }
 
 - (void)viewWillDissapear {
-    if (downloadOperation && shouldCancelOnHide) {
-        [downloadOperation cancel];
+    if (self.downloadOperation && shouldCancelOnHide) {
+        [self.downloadOperation cancel];
     }
 }
 

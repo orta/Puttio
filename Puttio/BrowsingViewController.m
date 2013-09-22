@@ -19,7 +19,7 @@
 #import "ORTitleLabel.h"
 #import "SearchViewController.h"
 
-static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .bottom = 8};
+static UIEdgeInsets GridViewInsets = {.top = 88+48, .left = 8, .right = 88 + 8, .bottom = 0 };
 
 @interface BrowsingViewController (){
     UINavigationController *_gridNavController;
@@ -53,15 +53,6 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     }
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    if (_hasNotifications) {
-        
-//        [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:ORReloadFolderNotification];
-//        [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:ORShowTreeViewNotification];
-        _hasNotifications = NO;
-    }
-}
-
 - (void)setupRootFolder {
     Folder *rootFolder = [[Folder alloc] init];
     rootFolder.id = @"0";
@@ -81,6 +72,13 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+
+    if (_hasNotifications) {
+//        [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:ORReloadFolderNotification];
+//        [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:ORShowTreeViewNotification];
+        _hasNotifications = NO;
+    }
+
     FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
     [topFolder removeTreeMap];
 }
@@ -208,8 +206,11 @@ static UIEdgeInsets GridViewInsets = {.top = 88+8, .left = 8, .right = 88 + 8, .
     if (position == -1) return;
 
     FolderViewController *topFolder = (FolderViewController *)[_gridNavController topViewController];
-    NSObject <ORDisplayItemProtocol> *item = (topFolder.folderItems)[position];   
-    
+    NSObject <ORDisplayItemProtocol> *item = (topFolder.folderItems)[position];
+
+    // Bail for the items shared with you
+    if ([item isKindOfClass:[Folder class]] && [[item name] isEqualToString:@"Items Shared With You"]) return;
+
     UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
 
     if ([UIDevice isPad]) {
