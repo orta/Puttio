@@ -127,9 +127,19 @@
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            [ARAnalytics event:@"Save CD Context Error" withProperties:@{@"error": @(error.code)}];
+        @try {
+            if ([[managedObjectContext persistentStoreCoordinator] persistentStores].count == 0) return;
+            if ([managedObjectContext persistentStoreCoordinator] && [managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                [ARAnalytics event:@"Save CD Context Error" withProperties:@{@"error": @(error.code)}];
+            }
+
+        }
+        @catch (NSException *exception) {
+            ARLog(@"Core Data saving exception");
+        }
+        @finally {
+
         }
     }
 }

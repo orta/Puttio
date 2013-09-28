@@ -14,6 +14,7 @@
 
 @interface ItemDeletionViewController (){
     NSObject <ORDisplayItemProtocol> *_item;
+    UIDocumentInteractionController *_docController;
 }
 
 @end
@@ -78,11 +79,11 @@
 
     if ([self.item isMemberOfClass:[LocalFile class]]) {
         LocalFile *file = (LocalFile *)self.item;
-        UIDocumentInteractionController *docController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:file.localPathForFile]];
+        _docController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:file.localPathForFile]];
 
         UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
         CGRect rect = [rootView convertRect:[sender frame] fromView:self.view];
-        [docController presentOpenInMenuFromRect:rect inView:rootView animated:YES];
+        [_docController presentOpenInMenuFromRect:rect inView:rootView animated:YES];
 
     } else {
         [ModalZoomView fadeOutViewAnimated:YES];

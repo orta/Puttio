@@ -165,6 +165,7 @@
 		60C85AF915CFAD40008FC895 /* Hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C85AF715CFAD40008FC895 /* Hand.png */; };
 		60C85AFA15CFAD40008FC895 /* Hand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C85AF815CFAD40008FC895 /* Hand@2x.png */; };
 		60C85AFE15CFAD7E008FC895 /* ORSwipeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C85AFD15CFAD7E008FC895 /* ORSwipeImageView.m */; };
+		60CA2D6D17F7076D00832636 /* ORWebVTT.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CA2D6C17F7076D00832636 /* ORWebVTT.m */; };
 		60D0E0671606539B004F167E /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E0661606539B004F167E /* Default-Portrait@2x~ipad.png */; };
 		60D0E06A160653D9004F167E /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E069160653D9004F167E /* Default-Portrait~ipad.png */; };
 		60D0E06C160654FB004F167E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E06B160654FB004F167E /* Default@2x.png */; };
@@ -466,6 +467,8 @@
 		60C85AF815CFAD40008FC895 /* Hand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand@2x.png"; sourceTree = "<group>"; };
 		60C85AFC15CFAD7E008FC895 /* ORSwipeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSwipeImageView.h; path = Views/ORSwipeImageView.h; sourceTree = "<group>"; };
 		60C85AFD15CFAD7E008FC895 /* ORSwipeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSwipeImageView.m; path = Views/ORSwipeImageView.m; sourceTree = "<group>"; };
+		60CA2D6B17F7076D00832636 /* ORWebVTT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWebVTT.h; sourceTree = "<group>"; };
+		60CA2D6C17F7076D00832636 /* ORWebVTT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWebVTT.m; sourceTree = "<group>"; };
 		60D0E0661606539B004F167E /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		60D0E069160653D9004F167E /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		60D0E06B160654FB004F167E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -922,6 +925,8 @@
 		6085D27C151B9E6F0068929C /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				60CA2D6B17F7076D00832636 /* ORWebVTT.h */,
+				60CA2D6C17F7076D00832636 /* ORWebVTT.m */,
 				60567B0C167D3710009D205A /* SubRip.h */,
 				60567B0D167D3710009D205A /* SubRip.m */,
 				60973FF116050ECB00867A2D /* TreemapKit */,
@@ -1264,6 +1269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60CA2D6D17F7076D00832636 /* ORWebVTT.m in Sources */,
 				6085D236151B99490068929C /* main.m in Sources */,
 				6085D23A151B99490068929C /* ORAppDelegate.m in Sources */,
 				6085D240151B99490068929C /* Puttio.xcdatamodeld in Sources */,
