@@ -3,6 +3,7 @@ platform :ios, '5.0'
 pod 'SEHumanizedTimeDiff'
 pod 'MSVCLeakHunter'
 
+pod "AFNetworking", "~> 1.0"
 #pod "BeamMusicPlayerViewController"
 #pod "Reveal-iOS-SDK"
 

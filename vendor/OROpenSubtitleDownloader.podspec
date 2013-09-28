@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = '5.0'
 
-  s.dependency 'AFNetworking'
+  s.dependency 'AFNetworking', "~> 1.0"
   s.dependency 'xmlrpc'
 end

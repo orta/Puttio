@@ -100,7 +100,7 @@ static NSURL *staticMovieURL;
     NSTimeInterval minutes = [[NSDate date] timeIntervalSinceDate:movieStartedDate];
     minutes = floorf(minutes / 60);
 
-    [ARAnalytics finishTimingEvent:@"Finished Watching"];
+    [ARAnalytics finishTimingEvent:@"Movie Finished"];
     ORAppDelegate *appDelegate = (ORAppDelegate*)[UIApplication sharedApplication].delegate;
     UIViewController *rootController = appDelegate.window.rootViewController;
     
@@ -131,7 +131,7 @@ static NSURL *staticMovieURL;
     [ARAnalytics incrementUserProperty:@"User Started Watching a Movie" byInt:1];
     [ARAnalytics event:@"User Started Watching a Movie"];
     movieStartedDate = [NSDate date];
-    [ARAnalytics startTimingEvent:@"Finished Watching"];
+    [ARAnalytics startTimingEvent:@"Movie Finished"];
 }
 
 + (void)watchLocalMovieAtPath:(NSString *)path {
@@ -164,7 +164,7 @@ static NSURL *staticMovieURL;
     [ARAnalytics incrementUserProperty:@"User Started Watching a Movie" byInt:1];
     [ARAnalytics event:@"User Started Watching a Movie"];
     movieStartedDate = [NSDate date];
-    [ARAnalytics startTimingEvent:@"Finished Watching"];
+    [ARAnalytics startTimingEvent:@"Movie Finished"];
 }
 
 

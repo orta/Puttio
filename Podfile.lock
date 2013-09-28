@@ -1,38 +1,37 @@
 PODS:
-  - AFNetworking (1.3.1)
-  - ARAnalytics/Core (1.3.1)
-  - ARAnalytics/Crashlytics (1.3.1):
-    - ARAnalytics/Core
-  - ARAnalytics/Mixpanel (1.3.1):
-    - ARAnalytics/Core
+  - AFNetworking (1.3.3)
+  - ARAnalytics/CoreIOS (2.1.0)
+  - ARAnalytics/Crashlytics (2.1.0):
+    - ARAnalytics/CoreIOS
+  - ARAnalytics/Mixpanel (2.1.0):
+    - ARAnalytics/CoreIOS
     - Mixpanel
-  - ARAnalytics/TestFlight (1.3.1):
-    - ARAnalytics/Core
+  - ARAnalytics/TestFlight (2.1.0):
+    - ARAnalytics/CoreIOS
     - BPXLUUIDHandler
     - TestFlightSDK
   - BPXLUUIDHandler (0.0.1)
-  - Mixpanel (2.0.0)
+  - Mixpanel (2.0.2)
   - MSVCLeakHunter (1.0.0)
   - NSData+Base64 (1.0.0)
   - OROpenSubtitleDownloader (0.0.1):
-    - AFNetworking
+    - AFNetworking (~> 1.0)
     - xmlrpc
   - PutioKit (0.1):
     - AFNetworking (~> 1.0)
-  - Reveal-iOS-SDK (0.8.1)
   - SEHumanizedTimeDiff (0.0.1)
-  - TestFlightSDK (1.3.0-beta.6)
+  - TestFlightSDK (2.0)
   - xmlrpc (2.3.3):
     - NSData+Base64 (~> 1.0.0)
 
 DEPENDENCIES:
+  - AFNetworking (~> 1.0)
   - ARAnalytics/Crashlytics (from `git@github.com:orta/ARAnalytics.git`)
   - ARAnalytics/Mixpanel (from `git@github.com:orta/ARAnalytics.git`)
   - ARAnalytics/TestFlight (from `git@github.com:orta/ARAnalytics.git`)
   - MSVCLeakHunter
   - OROpenSubtitleDownloader (from `vendor/OROpenSubtitleDownloader.podspec`)
   - PutioKit (from `git@github.com:PutioKit/PutioKit.git`)
-  - Reveal-iOS-SDK
   - SEHumanizedTimeDiff
 
 EXTERNAL SOURCES:
@@ -44,17 +43,16 @@ EXTERNAL SOURCES:
     :git: git@github.com:PutioKit/PutioKit.git
 
 SPEC CHECKSUMS:
-  AFNetworking: 9ec8aafb9269236a7630bd8d9838ce2ba30fa2a0
-  ARAnalytics: 07b2f11d766b4e68576db8ea8e04ae0cb88c6cb0
+  AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
+  ARAnalytics: 96ffc63619197470171f98d804a76a5b0d8472e4
   BPXLUUIDHandler: 227f5e8f11ed1bc443f73b43fedf1bf24b47be8d
-  Mixpanel: d456c27f7520e22784a15d0bcd9d5c287080b0cd
+  Mixpanel: 7829ba2cc58d251a4674520109e9bfead76acc98
   MSVCLeakHunter: 536bf530cabe2ed908f1a0ad0410f8525040c3b6
   NSData+Base64: 36c4e5b6479259c1a68866ccd2a8dd385c9744f7
-  OROpenSubtitleDownloader: 874b34f1556bdc5435fc1ca03252bb61ea33b3a2
-  PutioKit: 958a0e51a02a71c9554e331354762d03aa39f788
-  Reveal-iOS-SDK: 9211abec2542455058411814d58d0c2e1a8030e4
+  OROpenSubtitleDownloader: bd33226e47892176c18e9cbc338fcaf7b1f3f0ca
+  PutioKit: de585b6dc650841e4199372a20fb821d286399ef
   SEHumanizedTimeDiff: 7d8cee4dd4f295e6c4a1d6fb8b4658f028417539
-  TestFlightSDK: f3e516c64f61abedeb26a7b184101df54df3db09
+  TestFlightSDK: 940906d4b2550cf397c6f2d2fcc4ebfdcd8ae858
   xmlrpc: 9ebaa6298ce90ff0c3c30404681f2030bdde54db
 
-COCOAPODS: 0.20.2
+COCOAPODS: 0.25.0
