@@ -164,7 +164,21 @@
 
     [moc performBlock:^{
         @try {
-            [moc mergeChangesFromContextDidSaveNotification:notification];
+            // remove any LocalFiles because they used to be core data objects, so they could be in iCloud
+            // but now they cause a crasher. Should only happen to oldbies
+
+            NSMutableSet *inserts = [[notification userInfo][@"inserted"] mutableCopy];
+            NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+                return ([[evaluatedObject description] rangeOfString:@"LocalFile"].location == NSNotFound);
+            }];
+
+            NSMutableDictionary *dict = [[notification userInfo] mutableCopy];
+            dict[@"inserted"] = [inserts filteredSetUsingPredicate:predicate];
+
+            NSNotification *copyNotification = [NSNotification notificationWithName:notification.name object:notification.object userInfo:dict];
+
+
+            [moc mergeChangesFromContextDidSaveNotification:copyNotification];
             NSNotification* refreshNotification = [NSNotification notificationWithName:ORReloadGridNotification
                                                                                 object:self
                                                                               userInfo:[notification userInfo]];

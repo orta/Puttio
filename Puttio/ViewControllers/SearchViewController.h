@@ -23,4 +23,5 @@
 
 - (IBAction)hideSearchInterface:(id)sender;
 - (void)reposition;
+
 @end
