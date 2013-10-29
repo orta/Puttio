@@ -93,7 +93,7 @@ static SearchController *sharedInstance;
 }
 
 + (void)searchFenopy:(NSString *)query {
-    NSString *address = [NSString stringWithFormat:@"http://fenopy.eu/module/search/api.php?keyword=%@&format=json", query];
+    NSString *address = [NSString stringWithFormat:@"http://unblockfenopy.eu/module/search/api.php?keyword=%@&format=json", query];
     NSURL *url = [NSURL URLWithString:address];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];

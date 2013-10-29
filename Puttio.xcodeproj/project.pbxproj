@@ -166,6 +166,8 @@
 		60C85AFA15CFAD40008FC895 /* Hand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C85AF815CFAD40008FC895 /* Hand@2x.png */; };
 		60C85AFE15CFAD7E008FC895 /* ORSwipeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C85AFD15CFAD7E008FC895 /* ORSwipeImageView.m */; };
 		60CA2D6D17F7076D00832636 /* ORWebVTT.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CA2D6C17F7076D00832636 /* ORWebVTT.m */; };
+		60CE5A8E181F9DD30019B3E8 /* Transfers-Long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CE5A8C181F9DD30019B3E8 /* Transfers-Long@2x.png */; };
+		60CE5A8F181F9DD30019B3E8 /* Media-Library-Long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CE5A8D181F9DD30019B3E8 /* Media-Library-Long@2x.png */; };
 		60D0E0671606539B004F167E /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E0661606539B004F167E /* Default-Portrait@2x~ipad.png */; };
 		60D0E06A160653D9004F167E /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E069160653D9004F167E /* Default-Portrait~ipad.png */; };
 		60D0E06C160654FB004F167E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E06B160654FB004F167E /* Default@2x.png */; };
@@ -469,6 +471,8 @@
 		60C85AFD15CFAD7E008FC895 /* ORSwipeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSwipeImageView.m; path = Views/ORSwipeImageView.m; sourceTree = "<group>"; };
 		60CA2D6B17F7076D00832636 /* ORWebVTT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORWebVTT.h; sourceTree = "<group>"; };
 		60CA2D6C17F7076D00832636 /* ORWebVTT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWebVTT.m; sourceTree = "<group>"; };
+		60CE5A8C181F9DD30019B3E8 /* Transfers-Long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Transfers-Long@2x.png"; sourceTree = "<group>"; };
+		60CE5A8D181F9DD30019B3E8 /* Media-Library-Long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media-Library-Long@2x.png"; sourceTree = "<group>"; };
 		60D0E0661606539B004F167E /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		60D0E069160653D9004F167E /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		60D0E06B160654FB004F167E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -747,6 +751,8 @@
 				608977401653987800A7814E /* MediaPlayer@2x.png */,
 				608977411653987800A7814E /* Transfers.png */,
 				608977421653987800A7814E /* Transfers@2x.png */,
+				60CE5A8C181F9DD30019B3E8 /* Transfers-Long@2x.png */,
+				60CE5A8D181F9DD30019B3E8 /* Media-Library-Long@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1181,12 +1187,14 @@
 				6080914415BAED0800BDB3D7 /* orta.png in Resources */,
 				6080914515BAED0800BDB3D7 /* orta@2x.png in Resources */,
 				6080915715BB038A00BDB3D7 /* mail.html in Resources */,
+				60CE5A8F181F9DD30019B3E8 /* Media-Library-Long@2x.png in Resources */,
 				6080915C15BC15D700BDB3D7 /* Cutest_Cat.jpg in Resources */,
 				608C72BF15C3063500EE85FC /* Exo-Bold.otf in Resources */,
 				608C72C015C3063500EE85FC /* Exo-Light.otf in Resources */,
 				60A34F7715CB384700983442 /* Paper.png in Resources */,
 				60A34F7815CB384700983442 /* Paper@2x.png in Resources */,
 				60C85AF915CFAD40008FC895 /* Hand.png in Resources */,
+				60CE5A8E181F9DD30019B3E8 /* Transfers-Long@2x.png in Resources */,
 				60C85AFA15CFAD40008FC895 /* Hand@2x.png in Resources */,
 				60F6F83015D072A2004333AF /* icon57.png in Resources */,
 				60F6F83215D072BD004333AF /* icon114.png in Resources */,
@@ -1469,7 +1477,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ben Maslen (NETCV7NTVF)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1498,7 +1506,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ben Maslen (NETCV7NTVF)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1514,7 +1522,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33FD32A0-8875-41C1-8873-48FE6EF5376C";
+				PROVISIONING_PROFILE = "8E7D82B3-FFC2-40FE-B9E6-8D0B4E747C0F";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
