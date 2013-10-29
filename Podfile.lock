@@ -1,7 +1,4 @@
 PODS:
-  - AFKissXMLRequestOperation (0.0.1):
-    - AFNetworking
-    - KissXML (~> 5.0)
   - AFNetworking (1.3.3)
   - ARAnalytics/CoreIOS (2.1.0)
   - ARAnalytics/Crashlytics (2.1.0):
@@ -14,12 +11,12 @@ PODS:
     - BPXLUUIDHandler
     - TestFlightSDK
   - BPXLUUIDHandler (0.0.1)
-  - KissXML (5.0)
+  - IGHTMLQuery (0.5.1)
   - Mixpanel (2.0.4)
   - MSVCLeakHunter (1.0.0)
   - NSData+Base64 (1.0.0)
-  - OROpenSubtitleDownloader (0.0.1):
-    - AFNetworking (~> 1.0)
+  - OROpenSubtitleDownloader (1.0.0):
+    - AFNetworking
     - xmlrpc
   - PutioKit (0.1):
     - AFNetworking (~> 1.0)
@@ -30,13 +27,13 @@ PODS:
     - NSData+Base64 (~> 1.0.0)
 
 DEPENDENCIES:
-  - AFKissXMLRequestOperation (~> 0.0.1)
   - AFNetworking (~> 1.0)
   - ARAnalytics/Crashlytics (from `git@github.com:orta/ARAnalytics.git`)
   - ARAnalytics/Mixpanel (from `git@github.com:orta/ARAnalytics.git`)
   - ARAnalytics/TestFlight (from `git@github.com:orta/ARAnalytics.git`)
+  - IGHTMLQuery (from `vendor/IGHTMLQuery.podspec`)
   - MSVCLeakHunter
-  - OROpenSubtitleDownloader (from `vendor/OROpenSubtitleDownloader.podspec`)
+  - OROpenSubtitleDownloader
   - PutioKit (from `git@github.com:PutioKit/PutioKit.git`)
   - Reveal-iOS-SDK
   - SEHumanizedTimeDiff
@@ -44,21 +41,20 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   ARAnalytics:
     :git: git@github.com:orta/ARAnalytics.git
-  OROpenSubtitleDownloader:
-    :podspec: vendor/OROpenSubtitleDownloader.podspec
+  IGHTMLQuery:
+    :podspec: vendor/IGHTMLQuery.podspec
   PutioKit:
     :git: git@github.com:PutioKit/PutioKit.git
 
 SPEC CHECKSUMS:
-  AFKissXMLRequestOperation: c5010fd22d4f03371d9960fd09792f7bc3b32f45
   AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
   ARAnalytics: 96ffc63619197470171f98d804a76a5b0d8472e4
   BPXLUUIDHandler: 227f5e8f11ed1bc443f73b43fedf1bf24b47be8d
-  KissXML: 4c66b6f39ef49c23e6bb8d335b94136f12b1b615
+  IGHTMLQuery: 6955cb8d9fa5ad15d10310a07260b0ef8ddcb70d
   Mixpanel: b23d1b358f9e2d3904ee13621beed4e5205929a5
   MSVCLeakHunter: 536bf530cabe2ed908f1a0ad0410f8525040c3b6
   NSData+Base64: 4819562faee4544e3cf5703f2139820b09732b28
-  OROpenSubtitleDownloader: bd33226e47892176c18e9cbc338fcaf7b1f3f0ca
+  OROpenSubtitleDownloader: 974a22b159a2908edb9695c7ba4b50236811d436
   PutioKit: de585b6dc650841e4199372a20fb821d286399ef
   Reveal-iOS-SDK: 26eddb779b9aee5b12cde405d01194e827169c02
   SEHumanizedTimeDiff: 7d8cee4dd4f295e6c4a1d6fb8b4658f028417539

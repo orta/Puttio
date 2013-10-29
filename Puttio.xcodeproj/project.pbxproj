@@ -168,6 +168,7 @@
 		60CA2D6D17F7076D00832636 /* ORWebVTT.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CA2D6C17F7076D00832636 /* ORWebVTT.m */; };
 		60CE5A8E181F9DD30019B3E8 /* Transfers-Long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CE5A8C181F9DD30019B3E8 /* Transfers-Long@2x.png */; };
 		60CE5A8F181F9DD30019B3E8 /* Media-Library-Long@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CE5A8D181F9DD30019B3E8 /* Media-Library-Long@2x.png */; };
+		60CE5A92181FC41E0019B3E8 /* NSString+StringBetweenStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CE5A91181FC41E0019B3E8 /* NSString+StringBetweenStrings.m */; };
 		60D0E0671606539B004F167E /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E0661606539B004F167E /* Default-Portrait@2x~ipad.png */; };
 		60D0E06A160653D9004F167E /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E069160653D9004F167E /* Default-Portrait~ipad.png */; };
 		60D0E06C160654FB004F167E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D0E06B160654FB004F167E /* Default@2x.png */; };
@@ -473,6 +474,8 @@
 		60CA2D6C17F7076D00832636 /* ORWebVTT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORWebVTT.m; sourceTree = "<group>"; };
 		60CE5A8C181F9DD30019B3E8 /* Transfers-Long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Transfers-Long@2x.png"; sourceTree = "<group>"; };
 		60CE5A8D181F9DD30019B3E8 /* Media-Library-Long@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Media-Library-Long@2x.png"; sourceTree = "<group>"; };
+		60CE5A90181FC41E0019B3E8 /* NSString+StringBetweenStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringBetweenStrings.h"; sourceTree = "<group>"; };
+		60CE5A91181FC41E0019B3E8 /* NSString+StringBetweenStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringBetweenStrings.m"; sourceTree = "<group>"; };
 		60D0E0661606539B004F167E /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		60D0E069160653D9004F167E /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		60D0E06B160654FB004F167E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -1039,6 +1042,8 @@
 		60AB50CF151F64DE00473448 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				60CE5A90181FC41E0019B3E8 /* NSString+StringBetweenStrings.h */,
+				60CE5A91181FC41E0019B3E8 /* NSString+StringBetweenStrings.m */,
 				6098B4FA163561EC00B41531 /* NSFileManager+SkipBackup.h */,
 				6098B4FB163561EC00B41531 /* NSFileManager+SkipBackup.m */,
 				6064D8B115399D8A00E454E5 /* NSString+StripHTML.h */,
@@ -1325,6 +1330,7 @@
 				60C45DCC157C45360059D4B4 /* UINavigationController+ForceRotate.m in Sources */,
 				60C45DE0157C498B0059D4B4 /* ProcessPopoverViewController.m in Sources */,
 				60001912157CDDFC00E5FE06 /* FolderViewController.m in Sources */,
+				60CE5A92181FC41E0019B3E8 /* NSString+StringBetweenStrings.m in Sources */,
 				60001926157D274F00E5FE06 /* ItemDeletionViewController.m in Sources */,
 				6000193D157E655C00E5FE06 /* WatchedItem.m in Sources */,
 				60001943157E6BCC00E5FE06 /* WatchedList.m in Sources */,

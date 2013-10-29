@@ -8,6 +8,8 @@
 
 #import "SearchController.h"
 #import "AFHTTPRequestOperation.h"
+#import <IGHTMLQuery/IGHTMLQuery.h>
+#import "NSString+StringBetweenStrings.h"
 
 static SearchController *sharedInstance;
 
@@ -36,8 +38,9 @@ static SearchController *sharedInstance;
     [self searchMininova:query];
     [self searchArchiveOrg:query];
     if([[NSUserDefaults standardUserDefaults] boolForKey:ORUseAllSearchEngines]){
-        [self searchISOHunt:query];
+//        [self searchISOHunt:query];
         [self searchFenopy:query];
+        [self searchPirateProxies:query];
     }
     [ARAnalytics incrementUserProperty:@"Started Search" byInt:1];
     [ARAnalytics event:@"User Started a Search"];
@@ -89,6 +92,90 @@ static SearchController *sharedInstance;
         NSLog(@"fail whale archive org %@", error);
     }];
 
+    [operation start];
+}
+
++ (void)searchPirateProxies:(NSString *)query {
+
+    NSArray *proxies = @[@"http://www.proxybay.de", @"http://tpb.unblocked.co", @"http://www.piratesniper.net", @"http://www.proxybay.eu", @"http://quluxingba.info", @"http://tpb.alb124.me", @"http://piratebay.come.in", @"http://tpb.occupyuk.co.uk", @"http://thepiratebay.tn"];
+    NSUInteger randomIndex = arc4random() % [proxies count];
+    NSString *proxy = proxies[randomIndex];
+
+    NSString * address = [proxy stringByAppendingFormat:@"/search/%@/0/99/0", query];
+
+    NSURL *url = [NSURL URLWithString:address];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, id responseObject) {
+        if (!responseObject) {
+            [self foundNoResults];
+            return;
+        }
+
+        NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
+        NSString *chop = [result substringBetween:@"<table id=\"searchResult\">" and:@"</table>"];
+        NSString *rootElement = [NSString stringWithFormat:@"<html>%@</html>", chop];
+        NSMutableArray *searchResults = [NSMutableArray array];
+
+        IGHTMLDocument* htmlDoc = [[IGHTMLDocument alloc] initWithHTMLString:rootElement error:nil];
+
+        IGXMLNodeSet *contents = [htmlDoc queryWithXPath:@"//tr"];
+
+        [contents enumerateNodesUsingBlock:^(IGXMLNode *node, NSUInteger idx, BOOL *stop) {
+            __block SearchResult *result = [[SearchResult alloc] init];;
+            result.seedersCount = NSNotFound;
+
+            [[node queryWithXPath:@"td/a"] enumerateNodesUsingBlock:^(IGXMLNode *aNode, NSUInteger idx, BOOL *stop) {
+                NSString *href = aNode[@"href"];
+
+                if ([href hasPrefix:@"magnet"]) {
+                    result.magnetURL = href;
+                }
+            }];
+
+            [[node queryWithXPath:@"td/div/a"] enumerateNodesUsingBlock:^(IGXMLNode *aNode, NSUInteger idx, BOOL *stop) {
+                if ([aNode[@"class"] hasPrefix:@"detLink"] ) {
+                    result.name = [aNode[@"title"] stringByReplacingOccurrencesOfString:@"Details for " withString:@""];
+                }
+            }];
+
+            [[node queryWithXPath:@"td"] enumerateNodesUsingBlock:^(IGXMLNode *aNode, NSUInteger idx, BOOL *stop) {
+
+                if ([aNode[@"align"] isEqualToString:@"right"] ) {
+                    if (result.seedersCount == NSNotFound) {
+                        result.seedersCount = [aNode.text integerValue];
+                    } else {
+                        result.peersCount = [aNode.text integerValue];
+                    }
+                }
+            }];
+
+            [[node queryWithXPath:@"td/font"] enumerateNodesUsingBlock:^(IGXMLNode *aNode, NSUInteger idx, BOOL *stop) {
+                if (!result.sizeString) {
+                    result.sizeString = [aNode.text substringBetween:@"Size" and:@", UL"];
+                }
+            }];
+
+            result.hostName = @"PirateBay";
+            [result generateRanking];
+
+            if ((result.peersCount > 0 || result.seedersCount) && result.name.length ) {
+                [searchResults addObject:result];
+            }
+        }];
+
+        if (searchResults.count) {
+            [self passArrayToDelegate:searchResults];
+        }else{
+            [self foundNoResults];
+        }
+
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [ARAnalytics incrementUserProperty:@"PIrate Bay Search Failed" byInt:1];
+        [self foundNoResults];
+        NSLog(@"fail whale fenopy %@", error);
+    }];
     [operation start];
 }
 
@@ -162,7 +249,7 @@ static SearchController *sharedInstance;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [ARAnalytics incrementUserProperty:@"Isohunt Search Failed" byInt:1];
         [self foundNoResults];
-        NSLog(@"fail whale %@", error);
+//        NSLog(@"fail whale %@", error);
     }];
     [operation start];
 }
