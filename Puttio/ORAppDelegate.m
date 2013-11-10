@@ -244,8 +244,9 @@
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSURL *localStore = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:dataFileName];
         NSURL *iCloud = [fileManager URLForUbiquityContainerIdentifier:nil];
+        BOOL shouldiCloud = [[NSUserDefaults standardUserDefaults] boolForKey:ORCloudSyncDefault];
         
-        if (iCloud) {
+        if (iCloud && shouldiCloud) {
             
             NSLog(@"iCloud is working");
             

@@ -24,6 +24,7 @@ NSString *const ORLastSiteVisitedDefault = @"ORLastSiteVisitedDefault";
 NSString *const ORBookmarkURLsDefault = @"ORBookmarkURLsDefault";
 NSString *const ORBookmarkNamesDefault = @"ORBookmarkNamesDefault";
 NSString *const ORSubtitleLanguageDefault = @"ORSubtitleLanguageDefault";
+NSString *const ORCloudSyncDefault = @"ORCloudSyncDefault";
 
 NSString *const ORAppVersion = @"ORAppVersion";
 NSString *const ORShowLeftSidebarDefault = @"ORShowLeftSidebarDefault";

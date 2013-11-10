@@ -184,6 +184,7 @@
 		60DBF385158CA7EE0061F059 /* FileDownloadProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */; };
 		60E26D75173E26D300DF7CED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E26D74173E26D300DF7CED /* Security.framework */; };
 		60E26D77173E26D800DF7CED /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E26D76173E26D800DF7CED /* AdSupport.framework */; };
+		60E47A40182F115B0003E4BF /* ORSyncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E47A3F182F115B0003E4BF /* ORSyncView.m */; };
 		60E8DECF15A99D7000058314 /* UIDevice+deviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */; };
 		60E8DED215A9A16B00058314 /* ORHorizontalImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8DED115A9A16B00058314 /* ORHorizontalImageViewCell.m */; };
 		60EC4E34168CC97500EFCF3B /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EC4E33168CC97500EFCF3B /* Bookmark.m */; };
@@ -501,6 +502,8 @@
 		60DBF384158CA7EE0061F059 /* FileDownloadProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileDownloadProcess.m; path = Processes/FileDownloadProcess.m; sourceTree = "<group>"; };
 		60E26D74173E26D300DF7CED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		60E26D76173E26D800DF7CED /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		60E47A3E182F115B0003E4BF /* ORSyncView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORSyncView.h; path = Views/ORSyncView.h; sourceTree = "<group>"; };
+		60E47A3F182F115B0003E4BF /* ORSyncView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORSyncView.m; path = Views/ORSyncView.m; sourceTree = "<group>"; };
 		60E8DECD15A99D7000058314 /* UIDevice+deviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+deviceInfo.h"; path = "Categories/UIDevice+deviceInfo.h"; sourceTree = "<group>"; };
 		60E8DECE15A99D7000058314 /* UIDevice+deviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+deviceInfo.m"; path = "Categories/UIDevice+deviceInfo.m"; sourceTree = "<group>"; };
 		60E8DED015A9A16B00058314 /* ORHorizontalImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORHorizontalImageViewCell.h; path = Views/ORHorizontalImageViewCell.h; sourceTree = "<group>"; };
@@ -605,6 +608,8 @@
 				608C72C615C308AE00EE85FC /* ORTitleLabel.m */,
 				60C85AFC15CFAD7E008FC895 /* ORSwipeImageView.h */,
 				60C85AFD15CFAD7E008FC895 /* ORSwipeImageView.m */,
+				60E47A3E182F115B0003E4BF /* ORSyncView.h */,
+				60E47A3F182F115B0003E4BF /* ORSyncView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1330,6 +1335,7 @@
 				60C45DCC157C45360059D4B4 /* UINavigationController+ForceRotate.m in Sources */,
 				60C45DE0157C498B0059D4B4 /* ProcessPopoverViewController.m in Sources */,
 				60001912157CDDFC00E5FE06 /* FolderViewController.m in Sources */,
+				60E47A40182F115B0003E4BF /* ORSyncView.m in Sources */,
 				60CE5A92181FC41E0019B3E8 /* NSString+StringBetweenStrings.m in Sources */,
 				60001926157D274F00E5FE06 /* ItemDeletionViewController.m in Sources */,
 				6000193D157E655C00E5FE06 /* WatchedItem.m in Sources */,

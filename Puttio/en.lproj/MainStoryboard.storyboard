@@ -759,12 +759,12 @@ to Put.IO</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="4di-ea-84I">
-                                <rect key="frame" x="0.0" y="337" width="210" height="68"/>
+                                <rect key="frame" x="0.0" y="357" width="210" height="68"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CfN-c6-T3b" customClass="ORDestructiveButton">
-                                <rect key="frame" x="40" y="349" width="130" height="44"/>
+                                <rect key="frame" x="40" y="369" width="130" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.42571601269999998" green="0.73212200400000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -797,7 +797,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Subtitle languages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rzm-4g-rLA">
-                                <rect key="frame" x="35" y="80" width="141" height="26"/>
+                                <rect key="frame" x="35" y="75" width="141" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -818,11 +818,11 @@ to Put.IO</string>
                                 <color key="backgroundColor" red="0.97776401040000005" green="0.92181301120000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" id="ejt-6B-Glb" userLabel="Logout Help">
-                                <rect key="frame" x="0.0" y="333" width="210" height="92"/>
+                                <rect key="frame" x="0.0" y="353" width="210" height="92"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="no4-6T-Fso">
-                                        <rect key="frame" x="0.0" y="40" width="210" height="44"/>
+                                        <rect key="frame" x="0.0" y="30" width="210" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="and load the app again" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="UzH-Zm-UvI">
@@ -913,7 +913,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dPK-gO-VDz">
-                                <rect key="frame" x="9" y="157" width="44" height="44"/>
+                                <rect key="frame" x="9" y="152" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Finnish.png">
@@ -928,7 +928,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ef1-mS-FCs">
-                                <rect key="frame" x="58" y="157" width="44" height="44"/>
+                                <rect key="frame" x="58" y="152" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="France.png">
@@ -943,7 +943,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Exi-cT-Hg8">
-                                <rect key="frame" x="108" y="157" width="44" height="44"/>
+                                <rect key="frame" x="108" y="152" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Greek.png">
@@ -958,7 +958,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H0L-m7-XXj">
-                                <rect key="frame" x="157" y="157" width="44" height="44"/>
+                                <rect key="frame" x="157" y="152" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Hungry.png">
@@ -973,7 +973,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bHO-wL-FYs">
-                                <rect key="frame" x="9" y="203" width="44" height="44"/>
+                                <rect key="frame" x="9" y="193" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Indonesia.png">
@@ -988,7 +988,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ajJ-6m-9eJ">
-                                <rect key="frame" x="58" y="203" width="44" height="44"/>
+                                <rect key="frame" x="58" y="193" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Poland.png">
@@ -1003,7 +1003,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Dqr-eI-4mM">
-                                <rect key="frame" x="108" y="203" width="44" height="44"/>
+                                <rect key="frame" x="108" y="193" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Portuguese.png">
@@ -1018,7 +1018,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ycf-6x-JLi">
-                                <rect key="frame" x="157" y="203" width="44" height="44"/>
+                                <rect key="frame" x="157" y="193" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Romania.png">
@@ -1033,7 +1033,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bCG-vt-e1q">
-                                <rect key="frame" x="9" y="249" width="44" height="44"/>
+                                <rect key="frame" x="9" y="234" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Russian.png">
@@ -1048,7 +1048,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XXJ-pL-mIh">
-                                <rect key="frame" x="58" y="249" width="44" height="44"/>
+                                <rect key="frame" x="58" y="234" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Spain.png">
@@ -1063,7 +1063,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZZU-8A-F3X">
-                                <rect key="frame" x="108" y="249" width="44" height="44"/>
+                                <rect key="frame" x="108" y="234" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Ukeranian.png">
@@ -1078,7 +1078,7 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QsY-Gl-8LF">
-                                <rect key="frame" x="157" y="249" width="44" height="44"/>
+                                <rect key="frame" x="157" y="234" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Arabic.png">
@@ -1093,9 +1093,24 @@ to Put.IO</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="X7g-8r-zo5">
-                                <rect key="frame" x="9" y="298" width="192" height="27"/>
+                                <rect key="frame" x="9" y="273" width="192" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="wAs-fT-ncN" customClass="ORSyncView">
+                                <rect key="frame" x="103" y="305" width="88" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="onSyncChanged:" destination="Dvg-z8-SBB" eventType="valueChanged" id="W0v-SR-nnd"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="iCloud:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="lqd-KP-INu">
+                                <rect key="frame" x="21" y="302" width="109" height="38"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1109,6 +1124,7 @@ to Put.IO</string>
                     <connections>
                         <outlet property="logoutInfoView" destination="ejt-6B-Glb" id="2a4-gP-GX8"/>
                         <outlet property="subtitlesLabel" destination="X7g-8r-zo5" id="PzS-WX-Rd2"/>
+                        <outlet property="syncSwitchView" destination="wAs-fT-ncN" id="ihA-JA-z7g"/>
                         <outletCollection property="flagButtons" destination="QsY-Gl-8LF" id="20Z-MD-Efd"/>
                         <outletCollection property="flagButtons" destination="ZZU-8A-F3X" id="EHl-zq-eb2"/>
                         <outletCollection property="flagButtons" destination="XXJ-pL-mIh" id="N7o-ff-mE0"/>

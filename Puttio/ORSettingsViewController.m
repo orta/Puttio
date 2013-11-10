@@ -7,6 +7,7 @@
 //
 
 #import "ORSettingsViewController.h"
+#import "ORSyncView.h"
 
 @interface Country : NSObject
 @property (strong) NSString *isoCode;
@@ -22,6 +23,7 @@
 @interface ORSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *subtitlesLanguages;
 @property (weak, nonatomic) IBOutlet UIView *logoutInfoView;
+@property (strong, nonatomic) IBOutlet ORSyncView *syncSwitchView;
 
 @end
 
@@ -104,6 +106,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:currentDefault forKey:ORSubtitleLanguageDefault];
     }
 
+    _syncSwitchView.on = [[NSUserDefaults standardUserDefaults] boolForKey:ORCloudSyncDefault];
+
     [self updateButtons];
 }
 
@@ -176,6 +180,11 @@
         [ARAnalytics event:@"User Logged Out"];
 
         _logoutInfoView.hidden = NO;
+}
+
+- (IBAction)onSyncChanged:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setBool:_syncSwitchView.isOn forKey:ORCloudSyncDefault];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)viewDidUnload {

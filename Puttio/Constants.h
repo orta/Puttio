@@ -37,6 +37,7 @@ extern NSString *const ORTotalVideoDuration;
 extern NSString *const ORHasShownReviewNagOneDefault;
 extern NSString *const ORMigrationVersionDefault;
 extern NSString *const ORSubtitleLanguageDefault;
+extern NSString *const ORCloudSyncDefault;
 
 extern NSString *const ORReloadGridNotification;
 extern NSString *const ORReloadFolderNotification;

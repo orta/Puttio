@@ -5,7 +5,7 @@ pod 'MSVCLeakHunter'
 
 pod "AFNetworking", "~> 1.0"
 #pod "BeamMusicPlayerViewController"
-pod "Reveal-iOS-SDK"
+#pod "Reveal-iOS-SDK"
 pod "IGHTMLQuery", :podspec => "vendor/IGHTMLQuery.podspec"
 
 pod 'OROpenSubtitleDownloader'
