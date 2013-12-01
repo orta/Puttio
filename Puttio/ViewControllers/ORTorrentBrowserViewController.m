@@ -53,7 +53,7 @@
         return NO;
     }
 
-    if ([address rangeOfString:@".torrent"].location != NSNotFound || [address rangeOfString:@"magnet:"].location != NSNotFound) {
+    if ([address rangeOfString:@".torrent"].location != NSNotFound || [address rangeOfString:@"magnet:"].location != NSNotFound || [address rangeOfString:@"dl.php?"].location != NSNotFound) {
         ORAddTorrentFromBrowseViewController *controller = (ORAddTorrentFromBrowseViewController *)[ModalZoomView showWithViewControllerIdentifier:@"AddTorrentFromBrowseView"];
         controller.address = address;
         return NO;
