@@ -46,6 +46,11 @@
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:lastAddress]]];
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSString *address = request.URL.absoluteString;
     

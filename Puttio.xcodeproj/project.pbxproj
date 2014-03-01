@@ -1137,6 +1137,11 @@
 				CLASSPREFIX = OR;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = ortatherox.com;
+				TargetAttributes = {
+					6085D222151B99490068929C = {
+						DevelopmentTeam = NETCV7NTVF;
+					};
+				};
 			};
 			buildConfigurationList = 6085D21D151B99480068929C /* Build configuration list for PBXProject "Puttio" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1489,7 +1494,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ben Maslen (NETCV7NTVF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1518,7 +1523,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ben Maslen (NETCV7NTVF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
