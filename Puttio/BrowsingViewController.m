@@ -194,7 +194,8 @@ static UIEdgeInsets GridViewInsets = {.top = 88+48, .left = 8, .right = 88 + 8, 
         }else {
             identifier = [UIDevice isPhone]? @"FileInfoPhoneView" : @"FileInfoView";
         }
-        [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:identifier andItem:file];
+        id vc = [ModalZoomView showFromRect:initialFrame withViewControllerIdentifier:identifier andItem:file];
+        [self.navigationController addChildViewController:vc];
     }
 }
 
