@@ -26,7 +26,6 @@
 		600641FB151F24AF00EF85F9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FA151F24AF00EF85F9 /* StatusViewController.m */; };
 		600641FF151F24C100EF85F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600641FE151F24C100EF85F9 /* SearchViewController.m */; };
 		60064202151F24CD00EF85F9 /* BrowsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60064201151F24CD00EF85F9 /* BrowsingViewController.m */; };
-		6017DCEB177F0BC900F5FF6C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6017DCEA177F0BC900F5FF6C /* Crashlytics.framework */; };
 		60199B271673FD490026762E /* ORRemoveTransferPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60199B261673FD490026762E /* ORRemoveTransferPopoverViewController.m */; };
 		6020361B15AA2C120021CE21 /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361215AA2C120021CE21 /* DCRoundSwitch.m */; };
 		6020361C15AA2C120021CE21 /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020361415AA2C120021CE21 /* DCRoundSwitchKnobLayer.m */; };
@@ -251,7 +250,6 @@
 		600641FE151F24C100EF85F9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ViewControllers/SearchViewController.m; sourceTree = "<group>"; };
 		60064200151F24CD00EF85F9 /* BrowsingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowsingViewController.h; sourceTree = "<group>"; };
 		60064201151F24CD00EF85F9 /* BrowsingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingViewController.m; sourceTree = "<group>"; };
-		6017DCEA177F0BC900F5FF6C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = vendor/Crashlytics.framework; sourceTree = "<group>"; };
 		60199B251673FD490026762E /* ORRemoveTransferPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORRemoveTransferPopoverViewController.h; path = ViewControllers/ORRemoveTransferPopoverViewController.h; sourceTree = "<group>"; };
 		60199B261673FD490026762E /* ORRemoveTransferPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORRemoveTransferPopoverViewController.m; path = ViewControllers/ORRemoveTransferPopoverViewController.m; sourceTree = "<group>"; };
 		6020361115AA2C120021CE21 /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
@@ -545,7 +543,8 @@
 		60FFFB6015A9836400DB7668 /* WatchedSash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WatchedSash@2x.png"; sourceTree = "<group>"; };
 		60FFFB6B15A9840A00DB7668 /* UIImageView+ImageRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+ImageRect.h"; path = "Categories/UIImageView+ImageRect.h"; sourceTree = "<group>"; };
 		60FFFB6C15A9840A00DB7668 /* UIImageView+ImageRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+ImageRect.m"; path = "Categories/UIImageView+ImageRect.m"; sourceTree = "<group>"; };
-		74E1B77143854D109D5532D4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		6145D130CD730730F50268EE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7C3DE1E5FDB75A89ED5C21D1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -566,7 +565,6 @@
 				6085D22A151B99490068929C /* Foundation.framework in Frameworks */,
 				6085D22C151B99490068929C /* CoreGraphics.framework in Frameworks */,
 				6085D22E151B99490068929C /* CoreData.framework in Frameworks */,
-				6017DCEB177F0BC900F5FF6C /* Crashlytics.framework in Frameworks */,
 				E62B9428CFD24446BDF07E11 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,7 +781,7 @@
 				6085D22F151B99490068929C /* Puttio */,
 				6085D226151B99490068929C /* Frameworks */,
 				6085D224151B99490068929C /* Products */,
-				74E1B77143854D109D5532D4 /* Pods.xcconfig */,
+				E0B062ABAF2B17B2381A8B6A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -798,7 +796,6 @@
 		6085D226151B99490068929C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6017DCEA177F0BC900F5FF6C /* Crashlytics.framework */,
 				609F289215AF9AF1008AAAAC /* Accounts.framework */,
 				609F289015AF9AA5008AAAAC /* Social.framework */,
 				609F288E15AF9A53008AAAAC /* Twitter.framework */,
@@ -1106,6 +1103,15 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		E0B062ABAF2B17B2381A8B6A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6145D130CD730730F50268EE /* Pods.debug.xcconfig */,
+				7C3DE1E5FDB75A89ED5C21D1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1116,7 +1122,6 @@
 				6085D21F151B99490068929C /* Sources */,
 				6085D220151B99490068929C /* Frameworks */,
 				6085D221151B99490068929C /* Resources */,
-				60F28C3F15AB5CBF0089AE8B /* ShellScript */,
 				8A9EE433B75345ABA3BD0631 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1139,7 +1144,7 @@
 				ORGANIZATIONNAME = ortatherox.com;
 				TargetAttributes = {
 					6085D222151B99490068929C = {
-						DevelopmentTeam = NETCV7NTVF;
+						DevelopmentTeam = ZH8TGFYKDK;
 					};
 				};
 			};
@@ -1258,19 +1263,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		60F28C3F15AB5CBF0089AE8B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./vendor/Crashlytics.framework/run c40913dff6423ffeca4e4bafc8b63131a7f90415";
-		};
 		8A9EE433B75345ABA3BD0631 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1283,7 +1275,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1490,10 +1482,9 @@
 		};
 		6085D24A151B99490068929C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74E1B77143854D109D5532D4 /* Pods.xcconfig */;
+			baseConfigurationReference = 6145D130CD730730F50268EE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
-				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1510,7 +1501,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33FD32A0-8875-41C1-8873-48FE6EF5376C";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;
@@ -1519,11 +1510,10 @@
 		};
 		6085D24B151B99490068929C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74E1B77143854D109D5532D4 /* Pods.xcconfig */;
+			baseConfigurationReference = 7C3DE1E5FDB75A89ED5C21D1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
-				CODE_SIGN_ENTITLEMENTS = puttio/Putio.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ART SY INC";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor\"",
@@ -1539,7 +1529,7 @@
 					"\"$(SRCROOT)/Puttio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8E7D82B3-FFC2-40FE-B9E6-8D0B4E747C0F";
+				PROVISIONING_PROFILE = "7885d377-493a-4146-9439-22a3069ead6f";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/**";
 				WRAPPER_EXTENSION = app;

@@ -5,23 +5,23 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>505F98B7-3B01-4821-97F6-C85F1E777A32</string>
+	<string>8090DDD8-022B-49D7-A9C6-CDDCE1E6515F</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Puttio</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>27D3D030B85F9A92825CB9400DFA9E3864E09AA1</key>
-		<string>ssh://github.com/orta/Puttio.git</string>
+		<string>https://github.com/orta/Puttio.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Puttio.xcworkspace</string>
+	<string>Puttio.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>27D3D030B85F9A92825CB9400DFA9E3864E09AA1</key>
-		<string>..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/orta/Puttio.git</string>
+	<string>https://github.com/orta/Puttio.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>27D3D030B85F9A92825CB9400DFA9E3864E09AA1</string>
 			<key>IDESourceControlWCCName</key>
-			<string>puttio</string>
+			<string>Puttio</string>
 		</dict>
 	</array>
 </dict>

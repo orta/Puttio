@@ -1,18 +1,16 @@
 PODS:
   - AFNetworking (1.3.3)
-  - ARAnalytics/CoreIOS (2.1.0)
-  - ARAnalytics/Crashlytics (2.1.0):
-    - ARAnalytics/CoreIOS
-  - ARAnalytics/Mixpanel (2.1.0):
+  - ARAnalytics/CoreIOS (2.8.0)
+  - ARAnalytics/Mixpanel (2.8.0):
     - ARAnalytics/CoreIOS
     - Mixpanel
-  - ARAnalytics/TestFlight (2.1.0):
+  - ARAnalytics/TestFlight (2.8.0):
     - ARAnalytics/CoreIOS
     - BPXLUUIDHandler
     - TestFlightSDK
   - BPXLUUIDHandler (0.0.1)
   - IGHTMLQuery (0.5.1)
-  - Mixpanel (2.0.4)
+  - Mixpanel (2.5.4)
   - MSVCLeakHunter (1.0.0)
   - NSData+Base64 (1.0.0)
   - OROpenSubtitleDownloader (1.0.0):
@@ -21,15 +19,14 @@ PODS:
   - PutioKit (0.1):
     - AFNetworking (~> 1.0)
   - SEHumanizedTimeDiff (0.0.1)
-  - TestFlightSDK (2.1.1-beta)
+  - TestFlightSDK (3.0.2)
   - xmlrpc (2.3.3):
     - NSData+Base64 (~> 1.0.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 1.0)
-  - ARAnalytics/Crashlytics (from `git@github.com:orta/ARAnalytics.git`)
-  - ARAnalytics/Mixpanel (from `git@github.com:orta/ARAnalytics.git`)
-  - ARAnalytics/TestFlight (from `git@github.com:orta/ARAnalytics.git`)
+  - ARAnalytics/Mixpanel
+  - ARAnalytics/TestFlight
   - IGHTMLQuery (from `vendor/IGHTMLQuery.podspec`)
   - MSVCLeakHunter
   - OROpenSubtitleDownloader
@@ -37,25 +34,23 @@ DEPENDENCIES:
   - SEHumanizedTimeDiff
 
 EXTERNAL SOURCES:
-  ARAnalytics:
-    :git: git@github.com:orta/ARAnalytics.git
   IGHTMLQuery:
     :podspec: vendor/IGHTMLQuery.podspec
   PutioKit:
     :git: git@github.com:PutioKit/PutioKit.git
 
 SPEC CHECKSUMS:
-  AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
-  ARAnalytics: 96ffc63619197470171f98d804a76a5b0d8472e4
-  BPXLUUIDHandler: 227f5e8f11ed1bc443f73b43fedf1bf24b47be8d
+  AFNetworking: 5f5b2a731d6fc2082b8abc63d40fcaed5482c42f
+  ARAnalytics: 93c5b65989145f88f4d45e262612eac277b0c219
+  BPXLUUIDHandler: 12376ecdba7aa93b7fb3da32e9130e6593d7ef99
   IGHTMLQuery: 6955cb8d9fa5ad15d10310a07260b0ef8ddcb70d
-  Mixpanel: b23d1b358f9e2d3904ee13621beed4e5205929a5
-  MSVCLeakHunter: 536bf530cabe2ed908f1a0ad0410f8525040c3b6
-  NSData+Base64: 4819562faee4544e3cf5703f2139820b09732b28
-  OROpenSubtitleDownloader: 974a22b159a2908edb9695c7ba4b50236811d436
+  Mixpanel: 87167a0b0a74f11f0ee3787f291357494730617c
+  MSVCLeakHunter: 465f9ee37275031135890a491ba2a70c8ff6ae35
+  NSData+Base64: aae92a2e3f0bd88b29fe6093551ded3f5c062548
+  OROpenSubtitleDownloader: d6a29c7167f596db1a3566e40018f115f47b36e1
   PutioKit: de585b6dc650841e4199372a20fb821d286399ef
-  SEHumanizedTimeDiff: 7d8cee4dd4f295e6c4a1d6fb8b4658f028417539
-  TestFlightSDK: dea28c16f0bf65c49c4ed8939b2ae0b0ed9bf8b0
-  xmlrpc: 9ebaa6298ce90ff0c3c30404681f2030bdde54db
+  SEHumanizedTimeDiff: c46af95e3812ee2a5a4bad2bd23d7d58f13b195c
+  TestFlightSDK: 0c24c533748d0d84bfe7a3cb6036fa79124d84ee
+  xmlrpc: 7f91bbd8600d2c9a4cc5f34d32753ba5cb9c3a65
 
-COCOAPODS: 0.27.1
+COCOAPODS: 0.34.4
